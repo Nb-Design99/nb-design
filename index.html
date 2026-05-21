@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="NB-Design — Sites web sur mesure pour restaurants suisses. Nathan Beytrison, spécialiste basé en Valais. Création de sites, menus digitaux, réservation en ligne." />
+  <meta name="description" content="NB-Design — Sites web sur mesure pour restaurants suisses. Spécialistes basés en Valais. Création de sites, menus digitaux, réservation en ligne." />
   <meta name="theme-color" content="#0f2318" />
-  <title>NB-Design — Sites web pour restaurants suisses | Nathan Beytrison</title>
+  <title>NB-Design — Sites web pour restaurants suisses</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -185,21 +185,38 @@
     }
     .btn:hover .btn-arrow svg { transform: translateX(4px); }
 
-    /* ====== HEADER ====== */
+    /* ====== HEADER (floating pill) ====== */
     .header {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 100;
-      transition: background 0.4s var(--ease-out), backdrop-filter 0.4s, border-bottom 0.4s, padding 0.4s var(--ease-out);
-      padding: 1.5rem 0;
-      border-bottom: 1px solid transparent;
+      width: calc(100% - 1.5rem);
+      max-width: 1200px;
+      transition: top 0.4s var(--ease-out), background 0.4s var(--ease-out), border-color 0.4s, box-shadow 0.4s;
+      background: rgba(6, 20, 16, 0.55);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-medium);
+      border-radius: 9999px;
+      padding: 0.45rem 0.5rem 0.45rem 1.25rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
     }
     .header.scrolled {
-      background: rgba(6, 20, 16, 0.78);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom-color: var(--border-soft);
-      padding: 1rem 0;
+      top: 0.75rem;
+      background: rgba(6, 20, 16, 0.85);
+      border-color: rgba(248, 246, 241, 0.18);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+    .header .container {
+      max-width: none;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .header .nav-cta {
+      padding: 0.65rem 1.3rem;
+      font-size: 0.85rem;
     }
     .nav {
       display: flex;
@@ -1248,7 +1265,7 @@
           <li><a href="#chiffres">Chiffres</a></li>
           <li><a href="#temoignages">Témoignages</a></li>
         </ul>
-        <a href="#contact" class="btn btn-primary nav-cta">Me contacter</a>
+        <a href="#contact" class="btn btn-primary nav-cta">Nous contacter</a>
         <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
           <span class="burger-bars" aria-hidden="true">
             <span></span><span></span><span></span>
@@ -1338,20 +1355,20 @@
           </div>
           <h1 class="hero-title">
             <span class="hero-title-line1">Des sites qui font</span>
-            <span class="hero-title-line2">vendre vos tables.</span>
+            <span class="hero-title-line2">envie.</span>
           </h1>
           <p class="hero-subtitle">
-            Nathan Beytrison — Je crée des présences web sur mesure pour les restaurants
+            Nous créons des présences web sur mesure pour les restaurants
             valaisans et romands qui veulent se démarquer en ligne.
           </p>
           <div class="hero-ctas">
             <a href="#services" class="btn btn-primary">
-              Découvrir mes services
+              Découvrir nos services
               <span class="btn-arrow" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </span>
             </a>
-            <a href="#contact" class="btn btn-ghost">Me contacter</a>
+            <a href="#contact" class="btn btn-ghost">Nous contacter</a>
           </div>
         </div>
       </div>
@@ -1369,13 +1386,12 @@
           <div class="about-portrait reveal">
             <div class="about-portrait-mark">
               <span class="about-portrait-initials">NB</span>
-              <span class="about-portrait-name">Nathan Beytrison</span>
             </div>
             <div class="about-portrait-badge">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
               </svg>
-              <span>Basé en Valais — disponible en Suisse romande</span>
+              <span>Basés en Valais — disponible en Suisse romande</span>
             </div>
           </div>
 
@@ -1383,7 +1399,7 @@
             <span class="eyebrow reveal">À propos</span>
             <h2 class="section-title reveal" id="about-title">La vision derrière NB&#8209;Design.</h2>
             <p class="reveal reveal-delay-1">
-              Basé en Valais, j'aide les restaurants suisses à se démarquer en ligne.
+              Basés en Valais, nous aidons les restaurants suisses à se démarquer en ligne.
               Chaque site est <strong>unique, conçu sur mesure</strong> pour refléter l'identité
               de votre établissement et attirer plus de clients.
             </p>
@@ -1408,7 +1424,7 @@
             </div>
 
             <a href="#services" class="btn btn-primary reveal reveal-delay-4">
-              Découvrir mes services
+              Découvrir nos services
               <span class="btn-arrow" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </span>
@@ -1565,7 +1581,7 @@
               </svg>
             </div>
             <h3 class="why-title">Spécialisé restaurants suisses</h3>
-            <p class="why-desc">Je connais les besoins spécifiques de la restauration locale — du menu valaisan à la fiche Google.</p>
+            <p class="why-desc">Nous connaissons les besoins spécifiques de la restauration locale — du menu valaisan à la fiche Google.</p>
           </article>
 
           <article class="why-card reveal reveal-delay-1">
@@ -1585,7 +1601,7 @@
               </svg>
             </div>
             <h3 class="why-title">Ancré en Valais</h3>
-            <p class="why-desc">Proximité et disponibilité pour mes clients romands. On peut se voir, se parler, vraiment se comprendre.</p>
+            <p class="why-desc">Proximité et disponibilité pour nos clients romands. On peut se voir, se parler, vraiment se comprendre.</p>
           </article>
 
           <article class="why-card reveal">
@@ -1706,7 +1722,7 @@
             </div>
             <p class="testimonial-quote">
               Un travail remarquable, notre carte digitale est magnifique. Les clients la
-              complimentent régulièrement. Merci Nathan !
+              complimentent régulièrement. Merci à toute l'équipe !
             </p>
             <div class="testimonial-author">
               <div class="testimonial-avatar" aria-hidden="true">SM</div>
@@ -1748,8 +1764,8 @@
           <span class="eyebrow">Contact</span>
           <h2 class="section-title" id="contact-title">Parlons de votre projet.</h2>
           <p class="section-subtitle">
-            Basé en Valais — disponible dans toute la Suisse romande.
-            Envoyez-moi un message, je vous réponds sous 48 heures.
+            Basés en Valais — disponible dans toute la Suisse romande.
+            Envoyez-nous un message, nous vous répondons sous 48 heures.
           </p>
         </div>
 
@@ -1795,7 +1811,7 @@
             <div>
               <h3 class="contact-info-title">Discutons autour d'un café.</h3>
               <p class="contact-info-text">
-                Restaurateur en Valais ou en Suisse romande ? Je me déplace, et le premier
+                Restaurateur en Valais ou en Suisse romande ? Nous nous déplaçons, et le premier
                 échange est toujours gratuit — pour comprendre votre besoin avant tout.
               </p>
             </div>
@@ -1891,7 +1907,7 @@
       </div>
 
       <div class="footer-bottom">
-        <div>© 2025 NB-Design — Nathan Beytrison — Tous droits réservés.</div>
+        <div>© 2025 NB-Design — Tous droits réservés.</div>
         <div class="footer-bottom-meta">Conçu avec soin en Valais, Suisse.</div>
       </div>
     </div>
