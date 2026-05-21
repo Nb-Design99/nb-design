@@ -1068,6 +1068,31 @@
       padding: 1.1rem 1.5rem;
       font-size: 1rem;
     }
+    .form-submit[disabled] {
+      opacity: 0.6;
+      cursor: progress;
+      transform: none !important;
+    }
+    .form-status {
+      display: none;
+      padding: 0.95rem 1.1rem;
+      border-radius: var(--radius-md);
+      margin-top: 1rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      animation: fadeUp 0.5s var(--ease-out);
+    }
+    .form-status.show { display: block; }
+    .form-status.success {
+      background: rgba(110, 208, 154, 0.08);
+      border: 1px solid rgba(110, 208, 154, 0.32);
+      color: var(--green-glow);
+    }
+    .form-status.error {
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px solid rgba(244, 63, 94, 0.32);
+      color: #fda4af;
+    }
 
     .contact-info {
       display: flex;
@@ -1770,7 +1795,9 @@
         </div>
 
         <div class="contact-grid">
-          <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Merci ! Votre message a bien été envoyé. (Démo — l&apos;envoi sera connecté prochainement)');">
+          <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/xaqkoavw" method="POST">
+            <input type="hidden" name="_subject" value="Nouveau message — NB-Design" />
+            <input type="hidden" name="_language" value="fr" />
             <div class="form-row two">
               <div class="field">
                 <label for="prenom">Prénom</label>
@@ -1799,8 +1826,9 @@
                 <textarea id="message" name="message" placeholder="Parlez-moi de votre restaurant et de ce que vous aimeriez réaliser…" required></textarea>
               </div>
             </div>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
             <button type="submit" class="btn btn-primary form-submit">
-              Envoyer ma demande
+              <span class="form-submit-label">Envoyer ma demande</span>
               <span class="btn-arrow" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </span>
@@ -2013,6 +2041,48 @@
         counters.forEach(function (c) { cObs.observe(c); });
       } else {
         counters.forEach(animateCounter);
+      }
+
+      // ====== CONTACT FORM (Formspree) ======
+      var contactForm = document.getElementById('contactForm');
+      var formStatus = document.getElementById('formStatus');
+      if (contactForm && formStatus) {
+        contactForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var submitBtn = contactForm.querySelector('button[type="submit"]');
+          var labelEl = submitBtn.querySelector('.form-submit-label');
+          var originalLabel = labelEl ? labelEl.textContent : '';
+          submitBtn.disabled = true;
+          if (labelEl) labelEl.textContent = 'Envoi en cours…';
+          formStatus.className = 'form-status';
+          formStatus.textContent = '';
+
+          fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+          }).then(function (response) {
+            if (response.ok) {
+              contactForm.reset();
+              formStatus.textContent = '✓ Merci ! Votre message a bien été envoyé. Nous vous répondons sous 48h.';
+              formStatus.className = 'form-status show success';
+            } else {
+              return response.json().then(function (data) {
+                var msg = (data && data.errors)
+                  ? data.errors.map(function (er) { return er.message; }).join(', ')
+                  : 'Une erreur est survenue lors de l’envoi.';
+                formStatus.textContent = msg + ' Vous pouvez aussi écrire directement à contact@nb-design.ch';
+                formStatus.className = 'form-status show error';
+              });
+            }
+          }).catch(function () {
+            formStatus.textContent = 'Erreur réseau. Réessayez ou écrivez directement à contact@nb-design.ch';
+            formStatus.className = 'form-status show error';
+          }).then(function () {
+            submitBtn.disabled = false;
+            if (labelEl) labelEl.textContent = originalLabel;
+          });
+        });
       }
 
       // ====== ACTIVE NAV LINK ======
