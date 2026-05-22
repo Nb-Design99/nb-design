@@ -1290,6 +1290,34 @@
       color: var(--text-muted);
       font-weight: 500;
     }
+    .footer-legal-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--green-light);
+      text-decoration: none;
+      font-size: 0.72rem;
+      transition: color 0.3s;
+    }
+    .footer-legal-link:hover {
+      color: var(--green-glow);
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 0.65rem;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+    }
+    .footer-bottom-links a {
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+    .footer-bottom-links a:hover {
+      color: var(--green-glow);
+    }
+    .footer-bottom-links span {
+      color: var(--text-dim);
+    }
 
     /* ====== RESPONSIVE ====== */
     @media (min-width: 640px) {
@@ -2052,11 +2080,19 @@
       </div>
 
       <div class="footer-legal">
-        <span>Éditeur du site :</span> Nathan Beytrison · Chemin de Piacretta 27, 1969 Eison (VS), Suisse · nb-digitaldesign@outlook.com · 079 437 84 01 · Activité indépendante. Tous les contenus, marques et éléments graphiques sont protégés. Données traitées conformément à la LPD suisse (2023).
+        <span>Éditeur du site :</span> Nathan Beytrison · Chemin de Piacretta 27, 1969 Eison (VS), Suisse · nb-digitaldesign@outlook.com · 079 437 84 01 · Activité indépendante · Conforme LPD 2023.
+        <a href="/cgv.html" class="footer-legal-link">Conditions Générales &amp; Mentions légales complètes →</a>
       </div>
 
       <div class="footer-bottom">
         <div>© 2025 NB-Design. Tous droits réservés.</div>
+        <div class="footer-bottom-links">
+          <a href="/cgv.html">CGV</a>
+          <span>·</span>
+          <a href="/cgv.html#mentions">Mentions légales</a>
+          <span>·</span>
+          <a href="/cgv.html#donnees">Confidentialité</a>
+        </div>
         <div class="footer-bottom-meta">Conçu avec soin en Valais, Suisse.</div>
       </div>
     </div>

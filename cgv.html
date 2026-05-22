@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conditions Générales de Vente, mentions légales et politique de confidentialité de NB-Design — sites web pour restaurants suisses." />
+  <meta name="theme-color" content="#0f2318" />
+  <title>Conditions Générales · NB-Design</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep: #061410;
+      --green-dark: #0f2318;
+      --green-mid: #1a3d2b;
+      --green-accent: #2d7a4f;
+      --green-light: #4caf78;
+      --green-glow: #6ed09a;
+      --gold: #c9a84c;
+      --gold-light: #e6c875;
+      --white: #f8f6f1;
+      --white-soft: #ebe7dd;
+      --text-muted: rgba(248, 246, 241, 0.62);
+      --text-dim: rgba(248, 246, 241, 0.42);
+      --bg-dark: #030a06;
+      --border-soft: rgba(248, 246, 241, 0.08);
+      --border-medium: rgba(248, 246, 241, 0.14);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-dark);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--green-glow); text-decoration: none; transition: color 0.3s; }
+    a:hover { color: var(--gold-light); }
+    ::selection { background: rgba(110, 208, 154, 0.3); color: var(--white); }
+
+    /* Header */
+    .header {
+      padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
+      border-bottom: 1px solid var(--border-soft);
+      background: rgba(6, 20, 16, 0.6);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-accent), var(--green-dark));
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(110, 208, 154, 0.35);
+      box-shadow: inset 0 0 12px rgba(110, 208, 154, 0.15);
+    }
+    .logo-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: var(--white);
+    }
+    .logo-light {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .back-home {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      border: 1px solid var(--border-medium);
+      border-radius: 9999px;
+      transition: all 0.3s var(--ease-out);
+    }
+    .back-home:hover {
+      background: rgba(248, 246, 241, 0.05);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+    .back-home svg { width: 14px; height: 14px; }
+
+    /* Layout */
+    main {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3rem) 6rem;
+    }
+
+    .page-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .page-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--green-light);
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .page-intro {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 1rem;
+    }
+    .last-update {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-style: italic;
+      margin-bottom: 3rem;
+    }
+
+    /* TOC */
+    .toc {
+      background: rgba(248, 246, 241, 0.025);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 3rem;
+    }
+    .toc-title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.01em;
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+    }
+    @media (min-width: 640px) {
+      .toc ol { grid-template-columns: 1fr 1fr; }
+    }
+    .toc li {
+      counter-increment: toc;
+      font-size: 0.93rem;
+      color: var(--white-soft);
+    }
+    .toc li::before {
+      content: counter(toc) ". ";
+      color: var(--green-light);
+      font-weight: 500;
+    }
+    .toc a { color: var(--white-soft); }
+    .toc a:hover { color: var(--green-glow); }
+
+    /* Articles */
+    article {
+      margin-bottom: 3rem;
+      scroll-margin-top: 90px;
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+      letter-spacing: -0.015em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-soft);
+      position: relative;
+    }
+    h2::before {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+    }
+    h2 .num {
+      color: var(--gold);
+      font-style: italic;
+      font-size: 0.7em;
+      margin-right: 0.6em;
+      font-weight: 400;
+    }
+    h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.2rem;
+      color: var(--green-glow);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    p, ul, ol {
+      color: rgba(248, 246, 241, 0.78);
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    ul, ol { padding-left: 1.5rem; }
+    ul li, ol li { margin-bottom: 0.35rem; }
+    ul li::marker { color: var(--gold); }
+    strong { color: var(--white); font-weight: 500; }
+
+    /* Footer */
+    footer.page-footer {
+      background: var(--green-deep);
+      border-top: 1px solid var(--border-soft);
+      padding: 3rem clamp(1.25rem, 4vw, 3rem) 2rem;
+      text-align: center;
+    }
+    footer.page-footer .nav {
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    footer.page-footer .nav a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    footer.page-footer .meta {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a href="/" class="logo">
+      <span class="logo-mark">NB</span>
+      <span class="logo-title">Design</span>
+      <span class="logo-light" style="margin-left: 0.25rem;">Site web</span>
+    </a>
+    <a href="/" class="back-home">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Retour à l'accueil
+    </a>
+  </header>
+
+  <main>
+    <span class="page-eyebrow">Documents légaux</span>
+    <h1 class="page-title">Conditions Générales,<br>Mentions légales &amp; Confidentialité</h1>
+    <p class="page-intro">
+      Ce document regroupe les Conditions Générales de Vente (CGV), les mentions légales
+      et la politique de confidentialité de NB-Design. Il s'applique à toute prestation
+      commandée auprès de NB-Design et est consultable en permanence sur cette page.
+    </p>
+    <p class="last-update">Dernière mise à jour : 22 mai 2026</p>
+
+    <!-- Table des matières -->
+    <nav class="toc" aria-label="Sommaire">
+      <div class="toc-title">Sommaire</div>
+      <ol>
+        <li><a href="#mentions">Mentions légales</a></li>
+        <li><a href="#objet">Objet et acceptation</a></li>
+        <li><a href="#services">Services proposés</a></li>
+        <li><a href="#prix">Prix et paiement</a></li>
+        <li><a href="#delais">Délais de livraison</a></li>
+        <li><a href="#garantie">Garantie satisfait ou remboursé</a></li>
+        <li><a href="#maintenance">Maintenance et abonnement</a></li>
+        <li><a href="#propriete">Propriété intellectuelle et rachat</a></li>
+        <li><a href="#resiliation">Résiliation</a></li>
+        <li><a href="#donnees">Protection des données (LPD)</a></li>
+        <li><a href="#confidentialite">Confidentialité</a></li>
+        <li><a href="#responsabilite">Responsabilité</a></li>
+        <li><a href="#force-majeure">Force majeure</a></li>
+        <li><a href="#droit">Droit applicable et juridiction</a></li>
+      </ol>
+    </nav>
+
+    <!-- ============== MENTIONS LÉGALES ============== -->
+    <article id="mentions">
+      <h2><span class="num">1.</span>Mentions légales</h2>
+      <p>
+        Le site <strong>nb-design.ch</strong> est édité par&nbsp;:
+      </p>
+      <ul>
+        <li><strong>Nathan Beytrison</strong>, exerçant une activité indépendante sous le nom commercial <strong>NB-Design</strong></li>
+        <li>Adresse&nbsp;: Chemin de Piacretta 27, 1969 Eison (Valais), Suisse</li>
+        <li>Téléphone&nbsp;: 079 437 84 01</li>
+        <li>Email&nbsp;: nb-digitaldesign@outlook.com</li>
+        <li>Statut&nbsp;: activité indépendante non inscrite au Registre du Commerce (sous le seuil légal)</li>
+        <li>TVA&nbsp;: non assujettie (en dessous du seuil de l'art. 10 al. 2 lit. a LTVA)</li>
+      </ul>
+      <h3>Hébergement</h3>
+      <p>
+        Le site est hébergé par <strong>GitHub Pages</strong> (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA).
+        Le nom de domaine est administré via <strong>Hostinger International Ltd.</strong> (61 Lordou Vironos Street, 6023 Larnaca, Chypre).
+      </p>
+      <h3>Propriété du contenu</h3>
+      <p>
+        L'ensemble des éléments présents sur ce site (textes, design, code, illustrations, marque NB-Design) est protégé
+        par le droit d'auteur suisse. Toute reproduction, même partielle, sans autorisation écrite préalable est interdite.
+      </p>
+    </article>
+
+    <!-- ============== ARTICLE 2 — OBJET ============== -->
+    <article id="objet">
+      <h2><span class="num">2.</span>Objet et acceptation</h2>
+      <p>
+        Les présentes Conditions Générales de Vente (ci-après « CGV ») régissent toute prestation
+        de création de site web et de maintenance fournie par NB-Design à ses clients
+        (établissements de restauration ou personnes physiques agissant pour leur compte).
+      </p>
+      <p>
+        Toute commande de prestation, formalisée par la signature d'un contrat spécifique,
+        implique l'acceptation pleine et entière des présentes CGV par le Client.
+      </p>
+    </article>
+
+    <!-- ============== ARTICLE 3 — SERVICES ============== -->
+    <article id="services">
+      <h2><span class="num">3.</span>Services proposés</h2>
+      <p>NB-Design propose quatre packs principaux&nbsp;:</p>
+      <ul>
+        <li><strong>Pack Essentiel</strong> — 795 CHF + 95 CHF/mois — Site vitrine 4 pages</li>
+        <li><strong>Pack Menu</strong> — 995 CHF + 95 CHF/mois — Carte digitale et QR code</li>
+        <li><strong>Pack Pro</strong> — 1'195 CHF + 95 CHF/mois — Réservation en ligne</li>
+        <li><strong>Pack Premium</strong> — 1'390 CHF + 95 CHF/mois — Multilingue et SEO avancé</li>
+      </ul>
+      <p>
+        Des options à la carte (photoshoot, rédaction de contenu, pages supplémentaires, etc.)
+        peuvent être ajoutées selon les besoins du Client, sur devis ou tarif standard.
+      </p>
+      <p>
+        Chaque pack inclut l'hébergement et le nom de domaine pendant la durée de l'abonnement,
+        l'optimisation mobile, la configuration technique (HTTPS, performances), un formulaire de
+        contact, et une garantie de bon fonctionnement.
+      </p>
+    </article>
+
+    <!-- ============== ARTICLE 4 — PRIX ============== -->
+    <article id="prix">
+      <h2><span class="num">4.</span>Prix et modalités de paiement</h2>
+      <p>
+        Les prix sont indiqués en francs suisses (CHF), nets. NB-Design n'étant pas assujetti à la TVA,
+        aucune TVA n'est ajoutée aux factures.
+      </p>
+      <h3>Pack initial</h3>
+      <ul>
+        <li>50 % du montant total à la signature du contrat</li>
+        <li>50 % du montant total à la livraison validée du site</li>
+      </ul>
+      <h3>Abonnement mensuel</h3>
+      <p>
+        L'abonnement de 95 CHF par mois est dû à partir de la livraison du site. La facturation peut
+        être mensuelle ou annuelle, à la demande du Client.
+      </p>
+      <h3>Délai de paiement</h3>
+      <p>
+        Les factures sont payables dans un délai de <strong>30 jours</strong> à compter de leur émission.
+        En cas de paiement tardif après mise en demeure, des intérêts de retard au taux légal suisse
+        (5 % par an, art. 104 CO) sont appliqués.
+      </p>
+    </article>
+
+    <!-- ============== ARTICLE 5 — DÉLAIS ============== -->
+    <article id="delais">
+      <h2><span class="num">5.</span>Délais de livraison</h2>
+      <p>
+        Le site est livré dans un délai de <strong>14 jours ouvrables</strong> à compter de la réception,
+        par NB-Design, de l'ensemble des éléments fournis par le Client (textes, photos, menu, logo,
+        accès domaine et email).
+      </p>
+      <p>
+        Tout retard dans la fourniture des éléments par le Client prolonge d'autant le délai de livraison.
+      </p>
+    </article>
+
+    <!-- ============== ARTICLE 6 — GARANTIE ============== -->
+    <article id="garantie">
+      <h2><span class="num">6.</span>Garantie satisfait ou remboursé</h2>
+      <p>
+        NB-Design s'engage à rembourser intégralement le montant du pack initial si, dans un délai
+        de <strong>7 jours calendaires</strong> après la mise en ligne du site, le Client estime que
+        le résultat ne correspond pas à ce qui était convenu.
+      </p>
+      <p>
+        La demande doit être notifiée par email à <strong>nb-digitaldesign@outlook.com</strong> dans le délai.
+        Le remboursement est effectué dans les 14 jours, le site est désactivé, et aucun frais
+        d'abonnement n'est dû.
+      </p>
+    </article>
+
+    <!-- ============== ARTICLE 7 — MAINTENANCE ============== -->
+    <article id="maintenance">
+      <h2><span class="num">7.</span>Maintenance et abonnement</h2>
+      <p>L'abonnement mensuel de 95 CHF inclut&nbsp;:</p>
+      <ul>
+        <li>Hébergement du site et conservation du nom de domaine</li>
+        <li>Maintenance technique (sécurité, corrections, surveillance)</li>
+        <li>Garantie de bon fonctionnement</li>
+        <li>Deux (2) modifications par mois (30 minutes par modification, soit 1 heure totale incluse)</li>
+        <li>Support email avec réponse sous 48 heures ouvrables</li>
+      </ul>
+      <p>
+        Toute modification dépassant ce forfait est facturée au tarif horaire de
+        <strong>90 CHF / heure</strong> par tranches de 30 minutes, sur devis préalable.
+      </p>
+    </article>
+
+    <!-- ============== ARTICLE 8 — PROPRIÉTÉ ============== -->
+    <article id="propriete">
+      <h2><span class="num">8.</span>Propriété intellectuelle et option de rachat</h2>
+      <h3>Ce qui appartient au Client</h3>
+      <ul>
+        <li>Son nom de domaine</li>
+        <li>Son contenu (textes, photos, vidéos, menu, identité graphique fournie)</li>
+        <li>Ses comptes et données (Google My Business, réseaux sociaux, emails)</li>
+        <li>Les données collectées via le site (messages, statistiques)</li>
+      </ul>
+      <h3>Ce qui appartient à NB-Design</h3>
+      <ul>
+        <li>Le code source du site (HTML, CSS, JavaScript)</li>
+        <li>Le design et les choix créatifs (palette, typographie, mise en page, animations)</li>
+        <li>Les éléments graphiques créés spécifiquement par NB-Design</li>
+      </ul>
+      <p>
+        Pendant la durée de l'abonnement, le Client bénéficie d'une licence d'utilisation pleine
+        et entière dans le cadre de son site.
+      </p>
+      <h3>Option de rachat (propriété complète)</h3>
+      <p>Le Client peut, à tout moment, racheter la pleine propriété de son site&nbsp;:</p>
+      <ul>
+        <li>Pack Essentiel — <strong>250 CHF</strong></li>
+        <li>Pack Menu — <strong>300 CHF</strong></li>
+        <li>Pack Pro — <strong>400 CHF</strong></li>
+        <li>Pack Premium — <strong>500 CHF</strong></li>
+      </ul>
+      <p>
+        Après rachat&nbsp;: transfert intégral du code source, libre migration possible, et arrêt de
+        l'abonnement mensuel sauf souhait contraire du Client.
+      </p>
+    </article>
+
+    <!-- ============== ARTICLE 9 — RÉSILIATION ============== -->
+    <article id="resiliation">
+      <h2><span class="num">9.</span>Résiliation</h2>
+      <h3>Par le Client</h3>
+      <ul>
+        <li>Aucune durée minimale d'engagement</li>
+        <li>Préavis de <strong>1 mois</strong> avant la fin du mois en cours</li>
+        <li>Notification par email à nb-digitaldesign@outlook.com</li>
+      </ul>
+      <p>
+        À la fin du préavis, le site est désactivé. Le nom de domaine, les emails et le contenu du
+        Client lui restent acquis. Le code source reste la propriété de NB-Design, sauf rachat.
+      </p>
+      <h3>Par NB-Design</h3>
+      <p>NB-Design se réserve le droit de résilier sans préavis en cas&nbsp;:</p>
+      <ul>
+        <li>De non-paiement après mise en demeure et délai de 30 jours</li>
+        <li>De demande de contenu illégal, diffamatoire ou contrefait</li>
+        <li>De comportement irrespectueux ou injurieux</li>
+      </ul>
+    </article>
+
+    <!-- ============== ARTICLE 10 — LPD ============== -->
+    <article id="donnees">
+      <h2><span class="num">10.</span>Protection des données personnelles (LPD)</h2>
+      <p>
+        NB-Design respecte la <strong>Loi suisse sur la Protection des Données (LPD)</strong>,
+        révisée en 2023.
+      </p>
+      <h3>Données collectées sur ce site</h3>
+      <ul>
+        <li><strong>Formulaire de contact</strong> — prénom, nom, email, téléphone, message&nbsp;: utilisés exclusivement pour vous répondre. Aucune utilisation commerciale ni transmission à des tiers.</li>
+        <li><strong>Données techniques</strong> — adresse IP, navigateur, pages visitées (statistiques anonymisées sans cookies de traçage tiers).</li>
+      </ul>
+      <h3>Durée de conservation</h3>
+      <p>
+        Les messages reçus via le formulaire sont conservés <strong>2 ans maximum</strong>, sauf
+        prolongation de la relation client.
+      </p>
+      <h3>Vos droits</h3>
+      <p>Conformément à la LPD, vous disposez à tout moment d'un droit&nbsp;:</p>
+      <ul>
+        <li>D'accès à vos données</li>
+        <li>De rectification ou de mise à jour</li>
+        <li>D'effacement (« droit à l'oubli »)</li>
+        <li>D'opposition au traitement</li>
+      </ul>
+      <p>
+        Pour exercer ces droits, contactez-nous à <strong>nb-digitaldesign@outlook.com</strong>.
+        Vous pouvez également contacter le <a href="https://www.edoeb.admin.ch/edoeb/fr/home.html" target="_blank" rel="noopener">Préposé fédéral à la protection des données et à la transparence (PFPDT)</a>.
+      </p>
+      <h3>Cookies</h3>
+      <p>
+        Ce site n'utilise <strong>aucun cookie de traçage publicitaire</strong>. Seuls des cookies
+        techniques strictement nécessaires au fonctionnement peuvent être utilisés.
+      </p>
+      <h3>Sous-traitants</h3>
+      <p>
+        En cas de transmission de données à des sous-traitants techniques (hébergeur, service de
+        formulaire), NB-Design s'assure qu'ils offrent un niveau de protection équivalent.
+      </p>
+    </article>
+
+    <!-- ============== ARTICLE 11 — CONFIDENTIALITÉ ============== -->
+    <article id="confidentialite">
+      <h2><span class="num">11.</span>Confidentialité</h2>
+      <p>
+        Les deux parties s'engagent à respecter la confidentialité des informations échangées
+        dans le cadre de la prestation, notamment&nbsp;:
+      </p>
+      <ul>
+        <li>Données commerciales et financières</li>
+        <li>Identifiants techniques (accès registrar, hébergement, email)</li>
+        <li>Stratégies marketing et contenu non public</li>
+      </ul>
+      <p>Cet engagement perdure <strong>2 ans après la fin du contrat</strong>.</p>
+    </article>
+
+    <!-- ============== ARTICLE 12 — RESPONSABILITÉ ============== -->
+    <article id="responsabilite">
+      <h2><span class="num">12.</span>Responsabilité</h2>
+      <p>
+        NB-Design met en œuvre les meilleures pratiques techniques pour assurer la qualité et la
+        sécurité du site. Néanmoins, NB-Design ne peut être tenu responsable&nbsp;:
+      </p>
+      <ul>
+        <li>Des indisponibilités liées aux services tiers (hébergeur, registrar, services email)</li>
+        <li>Des conséquences indirectes d'un dysfonctionnement (perte de chiffre d'affaires, etc.)</li>
+        <li>Des contenus fournis par le Client (droits d'auteur, exactitude des informations)</li>
+      </ul>
+      <p>
+        La responsabilité totale de NB-Design est limitée au montant du pack initial payé par le Client.
+      </p>
+    </article>
+
+    <!-- ============== ARTICLE 13 — FORCE MAJEURE ============== -->
+    <article id="force-majeure">
+      <h2><span class="num">13.</span>Force majeure</h2>
+      <p>
+        Aucune des parties ne peut être tenue responsable d'un manquement causé par un événement
+        de force majeure (catastrophe naturelle, pandémie, panne d'infrastructure mondiale, etc.).
+      </p>
+    </article>
+
+    <!-- ============== ARTICLE 14 — DROIT ============== -->
+    <article id="droit">
+      <h2><span class="num">14.</span>Droit applicable et juridiction</h2>
+      <p>
+        Les présentes CGV sont soumises au <strong>droit suisse</strong>, en particulier au Code des
+        Obligations (art. 363 et suivants pour le contrat d'entreprise, art. 394 et suivants pour le mandat).
+      </p>
+      <p>
+        En cas de litige non résolu à l'amiable, les tribunaux compétents sont ceux du
+        <strong>canton du Valais</strong>, lieu du siège du Prestataire.
+      </p>
+      <p>
+        Les parties s'engagent à privilégier la résolution amiable avant toute action contentieuse.
+      </p>
+    </article>
+
+  </main>
+
+  <footer class="page-footer">
+    <div class="nav">
+      <a href="/">Accueil</a>
+      <a href="/#services">Services</a>
+      <a href="/#contact">Contact</a>
+      <a href="/cgv.html">CGV &amp; Mentions légales</a>
+    </div>
+    <div class="meta">
+      © 2025 NB-Design · Nathan Beytrison · Chemin de Piacretta 27, 1969 Eison (VS), Suisse
+      <br />
+      Activité indépendante · Conforme LPD 2023 · Site conçu en Valais
+    </div>
+  </footer>
+
+</body>
+</html>
