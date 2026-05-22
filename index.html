@@ -589,6 +589,49 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
+    /* ====== MARQUEE (band sous le hero) ====== */
+    .marquee {
+      position: relative;
+      padding: 2.25rem 0;
+      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--green-deep) 100%);
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+    }
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      animation: marqueeScroll 38s linear infinite;
+      width: max-content;
+      white-space: nowrap;
+    }
+    .marquee-item {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      color: rgba(248, 246, 241, 0.55);
+      letter-spacing: 0.005em;
+      line-height: 1;
+    }
+    .marquee-sep {
+      color: var(--green-glow);
+      font-size: 1.2rem;
+      line-height: 1;
+      opacity: 0.7;
+    }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; transform: none; flex-wrap: wrap; justify-content: center; }
+    }
+
     /* ====== ABOUT ====== */
     .about { background: var(--bg-dark); }
     .about-grid {
@@ -1403,6 +1446,62 @@
       <div class="hero-scroll-cue" aria-hidden="true">
         <span>Scroll</span>
         <span class="hero-scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <section class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <!-- Set 1 -->
+        <span class="marquee-item">Sites web sur mesure</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Menus digitaux &amp; QR</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Réservation en ligne</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">SEO local</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Mobile-first</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Hébergement &amp; domaine inclus</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Google My Business</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Photos professionnelles</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Multilingue</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Livraison 7 jours</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">WhatsApp intégré</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Suisse romande</span>
+        <span class="marquee-sep">✦</span>
+        <!-- Set 2 (duplicate pour boucle continue) -->
+        <span class="marquee-item">Sites web sur mesure</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Menus digitaux &amp; QR</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Réservation en ligne</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">SEO local</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Mobile-first</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Hébergement &amp; domaine inclus</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Google My Business</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Photos professionnelles</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Multilingue</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Livraison 7 jours</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">WhatsApp intégré</span>
+        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Suisse romande</span>
+        <span class="marquee-sep">✦</span>
       </div>
     </section>
 
