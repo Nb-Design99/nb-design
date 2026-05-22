@@ -382,6 +382,8 @@
       opacity: 0;
       transform: translateY(-150px) rotate(var(--start-rotate, 0deg));
       animation: shapeEntry 2.4s var(--ease-out) var(--delay, 0s) forwards;
+      translate: 0 var(--parallax-y, 0px);
+      will-change: transform, translate;
     }
     .shape-float {
       animation: shapeFloat 12s ease-in-out infinite;
@@ -1319,48 +1321,48 @@
       <div class="hero-bg" aria-hidden="true">
         <div class="hero-gradient-blur"></div>
         <div class="shapes">
-          <!-- Shape 1: Indigo, large, left -->
-          <div class="shape-wrap" style="left:-8%; top:14%; --delay:0.3s; --start-rotate:-3deg;">
+          <!-- Shape 1: Indigo, large, left (far, slow parallax) -->
+          <div class="shape-wrap" data-parallax="0.15" style="left:-8%; top:14%; --delay:0.3s; --start-rotate:-3deg;">
             <div class="shape-float">
               <div class="shape" style="--w:min(620px, 80vw); --h:140px; --rotate:12deg;">
                 <div class="shape-inner shape-indigo"></div>
               </div>
             </div>
           </div>
-          <!-- Shape 2: Rose, medium, right -->
-          <div class="shape-wrap" style="right:-6%; top:68%; --delay:0.5s; --start-rotate:0deg;">
+          <!-- Shape 2: Rose, medium, right (far, slow parallax) -->
+          <div class="shape-wrap" data-parallax="0.2" style="right:-6%; top:68%; --delay:0.5s; --start-rotate:0deg;">
             <div class="shape-float" style="animation-delay: -3s;">
               <div class="shape" style="--w:min(520px, 70vw); --h:120px; --rotate:-15deg;">
                 <div class="shape-inner shape-rose"></div>
               </div>
             </div>
           </div>
-          <!-- Shape 3: Violet, small-medium, bottom-left -->
-          <div class="shape-wrap" style="left:4%; bottom:6%; --delay:0.4s; --start-rotate:6deg;">
+          <!-- Shape 3: Violet, small-medium, bottom-left (mid parallax) -->
+          <div class="shape-wrap" data-parallax="0.35" style="left:4%; bottom:6%; --delay:0.4s; --start-rotate:6deg;">
             <div class="shape-float" style="animation-delay: -6s;">
               <div class="shape" style="--w:min(320px, 55vw); --h:80px; --rotate:-8deg;">
                 <div class="shape-inner shape-violet"></div>
               </div>
             </div>
           </div>
-          <!-- Shape 4: Amber, small, top-right -->
-          <div class="shape-wrap" style="right:14%; top:9%; --delay:0.6s; --start-rotate:-10deg;">
+          <!-- Shape 4: Amber, small, top-right (close, fast parallax) -->
+          <div class="shape-wrap" data-parallax="0.5" style="right:14%; top:9%; --delay:0.6s; --start-rotate:-10deg;">
             <div class="shape-float" style="animation-delay: -2s;">
               <div class="shape" style="--w:min(220px, 42vw); --h:60px; --rotate:20deg;">
                 <div class="shape-inner shape-amber"></div>
               </div>
             </div>
           </div>
-          <!-- Shape 5: Cyan, tiny, top-left -->
-          <div class="shape-wrap" style="left:18%; top:6%; --delay:0.7s; --start-rotate:8deg;">
+          <!-- Shape 5: Cyan, tiny, top-left (closest, fastest parallax) -->
+          <div class="shape-wrap" data-parallax="0.6" style="left:18%; top:6%; --delay:0.7s; --start-rotate:8deg;">
             <div class="shape-float" style="animation-delay: -8s;">
               <div class="shape" style="--w:min(160px, 32vw); --h:44px; --rotate:-25deg;">
                 <div class="shape-inner shape-cyan"></div>
               </div>
             </div>
           </div>
-          <!-- Shape 6: Emerald accent -->
-          <div class="shape-wrap" style="right:8%; top:38%; --delay:0.8s; --start-rotate:-6deg;">
+          <!-- Shape 6: Emerald accent (close-mid parallax) -->
+          <div class="shape-wrap" data-parallax="0.45" style="right:8%; top:38%; --delay:0.8s; --start-rotate:-6deg;">
             <div class="shape-float" style="animation-delay: -4s;">
               <div class="shape" style="--w:min(180px, 36vw); --h:50px; --rotate:15deg;">
                 <div class="shape-inner shape-emerald"></div>
@@ -1956,6 +1958,32 @@
       };
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
+
+      // ====== HERO SHAPES PARALLAX ======
+      var heroShapes = document.querySelectorAll('.shape-wrap[data-parallax]');
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (heroShapes.length > 0 && !prefersReducedMotion) {
+        var parallaxRaf = false;
+        var parallaxMax = window.innerHeight * 1.5;
+        var updateShapesParallax = function () {
+          var scrollY = Math.min(window.scrollY, parallaxMax);
+          heroShapes.forEach(function (shape) {
+            var speed = parseFloat(shape.getAttribute('data-parallax')) || 0.3;
+            shape.style.setProperty('--parallax-y', (scrollY * speed) + 'px');
+          });
+          parallaxRaf = false;
+        };
+        window.addEventListener('scroll', function () {
+          if (!parallaxRaf) {
+            window.requestAnimationFrame(updateShapesParallax);
+            parallaxRaf = true;
+          }
+        }, { passive: true });
+        window.addEventListener('resize', function () {
+          parallaxMax = window.innerHeight * 1.5;
+        }, { passive: true });
+        updateShapesParallax();
+      }
 
       // ====== BURGER / MOBILE MENU ======
       var burger = document.getElementById('burger');
