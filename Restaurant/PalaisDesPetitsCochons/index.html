@@ -13,6 +13,7 @@
 <meta property="og:title" content="Le Palais des Petits Cochons · Cuisine portugaise · Vétroz" />
 <meta property="og:description" content="La table portugaise des vignes de Vétroz. Cochon de lait, grillades au feu de bois, vins du Douro et du Valais." />
 <meta property="og:locale" content="fr_CH" />
+<meta property="og:locale:alternate" content="pt_PT" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -160,6 +161,7 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
 .logo {
   font-family: 'Fraunces', serif;
@@ -216,6 +218,49 @@ h1, h2, h3, h4 {
 .nav-links a:hover::after { width: 100%; }
 .nav.scrolled .nav-links a { color: var(--charbon); }
 .nav-cta { display: inline-flex; }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ───── LANG TOGGLE ───── */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(247, 238, 223, 0.08);
+  border: 1px solid rgba(247, 238, 223, 0.25);
+  border-radius: 999px;
+  padding: 4px;
+  transition: all 0.35s ease;
+}
+.nav.scrolled .lang-toggle {
+  background: rgba(31, 22, 18, 0.05);
+  border-color: rgba(31, 22, 18, 0.15);
+}
+.lang-opt {
+  background: transparent;
+  border: none;
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 6px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+.nav.scrolled .lang-opt { color: var(--charbon); }
+.lang-opt.active {
+  background: var(--terracotta);
+  color: var(--cream);
+  box-shadow: 0 4px 12px -4px rgba(192, 67, 42, 0.5);
+}
+.nav.scrolled .lang-opt.active { color: var(--cream); }
 
 .menu-toggle {
   display: none;
@@ -972,6 +1017,7 @@ section { padding: 110px 0; position: relative; }
   .container { padding: 0 24px; }
   .form-row { grid-template-columns: 1fr; }
   .form-wrap { padding: 36px 28px; }
+  .lang-opt { padding: 5px 9px; font-size: 11px; }
 }
 </style>
 </head>
@@ -986,14 +1032,20 @@ section { padding: 110px 0; position: relative; }
       Le Palais des <em>Petits Cochons</em>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#histoire">Histoire</a></li>
-      <li><a href="#cuisine">Spécialités</a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#galerie">Galerie</a></li>
-      <li><a href="#contact">Réserver</a></li>
+      <li><a href="#histoire" data-i18n="nav.history">Histoire</a></li>
+      <li><a href="#cuisine" data-i18n="nav.specialties">Spécialités</a></li>
+      <li><a href="#menu" data-i18n="nav.menu">Menu</a></li>
+      <li><a href="#galerie" data-i18n="nav.gallery">Galerie</a></li>
+      <li><a href="#contact" data-i18n="nav.reserve">Réserver</a></li>
     </ul>
-    <a href="#contact" class="btn nav-cta">Réserver</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Choix de langue">
+        <button class="lang-opt active" data-lang="fr" type="button">FR</button>
+        <button class="lang-opt" data-lang="pt" type="button">PT</button>
+      </div>
+      <a href="#contact" class="btn nav-cta" data-i18n="nav.cta">Réserver</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    </div>
   </div>
 </nav>
 
@@ -1001,19 +1053,19 @@ section { padding: 110px 0; position: relative; }
 <header class="hero">
   <div class="hero-bg"></div>
   <div class="container hero-content">
-    <span class="hero-tag">Cuisine portugaise · Vétroz · Valais</span>
-    <h1>Le Portugal, <em>à l'ombre</em><br>des vignes de Vétroz.</h1>
-    <p class="hero-sub">Cochon de lait à la broche, grillades au feu de bois et tradition lusitanienne. Une table familiale, généreuse, où l'on prend le temps de bien manger.</p>
+    <span class="hero-tag" data-i18n="hero.tag">Cuisine portugaise · Vétroz · Valais</span>
+    <h1 data-i18n-html="hero.title">Le Portugal, <em>à l'ombre</em><br>des vignes de Vétroz.</h1>
+    <p class="hero-sub" data-i18n="hero.sub">Cochon de lait à la broche, grillades au feu de bois et tradition lusitanienne. Une table familiale, généreuse, où l'on prend le temps de bien manger.</p>
     <div class="hero-cta-group">
-      <a href="#contact" class="btn">Réserver une table</a>
-      <a href="#menu" class="btn btn-ghost">Voir la carte</a>
+      <a href="#contact" class="btn" data-i18n="hero.cta.reserve">Réserver une table</a>
+      <a href="#menu" class="btn btn-ghost" data-i18n="hero.cta.menu">Voir la carte</a>
     </div>
     <div class="hero-stars">
       <span class="hero-stars-rating">★★★★★</span>
-      <span class="hero-stars-text">4.3 / 5 · 201 avis Google</span>
+      <span class="hero-stars-text" data-i18n="hero.stars">4.3 / 5 · 201 avis Google</span>
     </div>
   </div>
-  <div class="hero-scroll">↓ &nbsp; Bem-vindo</div>
+  <div class="hero-scroll" data-i18n="hero.scroll">↓ &nbsp; Bem-vindo</div>
 </header>
 
 <!-- ═══════ HISTOIRE ═══════ -->
@@ -1021,12 +1073,12 @@ section { padding: 110px 0; position: relative; }
   <div class="container">
     <div class="histoire-grid">
       <div class="histoire-text reveal">
-        <span class="section-eyebrow">Notre histoire</span>
-        <h2 class="section-title">Une maison portugaise <em>en pays valaisan</em>.</h2>
-        <p>Quand Fatima et Eduardo Patrao ouvrent le Palais des Petits Cochons en 2012, ils ont une idée simple : retrouver, au cœur des vignobles de Vétroz, le goût des grandes tablées de famille du Portugal.</p>
-        <p>Plus de dix ans plus tard, la maison reste fidèle à cette promesse. La broche tourne toujours, la braise rougeoie chaque service, et l'on continue de saler le poisson, mariner les viandes et tresser les pains comme dans les villages d'origine. Les clients viennent de Sion, de Martigny, de Lausanne, et reviennent pour les mêmes raisons : un accueil chaleureux, des portions généreuses, et cette sincérité qu'on ne triche pas.</p>
-        <div class="histoire-quote">"Chez nous, on ne sert pas un plat,<br>on partage une table."</div>
-        <div class="histoire-signature">Fatima & Eduardo Patrao<small>Famille fondatrice · Depuis 2012</small></div>
+        <span class="section-eyebrow" data-i18n="histoire.eyebrow">Notre histoire</span>
+        <h2 class="section-title" data-i18n-html="histoire.title">Une maison portugaise <em>en pays valaisan</em>.</h2>
+        <p data-i18n="histoire.p1">Quand Fatima et Eduardo Patrao ouvrent le Palais des Petits Cochons en 2012, ils ont une idée simple : retrouver, au cœur des vignobles de Vétroz, le goût des grandes tablées de famille du Portugal.</p>
+        <p data-i18n="histoire.p2">Plus de dix ans plus tard, la maison reste fidèle à cette promesse. La broche tourne toujours, la braise rougeoie chaque service, et l'on continue de saler le poisson, mariner les viandes et tresser les pains comme dans les villages d'origine. Les clients viennent de Sion, de Martigny, de Lausanne, et reviennent pour les mêmes raisons : un accueil chaleureux, des portions généreuses, et cette sincérité qu'on ne triche pas.</p>
+        <div class="histoire-quote" data-i18n-html="histoire.quote">"Chez nous, on ne sert pas un plat,<br>on partage une table."</div>
+        <div class="histoire-signature">Fatima &amp; Eduardo Patrao<small data-i18n="histoire.sign.role">Famille fondatrice · Depuis 2012</small></div>
       </div>
       <div class="histoire-img reveal">
         <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=1000&q=80" alt="Cochon de lait rôti à la broche, spécialité portugaise" />
@@ -1039,25 +1091,25 @@ section { padding: 110px 0; position: relative; }
 <section id="cuisine" class="specialites">
   <div class="container">
     <div style="text-align:center; max-width:720px; margin:0 auto 60px;">
-      <span class="section-eyebrow">Nos spécialités</span>
-      <h2 class="section-title">Du <em>feu</em>, du <em>temps</em>, du <em>partage</em>.</h2>
-      <p class="section-intro" style="margin: 0 auto;">Trois piliers, depuis la première année. Une cuisine de braise et de tradition, faite pour les vraies faims et les longues conversations.</p>
+      <span class="section-eyebrow" data-i18n="spec.eyebrow">Nos spécialités</span>
+      <h2 class="section-title" data-i18n-html="spec.title">Du <em>feu</em>, du <em>temps</em>, du <em>partage</em>.</h2>
+      <p class="section-intro" style="margin: 0 auto;" data-i18n="spec.intro">Trois piliers, depuis la première année. Une cuisine de braise et de tradition, faite pour les vraies faims et les longues conversations.</p>
     </div>
     <div class="spec-grid">
       <div class="spec-card reveal">
         <div class="spec-icon">L</div>
-        <h3>Leitão à Bairrada</h3>
-        <p>Notre cochon de lait rôti à la broche, peau dorée et craquante, chair fondante. La signature de la maison, comme on le fait dans la région de Bairrada.</p>
+        <h3 data-i18n="spec.1.title">Leitão à Bairrada</h3>
+        <p data-i18n="spec.1.desc">Notre cochon de lait rôti à la broche, peau dorée et craquante, chair fondante. La signature de la maison, comme on le fait dans la région de Bairrada.</p>
       </div>
       <div class="spec-card reveal">
         <div class="spec-icon">G</div>
-        <h3>Grillades au feu de bois</h3>
-        <p>Côtes de bœuf, picanha, poulet piri-piri, sardines de saison. Tout passe sur la braise, rien ne passe par le four à pizza.</p>
+        <h3 data-i18n="spec.2.title">Grillades au feu de bois</h3>
+        <p data-i18n="spec.2.desc">Côtes de bœuf, picanha, poulet piri-piri, sardines de saison. Tout passe sur la braise, rien ne passe par le four à pizza.</p>
       </div>
       <div class="spec-card reveal">
         <div class="spec-icon">V</div>
-        <h3>Vins du Douro & du Valais</h3>
-        <p>Une carte qui dialogue entre les deux pays : Douro, Alentejo, Vinho Verde, mais aussi les voisins de Vétroz, Conthey et Sion.</p>
+        <h3 data-i18n="spec.3.title">Vins du Douro &amp; du Valais</h3>
+        <p data-i18n="spec.3.desc">Une carte qui dialogue entre les deux pays : Douro, Alentejo, Vinho Verde, mais aussi les voisins de Vétroz, Conthey et Sion.</p>
       </div>
     </div>
   </div>
@@ -1067,17 +1119,17 @@ section { padding: 110px 0; position: relative; }
 <section id="menu" class="menu-section">
   <div class="container">
     <div style="text-align:center; max-width:720px; margin:0 auto 70px;">
-      <span class="section-eyebrow">À la carte</span>
-      <h2 class="section-title">Les <em>incontournables</em> du Palais.</h2>
-      <p class="section-intro" style="margin: 0 auto;">Une sélection qui évolue avec les saisons et l'arrivage. La carte complète et le plat du jour vous attendent sur place.</p>
+      <span class="section-eyebrow" data-i18n="menu.eyebrow">À la carte</span>
+      <h2 class="section-title" data-i18n-html="menu.title">Les <em>incontournables</em> du Palais.</h2>
+      <p class="section-intro" style="margin: 0 auto;" data-i18n="menu.intro">Une sélection qui évolue avec les saisons et l'arrivage. La carte complète et le plat du jour vous attendent sur place.</p>
     </div>
 
     <div class="menu-tabs" role="tablist">
-      <button class="menu-tab active" data-target="panel-entradas" role="tab">Entradas</button>
-      <button class="menu-tab" data-target="panel-leitao" role="tab">Cochon de lait</button>
-      <button class="menu-tab" data-target="panel-grelhados" role="tab">Grelhados</button>
-      <button class="menu-tab" data-target="panel-tradicao" role="tab">Tradition</button>
-      <button class="menu-tab" data-target="panel-doces" role="tab">Doces</button>
+      <button class="menu-tab active" data-target="panel-entradas" role="tab" data-i18n="menu.tab.entradas">Entradas</button>
+      <button class="menu-tab" data-target="panel-leitao" role="tab" data-i18n="menu.tab.cochon">Cochon de lait</button>
+      <button class="menu-tab" data-target="panel-grelhados" role="tab" data-i18n="menu.tab.grelhados">Grelhados</button>
+      <button class="menu-tab" data-target="panel-tradicao" role="tab" data-i18n="menu.tab.tradition">Tradition</button>
+      <button class="menu-tab" data-target="panel-doces" role="tab" data-i18n="menu.tab.doces">Doces</button>
     </div>
 
     <div class="menu-panels">
@@ -1087,53 +1139,53 @@ section { padding: 110px 0; position: relative; }
         <div class="menu-grid">
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Pastéis de bacalhau<small>Croquettes de morue maison</small></h4>
+              <h4>Pastéis de bacalhau<small data-i18n="menu.entradas.1.sub">Croquettes de morue maison</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 12</span>
             </div>
-            <p class="menu-item-desc">Quatre croquettes dorées, morue effilochée, pommes de terre, persil et oignon. Servies tièdes avec olives Galega.</p>
+            <p class="menu-item-desc" data-i18n="menu.entradas.1.desc">Quatre croquettes dorées, morue effilochée, pommes de terre, persil et oignon. Servies tièdes avec olives Galega.</p>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Caldo verde<small>Soupe au chou portugais</small></h4>
+              <h4>Caldo verde<small data-i18n="menu.entradas.2.sub">Soupe au chou portugais</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 11</span>
             </div>
-            <p class="menu-item-desc">La soupe paysanne du Minho. Chou kale finement émincé, pommes de terre fondantes, tranches de chouriço fumé.</p>
-            <div class="menu-item-tags"><span class="menu-tag">Tradition</span></div>
+            <p class="menu-item-desc" data-i18n="menu.entradas.2.desc">La soupe paysanne du Minho. Chou kale finement émincé, pommes de terre fondantes, tranches de chouriço fumé.</p>
+            <div class="menu-item-tags"><span class="menu-tag" data-i18n="tag.tradition">Tradition</span></div>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Chouriço assado<small>Chorizo flambé à table</small></h4>
+              <h4>Chouriço assado<small data-i18n="menu.entradas.3.sub">Chorizo flambé à table</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 14</span>
             </div>
-            <p class="menu-item-desc">Notre chouriço fumé, flambé à l'aguardente devant vous sur sa terre cuite traditionnelle. Pain de campagne à part.</p>
-            <div class="menu-item-tags"><span class="menu-tag">Signature</span></div>
+            <p class="menu-item-desc" data-i18n="menu.entradas.3.desc">Notre chouriço fumé, flambé à l'aguardente devant vous sur sa terre cuite traditionnelle. Pain de campagne à part.</p>
+            <div class="menu-item-tags"><span class="menu-tag" data-i18n="tag.signature">Signature</span></div>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Polvo à galega<small>Poulpe à la galicienne</small></h4>
+              <h4>Polvo à galega<small data-i18n="menu.entradas.4.sub">Poulpe à la galicienne</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 18</span>
             </div>
-            <p class="menu-item-desc">Tentacules de poulpe pochés à cœur, pommes de terre vapeur, huile d'olive vierge, paprika fumé, fleur de sel.</p>
+            <p class="menu-item-desc" data-i18n="menu.entradas.4.desc">Tentacules de poulpe pochés à cœur, pommes de terre vapeur, huile d'olive vierge, paprika fumé, fleur de sel.</p>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Sardines marinées<small>À l'huile et au piment</small></h4>
+              <h4>Sardines marinées<small data-i18n="menu.entradas.5.sub">À l'huile et au piment</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 13</span>
             </div>
-            <p class="menu-item-desc">Filets de sardines marinés à l'huile d'olive du Douro, piment doux, ail confit, citron. Sur toast grillé.</p>
+            <p class="menu-item-desc" data-i18n="menu.entradas.5.desc">Filets de sardines marinés à l'huile d'olive du Douro, piment doux, ail confit, citron. Sur toast grillé.</p>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Salada de polvo<small>Salade de poulpe vinaigrette</small></h4>
+              <h4>Salada de polvo<small data-i18n="menu.entradas.6.sub">Salade de poulpe vinaigrette</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 16</span>
             </div>
-            <p class="menu-item-desc">Poulpe tiède, oignon rouge, poivron grillé, persil, vinaigrette au vinaigre de vin du Douro. Servi en entrée généreuse.</p>
+            <p class="menu-item-desc" data-i18n="menu.entradas.6.desc">Poulpe tiède, oignon rouge, poivron grillé, persil, vinaigrette au vinaigre de vin du Douro. Servi en entrée généreuse.</p>
           </div>
         </div>
       </div>
@@ -1143,38 +1195,38 @@ section { padding: 110px 0; position: relative; }
         <div class="menu-grid">
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Leitão à Bairrada<small>Cochon de lait rôti à la broche</small></h4>
+              <h4>Leitão à Bairrada<small data-i18n="menu.leitao.1.sub">Cochon de lait rôti à la broche</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 34</span>
             </div>
-            <p class="menu-item-desc">La signature absolue de la maison. Cochon de lait mariné à l'ail, au laurier et au poivre, rôti lentement à la broche. Peau croustillante, chair nacrée, jus de cuisson, salade d'orange et chips maison.</p>
-            <div class="menu-item-tags"><span class="menu-tag signature">Signature</span></div>
+            <p class="menu-item-desc" data-i18n="menu.leitao.1.desc">La signature absolue de la maison. Cochon de lait mariné à l'ail, au laurier et au poivre, rôti lentement à la broche. Peau croustillante, chair nacrée, jus de cuisson, salade d'orange et chips maison.</p>
+            <div class="menu-item-tags"><span class="menu-tag signature" data-i18n="tag.signature">Signature</span></div>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Demi cochon de lait<small>Pour deux convives</small></h4>
+              <h4>Demi cochon de lait<small data-i18n="menu.leitao.2.sub">Pour deux convives</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 62</span>
             </div>
-            <p class="menu-item-desc">Une moitié entière, partagée, avec pommes de terre rôties à la graisse de cochon, salade verte. Sur réservation 24h.</p>
-            <div class="menu-item-tags"><span class="menu-tag signature">Pour 2</span><span class="menu-tag">Réserver</span></div>
+            <p class="menu-item-desc" data-i18n="menu.leitao.2.desc">Une moitié entière, partagée, avec pommes de terre rôties à la graisse de cochon, salade verte. Sur réservation 24h.</p>
+            <div class="menu-item-tags"><span class="menu-tag signature" data-i18n="tag.for2">Pour 2</span><span class="menu-tag" data-i18n="tag.reserve">Réserver</span></div>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Sande de leitão<small>Sandwich au cochon de lait</small></h4>
+              <h4>Sande de leitão<small data-i18n="menu.leitao.3.sub">Sandwich au cochon de lait</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 19</span>
             </div>
-            <p class="menu-item-desc">Le sandwich traditionnel de Mealhada : pain croustillant, cochon effiloché, jus poivré. Servi avec frites maison.</p>
+            <p class="menu-item-desc" data-i18n="menu.leitao.3.desc">Le sandwich traditionnel de Mealhada : pain croustillant, cochon effiloché, jus poivré. Servi avec frites maison.</p>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Cochon entier pour le groupe<small>À partir de 8 personnes</small></h4>
+              <h4>Cochon entier pour le groupe<small data-i18n="menu.leitao.4.sub">À partir de 8 personnes</small></h4>
               <span class="menu-item-dots"></span>
-              <span class="menu-item-price">Sur devis</span>
+              <span class="menu-item-price" data-i18n="menu.leitao.4.price">Sur devis</span>
             </div>
-            <p class="menu-item-desc">Pour vos fêtes de famille, anniversaires, mariages. Un cochon entier rôti pour vous, en salle ou en traiteur. Devis 5 jours à l'avance.</p>
-            <div class="menu-item-tags"><span class="menu-tag">Événement</span></div>
+            <p class="menu-item-desc" data-i18n="menu.leitao.4.desc">Pour vos fêtes de famille, anniversaires, mariages. Un cochon entier rôti pour vous, en salle ou en traiteur. Devis 5 jours à l'avance.</p>
+            <div class="menu-item-tags"><span class="menu-tag" data-i18n="tag.event">Événement</span></div>
           </div>
         </div>
       </div>
@@ -1184,54 +1236,54 @@ section { padding: 110px 0; position: relative; }
         <div class="menu-grid">
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Frango piri-piri<small>Demi-poulet grillé piri-piri</small></h4>
+              <h4>Frango piri-piri<small data-i18n="menu.grel.1.sub">Demi-poulet grillé piri-piri</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 26</span>
             </div>
-            <p class="menu-item-desc">Demi-poulet fermier mariné 24h à l'huile, ail et piri-piri, grillé à la braise. Frites maison, riz parfumé, salade tiède.</p>
-            <div class="menu-item-tags"><span class="menu-tag signature">Signature</span><span class="menu-tag">Épicé</span></div>
+            <p class="menu-item-desc" data-i18n="menu.grel.1.desc">Demi-poulet fermier mariné 24h à l'huile, ail et piri-piri, grillé à la braise. Frites maison, riz parfumé, salade tiède.</p>
+            <div class="menu-item-tags"><span class="menu-tag signature" data-i18n="tag.signature">Signature</span><span class="menu-tag" data-i18n="tag.spicy">Épicé</span></div>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Picanha à churrasco<small>Pavé de bœuf brésilien grillé</small></h4>
+              <h4>Picanha à churrasco<small data-i18n="menu.grel.2.sub">Pavé de bœuf brésilien grillé</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 36</span>
             </div>
-            <p class="menu-item-desc">280g de picanha saisie à la braise, chimichurri maison, haricots noirs, farofa et bananes plantain. Servi rosé.</p>
+            <p class="menu-item-desc" data-i18n="menu.grel.2.desc">280g de picanha saisie à la braise, chimichurri maison, haricots noirs, farofa et bananes plantain. Servi rosé.</p>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Côte de bœuf 600g<small>À partager</small></h4>
+              <h4>Côte de bœuf 600g<small data-i18n="menu.grel.3.sub">À partager</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 58</span>
             </div>
-            <p class="menu-item-desc">Côte de bœuf maturée 30 jours, grillée à la braise, fleur de sel, beurre maître d'hôtel. Frites maison et légumes du marché.</p>
-            <div class="menu-item-tags"><span class="menu-tag">Pour 2</span></div>
+            <p class="menu-item-desc" data-i18n="menu.grel.3.desc">Côte de bœuf maturée 30 jours, grillée à la braise, fleur de sel, beurre maître d'hôtel. Frites maison et légumes du marché.</p>
+            <div class="menu-item-tags"><span class="menu-tag" data-i18n="tag.for2">Pour 2</span></div>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Sardinhas grelhadas<small>Sardines grillées (en saison)</small></h4>
+              <h4>Sardinhas grelhadas<small data-i18n="menu.grel.4.sub">Sardines grillées (en saison)</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 24</span>
             </div>
-            <p class="menu-item-desc">Six sardines fraîches grillées sur la braise, poivrons rôtis, pommes de terre à l'eau, huile d'olive et vinaigre. Servies de juin à septembre.</p>
-            <div class="menu-item-tags"><span class="menu-tag">Saison</span></div>
+            <p class="menu-item-desc" data-i18n="menu.grel.4.desc">Six sardines fraîches grillées sur la braise, poivrons rôtis, pommes de terre à l'eau, huile d'olive et vinaigre. Servies de juin à septembre.</p>
+            <div class="menu-item-tags"><span class="menu-tag" data-i18n="tag.season">Saison</span></div>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Espetada de carne<small>Brochette de bœuf au laurier</small></h4>
+              <h4>Espetada de carne<small data-i18n="menu.grel.5.sub">Brochette de bœuf au laurier</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 28</span>
             </div>
-            <p class="menu-item-desc">Brochette de bœuf madérienne, marinée à l'ail et au laurier, grillée à la braise. Servie suspendue, pain bolo do caco et beurre à l'ail.</p>
+            <p class="menu-item-desc" data-i18n="menu.grel.5.desc">Brochette de bœuf madérienne, marinée à l'ail et au laurier, grillée à la braise. Servie suspendue, pain bolo do caco et beurre à l'ail.</p>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Lula grelhada<small>Calamar grillé entier</small></h4>
+              <h4>Lula grelhada<small data-i18n="menu.grel.6.sub">Calamar grillé entier</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 29</span>
             </div>
-            <p class="menu-item-desc">Calamar frais grillé entier à la braise, riz tomate, salade de poivrons, huile d'olive citronnée et ail rôti.</p>
+            <p class="menu-item-desc" data-i18n="menu.grel.6.desc">Calamar frais grillé entier à la braise, riz tomate, salade de poivrons, huile d'olive citronnée et ail rôti.</p>
           </div>
         </div>
       </div>
@@ -1241,54 +1293,54 @@ section { padding: 110px 0; position: relative; }
         <div class="menu-grid">
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Bacalhau à brás<small>Morue, œufs, pommes paille</small></h4>
+              <h4>Bacalhau à brás<small data-i18n="menu.trad.1.sub">Morue, œufs, pommes paille</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 27</span>
             </div>
-            <p class="menu-item-desc">Le grand classique lisboète. Morue dessalée, oignons confits, œufs brouillés, pommes paille croustillantes, olives noires et persil.</p>
-            <div class="menu-item-tags"><span class="menu-tag">Tradition</span></div>
+            <p class="menu-item-desc" data-i18n="menu.trad.1.desc">Le grand classique lisboète. Morue dessalée, oignons confits, œufs brouillés, pommes paille croustillantes, olives noires et persil.</p>
+            <div class="menu-item-tags"><span class="menu-tag" data-i18n="tag.tradition">Tradition</span></div>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Bacalhau à lagareiro<small>Morue rôtie à l'huile d'olive</small></h4>
+              <h4>Bacalhau à lagareiro<small data-i18n="menu.trad.2.sub">Morue rôtie à l'huile d'olive</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 32</span>
             </div>
-            <p class="menu-item-desc">Pavé épais de morue confit dans l'huile d'olive du Douro, pommes de terre écrasées à la fourchette, ail rôti, oignons doux.</p>
+            <p class="menu-item-desc" data-i18n="menu.trad.2.desc">Pavé épais de morue confit dans l'huile d'olive du Douro, pommes de terre écrasées à la fourchette, ail rôti, oignons doux.</p>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Arroz de pato<small>Riz au canard au four</small></h4>
+              <h4>Arroz de pato<small data-i18n="menu.trad.3.sub">Riz au canard au four</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 28</span>
             </div>
-            <p class="menu-item-desc">Riz cuit dans le bouillon de canard, effiloché de canard confit, chouriço grillé, lardons fumés. Gratiné au four, croûte dorée.</p>
+            <p class="menu-item-desc" data-i18n="menu.trad.3.desc">Riz cuit dans le bouillon de canard, effiloché de canard confit, chouriço grillé, lardons fumés. Gratiné au four, croûte dorée.</p>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Cataplana de marisco<small>Cataplane de fruits de mer</small></h4>
+              <h4>Cataplana de marisco<small data-i18n="menu.trad.4.sub">Cataplane de fruits de mer</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 38</span>
             </div>
-            <p class="menu-item-desc">La grande marmite en cuivre de l'Algarve. Crevettes, palourdes, moules, langoustines, tomates, poivrons, vin blanc, coriandre fraîche. Servie à table.</p>
-            <div class="menu-item-tags"><span class="menu-tag signature">Pour 2</span></div>
+            <p class="menu-item-desc" data-i18n="menu.trad.4.desc">La grande marmite en cuivre de l'Algarve. Crevettes, palourdes, moules, langoustines, tomates, poivrons, vin blanc, coriandre fraîche. Servie à table.</p>
+            <div class="menu-item-tags"><span class="menu-tag signature" data-i18n="tag.for2">Pour 2</span></div>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Feijoada à transmontana<small>Cassoulet portugais</small></h4>
+              <h4>Feijoada à transmontana<small data-i18n="menu.trad.5.sub">Cassoulet portugais</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 26</span>
             </div>
-            <p class="menu-item-desc">Haricots blancs mijotés, lard, chouriço, morcela, chou et carottes, riz blanc. Le plat d'hiver de la maison, fait comme à Bragança.</p>
-            <div class="menu-item-tags"><span class="menu-tag">Saison</span></div>
+            <p class="menu-item-desc" data-i18n="menu.trad.5.desc">Haricots blancs mijotés, lard, chouriço, morcela, chou et carottes, riz blanc. Le plat d'hiver de la maison, fait comme à Bragança.</p>
+            <div class="menu-item-tags"><span class="menu-tag" data-i18n="tag.season">Saison</span></div>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Bifana à la portugaise<small>Sandwich de porc mariné</small></h4>
+              <h4>Bifana à la portugaise<small data-i18n="menu.trad.6.sub">Sandwich de porc mariné</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 17</span>
             </div>
-            <p class="menu-item-desc">Escalopes de porc marinées à l'ail, au laurier et au vin blanc, dans un pain croustillant. Moutarde piri-piri, frites maison.</p>
+            <p class="menu-item-desc" data-i18n="menu.trad.6.desc">Escalopes de porc marinées à l'ail, au laurier et au vin blanc, dans un pain croustillant. Moutarde piri-piri, frites maison.</p>
           </div>
         </div>
       </div>
@@ -1298,53 +1350,53 @@ section { padding: 110px 0; position: relative; }
         <div class="menu-grid">
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Pastel de nata<small>Le flan portugais</small></h4>
+              <h4>Pastel de nata<small data-i18n="menu.doces.1.sub">Le flan portugais</small></h4>
               <span class="menu-item-dots"></span>
-              <span class="menu-item-price">CHF 4 / pièce</span>
+              <span class="menu-item-price" data-i18n="menu.doces.1.price">CHF 4 / pièce</span>
             </div>
-            <p class="menu-item-desc">Notre pâte feuilletée maison, crème vanillée légèrement caramélisée au four à 280°C. À l'unité, ou trois pour CHF 11.</p>
-            <div class="menu-item-tags"><span class="menu-tag signature">Signature</span></div>
+            <p class="menu-item-desc" data-i18n="menu.doces.1.desc">Notre pâte feuilletée maison, crème vanillée légèrement caramélisée au four à 280°C. À l'unité, ou trois pour CHF 11.</p>
+            <div class="menu-item-tags"><span class="menu-tag signature" data-i18n="tag.signature">Signature</span></div>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Arroz doce<small>Riz au lait à la cannelle</small></h4>
+              <h4>Arroz doce<small data-i18n="menu.doces.2.sub">Riz au lait à la cannelle</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 9</span>
             </div>
-            <p class="menu-item-desc">Le riz au lait du dimanche, parfumé au citron et à la cannelle, dessiné en motifs à la cannelle, comme à la maison.</p>
-            <div class="menu-item-tags"><span class="menu-tag">Tradition</span></div>
+            <p class="menu-item-desc" data-i18n="menu.doces.2.desc">Le riz au lait du dimanche, parfumé au citron et à la cannelle, dessiné en motifs à la cannelle, comme à la maison.</p>
+            <div class="menu-item-tags"><span class="menu-tag" data-i18n="tag.tradition">Tradition</span></div>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Mousse de chocolat noir<small>À l'aguardente velha</small></h4>
+              <h4>Mousse de chocolat noir<small data-i18n="menu.doces.3.sub">À l'aguardente velha</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 10</span>
             </div>
-            <p class="menu-item-desc">Mousse au chocolat noir 70%, légère touche d'aguardente velha portugaise, copeaux de chocolat, fleur de sel.</p>
+            <p class="menu-item-desc" data-i18n="menu.doces.3.desc">Mousse au chocolat noir 70%, légère touche d'aguardente velha portugaise, copeaux de chocolat, fleur de sel.</p>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Toucinho do céu<small>"Lard du ciel" aux amandes</small></h4>
+              <h4>Toucinho do céu<small data-i18n="menu.doces.4.sub">"Lard du ciel" aux amandes</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 11</span>
             </div>
-            <p class="menu-item-desc">Pâtisserie conventuelle de l'Alentejo. Amandes, jaunes d'œufs, sucre, cannelle. Dense, fondant, généreusement parfumé.</p>
+            <p class="menu-item-desc" data-i18n="menu.doces.4.desc">Pâtisserie conventuelle de l'Alentejo. Amandes, jaunes d'œufs, sucre, cannelle. Dense, fondant, généreusement parfumé.</p>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Sorvete de manga<small>Sorbet mangue & citron vert</small></h4>
+              <h4>Sorvete de manga<small data-i18n="menu.doces.5.sub">Sorbet mangue &amp; citron vert</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 8</span>
             </div>
-            <p class="menu-item-desc">Sorbet maison mangue et citron vert, coulis de fruits de la passion. Frais et net, parfait pour finir.</p>
+            <p class="menu-item-desc" data-i18n="menu.doces.5.desc">Sorbet maison mangue et citron vert, coulis de fruits de la passion. Frais et net, parfait pour finir.</p>
           </div>
           <div class="menu-item">
             <div class="menu-item-head">
-              <h4>Café & pastel<small>L'expresso portugais</small></h4>
+              <h4>Café &amp; pastel<small data-i18n="menu.doces.6.sub">L'expresso portugais</small></h4>
               <span class="menu-item-dots"></span>
               <span class="menu-item-price">CHF 7</span>
             </div>
-            <p class="menu-item-desc">Un bica bien serré, comme à Lisbonne, accompagné d'un pastel de nata. Le rituel d'après-repas.</p>
+            <p class="menu-item-desc" data-i18n="menu.doces.6.desc">Un bica bien serré, comme à Lisbonne, accompagné d'un pastel de nata. Le rituel d'après-repas.</p>
           </div>
         </div>
       </div>
@@ -1352,8 +1404,8 @@ section { padding: 110px 0; position: relative; }
     </div>
 
     <div class="menu-footer">
-      <p>"Quem não chora, não mama" — Qui ne demande rien, ne reçoit rien. Demandez le plat du jour.</p>
-      <a href="#contact" class="btn">Réserver votre table</a>
+      <p data-i18n="menu.foot.quote">"Quem não chora, não mama" — Qui ne demande rien, ne reçoit rien. Demandez le plat du jour.</p>
+      <a href="#contact" class="btn" data-i18n="menu.foot.cta">Réserver votre table</a>
     </div>
   </div>
 </section>
@@ -1361,9 +1413,9 @@ section { padding: 110px 0; position: relative; }
 <!-- ═══════ SIGNATURE STRIP ═══════ -->
 <section class="signature-strip">
   <div class="container">
-    <h2>Le cochon de lait, <em>la vraie raison de venir.</em></h2>
-    <p>Mariné la veille, embroché à 9h, rôti six heures sur braise de chêne valaisan. Servi tranché à table avec sa peau craquante et son jus poivré. Une institution depuis 2012.</p>
-    <a href="#contact" class="btn">Réserver le leitão</a>
+    <h2 data-i18n-html="sign.title">Le cochon de lait, <em>la vraie raison de venir.</em></h2>
+    <p data-i18n="sign.desc">Mariné la veille, embroché à 9h, rôti six heures sur braise de chêne valaisan. Servi tranché à table avec sa peau craquante et son jus poivré. Une institution depuis 2012.</p>
+    <a href="#contact" class="btn" data-i18n="sign.cta">Réserver le leitão</a>
   </div>
 </section>
 
@@ -1371,8 +1423,8 @@ section { padding: 110px 0; position: relative; }
 <section id="galerie" class="galerie">
   <div class="container">
     <div style="text-align:center; max-width:720px; margin:0 auto 50px;">
-      <span class="section-eyebrow">L'ambiance</span>
-      <h2 class="section-title">Un coin du Portugal, <em>vu d'ici</em>.</h2>
+      <span class="section-eyebrow" data-i18n="gal.eyebrow">L'ambiance</span>
+      <h2 class="section-title" data-i18n-html="gal.title">Un coin du Portugal, <em>vu d'ici</em>.</h2>
     </div>
     <div class="galerie-grid">
       <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" loading="lazy" alt="Grillades sur braise au feu de bois" /></div>
@@ -1389,27 +1441,27 @@ section { padding: 110px 0; position: relative; }
 <section class="temoignages">
   <div class="container">
     <div style="text-align:center; max-width:720px; margin:0 auto 50px;">
-      <span class="section-eyebrow">Ils en parlent</span>
-      <h2 class="section-title">Ce que disent <em>nos hôtes</em>.</h2>
+      <span class="section-eyebrow" data-i18n="test.eyebrow">Ils en parlent</span>
+      <h2 class="section-title" data-i18n-html="test.title">Ce que disent <em>nos hôtes</em>.</h2>
     </div>
     <div class="temoignages-grid">
       <div class="temoignage reveal">
         <div class="temoignage-stars">★★★★★</div>
-        <p>"Le cochon de lait est à tomber. Peau croustillante, chair fondante, et un accueil sincère. On s'est cru dans une auberge de l'Alentejo. CHF 25 par personne, on est repartis ravis."</p>
-        <div class="temoignage-author">Telmo E.<small>Sion · Avril 2026</small></div>
+        <p data-i18n="test.1.text">"Le cochon de lait est à tomber. Peau croustillante, chair fondante, et un accueil sincère. On s'est cru dans une auberge de l'Alentejo. CHF 25 par personne, on est repartis ravis."</p>
+        <div class="temoignage-author">Telmo E.<small data-i18n="test.1.meta">Sion · Avril 2026</small></div>
       </div>
       <div class="temoignage reveal">
         <div class="temoignage-stars">★★★★★</div>
-        <p>"On y va en famille depuis trois ans. Les enfants adorent les pastéis de nata, les parents adorent la carte des vins du Douro. Une vraie adresse de quartier qu'on garde pour soi."</p>
-        <div class="temoignage-author">Maria P.<small>Conthey · Février 2026</small></div>
+        <p data-i18n="test.2.text">"On y va en famille depuis trois ans. Les enfants adorent les pastéis de nata, les parents adorent la carte des vins du Douro. Une vraie adresse de quartier qu'on garde pour soi."</p>
+        <div class="temoignage-author">Maria P.<small data-i18n="test.2.meta">Conthey · Février 2026</small></div>
       </div>
       <div class="temoignage reveal">
         <div class="temoignage-stars">★★★★★</div>
-        <p>"Réservé pour mon anniversaire, dix couverts. Picanha, cataplana, sardines grillées, plus de pastéis qu'on a pu en compter. Tout le monde a adoré. CHF 35 par personne, soirée parfaite."</p>
-        <div class="temoignage-author">Mario F.<small>Martigny · Décembre 2025</small></div>
+        <p data-i18n="test.3.text">"Réservé pour mon anniversaire, dix couverts. Picanha, cataplana, sardines grillées, plus de pastéis qu'on a pu en compter. Tout le monde a adoré. CHF 35 par personne, soirée parfaite."</p>
+        <div class="temoignage-author">Mario F.<small data-i18n="test.3.meta">Martigny · Décembre 2025</small></div>
       </div>
     </div>
-    <p class="temoignages-cta">Note moyenne <strong>4.3 / 5</strong> sur <strong>201 avis Google</strong> · merci à tous nos clients.</p>
+    <p class="temoignages-cta" data-i18n-html="test.cta">Note moyenne <strong>4.3 / 5</strong> sur <strong>201 avis Google</strong> · merci à tous nos clients.</p>
   </div>
 </section>
 
@@ -1417,40 +1469,40 @@ section { padding: 110px 0; position: relative; }
 <section id="contact" class="reservation">
   <div class="container">
     <div style="text-align:center; max-width:720px; margin:0 auto 60px;">
-      <span class="section-eyebrow">Réservation</span>
-      <h2 class="section-title">Venez <em>passer une soirée</em> au Palais.</h2>
+      <span class="section-eyebrow" data-i18n="res.eyebrow">Réservation</span>
+      <h2 class="section-title" data-i18n-html="res.title">Venez <em>passer une soirée</em> au Palais.</h2>
     </div>
 
     <div class="reservation-grid">
       <div class="reservation-info reveal">
         <div class="info-block">
-          <div class="info-label">Adresse</div>
-          <div class="info-content">
+          <div class="info-label" data-i18n="res.label.address">Adresse</div>
+          <div class="info-content" data-i18n-html="res.address">
             <strong>Route des Ateliers 31</strong><br>
             1963 Vétroz · Valais<br>
             Suisse
           </div>
         </div>
         <div class="info-block">
-          <div class="info-label">Horaires</div>
-          <div class="info-content">
+          <div class="info-label" data-i18n="res.label.hours">Horaires</div>
+          <div class="info-content" data-i18n-html="res.hours">
             <strong>Mardi – Samedi</strong><br>
             Midi · 11h30 – 14h30<br>
             Soir · 18h00 – 22h30<br><br>
-            <strong>Dimanche & Lundi</strong><br>
+            <strong>Dimanche &amp; Lundi</strong><br>
             Fermé
           </div>
         </div>
         <div class="info-block">
-          <div class="info-label">Téléphone</div>
-          <div class="info-content">
+          <div class="info-label" data-i18n="res.label.phone">Téléphone</div>
+          <div class="info-content" data-i18n-html="res.phone">
             <a href="tel:+41273465834"><strong>+41 27 346 58 34</strong></a><br>
             Pour les réservations et les commandes à l'emporter.
           </div>
         </div>
         <div class="info-block">
-          <div class="info-label">Cochon de lait sur commande</div>
-          <div class="info-content">
+          <div class="info-label" data-i18n="res.label.order">Cochon de lait sur commande</div>
+          <div class="info-content" data-i18n-html="res.order">
             Demi cochon : à réserver 24h à l'avance.<br>
             Cochon entier (8 pers. +) : 5 jours à l'avance, en salle ou à emporter pour vos événements.
           </div>
@@ -1458,37 +1510,37 @@ section { padding: 110px 0; position: relative; }
       </div>
 
       <div class="form-wrap reveal">
-        <h3>Réservez <em>en ligne</em></h3>
-        <p>Une confirmation vous parvient sous 2 heures pendant nos heures d'ouverture.</p>
-        <form onsubmit="event.preventDefault(); alert('Démonstration NB-Design — formulaire à connecter à Formspree avant mise en ligne.');">
+        <h3 data-i18n-html="form.title">Réservez <em>en ligne</em></h3>
+        <p data-i18n="form.intro">Une confirmation vous parvient sous 2 heures pendant nos heures d'ouverture.</p>
+        <form id="reservationForm">
           <div class="form-row">
             <div class="form-group">
-              <label>Prénom</label>
-              <input type="text" required placeholder="Maria" />
+              <label data-i18n="form.label.firstname">Prénom</label>
+              <input type="text" required placeholder="Maria" data-i18n-placeholder="form.ph.firstname" />
             </div>
             <div class="form-group">
-              <label>Nom</label>
-              <input type="text" required placeholder="Pereira" />
+              <label data-i18n="form.label.lastname">Nom</label>
+              <input type="text" required placeholder="Pereira" data-i18n-placeholder="form.ph.lastname" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Email</label>
+              <label data-i18n="form.label.email">Email</label>
               <input type="email" required placeholder="maria@email.ch" />
             </div>
             <div class="form-group">
-              <label>Téléphone</label>
+              <label data-i18n="form.label.phone">Téléphone</label>
               <input type="tel" required placeholder="+41 79 ..." />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Date</label>
+              <label data-i18n="form.label.date">Date</label>
               <input type="date" required />
             </div>
             <div class="form-group">
-              <label>Personnes</label>
-              <select required>
+              <label data-i18n="form.label.persons">Personnes</label>
+              <select required data-i18n-options="form.opt.persons">
                 <option>2 personnes</option>
                 <option>3 personnes</option>
                 <option>4 personnes</option>
@@ -1499,18 +1551,18 @@ section { padding: 110px 0; position: relative; }
             </div>
           </div>
           <div class="form-group">
-            <label>Service</label>
-            <select required>
+            <label data-i18n="form.label.service">Service</label>
+            <select required data-i18n-options="form.opt.service">
               <option>Soirée (dès 18h00)</option>
               <option>Déjeuner (dès 11h30)</option>
             </select>
           </div>
           <div class="form-group">
-            <label>Message (facultatif)</label>
-            <textarea placeholder="Allergies, cochon de lait à réserver, occasion particulière..."></textarea>
+            <label data-i18n="form.label.message">Message (facultatif)</label>
+            <textarea placeholder="Allergies, cochon de lait à réserver, occasion particulière..." data-i18n-placeholder="form.ph.message"></textarea>
           </div>
-          <button type="submit" class="btn">Demander la réservation →</button>
-          <p class="form-note">Réservation ferme une fois notre confirmation reçue par email.</p>
+          <button type="submit" class="btn" data-i18n="form.submit">Demander la réservation →</button>
+          <p class="form-note" data-i18n="form.note">Réservation ferme une fois notre confirmation reçue par email.</p>
         </form>
       </div>
     </div>
@@ -1526,19 +1578,19 @@ section { padding: 110px 0; position: relative; }
           <span class="logo-mark">P</span>
           Le Palais des <em>Petits Cochons</em>
         </div>
-        <p>La table portugaise des vignes de Vétroz. Famille Patrao, depuis 2012.</p>
+        <p data-i18n="foot.desc">La table portugaise des vignes de Vétroz. Famille Patrao, depuis 2012.</p>
       </div>
       <div class="footer-col">
-        <h4>Découvrir</h4>
+        <h4 data-i18n="foot.col1.title">Découvrir</h4>
         <ul>
-          <li><a href="#histoire">Notre histoire</a></li>
-          <li><a href="#cuisine">Spécialités</a></li>
-          <li><a href="#menu">La carte</a></li>
-          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#histoire" data-i18n="foot.col1.history">Notre histoire</a></li>
+          <li><a href="#cuisine" data-i18n="foot.col1.spec">Spécialités</a></li>
+          <li><a href="#menu" data-i18n="foot.col1.menu">La carte</a></li>
+          <li><a href="#galerie" data-i18n="foot.col1.gallery">Galerie</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h4 data-i18n="foot.col2.title">Contact</h4>
         <ul>
           <li>Route des Ateliers 31</li>
           <li>1963 Vétroz</li>
@@ -1546,43 +1598,297 @@ section { padding: 110px 0; position: relative; }
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Horaires</h4>
+        <h4 data-i18n="foot.col3.title">Horaires</h4>
         <ul>
-          <li>Mar – Sam</li>
+          <li data-i18n="foot.col3.days">Mar – Sam</li>
           <li>11h30 – 14h30</li>
           <li>18h00 – 22h30</li>
-          <li>Dim & Lun fermé</li>
+          <li data-i18n="foot.col3.closed">Dim &amp; Lun fermé</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div>© 2026 Le Palais des Petits Cochons · Tous droits réservés</div>
-      <div>Site créé avec soin par <a href="https://nb-design.ch">NB-Design</a></div>
+      <div data-i18n="foot.copyright">© 2026 Le Palais des Petits Cochons · Tous droits réservés</div>
+      <div data-i18n-html="foot.author">Site créé avec soin par <a href="https://nb-design.ch">NB-Design</a></div>
     </div>
   </div>
 </footer>
 
 <script>
-// Navbar scroll effect
+// ═══════ I18N — dictionnaire portugais ═══════
+const translations = {
+  pt: {
+    'nav.history': 'História',
+    'nav.specialties': 'Especialidades',
+    'nav.menu': 'Ementa',
+    'nav.gallery': 'Galeria',
+    'nav.reserve': 'Reservar',
+    'nav.cta': 'Reservar',
+
+    'hero.tag': 'Cozinha portuguesa · Vétroz · Valais',
+    'hero.title': 'Portugal, <em>à sombra</em><br>das vinhas de Vétroz.',
+    'hero.sub': 'Leitão no espeto, grelhados na lenha e tradição lusitana. Uma mesa de família, generosa, onde se demora a comer bem.',
+    'hero.cta.reserve': 'Reservar mesa',
+    'hero.cta.menu': 'Ver a ementa',
+    'hero.stars': '4,3 / 5 · 201 avaliações Google',
+    'hero.scroll': '↓   Bem-vindo',
+
+    'histoire.eyebrow': 'A nossa história',
+    'histoire.title': 'Uma casa portuguesa <em>em terras valaisanas</em>.',
+    'histoire.p1': 'Quando Fatima e Eduardo Patrao abrem o Palais des Petits Cochons em 2012, têm uma ideia simples: reencontrar, no coração dos vinhedos de Vétroz, o sabor das grandes mesas de família de Portugal.',
+    'histoire.p2': 'Mais de dez anos depois, a casa mantém-se fiel a essa promessa. O espeto continua a rodar, a brasa acende-se a cada serviço, e continuamos a salgar o peixe, marinar as carnes e amassar o pão como nas aldeias de origem. Os clientes vêm de Sion, de Martigny, de Lausanne, e voltam pelas mesmas razões: um acolhimento caloroso, doses generosas, e essa sinceridade que não se finge.',
+    'histoire.quote': '"Aqui não servimos um prato,<br>partilhamos uma mesa."',
+    'histoire.sign.role': 'Família fundadora · Desde 2012',
+
+    'spec.eyebrow': 'As nossas especialidades',
+    'spec.title': 'Do <em>fogo</em>, do <em>tempo</em>, da <em>partilha</em>.',
+    'spec.intro': 'Três pilares, desde o primeiro ano. Uma cozinha de brasa e tradição, feita para as fomes verdadeiras e as longas conversas.',
+    'spec.1.title': 'Leitão à Bairrada',
+    'spec.1.desc': 'O nosso leitão assado no espeto, pele dourada e estaladiça, carne tenrinha. A assinatura da casa, como se faz na região da Bairrada.',
+    'spec.2.title': 'Grelhados na lenha',
+    'spec.2.desc': 'Costelas de vaca, picanha, frango piri-piri, sardinhas da época. Tudo passa pela brasa, nada passa pelo forno da pizza.',
+    'spec.3.title': 'Vinhos do Douro & do Valais',
+    'spec.3.desc': 'Uma carta que dialoga entre os dois países: Douro, Alentejo, Vinho Verde, mas também os vizinhos de Vétroz, Conthey e Sion.',
+
+    'menu.eyebrow': 'À carta',
+    'menu.title': 'Os <em>imperdíveis</em> do Palácio.',
+    'menu.intro': 'Uma selecção que evolui com as estações e com a feira. A ementa completa e o prato do dia esperam por si no restaurante.',
+
+    'menu.tab.entradas': 'Entradas',
+    'menu.tab.cochon': 'Leitão',
+    'menu.tab.grelhados': 'Grelhados',
+    'menu.tab.tradition': 'Tradição',
+    'menu.tab.doces': 'Doces',
+
+    'tag.signature': 'Assinatura',
+    'tag.tradition': 'Tradição',
+    'tag.season': 'Da época',
+    'tag.for2': 'Para 2',
+    'tag.reserve': 'Reservar',
+    'tag.spicy': 'Picante',
+    'tag.event': 'Evento',
+
+    // Entradas
+    'menu.entradas.1.sub': 'Croquetes de bacalhau caseiros',
+    'menu.entradas.1.desc': 'Quatro croquetes dourados, bacalhau desfiado, batata, salsa e cebola. Servidos mornos com azeitonas Galega.',
+    'menu.entradas.2.sub': 'Sopa de couve à portuguesa',
+    'menu.entradas.2.desc': 'A sopa camponesa do Minho. Couve galega finamente cortada, batatas tenras, rodelas de chouriço fumado.',
+    'menu.entradas.3.sub': 'Chouriço flamejado à mesa',
+    'menu.entradas.3.desc': 'O nosso chouriço fumado, flamejado com aguardente à sua frente, sobre o assador de barro tradicional. Pão de campo à parte.',
+    'menu.entradas.4.sub': 'Polvo à galega',
+    'menu.entradas.4.desc': 'Tentáculos de polvo cozidos no ponto, batatas a vapor, azeite virgem, pimentão fumado, flor de sal.',
+    'menu.entradas.5.sub': 'Marinadas em azeite e malagueta',
+    'menu.entradas.5.desc': 'Filetes de sardinha marinados em azeite do Douro, malagueta doce, alho confitado, limão. Sobre torrada grelhada.',
+    'menu.entradas.6.sub': 'Salada de polvo com vinagrete',
+    'menu.entradas.6.desc': 'Polvo morno, cebola roxa, pimento assado, salsa, vinagrete com vinagre de vinho do Douro. Servido como entrada generosa.',
+
+    // Leitão
+    'menu.leitao.1.sub': 'Leitão assado no espeto',
+    'menu.leitao.1.desc': 'A assinatura absoluta da casa. Leitão marinado com alho, louro e pimenta, assado lentamente no espeto. Pele estaladiça, carne nacarada, jus de cozedura, salada de laranja e batatas fritas caseiras.',
+    'menu.leitao.2.sub': 'Para duas pessoas',
+    'menu.leitao.2.desc': 'Uma metade inteira, partilhada, com batatas assadas em gordura de porco, salada verde. Sob reserva 24 h antes.',
+    'menu.leitao.3.sub': 'Sande de leitão',
+    'menu.leitao.3.desc': 'A sande tradicional da Mealhada: pão estaladiço, leitão desfiado, jus apimentado. Servida com batatas fritas caseiras.',
+    'menu.leitao.4.sub': 'A partir de 8 pessoas',
+    'menu.leitao.4.desc': 'Para as suas festas de família, aniversários, casamentos. Um leitão inteiro assado para si, no restaurante ou para levar. Orçamento com 5 dias de antecedência.',
+    'menu.leitao.4.price': 'Sob consulta',
+
+    // Grelhados
+    'menu.grel.1.sub': 'Meio frango grelhado piri-piri',
+    'menu.grel.1.desc': 'Meio frango do campo marinado 24 h em azeite, alho e piri-piri, grelhado na brasa. Batatas fritas caseiras, arroz aromatizado, salada morna.',
+    'menu.grel.2.sub': 'Picanha brasileira grelhada',
+    'menu.grel.2.desc': '280 g de picanha selada na brasa, chimichurri caseiro, feijão preto, farofa e banana-da-terra. Servida rosada.',
+    'menu.grel.3.sub': 'Para partilhar',
+    'menu.grel.3.desc': 'Costela de vaca maturada 30 dias, grelhada na brasa, flor de sal, manteiga maître d’hôtel. Batatas fritas caseiras e legumes do mercado.',
+    'menu.grel.4.sub': 'Sardinhas grelhadas (da época)',
+    'menu.grel.4.desc': 'Seis sardinhas frescas grelhadas na brasa, pimentos assados, batatas cozidas, azeite e vinagre. Servidas de Junho a Setembro.',
+    'menu.grel.5.sub': 'Espetada à madeirense',
+    'menu.grel.5.desc': 'Espetada de vaca madeirense, marinada em alho e louro, grelhada na brasa. Servida pendurada, bolo do caco e manteiga de alho.',
+    'menu.grel.6.sub': 'Lula grelhada inteira',
+    'menu.grel.6.desc': 'Lula fresca grelhada inteira na brasa, arroz de tomate, salada de pimentos, azeite com limão e alho assado.',
+
+    // Tradition
+    'menu.trad.1.sub': 'Bacalhau, ovo, batata-palha',
+    'menu.trad.1.desc': 'O grande clássico de Lisboa. Bacalhau demolhado, cebolas confitadas, ovos mexidos, batata-palha estaladiça, azeitonas pretas e salsa.',
+    'menu.trad.2.sub': 'Bacalhau assado com azeite',
+    'menu.trad.2.desc': 'Lombo grosso de bacalhau confitado em azeite do Douro, batatas a murro, alho assado, cebolas doces.',
+    'menu.trad.3.sub': 'Arroz de pato no forno',
+    'menu.trad.3.desc': 'Arroz cozido no caldo de pato, pato confitado desfiado, chouriço grelhado, toucinho fumado. Gratinado no forno, crosta dourada.',
+    'menu.trad.4.sub': 'Cataplana de marisco',
+    'menu.trad.4.desc': 'A grande cataplana de cobre do Algarve. Camarão, amêijoas, mexilhão, lagostim, tomate, pimento, vinho branco, coentros frescos. Servida à mesa.',
+    'menu.trad.5.sub': 'Feijoada portuguesa',
+    'menu.trad.5.desc': 'Feijão branco estufado, toucinho, chouriço, morcela, couve e cenoura, arroz branco. O prato de Inverno da casa, feito como em Bragança.',
+    'menu.trad.6.sub': 'Sande de porco marinado',
+    'menu.trad.6.desc': 'Bifes de porco marinados em alho, louro e vinho branco, num pão estaladiço. Mostarda piri-piri, batatas fritas caseiras.',
+
+    // Doces
+    'menu.doces.1.sub': 'O pastel de Belém',
+    'menu.doces.1.desc': 'A nossa massa folhada caseira, creme aromatizado com baunilha ligeiramente caramelizado no forno a 280 °C. À unidade, ou três por CHF 11.',
+    'menu.doces.1.price': 'CHF 4 / unid.',
+    'menu.doces.2.sub': 'Arroz doce com canela',
+    'menu.doces.2.desc': 'O arroz doce de domingo, perfumado com limão e canela, desenhado com motivos de canela, como em casa.',
+    'menu.doces.3.sub': 'Com aguardente velha',
+    'menu.doces.3.desc': 'Mousse de chocolate negro 70%, toque ligeiro de aguardente velha portuguesa, raspas de chocolate, flor de sal.',
+    'menu.doces.4.sub': '"Toucinho do céu" de amêndoa',
+    'menu.doces.4.desc': 'Doce conventual do Alentejo. Amêndoa, gemas, açúcar, canela. Denso, fundente, generosamente perfumado.',
+    'menu.doces.5.sub': 'Sorbet de manga & lima',
+    'menu.doces.5.desc': 'Sorbet caseiro de manga e lima, calda de maracujá. Fresco e limpo, perfeito para terminar.',
+    'menu.doces.6.sub': 'A bica portuguesa',
+    'menu.doces.6.desc': 'Uma bica bem cheia, como em Lisboa, acompanhada de um pastel de nata. O ritual de fim de refeição.',
+
+    'menu.foot.quote': '"Quem não chora, não mama." Peça o prato do dia.',
+    'menu.foot.cta': 'Reservar a sua mesa',
+
+    'sign.title': 'O leitão, <em>a verdadeira razão para vir.</em>',
+    'sign.desc': 'Marinado na véspera, espetado às 9h, assado seis horas sobre brasa de carvalho do Valais. Servido fatiado à mesa, com a pele estaladiça e o jus apimentado. Uma instituição desde 2012.',
+    'sign.cta': 'Reservar o leitão',
+
+    'gal.eyebrow': 'O ambiente',
+    'gal.title': 'Um pedacinho de Portugal, <em>visto daqui</em>.',
+
+    'test.eyebrow': 'Falam de nós',
+    'test.title': 'O que dizem <em>os nossos clientes</em>.',
+    'test.1.text': '"O leitão é de chorar por mais. Pele estaladiça, carne fundente, e um acolhimento sincero. Sentimo-nos numa estalagem do Alentejo. CHF 25 por pessoa, saímos encantados."',
+    'test.1.meta': 'Sion · Abril 2026',
+    'test.2.text': '"Vamos em família há três anos. Os filhos adoram os pastéis de nata, os pais adoram a carta de vinhos do Douro. Uma verdadeira morada de bairro que guardamos para nós."',
+    'test.2.meta': 'Conthey · Fevereiro 2026',
+    'test.3.text': '"Reservei para o meu aniversário, dez pessoas. Picanha, cataplana, sardinhas grelhadas, mais pastéis do que pudemos contar. Toda a gente adorou. CHF 35 por pessoa, noite perfeita."',
+    'test.3.meta': 'Martigny · Dezembro 2025',
+    'test.cta': 'Média de <strong>4,3 / 5</strong> em <strong>201 avaliações Google</strong> · obrigado a todos os nossos clientes.',
+
+    'res.eyebrow': 'Reserva',
+    'res.title': 'Venha <em>passar uma noite</em> no Palácio.',
+    'res.label.address': 'Morada',
+    'res.address': '<strong>Route des Ateliers 31</strong><br>1963 Vétroz · Valais<br>Suíça',
+    'res.label.hours': 'Horário',
+    'res.hours': '<strong>Terça – Sábado</strong><br>Almoço · 11h30 – 14h30<br>Jantar · 18h00 – 22h30<br><br><strong>Domingo &amp; Segunda</strong><br>Encerrado',
+    'res.label.phone': 'Telefone',
+    'res.phone': '<a href="tel:+41273465834"><strong>+41 27 346 58 34</strong></a><br>Para reservas e encomendas para levar.',
+    'res.label.order': 'Leitão por encomenda',
+    'res.order': 'Meio leitão: reservar com 24 h de antecedência.<br>Leitão inteiro (8 pess. +): 5 dias antes, no restaurante ou para levar nos seus eventos.',
+
+    'form.title': 'Reserve <em>online</em>',
+    'form.intro': 'Uma confirmação chega-lhe em 2 horas durante o nosso horário de funcionamento.',
+    'form.label.firstname': 'Nome próprio',
+    'form.label.lastname': 'Apelido',
+    'form.label.email': 'Email',
+    'form.label.phone': 'Telefone',
+    'form.label.date': 'Data',
+    'form.label.persons': 'Pessoas',
+    'form.label.service': 'Serviço',
+    'form.label.message': 'Mensagem (opcional)',
+    'form.ph.firstname': 'Maria',
+    'form.ph.lastname': 'Pereira',
+    'form.ph.message': 'Alergias, leitão a reservar, ocasião especial...',
+    'form.opt.persons': ['2 pessoas', '3 pessoas', '4 pessoas', '5 pessoas', '6 pessoas', '7+ pessoas'],
+    'form.opt.service': ['Jantar (a partir das 18h00)', 'Almoço (a partir das 11h30)'],
+    'form.submit': 'Pedir reserva →',
+    'form.note': 'Reserva confirmada quando receber a nossa confirmação por email.',
+    'form.alert': 'Demonstração NB-Design — formulário a ligar ao Formspree antes da publicação.',
+
+    'foot.desc': 'A mesa portuguesa das vinhas de Vétroz. Família Patrao, desde 2012.',
+    'foot.col1.title': 'Descobrir',
+    'foot.col1.history': 'A nossa história',
+    'foot.col1.spec': 'Especialidades',
+    'foot.col1.menu': 'A ementa',
+    'foot.col1.gallery': 'Galeria',
+    'foot.col2.title': 'Contacto',
+    'foot.col3.title': 'Horário',
+    'foot.col3.days': 'Ter – Sáb',
+    'foot.col3.closed': 'Dom & Seg encerrado',
+    'foot.copyright': '© 2026 Le Palais des Petits Cochons · Todos os direitos reservados',
+    'foot.author': 'Site criado com dedicação por <a href="https://nb-design.ch">NB-Design</a>'
+  }
+};
+
+const STORAGE_KEY = 'palais_lang';
+
+function cacheOriginal(el, attr) {
+  const k = '__orig_' + attr;
+  if (!el.dataset[k]) {
+    if (attr === 'text') el.dataset[k] = el.textContent;
+    else if (attr === 'html') el.dataset[k] = el.innerHTML;
+    else if (attr === 'placeholder') el.dataset[k] = el.getAttribute('placeholder') || '';
+    else if (attr === 'options') el.dataset[k] = JSON.stringify(Array.from(el.options).map(o => o.textContent));
+  }
+  return el.dataset[k];
+}
+
+function applyLang(lang) {
+  const isFr = lang === 'fr';
+  const t = translations[lang] || {};
+  document.documentElement.lang = lang;
+  document.querySelector('meta[property="og:locale"]').setAttribute('content', isFr ? 'fr_CH' : 'pt_PT');
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    const orig = cacheOriginal(el, 'text');
+    el.textContent = isFr ? orig : (t[key] || orig);
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    const orig = cacheOriginal(el, 'html');
+    el.innerHTML = isFr ? orig : (t[key] || orig);
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    const orig = cacheOriginal(el, 'placeholder');
+    el.setAttribute('placeholder', isFr ? orig : (t[key] || orig));
+  });
+  document.querySelectorAll('[data-i18n-options]').forEach(el => {
+    const key = el.dataset.i18nOptions;
+    const origJson = cacheOriginal(el, 'options');
+    const origArr = JSON.parse(origJson);
+    const newArr = isFr ? origArr : (t[key] || origArr);
+    const selectedIdx = el.selectedIndex;
+    Array.from(el.options).forEach((opt, i) => {
+      opt.textContent = newArr[i] || origArr[i];
+    });
+    el.selectedIndex = selectedIdx;
+  });
+
+  document.querySelectorAll('.lang-opt').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+    b.setAttribute('aria-pressed', b.dataset.lang === lang);
+  });
+
+  try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+}
+
+// ═══════ Init ═══════
+(function bootI18n() {
+  let initial = 'fr';
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'pt' || saved === 'fr') initial = saved;
+    else if ((navigator.language || '').toLowerCase().startsWith('pt')) initial = 'pt';
+  } catch (e) {}
+  document.addEventListener('DOMContentLoaded', () => {
+    if (initial !== 'fr') applyLang(initial);
+    else applyLang('fr'); // hydrate caches even when staying FR
+    document.querySelectorAll('.lang-opt').forEach(b => {
+      b.addEventListener('click', () => applyLang(b.dataset.lang));
+    });
+  });
+})();
+
+// ═══════ UI scripts ═══════
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 60) nav.classList.add('scrolled');
   else nav.classList.remove('scrolled');
 });
 
-// Mobile menu
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-// Reveal on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
 }, { threshold: 0.15 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Menu tabs
 const menuTabs = document.querySelectorAll('.menu-tab');
 const menuPanels = document.querySelectorAll('.menu-panel');
 menuTabs.forEach(tab => {
@@ -1595,12 +1901,23 @@ menuTabs.forEach(tab => {
   });
 });
 
-// Set min date today
 const dateInput = document.querySelector('input[type="date"]');
 if (dateInput) {
   const today = new Date().toISOString().split('T')[0];
   dateInput.min = today;
   dateInput.value = today;
+}
+
+const resForm = document.getElementById('reservationForm');
+if (resForm) {
+  resForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const isPt = document.documentElement.lang === 'pt';
+    const msg = isPt
+      ? (translations.pt['form.alert'] || 'Demonstração NB-Design')
+      : 'Démonstration NB-Design — formulaire à connecter à Formspree avant mise en ligne.';
+    alert(msg);
+  });
 }
 </script>
 
