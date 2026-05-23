@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Le B Sportsbar — sportbar, pizzeria et restaurant à Monthey. Pizzas, burgers, spécialités régionales et tous les grands matchs sur écran géant. Route du Verney 34, 1870 Monthey. +41 24 471 74 72." />
+  <meta name="keywords" content="sportbar Monthey, pizzeria Monthey, burger Monthey, restaurant patinoire Monthey, Le B Sportsbar, matchs en direct Valais" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0a0d12" />
+
+  <meta property="og:title" content="Le B Sportsbar — Monthey" />
+  <meta property="og:description" content="Pizzas, burgers, spécialités régionales et tous les grands matchs sur écran géant. L'ancien Restaurant de la Patinoire devenu LE sportbar de Monthey." />
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:locale" content="fr_CH" />
+
+  <title>Le B Sportsbar — Pizzas, burgers & matchs en direct, Monthey</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarOrPub",
+    "name": "Le B Sportsbar",
+    "alternateName": "Le B Monthey",
+    "description": "Sportbar, pizzeria et restaurant à Monthey. Pizzas, burgers, spécialités régionales et tous les grands matchs sur écran géant.",
+    "telephone": "+41244717472",
+    "email": "le.b.monthey@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Route du Verney 34",
+      "addressLocality": "Monthey",
+      "postalCode": "1870",
+      "addressCountry": "CH"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 46.2538, "longitude": 6.9526 },
+    "servesCuisine": ["Pizza", "Burger", "Cuisine suisse", "Spécialités régionales"],
+    "priceRange": "CHF",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "11:00", "closes": "15:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "11:00", "closes": "23:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday","Friday","Saturday","Sunday"], "opens": "09:00", "closes": "23:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "11:00", "closes": "23:00" }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ====== RESET & BASE ====== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--cream);
+      background: var(--bg-dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea, select { font: inherit; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ====== TOKENS ====== */
+    :root {
+      --bg-dark: #0a0d12;
+      --bg-deeper: #06080b;
+      --surface: #11161e;
+      --surface-2: #1a212c;
+      --amber: #f5a623;
+      --amber-soft: #f7c267;
+      --amber-deep: #c47b0a;
+      --red-energy: #e63946;
+      --ice-blue: #4cc9f0;
+      --ice-blue-soft: rgba(76, 201, 240, 0.18);
+      --cream: #f0ebe0;
+      --cream-soft: #e8e2d4;
+      --text-muted: rgba(240, 235, 224, 0.62);
+      --text-dim: rgba(240, 235, 224, 0.38);
+      --border-soft: rgba(240, 235, 224, 0.07);
+      --border-medium: rgba(240, 235, 224, 0.13);
+
+      --font-display: 'Anton', 'Impact', sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-elegant: 'Playfair Display', Georgia, serif;
+
+      --radius-sm: 6px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-full: 9999px;
+
+      --section-py: clamp(4.5rem, 9vw, 8rem);
+      --container-max: 1280px;
+      --container-px: clamp(1.25rem, 4vw, 3rem);
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ====== LAYOUT ====== */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding-left: var(--container-px);
+      padding-right: var(--container-px);
+      width: 100%;
+    }
+    section {
+      position: relative;
+      padding-top: var(--section-py);
+      padding-bottom: var(--section-py);
+    }
+
+    /* ====== TYPOGRAPHY ====== */
+    .eyebrow {
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--amber);
+      margin-bottom: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: var(--amber);
+      display: inline-block;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: 0.01em;
+      color: var(--cream);
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+    }
+    .section-title .accent {
+      color: var(--amber);
+    }
+    .section-title .italic {
+      font-family: var(--font-elegant);
+      font-style: italic;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: -0.02em;
+      color: var(--amber-soft);
+    }
+    .section-subtitle {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+    .section-header { margin-bottom: 4rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-subtitle { margin: 0 auto; }
+    .section-header.centered .eyebrow { margin-left: auto; margin-right: auto; }
+
+    /* ====== BUTTONS ====== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.7rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.35s var(--ease-out), background 0.3s, border-color 0.3s, box-shadow 0.45s;
+      white-space: nowrap;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--amber), var(--amber-deep));
+      color: #1a1005;
+      border: 1px solid rgba(245, 166, 35, 0.5);
+      box-shadow: 0 8px 32px rgba(245, 166, 35, 0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 44px rgba(245, 166, 35, 0.42);
+    }
+    .btn-ghost {
+      background: rgba(240, 235, 224, 0.04);
+      color: var(--cream);
+      border: 1px solid var(--border-medium);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover {
+      background: rgba(240, 235, 224, 0.09);
+      border-color: rgba(240, 235, 224, 0.3);
+      transform: translateY(-2px);
+    }
+    .btn-red {
+      background: linear-gradient(135deg, var(--red-energy), #b02a37);
+      color: #fff;
+      border: 1px solid rgba(230, 57, 70, 0.5);
+      box-shadow: 0 8px 28px rgba(230, 57, 70, 0.3);
+    }
+    .btn-red:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 38px rgba(230, 57, 70, 0.5);
+    }
+
+    /* ====== HEADER ====== */
+    .header {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 1.5rem);
+      max-width: 1200px;
+      transition: top 0.4s var(--ease-out), background 0.4s, border-color 0.4s, box-shadow 0.4s;
+      background: rgba(10, 13, 18, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-medium);
+      border-radius: 9999px;
+      padding: 0.5rem 0.55rem 0.5rem 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+    }
+    .header.scrolled {
+      top: 0.75rem;
+      background: rgba(10, 13, 18, 0.92);
+      border-color: rgba(245, 166, 35, 0.18);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      white-space: nowrap;
+    }
+    .logo-mark {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--amber), var(--amber-deep));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: #1a1005;
+      box-shadow: 0 0 18px rgba(245, 166, 35, 0.35);
+    }
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      letter-spacing: 0.06em;
+      color: var(--cream);
+      text-transform: uppercase;
+    }
+    .logo-text small {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: var(--amber);
+      font-weight: 600;
+      margin-top: -2px;
+    }
+    .nav-links { display: none; gap: 1.8rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s;
+      padding: 0.4rem 0;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--amber);
+      transition: width 0.35s var(--ease-out);
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { display: none; padding: 0.6rem 1.2rem; font-size: 0.75rem; }
+    .burger {
+      width: 42px; height: 42px;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .burger:hover { background: rgba(240,235,224,0.05); border-color: rgba(240,235,224,0.25); }
+    .burger-bars { width: 18px; height: 12px; position: relative; }
+    .burger-bars span {
+      position: absolute; left: 0; right: 0;
+      height: 2px; background: var(--cream); border-radius: 2px;
+      transition: transform 0.35s var(--ease-out), opacity 0.25s, top 0.35s var(--ease-out);
+    }
+    .burger-bars span:nth-child(1) { top: 0; }
+    .burger-bars span:nth-child(2) { top: 5px; }
+    .burger-bars span:nth-child(3) { top: 10px; }
+    .burger.open .burger-bars span:nth-child(1) { top: 5px; transform: rotate(45deg); }
+    .burger.open .burger-bars span:nth-child(2) { opacity: 0; }
+    .burger.open .burger-bars span:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+
+    /* ====== MOBILE MENU ====== */
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: rgba(6, 8, 11, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 90;
+      display: flex;
+      align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s var(--ease-out), visibility 0.4s;
+    }
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+    .mobile-menu-inner { display: flex; flex-direction: column; gap: 2rem; text-align: center; align-items: center; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--cream);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--amber); }
+
+    /* ====== HERO ====== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to bottom, rgba(10,13,18,0.7) 0%, rgba(10,13,18,0.3) 35%, rgba(10,13,18,0.7) 75%, rgba(10,13,18,0.98) 100%),
+        linear-gradient(to right, rgba(10,13,18,0.6) 0%, transparent 55%);
+    }
+    .hero-glows { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .hero-glow-1 {
+      position: absolute;
+      top: 18%; left: 12%;
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 166, 35, 0.12) 0%, transparent 70%);
+      filter: blur(50px);
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      bottom: 22%; right: 8%;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(76, 201, 240, 0.14) 0%, transparent 70%);
+      filter: blur(55px);
+      animation: glowPulse 8s ease-in-out 2s infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.5; }
+      50%      { opacity: 1; }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.5rem 1.25rem;
+      background: rgba(230, 57, 70, 0.12);
+      border: 1px solid rgba(230, 57, 70, 0.4);
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(8px);
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.3s forwards;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--red-energy);
+      box-shadow: 0 0 12px var(--red-energy);
+      animation: blink 1.6s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.4; transform: scale(0.8); }
+    }
+    .hero-badge span {
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(3.5rem, 11vw, 9rem);
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      margin-bottom: 0.4em;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.2s var(--ease-out) 0.5s forwards;
+    }
+    .hero-title-main {
+      display: block;
+      color: var(--cream);
+    }
+    .hero-title-accent {
+      display: block;
+      background: linear-gradient(135deg, var(--amber-soft) 0%, var(--amber) 50%, var(--amber-deep) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-tagline {
+      font-family: var(--font-elegant);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: var(--ice-blue);
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.7s forwards;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      margin-bottom: 2.8rem;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.85s forwards;
+    }
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 1.05s forwards;
+    }
+    .hero-meta-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.2rem;
+      margin-top: 3.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 1.25s forwards;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .hero-meta-item svg { color: var(--amber); flex-shrink: 0; }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 0; right: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease-out) 1.5s forwards;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, var(--amber), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(1); opacity: 0.5; }
+      50%      { transform: scaleY(0.5); opacity: 1; }
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ====== ABOUT ====== */
+    .about { background: var(--bg-dark); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .about-photo-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .about-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(245, 166, 35, 0.3), transparent 60%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .about-photo {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      display: block;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 1.5rem; left: 1.5rem;
+      background: rgba(6, 8, 11, 0.88);
+      border: 1px solid rgba(245, 166, 35, 0.35);
+      border-radius: var(--radius-md);
+      padding: 0.9rem 1.3rem;
+      backdrop-filter: blur(12px);
+      z-index: 2;
+    }
+    .about-badge-title { font-family: var(--font-display); font-size: 1.1rem; color: var(--amber); letter-spacing: 0.05em; }
+    .about-badge-sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .about-text p { color: var(--text-muted); line-height: 1.85; margin-bottom: 1.25rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-soft);
+    }
+    .about-stat-num {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .about-stat-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ====== SPORT PROGRAM ====== */
+    .sport-section {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, var(--surface) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .sport-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -150px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(76, 201, 240, 0.08) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .sport-screens-banner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+    .screens-card {
+      background: rgba(17, 22, 30, 0.7);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .screens-card:hover { border-color: rgba(245, 166, 35, 0.35); transform: translateY(-3px); }
+    .screens-card-icon {
+      width: 48px; height: 48px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: rgba(245, 166, 35, 0.12);
+      border: 1px solid rgba(245, 166, 35, 0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--amber);
+    }
+    .screens-card-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .screens-card-label {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .matches-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    .match-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(17, 22, 30, 0.6);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    }
+    .match-row:hover { border-color: rgba(245, 166, 35, 0.3); background: rgba(17, 22, 30, 0.85); transform: translateX(4px); }
+    .match-row.live { border-color: rgba(230, 57, 70, 0.4); background: rgba(230, 57, 70, 0.05); }
+    .match-date {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--amber);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .match-date-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+    }
+    .match-row.live .match-date { color: var(--red-energy); }
+    .match-row.live .match-date-dot { background: var(--red-energy); box-shadow: 0 0 10px var(--red-energy); animation: blink 1.6s ease-in-out infinite; }
+    .match-teams {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .match-teams .vs {
+      color: var(--text-dim);
+      margin: 0 0.4rem;
+      font-size: 0.85rem;
+    }
+    .match-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .match-meta strong { color: var(--cream-soft); font-weight: 600; }
+
+    /* ====== MENU ====== */
+    .menu-section { background: var(--bg-deeper); }
+    .menu-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      justify-content: center;
+    }
+    .menu-tab {
+      padding: 0.7rem 1.5rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-medium);
+      background: none;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .menu-tab:hover { color: var(--cream); border-color: rgba(240,235,224,0.25); }
+    .menu-tab.active {
+      background: rgba(245, 166, 35, 0.14);
+      border-color: rgba(245, 166, 35, 0.5);
+      color: var(--amber);
+    }
+    .menu-panel { display: none; }
+    .menu-panel.active {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--border-soft);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .menu-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.5rem 1.75rem;
+      background: rgba(17, 22, 30, 0.7);
+      transition: background 0.3s;
+    }
+    .menu-item:hover { background: rgba(17, 22, 30, 1); }
+    .menu-item-text { flex: 1; }
+    .menu-item-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 0.35rem;
+    }
+    .menu-item-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+    .menu-item-tag {
+      font-size: 0.68rem;
+      color: var(--ice-blue);
+      background: var(--ice-blue-soft);
+      padding: 0.18rem 0.55rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 0.5rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .menu-item-tag.spicy { color: var(--red-energy); background: rgba(230, 57, 70, 0.12); }
+    .menu-item-tag.veggie { color: #7dc99a; background: rgba(125, 201, 154, 0.12); }
+    .menu-item-price {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--amber);
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+    }
+    .menu-note { margin-top: 2rem; padding: 1.5rem; background: rgba(245, 166, 35, 0.06); border: 1px solid rgba(245, 166, 35, 0.2); border-radius: var(--radius-md); }
+    .menu-note p { font-size: 0.9rem; color: var(--text-muted); }
+    .menu-note strong { color: var(--amber); }
+
+    /* ====== GALLERY ====== */
+    .gallery { background: var(--bg-dark); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item:first-child { grid-column: span 2; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      transition: transform 0.6s var(--ease-out);
+      display: block;
+    }
+    .gallery-item:first-child img { aspect-ratio: 21/9; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6,8,11,0.85) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-label {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    /* ====== TESTIMONIALS ====== */
+    .testimonials { background: var(--bg-deeper); }
+    .testi-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .testi-card {
+      background: rgba(17, 22, 30, 0.6);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .testi-card:hover { border-color: rgba(245, 166, 35, 0.25); transform: translateY(-3px); }
+    .testi-stars { display: flex; gap: 0.2rem; margin-bottom: 1.25rem; }
+    .testi-star { color: var(--amber); font-size: 1rem; }
+    .testi-text {
+      font-family: var(--font-elegant);
+      font-size: 1.1rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--cream-soft);
+      margin-bottom: 1.5rem;
+    }
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testi-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--amber), var(--amber-deep));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: #1a1005;
+      flex-shrink: 0;
+    }
+    .testi-name { font-weight: 600; font-size: 0.9rem; color: var(--cream); }
+    .testi-location { font-size: 0.78rem; color: var(--text-muted); }
+    .testi-source { margin-left: auto; font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* ====== RESERVATION ====== */
+    .reservation { background: var(--bg-dark); }
+    .resa-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .resa-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .resa-info p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
+    .resa-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--amber);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+    }
+    .resa-tel-icon { color: var(--amber); }
+    .resa-hours-note { font-size: 0.85rem; color: var(--text-muted); }
+    .resa-perks {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .resa-perk {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      background: rgba(17, 22, 30, 0.5);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+    }
+    .resa-perk svg { color: var(--amber); flex-shrink: 0; margin-top: 2px; }
+    .resa-perk-text strong { display: block; color: var(--cream); font-size: 0.92rem; font-weight: 600; margin-bottom: 0.15rem; }
+    .resa-perk-text span { font-size: 0.82rem; color: var(--text-muted); }
+
+    .resa-form {
+      display: grid;
+      gap: 1rem;
+      background: rgba(17, 22, 30, 0.5);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    .field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .field label {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .field input, .field select, .field textarea {
+      background: rgba(240, 235, 224, 0.04);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem 1rem;
+      font-size: 0.95rem;
+      color: var(--cream);
+      transition: border-color 0.3s, background 0.3s;
+      width: 100%;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: rgba(245, 166, 35, 0.55);
+      background: rgba(240, 235, 224, 0.07);
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--text-dim); }
+    .field select option { background: var(--surface); color: var(--cream); }
+    .field textarea { resize: vertical; min-height: 90px; }
+    .form-note { font-size: 0.78rem; color: var(--text-dim); }
+    .form-success {
+      display: none;
+      padding: 1rem 1.25rem;
+      background: rgba(125,201,154,0.1);
+      border: 1px solid rgba(125,201,154,0.3);
+      border-radius: var(--radius-md);
+      color: #7dc99a;
+      font-size: 0.9rem;
+    }
+
+    /* ====== CONTACT ====== */
+    .contact-section { background: var(--bg-deeper); }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+    .contact-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .info-block { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .info-icon {
+      width: 42px; height: 42px;
+      border-radius: var(--radius-sm);
+      background: rgba(245, 166, 35, 0.1);
+      border: 1px solid rgba(245, 166, 35, 0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--amber);
+    }
+    .info-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.25rem;
+    }
+    .info-value { font-size: 0.95rem; color: var(--cream); line-height: 1.6; }
+    .info-value a { color: var(--cream); transition: color 0.2s; }
+    .info-value a:hover { color: var(--amber); }
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1.5rem; }
+    .hours-day { font-size: 0.85rem; color: var(--text-muted); text-transform: capitalize; }
+    .hours-time { font-size: 0.85rem; color: var(--cream-soft); text-align: right; }
+    .map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      height: 360px;
+      position: relative;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; filter: grayscale(0.3) brightness(0.85); }
+    .social-row { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.3s;
+      letter-spacing: 0.05em;
+    }
+    .social-btn:hover { color: var(--cream); border-color: rgba(245, 166, 35, 0.35); background: rgba(245, 166, 35, 0.06); }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--bg-deeper);
+      border-top: 1px solid var(--border-soft);
+      padding: 3rem 0 2rem;
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--amber); }
+    .footer-credit { font-size: 0.75rem; color: var(--text-dim); }
+    .footer-credit a { color: var(--amber); transition: opacity 0.2s; }
+    .footer-credit a:hover { opacity: 0.75; }
+    .footer-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--border-medium);
+    }
+
+    /* ====== WHATSAPP FLOAT ====== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      z-index: 50;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      display: flex;
+      align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+      color: #fff;
+    }
+    .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.55); }
+    .whatsapp-float svg { width: 28px; height: 28px; }
+
+    /* ====== RESPONSIVE ====== */
+    @media (min-width: 720px) {
+      .form-row { grid-template-columns: 1fr 1fr; }
+      .hero-meta-row { gap: 3rem; }
+    }
+    @media (min-width: 960px) {
+      .nav-links { display: flex; }
+      .nav-cta { display: inline-flex; }
+      .burger { display: none; }
+      .about-grid { grid-template-columns: 1.05fr 1fr; gap: 5rem; }
+      .matches-list { grid-template-columns: 1fr; }
+      .match-row { grid-template-columns: 200px 1fr auto; gap: 2rem; }
+      .menu-panel.active { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-item:first-child { grid-column: span 2; grid-row: span 2; }
+      .gallery-item:first-child img { aspect-ratio: 1/1; }
+      .resa-wrap { grid-template-columns: 1fr 1.1fr; gap: 4rem; }
+      .contact-grid { grid-template-columns: 1fr 1.3fr; }
+      .testi-grid { grid-template-columns: repeat(3, 1fr); }
+      .sport-screens-banner { gap: 1.5rem; }
+      .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; }
+    }
+    @media (max-width: 540px) {
+      .sport-screens-banner { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== HEADER ====== -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#hero" class="logo">
+          <span class="logo-mark">B</span>
+          <span class="logo-text">Le B<small>Sportsbar · Monthey</small></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">Le lieu</a></li>
+          <li><a href="#sport">Programme</a></li>
+          <li><a href="#menu">Carte</a></li>
+          <li><a href="#gallery">Ambiance</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div style="display:flex; align-items:center; gap: 0.65rem;">
+          <a href="#reservation" class="btn btn-primary nav-cta">Réserver</a>
+          <button class="burger" id="burger" aria-label="Ouvrir le menu">
+            <span class="burger-bars"><span></span><span></span><span></span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== MOBILE MENU ====== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="#about" class="mobile-link">Le lieu</a>
+      <a href="#sport" class="mobile-link">Programme</a>
+      <a href="#menu" class="mobile-link">Carte</a>
+      <a href="#gallery" class="mobile-link">Ambiance</a>
+      <a href="#reservation" class="mobile-link">Réserver</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </div>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-glows">
+      <div class="hero-glow-1"></div>
+      <div class="hero-glow-2"></div>
+    </div>
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Tous les matchs en direct · écrans géants</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-main">Le B</span>
+        <span class="hero-title-accent">Sportsbar</span>
+      </h1>
+      <p class="hero-tagline">L'ancien Restaurant de la Patinoire, version sport &amp; convivialité.</p>
+      <p class="hero-sub">Pizzas savoureuses, burgers généreux, spécialités du Valais et tous les grands matchs sur écran géant. Le rendez-vous incontournable de Monthey, à deux pas de la patinoire.</p>
+      <div class="hero-cta">
+        <a href="#reservation" class="btn btn-primary">Réserver une table</a>
+        <a href="#menu" class="btn btn-ghost">Voir la carte</a>
+      </div>
+      <div class="hero-meta-row">
+        <div class="hero-meta-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Route du Verney 34, Monthey
+        </div>
+        <div class="hero-meta-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          024 471 74 72
+        </div>
+        <div class="hero-meta-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Ouvert 7j/7 · jusqu'à 23h
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Découvrir</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ====== ABOUT ====== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo-wrap">
+          <img class="about-photo" src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=1200&q=85&auto=format&fit=crop" alt="Ambiance Le B Sportsbar Monthey" />
+          <div class="about-badge">
+            <div class="about-badge-title">Depuis la patinoire</div>
+            <div class="about-badge-sub">Repris, repensé, relancé</div>
+          </div>
+        </div>
+        <div class="about-text">
+          <div class="eyebrow">Le lieu</div>
+          <h2 class="section-title">L'esprit <span class="italic">sportbar</span>,<br/>au cœur de Monthey.</h2>
+          <p>Anciennement le Restaurant de la Patinoire, Le B s'est réinventé en sportsbar moderne et chaleureux, sans renier ses racines. Une adresse où l'on vient pour la table autant que pour l'ambiance — entre amis après l'entraînement, en famille pour le brunch du dimanche, ou en équipe pour vibrer devant un match.</p>
+          <p>Côté cuisine : pizzas cuites à la commande, burgers généreux préparés avec des produits locaux, et spécialités régionales qui réveillent le terroir valaisan. Côté bar : bières pression, sélection de vins du coin et cocktails travaillés.</p>
+          <p>Et bien sûr, des écrans partout pour ne rien rater du hockey, du foot, du rugby ou de la F1. À Monthey, c'est ici qu'on regarde le sport.</p>
+          <div class="about-stats">
+            <div>
+              <div class="about-stat-num">7</div>
+              <div class="about-stat-label">jours / 7</div>
+            </div>
+            <div>
+              <div class="about-stat-num">5</div>
+              <div class="about-stat-label">écrans HD</div>
+            </div>
+            <div>
+              <div class="about-stat-num">100%</div>
+              <div class="about-stat-label">produits locaux</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SPORT PROGRAM ====== -->
+  <section class="sport-section" id="sport">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="eyebrow">En direct chez nous</div>
+        <h2 class="section-title">Le <span class="accent">programme</span> sportif</h2>
+        <p class="section-subtitle">Tous les grands rendez-vous diffusés sur nos écrans géants. Une table réservée pendant le match, c'est zéro stress et la meilleure place de la maison.</p>
+      </div>
+
+      <div class="sport-screens-banner">
+        <div class="screens-card">
+          <div class="screens-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="screens-card-num">5 écrans</div>
+          <div class="screens-card-label">Full HD · son ambiance</div>
+        </div>
+        <div class="screens-card">
+          <div class="screens-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          </div>
+          <div class="screens-card-num">Multi-chaînes</div>
+          <div class="screens-card-label">Hockey · foot · F1 · rugby</div>
+        </div>
+        <div class="screens-card">
+          <div class="screens-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M3 12h18M5 21h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"/></svg>
+          </div>
+          <div class="screens-card-num">Terrasse</div>
+          <div class="screens-card-label">Écran extérieur l'été</div>
+        </div>
+      </div>
+
+      <div class="matches-list">
+        <div class="match-row live">
+          <div class="match-date">
+            <span class="match-date-dot"></span>
+            <span>Ce soir · 20h45 · LIVE</span>
+          </div>
+          <div class="match-teams">HC Sierre <span class="vs">vs</span> HC Viège</div>
+          <div class="match-meta"><strong>Swiss League</strong><span>Écran principal</span></div>
+        </div>
+        <div class="match-row">
+          <div class="match-date">
+            <span class="match-date-dot"></span>
+            <span>Sam. 30 · 18h00</span>
+          </div>
+          <div class="match-teams">FC Sion <span class="vs">vs</span> Servette FC</div>
+          <div class="match-meta"><strong>Super League</strong><span>Tous écrans</span></div>
+        </div>
+        <div class="match-row">
+          <div class="match-date">
+            <span class="match-date-dot"></span>
+            <span>Dim. 31 · 14h00</span>
+          </div>
+          <div class="match-teams">GP F1 <span class="vs">·</span> Monaco</div>
+          <div class="match-meta"><strong>Formula 1</strong><span>Brunch sportif dès 11h</span></div>
+        </div>
+        <div class="match-row">
+          <div class="match-date">
+            <span class="match-date-dot"></span>
+            <span>Mer. 3 · 21h00</span>
+          </div>
+          <div class="match-teams">Real Madrid <span class="vs">vs</span> Bayern</div>
+          <div class="match-meta"><strong>Ligue des Champions</strong><span>Demi-finale retour</span></div>
+        </div>
+        <div class="match-row">
+          <div class="match-date">
+            <span class="match-date-dot"></span>
+            <span>Sam. 6 · 21h00</span>
+          </div>
+          <div class="match-teams">Tournoi 6 Nations <span class="vs">·</span> France - Galles</div>
+          <div class="match-meta"><strong>Rugby</strong><span>Ambiance garantie</span></div>
+        </div>
+      </div>
+
+      <div class="menu-note" style="margin-top: 2rem; text-align: center;">
+        <p><strong>Une demande de retransmission ?</strong> Appelez-nous au <a href="tel:+41244717472" style="color:var(--amber); text-decoration: underline;">024 471 74 72</a> — on fait notre maximum pour diffuser votre match.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== MENU ====== -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="eyebrow">À table</div>
+        <h2 class="section-title">La <span class="italic">carte</span></h2>
+        <p class="section-subtitle">Pizzas à pâte fine, burgers travaillés, spécialités du Valais et classiques de brasserie. Le tout préparé minute, avec des produits locaux quand c'est possible.</p>
+      </div>
+
+      <div class="menu-tabs">
+        <button class="menu-tab active" data-tab="pizzas">Pizzas</button>
+        <button class="menu-tab" data-tab="burgers">Burgers</button>
+        <button class="menu-tab" data-tab="specialites">Spécialités</button>
+        <button class="menu-tab" data-tab="snacks">Snacks &amp; Apéro</button>
+        <button class="menu-tab" data-tab="boissons">Boissons</button>
+      </div>
+
+      <!-- PIZZAS -->
+      <div class="menu-panel active" data-panel="pizzas">
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Margherita</div>
+            <div class="menu-item-desc">Tomate San Marzano, mozzarella fior di latte, basilic frais, huile d'olive</div>
+          </div>
+          <div class="menu-item-price">16.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Reine</div>
+            <div class="menu-item-desc">Tomate, mozzarella, jambon cuit, champignons de Paris</div>
+          </div>
+          <div class="menu-item-price">19.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Valaisanne</div>
+            <div class="menu-item-desc">Crème, raclette du Valais AOP, viande séchée IGP, oignons rouges, pommes de terre</div>
+            <span class="menu-item-tag">Spécialité maison</span>
+          </div>
+          <div class="menu-item-price">23.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Diavola</div>
+            <div class="menu-item-desc">Tomate, mozzarella, salami piquant Calabria, oignons rouges, piment frais</div>
+            <span class="menu-item-tag spicy">Piquant</span>
+          </div>
+          <div class="menu-item-price">21.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Quatre Fromages</div>
+            <div class="menu-item-desc">Mozzarella, gorgonzola, parmesan affiné, sérac du Valais, miel d'acacia</div>
+          </div>
+          <div class="menu-item-price">22.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Végétarienne du marché</div>
+            <div class="menu-item-desc">Courgettes grillées, aubergines, poivrons, tomates cerises, roquette, copeaux de parmesan</div>
+            <span class="menu-item-tag veggie">Végétarien</span>
+          </div>
+          <div class="menu-item-price">20.-</div>
+        </div>
+      </div>
+
+      <!-- BURGERS -->
+      <div class="menu-panel" data-panel="burgers">
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Le B Classic</div>
+            <div class="menu-item-desc">180g de bœuf suisse, cheddar affiné, oignons confits, sauce maison, salade, tomate, pain brioché. Frites maison</div>
+          </div>
+          <div class="menu-item-price">23.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Burger du Valais</div>
+            <div class="menu-item-desc">180g de bœuf, raclette AOP fondue, viande séchée IGP, oignons grillés, salade, mayo paprika. Frites maison</div>
+            <span class="menu-item-tag">Signature</span>
+          </div>
+          <div class="menu-item-price">27.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Hot Chicken</div>
+            <div class="menu-item-desc">Filet de poulet pané, sauce piquante, coleslaw, pickles, cheddar. Frites maison</div>
+            <span class="menu-item-tag spicy">Piquant</span>
+          </div>
+          <div class="menu-item-price">24.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Veggie Burger</div>
+            <div class="menu-item-desc">Galette de pois chiches et patate douce, avocat, salade, tomate confite, sauce yaourt-citron</div>
+            <span class="menu-item-tag veggie">Végétarien</span>
+          </div>
+          <div class="menu-item-price">22.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Double Stack</div>
+            <div class="menu-item-desc">2 × 150g de bœuf, double cheddar, bacon, oignons frits, sauce BBQ. Frites maison</div>
+          </div>
+          <div class="menu-item-price">28.-</div>
+        </div>
+      </div>
+
+      <!-- SPÉCIALITÉS -->
+      <div class="menu-panel" data-panel="specialites">
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Raclette AOP</div>
+            <div class="menu-item-desc">Au demi-meule, pommes de terre en robe, cornichons, oignons, viande séchée et lard sec du Valais</div>
+            <span class="menu-item-tag">Min. 2 pers.</span>
+          </div>
+          <div class="menu-item-price">32.- / pers</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Fondue moitié-moitié</div>
+            <div class="menu-item-desc">Vacherin fribourgeois &amp; gruyère AOP, vin blanc du Valais, pain de campagne</div>
+          </div>
+          <div class="menu-item-price">28.- / pers</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Entrecôte de bœuf 220g</div>
+            <div class="menu-item-desc">Pièce du boucher, beurre maître d'hôtel ou poivre vert. Frites maison et légumes du moment</div>
+          </div>
+          <div class="menu-item-price">36.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Cordon-bleu de veau</div>
+            <div class="menu-item-desc">Veau suisse, jambon cuit, raclette AOP, panure dorée. Frites maison, salade</div>
+          </div>
+          <div class="menu-item-price">34.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Filets de perche du Léman</div>
+            <div class="menu-item-desc">Meunière ou panés, citron, frites maison ou riz, salade verte</div>
+          </div>
+          <div class="menu-item-price">32.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Rösti gratinée du chasseur</div>
+            <div class="menu-item-desc">Rösti croustillante, lardons, oignons, raclette fondue, œuf au plat</div>
+          </div>
+          <div class="menu-item-price">24.-</div>
+        </div>
+      </div>
+
+      <!-- SNACKS -->
+      <div class="menu-panel" data-panel="snacks">
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Planche apéro Le B</div>
+            <div class="menu-item-desc">Viande séchée IGP, lard sec, fromages d'alpage, cornichons, olives, pain de campagne</div>
+            <span class="menu-item-tag">2-3 pers.</span>
+          </div>
+          <div class="menu-item-price">29.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Nachos gratinés</div>
+            <div class="menu-item-desc">Tortillas, cheddar fondu, guacamole, sour cream, salsa, jalapeños</div>
+          </div>
+          <div class="menu-item-price">16.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Chicken wings BBQ</div>
+            <div class="menu-item-desc">8 ailes de poulet glacées, sauce BBQ maison, dip ranch</div>
+          </div>
+          <div class="menu-item-price">15.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Frites maison &amp; sauces</div>
+            <div class="menu-item-desc">Pommes fraîches, double cuisson. Mayo, ketchup, BBQ, cocktail, tartare</div>
+          </div>
+          <div class="menu-item-price">8.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Mozza sticks</div>
+            <div class="menu-item-desc">Bâtonnets de mozzarella panés, sauce tomate basilic</div>
+          </div>
+          <div class="menu-item-price">12.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Mini-burgers (×3)</div>
+            <div class="menu-item-desc">Trois sliders au bœuf, cheddar, sauce maison. Idéal pour partager</div>
+          </div>
+          <div class="menu-item-price">17.-</div>
+        </div>
+      </div>
+
+      <!-- BOISSONS -->
+      <div class="menu-panel" data-panel="boissons">
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Bières pression</div>
+            <div class="menu-item-desc">Calanda 3dl / 5dl · Boxer 3dl / 5dl · Bière artisanale du moment</div>
+          </div>
+          <div class="menu-item-price">dès 5.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Vins du Valais</div>
+            <div class="menu-item-desc">Fendant, Johannisberg, Petite Arvine, Pinot Noir, Cornalin — sélection de domaines locaux</div>
+          </div>
+          <div class="menu-item-price">dès 6.- / dl</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Cocktails maison</div>
+            <div class="menu-item-desc">Mojito, Aperol Spritz, Moscow Mule, Gin Tonic, Cuba Libre, Negroni</div>
+          </div>
+          <div class="menu-item-price">14.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Sans alcool</div>
+            <div class="menu-item-desc">Coca, Rivella, jus de pomme valaisan, sirops maison, Schweppes, eaux minérales</div>
+          </div>
+          <div class="menu-item-price">dès 4.-</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-text">
+            <div class="menu-item-name">Cafés &amp; thés</div>
+            <div class="menu-item-desc">Espresso, ristretto, cappuccino, latte, chocolat chaud, thés sélection</div>
+          </div>
+          <div class="menu-item-price">dès 4.-</div>
+        </div>
+      </div>
+
+      <div class="menu-note">
+        <p><strong>Carte évolutive.</strong> Notre cuisinier ajuste les plats au gré des arrivages et des saisons — n'hésitez pas à demander les suggestions du jour à votre serveur.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== GALLERY ====== -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="eyebrow">L'ambiance</div>
+        <h2 class="section-title">Bienvenue au <span class="accent">B</span></h2>
+        <p class="section-subtitle">Une salle conviviale, une terrasse pour les beaux jours, et toujours du sport sur les écrans.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1400&q=85&auto=format&fit=crop" alt="Salle principale du sportbar" />
+          <div class="gallery-overlay"><div class="gallery-label">La salle</div></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900&q=85&auto=format&fit=crop" alt="Pizza maison" />
+          <div class="gallery-overlay"><div class="gallery-label">Pizza maison</div></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900&q=85&auto=format&fit=crop" alt="Burger signature" />
+          <div class="gallery-overlay"><div class="gallery-label">Burger signature</div></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1546195643-70f48f9c5b87?w=900&q=85&auto=format&fit=crop" alt="Soirée match" />
+          <div class="gallery-overlay"><div class="gallery-label">Soirée match</div></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1592861956120-e524fc739696?w=900&q=85&auto=format&fit=crop" alt="Terrasse extérieure" />
+          <div class="gallery-overlay"><div class="gallery-label">Terrasse</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TESTIMONIALS ====== -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="eyebrow">Ils en parlent</div>
+        <h2 class="section-title">La parole aux <span class="italic">clients</span></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars"><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span></div>
+          <p class="testi-text">"L'endroit parfait pour regarder un match entre potes. Les burgers sont énormes, la bière est fraîche, et l'équipe est aux petits soins. Mon QG !"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">JM</div>
+            <div>
+              <div class="testi-name">Julien M.</div>
+              <div class="testi-location">Monthey</div>
+            </div>
+            <div class="testi-source">Google</div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars"><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span></div>
+          <p class="testi-text">"On vient en famille, on vient entre amis, on vient pour le sport — toujours bien accueillis. La pizza valaisanne vaut vraiment le détour."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">CB</div>
+            <div>
+              <div class="testi-name">Carole B.</div>
+              <div class="testi-location">Collombey</div>
+            </div>
+            <div class="testi-source">Local.ch</div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars"><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span></div>
+          <p class="testi-text">"Très bon rapport qualité-prix, ambiance détendue et les écrans sont parfaits pour suivre le hockey. Le brunch du dimanche est devenu un rituel."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SP</div>
+            <div>
+              <div class="testi-name">Samuel P.</div>
+              <div class="testi-location">Massongex</div>
+            </div>
+            <div class="testi-source">Tripadvisor</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== RESERVATION ====== -->
+  <section class="reservation" id="reservation">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">Réserver</div>
+        <h2 class="section-title">Votre <span class="italic">table</span> au B</h2>
+        <p class="section-subtitle">Soirée match, repas en famille ou apéro entre collègues — réservez en quelques clics ou appelez-nous directement.</p>
+      </div>
+
+      <div class="resa-wrap">
+        <div class="resa-info">
+          <h3>Le plus simple : le téléphone</h3>
+          <p>Pour une réservation rapide, une table avec vue sur l'écran principal ou un événement spécial, appelez-nous. Notre équipe trouve toujours une solution.</p>
+          <a href="tel:+41244717472" class="resa-tel">
+            <svg class="resa-tel-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            024 471 74 72
+          </a>
+          <p class="resa-hours-note">Pendant les heures d'ouverture · réponse immédiate</p>
+
+          <div class="resa-perks">
+            <div class="resa-perk">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+              <div class="resa-perk-text">
+                <strong>Place "vue écran" garantie</strong>
+                <span>Précisez le match dans votre réservation</span>
+              </div>
+            </div>
+            <div class="resa-perk">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <div class="resa-perk-text">
+                <strong>Groupes &amp; équipes bienvenus</strong>
+                <span>Tables grand format dispo dès 6 personnes</span>
+              </div>
+            </div>
+            <div class="resa-perk">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <div class="resa-perk-text">
+                <strong>Réservation confirmée en moins de 24h</strong>
+                <span>Par email ou téléphone selon votre choix</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="resa-form" id="resaForm" action="mailto:le.b.monthey@gmail.com" method="POST" enctype="text/plain">
+          <div class="form-row">
+            <div class="field">
+              <label for="r-name">Prénom &amp; Nom</label>
+              <input type="text" id="r-name" name="nom" required placeholder="Jean Dupont">
+            </div>
+            <div class="field">
+              <label for="r-tel">Téléphone</label>
+              <input type="tel" id="r-tel" name="telephone" required placeholder="+41 79 ...">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="r-date">Date</label>
+              <input type="date" id="r-date" name="date" required>
+            </div>
+            <div class="field">
+              <label for="r-time">Heure</label>
+              <select id="r-time" name="heure" required>
+                <option value="">Choisir…</option>
+                <option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
+                <option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="r-pers">Personnes</label>
+              <select id="r-pers" name="personnes" required>
+                <option value="">Combien…</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9+</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="r-email">Email</label>
+              <input type="email" id="r-email" name="email" placeholder="vous@exemple.ch">
+            </div>
+          </div>
+          <div class="field">
+            <label for="r-msg">Demande spéciale (match, anniversaire, allergie…)</label>
+            <textarea id="r-msg" name="message" placeholder="Ex : table proche de l'écran principal pour le match Sion-Servette"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Envoyer la demande</button>
+          <p class="form-note">En envoyant, vous acceptez d'être recontacté(e) au sujet de votre réservation. Aucune donnée stockée.</p>
+          <div class="form-success" id="formSuccess">
+            ✓ Merci, votre demande a bien été reçue. On vous recontacte au plus vite.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT ====== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="eyebrow">Nous trouver</div>
+        <h2 class="section-title">Venir au <span class="accent">B</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Coordonnées</h3>
+
+          <div class="info-block">
+            <div class="info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Adresse</div>
+              <div class="info-value">Route du Verney 34<br/>1870 Monthey (VS)</div>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Téléphone</div>
+              <div class="info-value"><a href="tel:+41244717472">024 471 74 72</a></div>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="info-label">Email</div>
+              <div class="info-value"><a href="mailto:le.b.monthey@gmail.com">le.b.monthey@gmail.com</a></div>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="info-label">Horaires</div>
+              <div class="hours-grid">
+                <div class="hours-day">Lundi</div><div class="hours-time">11h – 15h</div>
+                <div class="hours-day">Mardi</div><div class="hours-time">11h – 23h</div>
+                <div class="hours-day">Mercredi</div><div class="hours-time">9h – 23h</div>
+                <div class="hours-day">Jeudi</div><div class="hours-time">11h – 23h</div>
+                <div class="hours-day">Vendredi</div><div class="hours-time">9h – 23h</div>
+                <div class="hours-day">Samedi</div><div class="hours-time">9h – 23h</div>
+                <div class="hours-day">Dimanche</div><div class="hours-time">9h – 23h</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-row">
+            <a href="https://www.instagram.com/le_b_monthey/" target="_blank" rel="noopener" class="social-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+            <a href="https://maps.google.com/?q=Route+du+Verney+34,+1870+Monthey" target="_blank" rel="noopener" class="social-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+              Itinéraire
+            </a>
+            <a href="https://wa.me/41244717472" target="_blank" rel="noopener" class="social-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps?q=Route+du+Verney+34,+1870+Monthey&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localisation Le B Sportsbar"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <span class="logo-mark">B</span>
+        <span class="logo-text">Le B<small>Sportsbar · Monthey</small></span>
+      </div>
+      <div class="footer-divider"></div>
+      <ul class="footer-links">
+        <li><a href="#about">Le lieu</a></li>
+        <li><a href="#sport">Programme</a></li>
+        <li><a href="#menu">Carte</a></li>
+        <li><a href="#reservation">Réserver</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="footer-credit">
+        © 2026 Le B Sportsbar · Site par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== WHATSAPP FLOAT ====== -->
+  <a href="https://wa.me/41244717472?text=Bonjour%20Le%20B%20Sportsbar%2C%20je%20souhaiterais%20r%C3%A9server%20une%20table" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contact WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+
+  <script>
+    // ====== HEADER SCROLL ======
+    const header = document.getElementById('header');
+    const onScroll = () => {
+      if (window.scrollY > 30) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ====== MOBILE MENU ======
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ====== MENU TABS ======
+    const tabs = document.querySelectorAll('.menu-tab');
+    const panels = document.querySelectorAll('.menu-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelector(`.menu-panel[data-panel="${target}"]`).classList.add('active');
+      });
+    });
+
+    // ====== DATE MIN TODAY ======
+    const dateInput = document.getElementById('r-date');
+    if (dateInput) {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      dateInput.min = `${yyyy}-${mm}-${dd}`;
+    }
+
+    // ====== FORM FEEDBACK ======
+    const resaForm = document.getElementById('resaForm');
+    if (resaForm) {
+      resaForm.addEventListener('submit', (e) => {
+        setTimeout(() => {
+          const success = document.getElementById('formSuccess');
+          if (success) success.style.display = 'block';
+        }, 200);
+      });
+    }
+  </script>
+
+</body>
+</html>
