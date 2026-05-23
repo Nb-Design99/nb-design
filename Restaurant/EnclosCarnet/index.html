@@ -1,0 +1,1298 @@
+﻿<!doctype html>
+<html lang="fr">
+<head>`n  <meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>L'Enclos de Valère — Carnet d'une table sédunoise</title>
+<meta name="description" content="L'Enclos de Valère, table gastronomique à Sion. Un carnet éditorial sur la cuisine d'Antoine Bornet et Christophe Picard, dans un jardin au pied des châteaux de Valère et Tourbillon." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* ============ Tokens ============ */
+  :root {
+    --paper: #f4ede1;
+    --paper-deep: #ebe2d1;
+    --ink: #1c1814;
+    --ink-soft: #5a4f43;
+    --rust: #b8533a;
+    --rust-deep: #8e3d28;
+    --moss: #3d4a3a;
+    --rule: #d6c9b1;
+    --gold: #c79a4a;
+    --max: 1280px;
+    --serif: "Fraunces", "Times New Roman", Georgia, serif;
+    --sans: "Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    font-weight: 400;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+  /* paper texture overlay */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(28,24,20,0.025) 1px, transparent 0);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+  @media (max-width: 640px) { .wrap { padding: 0 20px; } }
+
+  /* ============ Masthead ============ */
+  .masthead {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(244,237,225,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 18px 0;
+    gap: 24px;
+  }
+  .nav-left, .nav-right {
+    display: flex;
+    gap: 28px;
+    font-family: var(--sans);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+  }
+  .nav-right { justify-content: flex-end; }
+  .nav-left a, .nav-right a {
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s;
+  }
+  .nav-left a:hover, .nav-right a:hover { color: var(--rust); }
+  .nav-left a::after, .nav-right a::after {
+    content: ""; position: absolute; left: 0; bottom: 0;
+    width: 0; height: 1px; background: var(--rust);
+    transition: width 0.35s ease;
+  }
+  .nav-left a:hover::after, .nav-right a:hover::after { width: 100%; }
+  .brandmark {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-align: center;
+    font-style: italic;
+    line-height: 1;
+  }
+  .brandmark span {
+    display: block;
+    font-style: normal;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-top: 6px;
+    color: var(--ink-soft);
+    font-family: var(--sans);
+    font-weight: 600;
+  }
+  .menu-toggle { display: none; }
+  @media (max-width: 900px) {
+    .masthead-inner { grid-template-columns: 1fr auto 1fr; }
+    .nav-left, .nav-right { display: none; }
+    .menu-toggle {
+      display: block; justify-self: start;
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      font-weight: 600; padding: 8px 14px; border: 1px solid var(--ink);
+    }
+    .nav-right { justify-self: end; display: block; }
+    .nav-right a { font-size: 11px; padding: 8px 14px; background: var(--ink); color: var(--paper); }
+    .nav-right a::after { display: none; }
+  }
+
+  /* mobile menu */
+  .mobile-menu {
+    position: fixed; inset: 0; z-index: 100;
+    background: var(--paper);
+    transform: translateX(-100%);
+    transition: transform 0.5s cubic-bezier(0.77,0,0.175,1);
+    padding: 100px 32px 32px;
+    display: flex; flex-direction: column;
+  }
+  .mobile-menu.open { transform: translateX(0); }
+  .mobile-menu a {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-style: italic;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .mobile-close {
+    position: absolute; top: 28px; right: 28px;
+    font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* ============ Cover / Hero ============ */
+  .cover {
+    padding: 60px 0 80px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .issue-line {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+    font-weight: 600; color: var(--ink-soft);
+    padding-bottom: 24px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .issue-line .dot { width: 4px; height: 4px; background: var(--rust); border-radius: 50%; display: inline-block; margin: 0 10px; vertical-align: middle; }
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: end;
+  }
+  @media (max-width: 900px) { .cover-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--rust);
+    margin-bottom: 28px;
+    display: inline-block;
+  }
+  .eyebrow::before {
+    content: "❋";
+    margin-right: 12px;
+    color: var(--rust);
+  }
+  .cover-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(56px, 9vw, 132px);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  .cover-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--rust);
+  }
+  .cover-title .small {
+    display: block;
+    font-size: 0.42em;
+    font-style: italic;
+    font-weight: 300;
+    margin-top: 12px;
+    letter-spacing: 0;
+    color: var(--ink-soft);
+  }
+  .cover-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    padding-bottom: 12px;
+  }
+  .meta-item .label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .meta-item .value {
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.35;
+    font-weight: 400;
+  }
+  .meta-item .value em { font-style: italic; color: var(--rust); }
+
+  .cover-image {
+    margin-top: 70px;
+    position: relative;
+    aspect-ratio: 21/9;
+    overflow: hidden;
+    background: var(--paper-deep);
+  }
+  .cover-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: contrast(0.95) saturate(0.85) sepia(0.08);
+    transform: scale(1.05);
+    transition: transform 8s ease;
+  }
+  .cover.loaded .cover-image img { transform: scale(1); }
+  .cover-caption {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-style: italic;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--rule);
+    padding-top: 10px;
+  }
+
+  /* ============ Article columns ============ */
+  .article {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .article-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 80px;
+  }
+  @media (max-width: 900px) { .article-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .article-aside .label-top {
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--rust); font-weight: 600;
+    padding-top: 8px;
+    border-top: 2px solid var(--ink);
+  }
+  .chapter {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-top: 12px;
+  }
+  .article-body h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(40px, 5.5vw, 76px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 48px;
+    max-width: 14ch;
+  }
+  .article-body h2 em { font-style: italic; color: var(--rust); }
+  .lede {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.45;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 32px;
+    max-width: 36ch;
+  }
+  .article-body p {
+    font-size: 17px;
+    line-height: 1.75;
+    margin-bottom: 22px;
+    max-width: 62ch;
+    color: var(--ink);
+  }
+  /* drop cap */
+  .dropcap::first-letter {
+    font-family: var(--serif);
+    font-size: 5.4em;
+    line-height: 0.82;
+    float: left;
+    padding: 6px 14px 0 0;
+    font-weight: 300;
+    color: var(--rust);
+    font-style: italic;
+  }
+
+  .pull-quote {
+    margin: 60px 0;
+    padding: 40px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .pull-quote blockquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.25;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    max-width: 26ch;
+  }
+  .pull-quote cite {
+    display: block;
+    margin-top: 24px;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-style: normal;
+    font-weight: 600;
+  }
+  .pull-quote cite::before { content: "— "; }
+
+  /* ============ Chefs ============ */
+  .chefs {
+    padding: 120px 0;
+    background: var(--paper-deep);
+    border-bottom: 1px solid var(--rule);
+  }
+  .chefs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 900px) { .chefs-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+  .chefs-header h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(48px, 6.5vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin: 24px 0 36px;
+  }
+  .chefs-header h2 em { font-style: italic; color: var(--rust); }
+  .chefs-header p {
+    font-size: 17px;
+    line-height: 1.75;
+    max-width: 50ch;
+  }
+  .chef-cards {
+    display: grid;
+    gap: 36px;
+  }
+  .chef-card {
+    background: var(--paper);
+    padding: 36px 32px;
+    border: 1px solid var(--rule);
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .chef-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px -30px rgba(28,24,20,0.25);
+  }
+  .chef-number {
+    position: absolute;
+    top: -14px; left: 24px;
+    background: var(--paper-deep);
+    padding: 0 12px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--rust);
+  }
+  .chef-card h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 32px;
+    margin: 8px 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .chef-card .role {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .chef-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  /* ============ Menu / La Carte ============ */
+  .carte {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .carte-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-bottom: 80px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .carte-head h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 104px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .carte-head h2 em { font-style: italic; color: var(--rust); }
+  .carte-head .info-block {
+    text-align: right;
+    font-size: 14px;
+    font-family: var(--serif);
+    line-height: 1.5;
+  }
+  .carte-head .info-block strong {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-family: var(--sans);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .carte-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 80px;
+  }
+  @media (max-width: 768px) { .carte-grid { grid-template-columns: 1fr; gap: 0; } }
+
+  .carte-section {
+    margin-bottom: 48px;
+  }
+  .carte-section-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--rust);
+  }
+  .dish {
+    padding: 20px 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .dish:last-child { border-bottom: none; }
+  .dish-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .dish-name {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+  .dish-price {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--rust);
+    white-space: nowrap;
+    font-feature-settings: "tnum";
+  }
+  .dish-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 48ch;
+  }
+  .carte-foot {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .carte-foot a {
+    border-bottom: 1px solid currentColor;
+    font-style: normal;
+    color: var(--ink);
+    padding-bottom: 1px;
+    transition: color 0.3s;
+  }
+  .carte-foot a:hover { color: var(--rust); }
+
+  /* ============ Jardin (Gallery) ============ */
+  .jardin {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .jardin-head {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .jardin-head h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(48px, 7vw, 104px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .jardin-head h2 em { font-style: italic; color: var(--rust); }
+  .jardin-head p {
+    max-width: 50ch;
+    margin: 24px auto 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  .jardin-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 90px;
+    gap: 18px;
+  }
+  .jardin-cell { overflow: hidden; background: var(--paper-deep); position: relative; }
+  .jardin-cell img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: contrast(0.95) saturate(0.85) sepia(0.05);
+    transition: transform 1.2s ease, filter 0.6s ease;
+  }
+  .jardin-cell:hover img {
+    transform: scale(1.05);
+    filter: contrast(1) saturate(0.95) sepia(0);
+  }
+  .jardin-cell .cap {
+    position: absolute;
+    bottom: 14px; left: 14px;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 5px 10px;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .jardin-cell:hover .cap { opacity: 1; transform: translateY(0); }
+
+  .c1 { grid-column: span 7; grid-row: span 5; }
+  .c2 { grid-column: span 5; grid-row: span 3; }
+  .c3 { grid-column: span 5; grid-row: span 2; }
+  .c4 { grid-column: span 4; grid-row: span 3; }
+  .c5 { grid-column: span 8; grid-row: span 3; }
+
+  @media (max-width: 900px) {
+    .jardin-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; gap: 12px; }
+    .c1, .c2, .c3, .c4, .c5 { grid-column: span 1; grid-row: span 1; }
+    .c1 { grid-column: span 2; grid-row: span 2; }
+  }
+
+  /* ============ Reservation ============ */
+  .reserve {
+    padding: 140px 0;
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+  }
+  .reserve::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(184,83,58,0.18), transparent 50%);
+    pointer-events: none;
+  }
+  .reserve .wrap { position: relative; z-index: 2; }
+  .reserve-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  @media (max-width: 900px) { .reserve-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+  .reserve-left .eyebrow { color: var(--gold); }
+  .reserve-left .eyebrow::before { color: var(--gold); }
+  .reserve-left h2 {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+  }
+  .reserve-left h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .reserve-left p {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.55;
+    color: rgba(244,237,225,0.75);
+    max-width: 42ch;
+    margin-bottom: 36px;
+  }
+  .reserve-coords {
+    border-top: 1px solid rgba(244,237,225,0.18);
+    padding-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 32px;
+  }
+  .reserve-coords .label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .reserve-coords .val {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--paper);
+  }
+  .reserve-coords .val a { border-bottom: 1px solid rgba(244,237,225,0.4); padding-bottom: 1px; }
+  .reserve-coords .val a:hover { border-color: var(--gold); color: var(--gold); }
+
+  .reserve-form {
+    background: rgba(244,237,225,0.04);
+    border: 1px solid rgba(244,237,225,0.15);
+    padding: 40px;
+  }
+  @media (max-width: 640px) { .reserve-form { padding: 28px 22px; } }
+  .form-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 28px;
+    margin-bottom: 28px;
+    color: var(--paper);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .form-row.single { grid-template-columns: 1fr; }
+  @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+  .field label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(244,237,225,0.6);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(244,237,225,0.3);
+    padding: 10px 0;
+    color: var(--paper);
+    font-family: var(--serif);
+    font-size: 17px;
+    transition: border-color 0.3s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .field select { background: var(--ink); appearance: none; -webkit-appearance: none; padding-right: 24px; }
+  .field textarea { resize: vertical; min-height: 80px; }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(244,237,225,0.35); }
+
+  .submit-btn {
+    margin-top: 24px;
+    width: 100%;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 18px 24px;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .submit-btn:hover {
+    background: var(--paper);
+    transform: translateY(-2px);
+  }
+  .form-note {
+    margin-top: 16px;
+    font-size: 12px;
+    color: rgba(244,237,225,0.5);
+    font-style: italic;
+    text-align: center;
+  }
+
+  /* ============ Footer / Masthead bas ============ */
+  footer {
+    padding: 80px 0 40px;
+    background: var(--paper-deep);
+    border-top: 1px solid var(--rule);
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 900px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 36px; } }
+  @media (max-width: 540px) { .foot-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+  .foot-brand .b-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 32px;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+  .foot-brand .b-sub {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .foot-brand p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: var(--serif);
+    max-width: 32ch;
+  }
+  .foot-col h4 {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rust);
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .foot-col ul { list-style: none; }
+  .foot-col li {
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink);
+  }
+  .foot-col li a:hover { color: var(--rust); }
+  .foot-bottom {
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .foot-bottom .colophon {
+    font-family: var(--serif);
+    font-style: italic;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    font-size: 13px;
+  }
+
+  /* ============ Animations ============ */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1);
+  }
+  .fade-in.in { opacity: 1; transform: translateY(0); }
+  .delay-1 { transition-delay: 0.08s; }
+  .delay-2 { transition-delay: 0.16s; }
+  .delay-3 { transition-delay: 0.24s; }
+
+  /* accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .cover.loaded .cover-image img { transform: none; }
+  }
+
+  ::selection { background: var(--rust); color: var(--paper); }
+</style>
+</head>
+<body>
+
+<!-- ============ Masthead ============ -->
+<header class="masthead">`n  <meta name="robots" content="noindex, nofollow" />
+  <div class="wrap masthead-inner">
+    <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('mm').classList.add('open')">Menu</button>
+    <nav class="nav-left" aria-label="Sections principales">
+      <a href="#histoire">Le lieu</a>
+      <a href="#chefs">Les chefs</a>
+      <a href="#carte">La carte</a>
+      <a href="#jardin">Le jardin</a>
+    </nav>
+    <div class="brandmark">
+      L'Enclos de Valère
+      <span>Sion · Valais</span>
+    </div>
+    <nav class="nav-right" aria-label="Réservation">
+      <a href="#reserve">Réserver</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<nav class="mobile-menu" id="mm" aria-label="Menu mobile">
+  <button class="mobile-close" onclick="document.getElementById('mm').classList.remove('open')">Fermer</button>
+  <a href="#histoire" onclick="document.getElementById('mm').classList.remove('open')">Le lieu</a>
+  <a href="#chefs" onclick="document.getElementById('mm').classList.remove('open')">Les chefs</a>
+  <a href="#carte" onclick="document.getElementById('mm').classList.remove('open')">La carte</a>
+  <a href="#jardin" onclick="document.getElementById('mm').classList.remove('open')">Le jardin</a>
+  <a href="#reserve" onclick="document.getElementById('mm').classList.remove('open')">Réserver</a>
+</nav>
+
+<!-- ============ Cover / Hero ============ -->
+<section class="cover" id="cover">
+  <div class="wrap">
+    <div class="issue-line">
+      <span>Carnet N° 01</span>
+      <span>Édition de saison <span class="dot"></span> Printemps · Été 2026</span>
+      <span>14 points Gault &amp; Millau</span>
+    </div>
+
+    <div class="cover-grid">
+      <div>
+        <span class="eyebrow fade-in">Une table sédunoise</span>
+        <h1 class="cover-title fade-in delay-1">
+          L'Enclos<br>
+          <em>de</em> Valère
+          <span class="small">Carnet d'une cuisine du terroir, au pied des châteaux.</span>
+        </h1>
+      </div>
+      <div class="cover-meta fade-in delay-2">
+        <div class="meta-item">
+          <div class="label">Adresse</div>
+          <div class="value">Rue des Châteaux 18<br><em>1950 Sion</em></div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Téléphone</div>
+          <div class="value">+41 27 323 32 30</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Service</div>
+          <div class="value">Mardi <em>au</em> samedi<br>11h–14h30 · 17h–23h30</div>
+        </div>
+        <div class="meta-item">
+          <div class="label">Distinctions</div>
+          <div class="value"><em>14/20</em> Gault &amp; Millau<br>Chaîne des Rôtisseurs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-image fade-in delay-3">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=85&auto=format&fit=crop" alt="Table dressée du restaurant, dans la lumière dorée de fin d'après-midi" />
+    </div>
+    <div class="cover-caption">
+      <span>Photo · Le jardin-terrasse à l'heure dorée</span>
+      <span>Sion, Valais</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Article : Notre histoire ============ -->
+<section class="article" id="histoire">
+  <div class="wrap article-grid">
+    <aside class="article-aside fade-in">
+      <div class="label-top">Chapitre I</div>
+      <div class="chapter">Un lieu hors du temps</div>
+    </aside>
+
+    <div class="article-body">
+      <span class="eyebrow fade-in">Notre histoire</span>
+      <h2 class="fade-in delay-1">Un jardin <em>au pied</em><br>des châteaux.</h2>
+
+      <p class="lede fade-in delay-2">Nichée dans un jardin extraordinaire au pied des châteaux de Valère et Tourbillon, notre table s'est imposée comme l'une des références gastronomiques de Sion.</p>
+
+      <p class="dropcap fade-in delay-2">L'aubépine sauvage centenaire, les pivoines, le platane et le buis composent un cadre romantique et hors du commun, loin de l'agitation de la ville. On y dîne comme on visiterait un jardin secret, le regard remontant la colline jusqu'aux vieilles pierres, l'oreille bercée par le bruissement des feuilles.</p>
+
+      <p class="fade-in delay-3">En cuisine, la philosophie est simple : mettre en valeur les meilleurs produits du terroir valaisan, avec la rigueur du classicisme et l'ouverture aux saveurs du monde. Bœuf d'Hérens, agneau du Val-d'Illiez, filets de perche du lac, champignons des forêts valaisannes. Chaque assiette raconte une histoire et une saison.</p>
+
+      <div class="pull-quote fade-in">
+        <blockquote>« Le plaisir de manger est le seul qui, pris avec modération, ne soit pas suivi de fatigue. »</blockquote>
+        <cite>Brillat-Savarin</cite>
+      </div>
+
+      <p class="fade-in">La maison appartient à la Chaîne des Rôtisseurs et porte 14 points au Gault &amp; Millau. Au-delà des distinctions, c'est un lieu où l'on revient, saison après saison, retrouver le geste juste, le produit choisi, et ce silence particulier qui s'installe dès qu'on franchit la grille du jardin.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Les Chefs ============ -->
+<section class="chefs" id="chefs">
+  <div class="wrap chefs-grid">
+    <div class="chefs-header">
+      <span class="eyebrow fade-in">Chapitre II · Les artisans</span>
+      <h2 class="fade-in delay-1">Antoine <em>&amp;</em><br>Christophe.</h2>
+      <p class="fade-in delay-2">À l'origine de la maison, deux hommes complémentaires. L'un signe la cuisine, l'autre orchestre la salle. Une amitié de travail qui se ressent dès le premier service, et qui donne à L'Enclos sa cohérence et son âme.</p>
+    </div>
+
+    <div class="chef-cards">
+      <div class="chef-card fade-in delay-1">
+        <div class="chef-number">N° I</div>
+        <h3>Antoine Bornet</h3>
+        <div class="role">Maître Rôtisseur · Cuisine</div>
+        <p>Aux fourneaux, Antoine porte la cuisine valaisanne à la rencontre des classiques français. Son style : précis, sans esbroufe, fidèle au produit. C'est lui qui choisit les viandes auprès des éleveurs, qui décide du menu selon ce que la saison propose.</p>
+      </div>
+      <div class="chef-card fade-in delay-2">
+        <div class="chef-number">N° II</div>
+        <h3>Christophe Picard</h3>
+        <div class="role">Chef de Salle · Hôte</div>
+        <p>En salle, Christophe veille au tempo du service et à l'accord des vins. Sa cave est un voyage à travers les coteaux valaisans : Petite Arvine, Cornalin, Heida. Il prend le temps de raconter, parce qu'un vin sans son histoire, ce n'est qu'un verre.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ La Carte ============ -->
+<section class="carte" id="carte">
+  <div class="wrap">
+    <div class="carte-head fade-in">
+      <div>
+        <span class="eyebrow">Chapitre III</span>
+        <h2>La carte <em>de saison.</em></h2>
+      </div>
+      <div class="info-block">
+        <strong>Menu du jour</strong>
+        Trois services · <em>69 CHF</em><br>
+        Assiette du jour · <em>27 CHF</em>
+      </div>
+    </div>
+
+    <div class="carte-grid">
+      <div>
+        <div class="carte-section">
+          <div class="carte-section-title">Entrées</div>
+          <div class="dish">
+            <div class="dish-head">
+              <div class="dish-name">Tataki de thon &amp; wakamé</div>
+              <div class="dish-price">28 CHF</div>
+            </div>
+            <p class="dish-desc">Thon mariné minute, algues wakamé, gingembre confit et sésame torréfié.</p>
+          </div>
+          <div class="dish">
+            <div class="dish-head">
+              <div class="dish-name">Gravlax de saumon</div>
+              <div class="dish-price">26 CHF</div>
+            </div>
+            <p class="dish-desc">Saumon mariné maison à l'aneth et au poivre rose, blinis tièdes et crème de raifort.</p>
+          </div>
+          <div class="dish">
+            <div class="dish-head">
+              <div class="dish-name">Foie gras de canard</div>
+              <div class="dish-price">32 CHF</div>
+            </div>
+            <p class="dish-desc">Mi-cuit aux figues du jardin, brioche toastée et fleur de sel des Alpes.</p>
+          </div>
+        </div>
+
+        <div class="carte-section">
+          <div class="carte-section-title">Poissons</div>
+          <div class="dish">
+            <div class="dish-head">
+              <div class="dish-name">Filet royal de rascasse</div>
+              <div class="dish-price">46 CHF</div>
+            </div>
+            <p class="dish-desc">Au beurre rouge, méli-mélo de pommes de terre et jardinière de légumes du jardin.</p>
+          </div>
+          <div class="dish">
+            <div class="dish-head">
+              <div class="dish-name">Filets de perche du lac</div>
+              <div class="dish-price">38 CHF</div>
+            </div>
+            <p class="dish-desc">Poêlés à la meunière, citron confit et pommes vapeur. Pêche locale du Léman.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="carte-section">
+          <div class="carte-section-title">Viandes</div>
+          <div class="dish">
+            <div class="dish-head">
+              <div class="dish-name">Médaillons de bœuf au poivre vert</div>
+              <div class="dish-price">52 CHF</div>
+            </div>
+            <p class="dish-desc">Bœuf d'Hérens, sauce au poivre vert flambée au cognac, frites maison ou jardinière.</p>
+          </div>
+          <div class="dish">
+            <div class="dish-head">
+              <div class="dish-name">Filet de canette, miel &amp; moutarde</div>
+              <div class="dish-price">44 CHF</div>
+            </div>
+            <p class="dish-desc">Canette rôtie, sauce moutarde au miel valaisan, légumes glacés et jus court.</p>
+          </div>
+          <div class="dish">
+            <div class="dish-head">
+              <div class="dish-name">Trio d'agneau du Val-d'Illiez</div>
+              <div class="dish-price">56 CHF</div>
+            </div>
+            <p class="dish-desc">Carré aux fines herbes, pièce noble en croûte d'épices, navarin à l'ancienne.</p>
+          </div>
+          <div class="dish">
+            <div class="dish-head">
+              <div class="dish-name">Tournedos de bœuf Rossini</div>
+              <div class="dish-price">62 CHF</div>
+            </div>
+            <p class="dish-desc">Filet de bœuf d'Hérens, foie gras poêlé, réduction aux perles de jus de truffes.</p>
+          </div>
+        </div>
+
+        <div class="carte-section">
+          <div class="carte-section-title">Vins du Valais</div>
+          <div class="dish">
+            <div class="dish-head">
+              <div class="dish-name">Sélection de la cave</div>
+              <div class="dish-price">dès 8 CHF / dl</div>
+            </div>
+            <p class="dish-desc">Petite Arvine, Heida, Fendant, Cornalin, Humagne. Christophe vous conseille selon le plat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carte-foot fade-in">
+      <span>Carte évolutive · les plats varient selon l'arrivage et la saison.</span>
+      <a href="#reserve">Réserver une table →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Jardin / Gallery ============ -->
+<section class="jardin" id="jardin">
+  <div class="wrap">
+    <div class="jardin-head fade-in">
+      <span class="eyebrow">Chapitre IV · L'ambiance</span>
+      <h2>Le jardin <em>&amp; la table.</em></h2>
+      <p>Cinq fragments d'une soirée à l'Enclos : la terrasse à l'heure dorée, la lumière des bougies sous la pergola, l'assiette qui arrive, le verre qu'on lève.</p>
+    </div>
+
+    <div class="jardin-grid">
+      <div class="jardin-cell c1 fade-in">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&q=85&auto=format&fit=crop" alt="Salle du restaurant à la lumière chaleureuse" />
+        <span class="cap">La terrasse-jardin</span>
+      </div>
+      <div class="jardin-cell c2 fade-in delay-1">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900&q=85&auto=format&fit=crop" alt="Plat gastronomique servi" />
+        <span class="cap">Cuisine du terroir</span>
+      </div>
+      <div class="jardin-cell c3 fade-in delay-2">
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=900&q=85&auto=format&fit=crop" alt="Cave à vins du Valais" />
+        <span class="cap">Vins du Valais</span>
+      </div>
+      <div class="jardin-cell c4 fade-in delay-1">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=85&auto=format&fit=crop" alt="Plat valaisan" />
+        <span class="cap">Bœuf d'Hérens</span>
+      </div>
+      <div class="jardin-cell c5 fade-in delay-3">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=1400&q=85&auto=format&fit=crop" alt="Dessert gastronomique" />
+        <span class="cap">Desserts maison</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Réservation ============ -->
+<section class="reserve" id="reserve">
+  <div class="wrap reserve-grid">
+    <div class="reserve-left">
+      <span class="eyebrow fade-in">Réserver</span>
+      <h2 class="fade-in delay-1">Une table <em>vous attend.</em></h2>
+      <p class="fade-in delay-2">Pour réserver, transmettez-nous vos coordonnées et le service souhaité. Nous confirmons par retour. Pour les groupes de plus de 8 personnes ou les privatisations du jardin, contactez-nous directement.</p>
+
+      <div class="reserve-coords fade-in delay-3">
+        <div>
+          <div class="label">Téléphone</div>
+          <div class="val"><a href="tel:+41273233230">+41 27 323 32 30</a></div>
+        </div>
+        <div>
+          <div class="label">Email</div>
+          <div class="val"><a href="mailto:restaurant@enclosdevalere.ch">restaurant@<br>enclosdevalere.ch</a></div>
+        </div>
+        <div>
+          <div class="label">Adresse</div>
+          <div class="val">Rue des Châteaux 18<br>1950 Sion</div>
+        </div>
+        <div>
+          <div class="label">Services</div>
+          <div class="val">Mar–Sam<br>11h–14h30 · 17h–23h30</div>
+        </div>
+      </div>
+    </div>
+
+    <form class="reserve-form fade-in delay-2" onsubmit="event.preventDefault(); this.querySelector('.submit-btn').textContent='Demande envoyée'; this.querySelector('.submit-btn').style.background='#3d4a3a'; this.querySelector('.submit-btn').style.color='#f4ede1';">
+      <div class="form-title">Votre demande</div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="fn">Prénom</label>
+          <input id="fn" name="prenom" type="text" required placeholder="Marie" />
+        </div>
+        <div class="field">
+          <label for="ln">Nom</label>
+          <input id="ln" name="nom" type="text" required placeholder="Bornet" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="em">Email</label>
+          <input id="em" name="email" type="email" required placeholder="vous@exemple.ch" />
+        </div>
+        <div class="field">
+          <label for="tel">Téléphone</label>
+          <input id="tel" name="telephone" type="tel" placeholder="+41 79 ..." />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="dt">Date</label>
+          <input id="dt" name="date" type="date" required />
+        </div>
+        <div class="field">
+          <label for="pp">Personnes</label>
+          <select id="pp" name="personnes" required>
+            <option>2 personnes</option>
+            <option>3 personnes</option>
+            <option>4 personnes</option>
+            <option>5 personnes</option>
+            <option>6 personnes</option>
+            <option>7 personnes</option>
+            <option>8 personnes</option>
+            <option>9+ (contacter directement)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row single">
+        <div class="field">
+          <label for="msg">Souhaits particuliers</label>
+          <textarea id="msg" name="message" rows="2" placeholder="Anniversaire, allergie, table en terrasse..."></textarea>
+        </div>
+      </div>
+
+      <button class="submit-btn" type="submit">Envoyer la demande</button>
+      <div class="form-note">Démo · le formulaire n'envoie rien.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="b-name">L'Enclos de Valère</div>
+        <div class="b-sub">Sion · Valais · 1950</div>
+        <p>Un jardin extraordinaire, une cuisine du terroir, deux hôtes au service d'une table de référence en Suisse romande.</p>
+      </div>
+
+      <div class="foot-col">
+        <h4>Adresse</h4>
+        <ul>
+          <li>Rue des Châteaux 18</li>
+          <li>1950 Sion</li>
+          <li>Valais, Suisse</li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+41273233230">+41 27 323 32 30</a></li>
+          <li><a href="mailto:restaurant@enclosdevalere.ch">Écrire un email</a></li>
+          <li><a href="https://www.enclosdevalere.ch" target="_blank" rel="noopener">enclosdevalere.ch</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h4>Service</h4>
+        <ul>
+          <li>Mardi au samedi</li>
+          <li>11h–14h30 · 17h–23h30</li>
+          <li><em>Fermé dim. &amp; lun.</em></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span class="colophon">Carnet édité au pied des châteaux, à Sion.</span>
+      <span>© 2026 · L'Enclos de Valère</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ===== Reveal on scroll =====
+  (function() {
+    var els = document.querySelectorAll('.fade-in');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+
+  // ===== Cover image reveal =====
+  window.addEventListener('load', function() {
+    document.getElementById('cover').classList.add('loaded');
+  });
+
+  // ===== Date input default =====
+  (function() {
+    var d = document.getElementById('dt');
+    if (!d) return;
+    var t = new Date();
+    t.setDate(t.getDate() + 2);
+    var iso = t.toISOString().slice(0,10);
+    d.setAttribute('min', new Date().toISOString().slice(0,10));
+    d.value = iso;
+  })();
+</script>
+
+</body>
+</html>
+

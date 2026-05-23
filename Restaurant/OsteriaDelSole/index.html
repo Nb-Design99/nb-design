@@ -1,0 +1,1434 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>`n  <meta name="robots" content="noindex, nofollow" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Osteria del Sole — Trattoria italienne à Sion</title>
+<meta name="description" content="L'authentique cuisine italienne au cœur du Valais. Pâtes fraîches, pizzas au feu de bois, vins de la Botte. Réservez votre table à Sion." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #faf5ee;
+  --cream-dark: #f0e6d4;
+  --cream-darker: #e7d9bf;
+  --terracotta: #c0563d;
+  --terracotta-deep: #9a3f2a;
+  --olive: #4a5d2f;
+  --olive-deep: #2d3a1c;
+  --ink: #1c1612;
+  --ink-soft: #4a3f37;
+  --muted: #8a7d70;
+  --shadow: 0 20px 60px -20px rgba(28, 22, 18, 0.25);
+  --shadow-sm: 0 4px 20px -8px rgba(28, 22, 18, 0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.15; font-weight: 600; }
+
+.container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--terracotta);
+  color: var(--cream);
+  border: none;
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.btn:hover {
+  background: var(--terracotta-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -8px rgba(192, 86, 61, 0.5);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 1.5px solid var(--cream);
+}
+.btn-ghost:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* ───── NAVBAR ───── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 22px 0;
+  transition: all 0.35s ease;
+}
+.nav.scrolled {
+  background: rgba(250, 245, 238, 0.96);
+  backdrop-filter: blur(12px);
+  padding: 14px 0;
+  box-shadow: 0 2px 20px -10px rgba(28, 22, 18, 0.2);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--cream);
+  transition: color 0.35s ease;
+  letter-spacing: -0.01em;
+}
+.logo span { color: var(--terracotta); font-style: normal; }
+.nav.scrolled .logo { color: var(--ink); }
+
+.nav-links {
+  display: flex;
+  gap: 38px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1.5px;
+  background: var(--terracotta);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav.scrolled .nav-links a { color: var(--ink); }
+.nav-cta { display: inline-flex; }
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--cream);
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.nav.scrolled .menu-toggle { color: var(--ink); }
+
+/* ───── HERO ───── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: var(--cream);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(180deg, rgba(28, 22, 18, 0.55) 0%, rgba(28, 22, 18, 0.7) 100%),
+    url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=2000&q=80');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+.hero-content {
+  position: relative;
+  max-width: 800px;
+  padding-top: 80px;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--cream-dark);
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(250, 245, 238, 0.3);
+}
+.hero h1 {
+  font-size: clamp(48px, 7vw, 84px);
+  font-weight: 600;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 400;
+}
+.hero-sub {
+  font-size: clamp(16px, 1.4vw, 19px);
+  font-weight: 300;
+  max-width: 540px;
+  margin-bottom: 40px;
+  color: var(--cream-dark);
+  line-height: 1.7;
+}
+.hero-cta-group {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--cream-dark);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  animation: bounce 2.4s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ───── SECTIONS GENERIC ───── */
+section { padding: 110px 0; position: relative; }
+.section-eyebrow {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.section-title {
+  font-size: clamp(36px, 4vw, 52px);
+  margin-bottom: 24px;
+  letter-spacing: -0.015em;
+}
+.section-title em { font-style: italic; color: var(--terracotta); }
+.section-intro {
+  max-width: 620px;
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin-bottom: 60px;
+  line-height: 1.7;
+}
+
+/* ───── HISTOIRE ───── */
+.histoire {
+  background: var(--cream);
+}
+.histoire-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 80px;
+  align-items: center;
+}
+.histoire-text p {
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin-bottom: 22px;
+  line-height: 1.8;
+}
+.histoire-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--olive-deep);
+  border-left: 3px solid var(--terracotta);
+  padding-left: 24px;
+  margin: 32px 0;
+  line-height: 1.5;
+}
+.histoire-signature {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ink);
+  margin-top: 16px;
+}
+.histoire-signature small {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.histoire-img {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: var(--shadow);
+}
+.histoire-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.histoire-img::before {
+  content: 'dal 1987';
+  position: absolute;
+  top: -22px;
+  left: -22px;
+  background: var(--terracotta);
+  color: var(--cream);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 22px;
+  padding: 18px 26px;
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ───── SPECIALITES ───── */
+.specialites {
+  background: var(--cream-dark);
+}
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 24px;
+}
+.spec-card {
+  background: var(--cream);
+  padding: 48px 36px;
+  text-align: center;
+  border-radius: 4px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(28, 22, 18, 0.05);
+}
+.spec-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+}
+.spec-icon {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 24px;
+  background: var(--terracotta);
+  color: var(--cream);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 600;
+}
+.spec-card h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+.spec-card p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* ───── MENU ───── */
+.menu-section {
+  background: var(--ink);
+  color: var(--cream);
+}
+.menu-section .section-eyebrow { color: var(--cream-darker); }
+.menu-section .section-title { color: var(--cream); }
+.menu-section .section-title em { color: var(--terracotta); }
+.menu-section .section-intro { color: var(--cream-darker); }
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 80px;
+}
+.menu-item {
+  border-bottom: 1px dashed rgba(250, 245, 238, 0.15);
+  padding-bottom: 24px;
+}
+.menu-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.menu-item-head h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--cream);
+}
+.menu-item-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(250, 245, 238, 0.3);
+  position: relative;
+  top: -5px;
+}
+.menu-item-price {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--terracotta);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.menu-item-desc {
+  font-size: 14.5px;
+  color: var(--cream-darker);
+  line-height: 1.65;
+  font-weight: 300;
+}
+.menu-item-tags {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+.menu-tag {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border: 1px solid rgba(250, 245, 238, 0.3);
+  border-radius: 999px;
+  color: var(--cream-darker);
+}
+
+.menu-footer {
+  text-align: center;
+  margin-top: 70px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(250, 245, 238, 0.1);
+}
+.menu-footer p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--cream-darker);
+  margin-bottom: 20px;
+}
+
+/* Menu tabs */
+.menu-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 auto 56px;
+  padding: 7px;
+  background: rgba(250, 245, 238, 0.05);
+  border: 1px solid rgba(250, 245, 238, 0.12);
+  border-radius: 999px;
+  max-width: fit-content;
+}
+.menu-tab {
+  background: transparent;
+  border: none;
+  color: var(--cream-darker);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.menu-tab:hover { color: var(--cream); }
+.menu-tab.active {
+  background: var(--terracotta);
+  color: var(--cream);
+  box-shadow: 0 6px 18px -6px rgba(192, 86, 61, 0.55);
+}
+.menu-panels { position: relative; min-height: 520px; }
+.menu-panel { display: none; }
+.menu-panel.active {
+  display: block;
+  animation: menuFade 0.45s ease;
+}
+@keyframes menuFade {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ───── GALERIE ───── */
+.galerie { background: var(--cream); }
+.galerie-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 280px 280px;
+  gap: 14px;
+  margin-top: 24px;
+}
+.galerie-item {
+  overflow: hidden;
+  border-radius: 4px;
+  position: relative;
+}
+.galerie-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.galerie-item:hover img { transform: scale(1.08); }
+.galerie-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.galerie-item:nth-child(2) { grid-column: span 2; }
+.galerie-item:nth-child(5) { grid-column: span 2; }
+
+/* ───── TEMOIGNAGES ───── */
+.temoignages {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+}
+.temoignages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 24px;
+}
+.temoignage {
+  background: var(--cream);
+  padding: 40px 32px;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+.temoignage::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  color: var(--terracotta);
+  line-height: 1;
+  font-style: italic;
+}
+.temoignage-stars {
+  color: var(--terracotta);
+  font-size: 16px;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+.temoignage p {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.temoignage-author {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+}
+.temoignage-author small {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ───── RESERVATION ───── */
+.reservation {
+  background: var(--cream);
+  padding: 110px 0;
+}
+.reservation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.reservation-info h3 {
+  font-size: 24px;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+.info-block {
+  margin-bottom: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--cream-darker);
+}
+.info-block:last-child { border-bottom: none; }
+.info-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.info-content {
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.info-content strong { color: var(--ink); font-weight: 500; }
+
+.form-wrap {
+  background: var(--ink);
+  padding: 48px 44px;
+  border-radius: 4px;
+  color: var(--cream);
+}
+.form-wrap h3 {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: var(--cream);
+}
+.form-wrap h3 em { font-style: italic; color: var(--terracotta); }
+.form-wrap > p {
+  font-size: 14.5px;
+  color: var(--cream-darker);
+  margin-bottom: 32px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: var(--cream-darker);
+  font-weight: 500;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(250, 245, 238, 0.06);
+  border: 1px solid rgba(250, 245, 238, 0.15);
+  border-radius: 3px;
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--terracotta);
+  background: rgba(250, 245, 238, 0.08);
+}
+.form-group textarea { resize: vertical; min-height: 90px; }
+.form-group select { cursor: pointer; }
+.form-wrap .btn { width: 100%; justify-content: center; margin-top: 8px; }
+
+/* ───── FOOTER ───── */
+.footer {
+  background: var(--olive-deep);
+  color: var(--cream-dark);
+  padding: 70px 0 30px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+.footer-brand .logo {
+  color: var(--cream);
+  font-size: 28px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+.footer-brand p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  max-width: 320px;
+  color: rgba(250, 245, 238, 0.7);
+}
+.footer-col h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a {
+  font-size: 14.5px;
+  color: rgba(250, 245, 238, 0.65);
+  transition: color 0.3s ease;
+}
+.footer-col a:hover { color: var(--terracotta); }
+.footer-bottom {
+  border-top: 1px solid rgba(250, 245, 238, 0.1);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: rgba(250, 245, 238, 0.5);
+}
+.footer-bottom a:hover { color: var(--terracotta); }
+
+/* ───── ANIMATIONS ───── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ───── RESPONSIVE ───── */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .menu-toggle { display: block; }
+  .nav-cta { display: none; }
+  .nav-links.open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--cream);
+    flex-direction: column;
+    padding: 24px 32px;
+    gap: 18px;
+    box-shadow: var(--shadow);
+  }
+  .nav-links.open a { color: var(--ink); }
+  .histoire-grid,
+  .reservation-grid { grid-template-columns: 1fr; gap: 50px; }
+  .histoire-img { aspect-ratio: 4/3; }
+  .spec-grid,
+  .menu-grid,
+  .temoignages-grid { grid-template-columns: 1fr; gap: 24px; }
+  .menu-tabs {
+    max-width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    border-radius: 14px;
+    padding: 6px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .menu-tabs::-webkit-scrollbar { display: none; }
+  .menu-tab { flex-shrink: 0; padding: 10px 20px; font-size: 12px; letter-spacing: 0.1em; }
+  .menu-panels { min-height: 400px; }
+  .galerie-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 220px);
+  }
+  .galerie-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  .galerie-item:nth-child(2) { grid-column: span 2; }
+  .galerie-item:nth-child(5) { grid-column: span 1; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  section { padding: 80px 0; }
+  .container { padding: 0 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .form-wrap { padding: 36px 28px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">Osteria<span>·</span>del Sole</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#histoire">Histoire</a></li>
+      <li><a href="#cuisine">Cuisine</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn nav-cta">Réserver</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<header class="hero">`n  <meta name="robots" content="noindex, nofollow" />
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <span class="hero-tag">Trattoria · Sion · Valais</span>
+    <h1>L'Italie, <em>au cœur</em><br>du Valais.</h1>
+    <p class="hero-sub">Une cuisine de famille, des pâtes faites maison chaque matin, des produits venus directement de la Botte. Bienvenue à l'Osteria del Sole.</p>
+    <div class="hero-cta-group">
+      <a href="#contact" class="btn">Réserver une table</a>
+      <a href="#menu" class="btn btn-ghost">Voir le menu</a>
+    </div>
+  </div>
+  <div class="hero-scroll">↓ &nbsp; Scroll</div>
+</header>
+
+<!-- ═══════ HISTOIRE ═══════ -->
+<section id="histoire" class="histoire">
+  <div class="container">
+    <div class="histoire-grid">
+      <div class="histoire-text reveal">
+        <span class="section-eyebrow">Notre histoire</span>
+        <h2 class="section-title">Trois générations, <em>une seule passion</em>.</h2>
+        <p>Tout commence en 1987, quand Giuseppe Rossi quitte les collines de Toscane pour s'installer à Sion avec sa femme Maria et une seule idée en tête : faire goûter aux Valaisans la vraie cuisine de sa nonna.</p>
+        <p>Quarante ans plus tard, l'Osteria del Sole est toujours là. Nos pâtes sont pétries chaque matin à 6h, notre huile d'olive vient toujours du même moulin près de Lucca, et nos vins racontent l'Italie du Piémont à la Sicile.</p>
+        <div class="histoire-quote">"On ne cuisine pas pour impressionner.<br>On cuisine pour faire plaisir."</div>
+        <div class="histoire-signature">— Marco Rossi<small>Chef · Deuxième génération</small></div>
+      </div>
+      <div class="histoire-img reveal">
+        <img src="https://images.unsplash.com/photo-1542528180-a1208c5169a5?auto=format&fit=crop&w=1000&q=80" alt="Chef italien préparant des pâtes" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SPECIALITES ═══════ -->
+<section id="cuisine" class="specialites">
+  <div class="container">
+    <div style="text-align:center; max-width:720px; margin:0 auto 60px;">
+      <span class="section-eyebrow">Nos spécialités</span>
+      <h2 class="section-title">Une cuisine <em>vraie</em>, sans artifice.</h2>
+      <p class="section-intro" style="margin: 0 auto;">Du jardin à l'assiette, de la pâte à la table. Chaque plat raconte une région, une saison, une histoire.</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-card reveal">
+        <div class="spec-icon">A</div>
+        <h3>Antipasti</h3>
+        <p>Burrata des Pouilles, prosciutto di Parma 24 mois, légumes grillés à l'huile d'olive du domaine.</p>
+      </div>
+      <div class="spec-card reveal">
+        <div class="spec-icon">P</div>
+        <h3>Pasta fresca</h3>
+        <p>Tagliatelles, ravioli, gnocchi — pétris chaque matin à la main. Farine type 00, œufs fermiers du Valais.</p>
+      </div>
+      <div class="spec-card reveal">
+        <div class="spec-icon">S</div>
+        <h3>Secondi</h3>
+        <p>Osso buco mijoté quatre heures, branzino au four, saltimbocca à la romaine. Des classiques, faits avec amour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ MENU ═══════ -->
+<section id="menu" class="menu-section">
+  <div class="container">
+    <div style="text-align:center; max-width:720px; margin:0 auto 70px;">
+      <span class="section-eyebrow">Notre carte</span>
+      <h2 class="section-title">Les <em>incontournables</em> de la maison.</h2>
+      <p class="section-intro" style="margin: 0 auto;">Une sélection qui change chaque saison. La carte complète vous attend sur place.</p>
+    </div>
+
+    <div class="menu-tabs" role="tablist">
+      <button class="menu-tab active" data-target="panel-antipasti" role="tab">Antipasti</button>
+      <button class="menu-tab" data-target="panel-pasta" role="tab">Pasta</button>
+      <button class="menu-tab" data-target="panel-pizza" role="tab">Pizza</button>
+      <button class="menu-tab" data-target="panel-carne" role="tab">Carne</button>
+      <button class="menu-tab" data-target="panel-dolci" role="tab">Dolci</button>
+    </div>
+
+    <div class="menu-panels">
+
+      <!-- Antipasti -->
+      <div class="menu-panel active" id="panel-antipasti" role="tabpanel">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Burrata Pugliese</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 19</span>
+            </div>
+            <p class="menu-item-desc">Burrata crémeuse des Pouilles, tomates anciennes du Valais, basilic frais, huile d'olive vierge extra.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Végétarien</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Vitello Tonnato</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 22</span>
+            </div>
+            <p class="menu-item-desc">Fines tranches de veau du Piémont, sauce au thon, câpres de Pantelleria, citron confit.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Bruschetta al Pomodoro</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 14</span>
+            </div>
+            <p class="menu-item-desc">Pain de campagne grillé au feu de bois, tomates San Marzano, ail, basilic, huile d'olive vierge.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Végétarien</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Carpaccio di Manzo</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 24</span>
+            </div>
+            <p class="menu-item-desc">Fines tranches de bœuf cru, roquette, copeaux de parmesan, citron, huile à la truffe blanche.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Antipasto Misto della Casa</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 28</span>
+            </div>
+            <p class="menu-item-desc">Sélection de charcuteries italiennes, fromages affinés, légumes grillés, olives Taggiasche.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Pour 2</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Caprese di Bufala</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 21</span>
+            </div>
+            <p class="menu-item-desc">Mozzarella di bufala Campana, tomates cœur de bœuf, basilic, réduction de balsamique de Modène.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Végétarien</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pasta -->
+      <div class="menu-panel" id="panel-pasta" role="tabpanel">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Tagliatelle al Ragù</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 26</span>
+            </div>
+            <p class="menu-item-desc">Pâtes fraîches maison, ragoût de bœuf mijoté huit heures façon bolognaise, parmigiano reggiano 36 mois.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Signature</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Ravioli di Zucca</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 28</span>
+            </div>
+            <p class="menu-item-desc">Ravioli faits main à la courge butternut, beurre noisette, sauge, amaretti et parmesan.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Végétarien</span><span class="menu-tag">Saison</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Spaghetti alla Carbonara</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 24</span>
+            </div>
+            <p class="menu-item-desc">La vraie recette romaine, guanciale, jaunes d'œufs, pecorino romano, poivre noir fraîchement moulu.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Linguine alle Vongole</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 32</span>
+            </div>
+            <p class="menu-item-desc">Linguine fraîches, palourdes du jour, ail, persil plat, vin blanc, huile d'olive ligure.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Penne all'Arrabbiata</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 22</span>
+            </div>
+            <p class="menu-item-desc">Penne rigate, tomates San Marzano, ail, piment de Calabre, persil. Pour les amateurs de piquant.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Végétarien</span><span class="menu-tag">Épicé</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Lasagne della Nonna</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 26</span>
+            </div>
+            <p class="menu-item-desc">Pâte fraîche, ragoût, béchamel maison, parmesan, mozzarella. La recette familiale, depuis 1987.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Signature</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Gnocchi al Gorgonzola</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 25</span>
+            </div>
+            <p class="menu-item-desc">Gnocchi de pommes de terre maison, crème de gorgonzola DOP, noix grillées, poire confite.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Végétarien</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Risotto ai Funghi Porcini</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 30</span>
+            </div>
+            <p class="menu-item-desc">Riz Carnaroli, cèpes frais ou séchés du Piémont, beurre, parmesan, persil. Crémeux à souhait.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Saison</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pizza -->
+      <div class="menu-panel" id="panel-pizza" role="tabpanel">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Margherita DOC</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 18</span>
+            </div>
+            <p class="menu-item-desc">Tomate San Marzano, mozzarella di bufala Campana, basilic frais, huile d'olive vierge extra.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Végétarien</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Diavola</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 22</span>
+            </div>
+            <p class="menu-item-desc">Tomate, mozzarella, salame piccante, piments frais, origan. Une pizza qui a du caractère.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Épicé</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Quattro Formaggi</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 24</span>
+            </div>
+            <p class="menu-item-desc">Mozzarella fior di latte, gorgonzola DOP, fontina, parmigiano reggiano, miel d'acacia.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Végétarien</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Prosciutto e Funghi</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 23</span>
+            </div>
+            <p class="menu-item-desc">Tomate, mozzarella, jambon de Parme 18 mois, champignons de Paris frais, persil.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Tartufata</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 28</span>
+            </div>
+            <p class="menu-item-desc">Crème de truffe noire, mozzarella, champignons sauvages, jaune d'œuf, copeaux de parmesan.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Signature</span><span class="menu-tag">Saison</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Capricciosa</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 24</span>
+            </div>
+            <p class="menu-item-desc">Tomate, mozzarella, jambon cuit, champignons, artichauts, olives noires Taggiasche, œuf.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Vegetariana del Sole</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 21</span>
+            </div>
+            <p class="menu-item-desc">Tomate, mozzarella, courgettes grillées, aubergines, poivrons, roquette, copeaux de parmesan.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Végétarien</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Quattro Stagioni</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 25</span>
+            </div>
+            <p class="menu-item-desc">Quatre quartiers, quatre saisons : jambon, champignons, artichauts, olives, sur base tomate-mozzarella.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carne -->
+      <div class="menu-panel" id="panel-carne" role="tabpanel">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Osso Buco alla Milanese</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 39</span>
+            </div>
+            <p class="menu-item-desc">Jarret de veau braisé quatre heures, gremolata maison, risotto au safran de Mund.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Signature</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Saltimbocca alla Romana</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 36</span>
+            </div>
+            <p class="menu-item-desc">Escalopes de veau, jambon de Parme, sauge, déglacées au vin blanc et beurre. Pommes rissolées.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Tagliata di Manzo</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 42</span>
+            </div>
+            <p class="menu-item-desc">Pavé de bœuf Angus tranché, roquette, tomates cerises, copeaux de parmesan, huile à la truffe.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Cotoletta alla Milanese</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 34</span>
+            </div>
+            <p class="menu-item-desc">Côte de veau panée à la milanaise, beurre noisette, citron, salade fraîche du marché.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Filetto al Barolo</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 48</span>
+            </div>
+            <p class="menu-item-desc">Filet de bœuf sauce au Barolo, pommes de terre fondantes, légumes du jour, jus réduit.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Signature</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Pollo alla Cacciatora</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 32</span>
+            </div>
+            <p class="menu-item-desc">Suprême de poulet fermier mijoté tomate-olives-romarin, polenta crémeuse au parmesan.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dolci -->
+      <div class="menu-panel" id="panel-dolci" role="tabpanel">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Tiramisù della Nonna</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 12</span>
+            </div>
+            <p class="menu-item-desc">La recette de Maria, mascarpone fouetté, biscuits savoiardi, espresso, cacao amer.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Signature</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Panna Cotta ai Frutti Rossi</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 11</span>
+            </div>
+            <p class="menu-item-desc">Crème prise vanille de Madagascar, coulis de fruits rouges, brisures de meringue.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Cannoli Siciliani</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 13</span>
+            </div>
+            <p class="menu-item-desc">Trois cannoli croustillants, ricotta de brebis, pistaches de Bronte, écorces d'orange confite.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Affogato al Caffè</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 10</span>
+            </div>
+            <p class="menu-item-desc">Boule de glace à la vanille bourbon noyée sous un espresso bien serré. Simple et parfait.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Tartufo Bianco</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 12</span>
+            </div>
+            <p class="menu-item-desc">Glace chocolat blanc enrobée de cacao amer, cœur coulant aux noisettes du Piémont.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Saison</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Cassata Siciliana</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 13</span>
+            </div>
+            <p class="menu-item-desc">Génoise imbibée de marsala, ricotta sucrée, fruits confits, glaçage royal pistache.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-footer">
+      <p>"Mangia bene, ridi spesso, ama molto."</p>
+      <a href="#contact" class="btn">Réserver votre table</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ GALERIE ═══════ -->
+<section id="galerie" class="galerie">
+  <div class="container">
+    <div style="text-align:center; max-width:720px; margin:0 auto 50px;">
+      <span class="section-eyebrow">L'ambiance</span>
+      <h2 class="section-title">Un peu d'Italie, <em>vu d'ici</em>.</h2>
+    </div>
+    <div class="galerie-grid">
+      <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80" alt="Intérieur du restaurant" /></div>
+      <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1000&q=80" alt="Pizza au feu de bois" /></div>
+      <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1000&q=80" alt="Pâtes carbonara" /></div>
+      <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1000&q=80" alt="Dessert italien" /></div>
+      <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Salle du restaurant" /></div>
+      <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=80" alt="Verre de vin italien" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TEMOIGNAGES ═══════ -->
+<section class="temoignages">
+  <div class="container">
+    <div style="text-align:center; max-width:720px; margin:0 auto 50px;">
+      <span class="section-eyebrow">Ils en parlent</span>
+      <h2 class="section-title">Ce que disent <em>nos hôtes</em>.</h2>
+    </div>
+    <div class="temoignages-grid">
+      <div class="temoignage reveal">
+        <div class="temoignage-stars">★★★★★</div>
+        <p>"Une parenthèse italienne en plein Valais. Les tagliatelles au ragù étaient parfaites, et l'accueil de la famille Rossi vaut le détour à lui seul. On reviendra."</p>
+        <div class="temoignage-author">Caroline B.<small>Lausanne · Octobre 2025</small></div>
+      </div>
+      <div class="temoignage reveal">
+        <div class="temoignage-stars">★★★★★</div>
+        <p>"Le meilleur osso buco que j'ai mangé depuis Milan. Carte des vins italiens incroyable, le sommelier connaît son sujet. Ambiance chaleureuse, jamais prétentieuse."</p>
+        <div class="temoignage-author">Antoine M.<small>Sion · Septembre 2025</small></div>
+      </div>
+      <div class="temoignage reveal">
+        <div class="temoignage-stars">★★★★★</div>
+        <p>"On y va en famille depuis des années. Les enfants adorent les ravioli faits maison, les grands-parents adorent le tiramisù. Une institution à Sion."</p>
+        <div class="temoignage-author">Famille Pellaud<small>Martigny · Août 2025</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ RESERVATION ═══════ -->
+<section id="contact" class="reservation">
+  <div class="container">
+    <div style="text-align:center; max-width:720px; margin:0 auto 60px;">
+      <span class="section-eyebrow">Réservation</span>
+      <h2 class="section-title">Venez <em>passer une soirée</em> avec nous.</h2>
+    </div>
+
+    <div class="reservation-grid">
+      <div class="reservation-info reveal">
+        <div class="info-block">
+          <div class="info-label">Adresse</div>
+          <div class="info-content"><strong>Rue de Lausanne 18</strong><br>1950 Sion · Valais<br>Suisse</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Horaires</div>
+          <div class="info-content">
+            <strong>Mardi – Samedi</strong><br>
+            Midi · 11h30 – 14h00<br>
+            Soir · 18h30 – 22h30<br><br>
+            <strong>Dimanche & Lundi</strong><br>
+            Fermé
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Téléphone</div>
+          <div class="info-content"><strong>+41 27 322 14 87</strong><br>Pour les réservations urgentes.</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Email</div>
+          <div class="info-content"><strong>ciao@osteria-del-sole.ch</strong></div>
+        </div>
+      </div>
+
+      <div class="form-wrap reveal">
+        <h3>Réservez <em>en ligne</em></h3>
+        <p>Une réponse vous parvient sous 2 heures pendant nos heures d'ouverture.</p>
+        <form onsubmit="event.preventDefault(); alert('Démonstration — formulaire à connecter à Formspree ou similaire.');">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Prénom</label>
+              <input type="text" required placeholder="Marco" />
+            </div>
+            <div class="form-group">
+              <label>Nom</label>
+              <input type="text" required placeholder="Rossi" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" required placeholder="marco@email.ch" />
+            </div>
+            <div class="form-group">
+              <label>Téléphone</label>
+              <input type="tel" required placeholder="+41 79 ..." />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" required />
+            </div>
+            <div class="form-group">
+              <label>Personnes</label>
+              <select required>
+                <option>2 personnes</option>
+                <option>3 personnes</option>
+                <option>4 personnes</option>
+                <option>5 personnes</option>
+                <option>6 personnes</option>
+                <option>7+ personnes</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Message (facultatif)</label>
+            <textarea placeholder="Allergies, occasion particulière, demande spéciale..."></textarea>
+          </div>
+          <button type="submit" class="btn">Demander la réservation →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Osteria<span>·</span>del Sole</div>
+        <p>L'authentique cuisine italienne au cœur du Valais. Famille Rossi, depuis 1987.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Découvrir</h4>
+        <ul>
+          <li><a href="#histoire">Notre histoire</a></li>
+          <li><a href="#cuisine">Spécialités</a></li>
+          <li><a href="#menu">Le menu</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>Rue de Lausanne 18</li>
+          <li>1950 Sion</li>
+          <li>+41 27 322 14 87</li>
+          <li>ciao@osteria-del-sole.ch</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Suivez-nous</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">TripAdvisor</a></li>
+          <li><a href="#">Google Maps</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Osteria del Sole · Tous droits réservés</div>
+      <div>Site créé avec ❤ par <a href="https://nb-design.ch">NB-Design</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Mobile menu
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Menu tabs
+const menuTabs = document.querySelectorAll('.menu-tab');
+const menuPanels = document.querySelectorAll('.menu-panel');
+menuTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const targetId = tab.dataset.target;
+    menuTabs.forEach(t => t.classList.remove('active'));
+    menuPanels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(targetId).classList.add('active');
+  });
+});
+
+// Set min date today
+const dateInput = document.querySelector('input[type="date"]');
+if (dateInput) {
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.min = today;
+  dateInput.value = today;
+}
+</script>
+
+</body>
+</html>
+
