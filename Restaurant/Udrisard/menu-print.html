@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carte · Udrisard Café · Sion · Valais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Pinyon+Script&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ====== PAGE SETUP ====== */
+    @page { size: A4 portrait; margin: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #faf6ed;
+      --paper-soft: #f4eee0;
+      --ink: #1a1814;
+      --ink-soft: #2e2a23;
+      --text: #3a342c;
+      --muted: #807763;
+      --rule: #d4c9ad;
+      --gold: #b8923f;
+      --gold-light: #c9a85a;
+      --gold-pale: #e3d3a3;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: var(--ink);
+      background: #d8d4cc;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Toolbar (only on screen) */
+    .toolbar {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+    }
+    .toolbar button {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 0.75rem 1.35rem;
+      border-radius: 999px;
+      border: 0;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+      transition: transform 0.2s, box-shadow 0.25s;
+    }
+    .toolbar button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    }
+    @media print { .toolbar { display: none !important; } }
+
+    /* Page */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 1cm auto;
+      background: var(--paper);
+      position: relative;
+      overflow: hidden;
+      padding: 18mm 22mm 16mm;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
+      page-break-after: always;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+    }
+    .page:last-child { page-break-after: auto; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; }
+    }
+
+    /* Header / Footer rails */
+    .page-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8.5pt;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .page-head .right {
+      text-align: right;
+      color: var(--gold);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.02em;
+      font-size: 10.5pt;
+      text-transform: none;
+    }
+
+    .page-foot {
+      margin-top: auto;
+      padding-top: 6mm;
+      border-top: 0.3pt solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 7.8pt;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .page-foot .num {
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      text-transform: none;
+      font-size: 10pt;
+    }
+
+    /* ====== COVER ====== */
+    .page-cover {
+      padding: 16mm 22mm;
+    }
+    .cover-illustration {
+      position: absolute;
+      top: 28mm;
+      left: 0;
+      right: 0;
+      height: 100mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .cover-illustration svg {
+      width: 80%;
+      height: 100%;
+    }
+    .cover-title {
+      margin-top: auto;
+      margin-bottom: 6mm;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .cover-title-serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 96pt;
+      line-height: 0.95;
+      color: var(--ink);
+      letter-spacing: -0.5pt;
+    }
+    .cover-title-cursive {
+      font-family: 'Pinyon Script', cursive;
+      font-weight: 400;
+      font-size: 78pt;
+      line-height: 0.7;
+      color: var(--gold);
+      margin-top: -10mm;
+      letter-spacing: 1pt;
+    }
+    .cover-tagrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8mm;
+      margin-top: 8mm;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9pt;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .cover-tagrow::before,
+    .cover-tagrow::after {
+      content: '';
+      width: 16mm;
+      height: 0.5pt;
+      background: var(--gold);
+    }
+    .cover-quote {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 15pt;
+      color: var(--ink-soft);
+      margin-top: 6mm;
+    }
+
+    .cover-footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8mm;
+      margin-top: 14mm;
+      padding-top: 8mm;
+    }
+    .cover-footer-col {
+      text-align: center;
+    }
+    .cover-footer-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 7.8pt;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 3mm;
+    }
+    .cover-footer-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12pt;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .cover-footer-value em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ====== SECTION HEAD ====== */
+    .section-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8.5pt;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 14mm;
+      margin-bottom: 3mm;
+    }
+    .section-header {
+      display: grid;
+      grid-template-columns: 14mm 1fr auto;
+      align-items: end;
+      gap: 4mm;
+      padding-bottom: 5mm;
+      border-bottom: 0.5pt solid var(--rule);
+      margin-bottom: 10mm;
+    }
+    .section-roman {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 46pt;
+      line-height: 0.85;
+      color: var(--gold);
+      letter-spacing: -1pt;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 42pt;
+      line-height: 0.95;
+      color: var(--ink);
+      letter-spacing: -0.5pt;
+    }
+    .section-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 11.5pt;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.4;
+      padding-bottom: 3mm;
+      max-width: 55mm;
+    }
+
+    /* ====== SUB SECTION (smaller, inline like II Assiettes froides) ====== */
+    .subsection-header {
+      display: grid;
+      grid-template-columns: 10mm 1fr auto;
+      align-items: end;
+      gap: 4mm;
+      margin-top: 16mm;
+      padding-bottom: 4mm;
+      border-bottom: 0.5pt solid var(--rule);
+      margin-bottom: 8mm;
+    }
+    .subsection-roman {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 24pt;
+      line-height: 0.85;
+      color: var(--gold);
+    }
+    .subsection-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 24pt;
+      line-height: 1;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8mm;
+    }
+    .subsection-title::after {
+      content: '';
+      flex: 1;
+      max-width: 18mm;
+      height: 0.5pt;
+      background: var(--gold-pale);
+    }
+    .subsection-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 10pt;
+      color: var(--muted);
+      text-align: right;
+      max-width: 50mm;
+      padding-bottom: 1mm;
+    }
+
+    /* ====== ITEMS GRID ====== */
+    .items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9mm 14mm;
+    }
+    .items.single { grid-template-columns: 1fr; }
+    .item {
+      padding-bottom: 5mm;
+      border-bottom: 0.3pt solid var(--rule);
+    }
+    .item.full {
+      grid-column: 1 / -1;
+    }
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6mm;
+      margin-bottom: 1.5mm;
+    }
+    .item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 13.5pt;
+      color: var(--ink);
+      line-height: 1.2;
+      flex: 1;
+    }
+    .item-price {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 10pt;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .item-price .ccy {
+      font-size: 8.5pt;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      font-weight: 500;
+      margin-right: 1mm;
+    }
+    .item-price .val {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 10.5pt;
+    }
+    .item-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 9pt;
+      color: var(--text);
+      line-height: 1.5;
+      max-width: 90%;
+    }
+
+    /* ====== INTEMPOREL LIST (glaces) ====== */
+    .glaces-intro {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 12pt;
+      color: var(--muted);
+      margin-top: 4mm;
+      margin-bottom: 3mm;
+    }
+    .glaces-list {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 14pt;
+      color: var(--ink);
+      letter-spacing: 0.5pt;
+      margin-bottom: 7mm;
+    }
+    .glaces-list span {
+      color: var(--gold);
+      margin: 0 3mm;
+    }
+
+    /* ====== THANK YOU PAGE ====== */
+    .page-thanks {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .thanks-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4mm;
+      margin-top: 50mm;
+      margin-bottom: 14mm;
+    }
+    .thanks-divider span {
+      width: 28mm;
+      height: 0.4pt;
+      background: var(--ink);
+    }
+    .thanks-divider em {
+      color: var(--gold);
+      font-size: 14pt;
+      font-style: normal;
+    }
+    .thanks-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17pt;
+      color: var(--ink);
+      line-height: 1.45;
+      max-width: 130mm;
+      margin: 0 auto 18mm;
+      position: relative;
+    }
+    .thanks-quote::before,
+    .thanks-quote::after {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      color: var(--gold);
+      font-size: 28pt;
+      line-height: 0;
+    }
+    .thanks-quote::before { margin-right: 2mm; }
+    .thanks-quote::after { margin-left: 2mm; }
+    .thanks-merci {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 48pt;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 4mm;
+    }
+    .thanks-merci em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold);
+    }
+    .thanks-coords {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8.5pt;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 30mm;
+      padding-top: 8mm;
+      border-top: 0.5pt solid var(--rule);
+      max-width: 140mm;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 500;
+    }
+
+    /* ====== ALLERGIES NOTE ====== */
+    .allergies-note {
+      margin-top: 12mm;
+      padding-top: 6mm;
+      border-top: 0.3pt dashed var(--rule);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 10pt;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button onclick="window.print()">Imprimer en PDF</button>
+  </div>
+
+  <!-- ============================== -->
+  <!-- PAGE 1 — COUVERTURE            -->
+  <!-- ============================== -->
+  <div class="page page-cover">
+
+    <header class="page-head">
+      <div>
+        Udrisard Café<br />
+        <span style="color:var(--muted); font-weight:400;">Café Restaurant · Depuis 1898</span>
+      </div>
+      <div class="right">
+        Carte 2026<br />
+        <span style="font-style:normal; font-family:'DM Sans'; font-size:8.5pt; letter-spacing:0.28em; text-transform:uppercase; color:var(--muted); font-weight:500;">Sion · Valais</span>
+      </div>
+    </header>
+
+    <div class="cover-illustration" aria-hidden="true">
+      <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#1a1814" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Sky cloud hints -->
+        <path d="M120 60 Q150 40 180 60 Q210 50 230 70" opacity="0.5"/>
+        <path d="M580 50 Q610 30 640 55 Q670 45 690 65" opacity="0.5"/>
+
+        <!-- Mountains in background -->
+        <path d="M0 280 L80 200 L140 240 L210 170 L290 230 L360 180 L440 250 L520 200 L600 260 L680 220 L800 280 L800 400 L0 400 Z" fill="#1a1814" opacity="0.05" stroke="none"/>
+
+        <!-- Valère castle on the right hill -->
+        <path d="M460 280 L470 200 L490 180 L495 150 L510 140 L520 150 L525 180 L545 200 L555 280 Z" opacity="0.85"/>
+        <rect x="495" y="155" width="14" height="20" opacity="0.85"/>
+        <rect x="503" y="148" width="3" height="10" opacity="0.85"/>
+        <line x1="475" y1="220" x2="475" y2="230" opacity="0.85"/>
+        <line x1="485" y1="218" x2="485" y2="228" opacity="0.85"/>
+        <line x1="515" y1="218" x2="515" y2="228" opacity="0.85"/>
+        <line x1="540" y1="220" x2="540" y2="230" opacity="0.85"/>
+
+        <!-- Tourbillon castle on the left hill -->
+        <path d="M160 280 L180 210 L200 195 L215 200 L225 175 L240 165 L250 175 L260 200 L275 195 L295 215 L315 280 Z" opacity="0.85"/>
+        <rect x="232" y="170" width="10" height="14" opacity="0.85"/>
+        <line x1="200" y1="220" x2="200" y2="230" opacity="0.85"/>
+        <line x1="240" y1="220" x2="240" y2="230" opacity="0.85"/>
+        <line x1="280" y1="220" x2="280" y2="230" opacity="0.85"/>
+
+        <!-- Old town houses at the foot -->
+        <g opacity="0.75">
+          <rect x="280" y="290" width="40" height="50"/>
+          <path d="M280 290 L300 275 L320 290 Z"/>
+          <rect x="320" y="295" width="55" height="45"/>
+          <path d="M320 295 L347 280 L375 295 Z"/>
+          <rect x="375" y="285" width="35" height="55"/>
+          <path d="M375 285 L392 272 L410 285 Z"/>
+          <rect x="410" y="295" width="50" height="45"/>
+          <path d="M410 295 L435 282 L460 295 Z"/>
+          <rect x="345" y="270" width="12" height="20"/>
+          <line x1="351" y1="265" x2="351" y2="270"/>
+        </g>
+        <g opacity="0.6">
+          <rect x="220" y="320" width="60" height="40"/>
+          <path d="M220 320 L250 305 L280 320 Z"/>
+          <rect x="460" y="315" width="55" height="45"/>
+          <path d="M460 315 L487 300 L515 315 Z"/>
+          <rect x="515" y="320" width="45" height="40"/>
+          <path d="M515 320 L537 308 L560 320 Z"/>
+        </g>
+
+        <!-- Foreground trees / shrubs -->
+        <g opacity="0.5">
+          <circle cx="80" cy="350" r="14"/>
+          <circle cx="100" cy="355" r="10"/>
+          <circle cx="700" cy="350" r="13"/>
+          <circle cx="720" cy="358" r="9"/>
+          <circle cx="600" cy="365" r="11"/>
+        </g>
+
+        <!-- Ground line -->
+        <line x1="0" y1="370" x2="800" y2="370" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <div style="flex: 1;"></div>
+
+    <div class="cover-title">
+      <div class="cover-title-serif">Udrisard</div>
+      <div class="cover-title-cursive">Café</div>
+      <div class="cover-tagrow">Maison familiale depuis 1898</div>
+      <div class="cover-quote">« Le passé recomposé »</div>
+    </div>
+
+    <footer class="cover-footer">
+      <div class="cover-footer-col">
+        <div class="cover-footer-label">Adresse</div>
+        <div class="cover-footer-value">Rue du Rhône 21<br />1950 Sion</div>
+      </div>
+      <div class="cover-footer-col">
+        <div class="cover-footer-label">Réservation</div>
+        <div class="cover-footer-value">+41 (0)27 322 25 44</div>
+      </div>
+      <div class="cover-footer-col">
+        <div class="cover-footer-label">Établissement</div>
+        <div class="cover-footer-value"><em>Sion · Valais · CH</em></div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ============================== -->
+  <!-- PAGE 2 — ENTRÉES               -->
+  <!-- ============================== -->
+  <div class="page">
+
+    <header class="page-head">
+      <div>Udrisard Café</div>
+      <div class="right">Carte</div>
+    </header>
+
+    <div class="section-eyebrow">Pour commencer</div>
+    <div class="section-header">
+      <span class="section-roman">I</span>
+      <h2 class="section-title">Entrées</h2>
+      <p class="section-tagline">Pour commencer,<br />laissez-vous séduire</p>
+    </div>
+
+    <div class="items">
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Velouté de courge et croûtons</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">9.50</span></span>
+        </div>
+        <p class="item-desc">Chutney de mangue et toasts</p>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Foie gras de canard maison au torchon</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">24.— / 34.—</span></span>
+        </div>
+        <p class="item-desc">Chutney de mangue et toasts. Préparé dans nos cuisines, également à l'emporter.</p>
+      </article>
+
+      <article class="item full">
+        <div class="item-head">
+          <span class="item-name">Saladine du berger</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">25.—</span></span>
+        </div>
+        <p class="item-desc">Fromage de chèvre nature ou au miel, mesclun de saison</p>
+      </article>
+
+    </div>
+
+    <div class="subsection-header">
+      <span class="subsection-roman">II</span>
+      <h3 class="subsection-title">Spécialités italiennes</h3>
+      <p class="subsection-tagline">Un clin d'œil au sud, en pleine vieille ville</p>
+    </div>
+
+    <div class="items">
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Paccheri « alla Norma »</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">26.50</span></span>
+        </div>
+        <p class="item-desc">Pâtes, tomate, ricotta, basilic et aubergine, spécialité sicilienne</p>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Spaghetti « Carbonara »</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">25.—</span></span>
+        </div>
+        <p class="item-desc">La véritable carbonara, sans crème</p>
+      </article>
+
+    </div>
+
+    <footer class="page-foot">
+      <div>Entrées · Spécialités italiennes</div>
+      <div class="num">— 01 —</div>
+    </footer>
+
+  </div>
+
+  <!-- ============================== -->
+  <!-- PAGE 3 — LES PLATS             -->
+  <!-- ============================== -->
+  <div class="page">
+
+    <header class="page-head">
+      <div>Udrisard Café</div>
+      <div class="right">Carte</div>
+    </header>
+
+    <div class="section-eyebrow">Les plats</div>
+    <div class="section-header">
+      <span class="section-roman">III</span>
+      <h2 class="section-title">Plats de la maison</h2>
+      <p class="section-tagline">Le meilleur du Valais,<br />sublimé avec passion</p>
+    </div>
+
+    <div class="items">
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Tagliatelles à la crème de truffe<br />et foie gras poêlé</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">29.50</span></span>
+        </div>
+        <p class="item-desc">Pâtes fraîches, crème de truffe noire, médaillon de foie gras poêlé minute</p>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Burger de bœuf d'Hérens du Chef</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">28.—</span></span>
+        </div>
+        <p class="item-desc">Bœuf de la race d'Hérens, panier de frites maison et salade verte</p>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Risotto aux bolets et parmesan</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">28.50</span></span>
+        </div>
+        <p class="item-desc">Riz Carnaroli, bolets séchés et frais, parmesan Reggiano 24 mois</p>
+      </article>
+
+    </div>
+
+    <div class="allergies-note">
+      En cas d'allergies connues, merci d'avance de les signaler à notre personnel lors de la prise de commande.
+    </div>
+
+    <footer class="page-foot">
+      <div>Plats · Cuisine de saison</div>
+      <div class="num">— 02 —</div>
+    </footer>
+
+  </div>
+
+  <!-- ============================== -->
+  <!-- PAGE 4 — DESSERTS              -->
+  <!-- ============================== -->
+  <div class="page">
+
+    <header class="page-head">
+      <div>Udrisard Café</div>
+      <div class="right">Carte</div>
+    </header>
+
+    <div class="section-eyebrow">L'instant des gourmandises</div>
+    <div class="section-header">
+      <span class="section-roman">IV</span>
+      <h2 class="section-title">Desserts</h2>
+      <p class="section-tagline">Une douce conclusion,<br />pour terminer en beauté</p>
+    </div>
+
+    <div class="items">
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Moëlleux au chocolat</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">12.50</span></span>
+        </div>
+        <p class="item-desc">Et sa douceur des Îles</p>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Tarte tatin</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">12.50</span></span>
+        </div>
+        <p class="item-desc">Pommes caramélisées et sa glace vanille</p>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Tarte citron</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">11.—</span></span>
+        </div>
+        <p class="item-desc">Crème citron et sa boule pistache</p>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Nougat glacé</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">12.—</span></span>
+        </div>
+        <p class="item-desc">Miel du Valais, amandes et fruits confits</p>
+      </article>
+
+    </div>
+
+    <div class="subsection-header">
+      <span class="subsection-roman">V</span>
+      <h3 class="subsection-title">Signatures glacées</h3>
+      <p class="subsection-tagline">Nos coupes, à servir<br />en fin de repas</p>
+    </div>
+
+    <div class="items">
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Coupe « Udrisard »</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">12.50</span></span>
+        </div>
+        <p class="item-desc">Glace cannelle et Grand Marnier. Notre signature.</p>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">« Le Valaisan »</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">12.—</span></span>
+        </div>
+        <p class="item-desc">Sorbet d'abricot du Valais arrosé d'abricotine</p>
+      </article>
+
+      <article class="item full">
+        <div class="item-head">
+          <span class="item-name">« Le Général »</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">14.—</span></span>
+        </div>
+        <p class="item-desc">Glace vanille accompagnée de whisky « Ballantine's »</p>
+      </article>
+
+    </div>
+
+    <footer class="page-foot">
+      <div>Desserts · Signatures glacées</div>
+      <div class="num">— 03 —</div>
+    </footer>
+
+  </div>
+
+  <!-- ============================== -->
+  <!-- PAGE 5 — INTEMPORELS           -->
+  <!-- ============================== -->
+  <div class="page">
+
+    <header class="page-head">
+      <div>Udrisard Café</div>
+      <div class="right">Carte</div>
+    </header>
+
+    <div class="section-eyebrow">Et toujours nos intemporels</div>
+    <div class="section-header">
+      <span class="section-roman">VI</span>
+      <h2 class="section-title">Glaces à la boule</h2>
+      <p class="section-tagline">Les classiques de toujours,<br />tout au long de l'année</p>
+    </div>
+
+    <p class="glaces-intro">Six parfums choisis avec soin :</p>
+    <p class="glaces-list">
+      Vanille<span>·</span>Caramel<span>·</span>Café<span>·</span>Cannelle<span>·</span>Sorbet Citron<span>·</span>Sorbet Abricot
+    </p>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">La boule</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">3.70</span></span>
+        </div>
+      </article>
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Supplément chantilly</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">1.50</span></span>
+        </div>
+      </article>
+    </div>
+
+    <div class="subsection-header">
+      <span class="subsection-roman">VII</span>
+      <h3 class="subsection-title">À emporter & cadeaux</h3>
+      <p class="subsection-tagline">Notre maison<br />jusque chez vous</p>
+    </div>
+
+    <div class="items">
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Foie gras maison à l'emporter</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">sur demande</span></span>
+        </div>
+        <p class="item-desc">Notre foie gras de canard au torchon, préparé dans nos cuisines</p>
+      </article>
+      <article class="item">
+        <div class="item-head">
+          <span class="item-name">Bons cadeaux « Udrisard »</span>
+          <span class="item-price"><span class="ccy">CHF</span><span class="val">au choix</span></span>
+        </div>
+        <p class="item-desc">Offrez un repas. Valable toute l'année sur l'ensemble de la carte.</p>
+      </article>
+    </div>
+
+    <footer class="page-foot">
+      <div>Intemporels · À emporter</div>
+      <div class="num">— 04 —</div>
+    </footer>
+
+  </div>
+
+  <!-- ============================== -->
+  <!-- PAGE 6 — MERCI                 -->
+  <!-- ============================== -->
+  <div class="page page-thanks">
+
+    <header class="page-head">
+      <div>Udrisard Café</div>
+      <div class="right">Merci</div>
+    </header>
+
+    <div class="thanks-divider">
+      <span></span>
+      <em>◆</em>
+      <span></span>
+    </div>
+
+    <p class="thanks-quote">
+      Nous accueillons nos hôtes comme nos grands-parents accueillaient les leurs. Avec le temps, l'élégance des choses simples.
+    </p>
+
+    <div class="thanks-merci">
+      Merci <em>de votre visite</em>
+    </div>
+
+    <div class="thanks-coords">
+      Udrisard Café · Rue du Rhône 21, 1950 Sion · +41 (0)27 322 25 44
+    </div>
+
+    <footer class="page-foot" style="margin-top: 40mm;">
+      <div>Au plaisir de vous revoir</div>
+      <div class="num">— 05 —</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
