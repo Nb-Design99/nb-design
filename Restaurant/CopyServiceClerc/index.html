@@ -15,7 +15,12 @@
   <style>
     /* ====== RESET ====== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
       font-weight: 400;
@@ -24,6 +29,8 @@
       color: var(--white);
       background: var(--bg-dark);
       overflow-x: hidden;
+      max-width: 100%;
+      position: relative;
       -webkit-font-smoothing: antialiased;
     }
     img, svg { display: block; max-width: 100%; }
@@ -552,7 +559,7 @@
     }
 
     /* ====== ABOUT ====== */
-    .about { background: var(--bg-deeper); position: relative; }
+    .about { background: var(--bg-deeper); position: relative; overflow: hidden; }
     .about::before {
       content: '';
       position: absolute;
@@ -597,7 +604,7 @@
     }
 
     /* ====== SERVICES ====== */
-    .services { background: var(--bg-dark); position: relative; }
+    .services { background: var(--bg-dark); position: relative; overflow: hidden; }
     .services-list {
       display: grid;
       grid-template-columns: 1fr;
@@ -668,7 +675,7 @@
     }
 
     /* ====== GALLERY ====== */
-    .gallery { background: var(--bg-deeper); }
+    .gallery { background: var(--bg-deeper); overflow: hidden; }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
