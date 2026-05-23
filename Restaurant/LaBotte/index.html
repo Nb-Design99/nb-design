@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="La Botte, pizzeria italienne au cœur de Martigny. Pizzas au feu de bois, pâtes maison et cuisine du Sud depuis plus de 20 ans. Place Saint-Michel 6 — 027 722 27 60." />
+  <meta name="keywords" content="pizzeria Martigny, restaurant italien Valais, La Botte, pizza four à bois, pâtes maison, Place Saint-Michel" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#14080a" />
+
+  <meta property="og:title" content="La Botte — Pizzeria italienne, Martigny" />
+  <meta property="og:description" content="Pizzas au feu de bois, pâtes maison et saveurs italiennes à la Place Saint-Michel de Martigny." />
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:locale" content="fr_CH" />
+
+  <title>La Botte — Pizzeria italienne, Martigny (Valais)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "La Botte",
+    "description": "Pizzeria italienne à Martigny — pizzas au feu de bois, pâtes maison, cuisine méditerranéenne.",
+    "telephone": "+41277222760",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Place Saint-Michel 6",
+      "addressLocality": "Martigny",
+      "postalCode": "1920",
+      "addressCountry": "CH"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 46.1027, "longitude": 7.0739 },
+    "servesCuisine": ["Italienne", "Pizzeria", "Méditerranéenne"],
+    "priceRange": "CHF CHF",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "11:00", "closes": "14:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "18:00", "closes": "23:00" }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ====== RESET & BASE ====== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; overflow-x: clip; max-width: 100%; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--cream);
+      background: var(--bg-dark);
+      overflow-x: hidden;
+      overflow-x: clip;
+      position: relative;
+      max-width: 100%;
+      width: 100%;
+      touch-action: pan-y pinch-zoom;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea, select { font: inherit; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ====== TOKENS — palette italienne ====== */
+    :root {
+      --terra-deep: #14080a;
+      --terra-dark: #1f0d10;
+      --terra-mid: #3a1a1c;
+      --rosso: #c4503c;
+      --rosso-deep: #9c3a28;
+      --rosso-light: #e6735a;
+      --basilic: #6b9c5e;
+      --gold: #d4a849;
+      --gold-light: #f0d089;
+      --cream: #f5ede0;
+      --cream-soft: #ebe2cf;
+      --text-muted: rgba(245, 237, 224, 0.62);
+      --text-dim: rgba(245, 237, 224, 0.38);
+      --bg-dark: #0a0407;
+      --border-soft: rgba(245, 237, 224, 0.07);
+      --border-medium: rgba(245, 237, 224, 0.13);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      --section-py: clamp(5rem, 10vw, 9rem);
+      --container-max: 1280px;
+      --container-px: clamp(1.25rem, 4vw, 3rem);
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    /* ====== LAYOUT ====== */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding-left: var(--container-px);
+      padding-right: var(--container-px);
+      width: 100%;
+    }
+    section {
+      position: relative;
+      padding-top: var(--section-py);
+      padding-bottom: var(--section-py);
+    }
+
+    /* ====== TYPOGRAPHY ====== */
+    .eyebrow {
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      display: inline-block;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      margin-bottom: 1.25rem;
+    }
+    .section-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+    .section-subtitle {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+    .section-header { margin-bottom: 4rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-subtitle { margin: 0 auto; }
+    .section-header.centered .eyebrow { margin-left: auto; margin-right: auto; }
+
+    /* ====== BUTTONS ====== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.65rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.92rem;
+      letter-spacing: 0.03em;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.35s var(--ease-out), background 0.3s, border-color 0.3s, box-shadow 0.45s;
+      white-space: nowrap;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--rosso) 0%, var(--rosso-deep) 100%);
+      color: var(--cream);
+      font-weight: 600;
+      border: 1px solid rgba(196, 80, 60, 0.6);
+      box-shadow: 0 8px 32px rgba(196, 80, 60, 0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(196, 80, 60, 0.45);
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), #a07830);
+      color: #1a1005;
+      font-weight: 600;
+      border: 1px solid rgba(212, 168, 73, 0.5);
+      box-shadow: 0 8px 32px rgba(212, 168, 73, 0.18);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(212, 168, 73, 0.35);
+    }
+    .btn-ghost {
+      background: rgba(245, 237, 224, 0.04);
+      color: var(--cream);
+      border: 1px solid var(--border-medium);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover {
+      background: rgba(245, 237, 224, 0.09);
+      border-color: rgba(245, 237, 224, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ====== HEADER ====== */
+    .header {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 1.5rem);
+      max-width: 1200px;
+      transition: top 0.4s var(--ease-out), background 0.4s, border-color 0.4s, box-shadow 0.4s;
+      background: rgba(20, 8, 10, 0.55);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-medium);
+      border-radius: 9999px;
+      padding: 0.45rem 0.5rem 0.45rem 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+    .header.scrolled {
+      top: 0.75rem;
+      background: rgba(20, 8, 10, 0.9);
+      border-color: rgba(245, 237, 224, 0.16);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+    .header .container { max-width: none; padding: 0; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: 0.01em;
+      color: var(--cream);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .logo em { font-style: italic; font-weight: 400; color: var(--gold-light); }
+    .logo-flag {
+      display: inline-flex;
+      gap: 2px;
+      height: 18px;
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid rgba(245, 237, 224, 0.15);
+    }
+    .logo-flag span { display: block; width: 6px; height: 100%; }
+    .logo-flag .f-green { background: #008c45; }
+    .logo-flag .f-white { background: #f4f5f0; }
+    .logo-flag .f-red { background: #cd212a; }
+    .nav-links { display: none; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      transition: color 0.3s;
+      padding: 0.4rem 0;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.35s var(--ease-out);
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-cta { display: none; padding: 0.6rem 1.2rem; font-size: 0.82rem; }
+    .burger {
+      width: 44px; height: 44px;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .burger:hover { background: rgba(245,237,224,0.05); border-color: rgba(245,237,224,0.25); }
+    .burger-bars { width: 18px; height: 12px; position: relative; }
+    .burger-bars span {
+      position: absolute; left: 0; right: 0;
+      height: 1.5px; background: var(--cream); border-radius: 2px;
+      transition: transform 0.35s var(--ease-out), opacity 0.25s, top 0.35s var(--ease-out);
+    }
+    .burger-bars span:nth-child(1) { top: 0; }
+    .burger-bars span:nth-child(2) { top: 5px; }
+    .burger-bars span:nth-child(3) { top: 10px; }
+    .burger.open .burger-bars span:nth-child(1) { top: 5px; transform: rotate(45deg); }
+    .burger.open .burger-bars span:nth-child(2) { opacity: 0; }
+    .burger.open .burger-bars span:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+
+    /* ====== MOBILE MENU ====== */
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: rgba(10, 4, 7, 0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 90;
+      display: flex;
+      align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s var(--ease-out), visibility 0.4s;
+    }
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+    .mobile-menu-inner { display: flex; flex-direction: column; gap: 2.5rem; text-align: center; align-items: center; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 2.2rem;
+      color: var(--cream);
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--gold-light); }
+
+    /* ====== HERO ====== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1920&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to bottom, rgba(10,4,7,0.55) 0%, rgba(10,4,7,0.2) 40%, rgba(10,4,7,0.6) 80%, rgba(10,4,7,0.95) 100%),
+        linear-gradient(to right, rgba(10,4,7,0.5) 0%, transparent 50%);
+    }
+    .hero-glows {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+    .hero-glow-1 {
+      position: absolute;
+      top: 18%; left: 12%;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196, 80, 60, 0.18) 0%, transparent 70%);
+      filter: blur(40px);
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      bottom: 22%; right: 8%;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 168, 73, 0.13) 0%, transparent 70%);
+      filter: blur(50px);
+      animation: glowPulse 8s ease-in-out 2s infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; }
+      50%       { opacity: 1; }
+    }
+    .hero-overlay-top {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, var(--bg-dark) 0%, transparent 100%);
+      pointer-events: none; z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1.2rem;
+      background: rgba(245, 237, 224, 0.05);
+      border: 1px solid rgba(212, 168, 73, 0.25);
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.3s forwards;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--rosso-light);
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.35; }
+    }
+    .hero-badge span {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3.2rem, 9vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35em;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.2s var(--ease-out) 0.5s forwards;
+    }
+    .hero-title-main {
+      display: block;
+      background: linear-gradient(135deg, var(--cream) 0%, rgba(245,237,224,0.85) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-title-accent {
+      display: block;
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 60%, var(--rosso) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.75s forwards;
+    }
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.95s forwards;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 1.4s forwards;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(1); opacity: 0.5; }
+      50%       { transform: scaleY(0.5); opacity: 1; }
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ====== ABOUT ====== */
+    .about { background: var(--bg-dark); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-photo-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .about-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(212, 168, 73, 0.3), transparent 60%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .about-photo {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      display: block;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 1.5rem; left: 1.5rem;
+      background: rgba(10, 4, 7, 0.85);
+      border: 1px solid rgba(212, 168, 73, 0.3);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.25rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 2;
+    }
+    .about-badge-title { font-family: var(--font-display); font-size: 1rem; font-style: italic; color: var(--gold-light); }
+    .about-badge-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.25rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-soft);
+    }
+    .stat-num { font-family: var(--font-display); font-size: 2rem; font-style: italic; color: var(--gold-light); line-height: 1; }
+    .stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem; letter-spacing: 0.05em; }
+
+    /* ====== MENU ====== */
+    .menu-section { background: var(--terra-deep); }
+    .menu-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      justify-content: center;
+    }
+    .menu-tab {
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-medium);
+      background: none;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .menu-tab:hover { color: var(--cream); border-color: rgba(245,237,224,0.25); }
+    .menu-tab.active {
+      background: rgba(196, 80, 60, 0.15);
+      border-color: rgba(196, 80, 60, 0.5);
+      color: var(--rosso-light);
+    }
+    .menu-panel { display: none; }
+    .menu-panel.active { display: block; }
+    .menu-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--border-soft);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .menu-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.4rem 1.75rem;
+      background: rgba(31, 13, 16, 0.7);
+      transition: background 0.3s;
+    }
+    .menu-item:hover { background: rgba(58, 26, 28, 0.85); }
+    .menu-item-text { flex: 1; }
+    .menu-item-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 500; color: var(--cream); margin-bottom: 0.25rem; }
+    .menu-item-name em { font-style: italic; color: var(--gold-light); font-weight: 400; }
+    .menu-item-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+    .menu-item-price { font-family: var(--font-display); font-size: 1.15rem; color: var(--gold); white-space: nowrap; font-weight: 500; }
+
+    /* Pizza grid with 3 columns of prices */
+    .pizza-header {
+      display: grid;
+      grid-template-columns: 1fr 64px 64px 64px;
+      gap: 0.75rem;
+      padding: 0.6rem 1.75rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(212, 168, 73, 0.08);
+      border-left: 2px solid var(--gold);
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    }
+    .pizza-header span:not(:first-child) { text-align: right; }
+
+    .pizza-item {
+      display: grid;
+      grid-template-columns: 1fr 64px 64px 64px;
+      gap: 0.75rem;
+      align-items: center;
+      padding: 1.1rem 1.75rem;
+      background: rgba(31, 13, 16, 0.7);
+      transition: background 0.3s;
+    }
+    .pizza-item:hover { background: rgba(58, 26, 28, 0.85); }
+    .pizza-name { font-family: var(--font-display); font-size: 1.15rem; color: var(--cream); font-weight: 500; }
+    .pizza-name em { font-style: italic; color: var(--gold-light); font-weight: 400; display: block; font-size: 0.8rem; margin-top: 0.15rem; color: var(--text-muted); font-family: var(--font-body); }
+    .pizza-price { font-family: var(--font-display); font-size: 1rem; color: var(--gold); text-align: right; font-weight: 500; }
+    .pizza-price.empty { color: var(--text-dim); }
+
+    .menu-note {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(196, 80, 60, 0.08);
+      border: 1px solid rgba(196, 80, 60, 0.2);
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .menu-note strong { color: var(--rosso-light); }
+    .menu-note em { color: var(--gold-light); font-style: italic; }
+
+    .menu-maxi-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(31, 13, 16, 0.5);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+    }
+    .maxi-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--gold-light);
+      margin-bottom: 0.4rem;
+    }
+    .maxi-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      font-size: 0.92rem;
+      color: var(--cream-soft);
+      padding: 0.25rem 0;
+    }
+    .maxi-row .maxi-price { color: var(--gold); font-family: var(--font-display); font-weight: 500; }
+
+    /* ====== GALLERY ====== */
+    .gallery { background: var(--bg-dark); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 0.75rem;
+    }
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item:first-child { grid-column: span 2; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      transition: transform 0.6s var(--ease-out);
+      display: block;
+    }
+    .gallery-item:first-child img { aspect-ratio: 21/9; }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,4,7,0.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-label { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--cream-soft); }
+
+    /* ====== TESTIMONIALS ====== */
+    .testimonials { background: var(--terra-deep); }
+    .testi-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .testi-card {
+      background: rgba(31, 13, 16, 0.55);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .testi-card:hover { border-color: rgba(212, 168, 73, 0.25); transform: translateY(-3px); }
+    .testi-stars { display: flex; gap: 0.25rem; margin-bottom: 1.25rem; }
+    .testi-star { color: var(--gold); font-size: 0.9rem; }
+    .testi-text { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; line-height: 1.65; color: var(--cream-soft); margin-bottom: 1.5rem; }
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testi-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--terra-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+    .testi-name { font-weight: 500; font-size: 0.88rem; color: var(--cream); }
+    .testi-location { font-size: 0.78rem; color: var(--text-muted); }
+    .testi-source { margin-left: auto; font-size: 0.72rem; color: var(--text-dim); }
+
+    /* ====== RESERVATION ====== */
+    .reservation { background: var(--bg-dark); }
+    .resa-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .resa-info h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 1rem; }
+    .resa-info p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
+    .resa-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .resa-tel-icon { color: var(--gold); }
+    .resa-hours { font-size: 0.85rem; color: var(--text-muted); }
+    .resa-form { display: grid; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .field label { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .field input, .field select, .field textarea {
+      background: rgba(245, 237, 224, 0.04);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      font-size: 0.95rem;
+      color: var(--cream);
+      transition: border-color 0.3s, background 0.3s;
+      width: 100%;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: rgba(212, 168, 73, 0.5);
+      background: rgba(245, 237, 224, 0.07);
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--text-dim); }
+    .field select option { background: var(--terra-dark); color: var(--cream); }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .form-note { font-size: 0.78rem; color: var(--text-dim); }
+    .form-success { display: none; padding: 1rem 1.5rem; background: rgba(107, 156, 94, 0.12); border: 1px solid rgba(107, 156, 94, 0.3); border-radius: var(--radius-md); color: var(--basilic); font-size: 0.9rem; }
+
+    /* ====== CUSTOM DATE PICKER ====== */
+    .date-picker-wrap { position: relative; }
+    .date-trigger {
+      width: 100%;
+      background: rgba(245, 237, 224, 0.04);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      color: var(--cream);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: border-color 0.3s, background 0.3s;
+      text-align: left;
+    }
+    .date-trigger:hover, .date-trigger:focus {
+      border-color: rgba(212, 168, 73, 0.5);
+      background: rgba(245, 237, 224, 0.07);
+      outline: none;
+    }
+    .date-display { font-size: 0.95rem; }
+    .date-display.placeholder-text { color: var(--text-dim); }
+    .date-trigger svg { flex-shrink: 0; color: var(--gold); opacity: 0.7; }
+    .cal-popup {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      z-index: 200;
+      background: var(--terra-dark);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      min-width: 272px;
+      display: none;
+    }
+    .cal-popup.open { display: block; }
+    .cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+    .cal-nav {
+      background: none; border: none;
+      color: var(--gold); font-size: 1.5rem; line-height: 1;
+      cursor: pointer; padding: 0.1rem 0.5rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s;
+    }
+    .cal-nav:hover { background: rgba(212, 168, 73, 0.12); }
+    .cal-month-label { font-family: var(--font-display); font-size: 1.05rem; color: var(--cream); }
+    .cal-days-header { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; margin-bottom: 0.35rem; }
+    .cal-day-name { font-size: 0.68rem; color: var(--text-dim); padding: 0.2rem 0; text-transform: uppercase; letter-spacing: 0.04em; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+    .cal-cell {
+      text-align: center; padding: 0.45rem 0;
+      border-radius: 6px; font-size: 0.875rem;
+      color: var(--cream); cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      user-select: none;
+    }
+    .cal-cell:hover:not(.disabled):not(.empty) { background: rgba(212,168,73,0.15); color: var(--gold-light); }
+    .cal-cell.today { color: var(--gold); font-weight: 600; }
+    .cal-cell.selected { background: var(--gold); color: #1a1005; font-weight: 600; }
+    .cal-cell.disabled { color: var(--text-dim); cursor: default; opacity: 0.3; }
+    .cal-cell.empty { cursor: default; }
+
+    /* ====== TIME PILLS ====== */
+    .time-groups { display: flex; flex-direction: column; gap: 0.9rem; }
+    .time-group-label { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .time-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .time-pill {
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      padding: 0.35rem 0.85rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      font-family: var(--font-body);
+    }
+    .time-pill:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(212,168,73,0.07); }
+    .time-pill.selected { background: var(--gold); border-color: var(--gold); color: #1a1005; font-weight: 500; }
+
+    /* ====== CONTACT ====== */
+    .contact-section { background: var(--terra-deep); }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+    .contact-info h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; margin-bottom: 1.5rem; }
+    .info-block { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .info-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-sm);
+      background: rgba(212, 168, 73, 0.1);
+      border: 1px solid rgba(212, 168, 73, 0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+    .info-label { font-size: 0.75rem; font-weight: 500; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
+    .info-value { font-size: 0.95rem; color: var(--cream); line-height: 1.6; }
+    .info-value a { color: var(--cream); transition: color 0.2s; }
+    .info-value a:hover { color: var(--gold-light); }
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 1.5rem; }
+    .hours-day { font-size: 0.85rem; color: var(--text-muted); }
+    .hours-time { font-size: 0.85rem; color: var(--cream-soft); }
+    .map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      height: 360px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; filter: grayscale(0.4) contrast(1.05); }
+    .social-row { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .social-btn:hover { color: var(--cream); border-color: rgba(245,237,224,0.3); }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border-soft);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+    .footer-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--cream); }
+    .footer-logo em { font-style: italic; color: var(--gold-light); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 0.82rem; color: var(--text-dim); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-muted); }
+    .footer-credit { font-size: 0.75rem; color: var(--text-dim); }
+    .footer-credit a { color: var(--gold); transition: opacity 0.2s; }
+    .footer-credit a:hover { opacity: 0.75; }
+
+    /* ====== WHATSAPP FLOAT ====== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      z-index: 50;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      display: flex;
+      align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+      color: #fff;
+    }
+    .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.55); }
+    .whatsapp-float svg { width: 28px; height: 28px; }
+
+    /* ====== FADE ANIMATIONS ====== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 639px) {
+      .hero-glow-1 { width: 220px; height: 220px; top: 15%; left: 5%; }
+      .hero-glow-2 { width: 200px; height: 200px; bottom: 20%; right: 5%; }
+      .hero-badge { max-width: calc(100vw - 2.5rem); overflow: hidden; }
+      .hero-badge span { font-size: 0.68rem; letter-spacing: 0.08em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .cal-popup { min-width: 0; width: calc(100vw - 3rem); left: 0; right: 0; }
+      section, .container, header { max-width: 100vw; }
+
+      /* Pizzas : scroll horizontal sur mobile pour les 3 colonnes de prix */
+      .pizza-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; touch-action: auto; }
+      .pizza-header, .pizza-item { min-width: 480px; }
+    }
+
+    @media (min-width: 640px) {
+      .form-row { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .resa-wrap { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-item:first-child { grid-column: span 2; }
+      .menu-maxi-list { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .nav-links { display: flex; }
+      .nav-cta { display: inline-flex; }
+      .burger { display: none; }
+      .testi-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+      .gallery-item:first-child { grid-column: span 2; grid-row: span 2; }
+      .gallery-item:first-child img { aspect-ratio: 1/1; height: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="#" class="logo">
+        <span class="logo-flag" aria-hidden="true">
+          <span class="f-green"></span><span class="f-white"></span><span class="f-red"></span>
+        </span>
+        <span>La <em>Botte</em></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">Notre histoire</a></li>
+        <li><a href="#menu">Carte</a></li>
+        <li><a href="#gallery">Galerie</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="#reservation" class="btn btn-primary nav-cta">Réserver</a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <div class="burger-bars">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <a href="#about">Notre histoire</a>
+    <a href="#menu">Carte</a>
+    <a href="#gallery">Galerie</a>
+    <a href="#avis">Avis</a>
+    <a href="#reservation">Réserver une table</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-photo"></div>
+  <div class="hero-glows">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+  </div>
+  <div class="hero-overlay-top"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Pizzeria italienne · Martigny, Valais</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-main">La</span>
+        <span class="hero-title-accent">Botte</span>
+      </h1>
+      <p class="hero-sub">Pizzas au feu de bois, pâtes maison et saveurs du Sud, servies depuis plus de vingt ans à la Place Saint-Michel.</p>
+      <div class="hero-cta">
+        <a href="#reservation" class="btn btn-primary">Réserver une table</a>
+        <a href="#menu" class="btn btn-ghost">Voir la carte</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Buon appetito</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-wrap fade-up">
+        <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=1200&q=85&auto=format&fit=crop" alt="Four à bois de La Botte" class="about-photo" />
+        <div class="about-badge">
+          <div class="about-badge-title">Depuis 2001</div>
+          <div class="about-badge-sub">Plus de 20 ans au cœur de Martigny</div>
+        </div>
+      </div>
+      <div class="about-text fade-up fade-up-delay-1">
+        <div class="eyebrow">Notre maison</div>
+        <h2 class="section-title">Une trattoria <em>au cœur du Valais</em></h2>
+        <p>Pousser la porte de La Botte, c'est traverser la Méditerranée le temps d'un repas. Depuis plus de vingt ans, notre maison de la Place Saint-Michel sert une cuisine italienne fidèle à ses racines : pizzas cuites au feu de bois, pâtes faites à la main et risottos crémeux.</p>
+        <p>Notre four traditionnel crépite du matin au soir et donne à nos pizzas leur croûte légèrement boursouflée, ces bulles caramélisées qu'aucune machine ne sait reproduire. À côté, l'équipe décline les classiques transalpins avec générosité — du carbonara au tiramisu — pour faire vivre, à chaque service, l'art de vivre italien.</p>
+        <p>Familles, voisins, voyageurs de passage : tous y trouvent leur table. Bienvenue chez nous.</p>
+
+        <div class="about-stats">
+          <div>
+            <div class="stat-num">20+</div>
+            <div class="stat-label">années de service</div>
+          </div>
+          <div>
+            <div class="stat-num">18</div>
+            <div class="stat-label">pizzas à la carte</div>
+          </div>
+          <div>
+            <div class="stat-num">4.5★</div>
+            <div class="stat-label">sur 1000+ avis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow">La Carta</div>
+      <h2 class="section-title">Notre <em>carte</em></h2>
+      <p class="section-subtitle">Une cuisine italienne authentique, du four à bois à l'assiette. Les prix sont en francs suisses (CHF).</p>
+    </div>
+
+    <div class="menu-tabs fade-up fade-up-delay-1">
+      <button class="menu-tab active" data-tab="pizzas">Pizzas</button>
+      <button class="menu-tab" data-tab="pates">Pâtes</button>
+      <button class="menu-tab" data-tab="risottos">Risottos</button>
+      <button class="menu-tab" data-tab="poissons">Poissons &amp; Viandes</button>
+      <button class="menu-tab" data-tab="salades">Salades</button>
+    </div>
+
+    <!-- PIZZAS -->
+    <div class="menu-panel active" data-panel="pizzas">
+      <div class="fade-up">
+        <div class="pizza-table-wrap">
+          <div class="pizza-header">
+            <span>Pizza · Focaccia 11.–</span>
+            <span>Demi</span>
+            <span>Entière</span>
+            <span>½ mètre</span>
+          </div>
+
+          <div class="menu-list">
+            <div class="pizza-item">
+              <div class="pizza-name">Margherita <em>tomate, mozzarella, origan</em></div>
+              <div class="pizza-price">15.–</div>
+              <div class="pizza-price">21.–</div>
+              <div class="pizza-price">35.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Dello Stivale <em>tomate, mozzarella, roquette, parmesan, jambon cru</em></div>
+              <div class="pizza-price">23.–</div>
+              <div class="pizza-price">36.–</div>
+              <div class="pizza-price">50.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Nordica <em>tomate, mozzarella, oignons, câpres, saumon</em></div>
+              <div class="pizza-price">23.–</div>
+              <div class="pizza-price">36.–</div>
+              <div class="pizza-price">50.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Dello Scoglio <em>tomate, mozzarella, fruits de mer</em></div>
+              <div class="pizza-price">23.–</div>
+              <div class="pizza-price">37.–</div>
+              <div class="pizza-price">50.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Napoletana <em>tomate, mozzarella, anchois, olives noires</em></div>
+              <div class="pizza-price">19.–</div>
+              <div class="pizza-price">31.–</div>
+              <div class="pizza-price">40.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Lucifero <em>tomate, mozzarella, sauce piquante, olives, oignons</em></div>
+              <div class="pizza-price">21.–</div>
+              <div class="pizza-price">31.–</div>
+              <div class="pizza-price">45.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Vesuvio <em>tomate, mozzarella, lard, œuf au plat</em></div>
+              <div class="pizza-price">21.–</div>
+              <div class="pizza-price">33.–</div>
+              <div class="pizza-price">45.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Del Padrino <em>tomate, mozzarella, thon, oignons</em></div>
+              <div class="pizza-price">20.–</div>
+              <div class="pizza-price">33.–</div>
+              <div class="pizza-price">45.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">4 Formaggi <em>tomate, mozzarella, gorgonzola, parmesan, fontina</em></div>
+              <div class="pizza-price">21.–</div>
+              <div class="pizza-price">33.–</div>
+              <div class="pizza-price">45.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">4 Stagioni <em>tomate, mozzarella, jambon cuit, champignons, olives, artichauts</em></div>
+              <div class="pizza-price">23.–</div>
+              <div class="pizza-price">36.–</div>
+              <div class="pizza-price">50.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Del Boscaiolo <em>tomate, mozzarella, bolets, jambon de Parme</em></div>
+              <div class="pizza-price">23.–</div>
+              <div class="pizza-price">37.–</div>
+              <div class="pizza-price">50.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Prosciutto Funghi <em>tomate, mozzarella, jambon cuit, champignons de Paris</em></div>
+              <div class="pizza-price">21.–</div>
+              <div class="pizza-price">32.–</div>
+              <div class="pizza-price">45.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Vegetariana <em>tomate, mozzarella, aubergines, courgettes, poivrons</em></div>
+              <div class="pizza-price">23.–</div>
+              <div class="pizza-price">35.–</div>
+              <div class="pizza-price">50.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Calzone Farcito <em>tomate, mozzarella, poivron, œuf, jambon, champignons, olives</em></div>
+              <div class="pizza-price">23.–</div>
+              <div class="pizza-price">35.–</div>
+              <div class="pizza-price empty">—</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Dello Stretto <em>tomate, mozzarella, thon, câpres, piment</em></div>
+              <div class="pizza-price">21.–</div>
+              <div class="pizza-price">33.–</div>
+              <div class="pizza-price">45.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Capricciosa <em>tomate, mozzarella, jambon, champignons, artichauts, anchois</em></div>
+              <div class="pizza-price">23.–</div>
+              <div class="pizza-price">35.–</div>
+              <div class="pizza-price">50.–</div>
+            </div>
+            <div class="pizza-item">
+              <div class="pizza-name">Sfiziosa <em>tomate, mozzarella, ananas, jambon</em></div>
+              <div class="pizza-price">21.–</div>
+              <div class="pizza-price">32.–</div>
+              <div class="pizza-price">45.–</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-maxi-list">
+          <div class="maxi-title" style="grid-column: 1 / -1;">Pizzas Maxi</div>
+          <div class="maxi-row"><span>Maxi jambon</span><span class="maxi-price">27.–</span></div>
+          <div class="maxi-row"><span>Maxi merguez</span><span class="maxi-price">30.–</span></div>
+          <div class="maxi-row"><span>Maxi jambon de Parme</span><span class="maxi-price">32.–</span></div>
+          <div class="maxi-row"><span>Maxi crevettes et oignons</span><span class="maxi-price">32.–</span></div>
+          <div class="maxi-row"><span>Maxi propositions du chef</span><span class="maxi-price">41.–</span></div>
+        </div>
+
+        <div class="menu-note">
+          <strong>Bon à savoir</strong> — Toutes nos pizzas sont cuites au <em>feu de bois</em>. La focaccia de l'apéro est à <strong>11.–</strong>. Possibilité de pizzas à emporter et livraison à domicile.
+        </div>
+      </div>
+    </div>
+
+    <!-- PATES -->
+    <div class="menu-panel" data-panel="pates">
+      <div class="fade-up">
+        <div class="menu-list">
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Spaghetti carbonara</div><div class="menu-item-desc">Recette romaine — œuf, guanciale, pecorino, poivre noir</div></div><div class="menu-item-price">21.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Spaghetti aux fruits de mer</div><div class="menu-item-desc">Moules, palourdes, crevettes, ail, persil</div></div><div class="menu-item-price">24.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Spaghetti basilic, sauce tomate</div><div class="menu-item-desc">La simplicité italienne par excellence</div></div><div class="menu-item-price">19.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Spaghetti aglio, olio e peperoncino</div><div class="menu-item-desc">Ail, huile d'olive extra-vierge, piment</div></div><div class="menu-item-price">19.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Spaghetti puttanesca</div><div class="menu-item-desc">Tomate, anchois, câpres, olives, ail</div></div><div class="menu-item-price">22.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Penne all'arrabbiata</div><div class="menu-item-desc">Sauce tomate piquante au piment et à l'ail</div></div><div class="menu-item-price">21.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Penne à la vodka</div><div class="menu-item-desc">Tomate, crème, vodka, parmesan</div></div><div class="menu-item-price">23.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Penne aux 4 fromages</div><div class="menu-item-desc">Gorgonzola, parmesan, fontina, mozzarella</div></div><div class="menu-item-price">23.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Penne mare e monti</div><div class="menu-item-desc">Mer et montagne — crevettes, champignons, crème</div></div><div class="menu-item-price">24.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Trio de pâtes</div><div class="menu-item-desc">Trois pâtes au choix, trois sauces différentes</div></div><div class="menu-item-price">26.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Cannelloni al forno</div><div class="menu-item-desc">Pâtes farcies viande et épinards, gratinées au four</div></div><div class="menu-item-price">23.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Ravioli alla fiorentina</div><div class="menu-item-desc">Ravioli ricotta-épinards, sauce tomate et basilic</div></div><div class="menu-item-price">24.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Fusilli jambon et crème</div><div class="menu-item-desc">Crème onctueuse, jambon, parmesan</div></div><div class="menu-item-price">22.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Macaronis gratinés</div><div class="menu-item-desc">Au four, sauce béchamel et fromage</div></div><div class="menu-item-price">25.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Macaronis végétariens</div><div class="menu-item-desc">Légumes du marché, sauce tomate</div></div><div class="menu-item-price">23.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Fusilli oignons, lard, sauce tomate</div><div class="menu-item-desc">Notre version revisitée de l'amatriciana</div></div><div class="menu-item-price">22.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Nouilles à la crème, ail et bolets</div><div class="menu-item-desc">Bolets frais à la saison</div></div><div class="menu-item-price">24.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Fusilli saumon fumé, crème, basilic</div><div class="menu-item-desc">Saumon fumé, crème fraîche, basilic ciselé</div></div><div class="menu-item-price">24.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Nouilles scampi, tomate</div><div class="menu-item-desc">Gambas marinées, tomate concassée, ail</div></div><div class="menu-item-price">28.–</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RISOTTOS -->
+    <div class="menu-panel" data-panel="risottos">
+      <div class="fade-up">
+        <div class="menu-list">
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Risotto aux fruits de mer</div><div class="menu-item-desc">Moules, palourdes, crevettes, parfumé au safran</div></div><div class="menu-item-price">24.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Risotto aux bolets</div><div class="menu-item-desc">Crème, parmesan, bolets frais</div></div><div class="menu-item-price">25.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Risotto aux champignons</div><div class="menu-item-desc">Champignons de Paris, persillade</div></div><div class="menu-item-price">23.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Risotto au parmesan</div><div class="menu-item-desc">Riz carnaroli, parmesan affiné, beurre noisette</div></div><div class="menu-item-price">22.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Risotto aux artichauts</div><div class="menu-item-desc">Cœurs d'artichaut, citron, parmesan</div></div><div class="menu-item-price">23.–</div></div>
+        </div>
+
+        <div class="menu-note">
+          <strong>Spécialité maison</strong> — Tous nos risottos sont préparés <em>à la commande</em> avec du riz carnaroli importé d'Italie. Comptez 18 minutes de cuisson.
+        </div>
+      </div>
+    </div>
+
+    <!-- POISSONS & VIANDES -->
+    <div class="menu-panel" data-panel="poissons">
+      <div class="fade-up">
+        <div class="menu-list">
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Jambon de Parme</div><div class="menu-item-desc">Affinage 24 mois, melon en saison</div></div><div class="menu-item-price">23.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Gambas au pastis</div><div class="menu-item-desc">Flambées au pastis, beurre persillé</div></div><div class="menu-item-price">37.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Gambas au grill</div><div class="menu-item-desc">Grillées simplement, huile d'olive, citron</div></div><div class="menu-item-price">37.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Gambas au curry</div><div class="menu-item-desc">Sauce crémeuse au curry doux, riz basmati</div></div><div class="menu-item-price">37.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Fritto misto all'italiana</div><div class="menu-item-desc">Friture mixte — calamars, scampi, petits poissons</div></div><div class="menu-item-price">41.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Thon grillé, sauce verte</div><div class="menu-item-desc">Sauce aux herbes fraîches, câpres, anchois</div></div><div class="menu-item-price">38.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Espadon</div><div class="menu-item-desc">Tomate, câpres, olives, basilic, ail, huile d'olive, origan</div></div><div class="menu-item-price">38.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Grillade mixte de poissons</div><div class="menu-item-desc">Sélection du marché grillée à la perfection</div></div><div class="menu-item-price">43.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Tartare de saumon</div><div class="menu-item-desc">Saumon frais, ciboulette, citron, huile d'olive</div></div><div class="menu-item-price">25.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Grillade mixte de viandes</div><div class="menu-item-desc">Trois pièces grillées, garniture du jour</div></div><div class="menu-item-price">43.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Steak tartare</div><div class="menu-item-desc">Préparé à la commande, frites maison</div></div><div class="menu-item-price">39.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Carpaccio de bœuf, agneau ou bresaola</div><div class="menu-item-desc">Au choix — parmesan, roquette, huile d'olive</div></div><div class="menu-item-price">25.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Roulade d'aubergines</div><div class="menu-item-desc">Garnie de ricotta et tomate, gratinée</div></div><div class="menu-item-price">20.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Steak</div><div class="menu-item-desc">Pièce de bœuf, garniture du jour</div></div><div class="menu-item-price">31.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Émincé au curry</div><div class="menu-item-desc">Émincé de bœuf, sauce curry, riz</div></div><div class="menu-item-price">34.–</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SALADES -->
+    <div class="menu-panel" data-panel="salades">
+      <div class="fade-up">
+        <div class="menu-list">
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Grande salade mêlée</div><div class="menu-item-desc">Mesclun, légumes du marché, vinaigrette maison</div></div><div class="menu-item-price">16.–</div></div>
+          <div class="menu-item"><div class="menu-item-text"><div class="menu-item-name">Petite salade mêlée</div><div class="menu-item-desc">Version accompagnement</div></div><div class="menu-item-price">11.–</div></div>
+        </div>
+
+        <div class="menu-note">
+          Demandez les <strong>suggestions du jour</strong> à notre équipe — antipasti de saison, salade caprese, vitello tonnato, bruschetta… changent selon le marché.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow">Galerie</div>
+      <h2 class="section-title">L'<em>esprit</em> du lieu</h2>
+      <p class="section-subtitle">Quelques images de notre cuisine, de notre four à bois et de l'ambiance de notre maison.</p>
+    </div>
+
+    <div class="gallery-grid fade-up fade-up-delay-1">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=85&auto=format&fit=crop" alt="Pizza margherita au four à bois" />
+        <div class="gallery-overlay"><span class="gallery-label">Pizza Margherita au feu de bois</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1612874742237-6526221588e3?w=800&q=85&auto=format&fit=crop" alt="Spaghetti carbonara" />
+        <div class="gallery-overlay"><span class="gallery-label">Spaghetti Carbonara</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1633964913849-96bb09cfa70e?w=800&q=85&auto=format&fit=crop" alt="Risotto crémeux" />
+        <div class="gallery-overlay"><span class="gallery-label">Risotto al parmigiano</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&q=85&auto=format&fit=crop" alt="Tiramisu maison" />
+        <div class="gallery-overlay"><span class="gallery-label">Tiramisu fait maison</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=85&auto=format&fit=crop" alt="Antipasti italiens" />
+        <div class="gallery-overlay"><span class="gallery-label">Antipasti</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=85&auto=format&fit=crop" alt="Salle du restaurant" />
+        <div class="gallery-overlay"><span class="gallery-label">Notre salle</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&q=85&auto=format&fit=crop" alt="Pâtes fraîches maison" />
+        <div class="gallery-overlay"><span class="gallery-label">Pâtes fraîches</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="avis">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow">Avis clients</div>
+      <h2 class="section-title">Ce qu'<em>on dit</em> de nous</h2>
+      <p class="section-subtitle">4.5/5 sur plus de 1000 avis — classé parmi les meilleurs restaurants de Martigny.</p>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi-card fade-up">
+        <div class="testi-stars">
+          <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+        </div>
+        <p class="testi-text">« Une vraie pizza italienne, comme à Naples. Croûte parfaite, garnitures généreuses. On y revient à chaque passage à Martigny. »</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div>
+            <div class="testi-name">Marc D.</div>
+            <div class="testi-location">Sion</div>
+          </div>
+          <div class="testi-source">Google</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up fade-up-delay-1">
+        <div class="testi-stars">
+          <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+        </div>
+        <p class="testi-text">« L'équipe est super et on mange vraiment bien. Le carbonara est fait dans les règles de l'art, et le tiramisu maison vaut le détour. »</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sophie B.</div>
+            <div class="testi-location">Martigny</div>
+          </div>
+          <div class="testi-source">TripAdvisor</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up fade-up-delay-2">
+        <div class="testi-stars">
+          <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+        </div>
+        <p class="testi-text">« Je connais ce restaurant depuis 2001 — toujours la même qualité, le même accueil. Une institution martigneraine. »</p>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div>
+            <div class="testi-name">Laurent P.</div>
+            <div class="testi-location">Fully</div>
+          </div>
+          <div class="testi-source">Local.ch</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section class="reservation" id="reservation">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow">Réservation</div>
+      <h2 class="section-title">Réservez votre <em>table</em></h2>
+      <p class="section-subtitle">Une question, un grand groupe, un événement ? Appelez-nous — on s'organise toujours.</p>
+    </div>
+
+    <div class="resa-wrap">
+      <div class="resa-info fade-up">
+        <h3>Par téléphone</h3>
+        <a href="tel:+41277222760" class="resa-tel">
+          <span class="resa-tel-icon">☎</span>
+          <span>027 722 27 60</span>
+        </a>
+        <p class="resa-hours">Tous les jours · 11h–14h30 et 18h–23h<br/>Service à domicile disponible.</p>
+
+        <h3 style="margin-top: 2.5rem;">Par WhatsApp</h3>
+        <a href="https://wa.me/41794287321" class="btn btn-ghost" target="_blank" rel="noopener">Écrire sur WhatsApp →</a>
+
+        <h3 style="margin-top: 2.5rem;">Bon à savoir</h3>
+        <p>Animaux et enfants bienvenus. Terrasse en été. Carte de crédit acceptée. Pour les groupes de plus de 8 personnes, merci de réserver 48h à l'avance.</p>
+      </div>
+
+      <form class="resa-form fade-up fade-up-delay-1" id="resaForm" action="https://formspree.io/f/your-form-id" method="POST">
+        <div class="form-row">
+          <div class="field">
+            <label for="resa-name">Nom complet</label>
+            <input type="text" id="resa-name" name="name" required placeholder="Mario Rossi" />
+          </div>
+          <div class="field">
+            <label for="resa-phone">Téléphone</label>
+            <input type="tel" id="resa-phone" name="phone" required placeholder="+41 79 ..." />
+          </div>
+        </div>
+        <div class="field">
+          <label for="resa-email">E-mail</label>
+          <input type="email" id="resa-email" name="email" required placeholder="vous@email.ch" />
+        </div>
+        <div class="form-row">
+          <div class="field date-picker-wrap">
+            <label>Date</label>
+            <button type="button" class="date-trigger" id="dateTrigger" aria-haspopup="dialog">
+              <span class="date-display placeholder-text" id="dateDisplay">Choisir une date</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </button>
+            <input type="hidden" id="resa-date" name="date" required />
+            <div class="cal-popup" id="calPopup" role="dialog" aria-label="Calendrier">
+              <div class="cal-header">
+                <button type="button" class="cal-nav" id="calPrev" aria-label="Mois précédent">‹</button>
+                <span class="cal-month-label" id="calMonthLabel">—</span>
+                <button type="button" class="cal-nav" id="calNext" aria-label="Mois suivant">›</button>
+              </div>
+              <div class="cal-days-header">
+                <div class="cal-day-name">Lu</div><div class="cal-day-name">Ma</div><div class="cal-day-name">Me</div><div class="cal-day-name">Je</div><div class="cal-day-name">Ve</div><div class="cal-day-name">Sa</div><div class="cal-day-name">Di</div>
+              </div>
+              <div class="cal-grid" id="calGrid"></div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="resa-guests">Nombre de couverts</label>
+            <select id="resa-guests" name="guests" required>
+              <option value="">Choisir...</option>
+              <option>1 personne</option>
+              <option>2 personnes</option>
+              <option>3 personnes</option>
+              <option>4 personnes</option>
+              <option>5 personnes</option>
+              <option>6 personnes</option>
+              <option>7 personnes</option>
+              <option>8 personnes</option>
+              <option>Plus de 8 — précisez en message</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Heure souhaitée</label>
+          <div class="time-groups">
+            <div>
+              <div class="time-group-label">Service midi</div>
+              <div class="time-pills" data-time-group="midi">
+                <button type="button" class="time-pill" data-time="11:30">11:30</button>
+                <button type="button" class="time-pill" data-time="12:00">12:00</button>
+                <button type="button" class="time-pill" data-time="12:30">12:30</button>
+                <button type="button" class="time-pill" data-time="13:00">13:00</button>
+                <button type="button" class="time-pill" data-time="13:30">13:30</button>
+                <button type="button" class="time-pill" data-time="14:00">14:00</button>
+              </div>
+            </div>
+            <div>
+              <div class="time-group-label">Service soir</div>
+              <div class="time-pills" data-time-group="soir">
+                <button type="button" class="time-pill" data-time="18:00">18:00</button>
+                <button type="button" class="time-pill" data-time="18:30">18:30</button>
+                <button type="button" class="time-pill" data-time="19:00">19:00</button>
+                <button type="button" class="time-pill" data-time="19:30">19:30</button>
+                <button type="button" class="time-pill" data-time="20:00">20:00</button>
+                <button type="button" class="time-pill" data-time="20:30">20:30</button>
+                <button type="button" class="time-pill" data-time="21:00">21:00</button>
+                <button type="button" class="time-pill" data-time="21:30">21:30</button>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" id="resa-time" name="time" required />
+        </div>
+        <div class="field">
+          <label for="resa-message">Allergies, occasion spéciale, remarques (facultatif)</label>
+          <textarea id="resa-message" name="message" placeholder="Anniversaire, intolérance au gluten, terrasse souhaitée..."></textarea>
+        </div>
+        <p class="form-note">Confirmation par e-mail ou téléphone sous 24h. Pour une réponse immédiate, appelez-nous au 027 722 27 60.</p>
+        <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">Envoyer la demande</button>
+        <div class="form-success" id="formSuccess">Grazie mille ! Votre demande a bien été envoyée. Nous vous recontactons dans les meilleurs délais.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow">Contact</div>
+      <h2 class="section-title">Venez nous <em>trouver</em></h2>
+      <p class="section-subtitle">En plein centre de Martigny, sur la Place Saint-Michel. Parking à proximité.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <div class="info-block">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label">Adresse</div>
+            <div class="info-value">Place Saint-Michel 6<br/>1920 Martigny · Valais, Suisse</div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">☎</div>
+          <div>
+            <div class="info-label">Téléphone</div>
+            <div class="info-value">
+              <a href="tel:+41277222760">027 722 27 60</a><br/>
+              <a href="tel:+41794287321">079 428 73 21</a> (mobile)
+            </div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">✉</div>
+          <div>
+            <div class="info-label">E-mail</div>
+            <div class="info-value"><a href="mailto:contact@labotte-martigny.ch">contact@labotte-martigny.ch</a></div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">🕒</div>
+          <div>
+            <div class="info-label">Horaires</div>
+            <div class="info-value">
+              <div class="hours-grid">
+                <span class="hours-day">Lundi</span><span class="hours-time">11h–14h30 · 18h–23h</span>
+                <span class="hours-day">Mardi</span><span class="hours-time">11h–14h30 · 18h–23h</span>
+                <span class="hours-day">Mercredi</span><span class="hours-time">11h–14h30 · 18h–23h</span>
+                <span class="hours-day">Jeudi</span><span class="hours-time">11h–14h30 · 18h–23h</span>
+                <span class="hours-day">Vendredi</span><span class="hours-time">11h–14h30 · 18h–23h</span>
+                <span class="hours-day">Samedi</span><span class="hours-time">11h–14h30 · 18h–23h</span>
+                <span class="hours-day">Dimanche</span><span class="hours-time">11h–14h30 · 18h–23h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="social-row">
+          <a href="https://www.facebook.com/Restaurant.Pizzeria.LaBotte/" target="_blank" rel="noopener" class="social-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.instagram.com/labottemartigny/" target="_blank" rel="noopener" class="social-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+
+      <div class="map-wrap fade-up fade-up-delay-1">
+        <iframe src="https://www.google.com/maps?q=Place+Saint-Michel+6+1920+Martigny&output=embed" loading="lazy" title="Plan d'accès La Botte"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">La <em>Botte</em></div>
+      <div class="footer-links">
+        <a href="#about">Notre histoire</a>
+        <a href="#menu">Carte</a>
+        <a href="#gallery">Galerie</a>
+        <a href="#reservation">Réserver</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-credit">
+        © 2026 La Botte — Place Saint-Michel 6, 1920 Martigny · Site par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/41794287321" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  // ========== HEADER SCROLL ==========
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+
+  // ========== MOBILE MENU ==========
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // ========== MENU TABS ==========
+  const tabs = document.querySelectorAll('.menu-tab');
+  const panels = document.querySelectorAll('.menu-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.dataset.tab;
+      document.querySelector('.menu-panel[data-panel="' + target + '"]').classList.add('active');
+    });
+  });
+
+  // ========== FADE UP ON SCROLL ==========
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ========== TIME PILLS ==========
+  const timeInput = document.getElementById('resa-time');
+  document.querySelectorAll('.time-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.time-pill').forEach(p => p.classList.remove('selected'));
+      pill.classList.add('selected');
+      timeInput.value = pill.dataset.time;
+    });
+  });
+
+  // ========== CUSTOM DATE PICKER ==========
+  const dateTrigger = document.getElementById('dateTrigger');
+  const calPopup = document.getElementById('calPopup');
+  const calGrid = document.getElementById('calGrid');
+  const calMonthLabel = document.getElementById('calMonthLabel');
+  const calPrev = document.getElementById('calPrev');
+  const calNext = document.getElementById('calNext');
+  const dateDisplay = document.getElementById('dateDisplay');
+  const dateInput = document.getElementById('resa-date');
+
+  const monthNames = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+  let viewYear, viewMonth, selectedDate = null;
+  const today = new Date(); today.setHours(0,0,0,0);
+  viewYear = today.getFullYear();
+  viewMonth = today.getMonth();
+
+  function renderCalendar() {
+    calMonthLabel.textContent = monthNames[viewMonth] + ' ' + viewYear;
+    calGrid.innerHTML = '';
+    const firstDay = new Date(viewYear, viewMonth, 1);
+    let startCol = firstDay.getDay() - 1; if (startCol < 0) startCol = 6;
+    const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+    for (let i = 0; i < startCol; i++) {
+      const empty = document.createElement('div');
+      empty.className = 'cal-cell empty';
+      calGrid.appendChild(empty);
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const cell = document.createElement('div');
+      cell.className = 'cal-cell';
+      cell.textContent = d;
+      const cellDate = new Date(viewYear, viewMonth, d);
+      if (cellDate < today) cell.classList.add('disabled');
+      else cell.addEventListener('click', () => selectDate(cellDate));
+      if (cellDate.getTime() === today.getTime()) cell.classList.add('today');
+      if (selectedDate && cellDate.getTime() === selectedDate.getTime()) cell.classList.add('selected');
+      calGrid.appendChild(cell);
+    }
+  }
+
+  function selectDate(date) {
+    selectedDate = date;
+    const opts = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    dateDisplay.textContent = date.toLocaleDateString('fr-CH', opts);
+    dateDisplay.classList.remove('placeholder-text');
+    dateInput.value = date.toISOString().slice(0,10);
+    calPopup.classList.remove('open');
+    renderCalendar();
+  }
+
+  dateTrigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    calPopup.classList.toggle('open');
+  });
+  calPrev.addEventListener('click', (e) => {
+    e.stopPropagation();
+    viewMonth--; if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+    renderCalendar();
+  });
+  calNext.addEventListener('click', (e) => {
+    e.stopPropagation();
+    viewMonth++; if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+    renderCalendar();
+  });
+  document.addEventListener('click', (e) => {
+    if (!calPopup.contains(e.target) && e.target !== dateTrigger && !dateTrigger.contains(e.target)) {
+      calPopup.classList.remove('open');
+    }
+  });
+  renderCalendar();
+
+  // ========== FORM SUBMIT ==========
+  const form = document.getElementById('resaForm');
+  const formSuccess = document.getElementById('formSuccess');
+  form.addEventListener('submit', (e) => {
+    if (!timeInput.value) {
+      e.preventDefault();
+      alert('Merci de sélectionner une heure de réservation.');
+      return;
+    }
+    // Le formulaire est envoyé via Formspree (action attribute).
+    // Affichage du message succès en optimiste.
+    setTimeout(() => {
+      formSuccess.style.display = 'block';
+      form.reset();
+      document.querySelectorAll('.time-pill').forEach(p => p.classList.remove('selected'));
+      dateDisplay.textContent = 'Choisir une date';
+      dateDisplay.classList.add('placeholder-text');
+    }, 100);
+  });
+</script>
+
+</body>
+</html>
