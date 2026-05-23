@@ -1,2143 +1,1543 @@
-﻿<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="robots" content="noindex, nofollow" />
-<title>Le Goubing chez Pino — Vera pizza napoletana à Sierre</title>
-<meta name="description" content="Pizzeria napolitaine au four à bois, à deux pas de la gare de Sierre. Pâte de 48 h, mozzarella di bufala, focaccia, panuozzo et sfilatino. Chez Pino, on mange comme à Naples." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Le Goubing chez Pino — Vera pizza napoletana à Sierre. Pâte de 48h, four à bois, produits italiens. Réservations : 027 456 14 32." />
+  <meta name="keywords" content="pizzeria Sierre, pizza napolitaine Valais, four à bois, focaccia, panuozzo, Le Goubing chez Pino, Route des Lacs" />
+  <meta name="theme-color" content="#061410" />
+  <meta name="robots" content="noindex, nofollow" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Le Goubing chez Pino — Vera pizza napoletana à Sierre" />
+  <meta property="og:description" content="Pizza napolitaine au feu de bois, pâte de 48h, mozzarella di bufala. À deux pas de la gare de Sierre." />
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:locale" content="fr_CH" />
 
-<style>
-:root {
-  /* Palette italienne — trattoria napolitaine authentique */
-  --cream: #f6f0e0;          /* mur chaulé toscan */
-  --cream-soft: #fbf6e9;     /* nappe lin */
-  --cream-deep: #ebe1c5;     /* parchemin */
-  --tomato: #c41e1a;         /* tomate San Marzano */
-  --tomato-deep: #8a130f;    /* sauce mijotée */
-  --basil: #2e7d4f;          /* feuille de basilic */
-  --basil-deep: #14442a;     /* vert sapin italien */
-  --basil-night: #0c2e1d;    /* nuit napolitaine */
-  --amalfi: #f2b528;         /* citron d'Amalfi */
-  --amalfi-deep: #c98309;    /* ocre toscan */
-  --mare: #1d6b8f;           /* bleu Méditerranée */
-  --terra: #b95c2d;          /* terracotta */
-  --ink: #1c1612;
-  --ink-mute: #6b5d52;
-  --line: rgba(28, 22, 18, 0.13);
-  --shadow-lg: 0 30px 80px -28px rgba(20, 68, 42, 0.35);
-  --shadow-md: 0 14px 40px -16px rgba(20, 68, 42, 0.28);
-  --shadow-sm: 0 4px 18px -8px rgba(20, 68, 42, 0.22);
-}
+  <title>Le Goubing chez Pino — Pizzeria napolitaine à Sierre (Valais)</title>
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-
-body {
-  font-family: 'DM Sans', -apple-system, sans-serif;
-  color: var(--ink);
-  background: var(--cream);
-  line-height: 1.65;
-  overflow-x: hidden;
-}
-
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-
-h1, h2, h3, h4 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  line-height: 1.1;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-}
-
-.italic { font-style: italic; font-weight: 500; }
-
-.container { max-width: 1260px; margin: 0 auto; padding: 0 32px; }
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px 32px;
-  background: var(--tomato);
-  color: var(--cream-soft);
-  border: none;
-  border-radius: 999px;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
-  font-size: 15px;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  transition: all 0.35s cubic-bezier(.2, .8, .2, 1);
-  text-decoration: none;
-  box-shadow: 0 8px 24px -10px rgba(196, 30, 26, 0.65);
-}
-.btn:hover {
-  background: var(--tomato-deep);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 34px -10px rgba(196, 30, 26, 0.7);
-}
-.btn-ghost {
-  background: transparent;
-  color: var(--cream-soft);
-  border: 1.5px solid rgba(246, 240, 224, 0.5);
-  box-shadow: none;
-}
-.btn-ghost:hover {
-  background: var(--cream-soft);
-  color: var(--basil-night);
-  border-color: var(--cream-soft);
-}
-.btn-dark {
-  background: var(--basil-night);
-  color: var(--cream-soft);
-  box-shadow: 0 8px 24px -10px rgba(24, 18, 16, 0.6);
-}
-.btn-dark:hover {
-  background: var(--basil-deep);
-  box-shadow: 0 14px 34px -10px rgba(24, 18, 16, 0.65);
-}
-
-/* ───── NAVBAR ───── */
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 22px 0;
-  transition: all 0.4s ease;
-}
-.nav.scrolled {
-  background: rgba(246, 240, 224, 0.96);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 13px 0;
-  box-shadow: 0 2px 24px -10px rgba(24, 18, 16, 0.2);
-}
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--cream-soft);
-  transition: color 0.4s ease;
-}
-.nav.scrolled .logo { color: var(--basil-night); }
-
-.logo-mark {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, var(--amalfi) 0%, var(--tomato) 55%, var(--tomato-deep) 100%);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-weight: 700;
-  font-size: 22px;
-  color: var(--cream-soft);
-  box-shadow: inset 0 -3px 6px rgba(0,0,0,.25), 0 4px 14px -4px rgba(200,54,42,.55);
-  position: relative;
-}
-.logo-mark::after {
-  content: '';
-  position: absolute;
-  top: 6px; left: 9px;
-  width: 14px; height: 8px;
-  background: rgba(251, 246, 233, .35);
-  border-radius: 50%;
-  filter: blur(2px);
-}
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-}
-.logo-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: -0.01em;
-}
-.logo-sub {
-  font-size: 10px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  opacity: 0.75;
-  margin-top: 3px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 36px;
-  align-items: center;
-}
-.nav-link {
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--cream-soft);
-  position: relative;
-  padding: 4px 0;
-  transition: color 0.3s ease, opacity 0.3s ease;
-  opacity: 0.85;
-}
-.nav.scrolled .nav-link { color: var(--basil-night); }
-.nav-link:hover { opacity: 1; }
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -3px; left: 0;
-  width: 0; height: 1.5px;
-  background: var(--amalfi);
-  transition: width 0.3s ease;
-}
-.nav-link:hover::after { width: 100%; }
-
-.nav-cta {
-  padding: 10px 22px;
-  font-size: 13px;
-}
-
-.burger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-}
-.burger span {
-  width: 26px; height: 2px;
-  background: var(--cream-soft);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-.nav.scrolled .burger span { background: var(--basil-night); }
-
-/* ───── HERO ───── */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  background: var(--basil-night);
-  color: var(--cream-soft);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding: 140px 0 80px;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 30%, rgba(242, 181, 40, 0.18) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 70%, rgba(196, 30, 26, 0.22) 0%, transparent 55%),
-    radial-gradient(circle at 50% 100%, rgba(242, 181, 40, 0.12) 0%, transparent 60%);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(246, 240, 224, 0.04) 1px, transparent 0);
-  background-size: 28px 28px;
-  pointer-events: none;
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 18px;
-  border: 1px solid rgba(246, 240, 224, 0.22);
-  border-radius: 999px;
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--amalfi);
-  margin-bottom: 28px;
-  background: rgba(246, 240, 224, 0.04);
-  backdrop-filter: blur(4px);
-}
-.hero-eyebrow .dot {
-  width: 6px; height: 6px;
-  background: var(--amalfi);
-  border-radius: 50%;
-  box-shadow: 0 0 12px var(--amalfi);
-}
-
-.hero h1 {
-  font-size: clamp(48px, 7vw, 96px);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  margin-bottom: 28px;
-}
-.hero h1 .accent {
-  font-style: italic;
-  font-weight: 500;
-  background: linear-gradient(120deg, var(--amalfi) 0%, #f5d68a 50%, var(--amalfi) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: inline-block;
-}
-.hero h1 .line {
-  display: block;
-}
-
-.hero-lead {
-  font-size: 18px;
-  line-height: 1.7;
-  color: rgba(246, 240, 224, 0.78);
-  max-width: 520px;
-  margin-bottom: 40px;
-  font-weight: 300;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 48px;
-}
-
-.hero-meta {
-  display: flex;
-  gap: 36px;
-  flex-wrap: wrap;
-  padding-top: 32px;
-  border-top: 1px solid rgba(246, 240, 224, 0.12);
-}
-.hero-meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.hero-meta-label {
-  font-size: 10px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(246, 240, 224, 0.55);
-}
-.hero-meta-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--cream-soft);
-}
-.hero-meta-value .pcs {
-  font-size: 13px;
-  color: var(--amalfi);
-  margin-left: 4px;
-  font-family: 'DM Sans', sans-serif;
-  letter-spacing: 0.1em;
-}
-
-/* HERO VISUAL — Carte postale de Naples */
-.hero-visual {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px 10px;
-}
-.postcard {
-  position: relative;
-  width: 100%;
-  max-width: 480px;
-  aspect-ratio: 3 / 4;
-  background: var(--cream-soft);
-  padding: 22px 22px 90px;
-  border-radius: 6px;
-  box-shadow:
-    0 30px 60px -20px rgba(0, 0, 0, 0.55),
-    0 10px 30px -10px rgba(20, 68, 42, 0.4),
-    inset 0 0 0 1px rgba(28, 22, 18, 0.06);
-  transform: rotate(-2deg);
-  transition: transform 0.6s cubic-bezier(.2, .8, .2, 1);
-}
-.postcard:hover { transform: rotate(0deg) scale(1.02); }
-
-.postcard-img {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 3px;
-  overflow: hidden;
-  box-shadow: inset 0 0 0 1px rgba(28, 22, 18, 0.1);
-  background: linear-gradient(180deg,
-    #f4d28a 0%,    /* ciel doré crépusculaire haut */
-    #f0a657 25%,   /* couché de soleil */
-    #d96d3a 45%,   /* horizon orangé */
-    #5d8aa6 55%,   /* mer claire */
-    #2d5a78 80%,   /* mer profonde */
-    #1d4360 100%); /* fond de mer */
-}
-.postcard-img svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.postcard-caption {
-  position: absolute;
-  bottom: 26px;
-  left: 0; right: 0;
-  text-align: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-}
-.postcard-caption .from {
-  display: block;
-  font-size: 13px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  font-style: normal;
-  font-family: 'DM Sans', sans-serif;
-  margin-bottom: 6px;
-}
-.postcard-caption .city {
-  font-size: 30px;
-  color: var(--tomato);
-  font-weight: 600;
-  line-height: 1;
-}
-.postcard-caption .city .arrow {
-  color: var(--basil);
-  margin: 0 8px;
-  font-style: normal;
-}
-
-/* Tampon "Posta" */
-.postcard-stamp {
-  position: absolute;
-  top: -14px;
-  right: 22px;
-  width: 78px;
-  height: 96px;
-  background: var(--cream);
-  border: 2px dashed rgba(196, 30, 26, 0.4);
-  padding: 6px;
-  transform: rotate(8deg);
-  box-shadow: 0 8px 22px -8px rgba(0,0,0,.3);
-  z-index: 3;
-}
-.postcard-stamp-inner {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--tomato) 0%, var(--tomato-deep) 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--cream-soft);
-  font-family: 'Cormorant Garamond', serif;
-  text-align: center;
-  border-radius: 1px;
-}
-.postcard-stamp-inner .it {
-  font-size: 8px;
-  letter-spacing: 0.25em;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-.postcard-stamp-inner .yr {
-  font-size: 24px;
-  font-weight: 700;
-  font-style: italic;
-  line-height: 1;
-}
-.postcard-stamp-inner .pl {
-  font-size: 7px;
-  letter-spacing: 0.15em;
-  margin-top: 4px;
-  font-family: 'DM Sans', sans-serif;
-  opacity: 0.85;
-}
-
-/* Cachet rond */
-.postcard-seal {
-  position: absolute;
-  top: 14px;
-  right: 108px;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(196, 30, 26, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  color: rgba(196, 30, 26, 0.7);
-  text-align: center;
-  font-size: 11px;
-  line-height: 1.15;
-  transform: rotate(-14deg);
-  z-index: 3;
-  padding: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-weight: 500;
-}
-
-/* Badge "N°1 Sierre" */
-.hero-badge {
-  position: absolute;
-  bottom: 18%;
-  right: -8%;
-  width: 130px; height: 130px;
-  background: var(--amalfi);
-  color: var(--basil-night);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-family: 'Cormorant Garamond', serif;
-  box-shadow: 0 20px 40px -10px rgba(242, 181, 40, .55), 0 6px 14px -4px rgba(0,0,0,.3);
-  transform: rotate(8deg);
-  z-index: 4;
-  animation: float-badge 4s ease-in-out infinite;
-}
-.hero-badge .num {
-  font-size: 36px;
-  font-weight: 700;
-  font-style: italic;
-  color: var(--tomato);
-  line-height: 1;
-}
-.hero-badge .lbl {
-  font-size: 9px;
-  font-family: 'DM Sans', sans-serif;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-top: 6px;
-  color: var(--basil-deep);
-  font-weight: 600;
-}
-.hero-badge .star {
-  color: var(--tomato);
-  font-size: 11px;
-  letter-spacing: 2px;
-  margin-top: 4px;
-}
-@keyframes float-badge {
-  0%, 100% { transform: rotate(8deg) translateY(0); }
-  50%      { transform: rotate(4deg) translateY(-6px); }
-}
-
-/* ───── MARQUEE ───── */
-.marquee {
-  background: var(--basil-night);
-  color: var(--cream-soft);
-  padding: 22px 0;
-  overflow: hidden;
-  border-top: 1px solid rgba(246, 240, 224, 0.08);
-  border-bottom: 1px solid rgba(246, 240, 224, 0.08);
-}
-.marquee-track {
-  display: flex;
-  gap: 60px;
-  animation: scroll 40s linear infinite;
-  white-space: nowrap;
-}
-.marquee-item {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--cream-soft);
-  display: inline-flex;
-  align-items: center;
-  gap: 60px;
-}
-.marquee-item::after {
-  content: '✦';
-  color: var(--amalfi);
-  font-style: normal;
-}
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* ───── SECTION COMMUNES ───── */
-section { padding: 120px 0; position: relative; }
-
-.section-eyebrow {
-  display: inline-block;
-  font-size: 11px;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--tomato);
-  font-weight: 500;
-  margin-bottom: 18px;
-}
-.section-title {
-  font-size: clamp(36px, 5vw, 62px);
-  margin-bottom: 22px;
-  letter-spacing: -0.015em;
-}
-.section-title .accent {
-  font-style: italic;
-  color: var(--tomato);
-  font-weight: 500;
-}
-.section-lead {
-  font-size: 18px;
-  color: var(--ink-mute);
-  max-width: 640px;
-  line-height: 1.7;
-}
-
-/* ───── STORY ───── */
-.story {
-  background: var(--cream);
-  position: relative;
-}
-.story-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.story-text .section-title { margin-bottom: 30px; }
-.story-text p {
-  font-size: 17px;
-  color: var(--ink-mute);
-  margin-bottom: 20px;
-  line-height: 1.8;
-}
-.story-text .signature {
-  margin-top: 36px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.signature-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 30px;
-  font-weight: 600;
-  color: var(--tomato);
-}
-.signature-role {
-  font-size: 13px;
-  color: var(--ink-mute);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.story-visual {
-  position: relative;
-  aspect-ratio: 4/5;
-  border-radius: 12px;
-  overflow: hidden;
-  background:
-    linear-gradient(135deg, var(--basil-deep) 0%, var(--basil-night) 50%, #3a1a14 100%);
-  box-shadow: var(--shadow-lg);
-}
-.story-visual::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 30% 40%, rgba(242, 181, 40, .55) 0%, rgba(242, 181, 40, .2) 25%, transparent 55%),
-    radial-gradient(ellipse at 70% 60%, rgba(196, 30, 26, .35) 0%, transparent 50%);
-}
-.flames {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 60%;
-  background:
-    radial-gradient(ellipse at 20% 100%, rgba(242, 181, 40, .8) 0%, transparent 35%),
-    radial-gradient(ellipse at 50% 100%, rgba(252, 200, 90, .7) 0%, transparent 35%),
-    radial-gradient(ellipse at 80% 100%, rgba(196, 30, 26, .7) 0%, transparent 35%);
-  filter: blur(8px);
-  animation: flicker 3s ease-in-out infinite;
-}
-@keyframes flicker {
-  0%, 100% { opacity: 0.85; transform: scaleY(1); }
-  50%      { opacity: 1; transform: scaleY(1.05); }
-}
-.story-quote {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px;
-  z-index: 2;
-}
-.story-quote-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: clamp(28px, 3.2vw, 40px);
-  font-weight: 500;
-  color: var(--cream-soft);
-  text-align: center;
-  line-height: 1.3;
-  text-shadow: 0 4px 24px rgba(0,0,0,.5);
-}
-.story-quote-text::before,
-.story-quote-text::after {
-  content: '"';
-  display: block;
-  font-size: 80px;
-  color: var(--amalfi);
-  line-height: 0.5;
-  opacity: 0.55;
-}
-.story-quote-text::before { margin-bottom: 18px; }
-.story-quote-text::after  { margin-top: 36px; }
-
-/* ───── PILIERS ───── */
-.pillars {
-  background: var(--basil-night);
-  color: var(--cream-soft);
-}
-.pillars .section-eyebrow { color: var(--amalfi); }
-.pillars .section-lead { color: rgba(246, 240, 224, 0.7); }
-
-.pillars-header {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 70px;
-}
-.pillars-header .section-lead { margin: 0 auto; }
-
-.pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
-.pillar {
-  text-align: center;
-  padding: 50px 30px;
-  border: 1px solid rgba(246, 240, 224, 0.1);
-  border-radius: 16px;
-  background: rgba(246, 240, 224, 0.03);
-  transition: all 0.4s ease;
-}
-.pillar:hover {
-  border-color: rgba(242, 181, 40, 0.4);
-  background: rgba(242, 181, 40, 0.05);
-  transform: translateY(-6px);
-}
-.pillar-icon {
-  width: 70px; height: 70px;
-  margin: 0 auto 24px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, var(--amalfi) 0%, var(--tomato) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  box-shadow: 0 12px 30px -10px rgba(242, 181, 40, .5);
-}
-.pillar h3 {
-  font-size: 26px;
-  margin-bottom: 14px;
-  font-style: italic;
-  color: var(--cream-soft);
-}
-.pillar p {
-  font-size: 15px;
-  color: rgba(246, 240, 224, 0.7);
-  line-height: 1.7;
-}
-
-/* ───── CARTE ───── */
-.menu {
-  background: var(--cream);
-}
-.menu-header {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 70px;
-}
-.menu-header .section-lead { margin: 0 auto; }
-
-.menu-tabs {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 60px;
-  flex-wrap: wrap;
-}
-.menu-tab {
-  padding: 11px 22px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: var(--ink-mute);
-  font-family: 'DM Sans', sans-serif;
-}
-.menu-tab:hover { color: var(--tomato); border-color: var(--tomato); }
-.menu-tab.active {
-  background: var(--basil-night);
-  color: var(--cream-soft);
-  border-color: var(--basil-night);
-}
-
-.menu-panel { display: none; }
-.menu-panel.active {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px 60px;
-  animation: fade-in 0.4s ease;
-}
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.dish {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 14px;
-  padding: 20px 0;
-  border-bottom: 1px dashed var(--line);
-  align-items: baseline;
-}
-.dish-header {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.dish-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--basil-night);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.dish-name .tag {
-  display: inline-block;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 4px;
-  background: var(--basil);
-  color: var(--cream-soft);
-}
-.dish-name .tag.spicy { background: var(--tomato); }
-.dish-name .tag.signature {
-  background: var(--amalfi);
-  color: var(--basil-night);
-}
-.dish-desc {
-  font-size: 14px;
-  color: var(--ink-mute);
-  line-height: 1.55;
-  font-style: italic;
-}
-.dish-price {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--tomato);
-  white-space: nowrap;
-}
-.dish-price .currency {
-  font-size: 13px;
-  opacity: 0.7;
-  margin-right: 2px;
-  font-family: 'DM Sans', sans-serif;
-}
-
-.menu-note {
-  margin-top: 50px;
-  padding: 24px 32px;
-  background: var(--cream-deep);
-  border-left: 3px solid var(--amalfi);
-  border-radius: 4px;
-  font-size: 14px;
-  color: var(--ink-mute);
-  font-style: italic;
-  text-align: center;
-}
-
-/* ───── PROCESS ───── */
-.process {
-  background: var(--cream-soft);
-  position: relative;
-  overflow: hidden;
-}
-.process::before {
-  content: '';
-  position: absolute;
-  top: -200px; right: -200px;
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--cream-deep) 0%, transparent 70%);
-  pointer-events: none;
-}
-.process-inner {
-  position: relative;
-  z-index: 2;
-}
-.process-header {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 80px;
-}
-.process-header .section-lead { margin: 0 auto; }
-
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  position: relative;
-}
-.process-step {
-  position: relative;
-  text-align: center;
-}
-.process-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 64px;
-  font-weight: 700;
-  color: var(--amalfi);
-  line-height: 1;
-  margin-bottom: 18px;
-  opacity: 0.7;
-}
-.process-step h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: var(--basil-night);
-}
-.process-step p {
-  font-size: 15px;
-  color: var(--ink-mute);
-  line-height: 1.65;
-}
-
-/* ───── TESTIMONIALS ───── */
-.testimonials {
-  background: var(--basil-night);
-  color: var(--cream-soft);
-  position: relative;
-  overflow: hidden;
-}
-.testimonials::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 15% 30%, rgba(242, 181, 40, .1) 0%, transparent 40%),
-    radial-gradient(circle at 85% 70%, rgba(196, 30, 26, .12) 0%, transparent 45%);
-  pointer-events: none;
-}
-.testimonials-inner { position: relative; z-index: 2; }
-.testimonials .section-eyebrow { color: var(--amalfi); }
-
-.testimonials-header {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 40px;
-  align-items: end;
-  margin-bottom: 70px;
-}
-.rating-block {
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
-}
-.rating-stars {
-  color: var(--amalfi);
-  font-size: 22px;
-  letter-spacing: 3px;
-}
-.rating-score {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 56px;
-  font-weight: 600;
-  font-style: italic;
-  color: var(--cream-soft);
-  line-height: 1;
-}
-.rating-score .max { color: rgba(246, 240, 224, 0.4); font-size: 28px; }
-.rating-meta {
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(246, 240, 224, 0.6);
-}
-
-.testi-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-.testi {
-  padding: 36px 32px;
-  background: rgba(246, 240, 224, 0.04);
-  border: 1px solid rgba(246, 240, 224, 0.1);
-  border-radius: 14px;
-  transition: all 0.4s ease;
-}
-.testi:hover {
-  background: rgba(246, 240, 224, 0.06);
-  transform: translateY(-4px);
-  border-color: rgba(242, 181, 40, 0.3);
-}
-.testi-stars {
-  color: var(--amalfi);
-  font-size: 14px;
-  letter-spacing: 2px;
-  margin-bottom: 18px;
-}
-.testi-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 19px;
-  line-height: 1.55;
-  margin-bottom: 24px;
-  color: rgba(246, 240, 224, 0.92);
-}
-.testi-author {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding-top: 22px;
-  border-top: 1px solid rgba(246, 240, 224, 0.1);
-}
-.testi-avatar {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--tomato) 0%, var(--amalfi) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: 18px;
-  color: var(--cream-soft);
-}
-.testi-author-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.testi-name {
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--cream-soft);
-}
-.testi-date {
-  font-size: 12px;
-  color: rgba(246, 240, 224, 0.5);
-}
-
-/* ───── INFOS PRATIQUES ───── */
-.info {
-  background: var(--cream);
-}
-.info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-.info-card {
-  background: var(--cream-soft);
-  padding: 50px;
-  border-radius: 18px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--line);
-}
-.info-card h3 {
-  font-size: 32px;
-  margin-bottom: 30px;
-  color: var(--basil-night);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.info-card h3 .icon {
-  width: 40px; height: 40px;
-  background: var(--tomato);
-  color: var(--cream-soft);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-style: normal;
-}
-
-.hours-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.hours-row {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: baseline;
-  padding-bottom: 14px;
-  border-bottom: 1px dashed var(--line);
-  gap: 20px;
-}
-.hours-row:last-child { border-bottom: none; }
-.hours-row.closed .hours-time { color: var(--tomato); font-style: italic; }
-.hours-day {
-  font-weight: 500;
-  font-size: 15px;
-}
-.hours-time {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--ink);
-  text-align: right;
-}
-
-.contact-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  margin-bottom: 32px;
-}
-.contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-.contact-item .ic {
-  width: 38px; height: 38px;
-  flex-shrink: 0;
-  background: var(--cream-deep);
-  color: var(--tomato);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-}
-.contact-item .lbl {
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  margin-bottom: 4px;
-  display: block;
-}
-.contact-item .val {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 19px;
-  font-weight: 500;
-  color: var(--basil-night);
-  display: block;
-  line-height: 1.4;
-}
-.contact-item a.val:hover { color: var(--tomato); }
-
-.map-block {
-  margin-top: 30px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-}
-.map-block iframe {
-  display: block;
-  width: 100%;
-  height: 260px;
-  border: 0;
-  filter: grayscale(0.3) contrast(1.05);
-}
-
-/* ───── RESERVATION CTA ───── */
-.reserve {
-  background: linear-gradient(135deg, var(--tomato-deep) 0%, var(--tomato) 50%, var(--amalfi-deep) 100%);
-  color: var(--cream-soft);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.reserve::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(242, 181, 40, .35) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(24, 18, 16, .25) 0%, transparent 50%);
-  pointer-events: none;
-}
-.reserve-inner {
-  position: relative;
-  z-index: 2;
-  max-width: 740px;
-  margin: 0 auto;
-}
-.reserve .section-eyebrow {
-  color: rgba(246, 240, 224, 0.85);
-}
-.reserve h2 {
-  font-size: clamp(40px, 5.5vw, 68px);
-  margin-bottom: 24px;
-  color: var(--cream-soft);
-}
-.reserve h2 .accent {
-  font-style: italic;
-  color: var(--basil-night);
-}
-.reserve p {
-  font-size: 18px;
-  color: rgba(246, 240, 224, 0.92);
-  margin-bottom: 40px;
-  line-height: 1.7;
-}
-.reserve-actions {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* ───── FOOTER ───── */
-footer {
-  background: var(--basil-night);
-  color: var(--cream-soft);
-  padding: 80px 0 30px;
-  border-top: 1px solid rgba(246, 240, 224, 0.08);
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 50px;
-  margin-bottom: 50px;
-}
-.footer-brand .logo {
-  margin-bottom: 24px;
-  color: var(--cream-soft);
-}
-.footer-brand p {
-  font-size: 14px;
-  color: rgba(246, 240, 224, 0.6);
-  line-height: 1.7;
-  max-width: 280px;
-}
-.footer-col h4 {
-  font-size: 13px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--amalfi);
-  margin-bottom: 20px;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 600;
-}
-.footer-col ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.footer-col a, .footer-col li {
-  font-size: 14px;
-  color: rgba(246, 240, 224, 0.7);
-  transition: color 0.3s ease;
-}
-.footer-col a:hover { color: var(--amalfi); }
-
-.socials {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-}
-.social {
-  width: 38px; height: 38px;
-  border: 1px solid rgba(246, 240, 224, 0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  color: var(--cream-soft);
-  transition: all 0.3s ease;
-}
-.social:hover {
-  background: var(--amalfi);
-  border-color: var(--amalfi);
-  color: var(--basil-night);
-  transform: translateY(-2px);
-}
-
-.footer-bottom {
-  padding-top: 30px;
-  border-top: 1px solid rgba(246, 240, 224, 0.08);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  font-size: 12px;
-  color: rgba(246, 240, 224, 0.5);
-}
-.footer-bottom a { color: var(--amalfi); }
-.footer-bottom a:hover { color: var(--cream-soft); }
-
-/* ───── RESPONSIVE ───── */
-@media (max-width: 980px) {
-  section { padding: 80px 0; }
-  .hero { padding: 120px 0 60px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 60px; }
-  .hero-visual { max-width: 480px; margin: 0 auto; }
-  .story-grid, .info-grid { grid-template-columns: 1fr; gap: 50px; }
-  .pillars-grid { grid-template-columns: 1fr; gap: 24px; }
-  .process-steps { grid-template-columns: 1fr 1fr; gap: 40px 20px; }
-  .testi-grid { grid-template-columns: 1fr; }
-  .testimonials-header { grid-template-columns: 1fr; gap: 30px; }
-  .rating-block { text-align: left; align-items: flex-start; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-  .menu-panel.active { grid-template-columns: 1fr; gap: 0; }
-  .info-card { padding: 36px 28px; }
-  .nav-links {
-    position: fixed;
-    inset: 70px 0 0 0;
-    background: var(--cream-soft);
-    flex-direction: column;
-    padding: 50px 32px;
-    gap: 28px;
-    transform: translateY(-110%);
-    transition: transform 0.4s ease;
-    z-index: 99;
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Le Goubing chez Pino",
+    "description": "Pizzeria napolitaine au feu de bois à Sierre, Valais. Pâte longue maturation, produits italiens, focaccia et panuozzo.",
+    "telephone": "+41274561432",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Route des Lacs 9",
+      "addressLocality": "Sierre",
+      "postalCode": "3960",
+      "addressCountry": "CH"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 46.2917, "longitude": 7.5359 },
+    "servesCuisine": ["Italienne", "Pizza napolitaine", "Méditerranéenne"],
+    "priceRange": "CHF",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "11:30", "closes": "13:45" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "18:30", "closes": "21:30" }
+    ]
   }
-  .nav-links.open { transform: translateY(0); }
-  .nav-links .nav-link { color: var(--basil-night); font-size: 22px; font-family: 'Cormorant Garamond', serif; }
-  .burger { display: flex; }
-}
+  </script>
 
-@media (max-width: 560px) {
-  .container { padding: 0 22px; }
-  section { padding: 70px 0; }
-  .hero h1 { font-size: 44px; }
-  .hero-meta { gap: 22px; }
-  .process-steps { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .info-card { padding: 30px 22px; }
-  .testimonials-header { margin-bottom: 50px; }
-  .rating-score { font-size: 44px; }
-  .menu-tabs { gap: 6px; }
-  .menu-tab { padding: 9px 16px; font-size: 11px; }
-  .hero-badge { width: 100px; height: 100px; right: 0; }
-  .hero-badge .num { font-size: 28px; }
-  .hero-leaf { width: 80px; height: 80px; font-size: 11px; }
-}
-</style>
+  <style>
+    /* ====== RESET & BASE ====== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; overflow-x: clip; max-width: 100%; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--cream);
+      background: var(--bg-dark);
+      overflow-x: hidden;
+      overflow-x: clip;
+      position: relative;
+      max-width: 100%;
+      width: 100%;
+      touch-action: pan-y pinch-zoom;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea, select { font: inherit; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ====== TOKENS ====== */
+    :root {
+      --green-deep: #061410;
+      --green-dark: #0d1f16;
+      --green-mid: #183322;
+      --green-accent: #2e6845;
+      --green-light: #52a070;
+      --green-glow: #7dc99a;
+      --gold: #c9a84c;
+      --gold-light: #e8cc7f;
+      --cream: #f5f0e8;
+      --cream-soft: #ede7d9;
+      --text-muted: rgba(245, 240, 232, 0.62);
+      --text-dim: rgba(245, 240, 232, 0.38);
+      --bg-dark: #040a06;
+      --border-soft: rgba(245, 240, 232, 0.07);
+      --border-medium: rgba(245, 240, 232, 0.13);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      --section-py: clamp(5rem, 10vw, 9rem);
+      --container-max: 1280px;
+      --container-px: clamp(1.25rem, 4vw, 3rem);
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    /* ====== LAYOUT ====== */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding-left: var(--container-px);
+      padding-right: var(--container-px);
+      width: 100%;
+    }
+    section {
+      position: relative;
+      padding-top: var(--section-py);
+      padding-bottom: var(--section-py);
+    }
+
+    /* ====== TYPOGRAPHY ====== */
+    .eyebrow {
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      display: inline-block;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      margin-bottom: 1.25rem;
+    }
+    .section-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+    .section-subtitle {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 600px;
+    }
+    .section-header { margin-bottom: 4rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-subtitle { margin: 0 auto; }
+    .section-header.centered .eyebrow { margin-left: auto; margin-right: auto; }
+
+    /* ====== BUTTONS ====== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.65rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.92rem;
+      letter-spacing: 0.03em;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.35s var(--ease-out), background 0.3s, border-color 0.3s, box-shadow 0.45s;
+      white-space: nowrap;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #a07830);
+      color: #1a1005;
+      font-weight: 600;
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      box-shadow: 0 8px 32px rgba(201, 168, 76, 0.18);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.35);
+    }
+    .btn-ghost {
+      background: rgba(245, 240, 232, 0.04);
+      color: var(--cream);
+      border: 1px solid var(--border-medium);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover {
+      background: rgba(245, 240, 232, 0.09);
+      border-color: rgba(245, 240, 232, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ====== HEADER ====== */
+    .header {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 1.5rem);
+      max-width: 1200px;
+      transition: top 0.4s var(--ease-out), background 0.4s, border-color 0.4s, box-shadow 0.4s;
+      background: rgba(6, 20, 16, 0.55);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-medium);
+      border-radius: 9999px;
+      padding: 0.45rem 0.5rem 0.45rem 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+    .header.scrolled {
+      top: 0.75rem;
+      background: rgba(6, 20, 16, 0.9);
+      border-color: rgba(245, 240, 232, 0.16);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+    .header .container { max-width: none; padding: 0; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: 0.01em;
+      color: var(--cream);
+      white-space: nowrap;
+    }
+    .logo em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .nav-links { display: none; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      transition: color 0.3s;
+      padding: 0.4rem 0;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.35s var(--ease-out);
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+    .lang-toggle { display: flex; align-items: center; gap: 0.25rem; }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 0.25rem 0.4rem;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang-btn:hover { color: var(--cream); }
+    .lang-btn.active { color: var(--gold); }
+    .lang-sep { color: var(--text-dim); font-size: 0.7rem; }
+    .nav-cta { display: none; padding: 0.6rem 1.2rem; font-size: 0.82rem; }
+    .burger {
+      width: 44px; height: 44px;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .burger:hover { background: rgba(245,240,232,0.05); border-color: rgba(245,240,232,0.25); }
+    .burger-bars { width: 18px; height: 12px; position: relative; }
+    .burger-bars span {
+      position: absolute; left: 0; right: 0;
+      height: 1.5px; background: var(--cream); border-radius: 2px;
+      transition: transform 0.35s var(--ease-out), opacity 0.25s, top 0.35s var(--ease-out);
+    }
+    .burger-bars span:nth-child(1) { top: 0; }
+    .burger-bars span:nth-child(2) { top: 5px; }
+    .burger-bars span:nth-child(3) { top: 10px; }
+    .burger.open .burger-bars span:nth-child(1) { top: 5px; transform: rotate(45deg); }
+    .burger.open .burger-bars span:nth-child(2) { opacity: 0; }
+    .burger.open .burger-bars span:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+
+    /* ====== MOBILE MENU ====== */
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: rgba(4, 10, 6, 0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 90;
+      display: flex;
+      align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s var(--ease-out), visibility 0.4s;
+    }
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+    .mobile-menu-inner { display: flex; flex-direction: column; gap: 2.5rem; text-align: center; align-items: center; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 2.2rem;
+      color: var(--cream);
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--gold-light); }
+    .mobile-lang { display: flex; gap: 1rem; margin-top: 1rem; }
+    .mobile-lang button {
+      background: none; border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      padding: 0.5rem 1.2rem;
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .mobile-lang button.active { color: var(--gold); border-color: var(--gold); }
+    .mobile-lang button:hover { color: var(--cream); border-color: var(--cream-soft); }
+
+    /* ====== HERO ====== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=1920&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to bottom, rgba(4,10,6,0.55) 0%, rgba(4,10,6,0.2) 40%, rgba(4,10,6,0.6) 80%, rgba(4,10,6,0.95) 100%),
+        linear-gradient(to right, rgba(4,10,6,0.5) 0%, transparent 50%);
+    }
+    .hero-glows {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+    .hero-glow-1 {
+      position: absolute;
+      top: 20%; left: 15%;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.09) 0%, transparent 70%);
+      filter: blur(40px);
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      bottom: 25%; right: 10%;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(46, 104, 69, 0.15) 0%, transparent 70%);
+      filter: blur(50px);
+      animation: glowPulse 8s ease-in-out 2s infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; }
+      50%       { opacity: 1; }
+    }
+    .hero-overlay-top {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, var(--bg-dark) 0%, transparent 100%);
+      pointer-events: none; z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1.2rem;
+      background: rgba(245, 240, 232, 0.05);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.3s forwards;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.35; }
+    }
+    .hero-badge span {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3.2rem, 9vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35em;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.2s var(--ease-out) 0.5s forwards;
+    }
+    .hero-title-main {
+      display: block;
+      background: linear-gradient(135deg, var(--cream) 0%, rgba(245,240,232,0.85) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-title-accent {
+      display: block;
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 60%, #a07830 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.75s forwards;
+    }
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.95s forwards;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 1.4s forwards;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(1); opacity: 0.5; }
+      50%       { transform: scaleY(0.5); opacity: 1; }
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ====== ABOUT ====== */
+    .about { background: var(--bg-dark); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-photo-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .about-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.3), transparent 60%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .about-photo {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      display: block;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 1.5rem; left: 1.5rem;
+      background: rgba(4, 10, 6, 0.85);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.25rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 2;
+    }
+    .about-badge-title { font-family: var(--font-display); font-size: 1rem; font-style: italic; color: var(--gold-light); }
+    .about-badge-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.25rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .chef-row { display: flex; align-items: center; gap: 1rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border-soft); }
+    .chef-avatars { display: flex; }
+    .chef-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: 2px solid var(--green-dark);
+      overflow: hidden;
+      background: var(--green-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--gold-light);
+    }
+    .chef-info { font-size: 0.88rem; }
+    .chef-names { font-weight: 500; color: var(--cream); }
+    .chef-role { color: var(--text-muted); font-size: 0.8rem; }
+
+    /* ====== MENU ====== */
+    .menu-section { background: var(--green-deep); }
+    .menu-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .menu-tab {
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-medium);
+      background: none;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .menu-tab:hover { color: var(--cream); border-color: rgba(245,240,232,0.25); }
+    .menu-tab.active {
+      background: rgba(201, 168, 76, 0.12);
+      border-color: rgba(201, 168, 76, 0.45);
+      color: var(--gold-light);
+    }
+    .menu-panel { display: none; }
+    .menu-panel.active { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border-soft); border-radius: var(--radius-lg); overflow: hidden; }
+    .menu-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.5rem 1.75rem;
+      background: rgba(13, 31, 22, 0.6);
+      transition: background 0.3s;
+    }
+    .menu-item:hover { background: rgba(13, 31, 22, 0.95); }
+    .menu-item-text { flex: 1; }
+    .menu-item-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--cream); margin-bottom: 0.25rem; }
+    .menu-item-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .menu-item-tag { font-size: 0.72rem; color: var(--green-glow); background: rgba(125, 201, 154, 0.1); padding: 0.15rem 0.5rem; border-radius: 4px; display: inline-block; margin-top: 0.4rem; }
+    .menu-item-tag.spicy { color: #f59076; background: rgba(245, 144, 118, 0.1); }
+    .menu-item-tag.signature { color: var(--gold-light); background: rgba(201, 168, 76, 0.12); }
+    .menu-item-price { font-family: var(--font-display); font-size: 1.1rem; color: var(--gold); white-space: nowrap; font-weight: 400; }
+    .menu-formule-note { margin-top: 2rem; padding: 1.5rem; background: rgba(201, 168, 76, 0.06); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: var(--radius-md); }
+    .menu-formule-note p { font-size: 0.9rem; color: var(--text-muted); }
+    .menu-formule-note strong { color: var(--gold-light); }
+    .menu-category-sep {
+      padding: 0.65rem 1.75rem;
+      background: rgba(201, 168, 76, 0.07);
+      border-left: 2px solid var(--gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ====== GALLERY ====== */
+    .gallery { background: var(--bg-dark); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 0.75rem;
+    }
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item:first-child { grid-column: span 2; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      transition: transform 0.6s var(--ease-out);
+      display: block;
+    }
+    .gallery-item:first-child img { aspect-ratio: 21/9; }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(4,10,6,0.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-label { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--cream-soft); }
+
+    /* ====== TESTIMONIALS ====== */
+    .testimonials { background: var(--green-deep); }
+    .testi-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .testi-card {
+      background: rgba(13, 31, 22, 0.5);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .testi-card:hover { border-color: rgba(201,168,76,0.2); transform: translateY(-3px); }
+    .testi-stars { display: flex; gap: 0.25rem; margin-bottom: 1.25rem; }
+    .testi-star { color: var(--gold); font-size: 0.9rem; }
+    .testi-text { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; line-height: 1.65; color: var(--cream-soft); margin-bottom: 1.5rem; }
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testi-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+    .testi-name { font-weight: 500; font-size: 0.88rem; color: var(--cream); }
+    .testi-location { font-size: 0.78rem; color: var(--text-muted); }
+    .testi-source { margin-left: auto; font-size: 0.72rem; color: var(--text-dim); }
+
+    /* ====== RESERVATION ====== */
+    .reservation { background: var(--bg-dark); }
+    .resa-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .resa-info h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 1rem; }
+    .resa-info p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
+    .resa-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .resa-tel-icon { color: var(--gold); }
+    .resa-hours { font-size: 0.85rem; color: var(--text-muted); }
+    .resa-form { display: grid; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .field label { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .field input, .field select, .field textarea {
+      background: rgba(245, 240, 232, 0.04);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      font-size: 0.95rem;
+      color: var(--cream);
+      transition: border-color 0.3s, background 0.3s;
+      width: 100%;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: rgba(201, 168, 76, 0.5);
+      background: rgba(245, 240, 232, 0.07);
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--text-dim); }
+    .field select option { background: var(--green-dark); color: var(--cream); }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .form-note { font-size: 0.78rem; color: var(--text-dim); }
+    .form-success { display: none; padding: 1rem 1.5rem; background: rgba(125,201,154,0.1); border: 1px solid rgba(125,201,154,0.3); border-radius: var(--radius-md); color: var(--green-glow); font-size: 0.9rem; }
+
+    /* ====== CUSTOM DATE PICKER ====== */
+    .date-picker-wrap { position: relative; }
+    .date-trigger {
+      width: 100%;
+      background: rgba(245, 240, 232, 0.04);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      color: var(--cream);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: border-color 0.3s, background 0.3s;
+      text-align: left;
+    }
+    .date-trigger:hover, .date-trigger:focus {
+      border-color: rgba(201, 168, 76, 0.5);
+      background: rgba(245, 240, 232, 0.07);
+      outline: none;
+    }
+    .date-display { font-size: 0.95rem; }
+    .date-display.placeholder-text { color: var(--text-dim); }
+    .date-trigger svg { flex-shrink: 0; color: var(--gold); opacity: 0.7; }
+    .cal-popup {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      z-index: 200;
+      background: var(--green-dark);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      min-width: 272px;
+      display: none;
+    }
+    .cal-popup.open { display: block; }
+    .cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+    .cal-nav {
+      background: none; border: none;
+      color: var(--gold); font-size: 1.5rem; line-height: 1;
+      cursor: pointer; padding: 0.1rem 0.5rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s;
+    }
+    .cal-nav:hover { background: rgba(201, 168, 76, 0.12); }
+    .cal-month-label { font-family: var(--font-display); font-size: 1.05rem; color: var(--cream); }
+    .cal-days-header { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; margin-bottom: 0.35rem; }
+    .cal-day-name { font-size: 0.68rem; color: var(--text-dim); padding: 0.2rem 0; text-transform: uppercase; letter-spacing: 0.04em; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+    .cal-cell {
+      text-align: center; padding: 0.45rem 0;
+      border-radius: 6px; font-size: 0.875rem;
+      color: var(--cream); cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      user-select: none;
+    }
+    .cal-cell:hover:not(.disabled):not(.empty) { background: rgba(201,168,76,0.15); color: var(--gold-light); }
+    .cal-cell.today { color: var(--gold); font-weight: 600; }
+    .cal-cell.selected { background: var(--gold); color: #1a1005; font-weight: 600; }
+    .cal-cell.disabled { color: var(--text-dim); cursor: default; opacity: 0.3; }
+    .cal-cell.empty { cursor: default; }
+
+    /* ====== TIME PILLS ====== */
+    .time-groups { display: flex; flex-direction: column; gap: 0.9rem; }
+    .time-group-label { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .time-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .time-pill {
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      padding: 0.35rem 0.85rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      font-family: var(--font-body);
+    }
+    .time-pill:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(201,168,76,0.07); }
+    .time-pill.selected { background: var(--gold); border-color: var(--gold); color: #1a1005; font-weight: 500; }
+
+    /* ====== CONTACT ====== */
+    .contact-section { background: var(--green-deep); }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+    .contact-info h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; margin-bottom: 1.5rem; }
+    .info-block { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .info-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-sm);
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+    .info-label { font-size: 0.75rem; font-weight: 500; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
+    .info-value { font-size: 0.95rem; color: var(--cream); line-height: 1.6; }
+    .info-value a { color: var(--cream); transition: color 0.2s; }
+    .info-value a:hover { color: var(--gold-light); }
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 1.5rem; }
+    .hours-day { font-size: 0.85rem; color: var(--text-muted); }
+    .hours-time { font-size: 0.85rem; color: var(--cream-soft); }
+    .closed { color: var(--text-dim); font-style: italic; }
+    .map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      height: 340px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+    .social-row { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .social-btn:hover { color: var(--cream); border-color: rgba(245,240,232,0.3); }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border-soft);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+    .footer-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--cream); }
+    .footer-logo em { font-style: italic; color: var(--gold-light); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 0.82rem; color: var(--text-dim); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-muted); }
+    .footer-credit { font-size: 0.75rem; color: var(--text-dim); }
+    .footer-credit a { color: var(--gold); transition: opacity 0.2s; }
+    .footer-credit a:hover { opacity: 0.75; }
+
+    /* ====== WHATSAPP FLOAT ====== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      z-index: 50;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      display: flex;
+      align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+      color: #fff;
+    }
+    .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.55); }
+    .whatsapp-float svg { width: 28px; height: 28px; }
+
+    /* ====== FADE ANIMATIONS ====== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 639px) {
+      .hero-glow-1 { width: 220px; height: 220px; top: 15%; left: 5%; }
+      .hero-glow-2 { width: 200px; height: 200px; bottom: 20%; right: 5%; }
+      .hero-badge { max-width: calc(100vw - 2.5rem); overflow: hidden; }
+      .hero-badge span { font-size: 0.68rem; letter-spacing: 0.08em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .cal-popup { min-width: 0; width: calc(100vw - 3rem); left: 0; right: 0; }
+      section, .container, header { max-width: 100vw; }
+    }
+
+    @media (min-width: 640px) {
+      .form-row { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .resa-wrap { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-item:first-child { grid-column: span 2; }
+    }
+    @media (min-width: 1024px) {
+      .nav-links { display: flex; }
+      .nav-cta { display: inline-flex; }
+      .burger { display: none; }
+      .testi-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+      .gallery-item:first-child { grid-column: span 2; grid-row: span 2; }
+      .gallery-item:first-child img { aspect-ratio: 1/1; height: 100%; }
+    }
+
+    /* ====== DIVIDER ====== */
+    .divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin: 2rem 0;
+    }
+    .divider.centered { margin: 2rem auto; }
+  </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="nav" id="nav">
-  <div class="container nav-inner">
-    <a href="#" class="logo">
-      <div class="logo-mark">P</div>
-      <div class="logo-text">
-        <span class="logo-name">Le Goubing</span>
-        <span class="logo-sub">Chez Pino · Sierre</span>
-      </div>
-    </a>
-    <div class="nav-links" id="navLinks">
-      <a href="#histoire" class="nav-link">Notre histoire</a>
-      <a href="#carte" class="nav-link">La carte</a>
-      <a href="#savoir-faire" class="nav-link">Le four</a>
-      <a href="#avis" class="nav-link">Avis</a>
-      <a href="#infos" class="nav-link">Infos</a>
-      <a href="#reserver" class="btn nav-cta">Réserver</a>
-    </div>
-    <button class="burger" id="burger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero">
-  <div class="container hero-inner">
-    <div class="hero-text">
-      <span class="hero-eyebrow"><span class="dot"></span>Vera Pizza Napoletana · Sierre depuis 2019</span>
-      <h1>
-        <span class="line">Comme à Naples,</span>
-        <span class="line"><span class="accent">au cœur du Valais.</span></span>
-      </h1>
-      <p class="hero-lead">
-        Une pâte qui lève 48 heures. Un four à bois qui monte à 450°. Des produits venus
-        de la Botte. Chez Pino, on ne fait que ce qu'on sait faire — et on le fait bien.
-        Pizza, focaccia, panuozzo, sfilatino : la tradition napolitaine, sans détour.
-      </p>
-      <div class="hero-actions">
-        <a href="#reserver" class="btn">Réserver une table</a>
-        <a href="#carte" class="btn btn-ghost">Voir la carte</a>
-      </div>
-      <div class="hero-meta">
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Pâte levée</span>
-          <span class="hero-meta-value">48<span class="pcs">heures</span></span>
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="#" class="logo">Le <em>Goubing</em> chez Pino</a>
+      <ul class="nav-links">
+        <li><a href="#about" class="t" data-fr="Notre histoire" data-it="La nostra storia">Notre histoire</a></li>
+        <li><a href="#menu" class="t" data-fr="Carte" data-it="Menu">Carte</a></li>
+        <li><a href="#gallery" class="t" data-fr="Galerie" data-it="Galleria">Galerie</a></li>
+        <li><a href="#contact" class="t" data-fr="Contact" data-it="Contatti">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" onclick="setLang('it')">IT</button>
         </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Four à bois</span>
-          <span class="hero-meta-value">450<span class="pcs">°C</span></span>
-        </div>
-        <div class="hero-meta-item">
-          <span class="hero-meta-label">Note Google</span>
-          <span class="hero-meta-value">4,9<span class="pcs">/ 5</span></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-visual" aria-hidden="true">
-      <div class="postcard">
-        <div class="postcard-seal">Vera<br>Pizza<br>Napoletana</div>
-        <div class="postcard-stamp">
-          <div class="postcard-stamp-inner">
-            <span class="it">Italia</span>
-            <span class="yr">€</span>
-            <span class="pl">Posta</span>
+        <a href="#reservation" class="btn btn-primary nav-cta t" data-fr="Réserver" data-it="Prenotare">Réserver</a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <div class="burger-bars">
+            <span></span><span></span><span></span>
           </div>
-        </div>
-        <div class="postcard-img">
-          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-            <!-- Soleil -->
-            <circle cx="290" cy="105" r="34" fill="#ffd86b" opacity="0.95"/>
-            <circle cx="290" cy="105" r="48" fill="#ffd86b" opacity="0.18"/>
-            <circle cx="290" cy="105" r="64" fill="#ffd86b" opacity="0.08"/>
-
-            <!-- Nuages doux -->
-            <ellipse cx="80" cy="55" rx="38" ry="7" fill="#ffe6c8" opacity="0.55"/>
-            <ellipse cx="140" cy="45" rx="28" ry="5" fill="#ffe6c8" opacity="0.4"/>
-            <ellipse cx="340" cy="68" rx="32" ry="6" fill="#ffe6c8" opacity="0.45"/>
-
-            <!-- Vésuve (silhouette double sommet) -->
-            <path d="M 0 175 L 60 145 L 90 135 L 130 115 L 165 95 L 200 105 L 230 120 L 260 115 L 295 130 L 330 145 L 370 158 L 400 168 L 400 175 Z"
-                  fill="#3d2a4a" opacity="0.92"/>
-            <!-- Vésuve plus proche -->
-            <path d="M 70 175 L 130 135 L 160 110 L 195 88 L 230 110 L 265 125 L 310 150 L 360 168 L 400 175 L 400 178 L 70 178 Z"
-                  fill="#2a1a35" opacity="0.85"/>
-            <!-- Petite fumée au sommet -->
-            <ellipse cx="195" cy="78" rx="8" ry="14" fill="#e0d4c0" opacity="0.45"/>
-            <ellipse cx="200" cy="62" rx="12" ry="6" fill="#e0d4c0" opacity="0.3"/>
-
-            <!-- Ligne d'horizon / mer -->
-            <rect x="0" y="172" width="400" height="2" fill="#7a4830" opacity="0.4"/>
-
-            <!-- Reflets sur la mer -->
-            <ellipse cx="290" cy="190" rx="38" ry="3" fill="#ffd86b" opacity="0.55"/>
-            <ellipse cx="290" cy="205" rx="28" ry="2" fill="#ffd86b" opacity="0.4"/>
-            <ellipse cx="290" cy="220" rx="20" ry="2" fill="#ffd86b" opacity="0.3"/>
-
-            <!-- Vaguelettes -->
-            <path d="M 20 230 Q 50 226 80 230 T 140 230 T 200 230 T 260 230 T 320 230 T 380 230"
-                  stroke="#ffffff" stroke-width="0.8" fill="none" opacity="0.4"/>
-            <path d="M 10 250 Q 50 246 100 250 T 200 250 T 300 250 T 400 250"
-                  stroke="#ffffff" stroke-width="0.7" fill="none" opacity="0.3"/>
-            <path d="M 0 270 Q 60 266 120 270 T 240 270 T 360 270 T 400 270"
-                  stroke="#ffffff" stroke-width="0.6" fill="none" opacity="0.25"/>
-
-            <!-- Petit voilier -->
-            <g transform="translate(80, 200)">
-              <path d="M -14 8 L 14 8 L 10 13 L -10 13 Z" fill="#1c1612"/>
-              <line x1="0" y1="8" x2="0" y2="-14" stroke="#1c1612" stroke-width="0.8"/>
-              <path d="M 0 -14 L 0 4 L 10 4 Z" fill="#ffffff" opacity="0.95"/>
-              <path d="M 0 -10 L 0 4 L -7 4 Z" fill="#ffffff" opacity="0.85"/>
-            </g>
-
-            <!-- Palmier décoratif gauche -->
-            <g transform="translate(30, 165)">
-              <path d="M 0 0 Q -1 -20 -1 -45" stroke="#3d2818" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-              <ellipse cx="-1" cy="-45" rx="14" ry="4" fill="#2e7d4f" transform="rotate(-25 -1 -45)"/>
-              <ellipse cx="-1" cy="-45" rx="14" ry="4" fill="#2e7d4f" transform="rotate(25 -1 -45)"/>
-              <ellipse cx="-1" cy="-48" rx="13" ry="3.5" fill="#3a9460" transform="rotate(-65 -1 -48)"/>
-              <ellipse cx="-1" cy="-48" rx="13" ry="3.5" fill="#3a9460" transform="rotate(65 -1 -48)"/>
-              <ellipse cx="-1" cy="-50" rx="12" ry="3" fill="#2e7d4f"/>
-            </g>
-
-            <!-- Citron en bas à gauche -->
-            <g transform="translate(58, 250)">
-              <ellipse cx="0" cy="0" rx="14" ry="10" fill="#f5d34a"/>
-              <ellipse cx="-4" cy="-3" rx="4" ry="2.5" fill="#ffe680" opacity="0.7"/>
-              <path d="M -2 -10 Q 0 -14 4 -12" stroke="#2e7d4f" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-              <ellipse cx="6" cy="-11" rx="5" ry="2.5" fill="#3a9460" transform="rotate(25 6 -11)"/>
-            </g>
-
-            <!-- Texte "Napoli" calligraphique en filigrane -->
-            <text x="200" y="155" text-anchor="middle"
-                  font-family="Cormorant Garamond, serif"
-                  font-style="italic" font-weight="600"
-                  font-size="34" fill="#ffffff" opacity="0.18"
-                  letter-spacing="3">Napoli</text>
-          </svg>
-        </div>
-        <div class="postcard-caption">
-          <span class="from">Souvenir de Naples</span>
-          <span class="city">Napoli <span class="arrow">→</span> Sierre</span>
-        </div>
+        </button>
       </div>
-      <div class="hero-badge">
-        <span class="num">N°1</span>
-        <span class="lbl">Pizzeria Sierre</span>
-        <span class="star">★★★★★</span>
-      </div>
-    </div>
+    </nav>
   </div>
 </header>
 
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="marquee-item">Vera Pizza Napoletana</span>
-    <span class="marquee-item">Mozzarella di Bufala</span>
-    <span class="marquee-item">San Marzano DOP</span>
-    <span class="marquee-item">Farina 00</span>
-    <span class="marquee-item">Forno a Legna</span>
-    <span class="marquee-item">Vera Pizza Napoletana</span>
-    <span class="marquee-item">Mozzarella di Bufala</span>
-    <span class="marquee-item">San Marzano DOP</span>
-    <span class="marquee-item">Farina 00</span>
-    <span class="marquee-item">Forno a Legna</span>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <a href="#about" class="t" data-fr="Notre histoire" data-it="La nostra storia">Notre histoire</a>
+    <a href="#menu" class="t" data-fr="Carte" data-it="Menu">Carte</a>
+    <a href="#gallery" class="t" data-fr="Galerie" data-it="Galleria">Galerie</a>
+    <a href="#reservation" class="t" data-fr="Réserver une table" data-it="Prenotare un tavolo">Réserver une table</a>
+    <a href="#contact" class="t" data-fr="Contact" data-it="Contatti">Contact</a>
+    <div class="mobile-lang">
+      <button class="active" onclick="setLang('fr'); closeMobileMenu()">FR</button>
+      <button onclick="setLang('it'); closeMobileMenu()">IT</button>
+    </div>
   </div>
 </div>
 
-<!-- STORY -->
-<section class="story" id="histoire">
-  <div class="container story-grid">
-    <div class="story-text">
-      <span class="section-eyebrow">L'histoire</span>
-      <h2 class="section-title">Une <span class="accent">passion</span> qui vient de loin.</h2>
-      <p>
-        Le Goubing a toujours été un point de rencontre à Sierre. En 2019, Pino Rubino y
-        installe son four à bois et y emmène un peu de Naples. La promesse est simple :
-        moins de plats à la carte, mais chacun pensé, dosé, et cuit à la perfection.
-      </p>
-      <p>
-        Ici, la pâte repose deux jours. La mozzarella est entière, le San Marzano vient
-        d'Italie, le basilic est frais. Quand la pizza sort du four, elle a cette bordure
-        boursouflée et tachetée — la <em>cornicione</em> — qui ne trompe pas.
-      </p>
-      <p>
-        On vient au Goubing pour la pizza, et on revient pour l'accueil. C'est ce qu'on
-        nous dit le plus souvent. C'est notre plus belle récompense.
-      </p>
-      <div class="signature">
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-photo"></div>
+  <div class="hero-glows">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+  </div>
+  <div class="hero-overlay-top"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span class="t" data-fr="Vera pizza napoletana · Sierre, Valais" data-it="Vera pizza napoletana · Sierre, Vallese">Vera pizza napoletana · Sierre, Valais</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-main t" data-fr="Le Goubing" data-it="Le Goubing">Le Goubing</span>
+        <span class="hero-title-accent t" data-fr="chez Pino" data-it="da Pino">chez Pino</span>
+      </h1>
+      <p class="hero-sub t" data-fr="Un peu de Naples au cœur du Valais. Pâte de 48 heures, four à bois, mozzarella di bufala — la tradition napolitaine, sans détour." data-it="Un pezzo di Napoli nel cuore del Vallese. Impasto a 48 ore, forno a legna, mozzarella di bufala — la tradizione napoletana, senza compromessi.">Un peu de Naples au cœur du Valais. Pâte de 48 heures, four à bois, mozzarella di bufala — la tradition napolitaine, sans détour.</p>
+      <div class="hero-cta">
+        <a href="#reservation" class="btn btn-primary t" data-fr="Réserver une table" data-it="Prenotare un tavolo">Réserver une table</a>
+        <a href="#menu" class="btn btn-ghost t" data-fr="Voir la carte" data-it="Vedere il menu">Voir la carte</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="t" data-fr="Découvrir" data-it="Scoprire">Découvrir</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-wrap fade-up">
+        <img
+          class="about-photo"
+          src="https://images.unsplash.com/photo-1593504049359-74330189a345?w=900&q=80&auto=format&fit=crop"
+          alt="Pizzaiolo enfournant une pizza napolitaine au feu de bois"
+          loading="lazy"
+        />
+        <div class="about-badge">
+          <div class="about-badge-title t" data-fr="Four à bois napolitain" data-it="Forno a legna napoletano">Four à bois napolitain</div>
+          <div class="about-badge-sub t" data-fr="Cuisson 90 secondes à 450°C" data-it="Cottura 90 secondi a 450°C">Cuisson 90 secondes à 450°C</div>
+        </div>
+      </div>
+      <div class="about-text fade-up fade-up-delay-1">
+        <div class="eyebrow t" data-fr="Notre histoire" data-it="La nostra storia">Notre histoire</div>
+        <h2 class="section-title"><em class="t" data-fr="Comme à Naples" data-it="Come a Napoli">Comme à Naples</em><br><span class="t" data-fr="au cœur du Valais" data-it="nel cuore del Vallese">au cœur du Valais</span></h2>
+        <div class="divider"></div>
         <div>
-          <div class="signature-name">Pino Rubino</div>
-          <div class="signature-role">Patron · Pizzaiolo</div>
+          <p class="t" data-fr="Depuis 2019, Pino Rubino installe son four à bois sur la Route des Lacs et apporte un peu de Naples à Sierre. La promesse est simple : moins de plats à la carte, mais chacun pensé, dosé, et cuit à la perfection. Ici, la pâte repose 48 heures, la mozzarella est entière, le San Marzano vient d'Italie." data-it="Dal 2019, Pino Rubino accende il suo forno a legna sulla Route des Lacs e porta un po' di Napoli a Sierre. La promessa è semplice: meno piatti in carta, ma ognuno pensato, dosato e cotto alla perfezione. Qui l'impasto riposa 48 ore, la mozzarella è intera, il San Marzano viene dall'Italia.">Depuis 2019, Pino Rubino installe son four à bois sur la Route des Lacs et apporte un peu de Naples à Sierre. La promesse est simple : moins de plats à la carte, mais chacun pensé, dosé, et cuit à la perfection. Ici, la pâte repose 48 heures, la mozzarella est entière, le San Marzano vient d'Italie.</p>
+          <p class="t" data-fr="Quand la pizza sort du four, elle a cette bordure boursouflée et tachetée — la cornicione — qui ne trompe pas. On vient au Goubing pour la pizza, et on revient pour l'accueil. C'est ce qu'on nous dit le plus souvent. C'est notre plus belle récompense." data-it="Quando la pizza esce dal forno, ha quel bordo gonfio e maculato — il cornicione — che non inganna. Si viene al Goubing per la pizza, e si torna per l'accoglienza. È quello che ci dicono più spesso. È la nostra più bella ricompensa.">Quand la pizza sort du four, elle a cette bordure boursouflée et tachetée — la <em>cornicione</em> — qui ne trompe pas. On vient au Goubing pour la pizza, et on revient pour l'accueil. C'est ce qu'on nous dit le plus souvent. C'est notre plus belle récompense.</p>
+        </div>
+        <div class="chef-row">
+          <div class="chef-avatars">
+            <div class="chef-avatar">P</div>
+          </div>
+          <div class="chef-info">
+            <div class="chef-names">Pino Rubino</div>
+            <div class="chef-role t" data-fr="Patron · Pizzaiolo napolitain" data-it="Titolare · Pizzaiolo napoletano">Patron · Pizzaiolo napolitain</div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="story-visual">
-      <div class="flames"></div>
-      <div class="story-quote">
-        <p class="story-quote-text">
-          La pizza, c'est trois ingrédients et mille gestes. Le secret, c'est la patience.
-        </p>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- PILIERS -->
-<section class="pillars">
+<!-- MENU -->
+<section class="menu-section" id="menu">
   <div class="container">
-    <div class="pillars-header">
-      <span class="section-eyebrow">Notre signature</span>
-      <h2 class="section-title">Ce qui fait <span class="accent" style="color: var(--amalfi);">une vraie napolitaine.</span></h2>
-      <p class="section-lead">
-        Trois engagements simples, tenus tous les jours depuis l'ouverture.
-        Pas de raccourcis, pas de compromis.
-      </p>
-    </div>
-    <div class="pillars-grid">
-      <div class="pillar">
-        <div class="pillar-icon">🔥</div>
-        <h3>Le four à bois</h3>
-        <p>Un vrai four napolitain, chauffé au bois, qui monte à 450°C. La pizza cuit
-        en 90 secondes — c'est ce qui lui donne sa bordure aérée et son cœur tendre.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">🍃</div>
-        <h3>La pâte de 48h</h3>
-        <p>Farine italienne type 00, levure mère, eau, sel. Une longue maturation qui
-        rend la pâte légère, digeste, et fidèle à la tradition de la <em>vera pizza</em>.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">🍅</div>
-        <h3>Les produits italiens</h3>
-        <p>San Marzano DOP, mozzarella di bufala campana, basilic frais, huile
-        d'olive extra-vierge. Ce qui est bon là-bas est forcément meilleur ici.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CARTE -->
-<section class="menu" id="carte">
-  <div class="container">
-    <div class="menu-header">
-      <span class="section-eyebrow">La carte</span>
-      <h2 class="section-title">Courte, <span class="accent">précise,</span> napolitaine.</h2>
-      <p class="section-lead">
-        Pas de carte fleuve. Chaque plat est défendu. Cliquez sur les catégories pour
-        découvrir ce qui sort du four chez Pino.
-      </p>
+    <div class="section-header centered fade-up">
+      <div class="eyebrow t" data-fr="Notre carte" data-it="Il nostro menu">Notre carte</div>
+      <h2 class="section-title"><em class="t" data-fr="La table" data-it="La tavola">La table</em><br><span class="t" data-fr="de Pino" data-it="di Pino">de Pino</span></h2>
+      <div class="divider centered"></div>
+      <p class="section-subtitle t" data-fr="Une carte courte, précise, napolitaine. Chaque plat est défendu et préparé avec les meilleurs produits italiens." data-it="Una carta breve, precisa, napoletana. Ogni piatto è difeso e preparato con i migliori prodotti italiani.">Une carte courte, précise, napolitaine. Chaque plat est défendu et préparé avec les meilleurs produits italiens.</p>
     </div>
 
-    <div class="menu-tabs" role="tablist">
-      <button class="menu-tab active" data-tab="antipasti">Antipasti</button>
-      <button class="menu-tab" data-tab="focaccia">Focaccia</button>
-      <button class="menu-tab" data-tab="classiche">Pizze Classiche</button>
-      <button class="menu-tab" data-tab="speciali">Pizze Speciali</button>
-      <button class="menu-tab" data-tab="panuozzi">Panuozzi & Sfilatini</button>
-      <button class="menu-tab" data-tab="dolci">Dolci</button>
-      <button class="menu-tab" data-tab="boissons">Boissons</button>
+    <div class="menu-tabs fade-up fade-up-delay-1">
+      <button class="menu-tab active t" onclick="showTab(this,'antipasti')" data-fr="Antipasti" data-it="Antipasti">Antipasti</button>
+      <button class="menu-tab t" onclick="showTab(this,'focaccia')" data-fr="Focaccia" data-it="Focaccia">Focaccia</button>
+      <button class="menu-tab t" onclick="showTab(this,'classiche')" data-fr="Pizze classiche" data-it="Pizze classiche">Pizze classiche</button>
+      <button class="menu-tab t" onclick="showTab(this,'speciali')" data-fr="Pizze speciali" data-it="Pizze speciali">Pizze speciali</button>
+      <button class="menu-tab t" onclick="showTab(this,'panuozzi')" data-fr="Panuozzi & Sfilatini" data-it="Panuozzi & Sfilatini">Panuozzi &amp; Sfilatini</button>
+      <button class="menu-tab t" onclick="showTab(this,'dolci')" data-fr="Dolci" data-it="Dolci">Dolci</button>
+      <button class="menu-tab t" onclick="showTab(this,'boissons')" data-fr="Boissons" data-it="Bevande">Boissons</button>
     </div>
 
     <!-- ANTIPASTI -->
-    <div class="menu-panel active" data-panel="antipasti">
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Burrata e Pane Caldo</div>
-          <div class="dish-desc">Burrata des Pouilles, pain maison sorti du four, huile d'olive extra-vierge.</div>
+    <div id="antipasti" class="menu-panel active fade-up fade-up-delay-2">
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Burrata e Pane Caldo</div>
+          <div class="menu-item-desc">Burrata des Pouilles, pain maison sorti du four, huile d'olive extra-vierge</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>16</div>
+        <div class="menu-item-price">CHF 16</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Antipasto della Casa</div>
-          <div class="dish-desc">Sélection du jour : jambon cru, mozzarella, olives, légumes grillés.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Antipasto della Casa</div>
+          <div class="menu-item-desc">Sélection du jour : jambon cru, mozzarella, olives, légumes grillés</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>22</div>
+        <div class="menu-item-price">CHF 22</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Insalata Caprese</div>
-          <div class="dish-desc">Tomates, mozzarella di bufala, basilic, huile d'olive.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Insalata Caprese</div>
+          <div class="menu-item-desc">Tomates, mozzarella di bufala, basilic frais, huile d'olive</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>14</div>
+        <div class="menu-item-price">CHF 14</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Insalata del Goubing <span class="tag">Veggie</span></div>
-          <div class="dish-desc">Mesclun, tomates cerises, mozzarella, copeaux de parmesan, vinaigrette balsamique.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Insalata del Goubing</div>
+          <div class="menu-item-desc">Mesclun, tomates cerises, mozzarella, copeaux de parmesan, vinaigrette balsamique</div>
+          <span class="menu-item-tag">Végétarien</span>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>12</div>
+        <div class="menu-item-price">CHF 12</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Olive & Focaccina</div>
-          <div class="dish-desc">Olives taggiasche, mini-focaccia maison à la fleur de sel.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Olive & Focaccina</div>
+          <div class="menu-item-desc">Olives taggiasche, mini-focaccia maison à la fleur de sel</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>8</div>
+        <div class="menu-item-price">CHF 8</div>
       </div>
     </div>
 
     <!-- FOCACCIA -->
-    <div class="menu-panel" data-panel="focaccia">
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Focaccia Classica</div>
-          <div class="dish-desc">Huile d'olive, romarin, fleur de sel. La plus pure.</div>
+    <div id="focaccia" class="menu-panel fade-up">
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Focaccia Classica</div>
+          <div class="menu-item-desc">Huile d'olive, romarin, fleur de sel. La plus pure.</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>10</div>
+        <div class="menu-item-price">CHF 10</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Focaccia Mozzarella e Pomodori</div>
-          <div class="dish-desc">Mozzarella fior di latte, tomates cerises, origan.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Focaccia Mozzarella e Pomodori</div>
+          <div class="menu-item-desc">Mozzarella fior di latte, tomates cerises, origan</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>16</div>
+        <div class="menu-item-price">CHF 16</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Focaccia Prosciutto e Rucola</div>
-          <div class="dish-desc">Mozzarella, jambon cru de Parme, roquette, copeaux de parmesan.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Focaccia Prosciutto e Rucola</div>
+          <div class="menu-item-desc">Mozzarella, jambon cru de Parme, roquette, copeaux de parmesan</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>22</div>
+        <div class="menu-item-price">CHF 22</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Focaccia Burrata e Salame</div>
-          <div class="dish-desc">Burrata des Pouilles, salame piccante, basilic frais.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Focaccia Burrata e Salame</div>
+          <div class="menu-item-desc">Burrata des Pouilles, salame piccante, basilic frais</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>24</div>
+        <div class="menu-item-price">CHF 24</div>
       </div>
     </div>
 
     <!-- CLASSICHE -->
-    <div class="menu-panel" data-panel="classiche">
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Marinara</div>
-          <div class="dish-desc">San Marzano, ail, origan, huile d'olive. Sans fromage, à l'ancienne.</div>
+    <div id="classiche" class="menu-panel fade-up">
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Marinara</div>
+          <div class="menu-item-desc">San Marzano, ail, origan, huile d'olive. Sans fromage, à l'ancienne.</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>14</div>
+        <div class="menu-item-price">CHF 14</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Margherita</div>
-          <div class="dish-desc">San Marzano DOP, fior di latte, basilic frais, huile d'olive.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Margherita</div>
+          <div class="menu-item-desc">San Marzano DOP, fior di latte, basilic frais, huile d'olive</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>17</div>
+        <div class="menu-item-price">CHF 17</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Margherita di Bufala <span class="tag signature">Signature</span></div>
-          <div class="dish-desc">San Marzano, mozzarella di bufala campana DOP, basilic, huile d'olive extra-vierge.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Margherita di Bufala</div>
+          <div class="menu-item-desc">San Marzano, mozzarella di bufala campana DOP, basilic, huile d'olive extra-vierge</div>
+          <span class="menu-item-tag signature">Signature</span>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>21</div>
+        <div class="menu-item-price">CHF 21</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Napoli</div>
-          <div class="dish-desc">San Marzano, fior di latte, anchois, câpres, olives noires, origan.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Napoli</div>
+          <div class="menu-item-desc">San Marzano, fior di latte, anchois, câpres, olives noires, origan</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>19</div>
+        <div class="menu-item-price">CHF 19</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Diavola <span class="tag spicy">Piquant</span></div>
-          <div class="dish-desc">San Marzano, fior di latte, salame piccante calabrais, piment.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Diavola</div>
+          <div class="menu-item-desc">San Marzano, fior di latte, salame piccante calabrais, piment</div>
+          <span class="menu-item-tag spicy">Piquant</span>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>21</div>
+        <div class="menu-item-price">CHF 21</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Quattro Formaggi</div>
-          <div class="dish-desc">Fior di latte, gorgonzola, parmesan, taleggio. Sans sauce tomate.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Quattro Formaggi</div>
+          <div class="menu-item-desc">Fior di latte, gorgonzola, parmesan, taleggio. Sans sauce tomate.</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>22</div>
+        <div class="menu-item-price">CHF 22</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Capricciosa</div>
-          <div class="dish-desc">San Marzano, mozzarella, jambon cuit, champignons, artichauts, olives.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Capricciosa</div>
+          <div class="menu-item-desc">San Marzano, mozzarella, jambon cuit, champignons, artichauts, olives</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>23</div>
+        <div class="menu-item-price">CHF 23</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Prosciutto e Funghi</div>
-          <div class="dish-desc">San Marzano, mozzarella, jambon cuit, champignons frais.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Prosciutto e Funghi</div>
+          <div class="menu-item-desc">San Marzano, mozzarella, jambon cuit, champignons frais</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>21</div>
+        <div class="menu-item-price">CHF 21</div>
       </div>
     </div>
 
     <!-- SPECIALI -->
-    <div class="menu-panel" data-panel="speciali">
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Sfiziosa <span class="tag signature">Signature</span></div>
-          <div class="dish-desc">San Marzano, anchois, olives taggiasche, câpres, burrata posée à la sortie du four.</div>
+    <div id="speciali" class="menu-panel fade-up">
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Sfiziosa</div>
+          <div class="menu-item-desc">San Marzano, anchois, olives taggiasche, câpres, burrata posée à la sortie du four</div>
+          <span class="menu-item-tag signature">Signature</span>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>26</div>
+        <div class="menu-item-price">CHF 26</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Sombrero <span class="tag signature">Signature</span></div>
-          <div class="dish-desc">Pizza bombée façon Pino : mozzarella, jambon cru, roquette, tomates cerises.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Sombrero</div>
+          <div class="menu-item-desc">Pizza bombée façon Pino : mozzarella, jambon cru, roquette, tomates cerises</div>
+          <span class="menu-item-tag signature">Signature</span>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>25</div>
+        <div class="menu-item-price">CHF 25</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Mozzafiato</div>
-          <div class="dish-desc">Crème de courgettes, fior di latte, jambon cru, basilic, parmesan.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Mozzafiato</div>
+          <div class="menu-item-desc">Crème de courgettes, fior di latte, jambon cru, basilic, parmesan</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>24</div>
+        <div class="menu-item-price">CHF 24</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Pino's Mit Ei</div>
-          <div class="dish-desc">San Marzano, fior di latte, speck, œuf miroir, ciboulette.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Pino's Mit Ei</div>
+          <div class="menu-item-desc">San Marzano, fior di latte, speck, œuf miroir, ciboulette</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>23</div>
+        <div class="menu-item-price">CHF 23</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Tartufata</div>
-          <div class="dish-desc">Crème de truffe noire, fior di latte, parmesan, copeaux de truffe d'été.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tartufata</div>
+          <div class="menu-item-desc">Crème de truffe noire, fior di latte, parmesan, copeaux de truffe d'été</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>29</div>
+        <div class="menu-item-price">CHF 29</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Vegetariana <span class="tag">Veggie</span></div>
-          <div class="dish-desc">San Marzano, mozzarella, courgettes grillées, aubergines, poivrons, basilic.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Vegetariana</div>
+          <div class="menu-item-desc">San Marzano, mozzarella, courgettes grillées, aubergines, poivrons, basilic</div>
+          <span class="menu-item-tag">Végétarien</span>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>22</div>
+        <div class="menu-item-price">CHF 22</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Salsiccia & Friarielli</div>
-          <div class="dish-desc">Fior di latte, saucisse italienne, brocoli-rave napolitains, ail, piment.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Salsiccia & Friarielli</div>
+          <div class="menu-item-desc">Fior di latte, saucisse italienne, brocoli-rave napolitains, ail, piment</div>
+          <span class="menu-item-tag spicy">Piquant</span>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>25</div>
+        <div class="menu-item-price">CHF 25</div>
       </div>
     </div>
 
     <!-- PANUOZZI -->
-    <div class="menu-panel" data-panel="panuozzi">
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Sfilatino del Pino <span class="tag signature">Signature</span></div>
-          <div class="dish-desc">Pizza roulée façon Pino : mozzarella, chèvre, jambon cru, miel, roquette, noix.</div>
+    <div id="panuozzi" class="menu-panel fade-up">
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Sfilatino del Pino</div>
+          <div class="menu-item-desc">Pizza roulée façon Pino : mozzarella, chèvre, jambon cru, miel, roquette, noix</div>
+          <span class="menu-item-tag signature">Signature</span>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>24</div>
+        <div class="menu-item-price">CHF 24</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Sfilatino Vegetariano <span class="tag">Veggie</span></div>
-          <div class="dish-desc">Mozzarella, légumes grillés, pesto, tomates séchées, roquette.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Sfilatino Vegetariano</div>
+          <div class="menu-item-desc">Mozzarella, légumes grillés, pesto, tomates séchées, roquette</div>
+          <span class="menu-item-tag">Végétarien</span>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>22</div>
+        <div class="menu-item-price">CHF 22</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Panuozzo Classico</div>
-          <div class="dish-desc">Sandwich à la pâte à pizza : mozzarella, jambon cru, tomates, roquette.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Panuozzo Classico</div>
+          <div class="menu-item-desc">Sandwich à la pâte à pizza : mozzarella, jambon cru, tomates, roquette</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>20</div>
+        <div class="menu-item-price">CHF 20</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Panuozzo Diavolo <span class="tag spicy">Piquant</span></div>
-          <div class="dish-desc">Mozzarella, salame piccante, friarielli, piment, huile d'olive.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Panuozzo Diavolo</div>
+          <div class="menu-item-desc">Mozzarella, salame piccante, friarielli, piment, huile d'olive</div>
+          <span class="menu-item-tag spicy">Piquant</span>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>21</div>
+        <div class="menu-item-price">CHF 21</div>
+      </div>
+      <div class="menu-formule-note">
+        <p><strong>Une spécialité napolitaine :</strong> le panuozzo est un sandwich préparé à base de pâte à pizza, cuit au four à bois puis garni. Le sfilatino, lui, est une pizza roulée façon Pino.</p>
       </div>
     </div>
 
     <!-- DOLCI -->
-    <div class="menu-panel" data-panel="dolci">
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Tiramisù della Casa <span class="tag signature">Signature</span></div>
-          <div class="dish-desc">Mascarpone, café, savoiardi, cacao. Recette de la maison.</div>
+    <div id="dolci" class="menu-panel fade-up">
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tiramisù della Casa</div>
+          <div class="menu-item-desc">Mascarpone, café, savoiardi, cacao. Recette de la maison.</div>
+          <span class="menu-item-tag signature">Signature</span>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>9</div>
+        <div class="menu-item-price">CHF 9</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Tiramisù Limoncello</div>
-          <div class="dish-desc">Notre tiramisù, version citron de Sorrente. Frais et lumineux.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tiramisù Limoncello</div>
+          <div class="menu-item-desc">Notre tiramisù, version citron de Sorrente. Frais et lumineux.</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>10</div>
+        <div class="menu-item-price">CHF 10</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Panna Cotta al Caramello</div>
-          <div class="dish-desc">Panna cotta crémeuse, coulis de caramel salé.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Panna Cotta al Caramello</div>
+          <div class="menu-item-desc">Panna cotta crémeuse, coulis de caramel salé</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>9</div>
+        <div class="menu-item-price">CHF 9</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Cannolo Siciliano</div>
-          <div class="dish-desc">Coque croustillante garnie de ricotta sucrée et pépites de chocolat.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Cannolo Siciliano</div>
+          <div class="menu-item-desc">Coque croustillante garnie de ricotta sucrée et pépites de chocolat</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>8</div>
+        <div class="menu-item-price">CHF 8</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Gelato Artigianale</div>
-          <div class="dish-desc">Glace artisanale, parfums du jour. Demandez-nous.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Gelato Artigianale</div>
+          <div class="menu-item-desc">Glace artisanale, parfums du jour. Demandez-nous.</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>7</div>
+        <div class="menu-item-price">CHF 7</div>
       </div>
     </div>
 
     <!-- BOISSONS -->
-    <div class="menu-panel" data-panel="boissons">
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Vin valaisan au verre</div>
-          <div class="dish-desc">Fendant, Johannisberg, Pinot Noir. Sélection du sommelier.</div>
+    <div id="boissons" class="menu-panel fade-up">
+      <div class="menu-category-sep">Vins au verre</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Vin valaisan au verre</div>
+          <div class="menu-item-desc">Fendant, Johannisberg, Pinot Noir — sélection du sommelier</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>6</div>
+        <div class="menu-item-price">CHF 6</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Vin italien au verre</div>
-          <div class="dish-desc">Aglianico, Falanghina, Primitivo. Pour rester dans le Sud.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Vin italien au verre</div>
+          <div class="menu-item-desc">Aglianico, Falanghina, Primitivo — pour rester dans le Sud</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>7</div>
+        <div class="menu-item-price">CHF 7</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Bière artisanale locale</div>
-          <div class="dish-desc">Brasseries valaisannes. Blonde, ambrée, blanche — selon la saison.</div>
+      <div class="menu-category-sep">Bières</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Bière artisanale locale</div>
+          <div class="menu-item-desc">Brasseries valaisannes — blonde, ambrée, blanche selon la saison</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>7</div>
+        <div class="menu-item-price">CHF 7</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Birra Moretti</div>
-          <div class="dish-desc">La compagne naturelle de la pizza. Pression 0,3 l.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Birra Moretti</div>
+          <div class="menu-item-desc">La compagne naturelle de la pizza. Pression 0,3 L.</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>6</div>
+        <div class="menu-item-price">CHF 6</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Limonade artisanale</div>
-          <div class="dish-desc">Citron de Sorrente pressé, eau gazeuse, sucre de canne.</div>
+      <div class="menu-category-sep">Sans alcool</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Limonade artisanale</div>
+          <div class="menu-item-desc">Citron de Sorrente pressé, eau gazeuse, sucre de canne</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>6</div>
+        <div class="menu-item-price">CHF 6</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Espresso italien</div>
-          <div class="dish-desc">Torréfaction napolitaine. Court, corsé, parfumé.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">San Pellegrino</div>
+          <div class="menu-item-desc">Eau minérale italienne, 50 cl</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>4</div>
+        <div class="menu-item-price">CHF 5</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Limoncello</div>
-          <div class="dish-desc">Maison, glacé, à siroter en fin de repas. Verre.</div>
+      <div class="menu-category-sep">Café & digestifs</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Espresso italien</div>
+          <div class="menu-item-desc">Torréfaction napolitaine. Court, corsé, parfumé.</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>7</div>
+        <div class="menu-item-price">CHF 4</div>
       </div>
-      <div class="dish">
-        <div class="dish-header">
-          <div class="dish-name">Grappa & Amari</div>
-          <div class="dish-desc">Sélection italienne. Demandez la carte des digestifs.</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Limoncello</div>
+          <div class="menu-item-desc">Maison, glacé, à siroter en fin de repas — verre</div>
         </div>
-        <div class="dish-price"><span class="currency">CHF</span>8</div>
+        <div class="menu-item-price">CHF 7</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Grappa & Amari</div>
+          <div class="menu-item-desc">Sélection italienne — demandez la carte des digestifs</div>
+        </div>
+        <div class="menu-item-price">CHF 8</div>
       </div>
     </div>
 
-    <div class="menu-note">
-      Carte indicative. Les plats du jour, suggestions et prix exacts vous sont
-      présentés à votre arrivée. Allergènes communiqués sur demande.
+    <div class="menu-formule-note" style="margin-top:1.5rem;">
+      <p>Carte indicative. Les plats du jour, suggestions et prix exacts vous sont présentés à votre arrivée. Allergènes communiqués sur demande.</p>
     </div>
   </div>
 </section>
 
-<!-- PROCESS / SAVOIR-FAIRE -->
-<section class="process" id="savoir-faire">
-  <div class="container process-inner">
-    <div class="process-header">
-      <span class="section-eyebrow">Du grain au four</span>
-      <h2 class="section-title">Une pizza, <span class="accent">quatre étapes,</span> 48 heures.</h2>
-      <p class="section-lead">
-        Ce qui rend la napolitaine inimitable, c'est le temps qu'on lui accorde.
-        Voilà comment elle arrive dans votre assiette.
-      </p>
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow t" data-fr="L'ambiance" data-it="L'atmosfera">L'ambiance</div>
+      <h2 class="section-title"><em class="t" data-fr="Le four" data-it="Il forno">Le four</em><br><span class="t" data-fr="et la table" data-it="e la tavola">et la table</span></h2>
     </div>
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="process-num">01</div>
-        <h3>La pâte</h3>
-        <p>Farine 00, eau, sel, levure mère. Pétrissage à la main, repos en cave deux jours pleins.</p>
+    <div class="gallery-grid fade-up fade-up-delay-1">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80&auto=format&fit=crop" alt="Pizza Margherita sortie du four à bois" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="La Margherita classique" data-it="La Margherita classica">La Margherita classique</span></div>
       </div>
-      <div class="process-step">
-        <div class="process-num">02</div>
-        <h3>Le boulage</h3>
-        <p>Chaque pâton est façonné à la main, sans rouleau. Les bulles d'air donnent la <em>cornicione</em>.</p>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=800&q=80&auto=format&fit=crop" alt="Four à bois napolitain en pleine flambée" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="Four à bois à 450°C" data-it="Forno a legna a 450°C">Four à bois à 450°C</span></div>
       </div>
-      <div class="process-step">
-        <div class="process-num">03</div>
-        <h3>La garniture</h3>
-        <p>San Marzano DOP, mozzarella entière, basilic frais. On dose à la louche, on n'inonde pas.</p>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80&auto=format&fit=crop" alt="Pizza napolitaine au feu de bois" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="Pâte 48h, légère et digeste" data-it="Impasto 48h, leggero e digeribile">Pâte 48h, légère et digeste</span></div>
       </div>
-      <div class="process-step">
-        <div class="process-num">04</div>
-        <h3>Le four</h3>
-        <p>450°C, 90 secondes. Le feu de bois lui donne ces taches noires irrégulières — le signe.</p>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=800&q=80&auto=format&fit=crop" alt="Burrata et tomates fraîches" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="Burrata des Pouilles" data-it="Burrata pugliese">Burrata des Pouilles</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&q=80&auto=format&fit=crop" alt="Tiramisu maison" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="Tiramisù maison" data-it="Tiramisù della casa">Tiramisù maison</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="testimonials" id="avis">
-  <div class="container testimonials-inner">
-    <div class="testimonials-header">
-      <div>
-        <span class="section-eyebrow">Ils sont passés au Goubing</span>
-        <h2 class="section-title">Ce que <span class="accent" style="color: var(--amalfi);">disent</span> nos clients.</h2>
-      </div>
-      <div class="rating-block">
-        <div class="rating-stars">★★★★★</div>
-        <div class="rating-score">4,9<span class="max"> / 5</span></div>
-        <div class="rating-meta">Sur 700+ avis Google · TripAdvisor</div>
-      </div>
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow t" data-fr="Ils sont passés au Goubing" data-it="Sono passati al Goubing">Ils sont passés au Goubing</div>
+      <h2 class="section-title"><em class="t" data-fr="Vos" data-it="Le vostre">Vos</em> <span class="t" data-fr="impressions" data-it="impressioni">impressions</span></h2>
+      <div class="divider centered"></div>
+      <p class="section-subtitle t" data-fr="Note moyenne de 4,9 / 5 sur plus de 700 avis Google et TripAdvisor. Numéro 1 des pizzerias de Sierre." data-it="Voto medio di 4,9 / 5 su oltre 700 recensioni Google e TripAdvisor. Numero 1 delle pizzerie di Sierre.">Note moyenne de 4,9 / 5 sur plus de 700 avis Google et TripAdvisor. Numéro 1 des pizzerias de Sierre.</p>
     </div>
-
     <div class="testi-grid">
-      <div class="testi">
+      <div class="testi-card fade-up fade-up-delay-1">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">
-          La meilleure pizza de Sierre, sans hésiter. Croûte, pâte, mozzarella et sauce
-          en parfait équilibre. Le tiramisu maison vaut le détour aussi.
-        </p>
+        <p class="testi-text t" data-fr="La meilleure pizza de Sierre, sans hésiter. Croûte, pâte, mozzarella et sauce en parfait équilibre. Le tiramisu maison vaut le détour aussi." data-it="La migliore pizza di Sierre, senza dubbio. Crosta, impasto, mozzarella e salsa in perfetto equilibrio. Anche il tiramisù della casa vale la visita.">"La meilleure pizza de Sierre, sans hésiter. Croûte, pâte, mozzarella et sauce en parfait équilibre. Le tiramisu maison vaut le détour aussi."</p>
         <div class="testi-author">
           <div class="testi-avatar">M</div>
-          <div class="testi-author-info">
-            <span class="testi-name">Marc D.</span>
-            <span class="testi-date">Avis Google</span>
+          <div>
+            <div class="testi-name">Marc D.</div>
+            <div class="testi-location t" data-fr="Sierre" data-it="Sierre">Sierre</div>
           </div>
+          <div class="testi-source">Google</div>
         </div>
       </div>
-      <div class="testi">
+      <div class="testi-card fade-up fade-up-delay-2">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">
-          Une vraie napolitaine, fine et bien levée, comme on en mange à Naples. Service
-          attentif, ambiance chaleureuse. On y retourne dès qu'on peut.
-        </p>
+        <p class="testi-text t" data-fr="Une vraie napolitaine, fine et bien levée, comme on en mange à Naples. Service attentif, ambiance chaleureuse. On y retourne dès qu'on peut." data-it="Una vera napoletana, sottile e ben lievitata, come quelle che si mangiano a Napoli. Servizio attento, ambiente caloroso. Ci torniamo appena possibile.">"Une vraie napolitaine, fine et bien levée, comme on en mange à Naples. Service attentif, ambiance chaleureuse. On y retourne dès qu'on peut."</p>
         <div class="testi-author">
           <div class="testi-avatar">S</div>
-          <div class="testi-author-info">
-            <span class="testi-name">Sophie R.</span>
-            <span class="testi-date">Avis TripAdvisor</span>
+          <div>
+            <div class="testi-name">Sophie R.</div>
+            <div class="testi-location t" data-fr="Sion" data-it="Sion">Sion</div>
           </div>
+          <div class="testi-source">Tripadvisor</div>
         </div>
       </div>
-      <div class="testi">
+      <div class="testi-card fade-up fade-up-delay-3">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">
-          Le sfilatino est une découverte ! Et la pâte est tellement digeste qu'on
-          finit l'assiette sans s'en rendre compte. Pino, vous êtes un artiste.
-        </p>
+        <p class="testi-text t" data-fr="Le sfilatino est une découverte ! Et la pâte est tellement digeste qu'on finit l'assiette sans s'en rendre compte. Pino, vous êtes un artiste." data-it="Lo sfilatino è una scoperta! E l'impasto è così digeribile che si finisce il piatto senza rendersene conto. Pino, sei un artista.">"Le sfilatino est une découverte ! Et la pâte est tellement digeste qu'on finit l'assiette sans s'en rendre compte. Pino, vous êtes un artiste."</p>
         <div class="testi-author">
           <div class="testi-avatar">A</div>
-          <div class="testi-author-info">
-            <span class="testi-name">Antoine M.</span>
-            <span class="testi-date">Avis Google</span>
+          <div>
+            <div class="testi-name">Antoine M.</div>
+            <div class="testi-location t" data-fr="Visiteur" data-it="Visitatore">Visiteur</div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INFOS PRATIQUES -->
-<section class="info" id="infos">
-  <div class="container">
-    <div class="menu-header" style="margin-bottom: 60px;">
-      <span class="section-eyebrow">Infos pratiques</span>
-      <h2 class="section-title">Nous <span class="accent">trouver</span> & nous joindre.</h2>
-    </div>
-    <div class="info-grid">
-      <div class="info-card">
-        <h3><span class="icon">⏰</span>Horaires</h3>
-        <ul class="hours-list">
-          <li class="hours-row closed">
-            <span class="hours-day">Dimanche</span>
-            <span class="hours-time">Fermé</span>
-          </li>
-          <li class="hours-row closed">
-            <span class="hours-day">Lundi</span>
-            <span class="hours-time">Fermé</span>
-          </li>
-          <li class="hours-row">
-            <span class="hours-day">Mardi</span>
-            <span class="hours-time">11h30 – 13h45 · 18h30 – 21h30</span>
-          </li>
-          <li class="hours-row">
-            <span class="hours-day">Mercredi</span>
-            <span class="hours-time">11h30 – 13h45 · 18h30 – 21h30</span>
-          </li>
-          <li class="hours-row">
-            <span class="hours-day">Jeudi</span>
-            <span class="hours-time">11h30 – 13h45 · 18h30 – 21h30</span>
-          </li>
-          <li class="hours-row">
-            <span class="hours-day">Vendredi</span>
-            <span class="hours-time">11h30 – 13h45 · 18h30 – 22h00</span>
-          </li>
-          <li class="hours-row">
-            <span class="hours-day">Samedi</span>
-            <span class="hours-time">11h30 – 13h45 · 18h30 – 22h00</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="info-card">
-        <h3><span class="icon">📍</span>Contact</h3>
-        <ul class="contact-list">
-          <li class="contact-item">
-            <div class="ic">📍</div>
-            <div>
-              <span class="lbl">Adresse</span>
-              <span class="val">Route des Lacs 9<br>3960 Sierre · Valais</span>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="ic">📞</div>
-            <div>
-              <span class="lbl">Téléphone</span>
-              <a href="tel:+41274561432" class="val">027 456 14 32</a>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="ic">💬</div>
-            <div>
-              <span class="lbl">WhatsApp</span>
-              <a href="tel:+41774528859" class="val">+41 77 452 88 59</a>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="ic">🚉</div>
-            <div>
-              <span class="lbl">Accès</span>
-              <span class="val">À 5 min à pied de la gare de Sierre</span>
-            </div>
-          </li>
-        </ul>
-        <div class="map-block">
-          <iframe
-            src="https://maps.google.com/maps?q=Route%20des%20Lacs%209%2C%203960%20Sierre&t=&z=15&ie=UTF8&iwloc=&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Plan d'accès Le Goubing chez Pino, Sierre"></iframe>
+          <div class="testi-source">Google</div>
         </div>
       </div>
     </div>
@@ -2145,17 +1545,180 @@ footer {
 </section>
 
 <!-- RESERVATION -->
-<section class="reserve" id="reserver">
-  <div class="container reserve-inner">
-    <span class="section-eyebrow">Une table chez Pino</span>
-    <h2>Venez voir <span class="accent">de plus près.</span></h2>
-    <p>
-      Les soirs de fin de semaine se remplissent vite. Un coup de fil suffit —
-      ou un message WhatsApp, c'est encore plus simple.
-    </p>
-    <div class="reserve-actions">
-      <a href="tel:+41274561432" class="btn btn-dark">📞 027 456 14 32</a>
-      <a href="https://wa.me/41774528859" class="btn btn-ghost">💬 Réserver par WhatsApp</a>
+<section class="reservation" id="reservation">
+  <div class="container">
+    <div class="resa-wrap">
+      <div class="resa-info fade-up">
+        <div class="eyebrow t" data-fr="Réservation" data-it="Prenotazione">Réservation</div>
+        <h2 class="section-title"><em class="t" data-fr="Réservez" data-it="Prenotate">Réservez</em><br><span class="t" data-fr="votre table" data-it="il vostro tavolo">votre table</span></h2>
+        <div class="divider"></div>
+        <p class="t" data-fr="Les soirs de fin de semaine se remplissent vite. Un coup de fil suffit — ou un message WhatsApp, c'est encore plus simple." data-it="Le sere del fine settimana si riempiono in fretta. Una telefonata basta — o un messaggio WhatsApp, è ancora più semplice.">Les soirs de fin de semaine se remplissent vite. Un coup de fil suffit — ou un message WhatsApp, c'est encore plus simple.</p>
+        <a href="tel:+41274561432" class="resa-tel">
+          <span class="resa-tel-icon">☎</span>
+          +41 27 456 14 32
+        </a>
+        <div class="resa-hours t" data-fr="Mar – Sam, 11h30 – 13h45 / 18h30 – 21h30" data-it="Mar – Sab, 11.30 – 13.45 / 18.30 – 21.30">Mar – Sam, 11h30 – 13h45 / 18h30 – 21h30</div>
+      </div>
+
+      <div class="fade-up fade-up-delay-1">
+        <form class="resa-form" id="resaForm" action="https://formspree.io/f/XXXXXXXX" method="POST">
+          <div class="form-row">
+            <div class="field">
+              <label class="t" data-fr="Prénom et nom" data-it="Nome e cognome">Prénom et nom</label>
+              <input type="text" name="name" required placeholder="Jean Dupont" class="t" data-fr-placeholder="Jean Dupont" data-it-placeholder="Mario Rossi" />
+            </div>
+            <div class="field">
+              <label class="t" data-fr="Téléphone" data-it="Telefono">Téléphone</label>
+              <input type="tel" name="phone" placeholder="+41 79 000 00 00" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="t" data-fr="Email" data-it="Email">Email</label>
+            <input type="email" name="email" required placeholder="vous@exemple.ch" class="t" data-fr-placeholder="vous@exemple.ch" data-it-placeholder="voi@esempio.ch" />
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label class="t" data-fr="Date souhaitée" data-it="Data desiderata">Date souhaitée</label>
+              <div class="date-picker-wrap">
+                <button type="button" class="date-trigger" id="dateTrigger">
+                  <span class="date-display placeholder-text t" id="dateDisplay" data-fr="Choisir une date" data-it="Scegliere una data">Choisir une date</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </button>
+                <input type="hidden" name="date" id="dateHidden" />
+                <div class="cal-popup" id="calPopup">
+                  <div class="cal-header">
+                    <button type="button" class="cal-nav" onclick="calPrev()">&#8249;</button>
+                    <span class="cal-month-label" id="calMonthLabel"></span>
+                    <button type="button" class="cal-nav" onclick="calNext()">&#8250;</button>
+                  </div>
+                  <div class="cal-days-header">
+                    <div class="cal-day-name">Lu</div><div class="cal-day-name">Ma</div><div class="cal-day-name">Me</div>
+                    <div class="cal-day-name">Je</div><div class="cal-day-name">Ve</div><div class="cal-day-name">Sa</div><div class="cal-day-name">Di</div>
+                  </div>
+                  <div class="cal-grid" id="calGrid"></div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="t" data-fr="Nombre de couverts" data-it="Numero di persone">Nombre de couverts</label>
+              <select name="guests" required>
+                <option value="">—</option>
+                <option>1</option><option>2</option><option>3</option>
+                <option>4</option><option>5</option><option>6</option>
+                <option>7</option><option value="8+">8+</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label class="t" data-fr="Heure souhaitée" data-it="Ora desiderata">Heure souhaitée</label>
+            <input type="hidden" name="heure" id="heureHidden" />
+            <div class="time-groups">
+              <div>
+                <div class="time-group-label t" data-fr="Service du midi" data-it="Servizio del pranzo">Service du midi</div>
+                <div class="time-pills">
+                  <button type="button" class="time-pill" onclick="selectTime(this,'11h30')">11h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'12h00')">12h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'12h30')">12h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'13h00')">13h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'13h30')">13h30</button>
+                </div>
+              </div>
+              <div>
+                <div class="time-group-label t" data-fr="Service du soir" data-it="Servizio della sera">Service du soir</div>
+                <div class="time-pills">
+                  <button type="button" class="time-pill" onclick="selectTime(this,'18h30')">18h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'19h00')">19h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'19h30')">19h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'20h00')">20h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'20h30')">20h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'21h00')">21h00</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="t" data-fr="Remarques / Allergies" data-it="Note / Allergie">Remarques / Allergies</label>
+            <textarea name="message" placeholder="Intolérance, occasion spéciale, chaise haute..." class="t" data-fr-placeholder="Intolérance, occasion spéciale, chaise haute..." data-it-placeholder="Intolleranza, occasione speciale, seggiolone..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary t" data-fr="Envoyer la demande" data-it="Inviare la richiesta">Envoyer la demande</button>
+          <p class="form-note t" data-fr="Nous confirmons votre réservation par téléphone ou email dans les 24h." data-it="Confermiamo la vostra prenotazione per telefono o email entro 24 ore.">Nous confirmons votre réservation par téléphone ou email dans les 24h.</p>
+          <div class="form-success" id="formSuccess">
+            <span class="t" data-fr="Votre demande a bien été envoyée. Nous vous recontactons dans les 24h." data-it="La vostra richiesta è stata inviata. Vi ricontatteremo entro 24 ore.">Votre demande a bien été envoyée. Nous vous recontactons dans les 24h.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="eyebrow t" data-fr="Nous trouver" data-it="Trovarci">Nous trouver</div>
+      <h2 class="section-title"><em class="t" data-fr="Infos" data-it="Info">Infos</em> <span class="t" data-fr="pratiques" data-it="pratiche">pratiques</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <div class="info-block">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label t" data-fr="Adresse" data-it="Indirizzo">Adresse</div>
+            <div class="info-value">Route des Lacs 9<br>3960 Sierre, Valais<br><span style="font-size:0.82rem;color:var(--text-muted);">À 5 min à pied de la gare</span></div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">📞</div>
+          <div>
+            <div class="info-label t" data-fr="Téléphone" data-it="Telefono">Téléphone</div>
+            <div class="info-value"><a href="tel:+41274561432">+41 27 456 14 32</a></div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">💬</div>
+          <div>
+            <div class="info-label t" data-fr="WhatsApp" data-it="WhatsApp">WhatsApp</div>
+            <div class="info-value"><a href="https://wa.me/41774528859">+41 77 452 88 59</a></div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">🕐</div>
+          <div>
+            <div class="info-label t" data-fr="Horaires" data-it="Orari">Horaires</div>
+            <div class="info-value">
+              <div class="hours-grid">
+                <div class="hours-day t" data-fr="Mardi – Samedi" data-it="Martedì – Sabato">Mardi – Samedi</div>
+                <div class="hours-time">11h30 – 13h45</div>
+                <div class="hours-day"></div>
+                <div class="hours-time">18h30 – 21h30</div>
+                <div class="hours-day t" data-fr="Dimanche – Lundi" data-it="Domenica – Lunedì">Dimanche – Lundi</div>
+                <div class="hours-time closed t" data-fr="Fermé" data-it="Chiuso">Fermé</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="social-row">
+          <a href="https://www.facebook.com/p/Le-Goubing-chez-Pino-100057309294224/" target="_blank" rel="noopener" class="social-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a href="https://wa.me/41774528859" target="_blank" rel="noopener" class="social-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="fade-up fade-up-delay-1">
+        <div class="map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=Route%20des%20Lacs%209%2C%203960%20Sierre&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Le Goubing chez Pino sur Google Maps"
+          ></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2163,82 +1726,213 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="#" class="logo">
-          <div class="logo-mark">P</div>
-          <div class="logo-text">
-            <span class="logo-name">Le Goubing</span>
-            <span class="logo-sub">Chez Pino · Sierre</span>
-          </div>
-        </a>
-        <p>Vera pizza napoletana au cœur du Valais. Pâte de 48 heures, four à bois, produits d'Italie. Depuis 2019.</p>
-        <div class="socials">
-          <a href="https://www.facebook.com/p/Le-Goubing-chez-Pino-100057309294224/" class="social" aria-label="Facebook">f</a>
-          <a href="#" class="social" aria-label="Instagram">◉</a>
-          <a href="https://wa.me/41774528859" class="social" aria-label="WhatsApp">✓</a>
-        </div>
+    <div class="footer-inner">
+      <div class="footer-logo">Le <em>Goubing</em> chez Pino</div>
+      <div class="footer-links">
+        <a href="#about" class="t" data-fr="Notre histoire" data-it="La nostra storia">Notre histoire</a>
+        <a href="#menu" class="t" data-fr="Carte" data-it="Menu">Carte</a>
+        <a href="#gallery" class="t" data-fr="Galerie" data-it="Galleria">Galerie</a>
+        <a href="#reservation" class="t" data-fr="Réserver" data-it="Prenotare">Réserver</a>
+        <a href="#contact" class="t" data-fr="Contact" data-it="Contatti">Contact</a>
       </div>
-      <div class="footer-col">
-        <h4>La maison</h4>
-        <ul>
-          <li><a href="#histoire">Notre histoire</a></li>
-          <li><a href="#savoir-faire">Le four à bois</a></li>
-          <li><a href="#avis">Avis clients</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>La table</h4>
-        <ul>
-          <li><a href="#carte">La carte</a></li>
-          <li><a href="#reserver">Réserver</a></li>
-          <li><a href="#infos">Horaires</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Nous joindre</h4>
-        <ul>
-          <li>Route des Lacs 9</li>
-          <li>3960 Sierre · Valais</li>
-          <li><a href="tel:+41274561432">027 456 14 32</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2026 Le Goubing chez Pino · Tous droits réservés</div>
-      <div>Site réalisé par <a href="https://nb-design.ch">NB-Design</a></div>
+      <p class="footer-credit t" data-fr="Site réalisé par <a href='https://nb-design.ch' target='_blank' rel='noopener'>NB-Design</a> · Spécialiste des sites web pour restaurants en Suisse romande" data-it="Sito realizzato da <a href='https://nb-design.ch' target='_blank' rel='noopener'>NB-Design</a> · Specialista di siti web per ristoranti in Svizzera romanda">Site réalisé par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a> · Spécialiste des sites web pour restaurants en Suisse romande</p>
     </div>
   </div>
 </footer>
 
+<!-- WHATSAPP -->
+<a href="https://wa.me/41774528859" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
 <script>
-// Navbar scroll
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
-});
+  /* ====== HEADER SCROLL ====== */
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
 
-// Burger
-const burger = document.getElementById('burger');
-const navLinks = document.getElementById('navLinks');
-burger.addEventListener('click', () => navLinks.classList.toggle('open'));
-document.querySelectorAll('.nav-link, .nav-cta').forEach(l =>
-  l.addEventListener('click', () => navLinks.classList.remove('open'))
-);
-
-// Tabs carte
-const tabs = document.querySelectorAll('.menu-tab');
-const panels = document.querySelectorAll('.menu-panel');
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(t => t.classList.remove('active'));
-    panels.forEach(p => p.classList.remove('active'));
-    tab.classList.add('active');
-    document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+  /* ====== MOBILE MENU ====== */
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
   });
-});
-</script>
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => closeMobileMenu());
+  });
+  function closeMobileMenu() {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
+  /* ====== LANG TOGGLE ====== */
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+
+    document.querySelectorAll('.t').forEach(el => {
+      const val = el.dataset[lang] || el.dataset.fr;
+      if (val) el.innerHTML = val;
+    });
+
+    document.querySelectorAll('[data-' + lang + '-placeholder]').forEach(el => {
+      el.placeholder = el.dataset[lang + 'Placeholder'] || '';
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.mobile-lang button').forEach(btn => btn.classList.remove('active'));
+
+    const target = `setLang('${lang}')`;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      if (btn.getAttribute('onclick') === target) btn.classList.add('active');
+    });
+    const mobileBtns = document.querySelectorAll('.mobile-lang button');
+    if (lang === 'fr' && mobileBtns[0]) mobileBtns[0].classList.add('active');
+    if (lang === 'it' && mobileBtns[1]) mobileBtns[1].classList.add('active');
+
+    const url = new URL(window.location);
+    if (lang === 'it') { url.searchParams.set('lang', 'it'); }
+    else { url.searchParams.delete('lang'); }
+    window.history.replaceState({}, '', url);
+  }
+
+  /* Init lang from URL */
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  if (urlLang === 'it') setLang('it');
+
+  /* ====== MENU TABS ====== */
+  function showTab(btn, id) {
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  /* ====== FADE ON SCROLL ====== */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  /* ====== CUSTOM DATE PICKER ====== */
+  const _MONTHS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  let _cal = { y: 0, m: 0, sel: null };
+
+  (function initCal() {
+    const t = new Date();
+    _cal.y = t.getFullYear(); _cal.m = t.getMonth();
+    renderCal();
+    document.getElementById('dateTrigger').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('calPopup').classList.toggle('open');
+    });
+    document.getElementById('calPopup').addEventListener('click', function(e) { e.stopPropagation(); });
+    document.addEventListener('click', function() { document.getElementById('calPopup').classList.remove('open'); });
+  })();
+
+  function renderCal() {
+    const { y, m, sel } = _cal;
+    document.getElementById('calMonthLabel').textContent = _MONTHS[m] + ' ' + y;
+    const today = new Date(); today.setHours(0,0,0,0);
+    let dow = new Date(y, m, 1).getDay(); if (dow === 0) dow = 7;
+    const daysInMonth = new Date(y, m + 1, 0).getDate();
+    const grid = document.getElementById('calGrid');
+    grid.innerHTML = '';
+    for (let i = 1; i < dow; i++) {
+      const el = document.createElement('div'); el.className = 'cal-cell empty'; grid.appendChild(el);
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(y, m, d);
+      const cell = document.createElement('div');
+      cell.className = 'cal-cell';
+      cell.textContent = d;
+      if (date < today) {
+        cell.classList.add('disabled');
+      } else {
+        if (date.toDateString() === today.toDateString()) cell.classList.add('today');
+        if (sel && date.toDateString() === sel.toDateString()) cell.classList.add('selected');
+        cell.addEventListener('click', function(e) { e.stopPropagation(); pickDate(date); });
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  function pickDate(date) {
+    _cal.sel = date;
+    const d = String(date.getDate()).padStart(2,'0');
+    const m = String(date.getMonth()+1).padStart(2,'0');
+    const y = date.getFullYear();
+    const disp = document.getElementById('dateDisplay');
+    disp.textContent = d + '.' + m + '.' + y;
+    disp.classList.remove('placeholder-text');
+    document.getElementById('dateHidden').value = y + '-' + m + '-' + d;
+    document.getElementById('calPopup').classList.remove('open');
+    renderCal();
+  }
+
+  function calPrev() {
+    _cal.m--; if (_cal.m < 0) { _cal.m = 11; _cal.y--; }
+    const now = new Date();
+    if (_cal.y < now.getFullYear() || (_cal.y === now.getFullYear() && _cal.m < now.getMonth())) {
+      _cal.y = now.getFullYear(); _cal.m = now.getMonth();
+    }
+    renderCal();
+  }
+
+  function calNext() {
+    _cal.m++; if (_cal.m > 11) { _cal.m = 0; _cal.y++; }
+    renderCal();
+  }
+
+  /* ====== TIME PILLS ====== */
+  function selectTime(pill, value) {
+    document.querySelectorAll('.time-pill').forEach(p => p.classList.remove('selected'));
+    pill.classList.add('selected');
+    document.getElementById('heureHidden').value = value;
+  }
+
+  /* ====== FORM SUBMIT ====== */
+  const resaForm = document.getElementById('resaForm');
+  resaForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const isIT = document.documentElement.lang === 'it';
+    if (!document.getElementById('dateHidden').value) {
+      alert(isIT ? 'Si prega di scegliere una data.' : 'Veuillez choisir une date.');
+      return;
+    }
+    if (!document.getElementById('heureHidden').value) {
+      alert(isIT ? 'Si prega di scegliere un orario.' : 'Veuillez choisir une heure.');
+      return;
+    }
+    const btn = resaForm.querySelector('button[type=submit]');
+    btn.textContent = '...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(resaForm.action, {
+        method: 'POST',
+        body: new FormData(resaForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        resaForm.reset();
+        document.getElementById('formSuccess').style.display = 'block';
+        btn.style.display = 'none';
+      } else {
+        btn.textContent = isIT ? 'Inviare la richiesta' : 'Envoyer la demande';
+        btn.disabled = false;
+        alert(isIT ? 'Errore. Riprovare o chiamarci.' : 'Erreur. Veuillez réessayer ou nous appeler.');
+      }
+    } catch {
+      btn.textContent = 'Envoyer la demande';
+      btn.disabled = false;
+    }
+  });
+</script>
 </body>
 </html>
