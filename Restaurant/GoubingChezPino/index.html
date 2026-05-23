@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
@@ -13,23 +13,25 @@
 
 <style>
 :root {
-  --cream: #f7efe2;
-  --cream-soft: #fdf8ed;
-  --cream-deep: #ecdfc6;
-  --tomato: #c8362a;
-  --tomato-deep: #8e1f17;
-  --basil: #3a6b3a;
-  --basil-deep: #1f3d20;
-  --ember: #e8a13c;
-  --ember-deep: #b87618;
-  --char: #181210;
-  --char-soft: #2a201c;
+  /* Palette italienne — trattoria napolitaine authentique */
+  --cream: #f6f0e0;          /* mur chaulé toscan */
+  --cream-soft: #fbf6e9;     /* nappe lin */
+  --cream-deep: #ebe1c5;     /* parchemin */
+  --tomato: #c41e1a;         /* tomate San Marzano */
+  --tomato-deep: #8a130f;    /* sauce mijotée */
+  --basil: #2e7d4f;          /* feuille de basilic */
+  --basil-deep: #14442a;     /* vert sapin italien */
+  --basil-night: #0c2e1d;    /* nuit napolitaine */
+  --amalfi: #f2b528;         /* citron d'Amalfi */
+  --amalfi-deep: #c98309;    /* ocre toscan */
+  --mare: #1d6b8f;           /* bleu Méditerranée */
+  --terra: #b95c2d;          /* terracotta */
   --ink: #1c1612;
   --ink-mute: #6b5d52;
-  --line: rgba(24, 18, 16, 0.12);
-  --shadow-lg: 0 30px 80px -28px rgba(24, 18, 16, 0.4);
-  --shadow-md: 0 14px 40px -16px rgba(24, 18, 16, 0.3);
-  --shadow-sm: 0 4px 18px -8px rgba(24, 18, 16, 0.2);
+  --line: rgba(28, 22, 18, 0.13);
+  --shadow-lg: 0 30px 80px -28px rgba(20, 68, 42, 0.35);
+  --shadow-md: 0 14px 40px -16px rgba(20, 68, 42, 0.28);
+  --shadow-sm: 0 4px 18px -8px rgba(20, 68, 42, 0.22);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -74,31 +76,31 @@ h1, h2, h3, h4 {
   cursor: pointer;
   transition: all 0.35s cubic-bezier(.2, .8, .2, 1);
   text-decoration: none;
-  box-shadow: 0 8px 24px -10px rgba(200, 54, 42, 0.65);
+  box-shadow: 0 8px 24px -10px rgba(196, 30, 26, 0.65);
 }
 .btn:hover {
   background: var(--tomato-deep);
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px -10px rgba(200, 54, 42, 0.7);
+  box-shadow: 0 14px 34px -10px rgba(196, 30, 26, 0.7);
 }
 .btn-ghost {
   background: transparent;
   color: var(--cream-soft);
-  border: 1.5px solid rgba(247, 239, 226, 0.5);
+  border: 1.5px solid rgba(246, 240, 224, 0.5);
   box-shadow: none;
 }
 .btn-ghost:hover {
   background: var(--cream-soft);
-  color: var(--char);
+  color: var(--basil-night);
   border-color: var(--cream-soft);
 }
 .btn-dark {
-  background: var(--char);
+  background: var(--basil-night);
   color: var(--cream-soft);
   box-shadow: 0 8px 24px -10px rgba(24, 18, 16, 0.6);
 }
 .btn-dark:hover {
-  background: var(--char-soft);
+  background: var(--basil-deep);
   box-shadow: 0 14px 34px -10px rgba(24, 18, 16, 0.65);
 }
 
@@ -111,7 +113,7 @@ h1, h2, h3, h4 {
   transition: all 0.4s ease;
 }
 .nav.scrolled {
-  background: rgba(247, 239, 226, 0.96);
+  background: rgba(246, 240, 224, 0.96);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   padding: 13px 0;
@@ -130,12 +132,12 @@ h1, h2, h3, h4 {
   color: var(--cream-soft);
   transition: color 0.4s ease;
 }
-.nav.scrolled .logo { color: var(--char); }
+.nav.scrolled .logo { color: var(--basil-night); }
 
 .logo-mark {
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, var(--ember) 0%, var(--tomato) 55%, var(--tomato-deep) 100%);
+  background: radial-gradient(circle at 35% 30%, var(--amalfi) 0%, var(--tomato) 55%, var(--tomato-deep) 100%);
   display: flex; align-items: center; justify-content: center;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
@@ -150,7 +152,7 @@ h1, h2, h3, h4 {
   position: absolute;
   top: 6px; left: 9px;
   width: 14px; height: 8px;
-  background: rgba(253, 248, 237, .35);
+  background: rgba(251, 246, 233, .35);
   border-radius: 50%;
   filter: blur(2px);
 }
@@ -188,14 +190,14 @@ h1, h2, h3, h4 {
   transition: color 0.3s ease, opacity 0.3s ease;
   opacity: 0.85;
 }
-.nav.scrolled .nav-link { color: var(--char); }
+.nav.scrolled .nav-link { color: var(--basil-night); }
 .nav-link:hover { opacity: 1; }
 .nav-link::after {
   content: '';
   position: absolute;
   bottom: -3px; left: 0;
   width: 0; height: 1.5px;
-  background: var(--ember);
+  background: var(--amalfi);
   transition: width 0.3s ease;
 }
 .nav-link:hover::after { width: 100%; }
@@ -220,13 +222,13 @@ h1, h2, h3, h4 {
   border-radius: 2px;
   transition: all 0.3s ease;
 }
-.nav.scrolled .burger span { background: var(--char); }
+.nav.scrolled .burger span { background: var(--basil-night); }
 
 /* ───── HERO ───── */
 .hero {
   position: relative;
   min-height: 100vh;
-  background: var(--char);
+  background: var(--basil-night);
   color: var(--cream-soft);
   overflow: hidden;
   display: flex;
@@ -238,9 +240,9 @@ h1, h2, h3, h4 {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 30%, rgba(232, 161, 60, 0.18) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 70%, rgba(200, 54, 42, 0.22) 0%, transparent 55%),
-    radial-gradient(circle at 50% 100%, rgba(232, 161, 60, 0.12) 0%, transparent 60%);
+    radial-gradient(ellipse at 20% 30%, rgba(242, 181, 40, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, rgba(196, 30, 26, 0.22) 0%, transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(242, 181, 40, 0.12) 0%, transparent 60%);
   pointer-events: none;
 }
 .hero::after {
@@ -248,7 +250,7 @@ h1, h2, h3, h4 {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(247, 239, 226, 0.04) 1px, transparent 0);
+    radial-gradient(circle at 1px 1px, rgba(246, 240, 224, 0.04) 1px, transparent 0);
   background-size: 28px 28px;
   pointer-events: none;
 }
@@ -267,21 +269,21 @@ h1, h2, h3, h4 {
   align-items: center;
   gap: 10px;
   padding: 8px 18px;
-  border: 1px solid rgba(247, 239, 226, 0.22);
+  border: 1px solid rgba(246, 240, 224, 0.22);
   border-radius: 999px;
   font-size: 11px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--ember);
+  color: var(--amalfi);
   margin-bottom: 28px;
-  background: rgba(247, 239, 226, 0.04);
+  background: rgba(246, 240, 224, 0.04);
   backdrop-filter: blur(4px);
 }
 .hero-eyebrow .dot {
   width: 6px; height: 6px;
-  background: var(--ember);
+  background: var(--amalfi);
   border-radius: 50%;
-  box-shadow: 0 0 12px var(--ember);
+  box-shadow: 0 0 12px var(--amalfi);
 }
 
 .hero h1 {
@@ -293,7 +295,7 @@ h1, h2, h3, h4 {
 .hero h1 .accent {
   font-style: italic;
   font-weight: 500;
-  background: linear-gradient(120deg, var(--ember) 0%, #f5d68a 50%, var(--ember) 100%);
+  background: linear-gradient(120deg, var(--amalfi) 0%, #f5d68a 50%, var(--amalfi) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -306,7 +308,7 @@ h1, h2, h3, h4 {
 .hero-lead {
   font-size: 18px;
   line-height: 1.7;
-  color: rgba(247, 239, 226, 0.78);
+  color: rgba(246, 240, 224, 0.78);
   max-width: 520px;
   margin-bottom: 40px;
   font-weight: 300;
@@ -324,7 +326,7 @@ h1, h2, h3, h4 {
   gap: 36px;
   flex-wrap: wrap;
   padding-top: 32px;
-  border-top: 1px solid rgba(247, 239, 226, 0.12);
+  border-top: 1px solid rgba(246, 240, 224, 0.12);
 }
 .hero-meta-item {
   display: flex;
@@ -335,7 +337,7 @@ h1, h2, h3, h4 {
   font-size: 10px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(247, 239, 226, 0.55);
+  color: rgba(246, 240, 224, 0.55);
 }
 .hero-meta-value {
   font-family: 'Cormorant Garamond', serif;
@@ -345,73 +347,172 @@ h1, h2, h3, h4 {
 }
 .hero-meta-value .pcs {
   font-size: 13px;
-  color: var(--ember);
+  color: var(--amalfi);
   margin-left: 4px;
   font-family: 'DM Sans', sans-serif;
   letter-spacing: 0.1em;
 }
 
-/* HERO VISUAL — Pizza */
+/* HERO VISUAL — Carte postale de Naples */
 .hero-visual {
   position: relative;
-  aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 30px 10px;
 }
-.hero-pizza {
+.postcard {
   position: relative;
-  width: 92%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 30% 25%, #f3e6c5 0%, #e6cea0 25%, #c89e5e 60%, #8a5a28 100%);
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 3 / 4;
+  background: var(--cream-soft);
+  padding: 22px 22px 90px;
+  border-radius: 6px;
   box-shadow:
-    0 60px 120px -30px rgba(0,0,0,.6),
-    0 30px 60px -20px rgba(232, 161, 60, .35),
-    inset 0 -8px 24px rgba(0,0,0,.3),
-    inset 0 4px 12px rgba(255, 235, 200, .4);
-  animation: rotate-slow 90s linear infinite;
+    0 30px 60px -20px rgba(0, 0, 0, 0.55),
+    0 10px 30px -10px rgba(20, 68, 42, 0.4),
+    inset 0 0 0 1px rgba(28, 22, 18, 0.06);
+  transform: rotate(-2deg);
+  transition: transform 0.6s cubic-bezier(.2, .8, .2, 1);
 }
-.hero-pizza::before {
-  content: '';
-  position: absolute;
-  inset: 8%;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 40% 30%, #d63a2a 0%, #a82515 60%, #7c1810 100%);
-  box-shadow: inset 0 4px 16px rgba(0,0,0,.3);
+.postcard:hover { transform: rotate(0deg) scale(1.02); }
+
+.postcard-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(28, 22, 18, 0.1);
+  background: linear-gradient(180deg,
+    #f4d28a 0%,    /* ciel doré crépusculaire haut */
+    #f0a657 25%,   /* couché de soleil */
+    #d96d3a 45%,   /* horizon orangé */
+    #5d8aa6 55%,   /* mer claire */
+    #2d5a78 80%,   /* mer profonde */
+    #1d4360 100%); /* fond de mer */
 }
-.hero-pizza::after {
-  content: '';
+.postcard-img svg {
   position: absolute;
-  inset: 12%;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 25% 30%, rgba(253, 248, 237, .95) 6%, transparent 14%),
-    radial-gradient(circle at 70% 25%, rgba(253, 248, 237, .9) 5%, transparent 12%),
-    radial-gradient(circle at 60% 65%, rgba(253, 248, 237, .92) 7%, transparent 15%),
-    radial-gradient(circle at 30% 75%, rgba(253, 248, 237, .88) 5%, transparent 13%),
-    radial-gradient(circle at 80% 80%, rgba(253, 248, 237, .9) 6%, transparent 14%),
-    radial-gradient(circle at 45% 45%, rgba(58, 107, 58, .85) 3%, transparent 7%),
-    radial-gradient(circle at 75% 50%, rgba(58, 107, 58, .85) 3%, transparent 7%),
-    radial-gradient(circle at 25% 55%, rgba(58, 107, 58, .85) 3%, transparent 7%),
-    radial-gradient(circle at 55% 25%, rgba(58, 107, 58, .85) 3%, transparent 7%);
-  filter: blur(.4px);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
-@keyframes rotate-slow {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+.postcard-caption {
+  position: absolute;
+  bottom: 26px;
+  left: 0; right: 0;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+.postcard-caption .from {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-style: normal;
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 6px;
+}
+.postcard-caption .city {
+  font-size: 30px;
+  color: var(--tomato);
+  font-weight: 600;
+  line-height: 1;
+}
+.postcard-caption .city .arrow {
+  color: var(--basil);
+  margin: 0 8px;
+  font-style: normal;
 }
 
+/* Tampon "Posta" */
+.postcard-stamp {
+  position: absolute;
+  top: -14px;
+  right: 22px;
+  width: 78px;
+  height: 96px;
+  background: var(--cream);
+  border: 2px dashed rgba(196, 30, 26, 0.4);
+  padding: 6px;
+  transform: rotate(8deg);
+  box-shadow: 0 8px 22px -8px rgba(0,0,0,.3);
+  z-index: 3;
+}
+.postcard-stamp-inner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--tomato) 0%, var(--tomato-deep) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream-soft);
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+  border-radius: 1px;
+}
+.postcard-stamp-inner .it {
+  font-size: 8px;
+  letter-spacing: 0.25em;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.postcard-stamp-inner .yr {
+  font-size: 24px;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1;
+}
+.postcard-stamp-inner .pl {
+  font-size: 7px;
+  letter-spacing: 0.15em;
+  margin-top: 4px;
+  font-family: 'DM Sans', sans-serif;
+  opacity: 0.85;
+}
+
+/* Cachet rond */
+.postcard-seal {
+  position: absolute;
+  top: 14px;
+  right: 108px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(196, 30, 26, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: rgba(196, 30, 26, 0.7);
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.15;
+  transform: rotate(-14deg);
+  z-index: 3;
+  padding: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+}
+
+/* Badge "N°1 Sierre" */
 .hero-badge {
   position: absolute;
-  top: 8%;
-  right: -4%;
+  bottom: 18%;
+  right: -8%;
   width: 130px; height: 130px;
-  background: var(--cream-soft);
-  color: var(--char);
+  background: var(--amalfi);
+  color: var(--basil-night);
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -419,13 +520,13 @@ h1, h2, h3, h4 {
   justify-content: center;
   text-align: center;
   font-family: 'Cormorant Garamond', serif;
-  box-shadow: 0 20px 50px -10px rgba(232, 161, 60, .5);
-  transform: rotate(-12deg);
-  z-index: 2;
+  box-shadow: 0 20px 40px -10px rgba(242, 181, 40, .55), 0 6px 14px -4px rgba(0,0,0,.3);
+  transform: rotate(8deg);
+  z-index: 4;
   animation: float-badge 4s ease-in-out infinite;
 }
 .hero-badge .num {
-  font-size: 38px;
+  font-size: 36px;
   font-weight: 700;
   font-style: italic;
   color: var(--tomato);
@@ -437,50 +538,28 @@ h1, h2, h3, h4 {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-top: 6px;
-  color: var(--ink-mute);
+  color: var(--basil-deep);
+  font-weight: 600;
 }
 .hero-badge .star {
-  color: var(--ember);
-  font-size: 12px;
+  color: var(--tomato);
+  font-size: 11px;
   letter-spacing: 2px;
   margin-top: 4px;
 }
 @keyframes float-badge {
-  0%, 100% { transform: rotate(-12deg) translateY(0); }
-  50%      { transform: rotate(-8deg) translateY(-8px); }
-}
-
-.hero-leaf {
-  position: absolute;
-  bottom: 4%;
-  left: -2%;
-  width: 100px; height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--basil);
-  color: var(--cream-soft);
-  border-radius: 50%;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 14px;
-  text-align: center;
-  font-weight: 500;
-  box-shadow: 0 15px 35px -8px rgba(58, 107, 58, .55);
-  transform: rotate(10deg);
-  animation: float-badge 5s ease-in-out infinite reverse;
-  padding: 14px;
-  line-height: 1.2;
+  0%, 100% { transform: rotate(8deg) translateY(0); }
+  50%      { transform: rotate(4deg) translateY(-6px); }
 }
 
 /* ───── MARQUEE ───── */
 .marquee {
-  background: var(--char);
+  background: var(--basil-night);
   color: var(--cream-soft);
   padding: 22px 0;
   overflow: hidden;
-  border-top: 1px solid rgba(247, 239, 226, 0.08);
-  border-bottom: 1px solid rgba(247, 239, 226, 0.08);
+  border-top: 1px solid rgba(246, 240, 224, 0.08);
+  border-bottom: 1px solid rgba(246, 240, 224, 0.08);
 }
 .marquee-track {
   display: flex;
@@ -501,7 +580,7 @@ h1, h2, h3, h4 {
 }
 .marquee-item::after {
   content: '✦';
-  color: var(--ember);
+  color: var(--amalfi);
   font-style: normal;
 }
 @keyframes scroll {
@@ -582,7 +661,7 @@ section { padding: 120px 0; position: relative; }
   border-radius: 12px;
   overflow: hidden;
   background:
-    linear-gradient(135deg, var(--char-soft) 0%, var(--char) 50%, #3a1a14 100%);
+    linear-gradient(135deg, var(--basil-deep) 0%, var(--basil-night) 50%, #3a1a14 100%);
   box-shadow: var(--shadow-lg);
 }
 .story-visual::before {
@@ -590,17 +669,17 @@ section { padding: 120px 0; position: relative; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 30% 40%, rgba(232, 161, 60, .55) 0%, rgba(232, 161, 60, .2) 25%, transparent 55%),
-    radial-gradient(ellipse at 70% 60%, rgba(200, 54, 42, .35) 0%, transparent 50%);
+    radial-gradient(ellipse at 30% 40%, rgba(242, 181, 40, .55) 0%, rgba(242, 181, 40, .2) 25%, transparent 55%),
+    radial-gradient(ellipse at 70% 60%, rgba(196, 30, 26, .35) 0%, transparent 50%);
 }
 .flames {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 60%;
   background:
-    radial-gradient(ellipse at 20% 100%, rgba(232, 161, 60, .8) 0%, transparent 35%),
+    radial-gradient(ellipse at 20% 100%, rgba(242, 181, 40, .8) 0%, transparent 35%),
     radial-gradient(ellipse at 50% 100%, rgba(252, 200, 90, .7) 0%, transparent 35%),
-    radial-gradient(ellipse at 80% 100%, rgba(200, 54, 42, .7) 0%, transparent 35%);
+    radial-gradient(ellipse at 80% 100%, rgba(196, 30, 26, .7) 0%, transparent 35%);
   filter: blur(8px);
   animation: flicker 3s ease-in-out infinite;
 }
@@ -632,7 +711,7 @@ section { padding: 120px 0; position: relative; }
   content: '"';
   display: block;
   font-size: 80px;
-  color: var(--ember);
+  color: var(--amalfi);
   line-height: 0.5;
   opacity: 0.55;
 }
@@ -641,11 +720,11 @@ section { padding: 120px 0; position: relative; }
 
 /* ───── PILIERS ───── */
 .pillars {
-  background: var(--char);
+  background: var(--basil-night);
   color: var(--cream-soft);
 }
-.pillars .section-eyebrow { color: var(--ember); }
-.pillars .section-lead { color: rgba(247, 239, 226, 0.7); }
+.pillars .section-eyebrow { color: var(--amalfi); }
+.pillars .section-lead { color: rgba(246, 240, 224, 0.7); }
 
 .pillars-header {
   text-align: center;
@@ -662,26 +741,26 @@ section { padding: 120px 0; position: relative; }
 .pillar {
   text-align: center;
   padding: 50px 30px;
-  border: 1px solid rgba(247, 239, 226, 0.1);
+  border: 1px solid rgba(246, 240, 224, 0.1);
   border-radius: 16px;
-  background: rgba(247, 239, 226, 0.03);
+  background: rgba(246, 240, 224, 0.03);
   transition: all 0.4s ease;
 }
 .pillar:hover {
-  border-color: rgba(232, 161, 60, 0.4);
-  background: rgba(232, 161, 60, 0.05);
+  border-color: rgba(242, 181, 40, 0.4);
+  background: rgba(242, 181, 40, 0.05);
   transform: translateY(-6px);
 }
 .pillar-icon {
   width: 70px; height: 70px;
   margin: 0 auto 24px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, var(--ember) 0%, var(--tomato) 100%);
+  background: radial-gradient(circle at 35% 30%, var(--amalfi) 0%, var(--tomato) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 30px;
-  box-shadow: 0 12px 30px -10px rgba(232, 161, 60, .5);
+  box-shadow: 0 12px 30px -10px rgba(242, 181, 40, .5);
 }
 .pillar h3 {
   font-size: 26px;
@@ -691,7 +770,7 @@ section { padding: 120px 0; position: relative; }
 }
 .pillar p {
   font-size: 15px;
-  color: rgba(247, 239, 226, 0.7);
+  color: rgba(246, 240, 224, 0.7);
   line-height: 1.7;
 }
 
@@ -729,9 +808,9 @@ section { padding: 120px 0; position: relative; }
 }
 .menu-tab:hover { color: var(--tomato); border-color: var(--tomato); }
 .menu-tab.active {
-  background: var(--char);
+  background: var(--basil-night);
   color: var(--cream-soft);
-  border-color: var(--char);
+  border-color: var(--basil-night);
 }
 
 .menu-panel { display: none; }
@@ -763,7 +842,7 @@ section { padding: 120px 0; position: relative; }
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px;
   font-weight: 600;
-  color: var(--char);
+  color: var(--basil-night);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -782,8 +861,8 @@ section { padding: 120px 0; position: relative; }
 }
 .dish-name .tag.spicy { background: var(--tomato); }
 .dish-name .tag.signature {
-  background: var(--ember);
-  color: var(--char);
+  background: var(--amalfi);
+  color: var(--basil-night);
 }
 .dish-desc {
   font-size: 14px;
@@ -809,7 +888,7 @@ section { padding: 120px 0; position: relative; }
   margin-top: 50px;
   padding: 24px 32px;
   background: var(--cream-deep);
-  border-left: 3px solid var(--ember);
+  border-left: 3px solid var(--amalfi);
   border-radius: 4px;
   font-size: 14px;
   color: var(--ink-mute);
@@ -858,7 +937,7 @@ section { padding: 120px 0; position: relative; }
   font-style: italic;
   font-size: 64px;
   font-weight: 700;
-  color: var(--ember);
+  color: var(--amalfi);
   line-height: 1;
   margin-bottom: 18px;
   opacity: 0.7;
@@ -866,7 +945,7 @@ section { padding: 120px 0; position: relative; }
 .process-step h3 {
   font-size: 24px;
   margin-bottom: 10px;
-  color: var(--char);
+  color: var(--basil-night);
 }
 .process-step p {
   font-size: 15px;
@@ -876,7 +955,7 @@ section { padding: 120px 0; position: relative; }
 
 /* ───── TESTIMONIALS ───── */
 .testimonials {
-  background: var(--char);
+  background: var(--basil-night);
   color: var(--cream-soft);
   position: relative;
   overflow: hidden;
@@ -886,12 +965,12 @@ section { padding: 120px 0; position: relative; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 15% 30%, rgba(232, 161, 60, .1) 0%, transparent 40%),
-    radial-gradient(circle at 85% 70%, rgba(200, 54, 42, .12) 0%, transparent 45%);
+    radial-gradient(circle at 15% 30%, rgba(242, 181, 40, .1) 0%, transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(196, 30, 26, .12) 0%, transparent 45%);
   pointer-events: none;
 }
 .testimonials-inner { position: relative; z-index: 2; }
-.testimonials .section-eyebrow { color: var(--ember); }
+.testimonials .section-eyebrow { color: var(--amalfi); }
 
 .testimonials-header {
   display: grid;
@@ -908,7 +987,7 @@ section { padding: 120px 0; position: relative; }
   gap: 10px;
 }
 .rating-stars {
-  color: var(--ember);
+  color: var(--amalfi);
   font-size: 22px;
   letter-spacing: 3px;
 }
@@ -920,12 +999,12 @@ section { padding: 120px 0; position: relative; }
   color: var(--cream-soft);
   line-height: 1;
 }
-.rating-score .max { color: rgba(247, 239, 226, 0.4); font-size: 28px; }
+.rating-score .max { color: rgba(246, 240, 224, 0.4); font-size: 28px; }
 .rating-meta {
   font-size: 12px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(247, 239, 226, 0.6);
+  color: rgba(246, 240, 224, 0.6);
 }
 
 .testi-grid {
@@ -935,18 +1014,18 @@ section { padding: 120px 0; position: relative; }
 }
 .testi {
   padding: 36px 32px;
-  background: rgba(247, 239, 226, 0.04);
-  border: 1px solid rgba(247, 239, 226, 0.1);
+  background: rgba(246, 240, 224, 0.04);
+  border: 1px solid rgba(246, 240, 224, 0.1);
   border-radius: 14px;
   transition: all 0.4s ease;
 }
 .testi:hover {
-  background: rgba(247, 239, 226, 0.06);
+  background: rgba(246, 240, 224, 0.06);
   transform: translateY(-4px);
-  border-color: rgba(232, 161, 60, 0.3);
+  border-color: rgba(242, 181, 40, 0.3);
 }
 .testi-stars {
-  color: var(--ember);
+  color: var(--amalfi);
   font-size: 14px;
   letter-spacing: 2px;
   margin-bottom: 18px;
@@ -957,19 +1036,19 @@ section { padding: 120px 0; position: relative; }
   font-size: 19px;
   line-height: 1.55;
   margin-bottom: 24px;
-  color: rgba(247, 239, 226, 0.92);
+  color: rgba(246, 240, 224, 0.92);
 }
 .testi-author {
   display: flex;
   align-items: center;
   gap: 14px;
   padding-top: 22px;
-  border-top: 1px solid rgba(247, 239, 226, 0.1);
+  border-top: 1px solid rgba(246, 240, 224, 0.1);
 }
 .testi-avatar {
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--tomato) 0%, var(--ember) 100%);
+  background: linear-gradient(135deg, var(--tomato) 0%, var(--amalfi) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -991,7 +1070,7 @@ section { padding: 120px 0; position: relative; }
 }
 .testi-date {
   font-size: 12px;
-  color: rgba(247, 239, 226, 0.5);
+  color: rgba(246, 240, 224, 0.5);
 }
 
 /* ───── INFOS PRATIQUES ───── */
@@ -1014,7 +1093,7 @@ section { padding: 120px 0; position: relative; }
 .info-card h3 {
   font-size: 32px;
   margin-bottom: 30px;
-  color: var(--char);
+  color: var(--basil-night);
   display: flex;
   align-items: center;
   gap: 14px;
@@ -1094,7 +1173,7 @@ section { padding: 120px 0; position: relative; }
   font-family: 'Cormorant Garamond', serif;
   font-size: 19px;
   font-weight: 500;
-  color: var(--char);
+  color: var(--basil-night);
   display: block;
   line-height: 1.4;
 }
@@ -1116,7 +1195,7 @@ section { padding: 120px 0; position: relative; }
 
 /* ───── RESERVATION CTA ───── */
 .reserve {
-  background: linear-gradient(135deg, var(--tomato-deep) 0%, var(--tomato) 50%, var(--ember-deep) 100%);
+  background: linear-gradient(135deg, var(--tomato-deep) 0%, var(--tomato) 50%, var(--amalfi-deep) 100%);
   color: var(--cream-soft);
   text-align: center;
   position: relative;
@@ -1127,7 +1206,7 @@ section { padding: 120px 0; position: relative; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(232, 161, 60, .35) 0%, transparent 50%),
+    radial-gradient(circle at 20% 30%, rgba(242, 181, 40, .35) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, rgba(24, 18, 16, .25) 0%, transparent 50%);
   pointer-events: none;
 }
@@ -1138,7 +1217,7 @@ section { padding: 120px 0; position: relative; }
   margin: 0 auto;
 }
 .reserve .section-eyebrow {
-  color: rgba(247, 239, 226, 0.85);
+  color: rgba(246, 240, 224, 0.85);
 }
 .reserve h2 {
   font-size: clamp(40px, 5.5vw, 68px);
@@ -1147,11 +1226,11 @@ section { padding: 120px 0; position: relative; }
 }
 .reserve h2 .accent {
   font-style: italic;
-  color: var(--char);
+  color: var(--basil-night);
 }
 .reserve p {
   font-size: 18px;
-  color: rgba(247, 239, 226, 0.92);
+  color: rgba(246, 240, 224, 0.92);
   margin-bottom: 40px;
   line-height: 1.7;
 }
@@ -1164,10 +1243,10 @@ section { padding: 120px 0; position: relative; }
 
 /* ───── FOOTER ───── */
 footer {
-  background: var(--char);
+  background: var(--basil-night);
   color: var(--cream-soft);
   padding: 80px 0 30px;
-  border-top: 1px solid rgba(247, 239, 226, 0.08);
+  border-top: 1px solid rgba(246, 240, 224, 0.08);
 }
 .footer-grid {
   display: grid;
@@ -1181,7 +1260,7 @@ footer {
 }
 .footer-brand p {
   font-size: 14px;
-  color: rgba(247, 239, 226, 0.6);
+  color: rgba(246, 240, 224, 0.6);
   line-height: 1.7;
   max-width: 280px;
 }
@@ -1189,7 +1268,7 @@ footer {
   font-size: 13px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ember);
+  color: var(--amalfi);
   margin-bottom: 20px;
   font-family: 'DM Sans', sans-serif;
   font-weight: 600;
@@ -1202,10 +1281,10 @@ footer {
 }
 .footer-col a, .footer-col li {
   font-size: 14px;
-  color: rgba(247, 239, 226, 0.7);
+  color: rgba(246, 240, 224, 0.7);
   transition: color 0.3s ease;
 }
-.footer-col a:hover { color: var(--ember); }
+.footer-col a:hover { color: var(--amalfi); }
 
 .socials {
   display: flex;
@@ -1214,7 +1293,7 @@ footer {
 }
 .social {
   width: 38px; height: 38px;
-  border: 1px solid rgba(247, 239, 226, 0.2);
+  border: 1px solid rgba(246, 240, 224, 0.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1224,24 +1303,24 @@ footer {
   transition: all 0.3s ease;
 }
 .social:hover {
-  background: var(--ember);
-  border-color: var(--ember);
-  color: var(--char);
+  background: var(--amalfi);
+  border-color: var(--amalfi);
+  color: var(--basil-night);
   transform: translateY(-2px);
 }
 
 .footer-bottom {
   padding-top: 30px;
-  border-top: 1px solid rgba(247, 239, 226, 0.08);
+  border-top: 1px solid rgba(246, 240, 224, 0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
   font-size: 12px;
-  color: rgba(247, 239, 226, 0.5);
+  color: rgba(246, 240, 224, 0.5);
 }
-.footer-bottom a { color: var(--ember); }
+.footer-bottom a { color: var(--amalfi); }
 .footer-bottom a:hover { color: var(--cream-soft); }
 
 /* ───── RESPONSIVE ───── */
@@ -1271,7 +1350,7 @@ footer {
     z-index: 99;
   }
   .nav-links.open { transform: translateY(0); }
-  .nav-links .nav-link { color: var(--char); font-size: 22px; font-family: 'Cormorant Garamond', serif; }
+  .nav-links .nav-link { color: var(--basil-night); font-size: 22px; font-family: 'Cormorant Garamond', serif; }
   .burger { display: flex; }
 }
 
@@ -1354,13 +1433,97 @@ footer {
     </div>
 
     <div class="hero-visual" aria-hidden="true">
-      <div class="hero-pizza"></div>
+      <div class="postcard">
+        <div class="postcard-seal">Vera<br>Pizza<br>Napoletana</div>
+        <div class="postcard-stamp">
+          <div class="postcard-stamp-inner">
+            <span class="it">Italia</span>
+            <span class="yr">€</span>
+            <span class="pl">Posta</span>
+          </div>
+        </div>
+        <div class="postcard-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <!-- Soleil -->
+            <circle cx="290" cy="105" r="34" fill="#ffd86b" opacity="0.95"/>
+            <circle cx="290" cy="105" r="48" fill="#ffd86b" opacity="0.18"/>
+            <circle cx="290" cy="105" r="64" fill="#ffd86b" opacity="0.08"/>
+
+            <!-- Nuages doux -->
+            <ellipse cx="80" cy="55" rx="38" ry="7" fill="#ffe6c8" opacity="0.55"/>
+            <ellipse cx="140" cy="45" rx="28" ry="5" fill="#ffe6c8" opacity="0.4"/>
+            <ellipse cx="340" cy="68" rx="32" ry="6" fill="#ffe6c8" opacity="0.45"/>
+
+            <!-- Vésuve (silhouette double sommet) -->
+            <path d="M 0 175 L 60 145 L 90 135 L 130 115 L 165 95 L 200 105 L 230 120 L 260 115 L 295 130 L 330 145 L 370 158 L 400 168 L 400 175 Z"
+                  fill="#3d2a4a" opacity="0.92"/>
+            <!-- Vésuve plus proche -->
+            <path d="M 70 175 L 130 135 L 160 110 L 195 88 L 230 110 L 265 125 L 310 150 L 360 168 L 400 175 L 400 178 L 70 178 Z"
+                  fill="#2a1a35" opacity="0.85"/>
+            <!-- Petite fumée au sommet -->
+            <ellipse cx="195" cy="78" rx="8" ry="14" fill="#e0d4c0" opacity="0.45"/>
+            <ellipse cx="200" cy="62" rx="12" ry="6" fill="#e0d4c0" opacity="0.3"/>
+
+            <!-- Ligne d'horizon / mer -->
+            <rect x="0" y="172" width="400" height="2" fill="#7a4830" opacity="0.4"/>
+
+            <!-- Reflets sur la mer -->
+            <ellipse cx="290" cy="190" rx="38" ry="3" fill="#ffd86b" opacity="0.55"/>
+            <ellipse cx="290" cy="205" rx="28" ry="2" fill="#ffd86b" opacity="0.4"/>
+            <ellipse cx="290" cy="220" rx="20" ry="2" fill="#ffd86b" opacity="0.3"/>
+
+            <!-- Vaguelettes -->
+            <path d="M 20 230 Q 50 226 80 230 T 140 230 T 200 230 T 260 230 T 320 230 T 380 230"
+                  stroke="#ffffff" stroke-width="0.8" fill="none" opacity="0.4"/>
+            <path d="M 10 250 Q 50 246 100 250 T 200 250 T 300 250 T 400 250"
+                  stroke="#ffffff" stroke-width="0.7" fill="none" opacity="0.3"/>
+            <path d="M 0 270 Q 60 266 120 270 T 240 270 T 360 270 T 400 270"
+                  stroke="#ffffff" stroke-width="0.6" fill="none" opacity="0.25"/>
+
+            <!-- Petit voilier -->
+            <g transform="translate(80, 200)">
+              <path d="M -14 8 L 14 8 L 10 13 L -10 13 Z" fill="#1c1612"/>
+              <line x1="0" y1="8" x2="0" y2="-14" stroke="#1c1612" stroke-width="0.8"/>
+              <path d="M 0 -14 L 0 4 L 10 4 Z" fill="#ffffff" opacity="0.95"/>
+              <path d="M 0 -10 L 0 4 L -7 4 Z" fill="#ffffff" opacity="0.85"/>
+            </g>
+
+            <!-- Palmier décoratif gauche -->
+            <g transform="translate(30, 165)">
+              <path d="M 0 0 Q -1 -20 -1 -45" stroke="#3d2818" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <ellipse cx="-1" cy="-45" rx="14" ry="4" fill="#2e7d4f" transform="rotate(-25 -1 -45)"/>
+              <ellipse cx="-1" cy="-45" rx="14" ry="4" fill="#2e7d4f" transform="rotate(25 -1 -45)"/>
+              <ellipse cx="-1" cy="-48" rx="13" ry="3.5" fill="#3a9460" transform="rotate(-65 -1 -48)"/>
+              <ellipse cx="-1" cy="-48" rx="13" ry="3.5" fill="#3a9460" transform="rotate(65 -1 -48)"/>
+              <ellipse cx="-1" cy="-50" rx="12" ry="3" fill="#2e7d4f"/>
+            </g>
+
+            <!-- Citron en bas à gauche -->
+            <g transform="translate(58, 250)">
+              <ellipse cx="0" cy="0" rx="14" ry="10" fill="#f5d34a"/>
+              <ellipse cx="-4" cy="-3" rx="4" ry="2.5" fill="#ffe680" opacity="0.7"/>
+              <path d="M -2 -10 Q 0 -14 4 -12" stroke="#2e7d4f" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+              <ellipse cx="6" cy="-11" rx="5" ry="2.5" fill="#3a9460" transform="rotate(25 6 -11)"/>
+            </g>
+
+            <!-- Texte "Napoli" calligraphique en filigrane -->
+            <text x="200" y="155" text-anchor="middle"
+                  font-family="Cormorant Garamond, serif"
+                  font-style="italic" font-weight="600"
+                  font-size="34" fill="#ffffff" opacity="0.18"
+                  letter-spacing="3">Napoli</text>
+          </svg>
+        </div>
+        <div class="postcard-caption">
+          <span class="from">Souvenir de Naples</span>
+          <span class="city">Napoli <span class="arrow">→</span> Sierre</span>
+        </div>
+      </div>
       <div class="hero-badge">
         <span class="num">N°1</span>
         <span class="lbl">Pizzeria Sierre</span>
         <span class="star">★★★★★</span>
       </div>
-      <div class="hero-leaf">Cuit au<br>feu de<br>bois</div>
     </div>
   </div>
 </header>
@@ -1424,7 +1587,7 @@ footer {
   <div class="container">
     <div class="pillars-header">
       <span class="section-eyebrow">Notre signature</span>
-      <h2 class="section-title">Ce qui fait <span class="accent" style="color: var(--ember);">une vraie napolitaine.</span></h2>
+      <h2 class="section-title">Ce qui fait <span class="accent" style="color: var(--amalfi);">une vraie napolitaine.</span></h2>
       <p class="section-lead">
         Trois engagements simples, tenus tous les jours depuis l'ouverture.
         Pas de raccourcis, pas de compromis.
@@ -1839,7 +2002,7 @@ footer {
     <div class="testimonials-header">
       <div>
         <span class="section-eyebrow">Ils sont passés au Goubing</span>
-        <h2 class="section-title">Ce que <span class="accent" style="color: var(--ember);">disent</span> nos clients.</h2>
+        <h2 class="section-title">Ce que <span class="accent" style="color: var(--amalfi);">disent</span> nos clients.</h2>
       </div>
       <div class="rating-block">
         <div class="rating-stars">★★★★★</div>
