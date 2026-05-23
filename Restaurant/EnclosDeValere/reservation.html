@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Réservation et contact pour L'Enclos de Valère à Sion. Téléphone, formulaire en ligne, accès, horaires." />
+  <meta name="theme-color" content="#1a1612" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Réserver une table — L'Enclos de Valère</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<header class="site-header on-light">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">L'Enclos<small>de Valère · Sion</small></a>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="histoire.html">Histoire</a>
+      <a href="carte.html">La Carte</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="reservation.html" class="nav-reserve active">Réserver une table</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a>
+      <span class="sep">/</span>
+      <span>Réservation</span>
+    </nav>
+    <span class="chapter-num">— À votre service</span>
+    <h1 class="italic">Réservez votre table.</h1>
+    <p class="lead">
+      Par téléphone, par courriel ou via le formulaire ci-dessous. Nous vous
+      confirmons votre réservation dans les 24 heures, dans la limite des places
+      disponibles.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FORMULAIRE + INFOS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="form-wrap">
+
+      <!-- Côté gauche : formulaire -->
+      <form class="form fade-up" data-demo aria-label="Formulaire de réservation">
+        <div class="form-row">
+          <div class="field">
+            <label for="first">Prénom</label>
+            <input id="first" name="first" type="text" required autocomplete="given-name" />
+          </div>
+          <div class="field">
+            <label for="last">Nom</label>
+            <input id="last" name="last" type="text" required autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Courriel</label>
+            <input id="email" name="email" type="email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="phone">Téléphone</label>
+            <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="+41 ..." />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="date">Date souhaitée</label>
+            <input id="date" name="date" type="date" required />
+          </div>
+          <div class="field">
+            <label for="service">Service</label>
+            <select id="service" name="service" required>
+              <option value="dejeuner">Déjeuner (12 h – 14 h)</option>
+              <option value="diner" selected>Dîner (19 h – 22 h)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="time">Heure préférée</label>
+            <input id="time" name="time" type="time" required value="19:30" />
+          </div>
+          <div class="field">
+            <label for="guests">Nombre de couverts</label>
+            <select id="guests" name="guests" required>
+              <option>1 personne</option>
+              <option selected>2 personnes</option>
+              <option>3 personnes</option>
+              <option>4 personnes</option>
+              <option>5 personnes</option>
+              <option>6 personnes</option>
+              <option>7 personnes ou plus (groupe)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">Message (occasion, allergies, demande particulière)</label>
+          <textarea id="message" name="message" rows="4" placeholder="Anniversaire, allergie aux fruits à coque, terrasse souhaitée, etc."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary" style="background:var(--terra);">
+          Envoyer la demande <span class="arrow">→</span>
+        </button>
+
+        <p class="form-status" style="font-size:0.88rem;color:var(--sage-deep);min-height:1.2em;opacity:0;transition:opacity 0.4s;font-style:italic;"></p>
+
+        <p style="font-size:0.78rem;color:var(--ink-mute);margin-top:0.5rem;">
+          Votre demande sera traitée sous 24 heures (hors dimanche et lundi). Pour
+          une réservation le jour-même, merci d'appeler le restaurant.
+        </p>
+      </form>
+
+      <!-- Côté droit : infos contact + horaires + accès -->
+      <aside class="form-side fade-up">
+        <span class="chapter-num">— Préférez-vous nous appeler ?</span>
+        <h2 class="italic" style="margin-top:0.75rem;">Nous joindre directement.</h2>
+        <p class="lead">
+          Le téléphone reste le moyen le plus rapide pour les réservations
+          de dernière minute, les groupes ou les demandes particulières.
+        </p>
+
+        <div class="contact-line">
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          </span>
+          <div>
+            <span class="ct-label">Téléphone</span>
+            <a href="tel:+41273233230" class="ct-val">+41 (0)27 323 32 30</a>
+          </div>
+        </div>
+
+        <div class="contact-line">
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </span>
+          <div>
+            <span class="ct-label">Courriel</span>
+            <a href="mailto:restaurant@enclosdevalere.ch" class="ct-val">restaurant@enclosdevalere.ch</a>
+          </div>
+        </div>
+
+        <div class="contact-line">
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <div>
+            <span class="ct-label">Adresse</span>
+            <span class="ct-val">Rue des Châteaux 18, 1950 Sion</span>
+          </div>
+        </div>
+
+        <div class="contact-line" style="border-bottom:none;">
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <div>
+            <span class="ct-label">Horaires d'accueil</span>
+            <span class="ct-val">Mar–Sam · 9 h à 24 h</span>
+          </div>
+        </div>
+
+        <p style="font-size:0.85rem;color:var(--ink-mute);margin-top:1.5rem;line-height:1.6;">
+          Fermé le dimanche et le lundi. Service en continu de 9 h à 24 h, dans la
+          limite des disponibilités cuisine.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INFOS PRATIQUES ============ -->
+<section class="section section--soft">
+  <div class="container">
+    <div style="text-align:center;max-width:42rem;margin:0 auto 3rem;">
+      <span class="chapter-num">— Bon à savoir</span>
+      <h2 class="italic">Tout ce qu'il faut pour préparer votre venue.</h2>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card fade-up">
+        <span class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        </span>
+        <h3>Stationnement</h3>
+        <p class="meta">
+          Parking <strong>Cible</strong> à 4 minutes à pied (couvert, payant).
+          Parking <strong>Scex</strong> également disponible.
+          La rue des Châteaux est piétonne en haute saison.
+        </p>
+      </div>
+
+      <div class="info-card fade-up">
+        <span class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13.5 13.5 0 0 1 0 18M12 3a13.5 13.5 0 0 0 0 18"/></svg>
+        </span>
+        <h3>Accès</h3>
+        <p class="meta">
+          À <strong>10 minutes à pied</strong> de la gare CFF de Sion.<br>
+          Sortir gare, traverser la place, monter vers la vieille ville par la rue
+          de la Dent-Blanche, puis Rue des Châteaux.
+        </p>
+      </div>
+
+      <div class="info-card fade-up">
+        <span class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+        <h3>Groupes &amp; événements</h3>
+        <p class="meta">
+          Salle privatisable dès <strong>12 personnes</strong>. Devis personnalisé
+          pour les anniversaires, repas d'affaires, mariages intimistes.
+        </p>
+        <p class="meta" style="margin-top:0.75rem;">
+          <a href="mailto:restaurant@enclosdevalere.ch?subject=Demande%20groupe">Demander un devis</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLAN STYLISÉ ============ -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;max-width:38rem;margin:0 auto 2.5rem;">
+      <span class="chapter-num">— Plan</span>
+      <h2 class="italic">Au pied de la colline de Valère.</h2>
+    </div>
+
+    <div style="position:relative;width:100%;aspect-ratio:16/7;background:linear-gradient(135deg,#e3dac6 0%,#d4c4a0 100%);border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--line-soft);">
+      <svg viewBox="0 0 800 350" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;" aria-hidden="true">
+        <!-- Rues stylisées -->
+        <g stroke="#a68548" stroke-width="2" fill="none" opacity="0.4">
+          <path d="M0,200 Q200,180 400,190 T800,200"/>
+          <path d="M100,0 Q150,150 200,350"/>
+          <path d="M450,0 Q500,150 550,350"/>
+          <path d="M0,80 Q400,70 800,90"/>
+          <path d="M0,280 Q400,270 800,290"/>
+        </g>
+        <!-- Bâtiments vieille ville (petits carrés gris) -->
+        <g fill="#1a1612" opacity="0.18">
+          <rect x="50" y="100" width="40" height="40"/>
+          <rect x="120" y="110" width="50" height="35"/>
+          <rect x="220" y="105" width="40" height="50"/>
+          <rect x="280" y="120" width="55" height="30"/>
+          <rect x="360" y="110" width="40" height="45"/>
+          <rect x="500" y="100" width="45" height="40"/>
+          <rect x="580" y="115" width="50" height="35"/>
+          <rect x="660" y="105" width="40" height="50"/>
+          <rect x="50" y="220" width="55" height="40"/>
+          <rect x="160" y="225" width="40" height="40"/>
+          <rect x="240" y="230" width="50" height="35"/>
+          <rect x="360" y="225" width="55" height="35"/>
+          <rect x="500" y="220" width="40" height="45"/>
+          <rect x="580" y="225" width="55" height="40"/>
+        </g>
+        <!-- Châteaux (collines stylisées en haut) -->
+        <g fill="#8b6f3f" opacity="0.5">
+          <polygon points="100,0 130,30 160,0"/>
+          <polygon points="550,0 590,40 630,0"/>
+        </g>
+        <!-- Marker restaurant -->
+        <g transform="translate(420, 175)">
+          <circle r="14" fill="#b85a3c" opacity="0.25"/>
+          <circle r="8" fill="#b85a3c"/>
+          <circle r="3" fill="#f5f0e6"/>
+        </g>
+        <!-- Label -->
+        <text x="440" y="180" font-family="Fraunces, serif" font-style="italic" font-size="18" fill="#1a1612">L'Enclos de Valère</text>
+        <text x="440" y="200" font-family="Inter, sans-serif" font-size="11" fill="#4a4038" letter-spacing="1.2">RUE DES CHÂTEAUX 18</text>
+        <!-- Châteaux labels -->
+        <text x="100" y="60" font-family="Fraunces, serif" font-style="italic" font-size="13" fill="#5a4523">Tourbillon</text>
+        <text x="550" y="65" font-family="Fraunces, serif" font-style="italic" font-size="13" fill="#5a4523">Valère</text>
+      </svg>
+
+      <a href="https://maps.google.com/?q=Rue+des+Ch%C3%A2teaux+18+1950+Sion" target="_blank" rel="noopener"
+         class="btn btn--ghost"
+         style="position:absolute;bottom:1.5rem;right:1.5rem;background:var(--ivory);">
+        Ouvrir dans Maps <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">L'Enclos<small>de Valère · Sion</small></a>
+      <p class="pitch">
+        Table gastronomique au pied des châteaux de Valère et Tourbillon.
+        Cuisine du terroir valaisan, jardin-terrasse romantique.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Naviguer</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="histoire.html">Notre histoire</a></li>
+        <li><a href="carte.html">La carte</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="reservation.html">Réserver</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>Rue des Châteaux 18<br>1950 Sion (VS)</li>
+        <li><a href="tel:+41273233230">+41 (0)27 323 32 30</a></li>
+        <li><a href="mailto:restaurant@enclosdevalere.ch">restaurant@enclosdevalere.ch</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Horaires</h4>
+      <ul>
+        <li>Mardi – Samedi</li>
+        <li>9 h – 24 h</li>
+        <li style="opacity:0.6;margin-top:0.5rem;">Fermé dimanche &amp; lundi</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 L'Enclos de Valère · Tous droits réservés</span>
+    <span class="credit">Site démo réalisé par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a></span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
