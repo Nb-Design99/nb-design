@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Le Borsalino — Restaurant pizzeria à Haute-Nendaz. Vraie cuisine italienne, pizzas au feu de bois, pâtes maison. Riccardo & Valentina vous accueillent au pied des pistes des 4 Vallées. Réservations : +41 27 288 30 50." />
+  <meta name="keywords" content="restaurant Nendaz, pizzeria Haute-Nendaz, pizza feu de bois Valais, Le Borsalino, cuisine italienne Valais, Riccardo Valentina, restaurant 4 Vallées" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#1a0d0a" />
+
+  <meta property="og:title" content="Le Borsalino — Pizzeria italienne authentique, Haute-Nendaz" />
+  <meta property="og:description" content="La vraie cuisine italienne au coeur des 4 Vallées. Pizzas au feu de bois, pâtes maison, ambiance familiale chez Riccardo & Valentina." />
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:locale" content="fr_CH" />
+
+  <title>Le Borsalino — Pizzeria italienne, Haute-Nendaz (Valais)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Le Borsalino",
+    "description": "Restaurant pizzeria italienne à Haute-Nendaz, cuisine authentique au feu de bois, géré par Riccardo et Valentina.",
+
+    "telephone": "+41272883050",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Route de la Télécabine 2",
+      "addressLocality": "Haute-Nendaz",
+      "postalCode": "1997",
+      "addressCountry": "CH"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 46.1773, "longitude": 7.2944 },
+    "servesCuisine": ["Italienne", "Pizzeria", "Pizza au feu de bois"],
+    "priceRange": "CHF CHF",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "10:00", "closes": "14:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "18:00", "closes": "22:00" }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ====== RESET & BASE ====== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; overflow-x: clip; max-width: 100%; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--cream);
+      background: var(--bg-dark);
+      overflow-x: hidden;
+      overflow-x: clip;
+      position: relative;
+      max-width: 100%;
+      width: 100%;
+      touch-action: pan-y pinch-zoom;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea, select { font: inherit; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ====== TOKENS ====== */
+    :root {
+      --green-deep: #160a08;        /* fond principal sections */
+      --green-dark: #211210;        /* surface plus claire */
+      --green-mid: #2e1714;         /* surface accentuée */
+      --green-accent: #8a2027;      /* rouge italien sombre */
+      --green-light: #b9322d;       /* rouge italien clair */
+      --green-glow: #2d6a4f;        /* vert italien (clin d'oeil tricolore) */
+      --gold: #c43d34;              /* rouge Borsalino signature */
+      --gold-light: #e88a72;        /* terracotta clair */
+      --cream: #f3ede0;             /* crème ivoire papier */
+      --cream-soft: #e9dfcb;
+      --text-muted: rgba(243, 237, 224, 0.66);
+      --text-dim: rgba(243, 237, 224, 0.4);
+      --bg-dark: #0e0604;           /* fond très sombre, brun-noir */
+      --border-soft: rgba(243, 237, 224, 0.08);
+      --border-medium: rgba(243, 237, 224, 0.14);
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      --section-py: clamp(5rem, 10vw, 9rem);
+      --container-max: 1280px;
+      --container-px: clamp(1.25rem, 4vw, 3rem);
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    /* ====== LAYOUT ====== */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding-left: var(--container-px);
+      padding-right: var(--container-px);
+      width: 100%;
+    }
+    section {
+      position: relative;
+      padding-top: var(--section-py);
+      padding-bottom: var(--section-py);
+    }
+
+    /* ====== TYPOGRAPHY ====== */
+    .eyebrow {
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      display: inline-block;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      margin-bottom: 1.25rem;
+    }
+    .section-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+    .section-subtitle {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 600px;
+    }
+    .section-header { margin-bottom: 4rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-subtitle { margin: 0 auto; }
+    .section-header.centered .eyebrow { margin-left: auto; margin-right: auto; }
+
+    /* ====== BUTTONS ====== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.65rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.92rem;
+      letter-spacing: 0.03em;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.35s var(--ease-out), background 0.3s, border-color 0.3s, box-shadow 0.45s;
+      white-space: nowrap;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #7a1019);
+      color: #fdf3ed;
+      font-weight: 600;
+      border: 1px solid rgba(196, 61, 52, 0.55);
+      box-shadow: 0 8px 32px rgba(196, 61, 52, 0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(196, 61, 52, 0.45);
+    }
+    .btn-ghost {
+      background: rgba(245, 240, 232, 0.04);
+      color: var(--cream);
+      border: 1px solid var(--border-medium);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover {
+      background: rgba(245, 240, 232, 0.09);
+      border-color: rgba(245, 240, 232, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ====== HEADER ====== */
+    .header {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 1.5rem);
+      max-width: 1200px;
+      transition: top 0.4s var(--ease-out), background 0.4s, border-color 0.4s, box-shadow 0.4s;
+      background: rgba(6, 20, 16, 0.55);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-medium);
+      border-radius: 9999px;
+      padding: 0.45rem 0.5rem 0.45rem 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+    .header.scrolled {
+      top: 0.75rem;
+      background: rgba(6, 20, 16, 0.9);
+      border-color: rgba(245, 240, 232, 0.16);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+    .header .container { max-width: none; padding: 0; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: 0.01em;
+      color: var(--cream);
+      white-space: nowrap;
+    }
+    .logo em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .nav-links { display: none; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      transition: color 0.3s;
+      padding: 0.4rem 0;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.35s var(--ease-out);
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+    .lang-toggle { display: flex; align-items: center; gap: 0.25rem; }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 0.25rem 0.4rem;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang-btn:hover { color: var(--cream); }
+    .lang-btn.active { color: var(--gold); }
+    .lang-sep { color: var(--text-dim); font-size: 0.7rem; }
+    .nav-cta { display: none; padding: 0.6rem 1.2rem; font-size: 0.82rem; }
+    .burger {
+      width: 44px; height: 44px;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .burger:hover { background: rgba(245,240,232,0.05); border-color: rgba(245,240,232,0.25); }
+    .burger-bars { width: 18px; height: 12px; position: relative; }
+    .burger-bars span {
+      position: absolute; left: 0; right: 0;
+      height: 1.5px; background: var(--cream); border-radius: 2px;
+      transition: transform 0.35s var(--ease-out), opacity 0.25s, top 0.35s var(--ease-out);
+    }
+    .burger-bars span:nth-child(1) { top: 0; }
+    .burger-bars span:nth-child(2) { top: 5px; }
+    .burger-bars span:nth-child(3) { top: 10px; }
+    .burger.open .burger-bars span:nth-child(1) { top: 5px; transform: rotate(45deg); }
+    .burger.open .burger-bars span:nth-child(2) { opacity: 0; }
+    .burger.open .burger-bars span:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+
+    /* ====== MOBILE MENU ====== */
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: rgba(4, 10, 6, 0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 90;
+      display: flex;
+      align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s var(--ease-out), visibility 0.4s;
+    }
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+    .mobile-menu-inner { display: flex; flex-direction: column; gap: 2.5rem; text-align: center; align-items: center; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 2.2rem;
+      color: var(--cream);
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--gold-light); }
+    .mobile-lang { display: flex; gap: 1rem; margin-top: 1rem; }
+    .mobile-lang button {
+      background: none; border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      padding: 0.5rem 1.2rem;
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .mobile-lang button.active { color: var(--gold); border-color: var(--gold); }
+    .mobile-lang button:hover { color: var(--cream); border-color: var(--cream-soft); }
+
+    /* ====== HERO ====== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: url('https://images.unsplash.com/photo-1571066811602-716837d681de?w=1920&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to bottom, rgba(4,10,6,0.55) 0%, rgba(4,10,6,0.2) 40%, rgba(4,10,6,0.6) 80%, rgba(4,10,6,0.95) 100%),
+        linear-gradient(to right, rgba(4,10,6,0.5) 0%, transparent 50%);
+    }
+    .hero-glows {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+    .hero-glow-1 {
+      position: absolute;
+      top: 20%; left: 15%;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.09) 0%, transparent 70%);
+      filter: blur(40px);
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      bottom: 25%; right: 10%;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(46, 104, 69, 0.15) 0%, transparent 70%);
+      filter: blur(50px);
+      animation: glowPulse 8s ease-in-out 2s infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; }
+      50%       { opacity: 1; }
+    }
+    .hero-overlay-top {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, var(--bg-dark) 0%, transparent 100%);
+      pointer-events: none; z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1.2rem;
+      background: rgba(245, 240, 232, 0.05);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.3s forwards;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.35; }
+    }
+    .hero-badge span {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3.2rem, 9vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35em;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.2s var(--ease-out) 0.5s forwards;
+    }
+    .hero-title-main {
+      display: block;
+      background: linear-gradient(135deg, var(--cream) 0%, rgba(245,240,232,0.85) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-title-accent {
+      display: block;
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 60%, #a07830 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.75s forwards;
+    }
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.95s forwards;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 1.4s forwards;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(1); opacity: 0.5; }
+      50%       { transform: scaleY(0.5); opacity: 1; }
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ====== ABOUT ====== */
+    .about { background: var(--bg-dark); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-photo-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .about-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.3), transparent 60%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .about-photo {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      display: block;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 1.5rem; left: 1.5rem;
+      background: rgba(4, 10, 6, 0.85);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.25rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 2;
+    }
+    .about-badge-title { font-family: var(--font-display); font-size: 1rem; font-style: italic; color: var(--gold-light); }
+    .about-badge-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.25rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .chef-row { display: flex; align-items: center; gap: 1rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border-soft); }
+    .chef-avatars { display: flex; }
+    .chef-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: 2px solid var(--green-dark);
+      overflow: hidden;
+      background: var(--green-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--gold-light);
+    }
+    .chef-avatar:nth-child(2) { margin-left: -12px; }
+    .chef-info { font-size: 0.88rem; }
+    .chef-names { font-weight: 500; color: var(--cream); }
+    .chef-role { color: var(--text-muted); font-size: 0.8rem; }
+
+    /* ====== MENU ====== */
+    .menu-section { background: var(--green-deep); }
+    .menu-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .menu-tab {
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-medium);
+      background: none;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .menu-tab:hover { color: var(--cream); border-color: rgba(245,240,232,0.25); }
+    .menu-tab.active {
+      background: rgba(201, 168, 76, 0.12);
+      border-color: rgba(201, 168, 76, 0.45);
+      color: var(--gold-light);
+    }
+    .menu-panel { display: none; }
+    .menu-panel.active { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border-soft); border-radius: var(--radius-lg); overflow: hidden; }
+    .menu-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.5rem 1.75rem;
+      background: rgba(13, 31, 22, 0.6);
+      transition: background 0.3s;
+    }
+    .menu-item:hover { background: rgba(13, 31, 22, 0.95); }
+    .menu-item-text { flex: 1; }
+    .menu-item-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--cream); margin-bottom: 0.25rem; }
+    .menu-item-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .menu-item-tag { font-size: 0.72rem; color: var(--green-glow); background: rgba(125, 201, 154, 0.1); padding: 0.15rem 0.5rem; border-radius: 4px; display: inline-block; margin-top: 0.4rem; }
+    .menu-item-price { font-family: var(--font-display); font-size: 1.1rem; color: var(--gold); white-space: nowrap; font-weight: 400; }
+    .menu-item-price-dual { font-family: var(--font-display); font-size: 1.05rem; color: var(--gold); white-space: nowrap; font-weight: 400; text-align: right; line-height: 1.2; }
+    .vegan-badge { display: inline-block; padding: 0.18rem 0.55rem; background: rgba(45, 106, 79, 0.18); border: 1px solid rgba(45, 106, 79, 0.4); border-radius: 4px; color: #8ec7a8; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-right: 0.5rem; vertical-align: middle; }
+    .menu-formule-note { margin-top: 2rem; padding: 1.5rem; background: rgba(201, 168, 76, 0.06); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: var(--radius-md); }
+    .menu-formule-note p { font-size: 0.9rem; color: var(--text-muted); }
+    .menu-formule-note strong { color: var(--gold-light); }
+
+    /* ====== GALLERY ====== */
+    .gallery { background: var(--bg-dark); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 0.75rem;
+    }
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item:first-child { grid-column: span 2; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      transition: transform 0.6s var(--ease-out);
+      display: block;
+    }
+    .gallery-item:first-child img { aspect-ratio: 21/9; }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(4,10,6,0.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-label { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--cream-soft); }
+
+    /* ====== TESTIMONIALS ====== */
+    .testimonials { background: var(--green-deep); }
+    .testi-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .testi-card {
+      background: rgba(13, 31, 22, 0.5);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .testi-card:hover { border-color: rgba(201,168,76,0.2); transform: translateY(-3px); }
+    .testi-stars { display: flex; gap: 0.25rem; margin-bottom: 1.25rem; }
+    .testi-star { color: var(--gold); font-size: 0.9rem; }
+    .testi-text { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; line-height: 1.65; color: var(--cream-soft); margin-bottom: 1.5rem; }
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testi-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+    .testi-name { font-weight: 500; font-size: 0.88rem; color: var(--cream); }
+    .testi-location { font-size: 0.78rem; color: var(--text-muted); }
+    .testi-source { margin-left: auto; font-size: 0.72rem; color: var(--text-dim); }
+
+    /* ====== RESERVATION ====== */
+    .reservation { background: var(--bg-dark); }
+    .resa-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .resa-info h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 1rem; }
+    .resa-info p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
+    .resa-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .resa-tel-icon { color: var(--gold); }
+    .resa-hours { font-size: 0.85rem; color: var(--text-muted); }
+    .resa-form { display: grid; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .field label { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .field input, .field select, .field textarea {
+      background: rgba(245, 240, 232, 0.04);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      font-size: 0.95rem;
+      color: var(--cream);
+      transition: border-color 0.3s, background 0.3s;
+      width: 100%;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: rgba(201, 168, 76, 0.5);
+      background: rgba(245, 240, 232, 0.07);
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--text-dim); }
+    .field select option { background: var(--green-dark); color: var(--cream); }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .form-note { font-size: 0.78rem; color: var(--text-dim); }
+    .form-success { display: none; padding: 1rem 1.5rem; background: rgba(125,201,154,0.1); border: 1px solid rgba(125,201,154,0.3); border-radius: var(--radius-md); color: var(--green-glow); font-size: 0.9rem; }
+
+    /* ====== CUSTOM DATE PICKER ====== */
+    .date-picker-wrap { position: relative; }
+    .date-trigger {
+      width: 100%;
+      background: rgba(245, 240, 232, 0.04);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      color: var(--cream);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: border-color 0.3s, background 0.3s;
+      text-align: left;
+    }
+    .date-trigger:hover, .date-trigger:focus {
+      border-color: rgba(201, 168, 76, 0.5);
+      background: rgba(245, 240, 232, 0.07);
+      outline: none;
+    }
+    .date-display { font-size: 0.95rem; }
+    .date-display.placeholder-text { color: var(--text-dim); }
+    .date-trigger svg { flex-shrink: 0; color: var(--gold); opacity: 0.7; }
+    .cal-popup {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      z-index: 200;
+      background: var(--green-dark);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      min-width: 272px;
+      display: none;
+    }
+    .cal-popup.open { display: block; }
+    .cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+    .cal-nav {
+      background: none; border: none;
+      color: var(--gold); font-size: 1.5rem; line-height: 1;
+      cursor: pointer; padding: 0.1rem 0.5rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s;
+    }
+    .cal-nav:hover { background: rgba(201, 168, 76, 0.12); }
+    .cal-month-label { font-family: var(--font-display); font-size: 1.05rem; color: var(--cream); }
+    .cal-days-header { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; margin-bottom: 0.35rem; }
+    .cal-day-name { font-size: 0.68rem; color: var(--text-dim); padding: 0.2rem 0; text-transform: uppercase; letter-spacing: 0.04em; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+    .cal-cell {
+      text-align: center; padding: 0.45rem 0;
+      border-radius: 6px; font-size: 0.875rem;
+      color: var(--cream); cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      user-select: none;
+    }
+    .cal-cell:hover:not(.disabled):not(.empty) { background: rgba(201,168,76,0.15); color: var(--gold-light); }
+    .cal-cell.today { color: var(--gold); font-weight: 600; }
+    .cal-cell.selected { background: var(--gold); color: #1a1005; font-weight: 600; }
+    .cal-cell.disabled { color: var(--text-dim); cursor: default; opacity: 0.3; }
+    .cal-cell.empty { cursor: default; }
+
+    /* ====== TIME PILLS ====== */
+    .time-groups { display: flex; flex-direction: column; gap: 0.9rem; }
+    .time-group-label { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .time-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .time-pill {
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      padding: 0.35rem 0.85rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      font-family: var(--font-body);
+    }
+    .time-pill:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(201,168,76,0.07); }
+    .time-pill.selected { background: var(--gold); border-color: var(--gold); color: #1a1005; font-weight: 500; }
+
+    /* ====== CONTACT ====== */
+    .contact-section { background: var(--green-deep); }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+    .contact-info h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; margin-bottom: 1.5rem; }
+    .info-block { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .info-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-sm);
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+    .info-label { font-size: 0.75rem; font-weight: 500; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
+    .info-value { font-size: 0.95rem; color: var(--cream); line-height: 1.6; }
+    .info-value a { color: var(--cream); transition: color 0.2s; }
+    .info-value a:hover { color: var(--gold-light); }
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 1.5rem; }
+    .hours-day { font-size: 0.85rem; color: var(--text-muted); }
+    .hours-time { font-size: 0.85rem; color: var(--cream-soft); }
+    .closed { color: var(--text-dim); font-style: italic; }
+    .map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      height: 340px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+    .social-row { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .social-btn:hover { color: var(--cream); border-color: rgba(245,240,232,0.3); }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border-soft);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+    .footer-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--cream); }
+    .footer-logo em { font-style: italic; color: var(--gold-light); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 0.82rem; color: var(--text-dim); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-muted); }
+    .footer-credit { font-size: 0.75rem; color: var(--text-dim); }
+    .footer-credit a { color: var(--gold); transition: opacity 0.2s; }
+    .footer-credit a:hover { opacity: 0.75; }
+
+    /* ====== WHATSAPP FLOAT ====== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      z-index: 50;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      display: flex;
+      align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+      color: #fff;
+    }
+    .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.55); }
+    .whatsapp-float svg { width: 28px; height: 28px; }
+
+    /* ====== MENU EXTRAS ====== */
+    .menu-category-sep {
+      padding: 0.65rem 1.75rem;
+      background: rgba(201, 168, 76, 0.07);
+      border-left: 2px solid var(--gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .menu-gastronomique {
+      background: rgba(13, 31, 22, 0.7);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .menu-gast-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.75rem;
+      background: rgba(201, 168, 76, 0.08);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    }
+    .menu-gast-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .menu-gast-price {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .menu-gast-course {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1rem 1.75rem;
+      border-bottom: 1px solid var(--border-soft);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .menu-gast-course:last-child { border-bottom: none; }
+    .menu-gast-course em { color: var(--cream-soft); font-style: italic; }
+    .course-label {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--gold);
+      font-weight: 500;
+      flex-shrink: 0;
+      width: 18px;
+      padding-top: 0.05rem;
+    }
+
+    /* ====== WINE SECTION ====== */
+    .wine-section { background: var(--bg-dark); }
+    .wine-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .wine-tab {
+      padding: 0.55rem 1.25rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-medium);
+      background: none;
+      cursor: pointer;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .wine-tab:hover { color: var(--cream); border-color: rgba(245,240,232,0.25); }
+    .wine-tab.active {
+      background: rgba(201, 168, 76, 0.12);
+      border-color: rgba(201, 168, 76, 0.45);
+      color: var(--gold-light);
+    }
+    .wine-panel { display: none; }
+    .wine-panel.active { display: block; }
+    .wine-category { margin-bottom: 2.5rem; }
+    .wine-category-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--gold-light);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .wine-category-title::before {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--gold);
+      display: inline-block;
+    }
+    .wine-header-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto auto auto;
+      gap: 0.5rem 1rem;
+      padding: 0.4rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .wine-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto auto auto;
+      gap: 0.35rem 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s;
+      align-items: baseline;
+    }
+    .wine-row:hover { background: rgba(245, 240, 232, 0.03); }
+    .wine-row + .wine-row { border-top: 1px solid var(--border-soft); }
+    .wine-name { font-size: 0.9rem; color: var(--cream); }
+    .wine-name small { display: block; font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-top: 0.1rem; }
+    .wine-vintage { font-size: 0.82rem; color: var(--text-muted); text-align: right; }
+    .wine-cave { font-size: 0.78rem; color: var(--text-dim); text-align: right; }
+    .wine-price {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--cream-soft);
+      text-align: right;
+      min-width: 52px;
+    }
+    .wine-price.empty { color: var(--text-dim); }
+    .wine-price-dash { color: var(--text-dim); font-size: 0.8rem; }
+
+    /* ====== FADE ANIMATIONS ====== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 639px) {
+      /* Glows hero : taille réduite pour ne pas dépasser le viewport */
+      .hero-glow-1 { width: 220px; height: 220px; top: 15%; left: 5%; }
+      .hero-glow-2 { width: 200px; height: 200px; bottom: 20%; right: 5%; }
+
+      /* Hero badge : réduire le letter-spacing pour tenir sur mobile */
+      .hero-badge { max-width: calc(100vw - 2.5rem); overflow: hidden; }
+      .hero-badge span { font-size: 0.68rem; letter-spacing: 0.08em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+      /* Carte des vins : scroll horizontal à l'intérieur de la section */
+      .wine-category { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 0.5rem; width: 100%; touch-action: auto; }
+      .wine-header-row, .wine-row { min-width: 500px; }
+
+      /* Calendrier : éviter que le popup sorte du viewport */
+      .cal-popup { min-width: 0; width: calc(100vw - 3rem); left: 0; right: 0; }
+
+      /* Sections : forcer la largeur max au viewport */
+      section, .container, header { max-width: 100vw; }
+    }
+
+    @media (min-width: 640px) {
+      .form-row { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .resa-wrap { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-item:first-child { grid-column: span 2; }
+    }
+    @media (min-width: 1024px) {
+      .nav-links { display: flex; }
+      .nav-cta { display: inline-flex; }
+      .burger { display: none; }
+      .testi-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+      .gallery-item:first-child { grid-column: span 2; grid-row: span 2; }
+      .gallery-item:first-child img { aspect-ratio: 1/1; height: 100%; }
+    }
+
+    /* ====== DIVIDER ====== */
+    .divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin: 2rem 0;
+    }
+    .divider.centered { margin: 2rem auto; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="#" class="logo"><em>Le</em> Borsalino</a>
+      <ul class="nav-links">
+        <li><a href="#about" class="t" data-fr="La maison" data-de="Das Haus" data-it="La casa">La maison</a></li>
+        <li><a href="#menu" class="t" data-fr="Carte" data-de="Speisekarte" data-it="Menu">Carte</a></li>
+        <li><a href="#speciali" class="t" data-fr="Pizze Speciali" data-de="Pizze Speciali" data-it="Pizze Speciali">Pizze Speciali</a></li>
+        <li><a href="#gallery" class="t" data-fr="Galerie" data-de="Galerie" data-it="Galleria">Galerie</a></li>
+        <li><a href="#contact" class="t" data-fr="Contact" data-de="Kontakt" data-it="Contatti">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" onclick="setLang('de')">DE</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" onclick="setLang('it')">IT</button>
+        </div>
+        <a href="#reservation" class="btn btn-primary nav-cta t" data-fr="Réserver" data-de="Reservieren" data-it="Prenotare">Réserver</a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <div class="burger-bars">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <a href="#about" class="t" data-fr="La maison" data-de="Das Haus" data-it="La casa">La maison</a>
+    <a href="#menu" class="t" data-fr="Carte" data-de="Speisekarte" data-it="Menu">Carte</a>
+    <a href="#speciali" class="t" data-fr="Pizze Speciali" data-de="Pizze Speciali" data-it="Pizze Speciali">Pizze Speciali</a>
+    <a href="#gallery" class="t" data-fr="Galerie" data-de="Galerie" data-it="Galleria">Galerie</a>
+    <a href="#reservation" class="t" data-fr="Réserver une table" data-de="Tisch reservieren" data-it="Prenotare un tavolo">Réserver une table</a>
+    <a href="#contact" class="t" data-fr="Contact" data-de="Kontakt" data-it="Contatti">Contact</a>
+    <div class="mobile-lang">
+      <button class="active" onclick="setLang('fr'); closeMobileMenu()">FR</button>
+      <button onclick="setLang('de'); closeMobileMenu()">DE</button>
+      <button onclick="setLang('it'); closeMobileMenu()">IT</button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-photo"></div>
+  <div class="hero-glows">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+  </div>
+  <div class="hero-overlay-top"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span class="t" data-fr="Pizzeria italienne · Haute-Nendaz, Valais" data-de="Italienische Pizzeria · Haute-Nendaz, Wallis" data-it="Pizzeria italiana · Haute-Nendaz, Vallese">Pizzeria italienne · Haute-Nendaz, Valais</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-main t" data-fr="Le" data-de="Le" data-it="Le">Le</span>
+        <span class="hero-title-accent t" data-fr="Borsalino" data-de="Borsalino" data-it="Borsalino">Borsalino</span>
+      </h1>
+      <p class="hero-sub t" data-fr="La vraie cuisine italienne au coeur des 4 Vallées. Pizzas au feu de bois, pâtes maison et viandes choisies — chez Riccardo &amp; Valentina." data-de="Echte italienische Küche im Herzen der 4 Vallées. Holzofen-Pizzen, hausgemachte Pasta und ausgewählte Fleischgerichte — bei Riccardo &amp; Valentina." data-it="La vera cucina italiana nel cuore delle 4 Vallées. Pizze al forno a legna, pasta fatta in casa e carni selezionate — da Riccardo e Valentina.">La vraie cuisine italienne au coeur des 4 Vallées. Pizzas au feu de bois, pâtes maison et viandes choisies — chez Riccardo &amp; Valentina.</p>
+      <div class="hero-cta">
+        <a href="#reservation" class="btn btn-primary t" data-fr="Réserver une table" data-de="Tisch reservieren" data-it="Prenotare un tavolo">Réserver une table</a>
+        <a href="#menu" class="btn btn-ghost t" data-fr="Voir la carte" data-de="Speisekarte ansehen" data-it="Vedere il menu">Voir la carte</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="t" data-fr="Découvrir" data-de="Entdecken" data-it="Scoprire">Découvrir</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-wrap fade-up">
+        <img
+          class="about-photo"
+          src="https://images.unsplash.com/photo-1542528180-a1208c5169a5?w=900&q=80&auto=format&fit=crop"
+          alt="Pizza au feu de bois du Borsalino"
+          loading="lazy"
+        />
+        <div class="about-badge">
+          <div class="about-badge-title t" data-fr="Four à bois" data-de="Holzofen" data-it="Forno a legna">Four à bois</div>
+          <div class="about-badge-sub t" data-fr="Pâte préparée chaque matin" data-de="Täglich frischer Teig" data-it="Impasto preparato ogni mattina">Pâte préparée chaque matin</div>
+        </div>
+      </div>
+      <div class="about-text fade-up fade-up-delay-1">
+        <div class="eyebrow t" data-fr="La maison" data-de="Das Haus" data-it="La casa">La maison</div>
+        <h2 class="section-title"><em class="t" data-fr="L'Italie" data-de="Italien" data-it="L'Italia">L'Italie</em><br><span class="t" data-fr="au pied des pistes" data-de="am Fuss der Pisten" data-it="ai piedi delle piste">au pied des pistes</span></h2>
+        <div class="divider"></div>
+        <div>
+          <p class="t" data-fr="Au coeur de Haute-Nendaz, à deux pas de la télécabine, Le Borsalino vous accueille dans une atmosphère chaleureuse et familiale. Riccardo et Valentina perpétuent ici la tradition de leurs autres maisons, en proposant une cuisine italienne sincère où chaque produit vient directement de la Péninsule." data-de="Im Herzen von Haute-Nendaz, nur wenige Schritte von der Gondelbahn entfernt, empfängt Sie Le Borsalino in einer warmen, familiären Atmosphäre. Riccardo und Valentina führen hier die Tradition ihrer anderen Häuser fort und bieten eine ehrliche italienische Küche, bei der jedes Produkt direkt aus Italien kommt." data-it="Nel cuore di Haute-Nendaz, a due passi dalla cabinovia, Le Borsalino vi accoglie in un'atmosfera calorosa e familiare. Riccardo e Valentina portano avanti la tradizione delle loro altre case, proponendo una cucina italiana sincera in cui ogni prodotto arriva direttamente dalla Penisola.">Au coeur de Haute-Nendaz, à deux pas de la télécabine, Le Borsalino vous accueille dans une atmosphère chaleureuse et familiale. Riccardo et Valentina perpétuent ici la tradition de leurs autres maisons, en proposant une cuisine italienne sincère où chaque produit vient directement de la Péninsule.</p>
+          <p class="t" data-fr="Notre pizzaiolo travaille la pâte chaque jour devant le four à bois — quinze recettes classiques et nos célèbres pizze speciali. La carte met aussi à l'honneur les pâtes fraîches, les viandes choisies, les antipasti et un menu vegan pour tous nos burgers. Dépaysement assuré, après une journée sur les pistes ou au retour d'une balade." data-de="Unser Pizzaiolo bereitet den Teig täglich vor dem Holzofen zu — fünfzehn klassische Rezepte und unsere berühmten Pizze Speciali. Die Karte ehrt auch frische Pasta, ausgewählte Fleischgerichte, Antipasti und ein Vegan-Menü für alle Burger. Garantierter Tapetenwechsel nach einem Tag auf der Piste oder einer Wanderung." data-it="Il nostro pizzaiolo lavora la pasta ogni giorno davanti al forno a legna — quindici ricette classiche e le nostre celebri pizze speciali. La carta valorizza anche la pasta fresca, le carni selezionate, gli antipasti e un menu vegan per tutti i nostri burger. Cambio di scenario garantito, dopo una giornata sulle piste o al ritorno da una passeggiata.">Notre pizzaiolo travaille la pâte chaque jour devant le four à bois — quinze recettes classiques et nos célèbres pizze speciali. La carte met aussi à l'honneur les pâtes fraîches, les viandes choisies, les antipasti et un menu vegan pour tous nos burgers. Dépaysement assuré, après une journée sur les pistes ou au retour d'une balade.</p>
+        </div>
+        <div class="chef-row">
+          <div class="chef-avatars">
+            <div class="chef-avatar">R</div>
+            <div class="chef-avatar">V</div>
+          </div>
+          <div class="chef-info">
+            <div class="chef-names">Riccardo &amp; Valentina</div>
+            <div class="chef-role t" data-fr="Vos hôtes · Cuisine italienne authentique" data-de="Ihre Gastgeber · Authentische italienische Küche" data-it="I vostri ospiti · Cucina italiana autentica">Vos hôtes · Cuisine italienne authentique</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow t" data-fr="La carte" data-de="Die Karte" data-it="Il menu">La carte</div>
+      <h2 class="section-title"><em class="t" data-fr="Tradition" data-de="Tradition" data-it="Tradizione">Tradition</em><br><span class="t" data-fr="italienne" data-de="aus Italien" data-it="italiana">italienne</span></h2>
+      <div class="divider centered"></div>
+      <p class="section-subtitle t" data-fr="Une carte courte, italienne et honnête. Pizzas au feu de bois en deux tailles, pâtes et risotti maison, viandes saisies à la minute. Tous nos burgers sont déclinables en version vegan." data-de="Eine kurze, italienische und ehrliche Karte. Holzofen-Pizzen in zwei Grössen, hausgemachte Pasta und Risotti, à la minute gebratenes Fleisch. Alle Burger sind als Vegan-Version erhältlich." data-it="Un menu corto, italiano e onesto. Pizze al forno a legna in due formati, pasta e risotti fatti in casa, carni cotte al momento. Tutti i nostri burger sono disponibili in versione vegan.">Une carte courte, italienne et honnête. Pizzas au feu de bois en deux tailles, pâtes et risotti maison, viandes saisies à la minute. Tous nos burgers sont déclinables en version vegan.</p>
+    </div>
+
+    <div class="menu-tabs fade-up fade-up-delay-1">
+      <button class="menu-tab active t" onclick="showTab(this,'pizze')" data-fr="Pizze" data-de="Pizze" data-it="Pizze">Pizze</button>
+      <button class="menu-tab t" onclick="showTab(this,'antipasti')" data-fr="Antipasti &amp; Salades" data-de="Antipasti &amp; Salate" data-it="Antipasti &amp; Insalate">Antipasti &amp; Salades</button>
+      <button class="menu-tab t" onclick="showTab(this,'pates')" data-fr="Pâtes &amp; Risotti" data-de="Pasta &amp; Risotti" data-it="Pasta &amp; Risotti">Pâtes &amp; Risotti</button>
+      <button class="menu-tab t" onclick="showTab(this,'viandes')" data-fr="Viandes &amp; Burgers" data-de="Fleisch &amp; Burger" data-it="Carni &amp; Burger">Viandes &amp; Burgers</button>
+      <button class="menu-tab t" onclick="showTab(this,'desserts')" data-fr="Desserts" data-de="Desserts" data-it="Dolci">Desserts</button>
+    </div>
+
+    <!-- PIZZE -->
+    <div id="pizze" class="menu-panel active fade-up fade-up-delay-2">
+      <div class="menu-category-sep" style="display: flex; justify-content: space-between; align-items: center;">
+        <span>Pizze classiche</span>
+        <span style="font-size: 0.62rem; letter-spacing: 0.18em; color: var(--text-dim);">Grande &nbsp;·&nbsp; Moyenne</span>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Margherita</div>
+          <div class="menu-item-desc">Tomate, mozzarella</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 21 · 18</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Napoli</div>
+          <div class="menu-item-desc">Tomate, mozzarella, anchois, câpres</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 25 · 22</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tonno</div>
+          <div class="menu-item-desc">Tomate, mozzarella, thon, oignons, câpres</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 25 · 22</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Vegetariana</div>
+          <div class="menu-item-desc">Tomate, mozzarella, courgettes, aubergines, poivrons, champignons</div>
+          <span class="menu-item-tag">Végétarienne</span>
+        </div>
+        <div class="menu-item-price-dual">CHF 25 · 22</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Romana</div>
+          <div class="menu-item-desc">Tomate, mozzarella, jambon, oeufs, champignons</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 25 · 22</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Diavola</div>
+          <div class="menu-item-desc">Tomate, mozzarella, salami piquant</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 27 · 24</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Quattro formaggi</div>
+          <div class="menu-item-desc">Mozzarella, gorgonzola, provola, fontina</div>
+          <span class="menu-item-tag">Végétarienne</span>
+        </div>
+        <div class="menu-item-price-dual">CHF 27 · 24</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Capricciosa</div>
+          <div class="menu-item-desc">Tomate, mozzarella, artichauts, olives, jambon, champignons</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 27 · 24</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Jambon</div>
+          <div class="menu-item-desc">Tomate, mozzarella, jambon cuit</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 25 · 22</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Parma</div>
+          <div class="menu-item-desc">Tomate, mozzarella, jambon cru de Parme</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 30 · 27</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Hawaii</div>
+          <div class="menu-item-desc">Tomate, mozzarella, jambon cuit, ananas</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 27 · 24</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Generosa</div>
+          <div class="menu-item-desc">Tomate, mozzarella, oignons, olives, foie gras</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 27 · 24</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Calzone</div>
+          <div class="menu-item-desc">Tomate, mozzarella, champignons, jambon cuit (pizza fermée)</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 27 · 24</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Vulcano</div>
+          <div class="menu-item-desc">Tomate, mozzarella, merguez, oignons, olives</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 28</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Parmigiana</div>
+          <div class="menu-item-desc">Tomate, mozzarella, aubergines, basilic, copeaux de parmesan</div>
+          <span class="menu-item-tag">Végétarienne</span>
+        </div>
+        <div class="menu-item-price-dual">CHF 28</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Sfiziosa</div>
+          <div class="menu-item-desc">Mozzarella, gorgonzola, tomates cerise, basilic</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 30</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Boldova</div>
+          <div class="menu-item-desc">Mozzarella, burrata, tomate, mozzarella D.O.P., basilic</div>
+        </div>
+        <div class="menu-item-price-dual">CHF 30</div>
+      </div>
+
+      <div class="menu-formule-note" style="margin-top: 2rem;">
+        <p>Toutes nos pizzas sont cuites au feu de bois. Pâte fraîche préparée chaque matin. <strong>Découvrez aussi nos <a href="#speciali" style="color: var(--gold-light); text-decoration: underline;">Pizze Speciali</a></strong> à la burrata, au saumon ou à la mortadelle.</p>
+      </div>
+    </div>
+
+    <!-- ANTIPASTI & SALADES -->
+    <div id="antipasti" class="menu-panel fade-up">
+      <div class="menu-category-sep">Salades</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Salade verte</div>
+        </div>
+        <div class="menu-item-price">CHF 10</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Salade mêlée</div>
+        </div>
+        <div class="menu-item-price">CHF 12</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Salade Chèvre</div>
+          <div class="menu-item-desc">Salade verte, noix, chèvre chaud, miel, tomates cerise</div>
+        </div>
+        <div class="menu-item-price">CHF 18</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Salade César</div>
+          <div class="menu-item-desc">Salade verte, tomates cerise, poulet pané, parmesan, croûtons</div>
+        </div>
+        <div class="menu-item-price">CHF 24</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">La Méditerranée</div>
+          <div class="menu-item-desc">Mozzarella di bufala, tomates cerise, oignons rouges, basilic, olives taggiasche</div>
+          <span class="menu-item-tag">Végétarienne</span>
+        </div>
+        <div class="menu-item-price">CHF 20</div>
+      </div>
+      <div class="menu-category-sep">Insalatone &amp; Antipasti</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Insalatona di tonno</div>
+          <div class="menu-item-desc">Salade mêlée, thon, oeuf dur, oignons rouges, mozzarella, croûtons</div>
+        </div>
+        <div class="menu-item-price">CHF 22</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Insalatona Greca</div>
+          <div class="menu-item-desc">Salade mêlée, féta, olives noires, oignons, tomates, concombre, origan</div>
+          <span class="menu-item-tag">Végétarienne</span>
+        </div>
+        <div class="menu-item-price">CHF 22</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Carpaccio di salmone</div>
+          <div class="menu-item-desc">Saumon fumé, roquette, burrata, fenouil, citron, huile d'olive</div>
+        </div>
+        <div class="menu-item-price">CHF 28</div>
+      </div>
+    </div>
+
+    <!-- PÂTES & RISOTTI -->
+    <div id="pates" class="menu-panel fade-up">
+      <div class="menu-category-sep">Pasta</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Spaghetti alla carbonara</div>
+          <div class="menu-item-desc">Pancetta, oeufs, pecorino, poivre — la vraie, sans crème</div>
+        </div>
+        <div class="menu-item-price">CHF 28</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Spaghetti aglio, olio e peperoncino</div>
+          <div class="menu-item-desc">Ail, huile d'olive, piment frais</div>
+          <span class="menu-item-tag">Végétarienne</span>
+        </div>
+        <div class="menu-item-price">CHF 24</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Spaghetti alle vongole e pachino</div>
+          <div class="menu-item-desc">Spaghetti aux palourdes et tomates cerise pachino</div>
+        </div>
+        <div class="menu-item-price">CHF 30</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tagliatelle alla bolognese</div>
+          <div class="menu-item-desc">Sauce tomate, ragoût de bœuf mijoté lentement</div>
+        </div>
+        <div class="menu-item-price">CHF 26</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tagliatelle salmone, zucchini e burrata</div>
+          <div class="menu-item-desc">Tagliatelle au saumon, courgettes et burrata fondante</div>
+        </div>
+        <div class="menu-item-price">CHF 32</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tagliatelle gamberi e zafferano</div>
+          <div class="menu-item-desc">Tagliatelle aux gambas et safran</div>
+        </div>
+        <div class="menu-item-price">CHF 36</div>
+      </div>
+      <div class="menu-category-sep">Risotti</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Risotto allo zafferano</div>
+          <div class="menu-item-desc">Risotto crémeux au safran, tradition milanaise</div>
+          <span class="menu-item-tag">Végétarienne</span>
+        </div>
+        <div class="menu-item-price">CHF 26</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Risotto ai frutti di mare</div>
+          <div class="menu-item-desc">Risotto aux fruits de mer du jour</div>
+        </div>
+        <div class="menu-item-price">CHF 36</div>
+      </div>
+    </div>
+
+    <!-- VIANDES & BURGERS -->
+    <div id="viandes" class="menu-panel fade-up">
+      <div class="menu-category-sep">Carni</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tartare de boeuf</div>
+          <div class="menu-item-desc">Pommes frites, toasts, beurre</div>
+        </div>
+        <div class="menu-item-price">CHF 40</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tentacules de pieuvre</div>
+          <div class="menu-item-desc">Lit de salade, pommes de terre au four, légumes, croûtons</div>
+        </div>
+        <div class="menu-item-price">CHF 38</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Vitello tonnato</div>
+          <div class="menu-item-desc">Fines tranches de veau, sauce au thon, pommes de terre au four</div>
+        </div>
+        <div class="menu-item-price">CHF 38</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Carpaccio de boeuf</div>
+          <div class="menu-item-desc">Roquette, parmesan, pommes frites</div>
+        </div>
+        <div class="menu-item-price">CHF 32</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Entrecôte Parisienne 250g</div>
+          <div class="menu-item-desc">Beurre maître d'hôtel, pommes de terre au four</div>
+        </div>
+        <div class="menu-item-price">CHF 42</div>
+      </div>
+      <div class="menu-category-sep">Burgers — frites maison</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Hamburger</div>
+          <div class="menu-item-desc">Boeuf 200g, tomate, salade, oignons caramélisés</div>
+        </div>
+        <div class="menu-item-price">CHF 30</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Cheeseburger</div>
+          <div class="menu-item-desc">Boeuf 200g, tomate, salade, cheddar, oignons caramélisés</div>
+        </div>
+        <div class="menu-item-price">CHF 32</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Double Hamburger</div>
+          <div class="menu-item-desc">Boeuf 400g, tomate, salade, oignons caramélisés</div>
+        </div>
+        <div class="menu-item-price">CHF 40</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Double Cheeseburger</div>
+          <div class="menu-item-desc">Boeuf 400g, tomate, salade, cheddar, oignons caramélisés</div>
+        </div>
+        <div class="menu-item-price">CHF 42</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Bacon burger</div>
+          <div class="menu-item-desc">Boeuf 200g, tomate, salade, bacon, oignons rôtis, oeuf au plat</div>
+        </div>
+        <div class="menu-item-price">CHF 35</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Jalapeños burger</div>
+          <div class="menu-item-desc">Boeuf 200g, tomate, salade, cheddar, jalapeños frits</div>
+        </div>
+        <div class="menu-item-price">CHF 35</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Mexican burger</div>
+          <div class="menu-item-desc">Boeuf 200g, tomate, salade, oignons rouges, guacamole, jalapeños, paprika</div>
+        </div>
+        <div class="menu-item-price">CHF 35</div>
+      </div>
+
+      <div class="menu-formule-note" style="margin-top: 2rem;">
+        <p><span class="vegan-badge">Vegan</span><strong>Tous nos burgers peuvent être préparés en version vegan</strong> sur simple demande. Galette végétale, fromage et sauce végétale.</p>
+      </div>
+    </div>
+
+    <!-- DESSERTS -->
+    <div id="desserts" class="menu-panel fade-up">
+      <div class="menu-category-sep">Dolci della casa</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tiramisù maison</div>
+          <div class="menu-item-desc">Le grand classique : mascarpone, café, cacao amer</div>
+        </div>
+        <div class="menu-item-price">CHF 12</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Panna cotta</div>
+          <div class="menu-item-desc">Crème à la vanille de Madagascar, coulis de fruits rouges</div>
+        </div>
+        <div class="menu-item-price">CHF 10</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Affogato al caffè</div>
+          <div class="menu-item-desc">Glace vanille noyée d'un espresso fraîchement tiré</div>
+        </div>
+        <div class="menu-item-price">CHF 11</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Cannolo siciliano</div>
+          <div class="menu-item-desc">Tube de pâte croustillante garni de ricotta, pistache et orange confite</div>
+        </div>
+        <div class="menu-item-price">CHF 12</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Coupe glacée du jour</div>
+          <div class="menu-item-desc">Demandez les parfums disponibles à votre serveur</div>
+        </div>
+        <div class="menu-item-price">CHF 12</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIZZE SPECIALI -->
+<section class="wine-section" id="speciali">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow t" data-fr="La signature de la maison" data-de="Die Signatur des Hauses" data-it="La firma della casa">La signature de la maison</div>
+      <h2 class="section-title"><em class="t" data-fr="Pizze" data-de="Pizze" data-it="Pizze">Pizze</em> <span class="t" data-fr="Speciali" data-de="Speciali" data-it="Speciali">Speciali</span></h2>
+      <div class="divider centered"></div>
+      <p class="section-subtitle t" data-fr="Nos pizzas signature, montées à la burrata fraîche après cuisson. Une seule taille, généreuse — pour partager ou pour soi seul." data-de="Unsere Signature-Pizzen, nach dem Backen mit frischer Burrata belegt. Nur eine Grösse — grosszügig, zum Teilen oder für sich alleine." data-it="Le nostre pizze firma, completate con burrata fresca dopo la cottura. Una sola taglia, generosa — da condividere o tutta per sé.">Nos pizzas signature, montées à la burrata fraîche après cuisson. Une seule taille, généreuse — pour partager ou pour soi seul.</p>
+    </div>
+
+    <div class="fade-up fade-up-delay-1" style="display: grid; gap: 1rem; grid-template-columns: 1fr; max-width: 880px; margin: 0 auto;">
+
+      <div class="menu-gastronomique">
+        <div class="menu-gast-header">
+          <div class="menu-gast-name">Borsalino</div>
+          <div class="menu-gast-price">CHF 35</div>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">★</span>
+          <span><em>La signature de la maison.</em> Mozzarella fior di latte, bresaola, burrata fraîche, roquette, copeaux de parmesan.</span>
+        </div>
+      </div>
+
+      <div class="menu-gastronomique">
+        <div class="menu-gast-header">
+          <div class="menu-gast-name">Mortazza</div>
+          <div class="menu-gast-price">CHF 35</div>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">II</span>
+          <span>Mozzarella, burrata, mortadelle de Bologne, pesto de basilic frais et pistaches.</span>
+        </div>
+      </div>
+
+      <div class="menu-gastronomique">
+        <div class="menu-gast-header">
+          <div class="menu-gast-name">Strepitosa</div>
+          <div class="menu-gast-price">CHF 35</div>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">III</span>
+          <span>Mozzarella, mozzarella di bufala D.O.P., tomates cerise pachino, basilic, copeaux de parmesan.</span>
+        </div>
+      </div>
+
+      <div class="menu-gastronomique">
+        <div class="menu-gast-header">
+          <div class="menu-gast-name">Pizza du chef</div>
+          <div class="menu-gast-price">CHF 35</div>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">IV</span>
+          <span>Mozzarella, oignons doux, jardinière de légumes, salami piquant, champignons.</span>
+        </div>
+      </div>
+
+      <div class="menu-gastronomique">
+        <div class="menu-gast-header">
+          <div class="menu-gast-name">Pizza Seguin</div>
+          <div class="menu-gast-price">CHF 35</div>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">V</span>
+          <span>Mozzarella, chèvre frais, tomates séchées, basilic, filet de miel — un clin d'oeil aux pâturages du Valais.</span>
+        </div>
+      </div>
+
+      <div class="menu-gastronomique">
+        <div class="menu-gast-header">
+          <div class="menu-gast-name">Pizza Salmone</div>
+          <div class="menu-gast-price">CHF 35</div>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">VI</span>
+          <span>Mozzarella, saumon fumé, câpres, olives taggiasche, roquette, burrata fraîche.</span>
+        </div>
+      </div>
+
+      <div class="menu-gastronomique">
+        <div class="menu-gast-header">
+          <div class="menu-gast-name">Pizza ai fiori di mais</div>
+          <div class="menu-gast-price">CHF 35</div>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">VII</span>
+          <span>Tomate, fruits de mer, ail, piment, persil — pour les amateurs de saveurs marines.</span>
+        </div>
+      </div>
+
+      <div class="menu-formule-note" style="margin-top: 1rem; text-align: center;">
+        <p class="t" data-fr="Toutes nos Pizze Speciali sont disponibles en taille unique généreuse. Demandez une version moyenne sur place." data-de="Alle Pizze Speciali sind in einer einzigen, grosszügigen Grösse erhältlich. Eine mittlere Version ist auf Anfrage erhältlich." data-it="Tutte le pizze speciali sono disponibili in un unico formato generoso. Chiedeteci una versione media in loco.">Toutes nos Pizze Speciali sont disponibles en taille unique généreuse. Demandez une version moyenne sur place.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- (SECTION VINS d'origine supprimée — remplacée par Pizze Speciali ci-dessus) -->
+<!-- (Section vins d'origine supprimée — voir Pizze Speciali plus haut) -->
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow t" data-fr="Galerie" data-de="Galerie" data-it="Galleria">Galerie</div>
+      <h2 class="section-title"><em class="t" data-fr="L'atelier" data-de="Die Werkstatt" data-it="La bottega">L'atelier</em><br><span class="t" data-fr="du pizzaiolo" data-de="des Pizzaiolo" data-it="del pizzaiolo">du pizzaiolo</span></h2>
+    </div>
+    <div class="gallery-grid fade-up fade-up-delay-1">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&q=80&auto=format&fit=crop" alt="Pizza margherita au feu de bois" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="La Margherita signature" data-de="Die Margherita-Signatur" data-it="La Margherita firma">La Margherita signature</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80&auto=format&fit=crop" alt="Pâtes fraîches maison" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="Pâtes fraîches du jour" data-de="Frische Tagespasta" data-it="Pasta fresca del giorno">Pâtes fraîches du jour</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&q=80&auto=format&fit=crop" alt="Pizza au four à bois" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="Four à bois traditionnel" data-de="Traditioneller Holzofen" data-it="Forno a legna tradizionale">Four à bois traditionnel</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80&auto=format&fit=crop" alt="Tiramisu maison" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="Dolci de tradition" data-de="Traditionelle Dolci" data-it="Dolci della tradizione">Dolci de tradition</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80&auto=format&fit=crop" alt="Salle du restaurant" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="Atmosphère familiale" data-de="Familiäre Atmosphäre" data-it="Atmosfera familiare">Atmosphère familiale</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow t" data-fr="Ils nous ont fait confiance" data-de="Sie haben uns vertraut" data-it="Hanno avuto fiducia">Ils nous ont fait confiance</div>
+      <h2 class="section-title"><em class="t" data-fr="Vos" data-de="Ihre" data-it="Le vostre">Vos</em> <span class="t" data-fr="impressions" data-de="Eindrücke" data-it="impressioni">impressions</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-up fade-up-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text t" data-fr="Une vraie pizza italienne à Nendaz ! Pâte fine et croustillante, ingrédients de qualité, et la pizza Borsalino à la burrata est juste divine. Riccardo et Valentina sont adorables. À refaire absolument." data-de="Eine echte italienische Pizza in Nendaz! Dünner und knuspriger Teig, hochwertige Zutaten, und die Pizza Borsalino mit Burrata ist einfach göttlich. Riccardo und Valentina sind sehr nett. Unbedingt wiederkommen." data-it="Una vera pizza italiana a Nendaz! Pasta sottile e croccante, ingredienti di qualità, e la pizza Borsalino con la burrata è semplicemente divina. Riccardo e Valentina sono adorabili. Da rifare assolutamente.">"Une vraie pizza italienne à Nendaz ! Pâte fine et croustillante, ingrédients de qualité, et la pizza Borsalino à la burrata est juste divine. Riccardo et Valentina sont adorables. À refaire absolument."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div>
+            <div class="testi-name">Laura M.</div>
+            <div class="testi-location t" data-fr="Skieuse, Genève" data-de="Skifahrerin, Genf" data-it="Sciatrice, Ginevra">Skieuse, Genève</div>
+          </div>
+          <div class="testi-source">Google</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up fade-up-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text t" data-fr="Après une journée de ski, rien de mieux qu'une bonne pizza et un verre de vin chez Riccardo. L'accueil est chaleureux, le service rapide et la carte plaît à toute la famille (même aux enfants qui ont adoré le tiramisù)." data-de="Nach einem Skitag gibt es nichts Besseres als eine gute Pizza und ein Glas Wein bei Riccardo. Herzlicher Empfang, schneller Service und die Karte gefällt der ganzen Familie (sogar den Kindern, die das Tiramisù geliebt haben)." data-it="Dopo una giornata sugli sci, niente di meglio di una buona pizza e un bicchiere di vino da Riccardo. Accoglienza calorosa, servizio veloce e il menu piace a tutta la famiglia (anche ai bambini che hanno adorato il tiramisù).">"Après une journée de ski, rien de mieux qu'une bonne pizza et un verre de vin chez Riccardo. L'accueil est chaleureux, le service rapide et la carte plaît à toute la famille (même aux enfants qui ont adoré le tiramisù)."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">B</div>
+          <div>
+            <div class="testi-name">Benoît V.</div>
+            <div class="testi-location t" data-fr="Famille, Lausanne" data-de="Familie, Lausanne" data-it="Famiglia, Losanna">Famille, Lausanne</div>
+          </div>
+          <div class="testi-source">Tripadvisor</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up fade-up-delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text t" data-fr="Le four à bois fait toute la différence. On voit le pizzaiolo travailler et ça donne envie. Spéciale dédicace à la Mortazza — mortadelle et pistache, un délice. Adresse incontournable à Haute-Nendaz." data-de="Der Holzofen macht den ganzen Unterschied. Man sieht den Pizzaiolo arbeiten und das macht Lust. Besonderer Dank an die Mortazza — Mortadella und Pistazie, eine Delikatesse. Unverzichtbare Adresse in Haute-Nendaz." data-it="Il forno a legna fa tutta la differenza. Si vede il pizzaiolo lavorare e mette voglia. Dedica speciale alla Mortazza — mortadella e pistacchio, una delizia. Indirizzo immancabile a Haute-Nendaz.">"Le four à bois fait toute la différence. On voit le pizzaiolo travailler et ça donne envie. Spéciale dédicace à la Mortazza — mortadelle et pistache, un délice. Adresse incontournable à Haute-Nendaz."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">P</div>
+          <div>
+            <div class="testi-name">Paolo R.</div>
+            <div class="testi-location t" data-fr="Habitué, Sion" data-de="Stammgast, Sitten" data-it="Cliente abituale, Sion">Habitué, Sion</div>
+          </div>
+          <div class="testi-source">Google</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section class="reservation" id="reservation">
+  <div class="container">
+    <div class="resa-wrap">
+      <div class="resa-info fade-up">
+        <div class="eyebrow t" data-fr="Réservation" data-de="Reservierung" data-it="Prenotazione">Réservation</div>
+        <h2 class="section-title"><em class="t" data-fr="Réservez" data-de="Reservieren" data-it="Prenotate">Réservez</em><br><span class="t" data-fr="votre table" data-de="Sie Ihren Tisch" data-it="il vostro tavolo">votre table</span></h2>
+        <div class="divider"></div>
+        <p class="t" data-fr="Réservez en ligne ou par téléphone. Pour les groupes de plus de 10 personnes, les anniversaires ou la livraison à domicile, appelez-nous directement." data-de="Reservieren Sie online oder telefonisch. Für Gruppen ab 10 Personen, Geburtstage oder Lieferung nach Hause rufen Sie uns bitte direkt an." data-it="Prenotate online o per telefono. Per gruppi di più di 10 persone, compleanni o consegna a domicilio, chiamateci direttamente.">Réservez en ligne ou par téléphone. Pour les groupes de plus de 10 personnes, les anniversaires ou la livraison à domicile, appelez-nous directement.</p>
+        <a href="tel:+41272883050" class="resa-tel">
+          <span class="resa-tel-icon">☎</span>
+          +41 27 288 30 50
+        </a>
+        <div class="resa-hours t" data-fr="7j/7 · 10h00 – 14h00 / 18h00 – 22h00" data-de="7 Tage / Woche · 10.00 – 14.00 / 18.00 – 22.00" data-it="7g/7 · 10:00 – 14:00 / 18:00 – 22:00">7j/7 · 10h00 – 14h00 / 18h00 – 22h00</div>
+      </div>
+
+      <div class="fade-up fade-up-delay-1">
+        <form class="resa-form" id="resaForm" action="https://formspree.io/f/xaqkoavw" method="POST">
+          <input type="hidden" name="_subject" value="Nouvelle réservation — Le Borsalino" />
+          <input type="hidden" name="_origin" value="Le Borsalino Nendaz" />
+          <div class="form-row">
+            <div class="field">
+              <label class="t" data-fr="Prénom et nom" data-de="Vor- und Nachname" data-it="Nome e cognome">Prénom et nom</label>
+              <input type="text" name="name" required placeholder="Jean Dupont" class="t" data-fr-placeholder="Jean Dupont" data-de-placeholder="Hans Muster" data-it-placeholder="Mario Rossi" />
+            </div>
+            <div class="field">
+              <label class="t" data-fr="Téléphone" data-de="Telefon" data-it="Telefono">Téléphone</label>
+              <input type="tel" name="phone" placeholder="+41 79 000 00 00" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="t" data-fr="Email" data-de="E-Mail" data-it="Email">Email</label>
+            <input type="email" name="email" required placeholder="vous@exemple.ch" class="t" data-fr-placeholder="vous@exemple.ch" data-de-placeholder="sie@beispiel.ch" data-it-placeholder="voi@esempio.ch" />
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label class="t" data-fr="Date souhaitée" data-de="Gewünschtes Datum" data-it="Data desiderata">Date souhaitée</label>
+              <div class="date-picker-wrap">
+                <button type="button" class="date-trigger" id="dateTrigger">
+                  <span class="date-display placeholder-text t" id="dateDisplay" data-fr="Choisir une date" data-de="Datum wählen" data-it="Scegliere una data">Choisir une date</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </button>
+                <input type="hidden" name="date" id="dateHidden" />
+                <div class="cal-popup" id="calPopup">
+                  <div class="cal-header">
+                    <button type="button" class="cal-nav" onclick="calPrev()">&#8249;</button>
+                    <span class="cal-month-label" id="calMonthLabel"></span>
+                    <button type="button" class="cal-nav" onclick="calNext()">&#8250;</button>
+                  </div>
+                  <div class="cal-days-header">
+                    <div class="cal-day-name">Lu</div><div class="cal-day-name">Ma</div><div class="cal-day-name">Me</div>
+                    <div class="cal-day-name">Je</div><div class="cal-day-name">Ve</div><div class="cal-day-name">Sa</div><div class="cal-day-name">Di</div>
+                  </div>
+                  <div class="cal-grid" id="calGrid"></div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="t" data-fr="Nombre de couverts" data-de="Anzahl Personen" data-it="Numero di persone">Nombre de couverts</label>
+              <select name="guests" required>
+                <option value="">—</option>
+                <option>1</option><option>2</option><option>3</option>
+                <option>4</option><option>5</option><option>6</option>
+                <option>7</option><option value="8+">8+</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label class="t" data-fr="Heure souhaitée" data-de="Gewünschte Uhrzeit" data-it="Ora desiderata">Heure souhaitée</label>
+            <input type="hidden" name="heure" id="heureHidden" />
+            <div class="time-groups">
+              <div>
+                <div class="time-group-label t" data-fr="Service du midi" data-de="Mittagsservice" data-it="Pranzo">Service du midi</div>
+                <div class="time-pills">
+                  <button type="button" class="time-pill" onclick="selectTime(this,'10h30')">10h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'11h00')">11h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'11h30')">11h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'12h00')">12h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'12h30')">12h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'13h00')">13h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'13h30')">13h30</button>
+                </div>
+              </div>
+              <div>
+                <div class="time-group-label t" data-fr="Service du soir" data-de="Abendservice" data-it="Cena">Service du soir</div>
+                <div class="time-pills">
+                  <button type="button" class="time-pill" onclick="selectTime(this,'18h00')">18h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'18h30')">18h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'19h00')">19h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'19h30')">19h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'20h00')">20h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'20h30')">20h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'21h00')">21h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'21h30')">21h30</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="t" data-fr="Remarques / Allergies" data-de="Anmerkungen / Allergien" data-it="Note / Allergie">Remarques / Allergies</label>
+            <textarea name="message" placeholder="Intolérance, occasion spéciale, chaise haute, version vegan..." class="t" data-fr-placeholder="Intolérance, occasion spéciale, chaise haute, version vegan..." data-de-placeholder="Unverträglichkeit, besonderer Anlass, Hochstuhl, Vegan-Version..." data-it-placeholder="Intolleranza, occasione speciale, seggiolone, versione vegan..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary t" data-fr="Envoyer la demande" data-de="Anfrage senden" data-it="Inviare la richiesta">Envoyer la demande</button>
+          <p class="form-note t" data-fr="Nous confirmons votre réservation par téléphone ou email dans les 24h." data-de="Wir bestätigen Ihre Reservierung innerhalb von 24 Stunden telefonisch oder per E-Mail." data-it="Confermiamo la vostra prenotazione per telefono o email entro 24 ore.">Nous confirmons votre réservation par téléphone ou email dans les 24h.</p>
+          <div class="form-success" id="formSuccess">
+            <span class="t" data-fr="Votre demande a bien été envoyée. Nous vous recontactons dans les 24h." data-de="Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden." data-it="La vostra richiesta è stata inviata. Vi ricontatteremo entro 24 ore.">Votre demande a bien été envoyée. Nous vous recontactons dans les 24h.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="eyebrow t" data-fr="Nous trouver" data-de="Uns finden" data-it="Trovarci">Nous trouver</div>
+      <h2 class="section-title"><em class="t" data-fr="Infos" data-de="Informationen" data-it="Informazioni">Infos</em> <span class="t" data-fr="pratiques" data-de="praktisches" data-it="pratiche">pratiques</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <div class="info-block">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label t" data-fr="Adresse" data-de="Adresse" data-it="Indirizzo">Adresse</div>
+            <div class="info-value">Route de la Télécabine 2<br>1997 Haute-Nendaz, Valais</div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">📞</div>
+          <div>
+            <div class="info-label t" data-fr="Téléphone" data-de="Telefon" data-it="Telefono">Téléphone</div>
+            <div class="info-value"><a href="tel:+41272883050">+41 27 288 30 50</a></div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">📶</div>
+          <div>
+            <div class="info-label t" data-fr="WiFi gratuit" data-de="Gratis WiFi" data-it="WiFi gratuito">WiFi gratuit</div>
+            <div class="info-value">Italianbasic</div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">🕐</div>
+          <div>
+            <div class="info-label t" data-fr="Horaires" data-de="Öffnungszeiten" data-it="Orari">Horaires</div>
+            <div class="info-value">
+              <div class="hours-grid">
+                <div class="hours-day t" data-fr="Lundi – Dimanche" data-de="Montag – Sonntag" data-it="Lunedì – Domenica">Lundi – Dimanche</div>
+                <div class="hours-time">10h00 – 14h00</div>
+                <div class="hours-day"></div>
+                <div class="hours-time">18h00 – 22h00</div>
+                <div class="hours-day t" data-fr="Ouvert 7j/7" data-de="7 Tage offen" data-it="Aperto 7g/7" style="color: var(--green-glow); font-style: italic;">Ouvert 7j/7</div>
+                <div class="hours-time"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="social-row">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="social-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+      <div class="fade-up fade-up-delay-1">
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps?q=Route+de+la+T%C3%A9l%C3%A9cabine+2,+1997+Haute-Nendaz,+Switzerland&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Le Borsalino sur Google Maps"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo"><em>Le</em> Borsalino</div>
+      <div class="footer-links">
+        <a href="#about" class="t" data-fr="La maison" data-de="Das Haus" data-it="La casa">La maison</a>
+        <a href="#menu" class="t" data-fr="Carte" data-de="Speisekarte" data-it="Menu">Carte</a>
+        <a href="#speciali" class="t" data-fr="Pizze Speciali" data-de="Pizze Speciali" data-it="Pizze Speciali">Pizze Speciali</a>
+        <a href="#gallery" class="t" data-fr="Galerie" data-de="Galerie" data-it="Galleria">Galerie</a>
+        <a href="#reservation" class="t" data-fr="Réserver" data-de="Reservieren" data-it="Prenotare">Réserver</a>
+        <a href="#contact" class="t" data-fr="Contact" data-de="Kontakt" data-it="Contatti">Contact</a>
+      </div>
+      <p class="footer-credit t" data-fr="Site réalisé par <a href='https://nb-design.ch' target='_blank' rel='noopener'>NB-Design</a> · Spécialiste des sites web pour restaurants en Suisse romande" data-de="Website erstellt von <a href='https://nb-design.ch' target='_blank' rel='noopener'>NB-Design</a> · Spezialist für Restaurant-Websites in der Westschweiz" data-it="Sito realizzato da <a href='https://nb-design.ch' target='_blank' rel='noopener'>NB-Design</a> · Specialista di siti web per ristoranti in Svizzera romanda">Site réalisé par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a> · Spécialiste des sites web pour restaurants en Suisse romande</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/41272883050" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  /* ====== HEADER SCROLL ====== */
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ====== MOBILE MENU ====== */
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => closeMobileMenu());
+  });
+  function closeMobileMenu() {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ====== LANG TOGGLE ====== */
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+
+    document.querySelectorAll('.t').forEach(el => {
+      const val = el.dataset[lang] || el.dataset.fr;
+      if (val) el.innerHTML = val;
+    });
+
+    document.querySelectorAll('[data-' + lang + '-placeholder]').forEach(el => {
+      el.placeholder = el.dataset[lang + 'Placeholder'] || '';
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.mobile-lang button').forEach(btn => btn.classList.remove('active'));
+
+    const target = `setLang('${lang}')`;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      if (btn.getAttribute('onclick') === target || btn.getAttribute('onclick') === `setLang('${lang}'); closeMobileMenu()`) btn.classList.add('active');
+    });
+    const mobileBtns = document.querySelectorAll('.mobile-lang button');
+    if (lang === 'fr' && mobileBtns[0]) mobileBtns[0].classList.add('active');
+    if (lang === 'de' && mobileBtns[1]) mobileBtns[1].classList.add('active');
+    if (lang === 'it' && mobileBtns[2]) mobileBtns[2].classList.add('active');
+
+    const url = new URL(window.location);
+    if (lang === 'de' || lang === 'it') { url.searchParams.set('lang', lang); }
+    else { url.searchParams.delete('lang'); }
+    window.history.replaceState({}, '', url);
+  }
+
+  /* Init lang from URL */
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  if (urlLang === 'de') setLang('de');
+  if (urlLang === 'it') setLang('it');
+
+  /* ====== WINE TABS ====== */
+  function showWine(btn, id) {
+    document.querySelectorAll('.wine-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.wine-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  /* ====== MENU TABS ====== */
+  function showTab(btn, id) {
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  /* ====== FADE ON SCROLL ====== */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  /* ====== CUSTOM DATE PICKER ====== */
+  const _MONTHS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  let _cal = { y: 0, m: 0, sel: null };
+
+  (function initCal() {
+    const t = new Date();
+    _cal.y = t.getFullYear(); _cal.m = t.getMonth();
+    renderCal();
+    document.getElementById('dateTrigger').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('calPopup').classList.toggle('open');
+    });
+    document.getElementById('calPopup').addEventListener('click', function(e) { e.stopPropagation(); });
+    document.addEventListener('click', function() { document.getElementById('calPopup').classList.remove('open'); });
+  })();
+
+  function renderCal() {
+    const { y, m, sel } = _cal;
+    document.getElementById('calMonthLabel').textContent = _MONTHS[m] + ' ' + y;
+    const today = new Date(); today.setHours(0,0,0,0);
+    let dow = new Date(y, m, 1).getDay(); if (dow === 0) dow = 7;
+    const daysInMonth = new Date(y, m + 1, 0).getDate();
+    const grid = document.getElementById('calGrid');
+    grid.innerHTML = '';
+    for (let i = 1; i < dow; i++) {
+      const el = document.createElement('div'); el.className = 'cal-cell empty'; grid.appendChild(el);
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(y, m, d);
+      const cell = document.createElement('div');
+      cell.className = 'cal-cell';
+      cell.textContent = d;
+      if (date < today) {
+        cell.classList.add('disabled');
+      } else {
+        if (date.toDateString() === today.toDateString()) cell.classList.add('today');
+        if (sel && date.toDateString() === sel.toDateString()) cell.classList.add('selected');
+        cell.addEventListener('click', function(e) { e.stopPropagation(); pickDate(date); });
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  function pickDate(date) {
+    _cal.sel = date;
+    const d = String(date.getDate()).padStart(2,'0');
+    const m = String(date.getMonth()+1).padStart(2,'0');
+    const y = date.getFullYear();
+    const disp = document.getElementById('dateDisplay');
+    disp.textContent = d + '.' + m + '.' + y;
+    disp.classList.remove('placeholder-text');
+    document.getElementById('dateHidden').value = y + '-' + m + '-' + d;
+    document.getElementById('calPopup').classList.remove('open');
+    renderCal();
+  }
+
+  function calPrev() {
+    _cal.m--; if (_cal.m < 0) { _cal.m = 11; _cal.y--; }
+    const now = new Date();
+    if (_cal.y < now.getFullYear() || (_cal.y === now.getFullYear() && _cal.m < now.getMonth())) {
+      _cal.y = now.getFullYear(); _cal.m = now.getMonth();
+    }
+    renderCal();
+  }
+
+  function calNext() {
+    _cal.m++; if (_cal.m > 11) { _cal.m = 0; _cal.y++; }
+    renderCal();
+  }
+
+  /* ====== TIME PILLS ====== */
+  function selectTime(pill, value) {
+    document.querySelectorAll('.time-pill').forEach(p => p.classList.remove('selected'));
+    pill.classList.add('selected');
+    document.getElementById('heureHidden').value = value;
+  }
+
+  /* ====== FORM SUBMIT ====== */
+  const resaForm = document.getElementById('resaForm');
+  resaForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const lang = document.documentElement.lang;
+    const msg = {
+      noDate:   { fr: 'Veuillez choisir une date.',                     de: 'Bitte wählen Sie ein Datum.',                  it: 'Per favore scegliete una data.' },
+      noTime:   { fr: 'Veuillez choisir une heure.',                    de: 'Bitte wählen Sie eine Uhrzeit.',               it: 'Per favore scegliete un orario.' },
+      btn:      { fr: 'Envoyer la demande',                             de: 'Anfrage senden',                               it: 'Inviare la richiesta' },
+      error:    { fr: 'Erreur. Veuillez réessayer ou nous appeler.',    de: 'Fehler. Bitte versuchen Sie es erneut.',       it: 'Errore. Riprovate o chiamateci.' }
+    };
+    const tr = (k) => msg[k][lang] || msg[k].fr;
+    if (!document.getElementById('dateHidden').value) { alert(tr('noDate')); return; }
+    if (!document.getElementById('heureHidden').value) { alert(tr('noTime')); return; }
+    const btn = resaForm.querySelector('button[type=submit]');
+    btn.textContent = '...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(resaForm.action, {
+        method: 'POST',
+        body: new FormData(resaForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        resaForm.reset();
+        document.getElementById('formSuccess').style.display = 'block';
+        btn.style.display = 'none';
+      } else {
+        btn.textContent = tr('btn');
+        btn.disabled = false;
+        alert(tr('error'));
+      }
+    } catch {
+      btn.textContent = tr('btn');
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
