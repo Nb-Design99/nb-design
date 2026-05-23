@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Le Caveau La Part des Anges — caveau & bar à vins au cœur de Savièse. Crus valaisans, planches du terroir, tapas, soirées concerts. Rue de l'Ancienne Poste 23." />
+  <meta name="theme-color" content="#1a1714" />
+
+  <meta property="og:title" content="Le Caveau La Part des Anges — Savièse" />
+  <meta property="og:description" content="Caveau & bar à vins au cœur de Savièse. Vins du Valais, planches, tapas, concerts et soirées." />
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:locale" content="fr_CH" />
+
+  <title>Le Caveau La Part des Anges — Bar à vins & caveau, Savièse</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ====== RESET ====== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--cream);
+      background: var(--stone-deep);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea, select { font: inherit; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ====== TOKENS ====== */
+    :root {
+      --stone-deep: #15110d;
+      --stone-dark: #1f1a14;
+      --stone-mid: #2d251c;
+      --stone-light: #3d3327;
+
+      --cognac: #b27a3f;
+      --cognac-light: #d4a06b;
+      --cognac-deep: #8b5a26;
+
+      --cream: #f4ebd9;
+      --cream-soft: #e8dcc4;
+      --ivory: #fbf6ec;
+
+      --wine: #6e2438;
+      --wine-glow: #c4567a;
+      --wine-bright: #e07a99;
+
+      --text-muted: rgba(244, 235, 217, 0.65);
+      --text-dim: rgba(244, 235, 217, 0.38);
+
+      --border-soft: rgba(244, 235, 217, 0.08);
+      --border-medium: rgba(244, 235, 217, 0.16);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-script: 'Pinyon Script', cursive;
+
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      --section-py: clamp(5rem, 10vw, 9rem);
+      --container-max: 1280px;
+      --container-px: clamp(1.25rem, 4vw, 3rem);
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ====== LAYOUT ====== */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding-left: var(--container-px);
+      padding-right: var(--container-px);
+      width: 100%;
+    }
+    section { position: relative; padding-top: var(--section-py); padding-bottom: var(--section-py); }
+
+    /* ====== TYPOGRAPHY ====== */
+    .eyebrow {
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--cognac-light);
+      margin-bottom: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--cognac-light);
+      display: inline-block;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      margin-bottom: 1.25rem;
+    }
+    .section-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--cognac-light);
+    }
+    .section-subtitle {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+    .section-header { margin-bottom: 4rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-subtitle { margin: 0 auto; }
+    .section-header.centered .eyebrow { margin-left: auto; margin-right: auto; }
+
+    /* ====== BUTTONS ====== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.85rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.35s var(--ease-out), background 0.3s, border-color 0.3s, box-shadow 0.45s, color 0.3s;
+      white-space: nowrap;
+      text-decoration: none;
+      position: relative;
+    }
+    .btn:focus-visible { outline: 2px solid var(--cognac-light); outline-offset: 3px; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cognac), var(--cognac-deep));
+      color: #1a1005;
+      font-weight: 600;
+      border: 1px solid rgba(212, 160, 107, 0.55);
+      box-shadow: 0 8px 32px rgba(178, 122, 63, 0.22);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(178, 122, 63, 0.4);
+    }
+    .btn-ghost {
+      background: rgba(244, 235, 217, 0.04);
+      color: var(--cream);
+      border: 1px solid var(--border-medium);
+      backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover {
+      background: rgba(244, 235, 217, 0.09);
+      border-color: rgba(244, 235, 217, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ====== HEADER ====== */
+    .header {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 1.5rem);
+      max-width: 1180px;
+      transition: top 0.4s var(--ease-out), background 0.4s, border-color 0.4s, box-shadow 0.4s;
+      background: rgba(21, 17, 13, 0.55);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-medium);
+      border-radius: 9999px;
+      padding: 0.45rem 0.5rem 0.45rem 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+    .header.scrolled {
+      top: 0.6rem;
+      background: rgba(21, 17, 13, 0.92);
+      border-color: rgba(244, 235, 217, 0.18);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+    .header .container { max-width: none; padding: 0; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.45rem;
+      letter-spacing: 0.01em;
+      color: var(--cream);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .logo-wings {
+      width: 22px;
+      height: 22px;
+      color: var(--wine-glow);
+      flex-shrink: 0;
+    }
+    .logo em { font-style: italic; font-weight: 300; color: var(--cognac-light); }
+    .nav-links { display: none; gap: 1.85rem; align-items: center; }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.02em;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--cognac-light); }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .menu-toggle:hover { background: rgba(244, 235, 217, 0.05); }
+    .menu-toggle span { width: 16px; height: 1.5px; background: var(--cream); display: block; transition: transform 0.3s; }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(21, 17, 13, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 99;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--cream);
+      letter-spacing: 0.01em;
+    }
+    .mobile-menu a em { color: var(--cognac-light); font-style: italic; }
+
+    /* ====== HERO ====== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding-top: 6rem;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(180deg, rgba(21, 17, 13, 0.78) 0%, rgba(21, 17, 13, 0.55) 45%, rgba(21, 17, 13, 0.92) 100%),
+        url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=2200&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(21, 17, 13, 0.55) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 880px;
+      padding: 0 1.5rem;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--cognac-light);
+      margin-bottom: 1.75rem;
+      display: inline-block;
+      padding: 0.4rem 1.4rem;
+      border: 1px solid rgba(212, 160, 107, 0.35);
+      border-radius: var(--radius-full);
+      background: rgba(21, 17, 13, 0.35);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.015em;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 .script {
+      font-family: var(--font-script);
+      font-weight: 400;
+      color: var(--wine-glow);
+      font-size: 0.85em;
+      display: block;
+      line-height: 1.2;
+      margin-top: 0.3rem;
+    }
+    .hero-sub {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(1.05rem, 1.45vw, 1.2rem);
+      color: var(--cream-soft);
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      animation: bounce 2.4s ease-in-out infinite;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, var(--cognac-light), transparent);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); opacity: 0.7; }
+      50% { transform: translate(-50%, 8px); opacity: 1; }
+    }
+
+    /* ====== INTRO ====== */
+    .intro {
+      background: var(--stone-deep);
+      position: relative;
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .intro-text p {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+      line-height: 1.45;
+      color: var(--cream);
+      font-style: italic;
+    }
+    .intro-text p em { color: var(--cognac-light); font-style: normal; font-weight: 400; }
+    .intro-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-soft);
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      color: var(--cognac-light);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    /* ====== ABOUT (storytelling) ====== */
+    .about {
+      background: linear-gradient(180deg, var(--stone-deep) 0%, var(--stone-dark) 100%);
+      position: relative;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+    }
+    .about-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s var(--ease-out);
+    }
+    .about-visual:hover img { transform: scale(1.04); }
+    .about-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(21, 17, 13, 0.4) 100%);
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      z-index: 2;
+      background: rgba(21, 17, 13, 0.78);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.25rem;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+    }
+    .about-badge em { color: var(--cognac-light); font-style: normal; font-weight: 500; }
+
+    .about-text h2 { margin-bottom: 1.5rem; }
+    .about-text p {
+      font-size: 1.02rem;
+      line-height: 1.78;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+    .about-text p strong { color: var(--cream); font-weight: 500; }
+    .about-signature {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .about-signature .name {
+      font-family: var(--font-script);
+      font-size: 2rem;
+      color: var(--wine-glow);
+      line-height: 1;
+    }
+    .about-signature .role {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ====== MENU / CARTE ====== */
+    .menu {
+      background: var(--stone-dark);
+      position: relative;
+    }
+    .menu::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 20% 20%, rgba(178, 122, 63, 0.06), transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(110, 36, 56, 0.08), transparent 55%);
+      pointer-events: none;
+    }
+    .menu-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+      padding: 0.4rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      background: rgba(244, 235, 217, 0.04);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(10px);
+    }
+    .menu-tab {
+      flex: 1;
+      min-width: max-content;
+      padding: 0.75rem 1.4rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.35s var(--ease-out);
+    }
+    .menu-tab:hover { color: var(--cream); }
+    .menu-tab.active {
+      background: linear-gradient(135deg, var(--cognac), var(--cognac-deep));
+      color: #1a1005;
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(178, 122, 63, 0.25);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .menu-panel { display: none; animation: fadeIn 0.5s var(--ease-out); }
+    .menu-panel.active { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .menu-item {
+      background: rgba(244, 235, 217, 0.03);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 1.85rem 1.85rem 1.6rem;
+      transition: border-color 0.35s, background 0.35s, transform 0.35s var(--ease-out);
+    }
+    .menu-item:hover {
+      border-color: rgba(212, 160, 107, 0.35);
+      background: rgba(244, 235, 217, 0.05);
+      transform: translateY(-3px);
+    }
+    .menu-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.6rem;
+    }
+    .menu-item-header h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.45rem;
+      color: var(--cream);
+      letter-spacing: -0.005em;
+    }
+    .menu-item-price {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.2rem;
+      color: var(--cognac-light);
+      white-space: nowrap;
+    }
+    .menu-item-price em {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      font-style: normal;
+      margin-left: 0.4rem;
+    }
+    .menu-item-desc {
+      font-size: 0.94rem;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+    .menu-item-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.85rem;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--wine-glow);
+    }
+    .menu-item-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--wine-glow);
+    }
+    .menu-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* ====== EVENTS ====== */
+    .events {
+      background: var(--stone-deep);
+      position: relative;
+    }
+    .events-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .event-card {
+      position: relative;
+      padding: 2.2rem;
+      background: linear-gradient(145deg, rgba(244, 235, 217, 0.04), rgba(244, 235, 217, 0.01));
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform 0.5s var(--ease-out), border-color 0.4s;
+    }
+    .event-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 160, 107, 0.3);
+    }
+    .event-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(178, 122, 63, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+    .event-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(178, 122, 63, 0.18), rgba(110, 36, 56, 0.12));
+      border: 1px solid var(--border-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cognac-light);
+      margin-bottom: 1.5rem;
+    }
+    .event-card h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.7rem;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .event-card h3 em { font-style: italic; color: var(--cognac-light); font-weight: 400; }
+    .event-card p {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+    .event-cta {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--cognac-light);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    /* ====== GALLERY ====== */
+    .gallery {
+      background: linear-gradient(180deg, var(--stone-deep) 0%, var(--stone-dark) 100%);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s var(--ease-out);
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(21, 17, 13, 0.78) 100%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .gallery-item:hover::after { opacity: 1; }
+    .gallery-caption {
+      position: absolute;
+      bottom: 1.2rem;
+      left: 1.2rem;
+      right: 1.2rem;
+      z-index: 2;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--cream);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s, transform 0.4s var(--ease-out);
+    }
+    .gallery-item:hover .gallery-caption { opacity: 1; transform: translateY(0); }
+
+    /* ====== INFOS ====== */
+    .infos {
+      background: var(--stone-dark);
+      position: relative;
+    }
+    .infos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .info-card {
+      padding: 2.2rem;
+      background: rgba(244, 235, 217, 0.03);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      transition: border-color 0.35s, background 0.35s;
+    }
+    .info-card:hover {
+      border-color: rgba(212, 160, 107, 0.25);
+      background: rgba(244, 235, 217, 0.05);
+    }
+    .info-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(178, 122, 63, 0.2), rgba(178, 122, 63, 0.08));
+      border: 1px solid rgba(212, 160, 107, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cognac-light);
+      margin-bottom: 1.25rem;
+    }
+    .info-card h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.5rem;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    .info-card h3 em { color: var(--cognac-light); font-style: italic; font-weight: 400; }
+    .info-card p, .info-card a {
+      font-size: 0.96rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+    .info-card a:hover { color: var(--cognac-light); }
+    .info-card strong { color: var(--cream); font-weight: 500; }
+
+    .hours-list { display: grid; gap: 0.55rem; margin-top: 0.5rem; }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px dashed var(--border-soft);
+    }
+    .hours-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .hours-row .day {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.92rem;
+      color: var(--cream);
+    }
+    .hours-row .time {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      color: var(--cognac-light);
+      letter-spacing: 0.02em;
+    }
+    .hours-row .closed { color: var(--text-dim); font-style: italic; }
+
+    .map-wrap {
+      grid-column: 1 / -1;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      aspect-ratio: 16 / 7;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.4) saturate(0.85) brightness(0.85); }
+
+    /* ====== RESERVATION ====== */
+    .reservation {
+      background: var(--stone-deep);
+      position: relative;
+      overflow: hidden;
+    }
+    .reservation::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 70%;
+      height: 140%;
+      background: radial-gradient(circle, rgba(110, 36, 56, 0.15), transparent 65%);
+      pointer-events: none;
+    }
+    .reservation-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+    .reservation-intro h2 { margin-bottom: 1.5rem; }
+    .reservation-intro p {
+      font-size: 1.02rem;
+      line-height: 1.78;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .reservation-direct {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-top: 1rem;
+      padding: 1rem 1.5rem;
+      background: rgba(244, 235, 217, 0.04);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--cream);
+      transition: background 0.3s, border-color 0.3s, transform 0.3s var(--ease-out);
+    }
+    .reservation-direct:hover {
+      background: rgba(244, 235, 217, 0.08);
+      border-color: rgba(212, 160, 107, 0.4);
+      transform: translateY(-2px);
+    }
+    .reservation-direct .icon { color: var(--cognac-light); }
+
+    .form {
+      background: rgba(244, 235, 217, 0.03);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      display: grid;
+      gap: 1.1rem;
+      backdrop-filter: blur(10px);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-field label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .form-field input, .form-field textarea, .form-field select {
+      background: rgba(21, 17, 13, 0.55);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 0.9rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--cream);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+      outline: none;
+      border-color: var(--cognac-light);
+      background: rgba(21, 17, 13, 0.75);
+    }
+    .form-field textarea { resize: vertical; min-height: 90px; }
+    .form-actions { display: flex; justify-content: flex-end; margin-top: 0.5rem; }
+
+    /* ====== FOOTER ====== */
+    .footer {
+      background: #0d0a07;
+      padding: 4rem 0 2rem;
+      border-top: 1px solid var(--border-soft);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand .logo { margin-bottom: 1rem; font-size: 1.6rem; }
+    .footer-brand p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 320px;
+    }
+    .footer-col h4 {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cognac-light);
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+    .footer-col ul li { margin-bottom: 0.7rem; }
+    .footer-col ul a {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+    .footer-col ul a:hover { color: var(--cream); }
+    .footer-social {
+      display: flex;
+      gap: 0.7rem;
+      margin-top: 1.2rem;
+    }
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border-medium);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: all 0.3s var(--ease-out);
+    }
+    .footer-social a:hover {
+      color: var(--cream);
+      border-color: var(--cognac-light);
+      background: rgba(178, 122, 63, 0.12);
+      transform: translateY(-2px);
+    }
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+    .footer-bottom a { color: var(--text-muted); transition: color 0.3s; }
+    .footer-bottom a:hover { color: var(--cream); }
+    .footer-credit em { font-family: var(--font-display); font-style: italic; color: var(--cognac-light); }
+
+    /* ====== REVEAL ANIM ====== */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ====== RESPONSIVE ====== */
+    @media (min-width: 720px) {
+      .nav-links { display: flex; }
+      .menu-toggle { display: none; }
+      .intro-grid { grid-template-columns: 1.2fr 1fr; gap: 5rem; }
+      .about-grid { grid-template-columns: 1fr 1.15fr; gap: 5rem; }
+      .menu-panel.active { grid-template-columns: 1fr 1fr; }
+      .events-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-item:nth-child(1) { grid-row: span 2; }
+      .infos-grid { grid-template-columns: repeat(3, 1fr); }
+      .reservation-grid { grid-template-columns: 1fr 1.1fr; gap: 5rem; }
+      .form-row { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+    }
+    @media (min-width: 1024px) {
+      .intro-grid { gap: 7rem; }
+      .about-grid { gap: 6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#hero" class="logo">
+          <svg class="logo-wings" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 11c2-2 4-2 6 0M22 11c-2-2-4-2-6 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M12 7v9M9 16h6M10 19h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M9 7h6c0 2.5-1.5 4.5-3 4.5S9 9.5 9 7z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="rgba(196, 86, 122, 0.12)"/>
+          </svg>
+          <span>La Part <em>des Anges</em></span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#about">Le caveau</a></li>
+          <li><a href="#menu">La carte</a></li>
+          <li><a href="#events">Soirées</a></li>
+          <li><a href="#gallery">Galerie</a></li>
+          <li><a href="#infos">Infos</a></li>
+        </ul>
+        <a href="#reservation" class="btn btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.85rem;">Réserver</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">Le <em>caveau</em></a>
+    <a href="#menu">La <em>carte</em></a>
+    <a href="#events"><em>Soirées</em></a>
+    <a href="#gallery">Galerie</a>
+    <a href="#infos">Infos</a>
+    <a href="#reservation" style="color: var(--cognac-light);">Réserver une table</a>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Caveau & Bar à vins · Savièse</span>
+      <h1>
+        Le Caveau<br>
+        <em style="font-style: italic; color: var(--cognac-light); font-weight: 300;">La Part des Anges</em>
+        <span class="script">au cœur du Valais</span>
+      </h1>
+      <p class="hero-sub">
+        Vins du terroir valaisan, planches de produits régionaux, tapas et soirées au cœur d'un caveau de pierres ancestrales à Savièse.
+      </p>
+      <div class="hero-actions">
+        <a href="#reservation" class="btn btn-primary">Réserver une table</a>
+        <a href="#menu" class="btn btn-ghost">Découvrir la carte</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Explorer</div>
+  </section>
+
+  <!-- ============ INTRO ============ -->
+  <section class="intro">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-text reveal">
+          <span class="eyebrow">Une enclave de poésie</span>
+          <p>
+            Une petite enclave, <em>caveau au cœur de Savièse</em>, qui offre un cadre magique aux amoureux et passionnés de poésie.
+          </p>
+        </div>
+        <div class="intro-stats reveal">
+          <div>
+            <div class="stat-num">4,6<span style="font-size: 0.55em; color: var(--text-dim);">/5</span></div>
+            <div class="stat-label">Note Google · 148 avis</div>
+          </div>
+          <div>
+            <div class="stat-num">#1</div>
+            <div class="stat-label">Wine bar à Savièse</div>
+          </div>
+          <div>
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Vins du Valais</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <img src="https://images.unsplash.com/photo-1568644396922-5c3bfae12521?auto=format&fit=crop&w=1200&q=80" alt="Intérieur du caveau, murs en pierre et tables en bois" />
+          <div class="about-badge"><em>Depuis</em> · au cœur de Savièse</div>
+        </div>
+        <div class="about-text reveal">
+          <span class="eyebrow">Notre maison</span>
+          <h2 class="section-title">Un caveau<br><em>vivant, sincère.</em></h2>
+          <p>
+            <strong>Au cœur du vieux village de Savièse</strong>, dans une bâtisse de pierres patinées par le temps, La Part des Anges est ce moment suspendu entre l'amitié, le verre partagé et le terroir.
+          </p>
+          <p>
+            Nous y défendons une idée simple : faire vivre les <strong>vins du Valais</strong> et les <strong>producteurs locaux</strong> dans une ambiance chaleureuse, conviviale, sans chichi. Concerts, soirées à thème, dégustations — le caveau s'anime au fil des saisons.
+          </p>
+          <p>
+            Que vous veniez pour une planche entre amis, un verre de fendant après le travail ou une soirée prolongée jusqu'au bout de la nuit, vous êtes chez vous.
+          </p>
+          <div class="about-signature">
+            <div>
+              <div class="name">Sébastien</div>
+              <div class="role">Maître des lieux</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MENU ============ -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="eyebrow">À la carte</span>
+        <h2 class="section-title">Le terroir,<br><em>en partage.</em></h2>
+        <p class="section-subtitle">
+          Une cuisine simple et généreuse, pensée pour accompagner les vins. Tout vient d'ici — fromages d'alpage, charcuteries valaisannes, pains de campagne.
+        </p>
+      </div>
+
+      <div class="menu-tabs reveal" role="tablist">
+        <button class="menu-tab active" data-tab="vins" role="tab">Vins</button>
+        <button class="menu-tab" data-tab="planches" role="tab">Planches</button>
+        <button class="menu-tab" data-tab="fromages" role="tab">Fromages</button>
+        <button class="menu-tab" data-tab="tapas" role="tab">Tapas</button>
+      </div>
+
+      <!-- VINS -->
+      <div class="menu-panel active" data-panel="vins">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Fendant de Savièse</h3>
+            <div class="menu-item-price">8.<span style="font-size: 0.7em;">—</span><em>verre</em></div>
+          </div>
+          <p class="menu-item-desc">Le blanc emblématique du Valais, vif et minéral. Servi en verre dégustation 1 dl.</p>
+          <span class="menu-item-tag">Producteur local</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Petite Arvine</h3>
+            <div class="menu-item-price">11.<span style="font-size: 0.7em;">—</span><em>verre</em></div>
+          </div>
+          <p class="menu-item-desc">Cépage autochtone, salin et floral. Une signature valaisanne à goûter absolument.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Dôle Blanche</h3>
+            <div class="menu-item-price">9.<span style="font-size: 0.7em;">—</span><em>verre</em></div>
+          </div>
+          <p class="menu-item-desc">Pinot noir et gamay vinifiés en blanc — fruité, léger, désaltérant. Une curiosité du canton.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Cornalin du Valais</h3>
+            <div class="menu-item-price">13.<span style="font-size: 0.7em;">—</span><em>verre</em></div>
+          </div>
+          <p class="menu-item-desc">Rouge profond, épicé, l'un des plus anciens cépages valaisans. Parfait avec la viande séchée.</p>
+          <span class="menu-item-tag">Cépage autochtone</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Humagne Rouge</h3>
+            <div class="menu-item-price">12.<span style="font-size: 0.7em;">—</span><em>verre</em></div>
+          </div>
+          <p class="menu-item-desc">Rustique, élégant, des notes de cerise noire et de poivre. Un coup de cœur de la maison.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Sélection bio</h3>
+            <div class="menu-item-price">dès 9.<span style="font-size: 0.7em;">—</span></div>
+          </div>
+          <p class="menu-item-desc">Plusieurs domaines bio du canton à découvrir. Demandez-nous la suggestion du jour.</p>
+          <span class="menu-item-tag">Bio</span>
+        </div>
+      </div>
+
+      <!-- PLANCHES -->
+      <div class="menu-panel" data-panel="planches">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Planche du Caveau</h3>
+            <div class="menu-item-price">28.<span style="font-size: 0.7em;">—</span></div>
+          </div>
+          <p class="menu-item-desc">Notre classique : viande séchée du Valais, jambon cru, lard sec, fromage d'alpage, cornichons, pain de campagne, grissini.</p>
+          <span class="menu-item-tag">Pour 2 personnes</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Planche de l'Ange</h3>
+            <div class="menu-item-price">38.<span style="font-size: 0.7em;">—</span></div>
+          </div>
+          <p class="menu-item-desc">La grande version, généreuse — viandes séchées, saucissons, terrine, trois fromages affinés, accompagnements.</p>
+          <span class="menu-item-tag">Pour 3-4 personnes</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Planche charcuteries</h3>
+            <div class="menu-item-price">22.<span style="font-size: 0.7em;">—</span></div>
+          </div>
+          <p class="menu-item-desc">Sélection 100% viandes : viande séchée IGP, lard, jambon, saucisses sèches du producteur de la vallée.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Planche végétarienne</h3>
+            <div class="menu-item-price">19.<span style="font-size: 0.7em;">—</span></div>
+          </div>
+          <p class="menu-item-desc">Tomes, fromages frais, légumes du jardin, houmous, tapenade, pain grillé. Tout aussi gourmande.</p>
+        </div>
+      </div>
+
+      <!-- FROMAGES -->
+      <div class="menu-panel" data-panel="fromages">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Raclette du Valais AOP</h3>
+            <div class="menu-item-price">9.<span style="font-size: 0.7em;">—</span><em>la portion</em></div>
+          </div>
+          <p class="menu-item-desc">Fromage à raclette des alpages valaisans, fondu au four — patate, oignon, cornichon. À volonté possible.</p>
+          <span class="menu-item-tag">AOP</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Trio de fromages affinés</h3>
+            <div class="menu-item-price">14.<span style="font-size: 0.7em;">—</span></div>
+          </div>
+          <p class="menu-item-desc">Trois fromages d'alpage à différents stades d'affinage. Servi avec confiture maison et pain noir.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Tome de chèvre</h3>
+            <div class="menu-item-price">11.<span style="font-size: 0.7em;">—</span></div>
+          </div>
+          <p class="menu-item-desc">Fromage de chèvre frais d'un petit producteur du val d'Hérens, miel d'acacia et fleurs.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Fondue moitié-moitié</h3>
+            <div class="menu-item-price">26.<span style="font-size: 0.7em;">—</span><em>par pers.</em></div>
+          </div>
+          <p class="menu-item-desc">Gruyère et vacherin fribourgeois, vin blanc du Valais, pain de campagne. La saison froide uniquement.</p>
+        </div>
+      </div>
+
+      <!-- TAPAS -->
+      <div class="menu-panel" data-panel="tapas">
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Buffet de tapas</h3>
+            <div class="menu-item-price">19.<span style="font-size: 0.7em;">—</span></div>
+          </div>
+          <p class="menu-item-desc">Notre buffet caritatif — une dizaine de petites bouchées, à volonté. Les bénéfices reversés à une association d'aide à l'enfance.</p>
+          <span class="menu-item-tag">Soutien association</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Olives & amandes</h3>
+            <div class="menu-item-price">6.<span style="font-size: 0.7em;">—</span></div>
+          </div>
+          <p class="menu-item-desc">Olives marinées maison et amandes torréfiées au sel de Bex. Pour accompagner l'apéro.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Bruschettas trio</h3>
+            <div class="menu-item-price">12.<span style="font-size: 0.7em;">—</span></div>
+          </div>
+          <p class="menu-item-desc">Trois bruschettas : tomate-basilic, ricotta-miel, lard-pomme. Pain grillé au four à bois.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-header">
+            <h3>Croûtes au fromage</h3>
+            <div class="menu-item-price">14.<span style="font-size: 0.7em;">—</span></div>
+          </div>
+          <p class="menu-item-desc">Pain de campagne, raclette fondue, jambon cru ou champignons selon la saison.</p>
+        </div>
+      </div>
+
+      <p class="menu-note">— Carte indicative, modifiable selon les arrivages et les saisons. —</p>
+    </div>
+  </section>
+
+  <!-- ============ EVENTS ============ -->
+  <section class="events" id="events">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="eyebrow">Au caveau ce mois-ci</span>
+        <h2 class="section-title">Soirées<br><em>& rencontres.</em></h2>
+        <p class="section-subtitle">
+          Le caveau vit. Concerts intimistes, dégustations, soirées thématiques — la programmation s'étoffe au fil des semaines.
+        </p>
+      </div>
+      <div class="events-grid">
+        <div class="event-card reveal">
+          <div class="event-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+            </svg>
+          </div>
+          <h3>Concerts <em>intimistes</em></h3>
+          <p>Une fois par mois, le caveau accueille un artiste local. Chanson française, jazz acoustique, folk valaisan — toujours dans un cadre rapproché, à la lueur des bougies.</p>
+          <div class="event-cta">Prochaine date : nous contacter</div>
+        </div>
+
+        <div class="event-card reveal">
+          <div class="event-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 2v3M16 2v3M3 9h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+            </svg>
+          </div>
+          <h3>Soirées <em>à thème</em></h3>
+          <p>Soirée vins d'auteur, accord mets-vins, dégustations de cépages autochtones, soirées tapas espagnoles — une fois par mois, on sort des sentiers battus.</p>
+          <div class="event-cta">Calendrier sur demande</div>
+        </div>
+
+        <div class="event-card reveal">
+          <div class="event-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3>Buffet <em>caritatif</em></h3>
+          <p>Notre buffet de tapas hebdomadaire dont les bénéfices sont reversés à une association d'aide à l'enfance. Bien manger, bien boire, et faire un peu de bien — toute la philosophie de la maison.</p>
+          <div class="event-cta">Tous les vendredis soirs</div>
+        </div>
+
+        <div class="event-card reveal">
+          <div class="event-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 11V3H7v8M5 18h14M5 21h14M9 11l-1 7M15 11l1 7"/>
+            </svg>
+          </div>
+          <h3>Privatisation <em>& groupes</em></h3>
+          <p>Le caveau peut se privatiser pour anniversaires, départs, repas d'entreprise ou réunions de famille — jusqu'à 30 personnes dans une ambiance unique. Menu sur mesure.</p>
+          <div class="event-cta">Devis personnalisé</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="eyebrow">Galerie</span>
+        <h2 class="section-title">Un caveau<br><em>à découvrir.</em></h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Tables en bois et murs en pierre du caveau" />
+          <div class="gallery-caption">Pierre & bois, l'âme du lieu</div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=900&q=80" alt="Planche de charcuteries et fromages" />
+          <div class="gallery-caption">Planche du terroir</div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1474722883778-792e7990302f?auto=format&fit=crop&w=900&q=80" alt="Vignobles du Valais" />
+          <div class="gallery-caption">Les vignes du Valais</div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=80" alt="Verre de vin rouge" />
+          <div class="gallery-caption">Un verre, un moment</div>
+        </div>
+        <div class="gallery-item reveal">
+          <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?auto=format&fit=crop&w=900&q=80" alt="Fromages affinés" />
+          <div class="gallery-caption">Trio de fromages affinés</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INFOS ============ -->
+  <section class="infos" id="infos">
+    <div class="container">
+      <div class="section-header centered reveal">
+        <span class="eyebrow">Nous trouver</span>
+        <h2 class="section-title">Infos<br><em>pratiques.</em></h2>
+      </div>
+      <div class="infos-grid">
+        <div class="info-card reveal">
+          <div class="info-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3><em>Horaires</em></h3>
+          <div class="hours-list">
+            <div class="hours-row"><span class="day">Lundi</span><span class="time closed">Fermé</span></div>
+            <div class="hours-row"><span class="day">Mardi</span><span class="time">9h30 – 22h00</span></div>
+            <div class="hours-row"><span class="day">Mercredi</span><span class="time">9h30 – 22h00</span></div>
+            <div class="hours-row"><span class="day">Jeudi</span><span class="time">9h30 – 22h00</span></div>
+            <div class="hours-row"><span class="day">Vendredi</span><span class="time">9h30 – minuit</span></div>
+            <div class="hours-row"><span class="day">Samedi</span><span class="time">9h30 – minuit</span></div>
+            <div class="hours-row"><span class="day">Dimanche</span><span class="time closed">Fermé</span></div>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-dim); margin-top: 1rem; font-style: italic;">Horaires prolongés lors des soirées événements.</p>
+        </div>
+
+        <div class="info-card reveal">
+          <div class="info-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h3><em>Adresse</em></h3>
+          <p>
+            <strong>Le Caveau La Part des Anges</strong><br>
+            Rue de l'Ancienne Poste 23<br>
+            1965 Savièse (St-Germain)<br>
+            Valais, Suisse
+          </p>
+          <p style="margin-top: 1rem;">
+            <a href="https://maps.google.com/?q=Rue+de+l'Ancienne+Poste+23,+1965+Savi%C3%A8se" target="_blank" rel="noopener" style="color: var(--cognac-light); font-weight: 500;">Itinéraire Google Maps →</a>
+          </p>
+        </div>
+
+        <div class="info-card reveal">
+          <div class="info-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <h3><em>Contact</em></h3>
+          <p>
+            <a href="tel:+41273954541" style="font-size: 1.15rem; color: var(--cream); font-family: var(--font-display); letter-spacing: 0.02em;">+41 27 395 45 41</a>
+          </p>
+          <p style="margin-top: 0.85rem;">
+            Pour réserver une table, organiser une soirée ou simplement demander conseil — n'hésitez pas à nous appeler.
+          </p>
+          <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-dim);">
+            🪑 Terrasse extérieure · ♿ Partiellement accessible
+          </p>
+        </div>
+
+        <div class="map-wrap reveal">
+          <iframe
+            src="https://www.google.com/maps?q=Rue+de+l'Ancienne+Poste+23,+1965+Savi%C3%A8se&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localisation du Caveau La Part des Anges">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESERVATION ============ -->
+  <section class="reservation" id="reservation">
+    <div class="container">
+      <div class="reservation-grid">
+        <div class="reservation-intro reveal">
+          <span class="eyebrow">Réservation</span>
+          <h2 class="section-title">Une table<br><em>pour ce soir ?</em></h2>
+          <p>
+            Pour les groupes de plus de 6 personnes, les privatisations ou les soirées spéciales, nous recommandons de réserver à l'avance.
+          </p>
+          <p>
+            Pour les petites tables, vous pouvez aussi simplement passer — il y a presque toujours une place pour un verre au comptoir.
+          </p>
+          <a href="tel:+41273954541" class="reservation-direct">
+            <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            +41 27 395 45 41
+          </a>
+        </div>
+
+        <form class="form reveal" id="reservationForm" action="https://formspree.io/f/REMPLACER" method="POST">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Nom complet</label>
+              <input type="text" id="name" name="name" required placeholder="Jean Dupont" />
+            </div>
+            <div class="form-field">
+              <label for="phone">Téléphone</label>
+              <input type="tel" id="phone" name="phone" required placeholder="+41 79 ..." />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="jean.dupont@email.ch" />
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="date">Date souhaitée</label>
+              <input type="date" id="date" name="date" required />
+            </div>
+            <div class="form-field">
+              <label for="guests">Nombre de personnes</label>
+              <select id="guests" name="guests" required>
+                <option value="">Choisir...</option>
+                <option>1 personne</option>
+                <option>2 personnes</option>
+                <option>3 personnes</option>
+                <option>4 personnes</option>
+                <option>5 personnes</option>
+                <option>6 personnes</option>
+                <option>7-10 personnes</option>
+                <option>Plus de 10 (privatisation)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="message">Message (optionnel)</label>
+            <textarea id="message" name="message" placeholder="Heure souhaitée, occasion particulière, allergies..."></textarea>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Envoyer la demande</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="logo">
+            <svg class="logo-wings" viewBox="0 0 24 24" fill="none">
+              <path d="M2 11c2-2 4-2 6 0M22 11c-2-2-4-2-6 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M12 7v9M9 16h6M10 19h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M9 7h6c0 2.5-1.5 4.5-3 4.5S9 9.5 9 7z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="rgba(196, 86, 122, 0.12)"/>
+            </svg>
+            <span>La Part <em>des Anges</em></span>
+          </a>
+          <p>Caveau & bar à vins au cœur de Savièse. Vins du Valais, planches du terroir, soirées entre amis.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/CaveauPDA/" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/caveau___p_d_a/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Le caveau</h4>
+          <ul>
+            <li><a href="#about">Notre maison</a></li>
+            <li><a href="#menu">La carte</a></li>
+            <li><a href="#events">Soirées</a></li>
+            <li><a href="#gallery">Galerie</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+41273954541">+41 27 395 45 41</a></li>
+            <li>Rue de l'Ancienne Poste 23</li>
+            <li>1965 Savièse · Valais</li>
+            <li><a href="https://maps.google.com/?q=Rue+de+l'Ancienne+Poste+23,+1965+Savi%C3%A8se" target="_blank" rel="noopener">Itinéraire →</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Horaires</h4>
+          <ul>
+            <li>Mar – Jeu · 9h30 – 22h</li>
+            <li>Ven – Sam · 9h30 – minuit</li>
+            <li style="color: var(--text-dim);">Dim & Lun · fermé</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© <span id="year"></span> Le Caveau La Part des Anges · Savièse</div>
+        <div class="footer-credit">Site signé <em>NB-Design</em></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // Menu tabs
+    document.querySelectorAll('.menu-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+        document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelector(`.menu-panel[data-panel="${target}"]`).classList.add('active');
+      });
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Min date today on reservation form
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+    }
+  </script>
+</body>
+</html>
