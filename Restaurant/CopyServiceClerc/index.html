@@ -297,7 +297,99 @@
     .nav-links a:hover { color: var(--white); }
     .nav-links a:hover::after { width: 100%; }
     .nav-cta { display: none; padding: 0.65rem 1.3rem; font-size: 0.85rem; }
-    .nav-cta-mobile { padding: 0.55rem 1.1rem; font-size: 0.8rem; }
+
+    /* Burger (mobile) */
+    .burger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .burger:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .burger-bars {
+      position: relative;
+      width: 18px;
+      height: 12px;
+    }
+    .burger-bars span {
+      position: absolute;
+      left: 0; right: 0;
+      height: 1.5px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.35s var(--ease-out), opacity 0.25s, top 0.35s var(--ease-out);
+    }
+    .burger-bars span:nth-child(1) { top: 0; }
+    .burger-bars span:nth-child(2) { top: 5px; }
+    .burger-bars span:nth-child(3) { top: 10px; }
+    .burger.open .burger-bars span:nth-child(1) { top: 5px; transform: rotate(45deg); }
+    .burger.open .burger-bars span:nth-child(2) { opacity: 0; }
+    .burger.open .burger-bars span:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: rgba(28, 26, 24, 0.96);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s var(--ease-out), visibility 0.4s;
+    }
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+    .mobile-menu ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      text-align: center;
+    }
+    .mobile-menu a.menu-link {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 2rem;
+      color: var(--white);
+      transition: color 0.3s;
+      display: inline-block;
+    }
+    .mobile-menu a.menu-link:hover { color: var(--magenta-light); }
+    .mobile-menu .menu-cta { margin-top: 1.5rem; }
+    .mobile-menu .menu-tagline {
+      font-family: var(--font-script);
+      color: var(--magenta-light);
+      font-size: 1.4rem;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+    .mobile-menu .menu-dots {
+      display: inline-flex;
+      gap: 6px;
+      margin-bottom: 0.5rem;
+    }
+    .mobile-menu .menu-dots span {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+    .mobile-menu .menu-dots .c { background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+    .mobile-menu .menu-dots .m { background: var(--magenta); box-shadow: 0 0 12px var(--magenta); }
+    .mobile-menu .menu-dots .y { background: var(--yellow); box-shadow: 0 0 12px var(--yellow); }
 
     /* ====== HERO ====== */
     .hero {
@@ -884,7 +976,7 @@
     @media (min-width: 980px) {
       .nav-links { display: flex; }
       .nav-cta { display: inline-flex; }
-      .nav-cta-mobile { display: none; }
+      .burger { display: none; }
       .gallery-grid { grid-template-columns: repeat(4, 1fr); }
       .gallery-item:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: 1/1; }
     }
@@ -912,10 +1004,34 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="#contact" class="btn btn-primary nav-cta">Demander un devis</a>
-        <a href="#contact" class="btn btn-primary nav-cta-mobile">Devis</a>
+        <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="burger-bars" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
       </nav>
     </div>
   </header>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu principal">
+    <span class="menu-dots" aria-hidden="true">
+      <span class="c"></span><span class="m"></span><span class="y"></span>
+    </span>
+    <ul>
+      <li><a href="#apropos" class="menu-link" data-nav>À propos</a></li>
+      <li><a href="#services" class="menu-link" data-nav>Services</a></li>
+      <li><a href="#realisations" class="menu-link" data-nav>Réalisations</a></li>
+      <li><a href="#contact" class="menu-link" data-nav>Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary menu-cta" data-nav>
+      Demander un devis
+      <span class="btn-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+    </a>
+    <div class="menu-tagline">la bonne solution pour vos impressions !</div>
+  </div>
 
   <main>
     <!-- ============ HERO ============ -->
@@ -1177,6 +1293,27 @@
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 30);
     });
+
+    // Mobile menu toggle
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const toggleMenu = (force) => {
+      const open = typeof force === 'boolean' ? force : !mobileMenu.classList.contains('open');
+      burger.classList.toggle('open', open);
+      mobileMenu.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    burger.addEventListener('click', () => toggleMenu());
+    mobileMenu.querySelectorAll('a[data-nav]').forEach(a => {
+      a.addEventListener('click', () => toggleMenu(false));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) toggleMenu(false);
+    });
+
+    // Reveal on scroll
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
