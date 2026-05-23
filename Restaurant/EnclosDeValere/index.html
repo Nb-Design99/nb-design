@@ -502,8 +502,8 @@
     .hero-scroll {
       position: absolute;
       bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
+      right: 0;
       z-index: 3;
       display: flex;
       flex-direction: column;
@@ -514,6 +514,7 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       opacity: 0;
+      transform: translateY(20px);
       animation: fadeUp 1s var(--ease-out) 1.4s forwards;
     }
     .scroll-line {
