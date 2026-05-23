@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Le Midi · Cuisine valaisanne & fondues · Sion · Réservation</title>
+<meta name="description" content="Au cœur de la Place du Midi à Sion, fondues, croûtes au fromage, rösti et plats de saison. Terrasse spacieuse, ouvert 7j/7. Réservez votre table." />
+<meta name="theme-color" content="#2a1810" />
+<link rel="canonical" href="https://nb-design.ch/Restaurant/LeMidi/" />
+
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Le Midi · Cuisine valaisanne & fondues à Sion" />
+<meta property="og:description" content="Fondues, croûtes, rösti et plats de saison sur la Place du Midi. Ouvert 7j/7, midi et soir." />
+<meta property="og:image" content="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1600&q=80" />
+<meta property="og:locale" content="fr_CH" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Le Midi",
+  "image": "https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1600&q=80",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Place du Midi 30",
+    "addressLocality": "Sion",
+    "postalCode": "1950",
+    "addressRegion": "VS",
+    "addressCountry": "CH"
+  },
+  "telephone": "+41275588102",
+  "email": "info@le-midi.ch",
+  "servesCuisine": ["Suisse", "Valaisanne", "Française", "Italienne"],
+  "priceRange": "CHF 25 à 50",
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "11:30",
+    "closes": "22:00"
+  }],
+  "url": "https://nb-design.ch/Restaurant/LeMidi/",
+  "acceptsReservations": "True"
+}
+</script>
+
+<style>
+:root {
+  --cream: #f7eedd;
+  --cream-soft: #efe2c8;
+  --cream-dark: #e3d2b1;
+  --bordeaux: #7d1f24;
+  --bordeaux-deep: #5c1418;
+  --copper: #c8853a;
+  --copper-deep: #a36a26;
+  --wood: #2a1810;
+  --wood-soft: #4a2f22;
+  --pine: #2d4a3a;
+  --ink: #1f1410;
+  --ink-soft: #4a3a30;
+  --muted: #8a7560;
+  --shadow: 0 20px 60px -20px rgba(31, 20, 16, 0.32);
+  --shadow-sm: 0 4px 20px -8px rgba(31, 20, 16, 0.22);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; line-height: 1.15; font-weight: 600; }
+
+.container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--bordeaux);
+  color: var(--cream);
+  border: none;
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  background: var(--bordeaux-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -8px rgba(125, 31, 36, 0.45);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 1.5px solid var(--cream);
+}
+.btn-ghost:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* ───── NAVBAR ───── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 22px 0;
+  transition: all 0.35s ease;
+}
+.nav.scrolled {
+  background: rgba(247, 238, 221, 0.96);
+  backdrop-filter: blur(12px);
+  padding: 14px 0;
+  box-shadow: 0 2px 20px -10px rgba(31, 20, 16, 0.2);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--cream);
+  transition: color 0.35s ease;
+  letter-spacing: -0.01em;
+}
+.logo span { color: var(--copper); font-style: normal; font-weight: 400; }
+.nav.scrolled .logo { color: var(--wood); }
+
+.nav-links {
+  display: flex;
+  gap: 38px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 0; height: 1.5px;
+  background: var(--copper);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav.scrolled .nav-links a { color: var(--ink); }
+.nav-cta { display: inline-flex; }
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--cream);
+  font-size: 28px;
+  cursor: pointer;
+}
+.nav.scrolled .menu-toggle { color: var(--ink); }
+
+/* ───── HERO ───── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: var(--cream);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(180deg, rgba(31, 20, 16, 0.55) 0%, rgba(31, 20, 16, 0.78) 100%),
+    url('https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=2000&q=80');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+.hero-content {
+  position: relative;
+  max-width: 820px;
+  padding-top: 80px;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--cream-soft);
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(247, 238, 221, 0.3);
+}
+.hero h1 {
+  font-size: clamp(48px, 7.2vw, 88px);
+  font-weight: 500;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--copper);
+  font-weight: 400;
+}
+.hero-sub {
+  font-size: clamp(16px, 1.4vw, 19px);
+  font-weight: 300;
+  max-width: 560px;
+  margin-bottom: 40px;
+  color: var(--cream-soft);
+  line-height: 1.7;
+}
+.hero-cta-group {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--cream-soft);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  animation: bounce 2.4s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ───── BANDEAU INFOS RAPIDES ───── */
+.quickbar {
+  background: var(--wood);
+  color: var(--cream);
+  padding: 26px 0;
+}
+.quickbar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+.quickbar-item .label {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.quickbar-item .value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--cream);
+}
+
+/* ───── SECTIONS GENERIC ───── */
+section { padding: 110px 0; position: relative; }
+.section-eyebrow {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.section-title {
+  font-size: clamp(36px, 4.2vw, 56px);
+  margin-bottom: 24px;
+  letter-spacing: -0.015em;
+}
+.section-title em { font-style: italic; color: var(--bordeaux); }
+.section-intro {
+  max-width: 640px;
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin-bottom: 60px;
+  line-height: 1.7;
+}
+
+/* ───── HISTOIRE ───── */
+.histoire { background: var(--cream); }
+.histoire-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 80px;
+  align-items: center;
+}
+.histoire-text p {
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin-bottom: 22px;
+  line-height: 1.8;
+}
+.histoire-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: var(--wood);
+  border-left: 3px solid var(--copper);
+  padding-left: 24px;
+  margin: 32px 0;
+  line-height: 1.5;
+}
+.histoire-signature {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--ink);
+  margin-top: 16px;
+}
+.histoire-signature small {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.histoire-img {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: var(--shadow);
+}
+.histoire-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.histoire-img::before {
+  content: 'Place du Midi';
+  position: absolute;
+  top: -22px;
+  left: -22px;
+  background: var(--bordeaux);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  padding: 16px 24px;
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ───── SPECIALITES ───── */
+.specialites {
+  background: var(--cream-soft);
+}
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+.spec-card {
+  background: var(--cream);
+  padding: 42px 28px;
+  text-align: center;
+  border-radius: 4px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(31, 20, 16, 0.06);
+}
+.spec-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+}
+.spec-icon {
+  width: 60px; height: 60px;
+  margin: 0 auto 22px;
+  background: var(--bordeaux);
+  color: var(--cream);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+}
+.spec-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+.spec-card p {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* ───── MENU ───── */
+.menu-section {
+  background: var(--wood);
+  color: var(--cream);
+}
+.menu-section .section-eyebrow { color: var(--copper); }
+.menu-section .section-title { color: var(--cream); }
+.menu-section .section-title em { color: var(--copper); }
+.menu-section .section-intro { color: var(--cream-soft); }
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 44px 80px;
+}
+.menu-item {
+  border-bottom: 1px dashed rgba(247, 238, 221, 0.15);
+  padding-bottom: 22px;
+}
+.menu-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.menu-item-head h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--cream);
+}
+.menu-item-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(247, 238, 221, 0.3);
+  position: relative;
+  top: -5px;
+}
+.menu-item-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--copper);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.menu-item-desc {
+  font-size: 14.5px;
+  color: var(--cream-soft);
+  line-height: 1.65;
+  font-weight: 300;
+}
+.menu-item-tags {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.menu-tag {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border: 1px solid rgba(247, 238, 221, 0.3);
+  border-radius: 999px;
+  color: var(--cream-soft);
+}
+.menu-tag.hot { border-color: var(--copper); color: var(--copper); }
+
+.menu-footer {
+  text-align: center;
+  margin-top: 70px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(247, 238, 221, 0.12);
+}
+.menu-footer p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--cream-soft);
+  margin-bottom: 24px;
+}
+
+.menu-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 auto 56px;
+  padding: 7px;
+  background: rgba(247, 238, 221, 0.05);
+  border: 1px solid rgba(247, 238, 221, 0.12);
+  border-radius: 999px;
+  max-width: fit-content;
+}
+.menu-tab {
+  background: transparent;
+  border: none;
+  color: var(--cream-soft);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.menu-tab:hover { color: var(--cream); }
+.menu-tab.active {
+  background: var(--bordeaux);
+  color: var(--cream);
+  box-shadow: 0 6px 18px -6px rgba(125, 31, 36, 0.55);
+}
+.menu-panels { position: relative; min-height: 540px; }
+.menu-panel { display: none; }
+.menu-panel.active {
+  display: block;
+  animation: menuFade 0.45s ease;
+}
+@keyframes menuFade {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ───── GALERIE ───── */
+.galerie { background: var(--cream); }
+.galerie-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 280px 280px;
+  gap: 14px;
+  margin-top: 24px;
+}
+.galerie-item {
+  overflow: hidden;
+  border-radius: 4px;
+  position: relative;
+}
+.galerie-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.galerie-item:hover img { transform: scale(1.08); }
+.galerie-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.galerie-item:nth-child(2) { grid-column: span 2; }
+.galerie-item:nth-child(5) { grid-column: span 2; }
+
+/* ───── TEMOIGNAGES ───── */
+.temoignages {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-soft) 100%);
+}
+.temoignages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 24px;
+}
+.temoignage {
+  background: var(--cream);
+  padding: 40px 32px;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+.temoignage::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 130px;
+  color: var(--bordeaux);
+  line-height: 1;
+  font-style: italic;
+}
+.temoignage-stars {
+  color: var(--copper);
+  font-size: 16px;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+.temoignage p {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.temoignage-author {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+}
+.temoignage-author small {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 2px;
+  letter-spacing: 0.05em;
+}
+.temoignages-footer {
+  text-align: center;
+  margin-top: 50px;
+}
+.temoignages-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 28px;
+  background: var(--cream);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.temoignages-rating strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  color: var(--bordeaux);
+  font-style: italic;
+}
+
+/* ───── RESERVATION ───── */
+.reservation { background: var(--cream); padding: 110px 0; }
+.reservation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.reservation-info h3 {
+  font-size: 24px;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+.info-block {
+  margin-bottom: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.info-block:last-child { border-bottom: none; }
+.info-label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.info-content {
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+.info-content strong { color: var(--ink); font-weight: 500; }
+
+.form-wrap {
+  background: var(--wood);
+  padding: 48px 44px;
+  border-radius: 4px;
+  color: var(--cream);
+}
+.form-wrap h3 {
+  font-size: 30px;
+  margin-bottom: 8px;
+  color: var(--cream);
+}
+.form-wrap h3 em { font-style: italic; color: var(--copper); }
+.form-wrap > p {
+  font-size: 14.5px;
+  color: var(--cream-soft);
+  margin-bottom: 32px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: var(--cream-soft);
+  font-weight: 500;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(247, 238, 221, 0.06);
+  border: 1px solid rgba(247, 238, 221, 0.15);
+  border-radius: 3px;
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--copper);
+  background: rgba(247, 238, 221, 0.08);
+}
+.form-group textarea { resize: vertical; min-height: 90px; }
+.form-group select { cursor: pointer; }
+.form-wrap .btn { width: 100%; justify-content: center; margin-top: 8px; }
+
+/* ───── FOOTER ───── */
+.footer {
+  background: var(--ink);
+  color: var(--cream-soft);
+  padding: 70px 0 30px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+.footer-brand .logo {
+  color: var(--cream);
+  font-size: 30px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+.footer-brand p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  max-width: 320px;
+  color: rgba(247, 238, 221, 0.7);
+}
+.footer-col h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; font-size: 14.5px; color: rgba(247, 238, 221, 0.7); }
+.footer-col a {
+  font-size: 14.5px;
+  color: rgba(247, 238, 221, 0.7);
+  transition: color 0.3s ease;
+}
+.footer-col a:hover { color: var(--copper); }
+.footer-bottom {
+  border-top: 1px solid rgba(247, 238, 221, 0.1);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: rgba(247, 238, 221, 0.5);
+}
+.footer-bottom a { color: rgba(247, 238, 221, 0.7); }
+.footer-bottom a:hover { color: var(--copper); }
+
+/* ───── ANIMATIONS ───── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* ───── RESPONSIVE ───── */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .menu-toggle { display: block; }
+  .nav-cta { display: none; }
+  .nav-links.open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--cream);
+    flex-direction: column;
+    padding: 24px 32px;
+    gap: 18px;
+    box-shadow: var(--shadow);
+  }
+  .nav-links.open a { color: var(--ink); }
+  .quickbar-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .histoire-grid,
+  .reservation-grid { grid-template-columns: 1fr; gap: 50px; }
+  .histoire-img { aspect-ratio: 4/3; }
+  .spec-grid { grid-template-columns: repeat(2, 1fr); }
+  .menu-grid,
+  .temoignages-grid { grid-template-columns: 1fr; gap: 24px; }
+  .menu-tabs {
+    max-width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    border-radius: 14px;
+    padding: 6px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .menu-tabs::-webkit-scrollbar { display: none; }
+  .menu-tab { flex-shrink: 0; padding: 10px 18px; font-size: 11px; }
+  .menu-panels { min-height: 420px; }
+  .galerie-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 220px);
+  }
+  .galerie-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  .galerie-item:nth-child(2) { grid-column: span 2; }
+  .galerie-item:nth-child(5) { grid-column: span 1; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  section { padding: 80px 0; }
+  .container { padding: 0 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .form-wrap { padding: 36px 28px; }
+}
+@media (max-width: 540px) {
+  .spec-grid { grid-template-columns: 1fr; }
+  .quickbar-grid { grid-template-columns: 1fr; gap: 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">Le<span> · </span>Midi</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#histoire">Histoire</a></li>
+      <li><a href="#cuisine">Cuisine</a></li>
+      <li><a href="#menu">Carte</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn nav-cta">Réserver</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <span class="hero-tag">Place du Midi · Sion · 7 jours sur 7</span>
+    <h1>La table <em>conviviale</em><br>au cœur de Sion.</h1>
+    <p class="hero-sub">Fondues qui mijotent, croûtes dorées, tartare préparé minute. Une cuisine de bistrot qui prend son temps, sur l'une des plus belles terrasses de la vieille ville.</p>
+    <div class="hero-cta-group">
+      <a href="#contact" class="btn">Réserver une table</a>
+      <a href="#menu" class="btn btn-ghost">Voir la carte</a>
+    </div>
+  </div>
+  <div class="hero-scroll">↓ &nbsp; Découvrir</div>
+</header>
+
+<!-- ═══════ QUICKBAR ═══════ -->
+<div class="quickbar">
+  <div class="container">
+    <div class="quickbar-grid">
+      <div class="quickbar-item">
+        <div class="label">Adresse</div>
+        <div class="value">Place du Midi 30</div>
+      </div>
+      <div class="quickbar-item">
+        <div class="label">Ouvert</div>
+        <div class="value">7j/7 · Midi & Soir</div>
+      </div>
+      <div class="quickbar-item">
+        <div class="label">Téléphone</div>
+        <div class="value"><a href="tel:+41275588102">+41 27 558 81 02</a></div>
+      </div>
+      <div class="quickbar-item">
+        <div class="label">Note TheFork</div>
+        <div class="value">★ 9,2 / 10</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ HISTOIRE ═══════ -->
+<section id="histoire" class="histoire">
+  <div class="container">
+    <div class="histoire-grid">
+      <div class="histoire-text reveal">
+        <span class="section-eyebrow">Notre maison</span>
+        <h2 class="section-title">Une nouvelle adresse, <em>un esprit d'autrefois</em>.</h2>
+        <p>Au numéro 30 de la Place du Midi, on a poussé les portes d'une maison faite pour se retrouver. Tables en bois, lumière chaude, brouhaha de fourchettes : Le Midi a ouvert fin 2024 avec une seule envie, faire de Sion une ville où l'on reste à table après le café.</p>
+        <p>Nathalie et Pascal accueillent chaque service avec le même soin. Une cuisine qui mélange ce que le Valais a de meilleur, les classiques français et un soupçon d'Italie pour la générosité. Pas de chichi, juste ce qu'il faut de bien fait.</p>
+        <div class="histoire-quote">"On voulait un endroit où l'on entre pour manger et où l'on reste pour discuter."</div>
+        <div class="histoire-signature">— Nathalie Moos<small>Patronne · Le Midi, Sion</small></div>
+      </div>
+      <div class="histoire-img reveal">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=80" alt="Salle chaleureuse du restaurant Le Midi à Sion" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SPECIALITES ═══════ -->
+<section id="cuisine" class="specialites">
+  <div class="container">
+    <div style="text-align:center; max-width:720px; margin:0 auto 60px;">
+      <span class="section-eyebrow">Nos spécialités</span>
+      <h2 class="section-title">Le meilleur du <em>terroir et de la convivialité</em>.</h2>
+      <p class="section-intro" style="margin: 0 auto;">Quatre piliers, une seule promesse : que vous repartiez avec l'envie de revenir.</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-card reveal">
+        <div class="spec-icon">F</div>
+        <h3>Fondues</h3>
+        <p>Moitié-moitié au feu de bois, bourguignonne, chinoise. Le caquelon qui tourne, les couteaux qui s'entrechoquent, le rituel.</p>
+      </div>
+      <div class="spec-card reveal">
+        <div class="spec-icon">V</div>
+        <h3>Croûtes & Rösti</h3>
+        <p>La croûte au fromage maison, gratinée à point. Le rösti croustillant, oeuf coulant, jambon de la vallée. Les classiques que l'on attend.</p>
+      </div>
+      <div class="spec-card reveal">
+        <div class="spec-icon">T</div>
+        <h3>Tartares & viandes</h3>
+        <p>Tartare préparé devant vous, entrecôte café de Paris, filet sauce poivre. Pour ceux qui aiment quand ça a du caractère.</p>
+      </div>
+      <div class="spec-card reveal">
+        <div class="spec-icon">M</div>
+        <h3>Marché du jour</h3>
+        <p>Chaque jour, une ardoise qui change selon ce qui est beau au marché de Sion. Une page d'écriture, jamais la même histoire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ MENU ═══════ -->
+<section id="menu" class="menu-section">
+  <div class="container">
+    <div style="text-align:center; max-width:720px; margin:0 auto 70px;">
+      <span class="section-eyebrow">Notre carte</span>
+      <h2 class="section-title">Les <em>incontournables</em> de la maison.</h2>
+      <p class="section-intro" style="margin: 0 auto;">Une sélection qui évolue au fil des saisons. La carte complète et l'ardoise du jour vous attendent sur place.</p>
+    </div>
+
+    <div class="menu-tabs" role="tablist">
+      <button class="menu-tab active" data-target="panel-entrees" role="tab">Entrées</button>
+      <button class="menu-tab" data-target="panel-croutes" role="tab">Croûtes & Rösti</button>
+      <button class="menu-tab" data-target="panel-fondues" role="tab">Fondues</button>
+      <button class="menu-tab" data-target="panel-viandes" role="tab">Viandes</button>
+      <button class="menu-tab" data-target="panel-pates" role="tab">Pâtes & Riz</button>
+      <button class="menu-tab" data-target="panel-desserts" role="tab">Desserts</button>
+    </div>
+
+    <div class="menu-panels">
+
+      <!-- Entrées -->
+      <div class="menu-panel active" id="panel-entrees" role="tabpanel">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Assiette valaisanne</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 24</span>
+            </div>
+            <p class="menu-item-desc">Viande séchée du Valais AOP, lard sec, jambon cru, fromage d'alpage, cornichons et oignons au vinaigre.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Maison</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Soupe du jour</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 9</span>
+            </div>
+            <p class="menu-item-desc">Préparée chaque matin avec les légumes de saison. Pain de campagne grillé en accompagnement.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Salade de chèvre chaud</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 18</span>
+            </div>
+            <p class="menu-item-desc">Mesclun du marché, toasts de chèvre fondant, miel de la vallée, noix grillées, vinaigrette balsamique.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Végétarien</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Carpaccio de boeuf</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 21</span>
+            </div>
+            <p class="menu-item-desc">Fines tranches de boeuf, copeaux de parmesan, roquette, huile d'olive citronnée, fleur de sel.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Tartare de saumon</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 22</span>
+            </div>
+            <p class="menu-item-desc">Saumon frais coupé au couteau, citron vert, aneth, échalotes, toasts grillés.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Foie gras maison</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 26</span>
+            </div>
+            <p class="menu-item-desc">Foie gras mi-cuit aux figues confites, chutney d'oignon rouge, brioche toastée tiède.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Croûtes & Rösti -->
+      <div class="menu-panel" id="panel-croutes" role="tabpanel">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Croûte au fromage</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 19.50</span>
+            </div>
+            <p class="menu-item-desc">Pain de campagne imbibé de vin blanc, recouvert de fromage à raclette gratiné au four. Le classique.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Signature</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Croûte jambon & oeufs</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 22</span>
+            </div>
+            <p class="menu-item-desc">La croûte au fromage généreusement garnie de jambon de la région et de deux oeufs au plat.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Croûte forestière</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 23.50</span>
+            </div>
+            <p class="menu-item-desc">Croûte au fromage, champignons sauvages poêlés à l'ail et au persil, jambon cru en chiffonnade.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Saison</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Rösti jambon & oeufs</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 21.50</span>
+            </div>
+            <p class="menu-item-desc">Galette de pommes de terre dorée au beurre, jambon de la vallée, deux oeufs miroir.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Signature</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Rösti au fromage</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 22</span>
+            </div>
+            <p class="menu-item-desc">Rösti croustillant, généreusement gratiné au raclette du Valais. Servi avec cornichons et oignons.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Végétarien</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Rösti du chasseur</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 26</span>
+            </div>
+            <p class="menu-item-desc">Rösti, émincé de boeuf à la zurichoise, champignons à la crème, persil plat.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fondues -->
+      <div class="menu-panel" id="panel-fondues" role="tabpanel">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Fondue moitié-moitié</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 27</span>
+            </div>
+            <p class="menu-item-desc">Gruyère AOP et vacherin fribourgeois, vin blanc du Valais, ail, kirsch. La référence, à partager.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Signature</span><span class="menu-tag">Par personne</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Fondue aux bolets</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 32</span>
+            </div>
+            <p class="menu-item-desc">Notre fondue moitié-moitié relevée d'une poêlée de bolets et d'un trait de Fendant.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Par personne</span><span class="menu-tag">Saison</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Fondue à la tomate</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 29</span>
+            </div>
+            <p class="menu-item-desc">Fondue au fromage, tomates concassées maison, basilic frais. Plus fruitée, plus douce.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Par personne</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Fondue bourguignonne</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 42</span>
+            </div>
+            <p class="menu-item-desc">Filet de boeuf coupé en cubes, huile chaude, six sauces maison (cocktail, tartare, curry, poivre, béarnaise, ail).</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Signature</span><span class="menu-tag">Par personne</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Fondue chinoise</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 39</span>
+            </div>
+            <p class="menu-item-desc">Lamelles fines de boeuf et veau pochées dans un bouillon parfumé, légumes croquants, six sauces maison.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Par personne</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Fondue bacchus</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 41</span>
+            </div>
+            <p class="menu-item-desc">Boeuf et veau pochés dans un bouillon au Fendant du Valais, légumes du marché, sauces maison.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Par personne</span><span class="menu-tag">Spécialité</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Viandes -->
+      <div class="menu-panel" id="panel-viandes" role="tabpanel">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Entrecôte café de Paris</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 38</span>
+            </div>
+            <p class="menu-item-desc">Entrecôte de boeuf 220g, beurre café de Paris maison, frites fraîches, salade verte.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Signature</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Tartare de boeuf</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 32</span>
+            </div>
+            <p class="menu-item-desc">Filet de boeuf coupé au couteau, assaisonné devant vous selon votre goût, toasts et salade.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Préparé minute</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Filet de boeuf sauce poivre</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 46</span>
+            </div>
+            <p class="menu-item-desc">Filet 180g grillé à votre cuisson, sauce poivre vert au cognac, pommes grenaille rôties, légumes glacés.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Cordon bleu de veau</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 36</span>
+            </div>
+            <p class="menu-item-desc">Escalope de veau garnie au jambon cru et fromage à raclette, panure dorée, frites maison.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Émincé de veau zurichois</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 34</span>
+            </div>
+            <p class="menu-item-desc">Veau émincé, champignons à la crème, vin blanc, rösti croustillant traditionnel.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Filets de perche du Léman</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 35</span>
+            </div>
+            <p class="menu-item-desc">Filets de perche meunière, citron, persil, pommes nature ou frites, sauce tartare maison.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pâtes & Riz -->
+      <div class="menu-panel" id="panel-pates" role="tabpanel">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Riz casimir</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 23.50</span>
+            </div>
+            <p class="menu-item-desc">Émincé de poulet sauce curry à la crème, ananas, banane, pêche, amandes effilées, riz basmati.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Signature</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Tagliatelles bolognaise</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 22</span>
+            </div>
+            <p class="menu-item-desc">Pâtes fraîches, ragoût de boeuf mijoté quatre heures, parmesan râpé, basilic frais.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Tagliatelles aux champignons</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 24</span>
+            </div>
+            <p class="menu-item-desc">Pâtes fraîches, champignons de saison, crème, ail, persil, copeaux de parmesan.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Végétarien</span><span class="menu-tag">Saison</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Spaghetti carbonara</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 21</span>
+            </div>
+            <p class="menu-item-desc">Recette romaine traditionnelle, lard fumé, jaunes d'oeufs, pecorino, poivre noir.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Risotto aux bolets</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 28</span>
+            </div>
+            <p class="menu-item-desc">Riz Carnaroli, bolets frais, parmesan vieilli, beurre, persil. Crémeux et parfumé.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Saison</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Lasagnes maison</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 23</span>
+            </div>
+            <p class="menu-item-desc">Pâtes fraîches, ragoût bolognaise, béchamel onctueuse, gratin de mozzarella et parmesan.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desserts -->
+      <div class="menu-panel" id="panel-desserts" role="tabpanel">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Crème brûlée</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 11</span>
+            </div>
+            <p class="menu-item-desc">Crème vanille de Madagascar, caramélisée minute à la fleur de sel.</p>
+            <div class="menu-item-tags"><span class="menu-tag hot">Maison</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Mousse au chocolat</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 10</span>
+            </div>
+            <p class="menu-item-desc">Chocolat noir 70%, mousse aérienne, copeaux de chocolat, crème chantilly.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Tiramisu</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 11</span>
+            </div>
+            <p class="menu-item-desc">Mascarpone fouetté, biscuits trempés au café, cacao amer. La recette italienne, simple et juste.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Coupe Danemark</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 12</span>
+            </div>
+            <p class="menu-item-desc">Glace vanille, chocolat chaud du Valais, amandes effilées, chantilly maison.</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Café gourmand</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">CHF 13</span>
+            </div>
+            <p class="menu-item-desc">Espresso accompagné de trois mignardises du jour : crème brûlée, mousse au chocolat, panna cotta.</p>
+            <div class="menu-item-tags"><span class="menu-tag">Pour tester</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-head">
+              <h4>Glaces et sorbets</h4>
+              <span class="menu-item-dots"></span>
+              <span class="menu-item-price">dès CHF 4</span>
+            </div>
+            <p class="menu-item-desc">Trois boules au choix, parfums du jour, chantilly en supplément.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-footer">
+      <p>"Une table bien dressée, c'est déjà la moitié du repas."</p>
+      <a href="#contact" class="btn">Réserver votre table</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ GALERIE ═══════ -->
+<section id="galerie" class="galerie">
+  <div class="container">
+    <div style="text-align:center; max-width:720px; margin:0 auto 50px;">
+      <span class="section-eyebrow">L'ambiance</span>
+      <h2 class="section-title">Le Midi <em>en images</em>.</h2>
+    </div>
+    <div class="galerie-grid">
+      <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80" alt="Fondue au fromage qui mijote" loading="lazy" /></div>
+      <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80" alt="Salle chaleureuse du restaurant" loading="lazy" /></div>
+      <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1000&q=80" alt="Entrecôte et frites maison" loading="lazy" /></div>
+      <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=1000&q=80" alt="Planche valaisanne et vin du pays" loading="lazy" /></div>
+      <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80" alt="Terrasse en fin de journée" loading="lazy" /></div>
+      <div class="galerie-item reveal"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=80" alt="Verre de vin valaisan" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TEMOIGNAGES ═══════ -->
+<section class="temoignages">
+  <div class="container">
+    <div style="text-align:center; max-width:720px; margin:0 auto 50px;">
+      <span class="section-eyebrow">Ils en parlent</span>
+      <h2 class="section-title">Ce que <em>nos hôtes</em> retiennent.</h2>
+    </div>
+    <div class="temoignages-grid">
+      <div class="temoignage reveal">
+        <div class="temoignage-stars">★★★★★</div>
+        <p>"Une nouvelle adresse à Sion, avec une grande terrasse, un accueil souriant et un très bon rapport qualité-prix. La croûte au fromage est généreuse, on a passé un super moment."</p>
+        <div class="temoignage-author">Caroline B.<small>Sion · Avis Tripadvisor</small></div>
+      </div>
+      <div class="temoignage reveal">
+        <div class="temoignage-stars">★★★★★</div>
+        <p>"Fondue moitié-moitié excellente, vin du Valais à la carte des verres, service efficace et chaleureux. On reviendra tester la bourguignonne en hiver."</p>
+        <div class="temoignage-author">Jérôme P.<small>Martigny · Avis TheFork</small></div>
+      </div>
+      <div class="temoignage reveal">
+        <div class="temoignage-stars">★★★★★</div>
+        <p>"Bien situé en plein centre, la terrasse est parfaite pour un déjeuner au soleil. Tartare préparé à table, comme on aimait avant. Bravo à toute l'équipe."</p>
+        <div class="temoignage-author">Famille D.<small>Sierre · Avril 2026</small></div>
+      </div>
+    </div>
+    <div class="temoignages-footer">
+      <div class="temoignages-rating">
+        <strong>9,2</strong>
+        <div>★★★★★<br><span style="font-size:12px;color:var(--muted);letter-spacing:0.05em;">Note moyenne TheFork</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ RESERVATION ═══════ -->
+<section id="contact" class="reservation">
+  <div class="container">
+    <div style="text-align:center; max-width:720px; margin:0 auto 60px;">
+      <span class="section-eyebrow">Réservation</span>
+      <h2 class="section-title">Venez <em>passer un moment</em> au Midi.</h2>
+    </div>
+
+    <div class="reservation-grid">
+      <div class="reservation-info reveal">
+        <div class="info-block">
+          <div class="info-label">Adresse</div>
+          <div class="info-content"><strong>Place du Midi 30</strong><br>1950 Sion · Valais<br>Suisse<br><br><a href="https://maps.google.com/?q=Place+du+Midi+30+1950+Sion" target="_blank" rel="noopener" style="color:var(--bordeaux);text-decoration:underline;">Itinéraire Google Maps →</a></div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Horaires</div>
+          <div class="info-content">
+            <strong>Lundi au dimanche</strong><br>
+            Établissement · 10h30 – 14h30 / 17h30 – 23h00<br>
+            Cuisine · 11h30 – 14h00 / 18h30 – 22h00<br><br>
+            <em style="color:var(--bordeaux);font-style:normal;font-weight:500;">Ouvert 7 jours sur 7, y compris le dimanche.</em>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Téléphone</div>
+          <div class="info-content"><strong><a href="tel:+41275588102" style="color:var(--ink);">+41 27 558 81 02</a></strong><br>Pour les réservations le jour même.</div>
+        </div>
+        <div class="info-block">
+          <div class="info-label">Email</div>
+          <div class="info-content"><strong><a href="mailto:info@le-midi.ch" style="color:var(--ink);">info@le-midi.ch</a></strong></div>
+        </div>
+      </div>
+
+      <div class="form-wrap reveal">
+        <h3>Réservez <em>en ligne</em></h3>
+        <p>Une réponse vous parvient dans la journée. Pour le soir même, un coup de fil reste le plus rapide.</p>
+        <form onsubmit="event.preventDefault(); alert('Démonstration NB-Design. Le formulaire sera connecté à Formspree dans la version live.');">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Prénom</label>
+              <input type="text" required placeholder="Marie" />
+            </div>
+            <div class="form-group">
+              <label>Nom</label>
+              <input type="text" required placeholder="Dupont" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" required placeholder="marie@email.ch" />
+            </div>
+            <div class="form-group">
+              <label>Téléphone</label>
+              <input type="tel" required placeholder="+41 79 ..." />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" required />
+            </div>
+            <div class="form-group">
+              <label>Personnes</label>
+              <select required>
+                <option>2 personnes</option>
+                <option>3 personnes</option>
+                <option>4 personnes</option>
+                <option>5 personnes</option>
+                <option>6 personnes</option>
+                <option>7 personnes et plus</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Service</label>
+              <select required>
+                <option>Midi</option>
+                <option>Soir</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Heure souhaitée</label>
+              <input type="time" required value="19:30" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Message (facultatif)</label>
+            <textarea placeholder="Allergies, occasion particulière, demande spéciale..."></textarea>
+          </div>
+          <button type="submit" class="btn">Demander la réservation →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Le<span> · </span>Midi</div>
+        <p>La table conviviale au coeur de Sion. Cuisine valaisanne, française et italienne, sur la Place du Midi.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Découvrir</h4>
+        <ul>
+          <li><a href="#histoire">Notre maison</a></li>
+          <li><a href="#cuisine">Spécialités</a></li>
+          <li><a href="#menu">La carte</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>Place du Midi 30</li>
+          <li>1950 Sion</li>
+          <li><a href="tel:+41275588102">+41 27 558 81 02</a></li>
+          <li><a href="mailto:info@le-midi.ch">info@le-midi.ch</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Suivez-nous</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/p/Le-Midi-61571403717680/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.thefork.ch/restaurant/le-midi-r840053" target="_blank" rel="noopener">TheFork</a></li>
+          <li><a href="https://www.tripadvisor.com/Restaurant_Review-g188097-d33234809-Reviews-Le_Midi-Sion_Canton_of_Valais_Swiss_Alps.html" target="_blank" rel="noopener">Tripadvisor</a></li>
+          <li><a href="https://maps.google.com/?q=Place+du+Midi+30+1950+Sion" target="_blank" rel="noopener">Google Maps</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Le Midi · Place du Midi 30, 1950 Sion · Tous droits réservés</div>
+      <div>Site créé par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const menuTabs = document.querySelectorAll('.menu-tab');
+const menuPanels = document.querySelectorAll('.menu-panel');
+menuTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const targetId = tab.dataset.target;
+    menuTabs.forEach(t => t.classList.remove('active'));
+    menuPanels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(targetId).classList.add('active');
+  });
+});
+
+const dateInput = document.querySelector('input[type="date"]');
+if (dateInput) {
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.min = today;
+  dateInput.value = today;
+}
+</script>
+
+</body>
+</html>
