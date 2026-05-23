@@ -1,373 +1,2154 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="L'Enclos de Valère, table gastronomique à Sion. 14 points Gault Millau, Chaîne des Rôtisseurs. Jardin-terrasse au pied des châteaux." />
-  <meta name="theme-color" content="#1a1612" />
+  <meta name="description" content="L'Enclos de Valère, restaurant gastronomique à Sion. Cuisine du terroir valaisan, jardin-terrasse romantique au pied des châteaux. Réservations : +41 27 323 32 30." />
+  <meta name="keywords" content="restaurant Sion, gastronomique Valais, terrasse jardin, Enclos de Valère, boeuf Hérens, cuisine suisse romande" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#061410" />
   <meta name="robots" content="noindex, nofollow" />
 
-  <meta property="og:title" content="L'Enclos de Valère — Sion" />
-  <meta property="og:description" content="Table gastronomique au pied des châteaux de Valère et Tourbillon." />
+  <meta property="og:title" content="L'Enclos de Valère — Restaurant gastronomique, Sion" />
+  <meta property="og:description" content="Table de référence au pied des châteaux de Valère et Tourbillon. Cuisine du terroir valaisan, jardin-terrasse romantique." />
   <meta property="og:type" content="restaurant" />
   <meta property="og:locale" content="fr_CH" />
 
-  <title>L'Enclos de Valère — Restaurant gastronomique à Sion</title>
+  <title>L'Enclos de Valère — Restaurant gastronomique, Sion (Valais)</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "L'Enclos de Valère",
+    "description": "Restaurant gastronomique au pied des châteaux de Valère et Tourbillon à Sion, cuisine du terroir valaisan.",
+
+    "telephone": "+41273233230",
+    "email": "restaurant@enclosdevalere.ch",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rue des Châteaux 18",
+      "addressLocality": "Sion",
+      "postalCode": "1950",
+      "addressCountry": "CH"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 46.2298, "longitude": 7.3672 },
+    "servesCuisine": ["Gastronomique", "Cuisine du terroir", "Suisse romande"],
+    "priceRange": "CHF CHF",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "11:00", "closes": "14:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "17:00", "closes": "23:30" }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ====== RESET & BASE ====== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--cream);
+      background: var(--bg-dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea, select { font: inherit; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ====== TOKENS ====== */
+    :root {
+      --green-deep: #061410;
+      --green-dark: #0d1f16;
+      --green-mid: #183322;
+      --green-accent: #2e6845;
+      --green-light: #52a070;
+      --green-glow: #7dc99a;
+      --gold: #c9a84c;
+      --gold-light: #e8cc7f;
+      --cream: #f5f0e8;
+      --cream-soft: #ede7d9;
+      --text-muted: rgba(245, 240, 232, 0.62);
+      --text-dim: rgba(245, 240, 232, 0.38);
+      --bg-dark: #040a06;
+      --border-soft: rgba(245, 240, 232, 0.07);
+      --border-medium: rgba(245, 240, 232, 0.13);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      --section-py: clamp(5rem, 10vw, 9rem);
+      --container-max: 1280px;
+      --container-px: clamp(1.25rem, 4vw, 3rem);
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    /* ====== LAYOUT ====== */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding-left: var(--container-px);
+      padding-right: var(--container-px);
+      width: 100%;
+    }
+    section {
+      position: relative;
+      padding-top: var(--section-py);
+      padding-bottom: var(--section-py);
+    }
+
+    /* ====== TYPOGRAPHY ====== */
+    .eyebrow {
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      display: inline-block;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      margin-bottom: 1.25rem;
+    }
+    .section-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+    .section-subtitle {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(1rem, 1.4vw, 1.1rem);
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 600px;
+    }
+    .section-header { margin-bottom: 4rem; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-subtitle { margin: 0 auto; }
+    .section-header.centered .eyebrow { margin-left: auto; margin-right: auto; }
+
+    /* ====== BUTTONS ====== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.65rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.92rem;
+      letter-spacing: 0.03em;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.35s var(--ease-out), background 0.3s, border-color 0.3s, box-shadow 0.45s;
+      white-space: nowrap;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #a07830);
+      color: #1a1005;
+      font-weight: 600;
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      box-shadow: 0 8px 32px rgba(201, 168, 76, 0.18);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.35);
+    }
+    .btn-ghost {
+      background: rgba(245, 240, 232, 0.04);
+      color: var(--cream);
+      border: 1px solid var(--border-medium);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover {
+      background: rgba(245, 240, 232, 0.09);
+      border-color: rgba(245, 240, 232, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ====== HEADER ====== */
+    .header {
+      position: fixed;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 1.5rem);
+      max-width: 1200px;
+      transition: top 0.4s var(--ease-out), background 0.4s, border-color 0.4s, box-shadow 0.4s;
+      background: rgba(6, 20, 16, 0.55);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-medium);
+      border-radius: 9999px;
+      padding: 0.45rem 0.5rem 0.45rem 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+    .header.scrolled {
+      top: 0.75rem;
+      background: rgba(6, 20, 16, 0.9);
+      border-color: rgba(245, 240, 232, 0.16);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+    .header .container { max-width: none; padding: 0; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: 0.01em;
+      color: var(--cream);
+      white-space: nowrap;
+    }
+    .logo em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .nav-links { display: none; gap: 2rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      transition: color 0.3s;
+      padding: 0.4rem 0;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.35s var(--ease-out);
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-right { display: flex; align-items: center; gap: 0.75rem; }
+    .lang-toggle { display: flex; align-items: center; gap: 0.25rem; }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 0.25rem 0.4rem;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang-btn:hover { color: var(--cream); }
+    .lang-btn.active { color: var(--gold); }
+    .lang-sep { color: var(--text-dim); font-size: 0.7rem; }
+    .nav-cta { display: none; padding: 0.6rem 1.2rem; font-size: 0.82rem; }
+    .burger {
+      width: 44px; height: 44px;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .burger:hover { background: rgba(245,240,232,0.05); border-color: rgba(245,240,232,0.25); }
+    .burger-bars { width: 18px; height: 12px; position: relative; }
+    .burger-bars span {
+      position: absolute; left: 0; right: 0;
+      height: 1.5px; background: var(--cream); border-radius: 2px;
+      transition: transform 0.35s var(--ease-out), opacity 0.25s, top 0.35s var(--ease-out);
+    }
+    .burger-bars span:nth-child(1) { top: 0; }
+    .burger-bars span:nth-child(2) { top: 5px; }
+    .burger-bars span:nth-child(3) { top: 10px; }
+    .burger.open .burger-bars span:nth-child(1) { top: 5px; transform: rotate(45deg); }
+    .burger.open .burger-bars span:nth-child(2) { opacity: 0; }
+    .burger.open .burger-bars span:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+
+    /* ====== MOBILE MENU ====== */
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      background: rgba(4, 10, 6, 0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 90;
+      display: flex;
+      align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s var(--ease-out), visibility 0.4s;
+    }
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+    .mobile-menu-inner { display: flex; flex-direction: column; gap: 2.5rem; text-align: center; align-items: center; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 2.2rem;
+      color: var(--cream);
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--gold-light); }
+    .mobile-lang { display: flex; gap: 1rem; margin-top: 1rem; }
+    .mobile-lang button {
+      background: none; border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      padding: 0.5rem 1.2rem;
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .mobile-lang button.active { color: var(--gold); border-color: var(--gold); }
+    .mobile-lang button:hover { color: var(--cream); border-color: var(--cream-soft); }
+
+    /* ====== HERO ====== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1920&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to bottom, rgba(4,10,6,0.55) 0%, rgba(4,10,6,0.2) 40%, rgba(4,10,6,0.6) 80%, rgba(4,10,6,0.95) 100%),
+        linear-gradient(to right, rgba(4,10,6,0.5) 0%, transparent 50%);
+    }
+    .hero-glows {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-glow-1 {
+      position: absolute;
+      top: 20%; left: 15%;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.09) 0%, transparent 70%);
+      filter: blur(40px);
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      bottom: 25%; right: 10%;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(46, 104, 69, 0.15) 0%, transparent 70%);
+      filter: blur(50px);
+      animation: glowPulse 8s ease-in-out 2s infinite;
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.7; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.1); }
+    }
+    .hero-overlay-top {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, var(--bg-dark) 0%, transparent 100%);
+      pointer-events: none; z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 1.2rem;
+      background: rgba(245, 240, 232, 0.05);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.3s forwards;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.35; }
+    }
+    .hero-badge span {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3.2rem, 9vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35em;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.2s var(--ease-out) 0.5s forwards;
+    }
+    .hero-title-main {
+      display: block;
+      background: linear-gradient(135deg, var(--cream) 0%, rgba(245,240,232,0.85) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-title-accent {
+      display: block;
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 60%, #a07830 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      font-weight: 300;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.75s forwards;
+    }
+    .hero-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-out) 0.95s forwards;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease-out) 1.4s forwards;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(1); opacity: 0.5; }
+      50%       { transform: scaleY(0.5); opacity: 1; }
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ====== ABOUT ====== */
+    .about { background: var(--bg-dark); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-photo-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .about-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.3), transparent 60%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .about-photo {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      display: block;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 1.5rem; left: 1.5rem;
+      background: rgba(4, 10, 6, 0.85);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.25rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 2;
+    }
+    .about-badge-title { font-family: var(--font-display); font-size: 1rem; font-style: italic; color: var(--gold-light); }
+    .about-badge-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .about-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.25rem; }
+    .about-text p:last-child { margin-bottom: 0; }
+    .chef-row { display: flex; align-items: center; gap: 1rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border-soft); }
+    .chef-avatars { display: flex; }
+    .chef-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: 2px solid var(--green-dark);
+      overflow: hidden;
+      background: var(--green-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--gold-light);
+    }
+    .chef-avatar:nth-child(2) { margin-left: -12px; }
+    .chef-info { font-size: 0.88rem; }
+    .chef-names { font-weight: 500; color: var(--cream); }
+    .chef-role { color: var(--text-muted); font-size: 0.8rem; }
+
+    /* ====== MENU ====== */
+    .menu-section { background: var(--green-deep); }
+    .menu-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .menu-tab {
+      padding: 0.6rem 1.4rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-medium);
+      background: none;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .menu-tab:hover { color: var(--cream); border-color: rgba(245,240,232,0.25); }
+    .menu-tab.active {
+      background: rgba(201, 168, 76, 0.12);
+      border-color: rgba(201, 168, 76, 0.45);
+      color: var(--gold-light);
+    }
+    .menu-panel { display: none; }
+    .menu-panel.active { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border-soft); border-radius: var(--radius-lg); overflow: hidden; }
+    .menu-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.5rem 1.75rem;
+      background: rgba(13, 31, 22, 0.6);
+      transition: background 0.3s;
+    }
+    .menu-item:hover { background: rgba(13, 31, 22, 0.95); }
+    .menu-item-text { flex: 1; }
+    .menu-item-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--cream); margin-bottom: 0.25rem; }
+    .menu-item-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .menu-item-tag { font-size: 0.72rem; color: var(--green-glow); background: rgba(125, 201, 154, 0.1); padding: 0.15rem 0.5rem; border-radius: 4px; display: inline-block; margin-top: 0.4rem; }
+    .menu-item-price { font-family: var(--font-display); font-size: 1.1rem; color: var(--gold); white-space: nowrap; font-weight: 400; }
+    .menu-formule-note { margin-top: 2rem; padding: 1.5rem; background: rgba(201, 168, 76, 0.06); border: 1px solid rgba(201, 168, 76, 0.2); border-radius: var(--radius-md); }
+    .menu-formule-note p { font-size: 0.9rem; color: var(--text-muted); }
+    .menu-formule-note strong { color: var(--gold-light); }
+
+    /* ====== GALLERY ====== */
+    .gallery { background: var(--bg-dark); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 0.75rem;
+    }
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+    .gallery-item:first-child { grid-column: span 2; }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      transition: transform 0.6s var(--ease-out);
+      display: block;
+    }
+    .gallery-item:first-child img { aspect-ratio: 21/9; }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(4,10,6,0.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.25rem;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-label { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--cream-soft); }
+
+    /* ====== TESTIMONIALS ====== */
+    .testimonials { background: var(--green-deep); }
+    .testi-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .testi-card {
+      background: rgba(13, 31, 22, 0.5);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .testi-card:hover { border-color: rgba(201,168,76,0.2); transform: translateY(-3px); }
+    .testi-stars { display: flex; gap: 0.25rem; margin-bottom: 1.25rem; }
+    .testi-star { color: var(--gold); font-size: 0.9rem; }
+    .testi-text { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; line-height: 1.65; color: var(--cream-soft); margin-bottom: 1.5rem; }
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testi-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+    .testi-name { font-weight: 500; font-size: 0.88rem; color: var(--cream); }
+    .testi-location { font-size: 0.78rem; color: var(--text-muted); }
+    .testi-source { margin-left: auto; font-size: 0.72rem; color: var(--text-dim); }
+
+    /* ====== RESERVATION ====== */
+    .reservation { background: var(--bg-dark); }
+    .resa-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .resa-info h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; margin-bottom: 1rem; }
+    .resa-info p { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
+    .resa-tel {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .resa-tel-icon { color: var(--gold); }
+    .resa-hours { font-size: 0.85rem; color: var(--text-muted); }
+    .resa-form { display: grid; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .field label { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .field input, .field select, .field textarea {
+      background: rgba(245, 240, 232, 0.04);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      font-size: 0.95rem;
+      color: var(--cream);
+      transition: border-color 0.3s, background 0.3s;
+      width: 100%;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: rgba(201, 168, 76, 0.5);
+      background: rgba(245, 240, 232, 0.07);
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--text-dim); }
+    .field select option { background: var(--green-dark); color: var(--cream); }
+    .field textarea { resize: vertical; min-height: 110px; }
+    .form-note { font-size: 0.78rem; color: var(--text-dim); }
+    .form-success { display: none; padding: 1rem 1.5rem; background: rgba(125,201,154,0.1); border: 1px solid rgba(125,201,154,0.3); border-radius: var(--radius-md); color: var(--green-glow); font-size: 0.9rem; }
+
+    /* ====== CUSTOM DATE PICKER ====== */
+    .date-picker-wrap { position: relative; }
+    .date-trigger {
+      width: 100%;
+      background: rgba(245, 240, 232, 0.04);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      color: var(--cream);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: border-color 0.3s, background 0.3s;
+      text-align: left;
+    }
+    .date-trigger:hover, .date-trigger:focus {
+      border-color: rgba(201, 168, 76, 0.5);
+      background: rgba(245, 240, 232, 0.07);
+      outline: none;
+    }
+    .date-display { font-size: 0.95rem; }
+    .date-display.placeholder-text { color: var(--text-dim); }
+    .date-trigger svg { flex-shrink: 0; color: var(--gold); opacity: 0.7; }
+    .cal-popup {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      z-index: 200;
+      background: var(--green-dark);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      min-width: 272px;
+      display: none;
+    }
+    .cal-popup.open { display: block; }
+    .cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+    .cal-nav {
+      background: none; border: none;
+      color: var(--gold); font-size: 1.5rem; line-height: 1;
+      cursor: pointer; padding: 0.1rem 0.5rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s;
+    }
+    .cal-nav:hover { background: rgba(201, 168, 76, 0.12); }
+    .cal-month-label { font-family: var(--font-display); font-size: 1.05rem; color: var(--cream); }
+    .cal-days-header { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; margin-bottom: 0.35rem; }
+    .cal-day-name { font-size: 0.68rem; color: var(--text-dim); padding: 0.2rem 0; text-transform: uppercase; letter-spacing: 0.04em; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+    .cal-cell {
+      text-align: center; padding: 0.45rem 0;
+      border-radius: 6px; font-size: 0.875rem;
+      color: var(--cream); cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      user-select: none;
+    }
+    .cal-cell:hover:not(.disabled):not(.empty) { background: rgba(201,168,76,0.15); color: var(--gold-light); }
+    .cal-cell.today { color: var(--gold); font-weight: 600; }
+    .cal-cell.selected { background: var(--gold); color: #1a1005; font-weight: 600; }
+    .cal-cell.disabled { color: var(--text-dim); cursor: default; opacity: 0.3; }
+    .cal-cell.empty { cursor: default; }
+
+    /* ====== TIME PILLS ====== */
+    .time-groups { display: flex; flex-direction: column; gap: 0.9rem; }
+    .time-group-label { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .time-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .time-pill {
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      padding: 0.35rem 0.85rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      font-family: var(--font-body);
+    }
+    .time-pill:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(201,168,76,0.07); }
+    .time-pill.selected { background: var(--gold); border-color: var(--gold); color: #1a1005; font-weight: 500; }
+
+    /* ====== CONTACT ====== */
+    .contact-section { background: var(--green-deep); }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+    .contact-info h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; margin-bottom: 1.5rem; }
+    .info-block { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .info-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-sm);
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+    .info-label { font-size: 0.75rem; font-weight: 500; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
+    .info-value { font-size: 0.95rem; color: var(--cream); line-height: 1.6; }
+    .info-value a { color: var(--cream); transition: color 0.2s; }
+    .info-value a:hover { color: var(--gold-light); }
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 1.5rem; }
+    .hours-day { font-size: 0.85rem; color: var(--text-muted); }
+    .hours-time { font-size: 0.85rem; color: var(--cream-soft); }
+    .closed { color: var(--text-dim); font-style: italic; }
+    .map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      height: 340px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+    .social-row { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .social-btn:hover { color: var(--cream); border-color: rgba(245,240,232,0.3); }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border-soft);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+    .footer-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--cream); }
+    .footer-logo em { font-style: italic; color: var(--gold-light); }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 0.82rem; color: var(--text-dim); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-muted); }
+    .footer-credit { font-size: 0.75rem; color: var(--text-dim); }
+    .footer-credit a { color: var(--gold); transition: opacity 0.2s; }
+    .footer-credit a:hover { opacity: 0.75; }
+
+    /* ====== WHATSAPP FLOAT ====== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      z-index: 50;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      display: flex;
+      align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+      color: #fff;
+    }
+    .whatsapp-float:hover { transform: scale(1.08); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.55); }
+    .whatsapp-float svg { width: 28px; height: 28px; }
+
+    /* ====== MENU EXTRAS ====== */
+    .menu-category-sep {
+      padding: 0.65rem 1.75rem;
+      background: rgba(201, 168, 76, 0.07);
+      border-left: 2px solid var(--gold);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .menu-gastronomique {
+      background: rgba(13, 31, 22, 0.7);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .menu-gast-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.75rem;
+      background: rgba(201, 168, 76, 0.08);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    }
+    .menu-gast-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .menu-gast-price {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .menu-gast-course {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1rem 1.75rem;
+      border-bottom: 1px solid var(--border-soft);
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .menu-gast-course:last-child { border-bottom: none; }
+    .menu-gast-course em { color: var(--cream-soft); font-style: italic; }
+    .course-label {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--gold);
+      font-weight: 500;
+      flex-shrink: 0;
+      width: 18px;
+      padding-top: 0.05rem;
+    }
+
+    /* ====== WINE SECTION ====== */
+    .wine-section { background: var(--bg-dark); }
+    .wine-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .wine-tab {
+      padding: 0.55rem 1.25rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-medium);
+      background: none;
+      cursor: pointer;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .wine-tab:hover { color: var(--cream); border-color: rgba(245,240,232,0.25); }
+    .wine-tab.active {
+      background: rgba(201, 168, 76, 0.12);
+      border-color: rgba(201, 168, 76, 0.45);
+      color: var(--gold-light);
+    }
+    .wine-panel { display: none; }
+    .wine-panel.active { display: block; }
+    .wine-category { margin-bottom: 2.5rem; }
+    .wine-category-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--gold-light);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .wine-category-title::before {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--gold);
+      display: inline-block;
+    }
+    .wine-header-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto auto auto;
+      gap: 0.5rem 1rem;
+      padding: 0.4rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .wine-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto auto auto;
+      gap: 0.35rem 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s;
+      align-items: baseline;
+    }
+    .wine-row:hover { background: rgba(245, 240, 232, 0.03); }
+    .wine-row + .wine-row { border-top: 1px solid var(--border-soft); }
+    .wine-name { font-size: 0.9rem; color: var(--cream); }
+    .wine-name small { display: block; font-size: 0.78rem; color: var(--text-muted); font-style: italic; margin-top: 0.1rem; }
+    .wine-vintage { font-size: 0.82rem; color: var(--text-muted); text-align: right; }
+    .wine-cave { font-size: 0.78rem; color: var(--text-dim); text-align: right; }
+    .wine-price {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--cream-soft);
+      text-align: right;
+      min-width: 52px;
+    }
+    .wine-price.empty { color: var(--text-dim); }
+    .wine-price-dash { color: var(--text-dim); font-size: 0.8rem; }
+
+    /* ====== FADE ANIMATIONS ====== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+
+    /* ====== RESPONSIVE ====== */
+    @media (min-width: 640px) {
+      .form-row { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .resa-wrap { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-item:first-child { grid-column: span 2; }
+    }
+    @media (min-width: 1024px) {
+      .nav-links { display: flex; }
+      .nav-cta { display: inline-flex; }
+      .burger { display: none; }
+      .testi-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+      .gallery-item:first-child { grid-column: span 2; grid-row: span 2; }
+      .gallery-item:first-child img { aspect-ratio: 1/1; height: 100%; }
+    }
+
+    /* ====== DIVIDER ====== */
+    .divider {
+      width: 60px; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      margin: 2rem 0;
+    }
+    .divider.centered { margin: 2rem auto; }
+  </style>
 </head>
 <body>
 
-<header class="site-header on-dark">
-  <div class="nav-inner">
-    <a href="index.html" class="brand">L'Enclos<small>de Valère · Sion</small></a>
-    <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="nav-links">
-      <a href="index.html" class="active">Accueil</a>
-      <a href="histoire.html">Histoire</a>
-      <a href="carte.html">La Carte</a>
-      <a href="galerie.html">Galerie</a>
-      <a href="reservation.html" class="nav-reserve">Réserver une table</a>
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="#" class="logo"><em>L'Enclos</em> de Valère</a>
+      <ul class="nav-links">
+        <li><a href="#about" class="t" data-fr="Notre histoire" data-de="Unsere Geschichte">Notre histoire</a></li>
+        <li><a href="#menu" class="t" data-fr="Carte" data-de="Speisekarte">Carte</a></li>
+        <li><a href="#gallery" class="t" data-fr="Galerie" data-de="Galerie">Galerie</a></li>
+        <li><a href="#vins" class="t" data-fr="Vins" data-de="Weine">Vins</a></li>
+        <li><a href="#contact" class="t" data-fr="Contact" data-de="Kontakt">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" onclick="setLang('de')">DE</button>
+        </div>
+        <a href="#reservation" class="btn btn-primary nav-cta t" data-fr="Réserver" data-de="Reservieren">Réserver</a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <div class="burger-bars">
+            <span></span><span></span><span></span>
+          </div>
+        </button>
+      </div>
     </nav>
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="hero-art" aria-hidden="true">
-    <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMax slice">
-      <defs>
-        <linearGradient id="hill" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stop-color="#3a4a36" stop-opacity="0.7"/>
-          <stop offset="1" stop-color="#1a201a" stop-opacity="0"/>
-        </linearGradient>
-        <linearGradient id="castle" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stop-color="#5a4523" stop-opacity="0.5"/>
-          <stop offset="1" stop-color="#2a201a" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <!-- Châteaux silhouettes (Valère & Tourbillon) -->
-      <path d="M0,420 L60,420 L80,360 L100,420 L160,420 L180,340 L210,300 L230,260 L260,300 L280,340 L300,420 L500,420 L520,380 L540,340 L560,300 L580,280 L600,260 L620,280 L640,300 L660,340 L680,380 L700,420 L1200,420 L1200,600 L0,600 Z" fill="url(#castle)"/>
-      <!-- Collines avant-plan -->
-      <path d="M0,500 Q200,460 400,490 T800,470 T1200,490 L1200,600 L0,600 Z" fill="url(#hill)"/>
-      <!-- Petits éléments tour -->
-      <rect x="245" y="240" width="6" height="40" fill="#7a5a30" opacity="0.4"/>
-      <rect x="575" y="240" width="6" height="40" fill="#7a5a30" opacity="0.4"/>
-    </svg>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <a href="#about" class="t" data-fr="Notre histoire" data-de="Unsere Geschichte">Notre histoire</a>
+    <a href="#menu" class="t" data-fr="Carte" data-de="Speisekarte">Carte</a>
+    <a href="#gallery" class="t" data-fr="Galerie" data-de="Galerie">Galerie</a>
+    <a href="#vins" class="t" data-fr="Vins" data-de="Weine">Vins</a>
+    <a href="#reservation" class="t" data-fr="Réserver une table" data-de="Tisch reservieren">Réserver une table</a>
+    <a href="#contact" class="t" data-fr="Contact" data-de="Kontakt">Contact</a>
+    <div class="mobile-lang">
+      <button class="active" onclick="setLang('fr'); closeMobileMenu()">FR</button>
+      <button onclick="setLang('de'); closeMobileMenu()">DE</button>
+    </div>
   </div>
+</div>
 
-  <div class="hero-inner">
-    <div>
-      <div class="hero-tag">
-        <span class="dot"></span>
-        <span>Sion · Valais · Suisse</span>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-photo"></div>
+  <div class="hero-glows">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+  </div>
+  <div class="hero-overlay-top"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span class="t" data-fr="Restaurant gastronomique · Sion, Valais" data-de="Gastronomisches Restaurant · Sitten, Wallis">Restaurant gastronomique · Sion, Valais</span>
       </div>
       <h1 class="hero-title">
-        Une table,<br>
-        <span class="accent">un jardin,</span><br>
-        deux châteaux.
+        <span class="hero-title-main t" data-fr="L'Enclos" data-de="L'Enclos">L'Enclos</span>
+        <span class="hero-title-accent t" data-fr="de Valère" data-de="de Valère">de Valère</span>
       </h1>
-      <p class="hero-sub">
-        Depuis plus de trente ans, l'Enclos de Valère cultive l'art d'une cuisine du terroir
-        valaisan, servie dans l'écrin verdoyant qui borde les remparts de la vieille ville.
-      </p>
-      <div class="hero-ctas">
-        <a href="reservation.html" class="btn btn--primary" style="background:var(--terra)">
-          Réserver une table <span class="arrow">→</span>
-        </a>
-        <a href="carte.html" class="btn btn--light">Découvrir la carte</a>
+      <p class="hero-sub t" data-fr="Un écrin de verdure au coeur de la vieille ville de Sion, au pied des châteaux de Valère et Tourbillon." data-de="Eine grüne Oase im Herzen der Altstadt von Sitten, am Fusse der Schlösser Valère und Tourbillon.">Un écrin de verdure au coeur de la vieille ville de Sion, au pied des châteaux de Valère et Tourbillon.</p>
+      <div class="hero-cta">
+        <a href="#reservation" class="btn btn-primary t" data-fr="Réserver une table" data-de="Tisch reservieren">Réserver une table</a>
+        <a href="#menu" class="btn btn-ghost t" data-fr="Voir la carte" data-de="Speisekarte ansehen">Voir la carte</a>
       </div>
-    </div>
-    <div class="hero-meta">
-      <span class="eyebrow">Distinctions</span>
-      <div class="meta-val">14 pts<br>Gault &amp; Millau</div>
-      <span class="eyebrow" style="margin-top:1rem;display:block;">Depuis</span>
-      <div class="meta-val">1992</div>
     </div>
   </div>
 
   <div class="hero-scroll">
-    <span>Défiler</span>
+    <div class="scroll-line"></div>
+    <span class="t" data-fr="Découvrir" data-de="Entdecken">Découvrir</span>
   </div>
 </section>
 
-<!-- ============ DISTINCTIONS BAND ============ -->
-<section style="padding-block:2rem;">
+<!-- ABOUT -->
+<section class="about" id="about">
   <div class="container">
-    <div class="distinctions">
-      <div class="distinction">
-        <span class="label">Guide gastronomique</span>
-        <span class="value">14 points Gault Millau</span>
-      </div>
-      <div class="distinction">
-        <span class="label">Association</span>
-        <span class="value">Chaîne des Rôtisseurs</span>
-      </div>
-      <div class="distinction">
-        <span class="label">Chef Maître rôtisseur</span>
-        <span class="value">Antoine Bornet</span>
-      </div>
-      <div class="distinction">
-        <span class="label">Chef de cuisine</span>
-        <span class="value">Christophe Picard</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ABOUT SPLIT ============ -->
-<section class="section">
-  <div class="container">
-    <div class="split">
-      <div class="split-visual tile-garden fade-up" aria-hidden="true">
-        <div class="tile-inner">
-          <svg viewBox="0 0 100 100" fill="none" stroke="#f5f0e6" stroke-width="0.6" opacity="0.65">
-            <path d="M50 10 Q35 30 35 50 Q35 70 50 90 Q65 70 65 50 Q65 30 50 10 Z"/>
-            <path d="M50 10 L50 90 M30 50 L70 50 M35 30 L65 30 M35 70 L65 70"/>
-            <circle cx="50" cy="50" r="3" fill="#f5f0e6"/>
-          </svg>
+    <div class="about-grid">
+      <div class="about-photo-wrap fade-up">
+        <img
+          class="about-photo"
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&auto=format&fit=crop"
+          alt="Jardin-terrasse de L'Enclos de Valère"
+          loading="lazy"
+        />
+        <div class="about-badge">
+          <div class="about-badge-title t" data-fr="Jardin-terrasse" data-de="Gartenterrasse">Jardin-terrasse</div>
+          <div class="about-badge-sub t" data-fr="Hauts de la vieille ville de Sion" data-de="Oberstadt von Sitten">Hauts de la vieille ville de Sion</div>
         </div>
-        <p class="visual-caption">Le jardin-terrasse, au pied de la colline de Valère</p>
       </div>
-      <div class="split-text fade-up">
-        <span class="chapter-num">— Chapitre 01</span>
-        <span class="eyebrow" style="display:block;margin:0.5rem 0 1rem;">Bienvenue à l'Enclos</span>
-        <h2 class="italic">Un écrin de verdure au cœur de la vieille ville.</h2>
-        <p class="lead">
-          Niché Rue des Châteaux, à quelques pas des remparts médiévaux, l'Enclos de Valère
-          est l'une des plus anciennes adresses gastronomiques de Sion.
-        </p>
-        <p>
-          Sous les frondaisons centenaires de son jardin secret, on dîne à la fraîche en
-          été, on s'attable près de la cheminée en hiver. À la carte, une cuisine soignée
-          qui célèbre les produits du Valais avec une élégance discrète, sans ostentation.
-        </p>
-        <a href="histoire.html" class="more">Lire notre histoire <span>→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CITATION ============ -->
-<section class="section section--soft">
-  <div class="container">
-    <div class="quote fade-up">
-      <span class="mark">,,</span>
-      <q>Le plaisir de manger est le seul qui, pris avec modération, ne soit pas suivi de fatigue.</q>
-      <cite>Jean Anthelme Brillat-Savarin</cite>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SIGNATURES ============ -->
-<section class="section">
-  <div class="container">
-    <div style="max-width:38rem;">
-      <span class="chapter-num">— Chapitre 02</span>
-      <span class="eyebrow" style="display:block;margin:0.5rem 0 1rem;">Signatures de la maison</span>
-      <h2 class="italic">Le terroir valaisan, sublimé en trois temps.</h2>
-      <p class="lead" style="margin-top:1rem;">
-        Trois produits emblématiques de la vallée du Rhône, travaillés au gré des saisons
-        et présentés sur la carte de l'année.
-      </p>
-    </div>
-
-    <div class="feature-row">
-      <article class="feature fade-up">
-        <span class="num">N° 01</span>
-        <h3>Bœuf d'Hérens</h3>
-        <p>
-          Race autochtone et combattive, élevée en alpage. Une viande dense, persillée,
-          servie en rôti ou en tartare selon l'inspiration du chef.
-        </p>
-      </article>
-      <article class="feature fade-up">
-        <span class="num">N° 02</span>
-        <h3>Agneau du Val-d'Illiez</h3>
-        <p>
-          Bétail nourri d'herbages alpins, viande tendre aux notes herbacées. Notre
-          gigot de printemps est l'un des classiques de la maison.
-        </p>
-      </article>
-      <article class="feature fade-up">
-        <span class="num">N° 03</span>
-        <h3>Filets de perche</h3>
-        <p>
-          Péchés dans les eaux froides du Léman, meunière à la sauge ou en escabèche.
-          Servis avec une pomme de terre nouvelle du Plateau.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ GALERIE TEASER ============ -->
-<section class="section section--soft">
-  <div class="container">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem;margin-bottom:3rem;">
-      <div style="max-width:38rem;">
-        <span class="chapter-num">— Chapitre 03</span>
-        <span class="eyebrow" style="display:block;margin:0.5rem 0 1rem;">L'atmosphère</span>
-        <h2 class="italic">Un autre regard sur la maison.</h2>
-      </div>
-      <a href="galerie.html" class="more">Voir la galerie complète <span>→</span></a>
-    </div>
-
-    <div class="gallery-grid">
-      <a class="gallery-item gi-1 tile-garden fade-up" href="galerie.html" aria-label="Le jardin-terrasse">
-        <div class="tile-inner">
-          <svg viewBox="0 0 100 100" stroke="#f5f0e6" fill="none" stroke-width="0.5" opacity="0.6">
-            <path d="M20,80 Q30,40 40,80 M50,80 Q60,30 70,80 M80,80 Q85,50 90,80"/>
-            <path d="M10,85 L95,85"/>
-          </svg>
+      <div class="about-text fade-up fade-up-delay-1">
+        <div class="eyebrow t" data-fr="Notre histoire" data-de="Unsere Geschichte">Notre histoire</div>
+        <h2 class="section-title"><em class="t" data-fr="Un lieu" data-de="Ein Ort">Un lieu</em><br><span class="t" data-fr="hors du temps" data-de="ausserhalb der Zeit">hors du temps</span></h2>
+        <div class="divider"></div>
+        <div>
+          <p class="t" data-fr="Nichée dans un jardin extraordinaire au pied des châteaux de Valère et Tourbillon, notre table s'est imposée comme l'une des références gastronomiques de Sion. Le hawthorn sauvage centenaire, les pivoines, le platane et le buis composent un cadre romantique et hors du commun, loin de l'agitation de la ville." data-de="Eingebettet in einen aussergewöhnlichen Garten am Fusse der Schlösser Valère und Tourbillon, hat sich unser Restaurant zu einer der gastronomischen Referenzen Sittens entwickelt. Wilder Weissdorn, hundertjährige Pfingstrosen, Platane und Buchsbaum schaffen einen romantischen Rahmen, weit entfernt vom Stadtlärm.">Nichée dans un jardin extraordinaire au pied des châteaux de Valère et Tourbillon, notre table s'est imposée comme l'une des références gastronomiques de Sion. Le hawthorn sauvage centenaire, les pivoines, le platane et le buis composent un cadre romantique et hors du commun, loin de l'agitation de la ville.</p>
+          <p class="t" data-fr="En cuisine, la philosophie est simple : mettre en valeur les meilleurs produits du terroir valaisan, avec la rigueur du classicisme et l'ouverture aux saveurs du monde. Boeuf d'Hérens, agneau du Val-d'Illiez, filets de perche du lac, champignons des forêts valaisannes : chaque assiette raconte une histoire et une saison." data-de="In der Küche ist die Philosophie einfach: die besten Produkte des Walliser Terroirs in den Vordergrund stellen, mit der Strenge des Klassizismus und der Offenheit gegenüber Aromen aus aller Welt. Hérens-Rind, Val-d'Illiez-Lamm, Seebarschfilets, Pilze aus den Walliser Wäldern: Jeder Teller erzählt eine Geschichte und eine Jahreszeit.">En cuisine, la philosophie est simple : mettre en valeur les meilleurs produits du terroir valaisan, avec la rigueur du classicisme et l'ouverture aux saveurs du monde. Boeuf d'Hérens, agneau du Val-d'Illiez, filets de perche du lac, champignons des forêts valaisannes : chaque assiette raconte une histoire et une saison.</p>
         </div>
-        <span class="caption">Le jardin-terrasse en juillet</span>
-      </a>
-      <a class="gallery-item gi-2 tile-plate fade-up" href="galerie.html" aria-label="Un dressage">
-        <div class="tile-inner">
-          <svg viewBox="0 0 100 100" stroke="#f5f0e6" fill="none" stroke-width="0.4" opacity="0.55">
-            <circle cx="50" cy="50" r="35"/>
-            <circle cx="50" cy="50" r="20"/>
-            <circle cx="48" cy="48" r="4" fill="#f5f0e6"/>
-          </svg>
+        <div class="chef-row">
+          <div class="chef-avatars">
+            <div class="chef-avatar">A</div>
+            <div class="chef-avatar">C</div>
+          </div>
+          <div class="chef-info">
+            <div class="chef-names">Antoine Bornet &amp; Christophe Picard</div>
+            <div class="chef-role t" data-fr="Maître rôtisseur · Chef de salle" data-de="Maître rôtisseur · Restaurantleiter">Maître rôtisseur · Chef de salle</div>
+          </div>
         </div>
-        <span class="caption">Bœuf d'Hérens, jus court</span>
-      </a>
-      <a class="gallery-item gi-3 tile-evening fade-up" href="galerie.html" aria-label="La salle">
-        <span class="caption">La salle, en soirée</span>
-      </a>
-      <a class="gallery-item gi-4 tile-wine fade-up" href="galerie.html" aria-label="La cave">
-        <div class="tile-inner">
-          <svg viewBox="0 0 100 100" stroke="#f5f0e6" fill="none" stroke-width="0.4" opacity="0.55">
-            <path d="M40,20 L60,20 L62,35 Q62,50 50,55 Q38,50 38,35 Z"/>
-            <line x1="50" y1="55" x2="50" y2="80"/>
-            <line x1="38" y1="80" x2="62" y2="80"/>
-          </svg>
-        </div>
-        <span class="caption">Sélection de cave</span>
-      </a>
-      <a class="gallery-item gi-5 tile-bread fade-up" href="galerie.html" aria-label="Le pain">
-        <span class="caption">Pain au levain maison</span>
-      </a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ HORAIRES & ACCÈS ============ -->
-<section class="section">
+<!-- MENU -->
+<section class="menu-section" id="menu">
   <div class="container">
-    <div style="text-align:center;max-width:42rem;margin:0 auto 3rem;">
-      <span class="chapter-num">— Chapitre 04</span>
-      <span class="eyebrow" style="display:block;margin:0.5rem 0 1rem;">Infos pratiques</span>
-      <h2 class="italic">Nous trouver, nous joindre.</h2>
+    <div class="section-header centered fade-up">
+      <div class="eyebrow t" data-fr="Carte de saison" data-de="Saisonale Speisekarte">Carte de saison</div>
+      <h2 class="section-title"><em class="t" data-fr="La table" data-de="Unser Tisch">La table</em><br><span class="t" data-fr="du chef" data-de="des Chefs">du chef</span></h2>
+      <div class="divider centered"></div>
+      <p class="section-subtitle t" data-fr="Nos menus évoluent au fil des saisons pour honorer les producteurs valaisans. Tous nos plats sont disponibles à la carte ou en menu composé." data-de="Unsere Menüs entwickeln sich mit den Jahreszeiten, um die Walliser Produzenten zu ehren. Alle unsere Gerichte sind à la carte oder als Menü erhältlich.">Nos menus évoluent au fil des saisons pour honorer les producteurs valaisans. Tous nos plats sont disponibles à la carte ou en menu composé.</p>
     </div>
 
-    <div class="info-grid">
-      <div class="info-card fade-up">
-        <span class="ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        </span>
-        <h3>Horaires</h3>
-        <ul class="hours-list">
-          <li class="closed" data-day="monday"><span>Lundi</span><span>Fermé</span></li>
-          <li data-day="tuesday"><span>Mardi</span><span>9 h – 24 h</span></li>
-          <li data-day="wednesday"><span>Mercredi</span><span>9 h – 24 h</span></li>
-          <li data-day="thursday"><span>Jeudi</span><span>9 h – 24 h</span></li>
-          <li data-day="friday"><span>Vendredi</span><span>9 h – 24 h</span></li>
-          <li data-day="saturday"><span>Samedi</span><span>9 h – 24 h</span></li>
-          <li class="closed" data-day="sunday"><span>Dimanche</span><span>Fermé</span></li>
-        </ul>
+    <div class="menu-tabs fade-up fade-up-delay-1">
+      <button class="menu-tab active t" onclick="showTab(this,'entrees')" data-fr="Entrées" data-de="Vorspeisen">Entrées</button>
+      <button class="menu-tab t" onclick="showTab(this,'viandes')" data-fr="Viandes" data-de="Fleisch">Viandes</button>
+      <button class="menu-tab t" onclick="showTab(this,'poissons')" data-fr="Poissons" data-de="Fisch">Poissons</button>
+      <button class="menu-tab t" onclick="showTab(this,'desserts')" data-fr="Desserts" data-de="Desserts">Desserts</button>
+      <button class="menu-tab t" onclick="showTab(this,'menus')" data-fr="Menus du soir" data-de="Abendmenüs">Menus du soir</button>
+      <button class="menu-tab t" onclick="showTab(this,'vegetarien')" data-fr="Végétarien" data-de="Vegetarisch">Végétarien</button>
+      <button class="menu-tab t" onclick="showTab(this,'enfants')" data-fr="Enfants" data-de="Kinder">Enfants</button>
+    </div>
+
+    <!-- ENTRÉES -->
+    <div id="entrees" class="menu-panel active fade-up fade-up-delay-2">
+      <div class="menu-category-sep">Entrées</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Velouté à la courge</div>
+          <div class="menu-item-desc">Flûte feuilletée et émulsion au lard</div>
+        </div>
+        <div class="menu-item-price">CHF 15</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Poêlée de ris de veau</div>
+          <div class="menu-item-desc">Émulsion de sauce hollandaise au piment de cayenne, courge Hokkaido en déclinaison</div>
+        </div>
+        <div class="menu-item-price">CHF 30</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Homard Thermidor</div>
+          <div class="menu-item-desc">Légumes d'hiver en texture</div>
+        </div>
+        <div class="menu-item-price">CHF 32</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Soupe de poissons et homard</div>
+          <div class="menu-item-desc">Flûte feuilletée à la provençale, croûtons à l'ail et sauce rouille</div>
+        </div>
+        <div class="menu-item-price">CHF 18</div>
+      </div>
+      <div class="menu-category-sep">Hors d'oeuvres</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Hors d'oeuvres végétarien</div>
+          <div class="menu-item-desc">Variation de divers tapas selon les propositions du jour</div>
+          <span class="menu-item-tag">Végétarien</span>
+        </div>
+        <div class="menu-item-price">CHF 28</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Hors d'oeuvres des délices du terroir</div>
+          <div class="menu-item-desc">Variation de divers tapas selon les propositions du jour</div>
+        </div>
+        <div class="menu-item-price">CHF 30</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Hors d'oeuvres de poissons et crustacés</div>
+          <div class="menu-item-desc">Variation de divers tapas selon les propositions du jour</div>
+        </div>
+        <div class="menu-item-price">CHF 30</div>
+      </div>
+      <div class="menu-category-sep">Salades</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Salade verte</div>
+        </div>
+        <div class="menu-item-price">CHF 11</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Salade mêlée</div>
+        </div>
+        <div class="menu-item-price">CHF 15</div>
+      </div>
+      <div class="menu-category-sep">Assiettes froides</div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Assortiment de fromages</div>
+          <div class="menu-item-desc">Salade verte aux noix</div>
+        </div>
+        <div class="menu-item-price">CHF 32</div>
+      </div>
+    </div>
+
+    <!-- VIANDES -->
+    <div id="viandes" class="menu-panel fade-up">
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Trio d'agneau d'alpage du Valais</div>
+          <div class="menu-item-desc">Carré aux fines herbes, pièce noble en croûte d'épices et navarin à l'ancienne</div>
+        </div>
+        <div class="menu-item-price">CHF 50</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Entrecôte de boeuf des pâturages suisses</div>
+          <div class="menu-item-desc">Sauce hollandaise au beurre café de Paris, pommes frites</div>
+        </div>
+        <div class="menu-item-price">CHF 49</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Déclinaison de porc Iberico Pata Negra</div>
+          <div class="menu-item-desc">Croquette "24H" sauce sriracha, pluma et secreto à l'ail et au romarin</div>
+        </div>
+        <div class="menu-item-price">CHF 49</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tournedos de boeuf Rossini</div>
+          <div class="menu-item-desc">Réduction aux perles de jus de truffes</div>
+        </div>
+        <div class="menu-item-price">CHF 56</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tartare de boeuf</div>
+          <div class="menu-item-desc">Pommes frites, toasts et beurre</div>
+        </div>
+        <div class="menu-item-price">CHF 38</div>
+      </div>
+      <div class="menu-formule-note" style="margin-top:1.5rem;">
+        <p>Nos viandes sont servies avec méli-mélo de pommes de terre et jardinière de légumes.</p>
+      </div>
+    </div>
+
+    <!-- POISSONS -->
+    <div id="poissons" class="menu-panel fade-up">
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Filets de perches Loë de Rarogne</div>
+          <div class="menu-item-desc">Sauce Nantua, légumes du moment et roesti de pommes de terre à la courge</div>
+        </div>
+        <div class="menu-item-price">CHF 48</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tagliata de thon rouge Saku</div>
+          <div class="menu-item-desc">Wok de légumes et nouilles de riz aux saveurs d'Asie</div>
+        </div>
+        <div class="menu-item-price">CHF 49</div>
+      </div>
+    </div>
+
+    <!-- DESSERTS -->
+    <div id="desserts" class="menu-panel fade-up">
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Crème brûlée à la vanille Bourbon</div>
+          <div class="menu-item-desc">Glace caramel</div>
+        </div>
+        <div class="menu-item-price">CHF 17</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Moelleux au chocolat, coeur coulant caramel au beurre salé</div>
+          <div class="menu-item-desc">Sorbet aux fruits rouges</div>
+        </div>
+        <div class="menu-item-price">CHF 17</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Choux garnis aux ganaches à l'érable et chocolat au lait</div>
+          <div class="menu-item-desc">Glace cookies caramel</div>
+        </div>
+        <div class="menu-item-price">CHF 18</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Biscuit roulade à la mangue</div>
+          <div class="menu-item-desc">Crémeux aux fruits de la passion, ganache vanille et sorbet mangue-passion</div>
+        </div>
+        <div class="menu-item-price">CHF 18</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Tartelette poires</div>
+          <div class="menu-item-desc">Trio de crèmes : tonka, noix de pécan et vanille, sorbet poire</div>
+        </div>
+        <div class="menu-item-price">CHF 18</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Pavlova à l'orange, mandarine et menthe</div>
+          <div class="menu-item-desc">Espuma à l'orange et au miel, glace vanille</div>
+        </div>
+        <div class="menu-item-price">CHF 18</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Assortiment de desserts maison</div>
+          <div class="menu-item-desc">Sélection du jour</div>
+        </div>
+        <div class="menu-item-price">CHF 18</div>
+      </div>
+    </div>
+
+    <!-- MENUS DU SOIR -->
+    <div id="menus" class="menu-panel fade-up">
+      <!-- VALÈRE -->
+      <div class="menu-gastronomique">
+        <div class="menu-gast-header">
+          <div class="menu-gast-name">Menu Valère</div>
+          <div class="menu-gast-price">CHF 102</div>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">I</span>
+          <span>Poêlée de ris de veau, émulsion de sauce hollandaise au piment de cayenne, courge Hokkaido en déclinaison</span>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">II</span>
+          <span>Au choix : Hors d'oeuvres de poissons et crustacés <em>ou</em> Hors d'oeuvres des délices du terroir — variation de divers tapas selon les propositions du jour</span>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">III</span>
+          <span>Trio d'agneau d'alpage du Valais — carré aux fines herbes, pièce noble en croûte d'épices et navarin à l'ancienne. Méli-mélo de pommes de terre, jardinière de légumes</span>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">IV</span>
+          <span>Le van de notre fromager <em>ou</em> Le dessert maison du jour</span>
+        </div>
       </div>
 
-      <div class="info-card fade-up">
-        <span class="ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        </span>
-        <h3>Adresse</h3>
-        <p class="meta">
-          <strong>Rue des Châteaux 18</strong><br>
-          1950 Sion (VS)<br>
-          Suisse
-        </p>
-        <p class="meta" style="margin-top:1rem;">
-          <a href="https://maps.google.com/?q=Rue+des+Ch%C3%A2teaux+18+1950+Sion" target="_blank" rel="noopener">Itinéraire Google Maps</a>
-        </p>
+      <!-- TOURBILLON -->
+      <div class="menu-gastronomique">
+        <div class="menu-gast-header">
+          <div class="menu-gast-name">Menu Tourbillon</div>
+          <div class="menu-gast-price">CHF 122</div>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">I</span>
+          <span>Poêlée de ris de veau, émulsion de sauce hollandaise au piment de cayenne, courge Hokkaido en déclinaison</span>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">II</span>
+          <span>Au choix : Hors d'oeuvres de poissons et crustacés <em>ou</em> Hors d'oeuvres des délices du terroir — variation de divers tapas selon les propositions du jour</span>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">III</span>
+          <span>Homard Thermidor et légumes d'hiver en texture</span>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">IV</span>
+          <span>Tournedos de boeuf Rossini, réduction aux perles de jus de truffes. Méli-mélo de pommes de terre, jardinière de légumes</span>
+        </div>
+        <div class="menu-gast-course">
+          <span class="course-label">V</span>
+          <span>Le van de notre fromager <em>ou</em> L'assortiment de desserts maison</span>
+        </div>
       </div>
 
-      <div class="info-card fade-up">
-        <span class="ico">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
-        </span>
-        <h3>Contact</h3>
-        <p class="meta">
-          <strong>Téléphone</strong><br>
-          <a href="tel:+41273233230">+41 (0)27 323 32 30</a>
-        </p>
-        <p class="meta" style="margin-top:1rem;">
-          <strong>Courriel</strong><br>
-          <a href="mailto:restaurant@enclosdevalere.ch">restaurant@enclosdevalere.ch</a>
-        </p>
+      <div class="menu-formule-note">
+        <p>Menus servis le soir sur réservation. Pour vos banquets et événements privés, demandez nos propositions de menus sur mesure.</p>
+      </div>
+    </div>
+
+    <!-- VÉGÉTARIEN -->
+    <div id="vegetarien" class="menu-panel fade-up">
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Mets végétarien éclatant de couleurs et de saveurs</div>
+          <div class="menu-item-desc">Légumes, pâtes, champignons, riz, raviolis, pommes de terre selon le marché du jour</div>
+          <span class="menu-item-tag">Végétarien</span>
+        </div>
+        <div class="menu-item-price">CHF 28</div>
+      </div>
+    </div>
+
+    <!-- ENFANTS -->
+    <div id="enfants" class="menu-panel fade-up">
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Nuggets de poulet suisse</div>
+          <div class="menu-item-desc">Pommes frites et cassolette de légumes</div>
+        </div>
+        <div class="menu-item-price">CHF 14</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-text">
+          <div class="menu-item-name">Steak de boeuf, sauce hollandaise aux épices café de Paris</div>
+          <div class="menu-item-desc">Pommes frites et cassolette de légumes</div>
+        </div>
+        <div class="menu-item-price">CHF 16</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ CTA BAND ============ -->
-<section class="cta-band">
-  <h2 class="italic">Une table à votre nom, dans le jardin.</h2>
-  <p>La réservation est conseillée, particulièrement le soir et durant la saison estivale.</p>
-  <a href="reservation.html" class="btn btn--light">Réserver maintenant <span class="arrow">→</span></a>
+<!-- CARTE DES VINS -->
+<section class="wine-section" id="vins">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow t" data-fr="Sélection par cave" data-de="Auswahl nach Weingut">Sélection par cave</div>
+      <h2 class="section-title"><em class="t" data-fr="Carte" data-de="Weinkarte">Carte</em> <span class="t" data-fr="des vins" data-de="der Weine">des vins</span></h2>
+      <div class="divider centered"></div>
+      <p class="section-subtitle t" data-fr="Une sélection des grands domaines valaisans : Gilliard, Varone et Provins. Vins disponibles en 37.5 cl, 50 cl, 75 cl et Magnum selon les références." data-de="Eine Auswahl der grossen Walliser Weingüter: Gilliard, Varone und Provins. Weine erhältlich in 37.5 cl, 50 cl, 75 cl und Magnum je nach Referenz.">Une sélection des grands domaines valaisans : Gilliard, Varone et Provins. Vins disponibles en 37.5 cl, 50 cl, 75 cl et Magnum selon les références.</p>
+    </div>
+
+    <div class="wine-tabs fade-up fade-up-delay-1">
+      <button class="wine-tab active" onclick="showWine(this,'blancs')">Vins blancs</button>
+      <button class="wine-tab" onclick="showWine(this,'roses')">Rosés</button>
+      <button class="wine-tab" onclick="showWine(this,'rouges')">Vins rouges</button>
+      <button class="wine-tab" onclick="showWine(this,'champagne')">Champagne</button>
+    </div>
+
+    <!-- BLANCS -->
+    <div id="blancs" class="wine-panel active fade-up fade-up-delay-2">
+
+      <div class="wine-category">
+        <div class="wine-category-title">Fendant</div>
+        <div class="wine-header-row"><span></span><span></span><span></span><span>37.5 cl</span><span>75 cl</span><span>Magnum</span></div>
+        <div class="wine-row"><div class="wine-name">Clos de Cochetta</div><div class="wine-vintage">2023</div><div class="wine-cave">Gilliard</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">38.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Soleil du Valais</div><div class="wine-vintage">2024</div><div class="wine-cave">Varone</div><div class="wine-price">18.—</div><div class="wine-price">36.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">St-Léonard "Maître de Chais"</div><div class="wine-vintage">2024</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">38.—</div><div class="wine-price wine-price-dash">—</div></div>
+      </div>
+
+      <div class="wine-category">
+        <div class="wine-category-title">Johannisberg</div>
+        <div class="wine-header-row"><span></span><span></span><span></span><span>37.5 cl</span><span>75 cl</span><span>Magnum</span></div>
+        <div class="wine-row"><div class="wine-name">De Chamoson "Maître de Chais"</div><div class="wine-vintage">2024</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">38.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Goutte d'Or</div><div class="wine-vintage">2023</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">38.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Porte de Novembre <small>mi-doux</small></div><div class="wine-vintage">2022</div><div class="wine-cave">Gilliard</div><div class="wine-price">19.—</div><div class="wine-price">38.—</div><div class="wine-price wine-price-dash">—</div></div>
+      </div>
+
+      <div class="wine-category">
+        <div class="wine-category-title">Spécialités blancs du Valais</div>
+        <div class="wine-header-row"><span></span><span></span><span></span><span>37.5 cl</span><span>75 cl</span><span>Magnum</span></div>
+        <div class="wine-row"><div class="wine-name">Petite Arvine</div><div class="wine-vintage">2024</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">48.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Petite Arvine "Maître de Chais"</div><div class="wine-vintage">2024</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">52.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Petite Arvine "Trésors de Famille"</div><div class="wine-vintage">2024</div><div class="wine-cave">Gilliard</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">48.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Heida</div><div class="wine-vintage">2023</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">48.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Muscat du Valais</div><div class="wine-vintage">2023</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">44.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Viognier</div><div class="wine-vintage">2024</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">48.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Malvoisie douce</div><div class="wine-vintage">2022</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">49.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Sauvignon blanc "Tonneliers" <small>fût de chêne</small></div><div class="wine-vintage">2022</div><div class="wine-cave">Gilliard</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">52.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Domaine Tourbillon <small>petite arvine</small></div><div class="wine-vintage">2021</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">66.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Domaine du Chapitre <small>heida en amphore et fût de chêne</small></div><div class="wine-vintage">2021</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">66.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Vieilles Vignes "Maître de Chais" <small>marsanne, roussanne en fût de chêne</small></div><div class="wine-vintage">2019</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">62.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Défi Blanc "Titans" <small>petite arvine, pinot gris, muscat en fût de chêne</small></div><div class="wine-vintage">2023</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">74.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Eclat <small>petite arvine, paien en fût de chêne</small></div><div class="wine-vintage">2021</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">95.—</div><div class="wine-price wine-price-dash">—</div></div>
+      </div>
+
+      <div class="wine-category">
+        <div class="wine-category-title">Surmaturés en fût de chêne</div>
+        <div class="wine-header-row"><span></span><span></span><span></span><span>37.5 cl</span><span>75 cl</span><span>Magnum</span></div>
+        <div class="wine-row"><div class="wine-name">Soleil de Minuit <small>ermitage, malvoisie</small></div><div class="wine-vintage">2021</div><div class="wine-cave">Gilliard</div><div class="wine-price">47.—</div><div class="wine-price wine-price-dash">—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Stricto Sensu Noble <small>barrique liquoreuse, marsanne blanche</small></div><div class="wine-vintage">2015</div><div class="wine-cave">Varone</div><div class="wine-price">47.—</div><div class="wine-price wine-price-dash">—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Tourbillon <small>petite arvine vendange tardive</small></div><div class="wine-vintage">2022</div><div class="wine-cave">Provins</div><div class="wine-price">78.—</div><div class="wine-price wine-price-dash">—</div><div class="wine-price wine-price-dash">—</div></div>
+      </div>
+
+    </div>
+
+    <!-- ROSÉS -->
+    <div id="roses" class="wine-panel fade-up">
+      <div class="wine-category">
+        <div class="wine-category-title">Rosés du Valais</div>
+        <div class="wine-header-row"><span></span><span></span><span></span><span>37.5 cl</span><span>50 cl</span><span>75 cl</span></div>
+        <div class="wine-row"><div class="wine-name">Dahu rosé</div><div class="wine-vintage">2023</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">38.—</div></div>
+        <div class="wine-row"><div class="wine-name">Oeil de Perdrix "Grand Métral"</div><div class="wine-vintage">2024</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">26.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Oeil de Perdrix "Trésors de Famille"</div><div class="wine-vintage">2023</div><div class="wine-cave">Gilliard</div><div class="wine-price wine-price-dash">—</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">38.—</div></div>
+        <div class="wine-row"><div class="wine-name">Rosé de Novembre <small>mi-doux</small></div><div class="wine-vintage">2023</div><div class="wine-cave">Gilliard</div><div class="wine-price wine-price-dash">—</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">38.—</div></div>
+        <div class="wine-row"><div class="wine-name">Diolinoir rosé "Titans"</div><div class="wine-vintage">2022</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">62.—</div></div>
+      </div>
+    </div>
+
+    <!-- ROUGES -->
+    <div id="rouges" class="wine-panel fade-up">
+
+      <div class="wine-category">
+        <div class="wine-category-title">Dôle</div>
+        <div class="wine-header-row"><span></span><span></span><span></span><span>37.5 cl</span><span>75 cl</span><span>Magnum</span></div>
+        <div class="wine-row"><div class="wine-name">Dôle de Sion "Maître de Chais"</div><div class="wine-vintage">2023</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">44.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Dôle des Monts</div><div class="wine-vintage">2023</div><div class="wine-cave">Gilliard</div><div class="wine-price">20.—</div><div class="wine-price">40.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Dôle des Monts Bio</div><div class="wine-vintage">2022</div><div class="wine-cave">Gilliard</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">42.—</div><div class="wine-price wine-price-dash">—</div></div>
+      </div>
+
+      <div class="wine-category">
+        <div class="wine-category-title">Pinot noir</div>
+        <div class="wine-header-row"><span></span><span></span><span></span><span>37.5 cl</span><span>50 cl</span><span>75 cl</span></div>
+        <div class="wine-row"><div class="wine-name">Pinot Noir</div><div class="wine-vintage">2023</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">42.—</div></div>
+        <div class="wine-row"><div class="wine-name">Pinot noir "Maître de Chais" <small>fût de chêne</small></div><div class="wine-vintage">2023</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">48.—</div></div>
+        <div class="wine-row"><div class="wine-name">Vendémiaire</div><div class="wine-vintage">2022</div><div class="wine-cave">Gilliard</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">36.—</div><div class="wine-price">46.—</div></div>
+        <div class="wine-row"><div class="wine-name">Pinot Noir Beuble</div><div class="wine-vintage">2022</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">69.—</div></div>
+      </div>
+
+      <div class="wine-category">
+        <div class="wine-category-title">Spécialités rouges du Valais</div>
+        <div class="wine-header-row"><span></span><span></span><span></span><span>37.5 cl</span><span>75 cl</span><span>Magnum</span></div>
+        <div class="wine-row"><div class="wine-name">Gamay</div><div class="wine-vintage">2023</div><div class="wine-cave">Varone</div><div class="wine-price">20.—</div><div class="wine-price">40.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Gamay de Fully "Coqueret"</div><div class="wine-vintage">2023</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">40.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Cornalin</div><div class="wine-vintage">2024</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">60.—</div><div class="wine-price">120.—</div></div>
+        <div class="wine-row"><div class="wine-name">Cornalin "Maître de Chais"</div><div class="wine-vintage">2024</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">62.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Humagne rouge</div><div class="wine-vintage">2023</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">58.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Humagne rouge "Maître de Chais"</div><div class="wine-vintage">2023</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">62.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Humagne rouge "Trésors de Famille"</div><div class="wine-vintage">2023</div><div class="wine-cave">Gilliard</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">58.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Syrah</div><div class="wine-vintage">2023</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">58.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Syrah "Maître de Chais" <small>fût de chêne</small></div><div class="wine-vintage">2023</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">62.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Syrah "Trésors de Famille"</div><div class="wine-vintage">2022</div><div class="wine-cave">Gilliard</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">58.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Divico</div><div class="wine-vintage">2022</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">74.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Ruistal <small>pinot, humagne, syrah, cornalin en fût de chêne</small></div><div class="wine-vintage">2022</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">68.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Binôme <small>syrah VS et cabernet ZH et AG en fût de chêne</small></div><div class="wine-vintage">2022</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">84.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Antarès <small>cornalin, syrah, diolinoir en fût de chêne</small></div><div class="wine-vintage">2021</div><div class="wine-cave">Gilliard</div><div class="wine-price">32.—</div><div class="wine-price">66.—</div><div class="wine-price">130.—</div></div>
+      </div>
+
+      <div class="wine-category">
+        <div class="wine-category-title">Cuvées réservées fût de chêne</div>
+        <div class="wine-header-row"><span></span><span></span><span></span><span>37.5 cl</span><span>75 cl</span><span>Magnum</span></div>
+        <div class="wine-row"><div class="wine-name">Défi Noir "Titans" <small>cornalin, diolinoir, syrah</small></div><div class="wine-vintage">2022</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">74.—</div><div class="wine-price">148.—</div></div>
+        <div class="wine-row"><div class="wine-name">Cornalin "Titans" <small>fût de chêne</small></div><div class="wine-vintage">2022</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">74.—</div><div class="wine-price">148.—</div></div>
+        <div class="wine-row"><div class="wine-name">Merlot "Titans" <small>fût de chêne</small></div><div class="wine-vintage">2022</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">74.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Rouge d'Enfer "Maître de Chais" <small>diolinoir, merlot, cab. sauv., cab. franc</small></div><div class="wine-vintage">2023</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">74.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Diolinoir "Tonneliers"</div><div class="wine-vintage">2022</div><div class="wine-cave">Gilliard</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">64.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Merlot Tonneliers <small>fût de chêne</small></div><div class="wine-vintage">2022</div><div class="wine-cave">Gilliard</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">66.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Domaine de l'Evéché <small>diolinoir en fût de mélèze</small></div><div class="wine-vintage">2022</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">87.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Domaine de Corbassières <small>syrah, cornalin, humagne rouge, cabernet-sauvignon</small></div><div class="wine-vintage">2020</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">97.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Stricto Sensu <small>humagne rouge, cornalin, syrah — 36 mois en barrique</small></div><div class="wine-vintage">2022</div><div class="wine-cave">Varone</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">98.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Domaine de Tournelette <small>pinot noir</small></div><div class="wine-vintage">2019</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">97.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Domaine des Grands Murs</div><div class="wine-vintage">2019</div><div class="wine-cave">Gilliard</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">115.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Electus</div><div class="wine-vintage">2020</div><div class="wine-cave">Provins</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">150.—</div><div class="wine-price">300.—</div></div>
+      </div>
+
+    </div>
+
+    <!-- CHAMPAGNE -->
+    <div id="champagne" class="wine-panel fade-up">
+      <div class="wine-category">
+        <div class="wine-category-title">Champagne — Yannick Vauthier</div>
+        <div class="wine-header-row"><span></span><span></span><span></span><span>37.5 cl</span><span>75 cl</span><span>Magnum</span></div>
+        <div class="wine-row"><div class="wine-name">Brut</div><div class="wine-vintage"></div><div class="wine-cave">Y. Vauthier</div><div class="wine-price">38.—</div><div class="wine-price">78.—</div><div class="wine-price wine-price-dash">—</div></div>
+        <div class="wine-row"><div class="wine-name">Rosé brut</div><div class="wine-vintage"></div><div class="wine-cave">Y. Vauthier</div><div class="wine-price wine-price-dash">—</div><div class="wine-price">88.—</div><div class="wine-price wine-price-dash">—</div></div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="index.html" class="brand">L'Enclos<small>de Valère · Sion</small></a>
-      <p class="pitch">
-        Table gastronomique au pied des châteaux de Valère et Tourbillon.
-        Cuisine du terroir valaisan, jardin-terrasse romantique.
-      </p>
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow t" data-fr="L'ambiance" data-de="Die Atmosphäre">L'ambiance</div>
+      <h2 class="section-title"><em class="t" data-fr="Le jardin" data-de="Der Garten">Le jardin</em><br><span class="t" data-fr="et la table" data-de="und der Tisch">et la table</span></h2>
     </div>
-    <div class="footer-col">
-      <h4>Naviguer</h4>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="histoire.html">Notre histoire</a></li>
-        <li><a href="carte.html">La carte</a></li>
-        <li><a href="galerie.html">Galerie</a></li>
-        <li><a href="reservation.html">Réserver</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li>Rue des Châteaux 18<br>1950 Sion (VS)</li>
-        <li><a href="tel:+41273233230">+41 (0)27 323 32 30</a></li>
-        <li><a href="mailto:restaurant@enclosdevalere.ch">restaurant@enclosdevalere.ch</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Horaires</h4>
-      <ul>
-        <li>Mardi – Samedi</li>
-        <li>9 h – 24 h</li>
-        <li style="opacity:0.6;margin-top:0.5rem;">Fermé dimanche &amp; lundi</li>
-      </ul>
+    <div class="gallery-grid fade-up fade-up-delay-1">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80&auto=format&fit=crop" alt="Salle du restaurant" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="La terrasse-jardin" data-de="Die Gartenterrasse">La terrasse-jardin</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80&auto=format&fit=crop" alt="Plat gastronomique" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="Cuisine du terroir" data-de="Terroir-Küche">Cuisine du terroir</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80&auto=format&fit=crop" alt="Plat valaisan" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="Saveurs valaisannes" data-de="Walliser Aromen">Saveurs valaisannes</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80&auto=format&fit=crop" alt="Cave à vins" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="Vins du Valais" data-de="Walliser Weine">Vins du Valais</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80&auto=format&fit=crop" alt="Dessert gastronomique" loading="lazy" />
+        <div class="gallery-overlay"><span class="gallery-label t" data-fr="Desserts maison" data-de="Hausgemachte Desserts">Desserts maison</span></div>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <span>&copy; 2026 L'Enclos de Valère · Tous droits réservés</span>
-    <span class="credit">Site démo réalisé par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a></span>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header centered fade-up">
+      <div class="eyebrow t" data-fr="Ils nous ont fait confiance" data-de="Sie haben uns vertraut">Ils nous ont fait confiance</div>
+      <h2 class="section-title"><em class="t" data-fr="Vos" data-de="Ihre">Vos</em> <span class="t" data-fr="impressions" data-de="Eindrücke">impressions</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-up fade-up-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text t" data-fr="Une cuisine raffinée dans un cadre de verdure absolument romantique. Le menu Tourbillon était une succession de petites merveilles. On reviendra sans hésiter." data-de="Raffinierte Küche in einem absolut romantischen Grünrahmen. Das Menü Tourbillon war eine Folge kleiner Wunder. Wir kommen definitiv wieder.">"Une cuisine raffinée dans un cadre de verdure absolument romantique. Le menu Tourbillon était une succession de petites merveilles. On reviendra sans hésiter."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div>
+            <div class="testi-name">Marie-F.</div>
+            <div class="testi-location t" data-fr="Habitante de Sion" data-de="Einwohnerin von Sitten">Habitante de Sion</div>
+          </div>
+          <div class="testi-source">Tripadvisor</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up fade-up-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text t" data-fr="Le top du top sur les hauts de la vieille ville. Antoine et Christophe sont des hôtes exceptionnels, le service est à la hauteur de la cuisine. Adresse incontournable en Valais." data-de="Das Nonplusultra in der Oberstadt. Antoine und Christophe sind aussergewöhnliche Gastgeber, der Service ist so gut wie die Küche. Eine unverzichtbare Adresse im Wallis.">"Le top du top sur les hauts de la vieille ville. Antoine et Christophe sont des hôtes exceptionnels, le service est à la hauteur de la cuisine. Adresse incontournable en Valais."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">T</div>
+          <div>
+            <div class="testi-name">Thomas K.</div>
+            <div class="testi-location t" data-fr="Visiteur de passage" data-de="Durchreisender Gast">Visiteur de passage</div>
+          </div>
+          <div class="testi-source">Google</div>
+        </div>
+      </div>
+      <div class="testi-card fade-up fade-up-delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text t" data-fr="La terrasse en été, c'est magique. On se croirait dans un jardin secret au coeur du Moyen Age, avec dans l'assiette une cuisine d'une précision remarquable. Un vrai bonheur." data-de="Die Terrasse im Sommer ist magisch. Man fühlt sich wie in einem Geheimgarten im Herzen des Mittelalters, mit einem kulinarisch äusserst präzisen Teller. Ein echtes Vergnügen.">"La terrasse en été, c'est magique. On se croirait dans un jardin secret au coeur du Moyen Age, avec dans l'assiette une cuisine d'une précision remarquable. Un vrai bonheur."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sophie M.</div>
+            <div class="testi-location t" data-fr="Sion" data-de="Sitten">Sion</div>
+          </div>
+          <div class="testi-source">Tripadvisor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section class="reservation" id="reservation">
+  <div class="container">
+    <div class="resa-wrap">
+      <div class="resa-info fade-up">
+        <div class="eyebrow t" data-fr="Réservation" data-de="Reservierung">Réservation</div>
+        <h2 class="section-title"><em class="t" data-fr="Réservez" data-de="Reservieren">Réservez</em><br><span class="t" data-fr="votre table" data-de="Sie Ihren Tisch">votre table</span></h2>
+        <div class="divider"></div>
+        <p class="t" data-fr="Nos menus gastronomiques sont proposés sur réservation. Pour les groupes de plus de 8 personnes ou les événements privés, contactez-nous directement." data-de="Unsere Gastromenüs werden auf Reservierung angeboten. Für Gruppen von mehr als 8 Personen oder private Veranstaltungen kontaktieren Sie uns bitte direkt.">Nos menus gastronomiques sont proposés sur réservation. Pour les groupes de plus de 8 personnes ou les événements privés, contactez-nous directement.</p>
+        <a href="tel:+41273233230" class="resa-tel">
+          <span class="resa-tel-icon">☎</span>
+          +41 27 323 32 30
+        </a>
+        <div class="resa-hours t" data-fr="Mar – Sam, 11h00 – 14h30 / 17h00 – 23h30" data-de="Di – Sa, 11.00 – 14.30 / 17.00 – 23.30">Mar – Sam, 11h00 – 14h30 / 17h00 – 23h30</div>
+      </div>
+
+      <div class="fade-up fade-up-delay-1">
+        <form class="resa-form" id="resaForm" action="https://formspree.io/f/XXXXXXXX" method="POST">
+          <div class="form-row">
+            <div class="field">
+              <label class="t" data-fr="Prénom et nom" data-de="Vor- und Nachname">Prénom et nom</label>
+              <input type="text" name="name" required placeholder="Jean Dupont" class="t" data-fr-placeholder="Jean Dupont" data-de-placeholder="Hans Muster" />
+            </div>
+            <div class="field">
+              <label class="t" data-fr="Téléphone" data-de="Telefon">Téléphone</label>
+              <input type="tel" name="phone" placeholder="+41 79 000 00 00" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="t" data-fr="Email" data-de="E-Mail">Email</label>
+            <input type="email" name="email" required placeholder="vous@exemple.ch" class="t" data-fr-placeholder="vous@exemple.ch" data-de-placeholder="sie@beispiel.ch" />
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label class="t" data-fr="Date souhaitée" data-de="Gewünschtes Datum">Date souhaitée</label>
+              <div class="date-picker-wrap">
+                <button type="button" class="date-trigger" id="dateTrigger">
+                  <span class="date-display placeholder-text t" id="dateDisplay" data-fr="Choisir une date" data-de="Datum wählen">Choisir une date</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </button>
+                <input type="hidden" name="date" id="dateHidden" />
+                <div class="cal-popup" id="calPopup">
+                  <div class="cal-header">
+                    <button type="button" class="cal-nav" onclick="calPrev()">&#8249;</button>
+                    <span class="cal-month-label" id="calMonthLabel"></span>
+                    <button type="button" class="cal-nav" onclick="calNext()">&#8250;</button>
+                  </div>
+                  <div class="cal-days-header">
+                    <div class="cal-day-name">Lu</div><div class="cal-day-name">Ma</div><div class="cal-day-name">Me</div>
+                    <div class="cal-day-name">Je</div><div class="cal-day-name">Ve</div><div class="cal-day-name">Sa</div><div class="cal-day-name">Di</div>
+                  </div>
+                  <div class="cal-grid" id="calGrid"></div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="t" data-fr="Nombre de couverts" data-de="Anzahl Personen">Nombre de couverts</label>
+              <select name="guests" required>
+                <option value="">—</option>
+                <option>1</option><option>2</option><option>3</option>
+                <option>4</option><option>5</option><option>6</option>
+                <option>7</option><option value="8+">8+</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label class="t" data-fr="Heure souhaitée" data-de="Gewünschte Uhrzeit">Heure souhaitée</label>
+            <input type="hidden" name="heure" id="heureHidden" />
+            <div class="time-groups">
+              <div>
+                <div class="time-group-label t" data-fr="Service du midi" data-de="Mittagsservice">Service du midi</div>
+                <div class="time-pills">
+                  <button type="button" class="time-pill" onclick="selectTime(this,'11h00')">11h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'11h30')">11h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'12h00')">12h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'12h30')">12h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'13h00')">13h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'13h30')">13h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'14h00')">14h00</button>
+                </div>
+              </div>
+              <div>
+                <div class="time-group-label t" data-fr="Service du soir" data-de="Abendservice">Service du soir</div>
+                <div class="time-pills">
+                  <button type="button" class="time-pill" onclick="selectTime(this,'17h00')">17h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'17h30')">17h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'18h00')">18h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'18h30')">18h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'19h00')">19h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'19h30')">19h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'20h00')">20h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'20h30')">20h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'21h00')">21h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'21h30')">21h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'22h00')">22h00</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'22h30')">22h30</button>
+                  <button type="button" class="time-pill" onclick="selectTime(this,'23h00')">23h00</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="t" data-fr="Remarques / Allergies" data-de="Anmerkungen / Allergien">Remarques / Allergies</label>
+            <textarea name="message" placeholder="Intolérance, occasion spéciale, chaise haute..." class="t" data-fr-placeholder="Intolérance, occasion spéciale, chaise haute..." data-de-placeholder="Unverträglichkeit, besonderer Anlass, Hochstuhl..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary t" data-fr="Envoyer la demande" data-de="Anfrage senden">Envoyer la demande</button>
+          <p class="form-note t" data-fr="Nous confirmons votre réservation par téléphone ou email dans les 24h." data-de="Wir bestätigen Ihre Reservierung innerhalb von 24 Stunden telefonisch oder per E-Mail.">Nous confirmons votre réservation par téléphone ou email dans les 24h.</p>
+          <div class="form-success" id="formSuccess">
+            <span class="t" data-fr="Votre demande a bien été envoyée. Nous vous recontactons dans les 24h." data-de="Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden.">Votre demande a bien été envoyée. Nous vous recontactons dans les 24h.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="eyebrow t" data-fr="Nous trouver" data-de="Uns finden">Nous trouver</div>
+      <h2 class="section-title"><em class="t" data-fr="Infos" data-de="Informationen">Infos</em> <span class="t" data-fr="pratiques" data-de="praktisches">pratiques</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <div class="info-block">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-label t" data-fr="Adresse" data-de="Adresse">Adresse</div>
+            <div class="info-value">Rue des Châteaux 18<br>1950 Sion, Valais</div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">📞</div>
+          <div>
+            <div class="info-label t" data-fr="Téléphone" data-de="Telefon">Téléphone</div>
+            <div class="info-value"><a href="tel:+41273233230">+41 27 323 32 30</a></div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">✉</div>
+          <div>
+            <div class="info-label t" data-fr="Email" data-de="E-Mail">Email</div>
+            <div class="info-value"><a href="mailto:restaurant@enclosdevalere.ch">restaurant@enclosdevalere.ch</a></div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-icon">🕐</div>
+          <div>
+            <div class="info-label t" data-fr="Horaires" data-de="Öffnungszeiten">Horaires</div>
+            <div class="info-value">
+              <div class="hours-grid">
+                <div class="hours-day t" data-fr="Mardi – Samedi" data-de="Dienstag – Samstag">Mardi – Samedi</div>
+                <div class="hours-time">11h00 – 14h30</div>
+                <div class="hours-day"></div>
+                <div class="hours-time">17h00 – 23h30</div>
+                <div class="hours-day t" data-fr="Dimanche – Lundi" data-de="Sonntag – Montag">Dimanche – Lundi</div>
+                <div class="hours-time closed t" data-fr="Fermé" data-de="Geschlossen">Fermé</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="social-row">
+          <a href="https://www.facebook.com/EnclosdeValere" target="_blank" rel="noopener" class="social-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" class="social-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+      <div class="fade-up fade-up-delay-1">
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2745.4!2d7.3672!3d46.2298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478eed3990a7a5d1%3A0x2c1bc03e23d4cf14!2sRue%20des%20Ch%C3%A2teaux%2018%2C%201950%20Sion!5e0!3m2!1sfr!2sch!4v1716000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="L'Enclos de Valère sur Google Maps"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo"><em>L'Enclos</em> de Valère</div>
+      <div class="footer-links">
+        <a href="#about" class="t" data-fr="Notre histoire" data-de="Unsere Geschichte">Notre histoire</a>
+        <a href="#menu" class="t" data-fr="Carte" data-de="Speisekarte">Carte</a>
+        <a href="#gallery" class="t" data-fr="Galerie" data-de="Galerie">Galerie</a>
+        <a href="#reservation" class="t" data-fr="Réserver" data-de="Reservieren">Réserver</a>
+        <a href="#contact" class="t" data-fr="Contact" data-de="Kontakt">Contact</a>
+      </div>
+      <p class="footer-credit t" data-fr="Site réalisé par <a href='https://nb-design.ch' target='_blank' rel='noopener'>NB-Design</a> · Spécialiste des sites web pour restaurants en Suisse romande" data-de="Website erstellt von <a href='https://nb-design.ch' target='_blank' rel='noopener'>NB-Design</a> · Spezialist für Restaurant-Websites in der Westschweiz">Site réalisé par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a> · Spécialiste des sites web pour restaurants en Suisse romande</p>
+    </div>
   </div>
 </footer>
 
-<script src="assets/script.js"></script>
+<!-- WHATSAPP -->
+<a href="https://wa.me/41273233230" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  /* ====== HEADER SCROLL ====== */
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ====== MOBILE MENU ====== */
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => closeMobileMenu());
+  });
+  function closeMobileMenu() {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ====== LANG TOGGLE ====== */
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+
+    document.querySelectorAll('.t').forEach(el => {
+      const val = el.dataset[lang] || el.dataset.fr;
+      if (val) el.innerHTML = val;
+    });
+
+    document.querySelectorAll('[data-' + lang + '-placeholder]').forEach(el => {
+      el.placeholder = el.dataset[lang + 'Placeholder'] || '';
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.mobile-lang button').forEach(btn => btn.classList.remove('active'));
+
+    const target = `setLang('${lang}')`;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      if (btn.getAttribute('onclick') === target) btn.classList.add('active');
+    });
+    const mobileBtns = document.querySelectorAll('.mobile-lang button');
+    if (lang === 'fr' && mobileBtns[0]) mobileBtns[0].classList.add('active');
+    if (lang === 'de' && mobileBtns[1]) mobileBtns[1].classList.add('active');
+
+    const url = new URL(window.location);
+    if (lang === 'de') { url.searchParams.set('lang', 'de'); }
+    else { url.searchParams.delete('lang'); }
+    window.history.replaceState({}, '', url);
+  }
+
+  /* Init lang from URL */
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  if (urlLang === 'de') setLang('de');
+
+  /* ====== WINE TABS ====== */
+  function showWine(btn, id) {
+    document.querySelectorAll('.wine-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.wine-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  /* ====== MENU TABS ====== */
+  function showTab(btn, id) {
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  /* ====== FADE ON SCROLL ====== */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  /* ====== CUSTOM DATE PICKER ====== */
+  const _MONTHS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  let _cal = { y: 0, m: 0, sel: null };
+
+  (function initCal() {
+    const t = new Date();
+    _cal.y = t.getFullYear(); _cal.m = t.getMonth();
+    renderCal();
+    document.getElementById('dateTrigger').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('calPopup').classList.toggle('open');
+    });
+    document.getElementById('calPopup').addEventListener('click', function(e) { e.stopPropagation(); });
+    document.addEventListener('click', function() { document.getElementById('calPopup').classList.remove('open'); });
+  })();
+
+  function renderCal() {
+    const { y, m, sel } = _cal;
+    document.getElementById('calMonthLabel').textContent = _MONTHS[m] + ' ' + y;
+    const today = new Date(); today.setHours(0,0,0,0);
+    let dow = new Date(y, m, 1).getDay(); if (dow === 0) dow = 7;
+    const daysInMonth = new Date(y, m + 1, 0).getDate();
+    const grid = document.getElementById('calGrid');
+    grid.innerHTML = '';
+    for (let i = 1; i < dow; i++) {
+      const el = document.createElement('div'); el.className = 'cal-cell empty'; grid.appendChild(el);
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(y, m, d);
+      const cell = document.createElement('div');
+      cell.className = 'cal-cell';
+      cell.textContent = d;
+      if (date < today) {
+        cell.classList.add('disabled');
+      } else {
+        if (date.toDateString() === today.toDateString()) cell.classList.add('today');
+        if (sel && date.toDateString() === sel.toDateString()) cell.classList.add('selected');
+        cell.addEventListener('click', function(e) { e.stopPropagation(); pickDate(date); });
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  function pickDate(date) {
+    _cal.sel = date;
+    const d = String(date.getDate()).padStart(2,'0');
+    const m = String(date.getMonth()+1).padStart(2,'0');
+    const y = date.getFullYear();
+    const disp = document.getElementById('dateDisplay');
+    disp.textContent = d + '.' + m + '.' + y;
+    disp.classList.remove('placeholder-text');
+    document.getElementById('dateHidden').value = y + '-' + m + '-' + d;
+    document.getElementById('calPopup').classList.remove('open');
+    renderCal();
+  }
+
+  function calPrev() {
+    _cal.m--; if (_cal.m < 0) { _cal.m = 11; _cal.y--; }
+    const now = new Date();
+    if (_cal.y < now.getFullYear() || (_cal.y === now.getFullYear() && _cal.m < now.getMonth())) {
+      _cal.y = now.getFullYear(); _cal.m = now.getMonth();
+    }
+    renderCal();
+  }
+
+  function calNext() {
+    _cal.m++; if (_cal.m > 11) { _cal.m = 0; _cal.y++; }
+    renderCal();
+  }
+
+  /* ====== TIME PILLS ====== */
+  function selectTime(pill, value) {
+    document.querySelectorAll('.time-pill').forEach(p => p.classList.remove('selected'));
+    pill.classList.add('selected');
+    document.getElementById('heureHidden').value = value;
+  }
+
+  /* ====== FORM SUBMIT ====== */
+  const resaForm = document.getElementById('resaForm');
+  resaForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const isDE = document.documentElement.lang === 'de';
+    if (!document.getElementById('dateHidden').value) {
+      alert(isDE ? 'Bitte wählen Sie ein Datum.' : 'Veuillez choisir une date.');
+      return;
+    }
+    if (!document.getElementById('heureHidden').value) {
+      alert(isDE ? 'Bitte wählen Sie eine Uhrzeit.' : 'Veuillez choisir une heure.');
+      return;
+    }
+    const btn = resaForm.querySelector('button[type=submit]');
+    btn.textContent = '...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(resaForm.action, {
+        method: 'POST',
+        body: new FormData(resaForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        resaForm.reset();
+        document.getElementById('formSuccess').style.display = 'block';
+        btn.style.display = 'none';
+      } else {
+        btn.textContent = isDE ? 'Anfrage senden' : 'Envoyer la demande';
+        btn.disabled = false;
+        alert(isDE ? 'Fehler. Bitte versuchen Sie es erneut.' : 'Erreur. Veuillez réessayer ou nous appeler.');
+      }
+    } catch {
+      btn.textContent = 'Envoyer la demande';
+      btn.disabled = false;
+    }
+  });
+</script>
 </body>
 </html>
