@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Le Goubing chez Pino — Vera pizza napoletana à Sierre</title>
+<meta name="description" content="Pizzeria napolitaine au four à bois, à deux pas de la gare de Sierre. Pâte de 48 h, mozzarella di bufala, focaccia, panuozzo et sfilatino. Chez Pino, on mange comme à Naples." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #f7efe2;
+  --cream-soft: #fdf8ed;
+  --cream-deep: #ecdfc6;
+  --tomato: #c8362a;
+  --tomato-deep: #8e1f17;
+  --basil: #3a6b3a;
+  --basil-deep: #1f3d20;
+  --ember: #e8a13c;
+  --ember-deep: #b87618;
+  --char: #181210;
+  --char-soft: #2a201c;
+  --ink: #1c1612;
+  --ink-mute: #6b5d52;
+  --line: rgba(24, 18, 16, 0.12);
+  --shadow-lg: 0 30px 80px -28px rgba(24, 18, 16, 0.4);
+  --shadow-md: 0 14px 40px -16px rgba(24, 18, 16, 0.3);
+  --shadow-sm: 0 4px 18px -8px rgba(24, 18, 16, 0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.italic { font-style: italic; font-weight: 500; }
+
+.container { max-width: 1260px; margin: 0 auto; padding: 0 32px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 32px;
+  background: var(--tomato);
+  color: var(--cream-soft);
+  border: none;
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(.2, .8, .2, 1);
+  text-decoration: none;
+  box-shadow: 0 8px 24px -10px rgba(200, 54, 42, 0.65);
+}
+.btn:hover {
+  background: var(--tomato-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px -10px rgba(200, 54, 42, 0.7);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--cream-soft);
+  border: 1.5px solid rgba(247, 239, 226, 0.5);
+  box-shadow: none;
+}
+.btn-ghost:hover {
+  background: var(--cream-soft);
+  color: var(--char);
+  border-color: var(--cream-soft);
+}
+.btn-dark {
+  background: var(--char);
+  color: var(--cream-soft);
+  box-shadow: 0 8px 24px -10px rgba(24, 18, 16, 0.6);
+}
+.btn-dark:hover {
+  background: var(--char-soft);
+  box-shadow: 0 14px 34px -10px rgba(24, 18, 16, 0.65);
+}
+
+/* ───── NAVBAR ───── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 22px 0;
+  transition: all 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(247, 239, 226, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 13px 0;
+  box-shadow: 0 2px 24px -10px rgba(24, 18, 16, 0.2);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--cream-soft);
+  transition: color 0.4s ease;
+}
+.nav.scrolled .logo { color: var(--char); }
+
+.logo-mark {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--ember) 0%, var(--tomato) 55%, var(--tomato-deep) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--cream-soft);
+  box-shadow: inset 0 -3px 6px rgba(0,0,0,.25), 0 4px 14px -4px rgba(200,54,42,.55);
+  position: relative;
+}
+.logo-mark::after {
+  content: '';
+  position: absolute;
+  top: 6px; left: 9px;
+  width: 14px; height: 8px;
+  background: rgba(253, 248, 237, .35);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.logo-sub {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-top: 3px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+.nav-link {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--cream-soft);
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  opacity: 0.85;
+}
+.nav.scrolled .nav-link { color: var(--char); }
+.nav-link:hover { opacity: 1; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--ember);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+.nav-cta {
+  padding: 10px 22px;
+  font-size: 13px;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.burger span {
+  width: 26px; height: 2px;
+  background: var(--cream-soft);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.nav.scrolled .burger span { background: var(--char); }
+
+/* ───── HERO ───── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--char);
+  color: var(--cream-soft);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 140px 0 80px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(232, 161, 60, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, rgba(200, 54, 42, 0.22) 0%, transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(232, 161, 60, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(247, 239, 226, 0.04) 1px, transparent 0);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border: 1px solid rgba(247, 239, 226, 0.22);
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 28px;
+  background: rgba(247, 239, 226, 0.04);
+  backdrop-filter: blur(4px);
+}
+.hero-eyebrow .dot {
+  width: 6px; height: 6px;
+  background: var(--ember);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--ember);
+}
+
+.hero h1 {
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin-bottom: 28px;
+}
+.hero h1 .accent {
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(120deg, var(--ember) 0%, #f5d68a 50%, var(--ember) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+.hero h1 .line {
+  display: block;
+}
+
+.hero-lead {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(247, 239, 226, 0.78);
+  max-width: 520px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid rgba(247, 239, 226, 0.12);
+}
+.hero-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hero-meta-label {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(247, 239, 226, 0.55);
+}
+.hero-meta-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--cream-soft);
+}
+.hero-meta-value .pcs {
+  font-size: 13px;
+  color: var(--ember);
+  margin-left: 4px;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.1em;
+}
+
+/* HERO VISUAL — Pizza */
+.hero-visual {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-pizza {
+  position: relative;
+  width: 92%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 25%, #f3e6c5 0%, #e6cea0 25%, #c89e5e 60%, #8a5a28 100%);
+  box-shadow:
+    0 60px 120px -30px rgba(0,0,0,.6),
+    0 30px 60px -20px rgba(232, 161, 60, .35),
+    inset 0 -8px 24px rgba(0,0,0,.3),
+    inset 0 4px 12px rgba(255, 235, 200, .4);
+  animation: rotate-slow 90s linear infinite;
+}
+.hero-pizza::before {
+  content: '';
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 40% 30%, #d63a2a 0%, #a82515 60%, #7c1810 100%);
+  box-shadow: inset 0 4px 16px rgba(0,0,0,.3);
+}
+.hero-pizza::after {
+  content: '';
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 25% 30%, rgba(253, 248, 237, .95) 6%, transparent 14%),
+    radial-gradient(circle at 70% 25%, rgba(253, 248, 237, .9) 5%, transparent 12%),
+    radial-gradient(circle at 60% 65%, rgba(253, 248, 237, .92) 7%, transparent 15%),
+    radial-gradient(circle at 30% 75%, rgba(253, 248, 237, .88) 5%, transparent 13%),
+    radial-gradient(circle at 80% 80%, rgba(253, 248, 237, .9) 6%, transparent 14%),
+    radial-gradient(circle at 45% 45%, rgba(58, 107, 58, .85) 3%, transparent 7%),
+    radial-gradient(circle at 75% 50%, rgba(58, 107, 58, .85) 3%, transparent 7%),
+    radial-gradient(circle at 25% 55%, rgba(58, 107, 58, .85) 3%, transparent 7%),
+    radial-gradient(circle at 55% 25%, rgba(58, 107, 58, .85) 3%, transparent 7%);
+  filter: blur(.4px);
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.hero-badge {
+  position: absolute;
+  top: 8%;
+  right: -4%;
+  width: 130px; height: 130px;
+  background: var(--cream-soft);
+  color: var(--char);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  box-shadow: 0 20px 50px -10px rgba(232, 161, 60, .5);
+  transform: rotate(-12deg);
+  z-index: 2;
+  animation: float-badge 4s ease-in-out infinite;
+}
+.hero-badge .num {
+  font-size: 38px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--tomato);
+  line-height: 1;
+}
+.hero-badge .lbl {
+  font-size: 9px;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 6px;
+  color: var(--ink-mute);
+}
+.hero-badge .star {
+  color: var(--ember);
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+@keyframes float-badge {
+  0%, 100% { transform: rotate(-12deg) translateY(0); }
+  50%      { transform: rotate(-8deg) translateY(-8px); }
+}
+
+.hero-leaf {
+  position: absolute;
+  bottom: 4%;
+  left: -2%;
+  width: 100px; height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--basil);
+  color: var(--cream-soft);
+  border-radius: 50%;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 15px 35px -8px rgba(58, 107, 58, .55);
+  transform: rotate(10deg);
+  animation: float-badge 5s ease-in-out infinite reverse;
+  padding: 14px;
+  line-height: 1.2;
+}
+
+/* ───── MARQUEE ───── */
+.marquee {
+  background: var(--char);
+  color: var(--cream-soft);
+  padding: 22px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(247, 239, 226, 0.08);
+  border-bottom: 1px solid rgba(247, 239, 226, 0.08);
+}
+.marquee-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll 40s linear infinite;
+  white-space: nowrap;
+}
+.marquee-item {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--cream-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 60px;
+}
+.marquee-item::after {
+  content: '✦';
+  color: var(--ember);
+  font-style: normal;
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ───── SECTION COMMUNES ───── */
+section { padding: 120px 0; position: relative; }
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--tomato);
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+.section-title {
+  font-size: clamp(36px, 5vw, 62px);
+  margin-bottom: 22px;
+  letter-spacing: -0.015em;
+}
+.section-title .accent {
+  font-style: italic;
+  color: var(--tomato);
+  font-weight: 500;
+}
+.section-lead {
+  font-size: 18px;
+  color: var(--ink-mute);
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+/* ───── STORY ───── */
+.story {
+  background: var(--cream);
+  position: relative;
+}
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.story-text .section-title { margin-bottom: 30px; }
+.story-text p {
+  font-size: 17px;
+  color: var(--ink-mute);
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+.story-text .signature {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.signature-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--tomato);
+}
+.signature-role {
+  font-size: 13px;
+  color: var(--ink-mute);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.story-visual {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: 12px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, var(--char-soft) 0%, var(--char) 50%, #3a1a14 100%);
+  box-shadow: var(--shadow-lg);
+}
+.story-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(232, 161, 60, .55) 0%, rgba(232, 161, 60, .2) 25%, transparent 55%),
+    radial-gradient(ellipse at 70% 60%, rgba(200, 54, 42, .35) 0%, transparent 50%);
+}
+.flames {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60%;
+  background:
+    radial-gradient(ellipse at 20% 100%, rgba(232, 161, 60, .8) 0%, transparent 35%),
+    radial-gradient(ellipse at 50% 100%, rgba(252, 200, 90, .7) 0%, transparent 35%),
+    radial-gradient(ellipse at 80% 100%, rgba(200, 54, 42, .7) 0%, transparent 35%);
+  filter: blur(8px);
+  animation: flicker 3s ease-in-out infinite;
+}
+@keyframes flicker {
+  0%, 100% { opacity: 0.85; transform: scaleY(1); }
+  50%      { opacity: 1; transform: scaleY(1.05); }
+}
+.story-quote {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  z-index: 2;
+}
+.story-quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 500;
+  color: var(--cream-soft);
+  text-align: center;
+  line-height: 1.3;
+  text-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.story-quote-text::before,
+.story-quote-text::after {
+  content: '"';
+  display: block;
+  font-size: 80px;
+  color: var(--ember);
+  line-height: 0.5;
+  opacity: 0.55;
+}
+.story-quote-text::before { margin-bottom: 18px; }
+.story-quote-text::after  { margin-top: 36px; }
+
+/* ───── PILIERS ───── */
+.pillars {
+  background: var(--char);
+  color: var(--cream-soft);
+}
+.pillars .section-eyebrow { color: var(--ember); }
+.pillars .section-lead { color: rgba(247, 239, 226, 0.7); }
+
+.pillars-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 70px;
+}
+.pillars-header .section-lead { margin: 0 auto; }
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.pillar {
+  text-align: center;
+  padding: 50px 30px;
+  border: 1px solid rgba(247, 239, 226, 0.1);
+  border-radius: 16px;
+  background: rgba(247, 239, 226, 0.03);
+  transition: all 0.4s ease;
+}
+.pillar:hover {
+  border-color: rgba(232, 161, 60, 0.4);
+  background: rgba(232, 161, 60, 0.05);
+  transform: translateY(-6px);
+}
+.pillar-icon {
+  width: 70px; height: 70px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--ember) 0%, var(--tomato) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  box-shadow: 0 12px 30px -10px rgba(232, 161, 60, .5);
+}
+.pillar h3 {
+  font-size: 26px;
+  margin-bottom: 14px;
+  font-style: italic;
+  color: var(--cream-soft);
+}
+.pillar p {
+  font-size: 15px;
+  color: rgba(247, 239, 226, 0.7);
+  line-height: 1.7;
+}
+
+/* ───── CARTE ───── */
+.menu {
+  background: var(--cream);
+}
+.menu-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 70px;
+}
+.menu-header .section-lead { margin: 0 auto; }
+
+.menu-tabs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+.menu-tab {
+  padding: 11px 22px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--ink-mute);
+  font-family: 'DM Sans', sans-serif;
+}
+.menu-tab:hover { color: var(--tomato); border-color: var(--tomato); }
+.menu-tab.active {
+  background: var(--char);
+  color: var(--cream-soft);
+  border-color: var(--char);
+}
+
+.menu-panel { display: none; }
+.menu-panel.active {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 60px;
+  animation: fade-in 0.4s ease;
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dish {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  padding: 20px 0;
+  border-bottom: 1px dashed var(--line);
+  align-items: baseline;
+}
+.dish-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.dish-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--char);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dish-name .tag {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--basil);
+  color: var(--cream-soft);
+}
+.dish-name .tag.spicy { background: var(--tomato); }
+.dish-name .tag.signature {
+  background: var(--ember);
+  color: var(--char);
+}
+.dish-desc {
+  font-size: 14px;
+  color: var(--ink-mute);
+  line-height: 1.55;
+  font-style: italic;
+}
+.dish-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--tomato);
+  white-space: nowrap;
+}
+.dish-price .currency {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-right: 2px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.menu-note {
+  margin-top: 50px;
+  padding: 24px 32px;
+  background: var(--cream-deep);
+  border-left: 3px solid var(--ember);
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--ink-mute);
+  font-style: italic;
+  text-align: center;
+}
+
+/* ───── PROCESS ───── */
+.process {
+  background: var(--cream-soft);
+  position: relative;
+  overflow: hidden;
+}
+.process::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--cream-deep) 0%, transparent 70%);
+  pointer-events: none;
+}
+.process-inner {
+  position: relative;
+  z-index: 2;
+}
+.process-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 80px;
+}
+.process-header .section-lead { margin: 0 auto; }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  position: relative;
+}
+.process-step {
+  position: relative;
+  text-align: center;
+}
+.process-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--ember);
+  line-height: 1;
+  margin-bottom: 18px;
+  opacity: 0.7;
+}
+.process-step h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--char);
+}
+.process-step p {
+  font-size: 15px;
+  color: var(--ink-mute);
+  line-height: 1.65;
+}
+
+/* ───── TESTIMONIALS ───── */
+.testimonials {
+  background: var(--char);
+  color: var(--cream-soft);
+  position: relative;
+  overflow: hidden;
+}
+.testimonials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(232, 161, 60, .1) 0%, transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(200, 54, 42, .12) 0%, transparent 45%);
+  pointer-events: none;
+}
+.testimonials-inner { position: relative; z-index: 2; }
+.testimonials .section-eyebrow { color: var(--ember); }
+
+.testimonials-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 70px;
+}
+.rating-block {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.rating-stars {
+  color: var(--ember);
+  font-size: 22px;
+  letter-spacing: 3px;
+}
+.rating-score {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--cream-soft);
+  line-height: 1;
+}
+.rating-score .max { color: rgba(247, 239, 226, 0.4); font-size: 28px; }
+.rating-meta {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247, 239, 226, 0.6);
+}
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.testi {
+  padding: 36px 32px;
+  background: rgba(247, 239, 226, 0.04);
+  border: 1px solid rgba(247, 239, 226, 0.1);
+  border-radius: 14px;
+  transition: all 0.4s ease;
+}
+.testi:hover {
+  background: rgba(247, 239, 226, 0.06);
+  transform: translateY(-4px);
+  border-color: rgba(232, 161, 60, 0.3);
+}
+.testi-stars {
+  color: var(--ember);
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+.testi-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.55;
+  margin-bottom: 24px;
+  color: rgba(247, 239, 226, 0.92);
+}
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(247, 239, 226, 0.1);
+}
+.testi-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--tomato) 0%, var(--ember) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--cream-soft);
+}
+.testi-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.testi-name {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--cream-soft);
+}
+.testi-date {
+  font-size: 12px;
+  color: rgba(247, 239, 226, 0.5);
+}
+
+/* ───── INFOS PRATIQUES ───── */
+.info {
+  background: var(--cream);
+}
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.info-card {
+  background: var(--cream-soft);
+  padding: 50px;
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--line);
+}
+.info-card h3 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: var(--char);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.info-card h3 .icon {
+  width: 40px; height: 40px;
+  background: var(--tomato);
+  color: var(--cream-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-style: normal;
+}
+
+.hours-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.hours-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--line);
+  gap: 20px;
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-row.closed .hours-time { color: var(--tomato); font-style: italic; }
+.hours-day {
+  font-weight: 500;
+  font-size: 15px;
+}
+.hours-time {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  text-align: right;
+}
+
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 32px;
+}
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.contact-item .ic {
+  width: 38px; height: 38px;
+  flex-shrink: 0;
+  background: var(--cream-deep);
+  color: var(--tomato);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.contact-item .lbl {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 4px;
+  display: block;
+}
+.contact-item .val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--char);
+  display: block;
+  line-height: 1.4;
+}
+.contact-item a.val:hover { color: var(--tomato); }
+
+.map-block {
+  margin-top: 30px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.map-block iframe {
+  display: block;
+  width: 100%;
+  height: 260px;
+  border: 0;
+  filter: grayscale(0.3) contrast(1.05);
+}
+
+/* ───── RESERVATION CTA ───── */
+.reserve {
+  background: linear-gradient(135deg, var(--tomato-deep) 0%, var(--tomato) 50%, var(--ember-deep) 100%);
+  color: var(--cream-soft);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.reserve::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(232, 161, 60, .35) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(24, 18, 16, .25) 0%, transparent 50%);
+  pointer-events: none;
+}
+.reserve-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 740px;
+  margin: 0 auto;
+}
+.reserve .section-eyebrow {
+  color: rgba(247, 239, 226, 0.85);
+}
+.reserve h2 {
+  font-size: clamp(40px, 5.5vw, 68px);
+  margin-bottom: 24px;
+  color: var(--cream-soft);
+}
+.reserve h2 .accent {
+  font-style: italic;
+  color: var(--char);
+}
+.reserve p {
+  font-size: 18px;
+  color: rgba(247, 239, 226, 0.92);
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+.reserve-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ───── FOOTER ───── */
+footer {
+  background: var(--char);
+  color: var(--cream-soft);
+  padding: 80px 0 30px;
+  border-top: 1px solid rgba(247, 239, 226, 0.08);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+.footer-brand .logo {
+  margin-bottom: 24px;
+  color: var(--cream-soft);
+}
+.footer-brand p {
+  font-size: 14px;
+  color: rgba(247, 239, 226, 0.6);
+  line-height: 1.7;
+  max-width: 280px;
+}
+.footer-col h4 {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+}
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-col a, .footer-col li {
+  font-size: 14px;
+  color: rgba(247, 239, 226, 0.7);
+  transition: color 0.3s ease;
+}
+.footer-col a:hover { color: var(--ember); }
+
+.socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+.social {
+  width: 38px; height: 38px;
+  border: 1px solid rgba(247, 239, 226, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--cream-soft);
+  transition: all 0.3s ease;
+}
+.social:hover {
+  background: var(--ember);
+  border-color: var(--ember);
+  color: var(--char);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  padding-top: 30px;
+  border-top: 1px solid rgba(247, 239, 226, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: rgba(247, 239, 226, 0.5);
+}
+.footer-bottom a { color: var(--ember); }
+.footer-bottom a:hover { color: var(--cream-soft); }
+
+/* ───── RESPONSIVE ───── */
+@media (max-width: 980px) {
+  section { padding: 80px 0; }
+  .hero { padding: 120px 0 60px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 60px; }
+  .hero-visual { max-width: 480px; margin: 0 auto; }
+  .story-grid, .info-grid { grid-template-columns: 1fr; gap: 50px; }
+  .pillars-grid { grid-template-columns: 1fr; gap: 24px; }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 40px 20px; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .testimonials-header { grid-template-columns: 1fr; gap: 30px; }
+  .rating-block { text-align: left; align-items: flex-start; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .menu-panel.active { grid-template-columns: 1fr; gap: 0; }
+  .info-card { padding: 36px 28px; }
+  .nav-links {
+    position: fixed;
+    inset: 70px 0 0 0;
+    background: var(--cream-soft);
+    flex-direction: column;
+    padding: 50px 32px;
+    gap: 28px;
+    transform: translateY(-110%);
+    transition: transform 0.4s ease;
+    z-index: 99;
+  }
+  .nav-links.open { transform: translateY(0); }
+  .nav-links .nav-link { color: var(--char); font-size: 22px; font-family: 'Cormorant Garamond', serif; }
+  .burger { display: flex; }
+}
+
+@media (max-width: 560px) {
+  .container { padding: 0 22px; }
+  section { padding: 70px 0; }
+  .hero h1 { font-size: 44px; }
+  .hero-meta { gap: 22px; }
+  .process-steps { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .info-card { padding: 30px 22px; }
+  .testimonials-header { margin-bottom: 50px; }
+  .rating-score { font-size: 44px; }
+  .menu-tabs { gap: 6px; }
+  .menu-tab { padding: 9px 16px; font-size: 11px; }
+  .hero-badge { width: 100px; height: 100px; right: 0; }
+  .hero-badge .num { font-size: 28px; }
+  .hero-leaf { width: 80px; height: 80px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">P</div>
+      <div class="logo-text">
+        <span class="logo-name">Le Goubing</span>
+        <span class="logo-sub">Chez Pino · Sierre</span>
+      </div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#histoire" class="nav-link">Notre histoire</a>
+      <a href="#carte" class="nav-link">La carte</a>
+      <a href="#savoir-faire" class="nav-link">Le four</a>
+      <a href="#avis" class="nav-link">Avis</a>
+      <a href="#infos" class="nav-link">Infos</a>
+      <a href="#reserver" class="btn nav-cta">Réserver</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="hero-eyebrow"><span class="dot"></span>Vera Pizza Napoletana · Sierre depuis 2019</span>
+      <h1>
+        <span class="line">Comme à Naples,</span>
+        <span class="line"><span class="accent">au cœur du Valais.</span></span>
+      </h1>
+      <p class="hero-lead">
+        Une pâte qui lève 48 heures. Un four à bois qui monte à 450°. Des produits venus
+        de la Botte. Chez Pino, on ne fait que ce qu'on sait faire — et on le fait bien.
+        Pizza, focaccia, panuozzo, sfilatino : la tradition napolitaine, sans détour.
+      </p>
+      <div class="hero-actions">
+        <a href="#reserver" class="btn">Réserver une table</a>
+        <a href="#carte" class="btn btn-ghost">Voir la carte</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Pâte levée</span>
+          <span class="hero-meta-value">48<span class="pcs">heures</span></span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Four à bois</span>
+          <span class="hero-meta-value">450<span class="pcs">°C</span></span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Note Google</span>
+          <span class="hero-meta-value">4,9<span class="pcs">/ 5</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-pizza"></div>
+      <div class="hero-badge">
+        <span class="num">N°1</span>
+        <span class="lbl">Pizzeria Sierre</span>
+        <span class="star">★★★★★</span>
+      </div>
+      <div class="hero-leaf">Cuit au<br>feu de<br>bois</div>
+    </div>
+  </div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Vera Pizza Napoletana</span>
+    <span class="marquee-item">Mozzarella di Bufala</span>
+    <span class="marquee-item">San Marzano DOP</span>
+    <span class="marquee-item">Farina 00</span>
+    <span class="marquee-item">Forno a Legna</span>
+    <span class="marquee-item">Vera Pizza Napoletana</span>
+    <span class="marquee-item">Mozzarella di Bufala</span>
+    <span class="marquee-item">San Marzano DOP</span>
+    <span class="marquee-item">Farina 00</span>
+    <span class="marquee-item">Forno a Legna</span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="histoire">
+  <div class="container story-grid">
+    <div class="story-text">
+      <span class="section-eyebrow">L'histoire</span>
+      <h2 class="section-title">Une <span class="accent">passion</span> qui vient de loin.</h2>
+      <p>
+        Le Goubing a toujours été un point de rencontre à Sierre. En 2019, Pino Rubino y
+        installe son four à bois et y emmène un peu de Naples. La promesse est simple :
+        moins de plats à la carte, mais chacun pensé, dosé, et cuit à la perfection.
+      </p>
+      <p>
+        Ici, la pâte repose deux jours. La mozzarella est entière, le San Marzano vient
+        d'Italie, le basilic est frais. Quand la pizza sort du four, elle a cette bordure
+        boursouflée et tachetée — la <em>cornicione</em> — qui ne trompe pas.
+      </p>
+      <p>
+        On vient au Goubing pour la pizza, et on revient pour l'accueil. C'est ce qu'on
+        nous dit le plus souvent. C'est notre plus belle récompense.
+      </p>
+      <div class="signature">
+        <div>
+          <div class="signature-name">Pino Rubino</div>
+          <div class="signature-role">Patron · Pizzaiolo</div>
+        </div>
+      </div>
+    </div>
+    <div class="story-visual">
+      <div class="flames"></div>
+      <div class="story-quote">
+        <p class="story-quote-text">
+          La pizza, c'est trois ingrédients et mille gestes. Le secret, c'est la patience.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILIERS -->
+<section class="pillars">
+  <div class="container">
+    <div class="pillars-header">
+      <span class="section-eyebrow">Notre signature</span>
+      <h2 class="section-title">Ce qui fait <span class="accent" style="color: var(--ember);">une vraie napolitaine.</span></h2>
+      <p class="section-lead">
+        Trois engagements simples, tenus tous les jours depuis l'ouverture.
+        Pas de raccourcis, pas de compromis.
+      </p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-icon">🔥</div>
+        <h3>Le four à bois</h3>
+        <p>Un vrai four napolitain, chauffé au bois, qui monte à 450°C. La pizza cuit
+        en 90 secondes — c'est ce qui lui donne sa bordure aérée et son cœur tendre.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🍃</div>
+        <h3>La pâte de 48h</h3>
+        <p>Farine italienne type 00, levure mère, eau, sel. Une longue maturation qui
+        rend la pâte légère, digeste, et fidèle à la tradition de la <em>vera pizza</em>.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🍅</div>
+        <h3>Les produits italiens</h3>
+        <p>San Marzano DOP, mozzarella di bufala campana, basilic frais, huile
+        d'olive extra-vierge. Ce qui est bon là-bas est forcément meilleur ici.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARTE -->
+<section class="menu" id="carte">
+  <div class="container">
+    <div class="menu-header">
+      <span class="section-eyebrow">La carte</span>
+      <h2 class="section-title">Courte, <span class="accent">précise,</span> napolitaine.</h2>
+      <p class="section-lead">
+        Pas de carte fleuve. Chaque plat est défendu. Cliquez sur les catégories pour
+        découvrir ce qui sort du four chez Pino.
+      </p>
+    </div>
+
+    <div class="menu-tabs" role="tablist">
+      <button class="menu-tab active" data-tab="antipasti">Antipasti</button>
+      <button class="menu-tab" data-tab="focaccia">Focaccia</button>
+      <button class="menu-tab" data-tab="classiche">Pizze Classiche</button>
+      <button class="menu-tab" data-tab="speciali">Pizze Speciali</button>
+      <button class="menu-tab" data-tab="panuozzi">Panuozzi & Sfilatini</button>
+      <button class="menu-tab" data-tab="dolci">Dolci</button>
+      <button class="menu-tab" data-tab="boissons">Boissons</button>
+    </div>
+
+    <!-- ANTIPASTI -->
+    <div class="menu-panel active" data-panel="antipasti">
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Burrata e Pane Caldo</div>
+          <div class="dish-desc">Burrata des Pouilles, pain maison sorti du four, huile d'olive extra-vierge.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>16</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Antipasto della Casa</div>
+          <div class="dish-desc">Sélection du jour : jambon cru, mozzarella, olives, légumes grillés.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>22</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Insalata Caprese</div>
+          <div class="dish-desc">Tomates, mozzarella di bufala, basilic, huile d'olive.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>14</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Insalata del Goubing <span class="tag">Veggie</span></div>
+          <div class="dish-desc">Mesclun, tomates cerises, mozzarella, copeaux de parmesan, vinaigrette balsamique.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>12</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Olive & Focaccina</div>
+          <div class="dish-desc">Olives taggiasche, mini-focaccia maison à la fleur de sel.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>8</div>
+      </div>
+    </div>
+
+    <!-- FOCACCIA -->
+    <div class="menu-panel" data-panel="focaccia">
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Focaccia Classica</div>
+          <div class="dish-desc">Huile d'olive, romarin, fleur de sel. La plus pure.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>10</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Focaccia Mozzarella e Pomodori</div>
+          <div class="dish-desc">Mozzarella fior di latte, tomates cerises, origan.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>16</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Focaccia Prosciutto e Rucola</div>
+          <div class="dish-desc">Mozzarella, jambon cru de Parme, roquette, copeaux de parmesan.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>22</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Focaccia Burrata e Salame</div>
+          <div class="dish-desc">Burrata des Pouilles, salame piccante, basilic frais.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>24</div>
+      </div>
+    </div>
+
+    <!-- CLASSICHE -->
+    <div class="menu-panel" data-panel="classiche">
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Marinara</div>
+          <div class="dish-desc">San Marzano, ail, origan, huile d'olive. Sans fromage, à l'ancienne.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>14</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Margherita</div>
+          <div class="dish-desc">San Marzano DOP, fior di latte, basilic frais, huile d'olive.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>17</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Margherita di Bufala <span class="tag signature">Signature</span></div>
+          <div class="dish-desc">San Marzano, mozzarella di bufala campana DOP, basilic, huile d'olive extra-vierge.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>21</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Napoli</div>
+          <div class="dish-desc">San Marzano, fior di latte, anchois, câpres, olives noires, origan.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>19</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Diavola <span class="tag spicy">Piquant</span></div>
+          <div class="dish-desc">San Marzano, fior di latte, salame piccante calabrais, piment.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>21</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Quattro Formaggi</div>
+          <div class="dish-desc">Fior di latte, gorgonzola, parmesan, taleggio. Sans sauce tomate.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>22</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Capricciosa</div>
+          <div class="dish-desc">San Marzano, mozzarella, jambon cuit, champignons, artichauts, olives.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>23</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Prosciutto e Funghi</div>
+          <div class="dish-desc">San Marzano, mozzarella, jambon cuit, champignons frais.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>21</div>
+      </div>
+    </div>
+
+    <!-- SPECIALI -->
+    <div class="menu-panel" data-panel="speciali">
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Sfiziosa <span class="tag signature">Signature</span></div>
+          <div class="dish-desc">San Marzano, anchois, olives taggiasche, câpres, burrata posée à la sortie du four.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>26</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Sombrero <span class="tag signature">Signature</span></div>
+          <div class="dish-desc">Pizza bombée façon Pino : mozzarella, jambon cru, roquette, tomates cerises.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>25</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Mozzafiato</div>
+          <div class="dish-desc">Crème de courgettes, fior di latte, jambon cru, basilic, parmesan.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>24</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Pino's Mit Ei</div>
+          <div class="dish-desc">San Marzano, fior di latte, speck, œuf miroir, ciboulette.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>23</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Tartufata</div>
+          <div class="dish-desc">Crème de truffe noire, fior di latte, parmesan, copeaux de truffe d'été.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>29</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Vegetariana <span class="tag">Veggie</span></div>
+          <div class="dish-desc">San Marzano, mozzarella, courgettes grillées, aubergines, poivrons, basilic.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>22</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Salsiccia & Friarielli</div>
+          <div class="dish-desc">Fior di latte, saucisse italienne, brocoli-rave napolitains, ail, piment.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>25</div>
+      </div>
+    </div>
+
+    <!-- PANUOZZI -->
+    <div class="menu-panel" data-panel="panuozzi">
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Sfilatino del Pino <span class="tag signature">Signature</span></div>
+          <div class="dish-desc">Pizza roulée façon Pino : mozzarella, chèvre, jambon cru, miel, roquette, noix.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>24</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Sfilatino Vegetariano <span class="tag">Veggie</span></div>
+          <div class="dish-desc">Mozzarella, légumes grillés, pesto, tomates séchées, roquette.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>22</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Panuozzo Classico</div>
+          <div class="dish-desc">Sandwich à la pâte à pizza : mozzarella, jambon cru, tomates, roquette.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>20</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Panuozzo Diavolo <span class="tag spicy">Piquant</span></div>
+          <div class="dish-desc">Mozzarella, salame piccante, friarielli, piment, huile d'olive.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>21</div>
+      </div>
+    </div>
+
+    <!-- DOLCI -->
+    <div class="menu-panel" data-panel="dolci">
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Tiramisù della Casa <span class="tag signature">Signature</span></div>
+          <div class="dish-desc">Mascarpone, café, savoiardi, cacao. Recette de la maison.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>9</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Tiramisù Limoncello</div>
+          <div class="dish-desc">Notre tiramisù, version citron de Sorrente. Frais et lumineux.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>10</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Panna Cotta al Caramello</div>
+          <div class="dish-desc">Panna cotta crémeuse, coulis de caramel salé.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>9</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Cannolo Siciliano</div>
+          <div class="dish-desc">Coque croustillante garnie de ricotta sucrée et pépites de chocolat.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>8</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Gelato Artigianale</div>
+          <div class="dish-desc">Glace artisanale, parfums du jour. Demandez-nous.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>7</div>
+      </div>
+    </div>
+
+    <!-- BOISSONS -->
+    <div class="menu-panel" data-panel="boissons">
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Vin valaisan au verre</div>
+          <div class="dish-desc">Fendant, Johannisberg, Pinot Noir. Sélection du sommelier.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>6</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Vin italien au verre</div>
+          <div class="dish-desc">Aglianico, Falanghina, Primitivo. Pour rester dans le Sud.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>7</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Bière artisanale locale</div>
+          <div class="dish-desc">Brasseries valaisannes. Blonde, ambrée, blanche — selon la saison.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>7</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Birra Moretti</div>
+          <div class="dish-desc">La compagne naturelle de la pizza. Pression 0,3 l.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>6</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Limonade artisanale</div>
+          <div class="dish-desc">Citron de Sorrente pressé, eau gazeuse, sucre de canne.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>6</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Espresso italien</div>
+          <div class="dish-desc">Torréfaction napolitaine. Court, corsé, parfumé.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>4</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Limoncello</div>
+          <div class="dish-desc">Maison, glacé, à siroter en fin de repas. Verre.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>7</div>
+      </div>
+      <div class="dish">
+        <div class="dish-header">
+          <div class="dish-name">Grappa & Amari</div>
+          <div class="dish-desc">Sélection italienne. Demandez la carte des digestifs.</div>
+        </div>
+        <div class="dish-price"><span class="currency">CHF</span>8</div>
+      </div>
+    </div>
+
+    <div class="menu-note">
+      Carte indicative. Les plats du jour, suggestions et prix exacts vous sont
+      présentés à votre arrivée. Allergènes communiqués sur demande.
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS / SAVOIR-FAIRE -->
+<section class="process" id="savoir-faire">
+  <div class="container process-inner">
+    <div class="process-header">
+      <span class="section-eyebrow">Du grain au four</span>
+      <h2 class="section-title">Une pizza, <span class="accent">quatre étapes,</span> 48 heures.</h2>
+      <p class="section-lead">
+        Ce qui rend la napolitaine inimitable, c'est le temps qu'on lui accorde.
+        Voilà comment elle arrive dans votre assiette.
+      </p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3>La pâte</h3>
+        <p>Farine 00, eau, sel, levure mère. Pétrissage à la main, repos en cave deux jours pleins.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h3>Le boulage</h3>
+        <p>Chaque pâton est façonné à la main, sans rouleau. Les bulles d'air donnent la <em>cornicione</em>.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h3>La garniture</h3>
+        <p>San Marzano DOP, mozzarella entière, basilic frais. On dose à la louche, on n'inonde pas.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <h3>Le four</h3>
+        <p>450°C, 90 secondes. Le feu de bois lui donne ces taches noires irrégulières — le signe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="avis">
+  <div class="container testimonials-inner">
+    <div class="testimonials-header">
+      <div>
+        <span class="section-eyebrow">Ils sont passés au Goubing</span>
+        <h2 class="section-title">Ce que <span class="accent" style="color: var(--ember);">disent</span> nos clients.</h2>
+      </div>
+      <div class="rating-block">
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-score">4,9<span class="max"> / 5</span></div>
+        <div class="rating-meta">Sur 700+ avis Google · TripAdvisor</div>
+      </div>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">
+          La meilleure pizza de Sierre, sans hésiter. Croûte, pâte, mozzarella et sauce
+          en parfait équilibre. Le tiramisu maison vaut le détour aussi.
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div class="testi-author-info">
+            <span class="testi-name">Marc D.</span>
+            <span class="testi-date">Avis Google</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">
+          Une vraie napolitaine, fine et bien levée, comme on en mange à Naples. Service
+          attentif, ambiance chaleureuse. On y retourne dès qu'on peut.
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div class="testi-author-info">
+            <span class="testi-name">Sophie R.</span>
+            <span class="testi-date">Avis TripAdvisor</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">
+          Le sfilatino est une découverte ! Et la pâte est tellement digeste qu'on
+          finit l'assiette sans s'en rendre compte. Pino, vous êtes un artiste.
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div class="testi-author-info">
+            <span class="testi-name">Antoine M.</span>
+            <span class="testi-date">Avis Google</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFOS PRATIQUES -->
+<section class="info" id="infos">
+  <div class="container">
+    <div class="menu-header" style="margin-bottom: 60px;">
+      <span class="section-eyebrow">Infos pratiques</span>
+      <h2 class="section-title">Nous <span class="accent">trouver</span> & nous joindre.</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><span class="icon">⏰</span>Horaires</h3>
+        <ul class="hours-list">
+          <li class="hours-row closed">
+            <span class="hours-day">Dimanche</span>
+            <span class="hours-time">Fermé</span>
+          </li>
+          <li class="hours-row closed">
+            <span class="hours-day">Lundi</span>
+            <span class="hours-time">Fermé</span>
+          </li>
+          <li class="hours-row">
+            <span class="hours-day">Mardi</span>
+            <span class="hours-time">11h30 – 13h45 · 18h30 – 21h30</span>
+          </li>
+          <li class="hours-row">
+            <span class="hours-day">Mercredi</span>
+            <span class="hours-time">11h30 – 13h45 · 18h30 – 21h30</span>
+          </li>
+          <li class="hours-row">
+            <span class="hours-day">Jeudi</span>
+            <span class="hours-time">11h30 – 13h45 · 18h30 – 21h30</span>
+          </li>
+          <li class="hours-row">
+            <span class="hours-day">Vendredi</span>
+            <span class="hours-time">11h30 – 13h45 · 18h30 – 22h00</span>
+          </li>
+          <li class="hours-row">
+            <span class="hours-day">Samedi</span>
+            <span class="hours-time">11h30 – 13h45 · 18h30 – 22h00</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h3><span class="icon">📍</span>Contact</h3>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <div class="ic">📍</div>
+            <div>
+              <span class="lbl">Adresse</span>
+              <span class="val">Route des Lacs 9<br>3960 Sierre · Valais</span>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="ic">📞</div>
+            <div>
+              <span class="lbl">Téléphone</span>
+              <a href="tel:+41274561432" class="val">027 456 14 32</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="ic">💬</div>
+            <div>
+              <span class="lbl">WhatsApp</span>
+              <a href="tel:+41774528859" class="val">+41 77 452 88 59</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="ic">🚉</div>
+            <div>
+              <span class="lbl">Accès</span>
+              <span class="val">À 5 min à pied de la gare de Sierre</span>
+            </div>
+          </li>
+        </ul>
+        <div class="map-block">
+          <iframe
+            src="https://maps.google.com/maps?q=Route%20des%20Lacs%209%2C%203960%20Sierre&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Plan d'accès Le Goubing chez Pino, Sierre"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section class="reserve" id="reserver">
+  <div class="container reserve-inner">
+    <span class="section-eyebrow">Une table chez Pino</span>
+    <h2>Venez voir <span class="accent">de plus près.</span></h2>
+    <p>
+      Les soirs de fin de semaine se remplissent vite. Un coup de fil suffit —
+      ou un message WhatsApp, c'est encore plus simple.
+    </p>
+    <div class="reserve-actions">
+      <a href="tel:+41274561432" class="btn btn-dark">📞 027 456 14 32</a>
+      <a href="https://wa.me/41774528859" class="btn btn-ghost">💬 Réserver par WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-mark">P</div>
+          <div class="logo-text">
+            <span class="logo-name">Le Goubing</span>
+            <span class="logo-sub">Chez Pino · Sierre</span>
+          </div>
+        </a>
+        <p>Vera pizza napoletana au cœur du Valais. Pâte de 48 heures, four à bois, produits d'Italie. Depuis 2019.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/p/Le-Goubing-chez-Pino-100057309294224/" class="social" aria-label="Facebook">f</a>
+          <a href="#" class="social" aria-label="Instagram">◉</a>
+          <a href="https://wa.me/41774528859" class="social" aria-label="WhatsApp">✓</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>La maison</h4>
+        <ul>
+          <li><a href="#histoire">Notre histoire</a></li>
+          <li><a href="#savoir-faire">Le four à bois</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>La table</h4>
+        <ul>
+          <li><a href="#carte">La carte</a></li>
+          <li><a href="#reserver">Réserver</a></li>
+          <li><a href="#infos">Horaires</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Nous joindre</h4>
+        <ul>
+          <li>Route des Lacs 9</li>
+          <li>3960 Sierre · Valais</li>
+          <li><a href="tel:+41274561432">027 456 14 32</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Le Goubing chez Pino · Tous droits réservés</div>
+      <div>Site réalisé par <a href="https://nb-design.ch">NB-Design</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Burger
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+document.querySelectorAll('.nav-link, .nav-cta').forEach(l =>
+  l.addEventListener('click', () => navLinks.classList.remove('open'))
+);
+
+// Tabs carte
+const tabs = document.querySelectorAll('.menu-tab');
+const panels = document.querySelectorAll('.menu-panel');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
