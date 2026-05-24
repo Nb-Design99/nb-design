@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Réservation et contact pour le Café-Restaurant Les Vergers à Leytron. Téléphone, formulaire en ligne, accès, horaires, parking." />
+  <meta name="theme-color" content="#221812" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Réserver une table — Café-Restaurant Les Vergers, Leytron</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<header class="site-header on-light">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">Les Vergers<small>Café-Restaurant · Leytron</small></a>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="histoire.html">Maison</a>
+      <a href="carte.html">La Carte</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="reservation.html" class="nav-reserve active">Réserver une table</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a>
+      <span class="sep">/</span>
+      <span>Réservation</span>
+    </nav>
+    <span class="chapter-num">— À votre service</span>
+    <h1 class="italic">Réservez votre table.</h1>
+    <p class="lead">
+      Par téléphone, par courriel ou via le formulaire ci-dessous. Nous vous confirmons
+      votre réservation dans les meilleurs délais. Pour le week-end et la terrasse en
+      été, la réservation est vivement conseillée.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FORMULAIRE + INFOS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="form-wrap">
+
+      <!-- Côté gauche : formulaire -->
+      <form class="form fade-up" data-demo aria-label="Formulaire de réservation">
+        <div class="form-row">
+          <div class="field">
+            <label for="first">Prénom</label>
+            <input id="first" name="first" type="text" required autocomplete="given-name" />
+          </div>
+          <div class="field">
+            <label for="last">Nom</label>
+            <input id="last" name="last" type="text" required autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Courriel</label>
+            <input id="email" name="email" type="email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="phone">Téléphone</label>
+            <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="+41 ..." />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="date">Date souhaitée</label>
+            <input id="date" name="date" type="date" required />
+          </div>
+          <div class="field">
+            <label for="service">Service</label>
+            <select id="service" name="service" required>
+              <option value="dejeuner" selected>Déjeuner (12 h – 14 h)</option>
+              <option value="diner">Dîner (18 h – 22 h)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="time">Heure préférée</label>
+            <input id="time" name="time" type="time" required value="12:30" />
+          </div>
+          <div class="field">
+            <label for="guests">Nombre de couverts</label>
+            <select id="guests" name="guests" required>
+              <option>1 personne</option>
+              <option selected>2 personnes</option>
+              <option>3 personnes</option>
+              <option>4 personnes</option>
+              <option>5 personnes</option>
+              <option>6 personnes</option>
+              <option>7 personnes ou plus (groupe)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="space">Espace préféré</label>
+          <select id="space" name="space">
+            <option value="indifferent" selected>Peu importe</option>
+            <option value="salle">Salle à manger</option>
+            <option value="terrasse">Terrasse (avril → octobre)</option>
+            <option value="carnotzet">Carnotzet (fondues, raclettes, groupes)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message (occasion, allergies, demande particulière)</label>
+          <textarea id="message" name="message" rows="4" placeholder="Anniversaire, intolérance au gluten, fondue à commander à l'avance, etc."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary" style="background:var(--terra);">
+          Envoyer la demande <span class="arrow">→</span>
+        </button>
+
+        <p class="form-status" style="font-size:0.88rem;color:var(--sage-deep);min-height:1.2em;opacity:0;transition:opacity 0.4s;font-style:italic;"></p>
+
+        <p style="font-size:0.78rem;color:var(--ink-mute);margin-top:0.5rem;">
+          Votre demande sera traitée dans les meilleurs délais. Pour une réservation
+          le jour-même, merci d'appeler directement le restaurant au
+          <a href="tel:+41273063062" style="color:var(--terra);">+41 (0)27 306 30 62</a>.
+        </p>
+      </form>
+
+      <!-- Côté droit : infos contact + horaires -->
+      <aside class="form-side fade-up">
+        <span class="chapter-num">— Préférez-vous nous appeler ?</span>
+        <h2 class="italic" style="margin-top:0.75rem;">Nous joindre directement.</h2>
+        <p class="lead">
+          Le téléphone reste le moyen le plus rapide pour les réservations
+          de dernière minute, les groupes, les fondues et les raclettes (à commander
+          la veille de préférence).
+        </p>
+
+        <div class="contact-line">
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          </span>
+          <div>
+            <span class="ct-label">Téléphone</span>
+            <a href="tel:+41273063062" class="ct-val">+41 (0)27 306 30 62</a>
+          </div>
+        </div>
+
+        <div class="contact-line">
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </span>
+          <div>
+            <span class="ct-label">Courriel</span>
+            <a href="mailto:vergersdelice@bluewin.ch" class="ct-val">vergersdelice@bluewin.ch</a>
+          </div>
+        </div>
+
+        <div class="contact-line">
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <div>
+            <span class="ct-label">Adresse</span>
+            <span class="ct-val">Route de Saillon 1, 1912 Leytron</span>
+          </div>
+        </div>
+
+        <div class="contact-line" style="border-bottom:none;">
+          <span class="ico">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <div>
+            <span class="ct-label">Horaires</span>
+            <span class="ct-val">Lun · Mer–Dim · midi &amp; soir</span>
+          </div>
+        </div>
+
+        <p style="font-size:0.85rem;color:var(--ink-mute);margin-top:1.5rem;line-height:1.6;">
+          Fermé le mardi (journée complète). Service en continu de 8 h à 14 h et de
+          17 h 30 à 22 h. Le dimanche, ouverture à 9 h.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INFOS PRATIQUES ============ -->
+<section class="section section--soft">
+  <div class="container">
+    <div style="text-align:center;max-width:42rem;margin:0 auto 3rem;">
+      <span class="chapter-num">— Bon à savoir</span>
+      <h2 class="italic">Tout ce qu'il faut pour préparer votre venue.</h2>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card fade-up">
+        <span class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        </span>
+        <h3>Stationnement</h3>
+        <p class="meta">
+          <strong>Parking</strong> à proximité immédiate du restaurant, sur la place
+          du village. Stationnement <strong>gratuit</strong>. Places également disponibles
+          le long de la route de Saillon.
+        </p>
+      </div>
+
+      <div class="info-card fade-up">
+        <span class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13.5 13.5 0 0 1 0 18M12 3a13.5 13.5 0 0 0 0 18"/></svg>
+        </span>
+        <h3>Accès</h3>
+        <p class="meta">
+          À <strong>15 minutes</strong> de Sion et <strong>10 minutes</strong> de
+          Martigny par l'autoroute A9 (sortie Riddes ou Saillon).
+          Gare CFF de Riddes à 3 km, navette bus régulière vers Leytron.
+        </p>
+      </div>
+
+      <div class="info-card fade-up">
+        <span class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+        <h3>Groupes &amp; événements</h3>
+        <p class="meta">
+          Carnotzet privatisable dès <strong>10 personnes</strong>. Idéal pour les
+          fondues, raclettes, anniversaires, sorties d'entreprise.
+          Menus de groupe sur demande.
+        </p>
+        <p class="meta" style="margin-top:0.75rem;">
+          <a href="mailto:vergersdelice@bluewin.ch?subject=Demande%20groupe">Demander un devis</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLAN STYLISÉ ============ -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;max-width:38rem;margin:0 auto 2.5rem;">
+      <span class="chapter-num">— Plan</span>
+      <h2 class="italic">Au cœur du village, à l'orée des vignes.</h2>
+    </div>
+
+    <div style="position:relative;width:100%;aspect-ratio:16/7;background:linear-gradient(135deg,#ecdfc6 0%,#dccfae 100%);border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--line-soft);">
+      <svg viewBox="0 0 800 350" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;" aria-hidden="true">
+        <!-- Coteau d'Ovronnaz / Grand-Chavalard en haut -->
+        <g fill="#a4793f" opacity="0.45">
+          <path d="M0,0 L100,40 L200,15 L320,50 L420,25 L530,55 L620,30 L720,60 L800,40 L800,0 Z"/>
+        </g>
+        <!-- Vignobles en terrasses -->
+        <g stroke="#5a6b3a" stroke-width="0.8" fill="none" opacity="0.35">
+          <path d="M0,70 L800,70" stroke-dasharray="3,3"/>
+          <path d="M0,85 L800,85" stroke-dasharray="3,3"/>
+        </g>
+        <!-- Rangées d'arbres / vergers -->
+        <g fill="#5a6b3a" opacity="0.4">
+          <circle cx="80" cy="110" r="5"/><circle cx="105" cy="110" r="5"/><circle cx="130" cy="110" r="5"/>
+          <circle cx="200" cy="115" r="5"/><circle cx="225" cy="115" r="5"/><circle cx="250" cy="115" r="5"/>
+          <circle cx="600" cy="110" r="5"/><circle cx="625" cy="110" r="5"/><circle cx="650" cy="110" r="5"/>
+          <circle cx="700" cy="115" r="5"/><circle cx="725" cy="115" r="5"/>
+        </g>
+        <!-- Route principale (Route de Saillon) -->
+        <g stroke="#b58a37" stroke-width="3" fill="none" opacity="0.55">
+          <path d="M0,200 Q200,195 400,200 T800,205"/>
+        </g>
+        <text x="60" y="195" font-family="Inter, sans-serif" font-size="9" fill="#7c6b56" letter-spacing="1.5">ROUTE DE SAILLON</text>
+        <!-- Route d'Ovronnaz transversale -->
+        <g stroke="#b58a37" stroke-width="2" fill="none" opacity="0.4">
+          <path d="M420,0 Q415,150 410,350"/>
+        </g>
+        <text x="425" y="285" font-family="Inter, sans-serif" font-size="9" fill="#7c6b56" letter-spacing="1.5" transform="rotate(85 425 285)">RTE D'OVRONNAZ</text>
+        <!-- Bâtiments du village -->
+        <g fill="#221812" opacity="0.18">
+          <rect x="350" y="170" width="35" height="25"/>
+          <rect x="390" y="160" width="40" height="30"/>
+          <rect x="435" y="170" width="40" height="25"/>
+          <rect x="350" y="215" width="40" height="30"/>
+          <rect x="395" y="215" width="45" height="30"/>
+          <rect x="445" y="215" width="35" height="30"/>
+          <rect x="270" y="220" width="55" height="35"/>
+          <rect x="490" y="225" width="50" height="30"/>
+        </g>
+        <!-- Marker restaurant -->
+        <g transform="translate(415, 205)">
+          <circle r="14" fill="#c5662b" opacity="0.25"/>
+          <circle r="8" fill="#c5662b"/>
+          <circle r="3" fill="#f6f1e4"/>
+        </g>
+        <!-- Label -->
+        <text x="435" y="208" font-family="Fraunces, serif" font-style="italic" font-size="17" fill="#221812">Café-Restaurant Les Vergers</text>
+        <text x="435" y="228" font-family="Inter, sans-serif" font-size="11" fill="#4d3d2e" letter-spacing="1.2">ROUTE DE SAILLON 1 · LEYTRON</text>
+        <!-- Labels paysage -->
+        <text x="30" y="40" font-family="Fraunces, serif" font-style="italic" font-size="13" fill="#6b4a24">Coteau d'Ovronnaz</text>
+        <text x="600" y="40" font-family="Fraunces, serif" font-style="italic" font-size="13" fill="#6b4a24">Grand-Chavalard</text>
+        <text x="60" y="135" font-family="Fraunces, serif" font-style="italic" font-size="11" fill="#5a6b3a">Vergers</text>
+        <text x="660" y="135" font-family="Fraunces, serif" font-style="italic" font-size="11" fill="#5a6b3a">Vignes</text>
+      </svg>
+
+      <a href="https://maps.google.com/?q=Route+de+Saillon+1+1912+Leytron" target="_blank" rel="noopener"
+         class="btn btn--ghost"
+         style="position:absolute;bottom:1.5rem;right:1.5rem;background:var(--ivory);">
+        Ouvrir dans Maps <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">Les Vergers<small>Café-Restaurant · Leytron</small></a>
+      <p class="pitch">
+        Café-Restaurant familial au cœur de Leytron, labellisé Saveurs du Valais.
+        Carnotzet, terrasse, cuisine de tradition.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Naviguer</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="histoire.html">La maison</a></li>
+        <li><a href="carte.html">La carte</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="reservation.html">Réserver</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>Route de Saillon 1<br>1912 Leytron (VS)</li>
+        <li><a href="tel:+41273063062">+41 (0)27 306 30 62</a></li>
+        <li><a href="mailto:vergersdelice@bluewin.ch">vergersdelice@bluewin.ch</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Horaires</h4>
+      <ul>
+        <li>Lun · Mer – Sam</li>
+        <li>8 h – 14 h · 17 h 30 – 22 h</li>
+        <li>Dim 9 h – 14 h · 17 h 30 – 22 h</li>
+        <li style="opacity:0.6;margin-top:0.5rem;">Fermé le mardi</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Café-Restaurant Les Vergers · Tous droits réservés</span>
+    <span class="credit">Site démo réalisé par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a></span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

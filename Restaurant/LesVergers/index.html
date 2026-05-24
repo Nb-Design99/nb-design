@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Café-Restaurant Les Vergers à Leytron : cuisine familiale valaisanne, fondues, escargots, viandes du terroir. Carnotzet, terrasse au cœur du village. Saveurs du Valais." />
+  <meta name="theme-color" content="#221812" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <meta property="og:title" content="Café-Restaurant Les Vergers — Leytron" />
+  <meta property="og:description" content="Une table familiale au centre de Leytron, labellisée Saveurs du Valais. Carnotzet, terrasse, spécialités du terroir." />
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:locale" content="fr_CH" />
+
+  <title>Café-Restaurant Les Vergers — Cuisine valaisanne à Leytron</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,30..100;1,9..144,300..600,30..100&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<header class="site-header on-dark">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">Les Vergers<small>Café-Restaurant · Leytron</small></a>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="histoire.html">Maison</a>
+      <a href="carte.html">La Carte</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="reservation.html" class="nav-reserve">Réserver une table</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMax slice">
+      <defs>
+        <linearGradient id="hill" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#5a6b3a" stop-opacity="0.65"/>
+          <stop offset="1" stop-color="#221812" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="#e0935b" stop-opacity="0.55"/>
+          <stop offset="1" stop-color="#c5662b" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <!-- Soleil/abricot couchant -->
+      <circle cx="900" cy="220" r="90" fill="url(#sun)"/>
+      <!-- Silhouette des dents-du-midi / coteaux de Leytron -->
+      <path d="M0,440 L80,400 L140,420 L220,360 L320,330 L420,360 L520,320 L600,300 L700,340 L780,310 L880,350 L980,320 L1080,360 L1200,340 L1200,600 L0,600 Z" fill="url(#hill)"/>
+      <!-- Rangées de pommiers/abricotiers stylisés -->
+      <g opacity="0.45" fill="#5a6b3a">
+        <circle cx="150" cy="500" r="14"/><circle cx="200" cy="500" r="12"/>
+        <circle cx="250" cy="500" r="14"/><circle cx="300" cy="500" r="13"/>
+        <circle cx="700" cy="510" r="14"/><circle cx="750" cy="508" r="12"/>
+        <circle cx="800" cy="512" r="14"/><circle cx="850" cy="510" r="13"/>
+      </g>
+      <!-- Fruits dorés -->
+      <g opacity="0.55" fill="#e0935b">
+        <circle cx="160" cy="495" r="2.5"/><circle cx="210" cy="495" r="2"/>
+        <circle cx="710" cy="505" r="2.5"/><circle cx="810" cy="507" r="2"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">
+        <span class="dot"></span>
+        <span>Leytron · Valais · Suisse</span>
+      </div>
+      <h1 class="hero-title">
+        Une table familiale,<br>
+        <span class="accent">au cœur</span><br>
+        des vergers du Valais.
+      </h1>
+      <p class="hero-sub">
+        Depuis des années, Les Vergers réunit voisins, randonneurs et habitués autour
+        d'une cuisine valaisanne franche et gourmande. Carnotzet, terrasse, salle à manger :
+        trois ambiances pour une même générosité.
+      </p>
+      <div class="hero-ctas">
+        <a href="reservation.html" class="btn btn--primary" style="background:var(--terra)">
+          Réserver une table <span class="arrow">→</span>
+        </a>
+        <a href="carte.html" class="btn btn--light">Découvrir la carte</a>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <span class="eyebrow">Label</span>
+      <div class="meta-val">Saveurs<br>du Valais</div>
+      <span class="eyebrow" style="margin-top:1rem;display:block;">Au village de</span>
+      <div class="meta-val">Leytron</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Défiler</span>
+  </div>
+</section>
+
+<!-- ============ DISTINCTIONS BAND ============ -->
+<section style="padding-block:2rem;">
+  <div class="container">
+    <div class="distinctions">
+      <div class="distinction">
+        <span class="label">Label régional</span>
+        <span class="value">Saveurs du Valais</span>
+      </div>
+      <div class="distinction">
+        <span class="label">Ambiances</span>
+        <span class="value">Carnotzet · Terrasse · Salle</span>
+      </div>
+      <div class="distinction">
+        <span class="label">Spécialités</span>
+        <span class="value">Fondues · Escargots · Grillades</span>
+      </div>
+      <div class="distinction">
+        <span class="label">Note Tripadvisor</span>
+        <span class="value">4 / 5</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT SPLIT ============ -->
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div class="split-visual tile-terrace fade-up" aria-hidden="true">
+        <div class="tile-inner">
+          <svg viewBox="0 0 100 100" fill="none" stroke="#f6f1e4" stroke-width="0.55" opacity="0.65">
+            <!-- Branche fruitière -->
+            <path d="M10,80 Q40,55 70,45 Q85,40 92,30"/>
+            <circle cx="35" cy="60" r="5" fill="#f6f1e4" opacity="0.45"/>
+            <circle cx="55" cy="50" r="6" fill="#f6f1e4" opacity="0.45"/>
+            <circle cx="75" cy="42" r="5" fill="#f6f1e4" opacity="0.45"/>
+            <path d="M30,55 L35,60 M50,45 L55,50 M70,38 L75,42"/>
+            <!-- Petites feuilles -->
+            <path d="M40,50 Q45,45 50,48"/>
+            <path d="M60,42 Q65,38 70,40"/>
+          </svg>
+        </div>
+        <p class="visual-caption">Au cœur des vergers de plaine, route de Saillon</p>
+      </div>
+      <div class="split-text fade-up">
+        <span class="chapter-num">— Chapitre 01</span>
+        <span class="eyebrow" style="display:block;margin:0.5rem 0 1rem;">Bienvenue aux Vergers</span>
+        <h2 class="italic">Une maison du village, simple et généreuse.</h2>
+        <p class="lead">
+          Au centre de Leytron, à deux pas de la place du village et au pied du coteau
+          d'Ovronnaz, Les Vergers est l'une de ces adresses qui se transmettent entre
+          amis : on y vient pour la table, on y revient pour l'accueil.
+        </p>
+        <p>
+          Carnotzet boisé pour les fondues, terrasse au calme dès les premiers beaux jours,
+          salle à manger pour les repas en famille : trois manières de profiter d'une cuisine
+          fidèle aux produits du Valais, sans chichis, sans détours.
+        </p>
+        <a href="histoire.html" class="more">Découvrir la maison <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CITATION ============ -->
+<section class="section section--soft">
+  <div class="container">
+    <div class="quote fade-up">
+      <span class="mark">,,</span>
+      <q>Une bonne table valaisanne, c'est d'abord un produit qu'on respecte, un voisin qu'on accueille, et un verre qu'on partage.</q>
+      <cite>L'esprit de la maison</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURES ============ -->
+<section class="section">
+  <div class="container">
+    <div style="max-width:38rem;">
+      <span class="chapter-num">— Chapitre 02</span>
+      <span class="eyebrow" style="display:block;margin:0.5rem 0 1rem;">Signatures de la maison</span>
+      <h2 class="italic">Trois plats qui font la réputation des Vergers.</h2>
+      <p class="lead" style="margin-top:1rem;">
+        Des classiques valaisans préparés à la maison, avec la régularité et la générosité
+        qui sont notre marque de fabrique.
+      </p>
+    </div>
+
+    <div class="feature-row">
+      <article class="feature fade-up">
+        <span class="num">N° 01</span>
+        <h3>Fondue des Vergers</h3>
+        <p>
+          Notre mélange maison, généreux et fondant. Servie au carnotzet ou en salle,
+          accompagnée d'un fendant bien frais.
+        </p>
+      </article>
+      <article class="feature fade-up">
+        <span class="num">N° 02</span>
+        <h3>Cassolette d'escargots</h3>
+        <p>
+          Six ou douze pièces, beurre à l'ail persillé, mie de pain dorée. Un classique
+          jamais démodé, demandé toute l'année par nos habitués.
+        </p>
+      </article>
+      <article class="feature fade-up">
+        <span class="num">N° 03</span>
+        <h3>Entrecôte &amp; pavé de cheval</h3>
+        <p>
+          Grillades minute, viandes de qualité, sauces maison. Servies avec frites
+          fraîches et garniture du moment.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERIE TEASER ============ -->
+<section class="section section--soft">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem;margin-bottom:3rem;">
+      <div style="max-width:38rem;">
+        <span class="chapter-num">— Chapitre 03</span>
+        <span class="eyebrow" style="display:block;margin:0.5rem 0 1rem;">L'ambiance</span>
+        <h2 class="italic">Un aperçu de la maison.</h2>
+      </div>
+      <a href="galerie.html" class="more">Voir la galerie complète <span>→</span></a>
+    </div>
+
+    <div class="gallery-grid">
+      <a class="gallery-item gi-1 tile-terrace fade-up" href="galerie.html" aria-label="La terrasse">
+        <div class="tile-inner">
+          <svg viewBox="0 0 100 100" stroke="#f6f1e4" fill="none" stroke-width="0.5" opacity="0.6">
+            <path d="M20,80 Q30,40 40,80 M50,80 Q60,30 70,80 M80,80 Q85,50 90,80"/>
+            <path d="M10,85 L95,85"/>
+            <circle cx="30" cy="42" r="3" fill="#f6f1e4" opacity="0.45"/>
+            <circle cx="60" cy="32" r="3.5" fill="#f6f1e4" opacity="0.45"/>
+          </svg>
+        </div>
+        <span class="caption">La terrasse, dès les beaux jours</span>
+      </a>
+      <a class="gallery-item gi-2 tile-plate fade-up" href="galerie.html" aria-label="Un dressage">
+        <div class="tile-inner">
+          <svg viewBox="0 0 100 100" stroke="#f6f1e4" fill="none" stroke-width="0.4" opacity="0.55">
+            <circle cx="50" cy="50" r="35"/>
+            <circle cx="50" cy="50" r="20"/>
+            <circle cx="48" cy="48" r="4" fill="#f6f1e4"/>
+          </svg>
+        </div>
+        <span class="caption">Entrecôte de bœuf, beurre Café de Paris</span>
+      </a>
+      <a class="gallery-item gi-3 tile-evening fade-up" href="galerie.html" aria-label="Le carnotzet">
+        <span class="caption">Le carnotzet, pour les fondues</span>
+      </a>
+      <a class="gallery-item gi-4 tile-wine fade-up" href="galerie.html" aria-label="Vins du Valais">
+        <div class="tile-inner">
+          <svg viewBox="0 0 100 100" stroke="#f6f1e4" fill="none" stroke-width="0.4" opacity="0.55">
+            <path d="M40,20 L60,20 L62,35 Q62,50 50,55 Q38,50 38,35 Z"/>
+            <line x1="50" y1="55" x2="50" y2="80"/>
+            <line x1="38" y1="80" x2="62" y2="80"/>
+          </svg>
+        </div>
+        <span class="caption">Vins de la commune et du Valais</span>
+      </a>
+      <a class="gallery-item gi-5 tile-apple fade-up" href="galerie.html" aria-label="Les vergers">
+        <div class="tile-inner">
+          <svg viewBox="0 0 100 100" stroke="#f6f1e4" fill="none" stroke-width="0.4" opacity="0.55">
+            <circle cx="50" cy="55" r="22"/>
+            <path d="M50,33 Q48,28 45,28"/>
+            <path d="M48,33 Q55,30 60,32"/>
+          </svg>
+        </div>
+        <span class="caption">Pommes et abricots du voisinage</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HORAIRES & ACCÈS ============ -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;max-width:42rem;margin:0 auto 3rem;">
+      <span class="chapter-num">— Chapitre 04</span>
+      <span class="eyebrow" style="display:block;margin:0.5rem 0 1rem;">Infos pratiques</span>
+      <h2 class="italic">Nous trouver, nous joindre.</h2>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card fade-up">
+        <span class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </span>
+        <h3>Horaires</h3>
+        <ul class="hours-list">
+          <li data-day="monday"><span>Lundi</span><span>8 h – 14 h · 17 h 30 – 22 h</span></li>
+          <li class="closed" data-day="tuesday"><span>Mardi</span><span>Fermé</span></li>
+          <li data-day="wednesday"><span>Mercredi</span><span>8 h – 14 h · 17 h 30 – 22 h</span></li>
+          <li data-day="thursday"><span>Jeudi</span><span>8 h – 14 h · 17 h 30 – 22 h</span></li>
+          <li data-day="friday"><span>Vendredi</span><span>8 h – 14 h · 17 h 30 – 22 h</span></li>
+          <li data-day="saturday"><span>Samedi</span><span>8 h – 14 h · 17 h 30 – 22 h</span></li>
+          <li data-day="sunday"><span>Dimanche</span><span>9 h – 14 h · 17 h 30 – 22 h</span></li>
+        </ul>
+      </div>
+
+      <div class="info-card fade-up">
+        <span class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        </span>
+        <h3>Adresse</h3>
+        <p class="meta">
+          <strong>Route de Saillon 1</strong><br>
+          1912 Leytron (VS)<br>
+          Suisse
+        </p>
+        <p class="meta" style="margin-top:1rem;">
+          <a href="https://maps.google.com/?q=Route+de+Saillon+1+1912+Leytron" target="_blank" rel="noopener">Itinéraire Google Maps</a>
+        </p>
+      </div>
+
+      <div class="info-card fade-up">
+        <span class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        </span>
+        <h3>Contact</h3>
+        <p class="meta">
+          <strong>Téléphone</strong><br>
+          <a href="tel:+41273063062">+41 (0)27 306 30 62</a>
+        </p>
+        <p class="meta" style="margin-top:1rem;">
+          <strong>Courriel</strong><br>
+          <a href="mailto:vergersdelice@bluewin.ch">vergersdelice@bluewin.ch</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<section class="cta-band">
+  <h2 class="italic">Une table à votre nom, ce soir aux Vergers.</h2>
+  <p>La réservation est conseillée le week-end et durant la belle saison sur la terrasse.</p>
+  <a href="reservation.html" class="btn btn--light">Réserver maintenant <span class="arrow">→</span></a>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">Les Vergers<small>Café-Restaurant · Leytron</small></a>
+      <p class="pitch">
+        Café-Restaurant familial au cœur de Leytron, labellisé Saveurs du Valais.
+        Carnotzet, terrasse, cuisine de tradition.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Naviguer</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="histoire.html">La maison</a></li>
+        <li><a href="carte.html">La carte</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="reservation.html">Réserver</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>Route de Saillon 1<br>1912 Leytron (VS)</li>
+        <li><a href="tel:+41273063062">+41 (0)27 306 30 62</a></li>
+        <li><a href="mailto:vergersdelice@bluewin.ch">vergersdelice@bluewin.ch</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Horaires</h4>
+      <ul>
+        <li>Lun · Mer – Sam</li>
+        <li>8 h – 14 h · 17 h 30 – 22 h</li>
+        <li>Dim 9 h – 14 h · 17 h 30 – 22 h</li>
+        <li style="opacity:0.6;margin-top:0.5rem;">Fermé le mardi</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Café-Restaurant Les Vergers · Tous droits réservés</span>
+    <span class="credit">Site démo réalisé par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a></span>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
