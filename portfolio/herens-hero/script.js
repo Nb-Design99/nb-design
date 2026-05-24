@@ -10,7 +10,7 @@
   const PARALLEL_LOADS = 6;
 
   // How many frames must be ready before we unhide the canvas + allow scrub.
-  // We don't need every frame to start — initial paint can begin as soon as
+  // We don't need every frame to start. Initial paint can begin as soon as
   // the first few are in.
   const MIN_FRAMES_FOR_READY = 12;
 
@@ -105,7 +105,7 @@
       };
       img.onerror = () => {
         inFlight--;
-        // Keep going even if a frame fails — drawFrame skips missing ones.
+        // Keep going even if a frame fails. drawFrame skips missing ones.
         startLoading();
       };
       img.src = FRAME_URL(idx);
