@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REINES — Le combat sacré des alpages valaisans</title>
+  <meta name="description" content="Démo portfolio NB-Design — hero scroll-scrub canvas, séquence d'images générées par IA.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top navigation -->
+  <nav class="topnav">
+    <div class="topnav__brand">REINES</div>
+    <ul class="topnav__links">
+      <li><a href="#tradition">Tradition</a></li>
+      <li><a href="#saison">Saison</a></li>
+      <li><a href="#arenes">Arènes</a></li>
+      <li><a href="#contact" class="topnav__cta">Billetterie</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero scroll-scrub (canvas image sequence) -->
+  <section class="hero" aria-label="Combat de reines">
+    <div class="hero__sticky">
+      <canvas class="hero__canvas" aria-hidden="true"></canvas>
+
+      <div class="hero__vignette"></div>
+
+      <div class="hero__overlay">
+        <div class="hero__eyebrow">
+          <span class="hero__eyebrow-line"></span>
+          <span>Valais · Suisse · Depuis 1923</span>
+        </div>
+
+        <h1 class="hero__title">
+          <span class="hero__title-line">Le combat</span>
+          <span class="hero__title-line hero__title-line--italic">sacré</span>
+          <span class="hero__title-line">des alpages.</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          Race d'Hérens · Saison 2026
+        </p>
+
+        <div class="hero__scroll-hint">
+          <span>Défilez</span>
+          <span class="hero__scroll-line"></span>
+        </div>
+      </div>
+
+      <div class="hero__loading" aria-hidden="true">
+        <div class="hero__loading-bar"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content sections -->
+  <section class="section section--intro" id="tradition">
+    <div class="section__inner">
+      <div class="section__label">01 / La tradition</div>
+      <h2 class="section__heading">
+        Front contre front, depuis des siècles.
+      </h2>
+      <p class="section__lede">
+        Les vaches d'Hérens ne sont pas dressées à se battre.
+        Elles le font d'elles-mêmes — pour décider qui mènera
+        le troupeau jusqu'aux pâturages d'altitude.
+        Une chorégraphie ancestrale que le Valais célèbre
+        chaque printemps depuis l'inalpe.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--stats" id="saison">
+    <div class="section__inner">
+      <div class="section__label">02 / Saison 2026</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat__num">7</div>
+          <div class="stat__label">Combats régionaux</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">280</div>
+          <div class="stat__label">Reines engagées</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num">1</div>
+          <div class="stat__label">Finale à Aproz</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--arenes" id="arenes">
+    <div class="section__inner">
+      <div class="section__label">03 / Les arènes</div>
+      <ul class="arenes">
+        <li class="arene"><span class="arene__date">15.03</span><span class="arene__lieu">Aproz</span><span class="arene__cat">Ouverture</span></li>
+        <li class="arene"><span class="arene__date">12.04</span><span class="arene__lieu">Lourtier</span><span class="arene__cat">Régional Bagnes</span></li>
+        <li class="arene"><span class="arene__date">26.04</span><span class="arene__lieu">Vollèges</span><span class="arene__cat">Régional Entremont</span></li>
+        <li class="arene"><span class="arene__date">10.05</span><span class="arene__lieu">Le Châble</span><span class="arene__cat">Demi-finale</span></li>
+        <li class="arene"><span class="arene__date">17.05</span><span class="arene__lieu">Aproz</span><span class="arene__cat">Finale nationale</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="footer__inner">
+      <div class="footer__brand">REINES</div>
+      <p class="footer__credit">
+        Pièce portfolio · <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a> · Séquence générée par IA (Kling 3.0)
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
