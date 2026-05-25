@@ -1851,16 +1851,140 @@
         </div>
       </div>
     </section>
-    <!-- ============ PORTFOLIO 3D CAROUSEL (scroll-driven) ============ -->
-    <section class="portfolio-3d" id="portfolio" aria-labelledby="portfolio-title">
-      <div class="portfolio-3d__sticky">
-        <div class="portfolio-3d__intro">
+    <!-- ============ PORTFOLIO ============ -->
+    <section class="portfolio" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="section-header reveal">
           <span class="eyebrow">Portfolio · Savoir-faire technique</span>
-          <h2 class="section-title" id="portfolio-title">Notre savoir-faire en mouvement.</h2>
-          <p class="section-subtitle">Scrollez pour parcourir · Cliquez pour explorer la démo</p>
+          <h2 class="section-title" id="portfolio-title">Notre savoir-faire en démos.</h2>
+          <p class="section-subtitle">
+            Cinq démos interactives qui montrent l'étendue de ce que nous savons faire.
+            Chaque effet est intégrable à votre site restaurant.
+          </p>
         </div>
-        <div class="portfolio-3d__stage" aria-label="Carrousel 3D des démos portfolio">
-          <div class="portfolio-3d__ring" id="portfolio-ring"></div>
+
+        <div class="portfolio-grid">
+
+          <!-- Hero Burger 3D -->
+          <a href="portfolio/burger-hero/" class="portfolio-card reveal" target="_blank" rel="noopener" aria-label="Voir la démo Hero Burger 3D">
+            <div class="portfolio-card__preview">
+              <img class="portfolio-card__img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900&q=85&auto=format&fit=crop" alt="Burger gourmand" loading="lazy">
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__tags">
+                <span class="portfolio-card__tag">Three.js</span>
+                <span class="portfolio-card__tag">Scroll 3D</span>
+              </div>
+              <h3 class="portfolio-card__title">Hero Burger 3D scroll-driven</h3>
+              <p class="portfolio-card__desc">
+                Modèle 3D temps réel qui tourne au scroll, lumière cinéma, vapeur animée.
+                Idéal pour restaurant burger, street food, livraison.
+              </p>
+              <span class="portfolio-card__cta">
+                Voir la démo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- Personnage 3D -->
+          <a href="portfolio/tete-souris/" class="portfolio-card reveal reveal-delay-1" target="_blank" rel="noopener" aria-label="Voir la démo Personnage 3D">
+            <div class="portfolio-card__preview">
+              <img class="portfolio-card__img" src="portfolio/tete-souris/tete.png" alt="Personnage 3D" loading="lazy">
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__tags">
+                <span class="portfolio-card__tag">Three.js</span>
+                <span class="portfolio-card__tag">Hover 3D</span>
+              </div>
+              <h3 class="portfolio-card__title">Personnage 3D qui suit la souris</h3>
+              <p class="portfolio-card__desc">
+                Modèle 3D avec rotation continue selon le curseur. Effet bluffant pour
+                un hero personnalisé : mascotte, chef, gérant.
+              </p>
+              <span class="portfolio-card__cta">
+                Voir la démo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- Vitrine SVG -->
+          <a href="portfolio/vitrine-interactive/" class="portfolio-card reveal reveal-delay-2" target="_blank" rel="noopener" aria-label="Voir la démo Vitrine SVG">
+            <div class="portfolio-card__preview">
+              <img class="portfolio-card__img" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=900&q=85&auto=format&fit=crop" alt="Menu de restaurant" loading="lazy">
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__tags">
+                <span class="portfolio-card__tag">SVG</span>
+                <span class="portfolio-card__tag">GSAP</span>
+              </div>
+              <h3 class="portfolio-card__title">Vitrine SVG morphing</h3>
+              <p class="portfolio-card__desc">
+                Menu animé avec morphing de formes au hover. Idéal pour afficher
+                vos spécialités de façon expressive et différenciante.
+              </p>
+              <span class="portfolio-card__cta">
+                Voir la démo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- Hérens scroll-scrub -->
+          <a href="portfolio/herens-hero/" class="portfolio-card reveal reveal-delay-3" target="_blank" rel="noopener" aria-label="Voir la démo Hero Hérens">
+            <div class="portfolio-card__preview">
+              <img class="portfolio-card__img" src="portfolio/herens-hero/frames/frame_072.jpg" alt="Combat de vaches d'Hérens" loading="lazy">
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__tags">
+                <span class="portfolio-card__tag">Scroll vidéo</span>
+                <span class="portfolio-card__tag">Frames</span>
+              </div>
+              <h3 class="portfolio-card__title">Hero vidéo scroll-driven</h3>
+              <p class="portfolio-card__desc">
+                Séquence vidéo qui se déroule au rythme du scroll. Effet cinéma
+                immersif pour raconter l'histoire de votre établissement.
+              </p>
+              <span class="portfolio-card__cta">
+                Voir la démo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- Texte rotatif -->
+          <a href="portfolio/texte-rotatif/" class="portfolio-card reveal" target="_blank" rel="noopener" aria-label="Voir la démo Texte rotatif">
+            <div class="portfolio-card__preview">
+              <img class="portfolio-card__img" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900&q=85&auto=format&fit=crop" alt="Typographie vintage" loading="lazy">
+            </div>
+            <div class="portfolio-card__body">
+              <div class="portfolio-card__tags">
+                <span class="portfolio-card__tag">CSS</span>
+                <span class="portfolio-card__tag">Animation</span>
+              </div>
+              <h3 class="portfolio-card__title">Texte rotatif typographique</h3>
+              <p class="portfolio-card__desc">
+                Texte en cercle qui tourne en continu — accent décoratif sobre
+                et raffiné pour vos sections clés.
+              </p>
+              <span class="portfolio-card__cta">
+                Voir la démo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
         </div>
       </div>
     </section>
@@ -2424,129 +2548,6 @@
       }
     })();
 
-    /* ============ PORTFOLIO 3D CAROUSEL (scroll-driven) ============ */
-    (function initPortfolio3D () {
-      var section = document.getElementById('portfolio');
-      var ring    = document.getElementById('portfolio-ring');
-      if (!section || !ring) return;
-
-      var items = [
-        { name: "Burger cinématique",   sub: 'Scroll-scrub · 121 frames',     url: 'portfolio/burger-cinematic/',    img: 'portfolio/burger-cinematic/frames/frame_121.jpg' },
-        { name: "Hero Burger 3D",       sub: 'Three.js · Scroll-driven',      url: 'portfolio/burger-hero/',         img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900&q=85&auto=format&fit=crop' },
-        { name: "Personnage 3D",        sub: 'Three.js · Suit la souris',     url: 'portfolio/tete-souris/',         img: 'portfolio/tete-souris/tete.png' },
-        { name: "Vitrine SVG morphing", sub: 'GSAP · Menu animé au hover',    url: 'portfolio/vitrine-interactive/', img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=900&q=85&auto=format&fit=crop' },
-        { name: "Hero scroll-scrub",    sub: "Hérens · 145 frames vidéo",     url: 'portfolio/herens-hero/',         img: 'portfolio/herens-hero/frames/frame_072.jpg' },
-        { name: "Texte rotatif",        sub: 'CSS · Animation typographique', url: 'portfolio/texte-rotatif/',       img: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900&q=85&auto=format&fit=crop' }
-      ];
-
-      var anglePer = 360 / items.length;
-      var rotation = 0;
-      var isScrolling = false;
-      var scrollTimeout = null;
-      var cards = [];
-      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var AUTO_SPEED = 0.02;
-
-      function radius () { return window.innerWidth <= 720 ? 320 : 600; }
-
-      // Build cards
-      items.forEach(function (item, i) {
-        var a = document.createElement('a');
-        a.className = 'portfolio-3d__card';
-        a.href = item.url;
-        a.target = '_blank';
-        a.rel = 'noopener';
-        a.setAttribute('aria-label', item.name + ' — ' + item.sub);
-
-        var img = document.createElement('img');
-        img.className = 'portfolio-3d__img';
-        img.loading = 'lazy';
-        img.alt = item.name;
-        img.src = item.img;
-        img.draggable = false;
-        a.appendChild(img);
-
-        var overlay = document.createElement('div');
-        overlay.className = 'portfolio-3d__overlay';
-        a.appendChild(overlay);
-
-        var cap = document.createElement('div');
-        cap.className = 'portfolio-3d__caption';
-        var h3 = document.createElement('h3');
-        h3.className = 'portfolio-3d__name';
-        h3.textContent = item.name;
-        var p = document.createElement('p');
-        p.className = 'portfolio-3d__sub';
-        p.textContent = item.sub;
-        cap.appendChild(h3);
-        cap.appendChild(p);
-        a.appendChild(cap);
-
-        ring.appendChild(a);
-        cards.push(a);
-      });
-
-      function positionCards () {
-        var r = radius();
-        cards.forEach(function (c, i) {
-          c.style.transform = 'rotateY(' + (i * anglePer) + 'deg) translateZ(' + r + 'px)';
-        });
-      }
-      positionCards();
-
-      function updateOpacity () {
-        var totalRot = ((rotation % 360) + 360) % 360;
-        cards.forEach(function (c, i) {
-          var ang = (i * anglePer + totalRot) % 360;
-          var norm = ang > 180 ? 360 - ang : ang;
-          var o = Math.max(0.3, 1 - (norm / 180));
-          c.style.opacity = String(o);
-        });
-      }
-
-      function render () {
-        ring.style.transform = 'rotateY(' + rotation + 'deg)';
-        updateOpacity();
-      }
-
-      // Scroll-driven rotation : on calcule la progression dans LA SECTION
-      // (et non la page entière, sinon le carousel tournerait pendant les autres
-      // sections du site).
-      function getSectionProgress () {
-        var rect = section.getBoundingClientRect();
-        var sectionTop = window.scrollY + rect.top;
-        var scrollable = section.offsetHeight - window.innerHeight;
-        if (scrollable <= 0) return 0;
-        var local = window.scrollY - sectionTop;
-        return Math.max(0, Math.min(1, local / scrollable));
-      }
-
-      function onScroll () {
-        isScrolling = true;
-        rotation = getSectionProgress() * 360;
-        if (scrollTimeout) clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(function () { isScrolling = false; }, 150);
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-
-      function tick () {
-        if (!isScrolling && !reducedMotion) rotation += AUTO_SPEED;
-        render();
-        requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-
-      // Reposition sur resize
-      var resizeT;
-      window.addEventListener('resize', function () {
-        clearTimeout(resizeT);
-        resizeT = setTimeout(positionCards, 120);
-      });
-
-      // Init initial : caler la rotation sur la position de scroll actuelle
-      rotation = getSectionProgress() * 360;
-      render();
-    })();
   </script>
 </body>
 </html>
