@@ -475,14 +475,21 @@ a {
     font-size: 0.7rem;
   }
   .topnav {
-    padding: 1rem 1.25rem 1rem 9rem;
+    padding: 1rem 1rem;
+    justify-content: flex-end; /* tout à droite, le back-link tient la gauche */
+  }
+  .topnav__brand {
+    display: none; /* sur mobile le back-link sert d'identité, on libère la place */
   }
   .topnav__links {
-    gap: 1rem;
+    gap: 0.5rem;
     font-size: 0.65rem;
   }
   .topnav__links li:not(:last-child) {
     display: none;
+  }
+  .topnav__cta {
+    padding: 0.45rem 0.9rem;
   }
   .section {
     padding: 6rem 1.5rem;
