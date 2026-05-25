@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matterhorn · Parallax · Démo NB-Design</title>
+  <meta name="description" content="Démo portfolio NB-Design — effet parallaxe sur hero, le titre glisse derrière la silhouette du Cervin au défilement." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <a href="../../index.html" class="back-link" aria-label="Retour à NB-Design">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    <span>NB-Design</span>
+  </a>
+
+  <section class="hero-wrap" aria-label="Hero parallaxe Matterhorn">
+    <div class="hero">
+      <div class="layer layer-bg">
+        <img src="images/matterhorn-bg.jpg" alt="" />
+      </div>
+
+      <div class="layer layer-text">
+        <h1 class="hero-title">Matterhorn</h1>
+      </div>
+
+      <div class="layer layer-fg">
+        <img src="images/matterhorn-fg.png" alt="" />
+      </div>
+
+      <div class="hero-meta">
+        <span class="hero-meta-line"></span>
+        <p>4'478 m &nbsp;·&nbsp; Alpes Valaisannes &nbsp;·&nbsp; Suisse</p>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="content-inner">
+      <p class="eyebrow">Alpes valaisannes — Suisse</p>
+      <h2>4&apos;478 mètres au-dessus de la mer</h2>
+      <p class="lede">
+        Sentinelle de pierre et de glace, le Cervin se dresse à la frontière
+        entre l'Italie et la Suisse. Sa silhouette pyramidale, gravée dans
+        l'imaginaire collectif, fait de lui l'une des montagnes les plus
+        photographiées au monde.
+      </p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

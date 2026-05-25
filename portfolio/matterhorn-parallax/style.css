@@ -1,0 +1,228 @@
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0a0a0f;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+
+/* ---------- Back link vers NB-Design ---------- */
+.back-link {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(10, 10, 15, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+.back-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateX(-2px);
+}
+@media (max-width: 640px) {
+  .back-link { top: 1rem; left: 1rem; padding: 0.4rem 0.75rem; font-size: 0.65rem; }
+}
+
+/* ---------- Hero parallax ---------- */
+.hero-wrap {
+  position: relative;
+  height: 200vh;            /* 100vh visible + 100vh de scroll pour l'effet */
+  background: #d8c8b8;      /* fallback durant le chargement */
+}
+
+.hero {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Couche 1 — fond avec ciel et paysage */
+.layer-bg { z-index: 1; }
+.layer-bg img { transform: scale(1.08); }   /* léger sur-cadrage pour le parallaxe */
+
+/* Couche 2 — texte qui passe DERRIÈRE la montagne au scroll */
+.layer-text {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-title {
+  font-family: 'Anton', 'Impact', 'Oswald', sans-serif;
+  font-weight: 400;                         /* Anton n'a qu'un poids */
+  font-size: clamp(4.5rem, 17vw, 17rem);
+  letter-spacing: 0.005em;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 0.92;
+  text-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  transform: translateY(-32vh);  /* position de départ : haut dans le ciel, au-dessus du sommet */
+}
+
+/* Couche 3 — montagne PNG en avant-plan (fixe : le texte glisse derrière) */
+.layer-fg { z-index: 3; }
+.layer-fg img { transform: scale(1.02); }
+
+/* Méta texte en bas du hero (devant la montagne) */
+.hero-meta {
+  position: absolute;
+  bottom: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  pointer-events: none;
+}
+
+.hero-meta-line {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.hero-meta p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+  white-space: nowrap;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Indicateur de scroll */
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 500;
+  mix-blend-mode: difference;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.85);
+  animation: scrollPulse 2s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(0.3); opacity: 0.4; }
+  50%      { transform: scaleY(1);   opacity: 1;   }
+}
+
+/* ---------- Section contenu sous le hero ---------- */
+.content {
+  background: linear-gradient(180deg, #0a0a0f 0%, #1a1a24 100%);
+  padding: 10rem 1.5rem 12rem;
+  position: relative;
+  z-index: 5;
+}
+
+.content-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+}
+
+.content h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.lede {
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .hero-title    { font-size: clamp(3.5rem, 20vw, 7rem); }
+  .hero-meta     { bottom: 5rem; }
+  .hero-meta p   { font-size: 0.65rem; letter-spacing: 0.28em; }
+  .content       { padding: 6rem 1.25rem 7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .layer { transition: none !important; }
+  .scroll-line { animation: none; }
+}
