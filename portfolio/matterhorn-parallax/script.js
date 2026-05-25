@@ -22,13 +22,20 @@
     /*
       Effet :
       - fond  → monte très doucement (parallaxe lointain)
-      - texte → glisse vers le bas et passe DERRIÈRE la montagne
+      - texte → glisse vers le bas et passe DERRIÈRE la montagne, avec fade
       - mont. → reste immobile (z-index supérieur, masque le texte)
       - hint  → s'efface dès qu'on commence à scroller
     */
     bg.style.transform   = `translate3d(0, ${-progress * 4}vh, 0) scale(1.08)`;
     text.style.transform = `translate3d(0, ${-32 + progress * 28}vh, 0)`;
     fg.style.transform   = `translate3d(0, 0, 0) scale(1.02)`;
+
+    // Petit fade : texte plein opaque jusqu'à 15 % du scroll, puis fond en douceur
+    const fadeStart = 0.15;
+    const fadeEnd   = 0.75;
+    const fadeT     = Math.min(1, Math.max(0, (progress - fadeStart) / (fadeEnd - fadeStart)));
+    const eased     = fadeT * fadeT * (3 - 2 * fadeT);   // smoothstep
+    text.style.opacity = String(1 - eased * 0.85);       // 1.0 → 0.15
 
     if (hint) hint.style.opacity = String(Math.max(0, 1 - progress * 4));
     if (meta) meta.style.opacity = String(Math.max(0, 1 - progress * 2.5));
