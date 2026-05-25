@@ -133,15 +133,6 @@ a {
   background: var(--bg);
 }
 
-.hero__video {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
-  /* Kept in DOM, sized to 1px, so the browser still decodes it. */
-}
-
 .hero__canvas {
   position: absolute;
   inset: 0;

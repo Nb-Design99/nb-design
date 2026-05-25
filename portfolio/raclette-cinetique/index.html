@@ -13,7 +13,9 @@
 
   <link rel="stylesheet" href="styles.css">
 
-  <link rel="preload" as="video" href="source.mp4" type="video/mp4">
+  <link rel="preload" as="image" href="frames/frame_001.jpg">
+  <link rel="preload" as="image" href="frames/frame_060.jpg">
+  <link rel="preload" as="image" href="frames/frame_121.jpg">
 </head>
 <body>
 
@@ -36,19 +38,9 @@
     </ul>
   </nav>
 
-  <!-- Hero scroll-scrub (HTML5 video) -->
-  <section class="hero" aria-label="Raclette qui se compose au scroll">
+  <!-- Hero scroll-scrub (frames JPEG sequence) -->
+  <section class="hero" aria-label="Raclette qui coule au scroll">
     <div class="hero__sticky">
-      <!-- Hidden video used as scrub source -->
-      <video
-        class="hero__video"
-        src="source.mp4"
-        muted
-        playsinline
-        preload="auto"
-        disablepictureinpicture
-        aria-hidden="true"></video>
-
       <canvas class="hero__canvas" aria-hidden="true"></canvas>
 
       <div class="hero__vignette"></div>
@@ -61,12 +53,12 @@
         </div>
 
         <h1 class="hero__title">
-          <span class="hero__title-line">L'or coulant</span>
-          <span class="hero__title-line hero__title-line--italic">des</span>
-          <span class="hero__title-line">alpages.</span>
+          <span class="hero__title-line">L'or qui</span>
+          <span class="hero__title-line hero__title-line--italic">coule</span>
+          <span class="hero__title-line">des alpages.</span>
         </h1>
 
-        <p class="hero__subtitle">Une raclette qui se compose au défilement</p>
+        <p class="hero__subtitle">Une raclette qui chauffe au fil du défilement</p>
       </div>
 
       <div class="hero__scroll-hint">
