@@ -10,16 +10,15 @@
 
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 
 // ============ CONFIG ============
-// Note : burger.glb (125 Mo) trop lourd pour GitHub Pages (limite 100 Mo).
-// On affiche directement le burger procédural en primitives Three.js, qui
-// rend très bien (bun, steak, fromage, salade, tomate, graines de sésame).
-// Pour réactiver le GLB : héberger le fichier sur un CDN externe (Cloudflare R2,
-// Hostinger, jsDelivr public si <50 Mo) et mettre l'URL absolue dans GLB_URL.
+// burger.glb : version compressée via gltfpack (Meshopt + WebP, 125 Mo → 19,6 Mo)
+// Texture max 1024 px, géométrie quantifiée. Aucun loader externe requis,
+// Three.js charge nativement le format WebP dans le GLB.
 const GLB_URL = 'burger.glb';
-const SHOW_PLACEHOLDER_WHILE_LOADING = true;
-const LOAD_GLB = false;
+const SHOW_PLACEHOLDER_WHILE_LOADING = false;
+const LOAD_GLB = true;
 
 // ============ THREE.JS SCENE ============
 const canvas = document.getElementById('burger-canvas');
@@ -237,6 +236,8 @@ function removePlaceholder() {
 function loadBurgerGLB() {
   return new Promise((resolve, reject) => {
     const loader = new GLTFLoader();
+    // GLB compressé avec gltfpack → géométrie Meshopt, nécessite MeshoptDecoder
+    loader.setMeshoptDecoder(MeshoptDecoder);
     loader.load(
       GLB_URL,
       (gltf) => {
