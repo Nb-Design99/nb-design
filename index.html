@@ -950,6 +950,9 @@
     .demo-card__gradient--text {
       background: linear-gradient(135deg, #1a3d2b 0%, #c9a84c 100%);
     }
+    .demo-card__gradient--raclette {
+      background: linear-gradient(135deg, #14110d 0%, #d4a64b 70%, #e8c878 100%);
+    }
 
     .demo-card__body {
       padding: 1.75rem 1.75rem 2rem;
@@ -1498,25 +1501,44 @@
       html { scroll-behavior: auto; }
     }
 
-    /* ============ PORTFOLIO 3D CAROUSEL ============ */
+    /* ============ PORTFOLIO 3D CAROUSEL (scroll-driven) ============ */
     .portfolio-3d {
-      padding: 7rem 0 5.5rem;
-      background: linear-gradient(180deg, var(--green-deep) 0%, var(--bg-dark) 100%);
-      overflow: hidden;
       position: relative;
+      width: 100%;
+      height: 500vh; /* 5x viewport — donne la course de scroll au carousel */
+      background: var(--green-deep);
     }
-    .portfolio-3d .container { position: relative; z-index: 2; }
+    .portfolio-3d__sticky {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--green-deep);
+    }
+    .portfolio-3d__intro {
+      position: absolute;
+      top: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      text-align: center;
+      width: min(640px, 90vw);
+      pointer-events: none;
+    }
+    .portfolio-3d__intro .eyebrow,
+    .portfolio-3d__intro .section-title,
+    .portfolio-3d__intro .section-subtitle { pointer-events: auto; }
     .portfolio-3d__stage {
       position: relative;
       width: 100%;
-      height: 480px;
-      margin-top: 2.5rem;
-      perspective: 2200px;
+      height: 100%;
+      perspective: 2000px;
       perspective-origin: 50% 50%;
-      user-select: none;
-      cursor: grab;
     }
-    .portfolio-3d__stage:active { cursor: grabbing; }
     .portfolio-3d__ring {
       position: absolute;
       inset: 0;
@@ -1525,17 +1547,17 @@
     }
     .portfolio-3d__card {
       position: absolute;
-      width: 220px;
-      height: 300px;
+      width: 300px;
+      height: 400px;
       left: 50%;
       top: 50%;
-      margin-left: -110px;
-      margin-top: -150px;
+      margin-left: -150px;
+      margin-top: -200px;
       border-radius: 14px;
       overflow: hidden;
-      border: 1px solid rgba(201, 168, 76, 0.25);
+      border: 1px solid rgba(201, 168, 76, 0.28);
       background: var(--green-deep);
-      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55);
       text-decoration: none;
       color: inherit;
       transition: opacity 0.3s linear, border-color 0.25s ease, box-shadow 0.25s ease;
@@ -1543,7 +1565,7 @@
     }
     .portfolio-3d__card:hover {
       border-color: var(--gold);
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(201, 168, 76, 0.45);
+      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(201, 168, 76, 0.5);
     }
     .portfolio-3d__img {
       position: absolute;
@@ -1557,50 +1579,41 @@
     .portfolio-3d__overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 35%, rgba(6, 20, 16, 0.55) 65%, rgba(6, 20, 16, 0.96) 100%);
+      background: linear-gradient(180deg, transparent 30%, rgba(6, 20, 16, 0.55) 65%, rgba(6, 20, 16, 0.96) 100%);
       pointer-events: none;
     }
     .portfolio-3d__caption {
       position: absolute;
       left: 0; right: 0; bottom: 0;
-      padding: 1rem 1.1rem 1.1rem;
+      padding: 1rem 1.2rem 1.2rem;
       color: var(--white);
     }
     .portfolio-3d__name {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-weight: 600;
-      font-size: 1.45rem;
+      font-size: 1.7rem;
       line-height: 1.1;
-      margin: 0 0 0.3rem;
+      margin: 0 0 0.35rem;
       color: var(--gold-light);
     }
     .portfolio-3d__sub {
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       letter-spacing: 0.04em;
-      color: rgba(248, 246, 241, 0.78);
+      color: rgba(248, 246, 241, 0.8);
       margin: 0;
     }
-    .portfolio-3d__hint {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(248, 246, 241, 0.55);
-    }
     @media (max-width: 720px) {
-      .portfolio-3d { padding: 5rem 0 4rem; }
-      .portfolio-3d__stage { height: 380px; perspective: 1400px; margin-top: 1.5rem; }
+      .portfolio-3d__intro { top: 4rem; }
+      .portfolio-3d__stage { perspective: 1400px; }
       .portfolio-3d__card {
-        width: 160px; height: 220px;
-        margin-left: -80px; margin-top: -110px;
-        border-radius: 11px;
+        width: 200px; height: 280px;
+        margin-left: -100px; margin-top: -140px;
+        border-radius: 12px;
       }
-      .portfolio-3d__name { font-size: 1.15rem; }
-      .portfolio-3d__sub { font-size: 0.7rem; }
-      .portfolio-3d__hint { font-size: 0.7rem; padding: 0 1.5rem; }
+      .portfolio-3d__name { font-size: 1.3rem; }
+      .portfolio-3d__sub { font-size: 0.72rem; }
     }
 
     /* Selection */
@@ -1993,9 +2006,33 @@
 
         <div class="demos-grid">
 
-          <!-- Burger 3D -->
-          <a href="portfolio/burger-hero/" class="demo-card reveal" target="_blank" rel="noopener">
+          <!-- Raclette cinétique -->
+          <a href="portfolio/raclette-cinetique/" class="demo-card reveal" target="_blank" rel="noopener">
             <span class="demo-card__flag">Nouveau</span>
+            <div class="demo-card__preview">
+              <div class="demo-card__gradient demo-card__gradient--raclette" aria-hidden="true">🧀</div>
+            </div>
+            <div class="demo-card__body">
+              <div class="demo-card__tags">
+                <span class="demo-card__tag">Scroll vidéo</span>
+                <span class="demo-card__tag">Cinétique</span>
+              </div>
+              <h3 class="demo-card__title">Raclette qui se compose au scroll</h3>
+              <p class="demo-card__desc">
+                Une scène culinaire qui s'assemble puis se désassemble au défilement.
+                Idéal pour restaurant de montagne, fromagerie, auberge valaisanne.
+              </p>
+              <span class="demo-card__cta">
+                Voir la démo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- Burger 3D -->
+          <a href="portfolio/burger-hero/" class="demo-card reveal reveal-delay-1" target="_blank" rel="noopener">
             <div class="demo-card__preview">
               <div class="demo-card__gradient demo-card__gradient--burger" aria-hidden="true">🍔</div>
             </div>
@@ -2118,22 +2155,18 @@
       </div>
     </section>
 
-    <!-- ============ PORTFOLIO 3D CAROUSEL ============ -->
+    <!-- ============ PORTFOLIO 3D CAROUSEL (scroll-driven) ============ -->
     <section class="portfolio-3d" id="portfolio" aria-labelledby="portfolio-title">
-      <div class="container">
-        <div class="section-header reveal">
+      <div class="portfolio-3d__sticky">
+        <div class="portfolio-3d__intro">
           <span class="eyebrow">Portfolio · Sites en vitrine</span>
-          <h2 class="section-title" id="portfolio-title">Découvrez nos sites en mouvement.</h2>
-          <p class="section-subtitle">
-            Chaque visuel ouvre un site réel que nous avons conçu pour un restaurant valaisan.
-            Faites glisser, ou laissez tourner — puis cliquez pour explorer.
-          </p>
+          <h2 class="section-title" id="portfolio-title">Nos sites en mouvement.</h2>
+          <p class="section-subtitle">Scrollez pour parcourir · Cliquez pour ouvrir</p>
+        </div>
+        <div class="portfolio-3d__stage" aria-label="Carrousel 3D des sites portfolio">
+          <div class="portfolio-3d__ring" id="portfolio-ring"></div>
         </div>
       </div>
-      <div class="portfolio-3d__stage" id="portfolio-stage" aria-label="Carrousel 3D des sites portfolio">
-        <div class="portfolio-3d__ring" id="portfolio-ring"></div>
-      </div>
-      <p class="portfolio-3d__hint">Glissez pour tourner · Survolez pour mettre en pause · Cliquez pour ouvrir</p>
     </section>
 
     <!-- ============ WHY ME ============ -->
@@ -2695,11 +2728,11 @@
       }
     })();
 
-    /* ============ PORTFOLIO 3D CAROUSEL ============ */
+    /* ============ PORTFOLIO 3D CAROUSEL (scroll-driven) ============ */
     (function initPortfolio3D () {
-      var stage = document.getElementById('portfolio-stage');
-      var ring  = document.getElementById('portfolio-ring');
-      if (!stage || !ring) return;
+      var section = document.getElementById('portfolio');
+      var ring    = document.getElementById('portfolio-ring');
+      if (!section || !ring) return;
 
       var items = [
         { name: "L'Enclos de Valère",        sub: 'Sion · Gastronomique',           url: 'Restaurant/EnclosDeValere/',         img: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=900&q=85&auto=format&fit=crop' },
@@ -2718,16 +2751,13 @@
 
       var anglePer = 360 / items.length;
       var rotation = 0;
-      var paused = false;
-      var dragging = false;
-      var dragStartX = 0;
-      var dragStartRot = 0;
-      var dragMoved = false;
+      var isScrolling = false;
+      var scrollTimeout = null;
       var cards = [];
       var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var AUTO_SPEED = 0.02;
 
-      function radius () { return window.innerWidth <= 720 ? 280 : 500; }
-      function autoSpeed () { return reducedMotion ? 0 : 0.035; }
+      function radius () { return window.innerWidth <= 720 ? 320 : 600; }
 
       // Build cards
       items.forEach(function (item, i) {
@@ -2769,7 +2799,6 @@
       function positionCards () {
         var r = radius();
         cards.forEach(function (c, i) {
-          c.dataset.angle = String(i * anglePer);
           c.style.transform = 'rotateY(' + (i * anglePer) + 'deg) translateZ(' + r + 'px)';
         });
       }
@@ -2780,7 +2809,7 @@
         cards.forEach(function (c, i) {
           var ang = (i * anglePer + totalRot) % 360;
           var norm = ang > 180 ? 360 - ang : ang;
-          var o = Math.max(0.25, 1 - (norm / 180));
+          var o = Math.max(0.3, 1 - (norm / 180));
           c.style.opacity = String(o);
         });
       }
@@ -2790,52 +2819,43 @@
         updateOpacity();
       }
 
+      // Scroll-driven rotation : on calcule la progression dans LA SECTION
+      // (et non la page entière, sinon le carousel tournerait pendant les autres
+      // sections du site).
+      function getSectionProgress () {
+        var rect = section.getBoundingClientRect();
+        var sectionTop = window.scrollY + rect.top;
+        var scrollable = section.offsetHeight - window.innerHeight;
+        if (scrollable <= 0) return 0;
+        var local = window.scrollY - sectionTop;
+        return Math.max(0, Math.min(1, local / scrollable));
+      }
+
+      function onScroll () {
+        isScrolling = true;
+        rotation = getSectionProgress() * 360;
+        if (scrollTimeout) clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function () { isScrolling = false; }, 150);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+
       function tick () {
-        if (!paused && !dragging) rotation += autoSpeed();
+        if (!isScrolling && !reducedMotion) rotation += AUTO_SPEED;
         render();
         requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
 
-      // Hover pause (desktop)
-      stage.addEventListener('mouseenter', function () { paused = true; });
-      stage.addEventListener('mouseleave', function () { paused = false; });
-
-      // Drag spin
-      function getX (e) { return (e.touches ? e.touches[0].clientX : e.clientX); }
-      function onDown (e) {
-        dragging = true;
-        dragMoved = false;
-        dragStartX = getX(e);
-        dragStartRot = rotation;
-      }
-      function onMove (e) {
-        if (!dragging) return;
-        var dx = getX(e) - dragStartX;
-        if (Math.abs(dx) > 5) dragMoved = true;
-        rotation = dragStartRot + dx * 0.4;
-      }
-      function onUp () { dragging = false; }
-      stage.addEventListener('mousedown', onDown);
-      window.addEventListener('mousemove', onMove);
-      window.addEventListener('mouseup', onUp);
-      stage.addEventListener('touchstart', onDown, { passive: true });
-      window.addEventListener('touchmove', onMove, { passive: true });
-      window.addEventListener('touchend', onUp);
-
-      // Prevent click when dragged
-      cards.forEach(function (c) {
-        c.addEventListener('click', function (e) {
-          if (dragMoved) { e.preventDefault(); }
-        });
-      });
-
-      // Reposition on resize
+      // Reposition sur resize
       var resizeT;
       window.addEventListener('resize', function () {
         clearTimeout(resizeT);
-        resizeT = setTimeout(positionCards, 100);
+        resizeT = setTimeout(positionCards, 120);
       });
+
+      // Init initial : caler la rotation sur la position de scroll actuelle
+      rotation = getSectionProgress() * 360;
+      render();
     })();
   </script>
 </body>
