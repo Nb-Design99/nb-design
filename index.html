@@ -627,8 +627,8 @@
       opacity: 0.9;
     }
 
-    /* Shapes */
-    .shapes { position: absolute; inset: 0; }
+    /* Shapes / Leaves */
+    .shapes { position: absolute; inset: 0; pointer-events: none; }
     .shape-wrap {
       position: absolute;
       opacity: 0;
@@ -639,6 +639,31 @@
     }
     .shape-float {
       animation: shapeFloat 12s ease-in-out infinite;
+    }
+
+    /* === Feuilles (remplacent les pilules) === */
+    .leaf-img {
+      display: block;
+      width: var(--leaf-w, 140px);
+      height: auto;
+      transform: rotate(var(--leaf-rotate, 0deg));
+      filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.55))
+              drop-shadow(0 4px 6px rgba(0, 0, 0, 0.35));
+      opacity: var(--leaf-opacity, 0.88);
+      pointer-events: none;
+      user-select: none;
+    }
+    /* Le shape-float anime un léger swing autour de la rotation de la feuille */
+    .leaf-float {
+      animation: leafSwing 11s ease-in-out infinite;
+      transform-origin: 50% 30%;
+    }
+    @keyframes leafSwing {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50%      { transform: translateY(18px) rotate(2deg); }
+    }
+    @media (max-width: 768px) {
+      .leaf-img { opacity: var(--leaf-opacity-mobile, 0.55); }
     }
     .shape {
       position: relative;
@@ -1857,52 +1882,75 @@
       <div class="hero-bg" aria-hidden="true">
         <div class="hero-gradient-blur"></div>
         <div class="shapes">
-          <!-- Shape 1: Indigo, large, left (far, slow parallax) -->
-          <div class="shape-wrap" data-parallax="0.15" style="left:-8%; top:14%; --delay:0.3s; --start-rotate:-3deg;">
-            <div class="shape-float">
-              <div class="shape" style="--w:min(620px, 80vw); --h:140px; --rotate:12deg;">
-                <div class="shape-inner shape-indigo"></div>
-              </div>
+          <!-- Feuilles : parallax-y plus élevé = chute plus rapide au scroll -->
+          <!-- Feuille 1: grande, gauche, parallax fort (chute rapide) -->
+          <div class="shape-wrap" data-parallax="1.2" style="left:6%; top:-6%; --delay:0.2s; --start-rotate:-18deg;">
+            <div class="leaf-float">
+              <img class="leaf-img" src="/assets/leaves/leaf_01.png" alt="" aria-hidden="true"
+                   style="--leaf-w:min(220px, 36vw); --leaf-rotate:-15deg; --leaf-opacity:0.85;" />
             </div>
           </div>
-          <!-- Shape 2: Rose, medium, right (far, slow parallax) -->
-          <div class="shape-wrap" data-parallax="0.2" style="right:-6%; top:68%; --delay:0.5s; --start-rotate:0deg;">
-            <div class="shape-float" style="animation-delay: -3s;">
-              <div class="shape" style="--w:min(520px, 70vw); --h:120px; --rotate:-15deg;">
-                <div class="shape-inner shape-rose"></div>
-              </div>
+          <!-- Feuille 2: grande, droite, parallax fort -->
+          <div class="shape-wrap" data-parallax="1.05" style="right:4%; top:-8%; --delay:0.35s; --start-rotate:22deg;">
+            <div class="leaf-float" style="animation-delay: -2s;">
+              <img class="leaf-img" src="/assets/leaves/leaf_02.png" alt="" aria-hidden="true"
+                   style="--leaf-w:min(240px, 38vw); --leaf-rotate:25deg; --leaf-opacity:0.82;" />
             </div>
           </div>
-          <!-- Shape 3: Violet, small-medium, bottom-left (mid parallax) -->
-          <div class="shape-wrap" data-parallax="0.35" style="left:4%; bottom:6%; --delay:0.4s; --start-rotate:6deg;">
-            <div class="shape-float" style="animation-delay: -6s;">
-              <div class="shape" style="--w:min(320px, 55vw); --h:80px; --rotate:-8deg;">
-                <div class="shape-inner shape-violet"></div>
-              </div>
+          <!-- Feuille 3: moyenne, centre-haut -->
+          <div class="shape-wrap" data-parallax="0.8" style="left:42%; top:-2%; --delay:0.45s; --start-rotate:5deg;">
+            <div class="leaf-float" style="animation-delay: -5s;">
+              <img class="leaf-img" src="/assets/leaves/leaf_03.png" alt="" aria-hidden="true"
+                   style="--leaf-w:min(150px, 26vw); --leaf-rotate:-10deg; --leaf-opacity:0.75;" />
             </div>
           </div>
-          <!-- Shape 4: Amber, small, top-right (close, fast parallax) -->
-          <div class="shape-wrap" data-parallax="0.5" style="right:14%; top:9%; --delay:0.6s; --start-rotate:-10deg;">
-            <div class="shape-float" style="animation-delay: -2s;">
-              <div class="shape" style="--w:min(220px, 42vw); --h:60px; --rotate:20deg;">
-                <div class="shape-inner shape-amber"></div>
-              </div>
+          <!-- Feuille 4: petite, gauche-haut -->
+          <div class="shape-wrap" data-parallax="0.65" style="left:24%; top:14%; --delay:0.55s; --start-rotate:-8deg;">
+            <div class="leaf-float" style="animation-delay: -7s;">
+              <img class="leaf-img" src="/assets/leaves/leaf_04.png" alt="" aria-hidden="true"
+                   style="--leaf-w:min(120px, 22vw); --leaf-rotate:18deg; --leaf-opacity:0.7;" />
             </div>
           </div>
-          <!-- Shape 5: Cyan, tiny, top-left (closest, fastest parallax) -->
-          <div class="shape-wrap" data-parallax="0.6" style="left:18%; top:6%; --delay:0.7s; --start-rotate:8deg;">
-            <div class="shape-float" style="animation-delay: -8s;">
-              <div class="shape" style="--w:min(160px, 32vw); --h:44px; --rotate:-25deg;">
-                <div class="shape-inner shape-cyan"></div>
-              </div>
+          <!-- Feuille 5: moyenne, droite-haut -->
+          <div class="shape-wrap" data-parallax="0.9" style="right:18%; top:8%; --delay:0.5s; --start-rotate:12deg;">
+            <div class="leaf-float" style="animation-delay: -3s;">
+              <img class="leaf-img" src="/assets/leaves/leaf_05.png" alt="" aria-hidden="true"
+                   style="--leaf-w:min(170px, 28vw); --leaf-rotate:-22deg; --leaf-opacity:0.78;" />
             </div>
           </div>
-          <!-- Shape 6: Emerald accent (close-mid parallax) -->
-          <div class="shape-wrap" data-parallax="0.45" style="right:8%; top:38%; --delay:0.8s; --start-rotate:-6deg;">
-            <div class="shape-float" style="animation-delay: -4s;">
-              <div class="shape" style="--w:min(180px, 36vw); --h:50px; --rotate:15deg;">
-                <div class="shape-inner shape-emerald"></div>
-              </div>
+          <!-- Feuille 6: grande, gauche-milieu, parallax fort -->
+          <div class="shape-wrap" data-parallax="1.35" style="left:-6%; top:28%; --delay:0.4s; --start-rotate:-25deg;">
+            <div class="leaf-float" style="animation-delay: -1s;">
+              <img class="leaf-img" src="/assets/leaves/leaf_06.png" alt="" aria-hidden="true"
+                   style="--leaf-w:min(210px, 34vw); --leaf-rotate:30deg; --leaf-opacity:0.85;" />
+            </div>
+          </div>
+          <!-- Feuille 7: moyenne, droite-milieu -->
+          <div class="shape-wrap" data-parallax="1.15" style="right:-4%; top:34%; --delay:0.6s; --start-rotate:18deg;">
+            <div class="leaf-float" style="animation-delay: -4s;">
+              <img class="leaf-img" src="/assets/leaves/leaf_07.png" alt="" aria-hidden="true"
+                   style="--leaf-w:min(190px, 30vw); --leaf-rotate:-15deg; --leaf-opacity:0.8;" />
+            </div>
+          </div>
+          <!-- Feuille 8: petite, centre-milieu -->
+          <div class="shape-wrap" data-parallax="0.55" style="left:48%; top:42%; --delay:0.7s; --start-rotate:-12deg;">
+            <div class="leaf-float" style="animation-delay: -6s;">
+              <img class="leaf-img" src="/assets/leaves/leaf_08.png" alt="" aria-hidden="true"
+                   style="--leaf-w:min(110px, 20vw); --leaf-rotate:8deg; --leaf-opacity:0.65;" />
+            </div>
+          </div>
+          <!-- Feuille 9: moyenne, gauche-bas, parallax fort -->
+          <div class="shape-wrap" data-parallax="1.5" style="left:12%; top:60%; --delay:0.55s; --start-rotate:20deg;">
+            <div class="leaf-float" style="animation-delay: -8s;">
+              <img class="leaf-img" src="/assets/leaves/leaf_09.png" alt="" aria-hidden="true"
+                   style="--leaf-w:min(160px, 26vw); --leaf-rotate:-28deg; --leaf-opacity:0.82;" />
+            </div>
+          </div>
+          <!-- Feuille 10: petite, droite-bas -->
+          <div class="shape-wrap" data-parallax="1.4" style="right:22%; top:68%; --delay:0.65s; --start-rotate:-15deg;">
+            <div class="leaf-float" style="animation-delay: -9s;">
+              <img class="leaf-img" src="/assets/leaves/leaf_10.png" alt="" aria-hidden="true"
+                   style="--leaf-w:min(130px, 22vw); --leaf-rotate:22deg; --leaf-opacity:0.72;" />
             </div>
           </div>
         </div>
