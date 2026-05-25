@@ -39,6 +39,23 @@
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ---------- Focal point (cover-style framing) ----------
+  // Image source = paysage, sujet "fromage qui coule" sur le tiers droit.
+  // On mobile portrait, on décale le cadrage à droite pour centrer le fromage.
+  // 0.5 = centre, 1.0 = bord droit. 0.85 = fromage bien au centre, soupçon de planche visible.
+  const portraitMQ = window.matchMedia('(max-width: 768px) and (orientation: portrait)');
+  let focalX = 0.5;
+  function updateFocal() {
+    focalX = portraitMQ.matches ? 0.85 : 0.5;
+  }
+  updateFocal();
+  // matchMedia.addEventListener may not exist on older browsers — fallback to addListener.
+  if (portraitMQ.addEventListener) {
+    portraitMQ.addEventListener('change', () => { updateFocal(); drawFrame(lastDrawnIndex >= 0 ? lastDrawnIndex : 0, true); });
+  } else if (portraitMQ.addListener) {
+    portraitMQ.addListener(() => { updateFocal(); drawFrame(lastDrawnIndex >= 0 ? lastDrawnIndex : 0, true); });
+  }
+
   // ---------- Canvas sizing (DPR-aware) ----------
   function resizeCanvas() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -77,8 +94,9 @@
     const scale = Math.max(cw / iw, ch / ih);
     const dw = iw * scale;
     const dh = ih * scale;
-    const dx = (cw - dw) / 2;
-    const dy = (ch - dh) / 2;
+    // Cover positioning with focal point — focalX=0.5 = centered, 0.85 = biased right.
+    const dx = (cw - dw) * focalX;
+    const dy = (ch - dh) * 0.5;
 
     ctx.drawImage(img, dx, dy, dw, dh);
     lastDrawnIndex = i;
