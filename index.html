@@ -1355,119 +1355,128 @@
       html { scroll-behavior: auto; }
     }
 
-    /* ============ PORTFOLIO 3D CAROUSEL (scroll-driven) ============ */
-    .portfolio-3d {
-      position: relative;
-      width: 100%;
-      height: 500vh; /* 5x viewport — donne la course de scroll au carousel */
+    /* ============ PORTFOLIO GRID ============ */
+    .portfolio {
+      padding: 7rem 0 6rem;
       background: var(--green-deep);
+      position: relative;
     }
-    .portfolio-3d__sticky {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .portfolio-card {
+      position: relative;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--green-deep);
-    }
-    .portfolio-3d__intro {
-      position: absolute;
-      top: 5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      text-align: center;
-      width: min(640px, 90vw);
-      pointer-events: none;
-    }
-    .portfolio-3d__intro .eyebrow,
-    .portfolio-3d__intro .section-title,
-    .portfolio-3d__intro .section-subtitle { pointer-events: auto; }
-    .portfolio-3d__stage {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      perspective: 2000px;
-      perspective-origin: 50% 50%;
-    }
-    .portfolio-3d__ring {
-      position: absolute;
-      inset: 0;
-      transform-style: preserve-3d;
-      will-change: transform;
-    }
-    .portfolio-3d__card {
-      position: absolute;
-      width: 300px;
-      height: 400px;
-      left: 50%;
-      top: 50%;
-      margin-left: -150px;
-      margin-top: -200px;
-      border-radius: 14px;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(201, 168, 76, 0.18);
+      border-radius: 18px;
       overflow: hidden;
-      border: 1px solid rgba(201, 168, 76, 0.28);
-      background: var(--green-deep);
-      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.55);
       text-decoration: none;
       color: inherit;
-      transition: opacity 0.3s linear, border-color 0.25s ease, box-shadow 0.25s ease;
-      backface-visibility: hidden;
+      transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.4s ease;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
     }
-    .portfolio-3d__card:hover {
-      border-color: var(--gold);
-      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(201, 168, 76, 0.5);
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(201, 168, 76, 0.55);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.45);
     }
-    .portfolio-3d__img {
+    .portfolio-card__preview {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--green-deep);
+    }
+    .portfolio-card__img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      pointer-events: none;
-      -webkit-user-drag: none;
+      transition: transform 0.7s ease;
     }
-    .portfolio-3d__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 30%, rgba(6, 20, 16, 0.55) 65%, rgba(6, 20, 16, 0.96) 100%);
-      pointer-events: none;
+    .portfolio-card:hover .portfolio-card__img {
+      transform: scale(1.07);
     }
-    .portfolio-3d__caption {
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      padding: 1rem 1.2rem 1.2rem;
-      color: var(--white);
+    .portfolio-card__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 1.6rem 1.6rem 1.5rem;
     }
-    .portfolio-3d__name {
+    .portfolio-card__tags {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .portfolio-card__tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.65rem;
+      border-radius: 99px;
+      background: rgba(201, 168, 76, 0.12);
+      color: var(--gold-light);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+    }
+    .portfolio-card__title {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-weight: 600;
       font-size: 1.7rem;
-      line-height: 1.1;
-      margin: 0 0 0.35rem;
+      line-height: 1.15;
+      margin: 0 0 0.6rem;
+      color: var(--gold-light);
+      transition: color 0.3s ease;
+    }
+    .portfolio-card:hover .portfolio-card__title { color: var(--gold); }
+    .portfolio-card__desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: rgba(248, 246, 241, 0.78);
+      margin: 0 0 1.2rem;
+      flex: 1;
+    }
+    .portfolio-card__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--gold);
+      margin-top: auto;
+      letter-spacing: 0.02em;
+      transition: gap 0.3s ease, color 0.3s ease;
+    }
+    .portfolio-card__cta svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    .portfolio-card:hover .portfolio-card__cta {
+      gap: 0.8rem;
       color: var(--gold-light);
     }
-    .portfolio-3d__sub {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-      color: rgba(248, 246, 241, 0.8);
-      margin: 0;
+    .portfolio-card:hover .portfolio-card__cta svg {
+      transform: translateX(4px);
     }
-    @media (max-width: 720px) {
-      .portfolio-3d__intro { top: 4rem; }
-      .portfolio-3d__stage { perspective: 1400px; }
-      .portfolio-3d__card {
-        width: 200px; height: 280px;
-        margin-left: -100px; margin-top: -140px;
-        border-radius: 12px;
-      }
-      .portfolio-3d__name { font-size: 1.3rem; }
-      .portfolio-3d__sub { font-size: 0.72rem; }
+    @media (max-width: 1024px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .portfolio { padding: 5rem 0 4rem; }
+      .portfolio-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
+      .portfolio-card__title { font-size: 1.45rem; }
+      .portfolio-card__body { padding: 1.3rem; }
     }
 
     /* Selection */
@@ -2422,6 +2431,7 @@
       if (!section || !ring) return;
 
       var items = [
+        { name: "Burger cinématique",   sub: 'Scroll-scrub · 121 frames',     url: 'portfolio/burger-cinematic/',    img: 'portfolio/burger-cinematic/frames/frame_121.jpg' },
         { name: "Hero Burger 3D",       sub: 'Three.js · Scroll-driven',      url: 'portfolio/burger-hero/',         img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900&q=85&auto=format&fit=crop' },
         { name: "Personnage 3D",        sub: 'Three.js · Suit la souris',     url: 'portfolio/tete-souris/',         img: 'portfolio/tete-souris/tete.png' },
         { name: "Vitrine SVG morphing", sub: 'GSAP · Menu animé au hover',    url: 'portfolio/vitrine-interactive/', img: 'https://images.unsplash.com/photo-1551024601-bec78aea704b?w=900&q=85&auto=format&fit=crop' },
