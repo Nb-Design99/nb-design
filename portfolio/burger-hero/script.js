@@ -251,26 +251,26 @@ function loadBurgerGLB() {
         glbModel.position.x = -center.x * scale;
         glbModel.position.y = -center.y * scale;
         glbModel.position.z = -center.z * scale;
+        // Approche radicale : on REMPLACE les matériaux par des MeshBasicMaterial
+        // (non éclairés). Comme ça la couleur affichée = exactement la texture
+        // diffuse, sans interaction avec metalRough/emissive/envMap.
+        // Si Meshy a baked l'éclairage dans la diffuse, on aura le rendu Meshy natif.
         glbModel.traverse((obj) => {
           if (obj.isMesh && obj.material) {
-            const mat = obj.material;
-            // Texture diffuse en sRGB pour les couleurs justes
-            if (mat.map) {
-              mat.map.colorSpace = THREE.SRGBColorSpace;
-              mat.map.anisotropy = renderer.capabilities.getMaxAnisotropy();
+            const old = obj.material;
+            if (old.map) {
+              old.map.colorSpace = THREE.SRGBColorSpace;
+              old.map.anisotropy = renderer.capabilities.getMaxAnisotropy();
             }
-            // RESET TOTAL des paramètres "fancy" qui peuvent virer au chrome doré
-            mat.metalness = 0;
-            mat.roughness = 0.7;
-            mat.envMapIntensity = 0;
-            // Couper l'emissive (Meshy y baked parfois des highlights)
-            if (mat.emissive) mat.emissive.setHex(0x000000);
-            mat.emissiveIntensity = 0;
-            if (mat.emissiveMap) mat.emissiveMap = null;
-            // Couper les autres maps qui font du "shiny"
-            if (mat.metalnessMap) mat.metalnessMap = null;
-            if (mat.roughnessMap) mat.roughnessMap = null;
-            mat.needsUpdate = true;
+            const newMat = new THREE.MeshBasicMaterial({
+              map: old.map || null,
+              color: old.color ? old.color.clone() : new THREE.Color(0xffffff),
+              side: old.side ?? THREE.FrontSide,
+              transparent: !!old.transparent,
+              opacity: old.opacity ?? 1,
+            });
+            obj.material = newMat;
+            old.dispose();
           }
         });
 
