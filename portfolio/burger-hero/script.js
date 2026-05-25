@@ -54,30 +54,28 @@ if (window.ResizeObserver) {
 }
 
 // ============ LIGHTING ============
-// Ambient blanc — pour révéler les vraies couleurs des textures
-scene.add(new THREE.AmbientLight(0xffffff, 0.85));
+// Tout en blanc neutre pour révéler les vraies couleurs du modèle
+scene.add(new THREE.AmbientLight(0xffffff, 1.2));
 
-// Key light — BLANC neutre (rôle principal : éclairer franchement)
-const keyLight = new THREE.DirectionalLight(0xffffff, 2.4);
+const keyLight = new THREE.DirectionalLight(0xffffff, 2.0);
 keyLight.position.set(4, 5, 4);
 scene.add(keyLight);
 
-// Fill light — blanc doux pour déboucher les ombres (côté opposé)
-const fillLight = new THREE.DirectionalLight(0xfff5e8, 0.8);
+const fillLight = new THREE.DirectionalLight(0xffffff, 1.0);
 fillLight.position.set(-4, 2, 3);
 scene.add(fillLight);
 
-// Rim light — orange chaude DERRIÈRE pour le contour appétissant (subtile)
-const rimLight = new THREE.SpotLight(0xff8a3a, 30, 14, Math.PI / 5, 0.5, 1.5);
-rimLight.position.set(-3, 4, -4);
-rimLight.target.position.set(0, 0, 0);
-scene.add(rimLight);
-scene.add(rimLight.target);
+const backLight = new THREE.DirectionalLight(0xffffff, 0.8);
+backLight.position.set(0, 3, -5);
+scene.add(backLight);
 
-// Bottom warm light — accent doré sous le burger
-const bottomLight = new THREE.PointLight(0xffb84a, 0.5, 5);
-bottomLight.position.set(0, -2.5, 0);
-scene.add(bottomLight);
+// Rim chaude légère — juste un soupçon
+const rimLight = new THREE.PointLight(0xff8a3a, 0.4, 8);
+rimLight.position.set(-3, 1, -3);
+scene.add(rimLight);
+
+// Aliases pour la boucle d'animation (compat)
+const bottomLight = rimLight;
 
 // ============ BURGER (placeholder en primitives) ============
 const burger = new THREE.Group();
@@ -254,16 +252,24 @@ function loadBurgerGLB() {
         glbModel.position.z = -center.z * scale;
         glbModel.traverse((obj) => {
           if (obj.isMesh && obj.material) {
+            const mat = obj.material;
             // Texture diffuse en sRGB pour les couleurs justes
-            if (obj.material.map) {
-              obj.material.map.colorSpace = THREE.SRGBColorSpace;
-              obj.material.map.anisotropy = renderer.capabilities.getMaxAnisotropy();
+            if (mat.map) {
+              mat.map.colorSpace = THREE.SRGBColorSpace;
+              mat.map.anisotropy = renderer.capabilities.getMaxAnisotropy();
             }
-            // Anti-effet "doré chrome" — Meshy met parfois trop de métallicité
-            // Les ingrédients d'un burger ne sont jamais métalliques
-            obj.material.metalness = 0;
-            obj.material.roughness = Math.max(0.55, obj.material.roughness ?? 0.55);
-            obj.material.needsUpdate = true;
+            // RESET TOTAL des paramètres "fancy" qui peuvent virer au chrome doré
+            mat.metalness = 0;
+            mat.roughness = 0.7;
+            mat.envMapIntensity = 0;
+            // Couper l'emissive (Meshy y baked parfois des highlights)
+            if (mat.emissive) mat.emissive.setHex(0x000000);
+            mat.emissiveIntensity = 0;
+            if (mat.emissiveMap) mat.emissiveMap = null;
+            // Couper les autres maps qui font du "shiny"
+            if (mat.metalnessMap) mat.metalnessMap = null;
+            if (mat.roughnessMap) mat.roughnessMap = null;
+            mat.needsUpdate = true;
           }
         });
 
@@ -403,7 +409,7 @@ function animate() {
   steam.material.opacity = 0.15 + Math.sin(t * 0.5) * 0.1;
 
   // Key light pulse
-  keyLight.intensity = 2.4 + Math.sin(t * 1.2) * 0.15;
+  keyLight.intensity = 2.0 + Math.sin(t * 1.2) * 0.1;
   // Bottom light (chaude flicker)
   bottomLight.intensity = 0.8 + Math.sin(t * 4) * 0.15;
 
