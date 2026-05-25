@@ -484,13 +484,6 @@ em {
   font-variation-settings: "opsz" 144;
 }
 
-.footer__lieu {
-  font-size: 0.85rem;
-  color: var(--cream-soft);
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.05em;
-}
-
 .footer__credit {
   font-size: 0.78rem;
   color: var(--cream-soft);
