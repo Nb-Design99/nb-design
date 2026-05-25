@@ -10,7 +10,9 @@
   const PARALLEL_LOADS = 6;
 
   // Frames needed before the canvas is revealed and scrub is enabled.
-  const MIN_FRAMES_FOR_READY = 10;
+  // Set to 1 so the user sees the first frame instantly and can already scrub
+  // (drawFrame falls back to the nearest loaded neighbor while preload continues).
+  const MIN_FRAMES_FOR_READY = 1;
 
   // Lerp factor for smoothing (lower = silkier but laggier).
   const LERP = 0.18;
