@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burger Hero — Démo NB-Design</title>
+  <meta name="description" content="Hero burger 3D animé au scroll — démo portfolio NB-Design." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <a href="../../index.html" class="back-link" aria-label="Retour au site">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+    <span>NB-Design</span>
+  </a>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas id="burger-canvas" aria-hidden="true"></canvas>
+
+    <nav class="nav">
+      <div class="nav__logo">
+        <span class="nav__logo-bun">BIG</span><span class="nav__logo-meat">BITE</span>
+      </div>
+      <ul class="nav__links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#story">Histoire</a></li>
+        <li><a href="#locations">Adresses</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#order" class="nav__cta">Commander</a>
+    </nav>
+
+    <div class="hero__content">
+
+      <div class="hero__eyebrow">
+        <span class="dot"></span>
+        Ouvert maintenant · Livraison 30 min
+      </div>
+
+      <h1 class="hero__title">
+        Le burger<br/>
+        <span class="hero__title-accent">parfait,</span><br/>
+        <span class="hero__title-outline">à chaque bouchée.</span>
+      </h1>
+
+      <p class="hero__lede">
+        Pain brioché maison, bœuf 100&nbsp;% suisse, cheddar affiné, sauce signature.
+        Servi chaud, comme il se doit.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#order" class="btn btn--primary">
+          Commander en ligne
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#menu" class="btn btn--ghost">Voir le menu</a>
+      </div>
+
+      <div class="hero__stats">
+        <div class="stat">
+          <div class="stat__value">12+</div>
+          <div class="stat__label">Recettes signature</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">4.9<span>/5</span></div>
+          <div class="stat__label">★ 1 200 avis Google</div>
+        </div>
+        <div class="stat">
+          <div class="stat__value">100<span>%</span></div>
+          <div class="stat__label">Bœuf suisse</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="scroll-hint" id="scrollHint">
+      <span>Scroll</span>
+      <div class="scroll-hint__bar"><div class="scroll-hint__dot"></div></div>
+    </div>
+
+    <div class="burger-loader" id="burgerLoader" aria-hidden="true">
+      <div class="burger-loader__rings">
+        <div class="burger-loader__ring burger-loader__ring--1"></div>
+        <div class="burger-loader__ring burger-loader__ring--2"></div>
+        <div class="burger-loader__ring burger-loader__ring--3"></div>
+      </div>
+      <div class="burger-loader__text">
+        <span class="burger-loader__label">Préparation</span>
+        <span class="burger-loader__progress" id="glbProgress">0%</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION pour démontrer que le scroll continue avec l'animation -->
+  <section class="ingredients" id="ingredients">
+    <div class="ingredients__inner">
+      <span class="section-eyebrow">Ingrédients</span>
+      <h2 class="section-title">Du brut. Du beau.<br/><em>Du bon.</em></h2>
+      <div class="ingredients__grid">
+        <div class="ingredient"><div class="ingredient__emoji">🥖</div><h3>Pain brioché</h3><p>Cuit chaque matin dans notre atelier de Sion.</p></div>
+        <div class="ingredient"><div class="ingredient__emoji">🥩</div><h3>Bœuf suisse</h3><p>Race d'Hérens, élevé en plein air dans le Valais.</p></div>
+        <div class="ingredient"><div class="ingredient__emoji">🧀</div><h3>Cheddar affiné</h3><p>9 mois d'affinage, fondu juste avant le service.</p></div>
+        <div class="ingredient"><div class="ingredient__emoji">🥬</div><h3>Salade locale</h3><p>Maraîchers du coin, livrée tous les matins.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

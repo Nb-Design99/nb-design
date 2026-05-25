@@ -1,3 +1,8 @@
 .gh-auth-out.txt
 .DS_Store
 Thumbs.db
+
+# Modèles 3D lourds — au-dessus de la limite GitHub 100 Mo
+# (à héberger sur un CDN externe et référencer via URL absolue)
+*.glb
+*.gltf
