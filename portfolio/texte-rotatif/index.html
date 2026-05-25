@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texte rotatif — Démo NB-Design</title>
+  <meta name="description" content="Démo portfolio NB-Design — animation typographique caractère par caractère, ressort physique, version restaurant.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#f5ecd9',
+            'cream-soft': '#fdfaf4',
+            ink: '#2d1a12',
+            'ink-soft': '#5b3a2a',
+            tomate: '#c14a3d',
+            'tomate-deep': '#a23a2e',
+            ocre: '#d49a3d',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html, body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #f5ecd9;
+      color: #2d1a12;
+    }
+
+    /* Texture papier subtile */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(193, 74, 61, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(212, 154, 61, 0.05) 0%, transparent 50%);
+      z-index: 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #c14a3d;
+      color: #fdfaf4;
+      border-radius: 0.75rem;
+      padding: 0.1em 0.5em 0.18em;
+      overflow: hidden;
+      position: relative;
+      box-shadow:
+        0 4px 0 0 #a23a2e,
+        0 10px 30px -8px rgba(193, 74, 61, 0.55);
+      font-style: normal;
+      font-weight: 600;
+      transition: width 0.55s cubic-bezier(0.34, 1.4, 0.64, 1);
+      will-change: width;
+    }
+
+    .char-row {
+      display: inline-flex;
+      white-space: nowrap;
+    }
+
+    .char {
+      display: inline-block;
+      will-change: transform, opacity;
+    }
+
+    .measurer {
+      position: absolute;
+      visibility: hidden;
+      white-space: nowrap;
+      pointer-events: none;
+      left: -9999px;
+    }
+
+    /* Petite vignette signature en bas */
+    .signature::before,
+    .signature::after {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+      vertical-align: middle;
+      margin: 0 12px;
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen overflow-hidden">
+
+  <main class="relative z-10 min-h-screen w-full flex flex-col items-center justify-center px-6 py-16">
+
+    <!-- Mini eyebrow -->
+    <p class="text-xs sm:text-sm uppercase tracking-[0.3em] text-ink-soft mb-10 font-medium">
+      Démo · animation typographique
+    </p>
+
+    <!-- Phrase principale -->
+    <h1 class="font-display italic text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[1.05] text-center flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 max-w-6xl">
+      <span class="whitespace-nowrap">C'est tellement</span>
+      <span id="pill" class="pill font-sans text-4xl sm:text-6xl md:text-7xl lg:text-8xl" aria-live="polite">
+        <span class="sr-only" id="sr-text">délicieux</span>
+        <span class="char-row" id="charRow" aria-hidden="true"></span>
+        <span class="measurer font-sans" id="measurer"></span>
+      </span>
+    </h1>
+
+    <!-- Sous-titre -->
+    <p class="mt-12 max-w-xl text-center text-ink-soft text-base sm:text-lg leading-relaxed">
+      Idéale pour un hero de site restaurant : le mot change tout seul, avec un ressort physique
+      caractère par caractère. Léger, sans framework lourd.
+    </p>
+
+    <!-- Signature -->
+    <p class="signature mt-16 text-xs uppercase tracking-[0.25em] text-ink-soft/70 font-medium">
+      NB-Design — Portfolio
+    </p>
+
+  </main>
+
+  <script type="module">
+    import { animate, stagger } from "https://cdn.jsdelivr.net/npm/motion@11.11.17/+esm";
+
+    const words = [
+      "délicieux",
+      "savoureux",
+      "parfumé",
+      "réconfortant",
+      "gourmand",
+      "fait maison",
+      "irrésistible",
+      "fondant",
+      "croustillant",
+      "🍅 🧀 🥖",
+    ];
+
+    const pill = document.getElementById('pill');
+    const charRow = document.getElementById('charRow');
+    const measurer = document.getElementById('measurer');
+    const srText = document.getElementById('sr-text');
+
+    const ROTATION_MS = 2200;
+
+    // Split unicode-safe (gère les emojis correctement)
+    function splitChars(text) {
+      if (typeof Intl !== 'undefined' && 'Segmenter' in Intl) {
+        const seg = new Intl.Segmenter('fr', { granularity: 'grapheme' });
+        return Array.from(seg.segment(text), s => s.segment);
+      }
+      return Array.from(text);
+    }
+
+    function measureWidth(text) {
+      measurer.textContent = text;
+      const w = measurer.getBoundingClientRect().width;
+      const padX = 0.5; // em padding left+right total (cf .pill)
+      const fontSize = parseFloat(getComputedStyle(pill).fontSize);
+      return w + padX * fontSize;
+    }
+
+    function buildChars(text) {
+      charRow.innerHTML = '';
+      const chars = splitChars(text);
+      const els = chars.map((c) => {
+        const span = document.createElement('span');
+        span.className = 'char';
+        // Espaces visibles sans collapser
+        span.textContent = c === ' ' ? ' ' : c;
+        span.style.transform = 'translateY(110%)';
+        span.style.opacity = '0';
+        charRow.appendChild(span);
+        return span;
+      });
+      return els;
+    }
+
+    const spring = { type: 'spring', damping: 28, stiffness: 380 };
+
+    async function showWord(text) {
+      srText.textContent = text;
+      const targetW = measureWidth(text);
+      pill.style.width = targetW + 'px';
+      const els = buildChars(text);
+      await animate(
+        els,
+        { transform: ['translateY(110%)', 'translateY(0%)'], opacity: [0, 1] },
+        { ...spring, delay: stagger(0.025, { from: 'last' }) }
+      ).finished;
+    }
+
+    async function hideCurrent() {
+      const els = Array.from(charRow.children);
+      if (els.length === 0) return;
+      await animate(
+        els,
+        { transform: ['translateY(0%)', 'translateY(-120%)'], opacity: [1, 0] },
+        { ...spring, delay: stagger(0.022, { from: 'last' }) }
+      ).finished;
+    }
+
+    function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+    async function run() {
+      // Attendre que la font soit prête (pour mesure correcte)
+      if (document.fonts && document.fonts.ready) {
+        try { await document.fonts.ready; } catch (e) {}
+      }
+      // Mode static (debug/screenshot) : afficher juste un mot et stopper
+      const params = new URLSearchParams(location.search);
+      if (params.get('static') === '1') {
+        const w = params.get('w') || words[0];
+        const targetW = measureWidth(w);
+        pill.style.width = targetW + 'px';
+        srText.textContent = w;
+        charRow.innerHTML = '';
+        splitChars(w).forEach(c => {
+          const span = document.createElement('span');
+          span.className = 'char';
+          span.textContent = c === ' ' ? ' ' : c;
+          charRow.appendChild(span);
+        });
+        return;
+      }
+      let i = 0;
+      await showWord(words[i]);
+      while (true) {
+        await wait(ROTATION_MS);
+        await hideCurrent();
+        i = (i + 1) % words.length;
+        await showWord(words[i]);
+      }
+    }
+
+    run();
+  </script>
+
+</body>
+</html>
