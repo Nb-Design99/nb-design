@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Bloque les démos prospects pour ne pas polluer le SEO de nb-design.ch
+Disallow: /Restaurant/
+
+Sitemap: https://nb-design.ch/sitemap.xml
