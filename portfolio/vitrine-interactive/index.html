@@ -15,7 +15,7 @@
 
   <!-- Preload des 3 images Unsplash version mobile (w=700 q=75) -->
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=75">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=75">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=75">
   <link rel="preload" as="image" href="https://images.unsplash.com/photo-1562376552-0d160a2f238d?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=75">
 
   <style>
@@ -187,7 +187,7 @@
           </clipPath>
         </defs>
 
-        <g id="mainGroup" clip-path="url(#clip-hexagons)">
+        <g id="mainGroup" clip-path="url(#clip-original)">
           <image id="mainImage"
                  href=""
                  width="500" height="500"
@@ -200,8 +200,8 @@
   <script>
     // === Données ===
     const items = [
-      { num: "01", name: "Desserts Maison",     clipId: "clip-hexagons", image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=75" },
-      { num: "02", name: "Burgers Signature",   clipId: "clip-original", image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=75" },
+      { num: "01", name: "Burgers Signature",   clipId: "clip-original", image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=75" },
+      { num: "02", name: "Desserts Maison",     clipId: "clip-hexagons", image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=75" },
       { num: "03", name: "Gaufres Artisanales", clipId: "clip-pixels",   image: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=75" }
     ];
 
