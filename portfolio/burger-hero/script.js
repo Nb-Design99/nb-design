@@ -36,14 +36,23 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.1;
 
 function resize() {
-  const w = canvas.clientWidth;
-  const h = canvas.clientHeight;
+  // Fallback sur window dims si le canvas n'a pas encore reçu son CSS
+  const w = canvas.clientWidth  || Math.round(window.innerWidth * 0.7);
+  const h = canvas.clientHeight || window.innerHeight;
+  if (w === 0 || h === 0) return;
   renderer.setSize(w, h, false);
   camera.aspect = w / h;
   camera.updateProjectionMatrix();
 }
+// 1er resize après que le layout soit appliqué
 resize();
+requestAnimationFrame(resize);
 window.addEventListener('resize', resize);
+window.addEventListener('load', resize);
+// Sécurise si le viewport bouge (orientation, splash, etc.)
+if (window.ResizeObserver) {
+  new ResizeObserver(resize).observe(canvas);
+}
 
 // ============ LIGHTING ============
 scene.add(new THREE.AmbientLight(0xfff5e0, 0.5));
