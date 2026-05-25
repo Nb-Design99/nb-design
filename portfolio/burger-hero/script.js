@@ -285,7 +285,19 @@ if (LOAD_GLB) {
     console.warn('GLB introuvable, on garde le placeholder', err);
     const progressEl = document.getElementById('glbProgress');
     if (progressEl) progressEl.remove();
+    const loaderEl = document.getElementById('burgerLoader');
+    if (loaderEl) {
+      loaderEl.classList.add('is-hidden');
+      setTimeout(() => loaderEl.remove(), 800);
+    }
   });
+} else {
+  // Pas de GLB à charger : le placeholder est déjà à l'écran, on masque le loader tout de suite
+  const loaderEl = document.getElementById('burgerLoader');
+  if (loaderEl) {
+    loaderEl.classList.add('is-hidden');
+    setTimeout(() => loaderEl.remove(), 800);
+  }
 }
 
 // ============ PARTICULES (vapeur chaude qui monte) ============
