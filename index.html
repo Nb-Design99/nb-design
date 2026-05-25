@@ -881,6 +881,149 @@
       font-weight: 600;
     }
 
+    /* ====== DEMOS / RÉALISATIONS ====== */
+    .demos {
+      background:
+        radial-gradient(40% 60% at 20% 0%, rgba(45, 122, 79, 0.06), transparent 60%),
+        var(--bg-dark);
+    }
+    .demos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .demo-card {
+      position: relative;
+      display: block;
+      padding: 0;
+      background: linear-gradient(180deg, rgba(248, 246, 241, 0.025), rgba(248, 246, 241, 0.005));
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform 0.5s var(--ease-out), border-color 0.4s, box-shadow 0.5s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .demo-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(110, 208, 154, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(110, 208, 154, 0.08);
+    }
+    .demo-card__preview {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--green-deep);
+    }
+    .demo-card__preview::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(3, 10, 6, 0.55) 100%);
+      pointer-events: none;
+    }
+    .demo-card__gradient {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.5rem;
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
+      transition: transform 0.6s var(--ease-out);
+    }
+    .demo-card:hover .demo-card__gradient { transform: scale(1.08); }
+
+    .demo-card__gradient--burger {
+      background: linear-gradient(135deg, #ff6b1a 0%, #c8241c 100%);
+    }
+    .demo-card__gradient--head {
+      background: linear-gradient(135deg, #2d7a4f 0%, #061410 100%);
+    }
+    .demo-card__gradient--svg {
+      background: linear-gradient(135deg, #c9a84c 0%, #6b4a1c 100%);
+    }
+    .demo-card__gradient--scroll {
+      background: linear-gradient(135deg, #4caf78 0%, #0f2318 100%);
+    }
+    .demo-card__gradient--text {
+      background: linear-gradient(135deg, #1a3d2b 0%, #c9a84c 100%);
+    }
+
+    .demo-card__body {
+      padding: 1.75rem 1.75rem 2rem;
+    }
+    .demo-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .demo-card__tag {
+      padding: 0.3rem 0.7rem;
+      background: rgba(110, 208, 154, 0.08);
+      border: 1px solid rgba(110, 208, 154, 0.2);
+      border-radius: var(--radius-full);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-glow);
+      font-weight: 500;
+    }
+    .demo-card__title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.55rem;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 0.65rem;
+      line-height: 1.15;
+    }
+    .demo-card__desc {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+    .demo-card__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--green-glow);
+      transition: gap 0.3s var(--ease-out);
+    }
+    .demo-card:hover .demo-card__cta { gap: 0.85rem; }
+    .demo-card__cta svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .demo-card__flag {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.3rem 0.7rem;
+      background: var(--green-accent);
+      color: var(--white);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      z-index: 2;
+    }
+
+    @media (min-width: 760px) {
+      .demos-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1100px) {
+      .demos-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
     /* ====== WHY ====== */
     .why {
       background:
@@ -1355,6 +1498,111 @@
       html { scroll-behavior: auto; }
     }
 
+    /* ============ PORTFOLIO 3D CAROUSEL ============ */
+    .portfolio-3d {
+      padding: 7rem 0 5.5rem;
+      background: linear-gradient(180deg, var(--green-deep) 0%, var(--bg-dark) 100%);
+      overflow: hidden;
+      position: relative;
+    }
+    .portfolio-3d .container { position: relative; z-index: 2; }
+    .portfolio-3d__stage {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      margin-top: 2.5rem;
+      perspective: 2200px;
+      perspective-origin: 50% 50%;
+      user-select: none;
+      cursor: grab;
+    }
+    .portfolio-3d__stage:active { cursor: grabbing; }
+    .portfolio-3d__ring {
+      position: absolute;
+      inset: 0;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .portfolio-3d__card {
+      position: absolute;
+      width: 220px;
+      height: 300px;
+      left: 50%;
+      top: 50%;
+      margin-left: -110px;
+      margin-top: -150px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      background: var(--green-deep);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.3s linear, border-color 0.25s ease, box-shadow 0.25s ease;
+      backface-visibility: hidden;
+    }
+    .portfolio-3d__card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(201, 168, 76, 0.45);
+    }
+    .portfolio-3d__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      -webkit-user-drag: none;
+    }
+    .portfolio-3d__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 35%, rgba(6, 20, 16, 0.55) 65%, rgba(6, 20, 16, 0.96) 100%);
+      pointer-events: none;
+    }
+    .portfolio-3d__caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 1rem 1.1rem 1.1rem;
+      color: var(--white);
+    }
+    .portfolio-3d__name {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.45rem;
+      line-height: 1.1;
+      margin: 0 0 0.3rem;
+      color: var(--gold-light);
+    }
+    .portfolio-3d__sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      color: rgba(248, 246, 241, 0.78);
+      margin: 0;
+    }
+    .portfolio-3d__hint {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(248, 246, 241, 0.55);
+    }
+    @media (max-width: 720px) {
+      .portfolio-3d { padding: 5rem 0 4rem; }
+      .portfolio-3d__stage { height: 380px; perspective: 1400px; margin-top: 1.5rem; }
+      .portfolio-3d__card {
+        width: 160px; height: 220px;
+        margin-left: -80px; margin-top: -110px;
+        border-radius: 11px;
+      }
+      .portfolio-3d__name { font-size: 1.15rem; }
+      .portfolio-3d__sub { font-size: 0.7rem; }
+      .portfolio-3d__hint { font-size: 0.7rem; padding: 0 1.5rem; }
+    }
+
     /* Selection */
     ::selection { background: rgba(110, 208, 154, 0.3); color: var(--white); }
   </style>
@@ -1372,8 +1620,9 @@
         <ul class="nav-links">
           <li><a href="#apropos">À propos</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="#demos">Démos</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#pourquoi">Pourquoi nous</a></li>
-          <li><a href="#chiffres">Chiffres</a></li>
           <li><a href="#temoignages">Témoignages</a></li>
         </ul>
         <a href="#contact" class="btn btn-primary nav-cta">Nous contacter</a>
@@ -1391,8 +1640,9 @@
     <ul>
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#demos">Démos</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#pourquoi">Pourquoi nous</a></li>
-      <li><a href="#chiffres">Chiffres</a></li>
       <li><a href="#temoignages">Témoignages</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -1726,6 +1976,164 @@
 
         </div>
       </div>
+    </section>
+
+    <!-- ============ DÉMOS / RÉALISATIONS ============ -->
+    <section class="demos" id="demos" aria-labelledby="demos-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Réalisations · Savoir-faire</span>
+          <h2 class="section-title" id="demos-title">Ce que nous savons faire.</h2>
+          <p class="section-subtitle">
+            Des démos interactives qui montrent l'étendue de notre savoir-faire technique —
+            animations 3D, scroll-driven, effets immersifs. Chaque effet peut être intégré
+            à votre site.
+          </p>
+        </div>
+
+        <div class="demos-grid">
+
+          <!-- Burger 3D -->
+          <a href="portfolio/burger-hero/" class="demo-card reveal" target="_blank" rel="noopener">
+            <span class="demo-card__flag">Nouveau</span>
+            <div class="demo-card__preview">
+              <div class="demo-card__gradient demo-card__gradient--burger" aria-hidden="true">🍔</div>
+            </div>
+            <div class="demo-card__body">
+              <div class="demo-card__tags">
+                <span class="demo-card__tag">Three.js</span>
+                <span class="demo-card__tag">Scroll 3D</span>
+              </div>
+              <h3 class="demo-card__title">Hero Burger 3D scroll-driven</h3>
+              <p class="demo-card__desc">
+                Modèle 3D temps réel qui tourne au scroll, lumière cinéma, vapeur animée.
+                Idéal pour restaurant burger, street food, livraison.
+              </p>
+              <span class="demo-card__cta">
+                Voir la démo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- Tête interactive -->
+          <a href="portfolio/tete-souris/" class="demo-card reveal reveal-delay-1" target="_blank" rel="noopener">
+            <div class="demo-card__preview">
+              <div class="demo-card__gradient demo-card__gradient--head" aria-hidden="true">👤</div>
+            </div>
+            <div class="demo-card__body">
+              <div class="demo-card__tags">
+                <span class="demo-card__tag">Three.js</span>
+                <span class="demo-card__tag">Hover 3D</span>
+              </div>
+              <h3 class="demo-card__title">Personnage 3D qui suit la souris</h3>
+              <p class="demo-card__desc">
+                Modèle 3D avec rotation continue selon le curseur. Effet bluffant pour
+                un hero personnalisé : mascotte, chef, gérant.
+              </p>
+              <span class="demo-card__cta">
+                Voir la démo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- Vitrine SVG -->
+          <a href="portfolio/vitrine-interactive/" class="demo-card reveal reveal-delay-2" target="_blank" rel="noopener">
+            <div class="demo-card__preview">
+              <div class="demo-card__gradient demo-card__gradient--svg" aria-hidden="true">🍽️</div>
+            </div>
+            <div class="demo-card__body">
+              <div class="demo-card__tags">
+                <span class="demo-card__tag">SVG</span>
+                <span class="demo-card__tag">GSAP</span>
+              </div>
+              <h3 class="demo-card__title">Vitrine SVG morphing</h3>
+              <p class="demo-card__desc">
+                Menu animé avec morphing de formes au hover. Idéal pour afficher
+                vos spécialités de façon expressive et différenciante.
+              </p>
+              <span class="demo-card__cta">
+                Voir la démo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- Hérens hero -->
+          <a href="portfolio/herens-hero/" class="demo-card reveal reveal-delay-3" target="_blank" rel="noopener">
+            <div class="demo-card__preview">
+              <div class="demo-card__gradient demo-card__gradient--scroll" aria-hidden="true">🐄</div>
+            </div>
+            <div class="demo-card__body">
+              <div class="demo-card__tags">
+                <span class="demo-card__tag">Scroll vidéo</span>
+                <span class="demo-card__tag">Frames</span>
+              </div>
+              <h3 class="demo-card__title">Hero vidéo scroll-driven</h3>
+              <p class="demo-card__desc">
+                Séquence vidéo qui se déroule au rythme du scroll. Effet cinéma
+                immersif pour raconter l'histoire de votre établissement.
+              </p>
+              <span class="demo-card__cta">
+                Voir la démo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- Texte rotatif -->
+          <a href="portfolio/texte-rotatif/" class="demo-card reveal" target="_blank" rel="noopener">
+            <div class="demo-card__preview">
+              <div class="demo-card__gradient demo-card__gradient--text" aria-hidden="true">✦</div>
+            </div>
+            <div class="demo-card__body">
+              <div class="demo-card__tags">
+                <span class="demo-card__tag">CSS</span>
+                <span class="demo-card__tag">Animation</span>
+              </div>
+              <h3 class="demo-card__title">Texte rotatif typographique</h3>
+              <p class="demo-card__desc">
+                Texte en cercle qui tourne en continu — accent décoratif sobre
+                et raffiné pour vos sections clés.
+              </p>
+              <span class="demo-card__cta">
+                Voir la démo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PORTFOLIO 3D CAROUSEL ============ -->
+    <section class="portfolio-3d" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="eyebrow">Portfolio · Sites en vitrine</span>
+          <h2 class="section-title" id="portfolio-title">Découvrez nos sites en mouvement.</h2>
+          <p class="section-subtitle">
+            Chaque visuel ouvre un site réel que nous avons conçu pour un restaurant valaisan.
+            Faites glisser, ou laissez tourner — puis cliquez pour explorer.
+          </p>
+        </div>
+      </div>
+      <div class="portfolio-3d__stage" id="portfolio-stage" aria-label="Carrousel 3D des sites portfolio">
+        <div class="portfolio-3d__ring" id="portfolio-ring"></div>
+      </div>
+      <p class="portfolio-3d__hint">Glissez pour tourner · Survolez pour mettre en pause · Cliquez pour ouvrir</p>
     </section>
 
     <!-- ============ WHY ME ============ -->
@@ -2285,6 +2693,149 @@
         }, { rootMargin: '-40% 0px -55% 0px' });
         sections.forEach(function (s) { navObs.observe(s); });
       }
+    })();
+
+    /* ============ PORTFOLIO 3D CAROUSEL ============ */
+    (function initPortfolio3D () {
+      var stage = document.getElementById('portfolio-stage');
+      var ring  = document.getElementById('portfolio-ring');
+      if (!stage || !ring) return;
+
+      var items = [
+        { name: "L'Enclos de Valère",        sub: 'Sion · Gastronomique',           url: 'Restaurant/EnclosDeValere/',         img: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=900&q=85&auto=format&fit=crop' },
+        { name: "Udrisard Café",             sub: 'Sion · Depuis 1898',             url: 'Restaurant/Udrisard/',               img: 'https://images.unsplash.com/photo-1568797629192-78d40b3b8dec?w=900&q=85&auto=format&fit=crop' },
+        { name: "Osteria del Sole",          sub: 'Sion · Trattoria italienne',     url: 'Restaurant/OsteriaDelSole/',         img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=85&auto=format&fit=crop' },
+        { name: "Le Midi",                   sub: 'Sion · Cuisine valaisanne',      url: 'Restaurant/LeMidi/',                 img: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=900&q=85&auto=format&fit=crop' },
+        { name: "La Taverne",                sub: 'Sion · Brochettes au feu',       url: 'Restaurant/LaTaverne/',              img: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=900&q=85&auto=format&fit=crop' },
+        { name: "Caveau Part des Anges",     sub: 'Savièse · Bar à vins',           url: 'Restaurant/CaveauPDA/',              img: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=900&q=85&auto=format&fit=crop' },
+        { name: "Café de l'Union",           sub: 'Savièse · Café-restaurant',      url: 'Restaurant/CafeUnionSaviese/',       img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85&auto=format&fit=crop' },
+        { name: "Goubing chez Pino",         sub: 'Sierre · Pizzeria napolitaine',  url: 'Restaurant/GoubingChezPino/',        img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=900&q=85&auto=format&fit=crop' },
+        { name: "Le Borsalino",              sub: 'Haute-Nendaz · Pizzeria',        url: 'Restaurant/Borsalino/',              img: 'https://images.unsplash.com/photo-1571066811602-716837d681de?w=900&q=85&auto=format&fit=crop' },
+        { name: "La Botte",                  sub: 'Martigny · Pizzeria italienne',  url: 'Restaurant/LaBotte/',                img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=900&q=85&auto=format&fit=crop' },
+        { name: "Le B Sportsbar",            sub: 'Monthey · Pizzas & burgers',     url: 'Restaurant/LeBSportbar/',            img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=85&auto=format&fit=crop' },
+        { name: "Palais des Petits Cochons", sub: 'Vétroz · Cuisine portugaise',    url: 'Restaurant/PalaisDesPetitsCochons/', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=85&auto=format&fit=crop' }
+      ];
+
+      var anglePer = 360 / items.length;
+      var rotation = 0;
+      var paused = false;
+      var dragging = false;
+      var dragStartX = 0;
+      var dragStartRot = 0;
+      var dragMoved = false;
+      var cards = [];
+      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function radius () { return window.innerWidth <= 720 ? 280 : 500; }
+      function autoSpeed () { return reducedMotion ? 0 : 0.035; }
+
+      // Build cards
+      items.forEach(function (item, i) {
+        var a = document.createElement('a');
+        a.className = 'portfolio-3d__card';
+        a.href = item.url;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.setAttribute('aria-label', item.name + ' — ' + item.sub);
+
+        var img = document.createElement('img');
+        img.className = 'portfolio-3d__img';
+        img.loading = 'lazy';
+        img.alt = item.name;
+        img.src = item.img;
+        img.draggable = false;
+        a.appendChild(img);
+
+        var overlay = document.createElement('div');
+        overlay.className = 'portfolio-3d__overlay';
+        a.appendChild(overlay);
+
+        var cap = document.createElement('div');
+        cap.className = 'portfolio-3d__caption';
+        var h3 = document.createElement('h3');
+        h3.className = 'portfolio-3d__name';
+        h3.textContent = item.name;
+        var p = document.createElement('p');
+        p.className = 'portfolio-3d__sub';
+        p.textContent = item.sub;
+        cap.appendChild(h3);
+        cap.appendChild(p);
+        a.appendChild(cap);
+
+        ring.appendChild(a);
+        cards.push(a);
+      });
+
+      function positionCards () {
+        var r = radius();
+        cards.forEach(function (c, i) {
+          c.dataset.angle = String(i * anglePer);
+          c.style.transform = 'rotateY(' + (i * anglePer) + 'deg) translateZ(' + r + 'px)';
+        });
+      }
+      positionCards();
+
+      function updateOpacity () {
+        var totalRot = ((rotation % 360) + 360) % 360;
+        cards.forEach(function (c, i) {
+          var ang = (i * anglePer + totalRot) % 360;
+          var norm = ang > 180 ? 360 - ang : ang;
+          var o = Math.max(0.25, 1 - (norm / 180));
+          c.style.opacity = String(o);
+        });
+      }
+
+      function render () {
+        ring.style.transform = 'rotateY(' + rotation + 'deg)';
+        updateOpacity();
+      }
+
+      function tick () {
+        if (!paused && !dragging) rotation += autoSpeed();
+        render();
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      // Hover pause (desktop)
+      stage.addEventListener('mouseenter', function () { paused = true; });
+      stage.addEventListener('mouseleave', function () { paused = false; });
+
+      // Drag spin
+      function getX (e) { return (e.touches ? e.touches[0].clientX : e.clientX); }
+      function onDown (e) {
+        dragging = true;
+        dragMoved = false;
+        dragStartX = getX(e);
+        dragStartRot = rotation;
+      }
+      function onMove (e) {
+        if (!dragging) return;
+        var dx = getX(e) - dragStartX;
+        if (Math.abs(dx) > 5) dragMoved = true;
+        rotation = dragStartRot + dx * 0.4;
+      }
+      function onUp () { dragging = false; }
+      stage.addEventListener('mousedown', onDown);
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup', onUp);
+      stage.addEventListener('touchstart', onDown, { passive: true });
+      window.addEventListener('touchmove', onMove, { passive: true });
+      window.addEventListener('touchend', onUp);
+
+      // Prevent click when dragged
+      cards.forEach(function (c) {
+        c.addEventListener('click', function (e) {
+          if (dragMoved) { e.preventDefault(); }
+        });
+      });
+
+      // Reposition on resize
+      var resizeT;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeT);
+        resizeT = setTimeout(positionCards, 100);
+      });
     })();
   </script>
 </body>
