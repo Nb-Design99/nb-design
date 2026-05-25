@@ -3,8 +3,13 @@
   <url>
     <loc>https://nb-design.ch/</loc>
     <lastmod>2026-05-25</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+      <image:loc>https://nb-design.ch/og-image.png</image:loc>
+      <image:title>NB-Design — Webdesigner Suisse</image:title>
+      <image:caption>Webdesigner suisse basé en Valais. Sites web sur mesure pour restaurants et PME.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://nb-design.ch/cgv.html</loc>
