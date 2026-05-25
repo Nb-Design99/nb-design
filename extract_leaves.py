@@ -1,11 +1,40 @@
 """
-Détourage de feuilles.png : retire le fond blanc et extrait chaque feuille
+Détourage de feuilles.png : retire le fond blanc, teinte en vert NB-Design
+(corps vert profond, veines vert glow flashy), extrait chaque feuille
 en PNG transparent individuel pour animation parallax sur le hero.
 """
 import numpy as np
 from pathlib import Path
 from PIL import Image
 from scipy import ndimage
+
+# Palette teinte verte cohérente avec la DA NB-Design
+# Pixels sombres -> vert très foncé (proche du --green-deep #061410)
+# Pixels clairs (veines) -> vert glow flashy (--green-glow #6ED09A boosté)
+DARK_GREEN = np.array([6, 32, 18], dtype=np.float32) / 255.0
+BRIGHT_GREEN = np.array([130, 245, 175], dtype=np.float32) / 255.0
+
+
+def tint_to_green(img):
+    """Remappe l'image en gradient vert (sombre -> clair flashy)."""
+    arr = np.array(img).astype(np.float32)
+    rgb = arr[..., :3] / 255.0
+    alpha = arr[..., 3]
+
+    # Luminance perçue (les veines de la feuille sont les pixels les plus clairs)
+    lum = 0.299 * rgb[..., 0] + 0.587 * rgb[..., 1] + 0.114 * rgb[..., 2]
+
+    # Courbe : on accentue les hautes lumières pour que les veines brillent
+    lum_curved = np.power(lum, 0.75)  # < 1 = boost des mid-tones
+
+    # Interpolation entre vert sombre et vert flashy
+    new_rgb = DARK_GREEN + (BRIGHT_GREEN - DARK_GREEN) * lum_curved[..., None]
+    new_rgb = np.clip(new_rgb * 255, 0, 255).astype(np.uint8)
+
+    result = np.zeros((arr.shape[0], arr.shape[1], 4), dtype=np.uint8)
+    result[..., :3] = new_rgb
+    result[..., 3] = alpha.astype(np.uint8)
+    return Image.fromarray(result)
 
 SRC = Path(r"C:\Users\natha\Downloads\feuilles.png")
 OUT_DIR = Path(r"C:\Users\natha\nb-design\assets\leaves")
@@ -73,10 +102,13 @@ def main():
 
     # 1. Détourage
     transparent = remove_white_bg(src)
-    transparent.save(OUT_DIR / "_all_transparent.png", "PNG", optimize=True)
-    print(f"  -> _all_transparent.png")
 
-    # 2. Extraction individuelle
+    # 2. Teinte verte flashy
+    transparent = tint_to_green(transparent)
+    transparent.save(OUT_DIR / "_all_transparent.png", "PNG", optimize=True)
+    print(f"  -> _all_transparent.png (teinté vert)")
+
+    # 3. Extraction individuelle
     leaves = extract_individual_leaves(transparent)
     print(f"  {len(leaves)} feuilles retenues (>= 5000px)")
 
