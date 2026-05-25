@@ -58,17 +58,19 @@ def remove_white_bg(img, threshold=235):
     return Image.fromarray(arr)
 
 
-def extract_individual_leaves(img, min_pixels=5000):
-    """Trouve chaque blob (feuille) et l'extrait avec son bounding box."""
+def extract_individual_leaves(img, min_pixels=5000, edge_margin=4):
+    """Trouve chaque blob (feuille) et l'extrait. Rejette les feuilles
+    qui touchent le bord de l'image source (tronquées par le canvas)."""
     arr = np.array(img)
+    H, W = arr.shape[:2]
     alpha = arr[..., 3]
     mask = alpha > 30
 
-    # Labellisation des blobs connectés
     labeled, n_labels = ndimage.label(mask)
     print(f"  {n_labels} blobs détectés")
 
     leaves = []
+    rejected_edge = 0
     for i in range(1, n_labels + 1):
         blob_mask = labeled == i
         size = blob_mask.sum()
@@ -77,20 +79,27 @@ def extract_individual_leaves(img, min_pixels=5000):
         ys, xs = np.where(blob_mask)
         y0, y1 = ys.min(), ys.max() + 1
         x0, x1 = xs.min(), xs.max() + 1
-        pad = 8
+
+        # REJET : si la feuille touche un bord de l'image source, elle est tronquée
+        if (y0 <= edge_margin or x0 <= edge_margin or
+            y1 >= H - edge_margin or x1 >= W - edge_margin):
+            rejected_edge += 1
+            continue
+
+        # Padding généreux (sera dans la zone safe puisqu'on a déjà rejeté les bords)
+        pad = 20
         y0p = max(0, y0 - pad)
         x0p = max(0, x0 - pad)
-        y1p = min(arr.shape[0], y1 + pad)
-        x1p = min(arr.shape[1], x1 + pad)
+        y1p = min(H, y1 + pad)
+        x1p = min(W, x1 + pad)
 
         leaf = arr[y0p:y1p, x0p:x1p].copy()
-        # Masque sur ce blob uniquement (retire les feuilles voisines)
         local_mask = labeled[y0p:y1p, x0p:x1p] == i
         leaf[..., 3] = (leaf[..., 3].astype(np.float32) * local_mask).astype(np.uint8)
 
         leaves.append((leaf, size, (x0, y0, x1, y1)))
 
-    # Trie par taille décroissante
+    print(f"  {rejected_edge} feuilles rejetées (touchent un bord)")
     leaves.sort(key=lambda x: -x[1])
     return leaves
 
