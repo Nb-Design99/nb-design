@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le Tilleul — Restaurant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf7f2;
+      --ink: #2a2520;
+      --muted: #6f675c;
+      --accent: #8a6d3b;
+      --accent-dark: #6e5530;
+      --card: #ffffff;
+      --line: #e7ded2;
+      --shadow: 0 20px 50px -20px rgba(60, 45, 25, 0.25);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; line-height: 1.15; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 6vw;
+      background: rgba(250, 247, 242, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; letter-spacing: 0.5px; }
+    .brand span { color: var(--accent); }
+    nav { display: flex; gap: 28px; align-items: center; }
+    nav a { color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; }
+    nav a:hover { color: var(--accent); }
+    .btn {
+      display: inline-block; cursor: pointer;
+      background: var(--accent); color: #fff; border: none;
+      padding: 12px 24px; border-radius: 999px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+      text-decoration: none; transition: background .2s, transform .2s;
+    }
+    .btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .nav-toggle { display: none; }
+    @media (max-width: 760px) {
+      nav .navlink { display: none; }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 78vh;
+      display: flex; align-items: center;
+      padding: 0 6vw;
+      background: linear-gradient(rgba(30,22,12,0.62), rgba(30,22,12,0.62)),
+        linear-gradient(135deg, #5a3d23, #2a1c10),
+        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: #fff;
+    }
+    .hero-inner { max-width: 640px; }
+    .eyebrow {
+      text-transform: uppercase; letter-spacing: 3px; font-size: 12px;
+      font-weight: 600; color: #e9d9b8; margin-bottom: 18px;
+    }
+    .hero h1 { font-size: clamp(40px, 7vw, 72px); margin-bottom: 18px; }
+    .hero p { font-size: 18px; color: #f1ebe0; max-width: 520px; margin-bottom: 30px; }
+
+    /* Sections */
+    section { padding: 80px 6vw; }
+    .section-head { text-align: center; max-width: 620px; margin: 0 auto 50px; }
+    .section-head .eyebrow { color: var(--accent); }
+    .section-head h2 { font-size: clamp(30px, 5vw, 46px); color: var(--ink); }
+    .section-head p { color: var(--muted); margin-top: 12px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+    .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; padding: 28px; text-align: center;
+    }
+    .card .ico { font-size: 30px; margin-bottom: 14px; }
+    .card h3 { font-size: 24px; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 15px; }
+
+    /* Reservation */
+    #reservation { background: linear-gradient(180deg, #f3ece1, #faf7f2); }
+    .resa-wrap {
+      display: grid; grid-template-columns: 1fr 1.1fr; gap: 50px;
+      max-width: 1050px; margin: 0 auto; align-items: center;
+    }
+    .resa-info h2 { font-size: clamp(30px, 5vw, 46px); margin-bottom: 16px; }
+    .resa-info p { color: var(--muted); margin-bottom: 24px; }
+    .resa-info ul { list-style: none; }
+    .resa-info li { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; color: var(--ink); font-size: 15px; }
+    .resa-info li b { color: var(--accent); }
+
+    .form-card { background: var(--card); border-radius: 20px; padding: 36px; box-shadow: var(--shadow); border: 1px solid var(--line); }
+    .form-card h3 { font-size: 28px; margin-bottom: 6px; }
+    .form-card .sub { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+    .field { margin-bottom: 18px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+    input, select, textarea {
+      width: 100%; font-family: inherit; font-size: 15px; color: var(--ink);
+      padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px;
+      background: #fffdfa; transition: border-color .15s, box-shadow .15s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(138, 109, 59, 0.15);
+    }
+    textarea { resize: vertical; min-height: 70px; }
+    .form-card .btn { width: 100%; margin-top: 6px; padding: 14px; font-size: 15px; }
+
+    /* Custom date & time pickers */
+    .picker { position: relative; }
+    .picker-trigger {
+      width: 100%; display: flex; align-items: center; gap: 10px;
+      font-family: inherit; font-size: 15px; color: var(--ink); text-align: left;
+      padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px;
+      background: #fffdfa; cursor: pointer; transition: border-color .15s, box-shadow .15s;
+    }
+    .picker-trigger:hover { border-color: var(--accent); }
+    .picker.open .picker-trigger { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(138,109,59,0.15); }
+    .picker.invalid .picker-trigger { border-color: #d9534f; box-shadow: 0 0 0 3px rgba(217,83,79,0.12); }
+    .picker-ico { font-size: 16px; line-height: 1; }
+    .picker-value { color: var(--muted); flex: 1; }
+    .picker-value.filled { color: var(--ink); font-weight: 500; }
+    .picker-caret { color: var(--muted); font-size: 12px; transition: transform .2s; }
+    .picker.open .picker-caret { transform: rotate(180deg); }
+
+    .pop {
+      position: absolute; z-index: 40; top: calc(100% + 8px); left: 0; right: 0;
+      background: #fff; border: 1px solid var(--line); border-radius: 14px;
+      box-shadow: var(--shadow); padding: 16px; animation: pop .18s ease;
+    }
+    .cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .cal-title { font-weight: 600; font-size: 15px; text-transform: capitalize; font-family: 'Inter', sans-serif; }
+    .cal-nav {
+      width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--line);
+      background: #fff; cursor: pointer; font-size: 18px; color: var(--accent); line-height: 1;
+      transition: background .15s, opacity .15s;
+    }
+    .cal-nav:hover { background: var(--bg); }
+    .cal-nav:disabled { opacity: .3; cursor: default; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+    .cal-dow { margin-bottom: 6px; }
+    .cal-dow span { text-align: center; font-size: 11px; font-weight: 600; color: var(--muted); padding: 4px 0; }
+    .cal-day {
+      aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+      border: none; background: none; border-radius: 8px; cursor: pointer;
+      font-family: inherit; font-size: 14px; color: var(--ink); transition: background .12s;
+    }
+    .cal-day:hover:not(.disabled):not(.empty) { background: var(--bg); }
+    .cal-day.disabled { color: #cdc3b2; cursor: default; }
+    .cal-day.empty { cursor: default; }
+    .cal-day.today { font-weight: 700; color: var(--accent); }
+    .cal-day.selected { background: var(--accent); color: #fff; font-weight: 600; }
+    .cal-day.selected:hover { background: var(--accent-dark); }
+
+    .time-group + .time-group { margin-top: 14px; }
+    .time-group-label { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; letter-spacing: 1px; }
+    .time-slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .time-slot {
+      padding: 9px 0; text-align: center; border: 1px solid var(--line); border-radius: 8px;
+      background: #fffdfa; cursor: pointer; font-family: inherit; font-size: 13px; color: var(--ink);
+      transition: border-color .12s, color .12s, background .12s;
+    }
+    .time-slot:hover { border-color: var(--accent); color: var(--accent); }
+    .time-slot.selected { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+
+    .toast {
+      display: none; margin-top: 18px; padding: 16px;
+      background: #edf7ed; border: 1px solid #bfe0bf; border-radius: 12px;
+      color: #2f6b32; font-size: 14px; text-align: center;
+    }
+    .toast.show { display: block; animation: pop .3s ease; }
+    @keyframes pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    /* Footer */
+    footer { background: #221c14; color: #cfc6b6; padding: 50px 6vw; text-align: center; }
+    footer .brand { color: #fff; display: block; margin-bottom: 10px; }
+    footer p { font-size: 14px; color: #a89e8d; }
+    footer .info { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin: 18px 0; font-size: 14px; }
+
+    @media (max-width: 820px) {
+      .resa-wrap { grid-template-columns: 1fr; gap: 36px; }
+      .row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Le <span>Tilleul</span></div>
+    <nav>
+      <a class="navlink" href="#concept">Le concept</a>
+      <a class="navlink" href="#menu">Carte</a>
+      <a class="navlink" href="#reservation">Réservation</a>
+      <a class="btn" href="#reservation">Réserver une table</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Cuisine de saison · Sion</div>
+      <h1>Une table chaleureuse au cœur du Valais</h1>
+      <p>Produits du terroir, vins locaux et une cuisine généreuse préparée chaque jour avec passion.</p>
+      <a class="btn" href="#reservation">Réserver une table</a>
+    </div>
+  </section>
+
+  <section id="concept">
+    <div class="section-head">
+      <div class="eyebrow">Le concept</div>
+      <h2>Le goût du Valais, simplement</h2>
+      <p>Une cuisine sincère qui met en valeur les producteurs de la région, dans une ambiance conviviale.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="ico">🌿</div><h3>De saison</h3><p>Une carte qui évolue au fil des récoltes et des arrivages locaux.</p></div>
+      <div class="card"><div class="ico">🍷</div><h3>Vins du coin</h3><p>Une sélection de crus valaisans choisis par notre sommelier.</p></div>
+      <div class="card"><div class="ico">👨‍🍳</div><h3>Fait maison</h3><p>Tout est préparé sur place, du pain au dessert.</p></div>
+    </div>
+  </section>
+
+  <section id="menu" style="background:#f3ece1;">
+    <div class="section-head">
+      <div class="eyebrow">La carte</div>
+      <h2>Quelques suggestions</h2>
+    </div>
+    <div class="grid">
+      <div class="card"><h3>Entrées</h3><p>Tartare de truite du Rhône · Velouté de courge · Planchette valaisanne</p></div>
+      <div class="card"><h3>Plats</h3><p>Filet de bœuf, sauce morille · Risotto aux bolets · Pavé de féra</p></div>
+      <div class="card"><h3>Desserts</h3><p>Tarte aux abricots · Moelleux chocolat · Glaces artisanales</p></div>
+    </div>
+  </section>
+
+  <section id="reservation">
+    <div class="resa-wrap">
+      <div class="resa-info">
+        <div class="eyebrow" style="color:var(--accent)">Réservation</div>
+        <h2>Réservez votre table</h2>
+        <p>Indiquez vos préférences ci-contre, nous confirmons votre réservation dans les plus brefs délais.</p>
+        <ul>
+          <li><b>⏰</b> Mar – Dim · 11h30–14h00 &amp; 18h30–22h00</li>
+          <li><b>📍</b> Rue du Grand-Pont 12, 1950 Sion</li>
+          <li><b>📞</b> +41 27 000 00 00</li>
+          <li><b>✉️</b> contact@le-tilleul.ch</li>
+        </ul>
+      </div>
+
+      <div class="form-card">
+        <h3>Demande de réservation</h3>
+        <div class="sub">Réponse de confirmation par e-mail.</div>
+        <form id="resaForm" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="firstname">Prénom</label>
+              <input type="text" id="firstname" name="firstname" required placeholder="Jean" />
+            </div>
+            <div class="field">
+              <label for="lastname">Nom</label>
+              <input type="text" id="lastname" name="lastname" required placeholder="Dupont" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" required placeholder="jean@exemple.ch" />
+            </div>
+            <div class="field">
+              <label for="phone">Téléphone</label>
+              <input type="tel" id="phone" name="phone" required placeholder="+41 79 000 00 00" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Date</label>
+              <div class="picker" id="datePicker">
+                <button type="button" class="picker-trigger" id="dateTrigger">
+                  <span class="picker-ico">📅</span>
+                  <span class="picker-value" id="dateValue">Choisir une date</span>
+                  <span class="picker-caret">▾</span>
+                </button>
+                <div class="pop calendar" id="calendar" hidden>
+                  <div class="cal-head">
+                    <button type="button" class="cal-nav" id="calPrev" aria-label="Mois précédent">‹</button>
+                    <span class="cal-title" id="calTitle"></span>
+                    <button type="button" class="cal-nav" id="calNext" aria-label="Mois suivant">›</button>
+                  </div>
+                  <div class="cal-grid cal-dow" id="calDow"></div>
+                  <div class="cal-grid cal-days" id="calDays"></div>
+                </div>
+              </div>
+              <input type="hidden" id="date" name="date" />
+            </div>
+            <div class="field">
+              <label>Heure</label>
+              <div class="picker" id="timePicker">
+                <button type="button" class="picker-trigger" id="timeTrigger">
+                  <span class="picker-ico">🕐</span>
+                  <span class="picker-value" id="timeValue">Choisir une heure</span>
+                  <span class="picker-caret">▾</span>
+                </button>
+                <div class="pop time-pop" id="timePop" hidden>
+                  <div class="time-group">
+                    <div class="time-group-label">Midi</div>
+                    <div class="time-slots" id="slotsMidi"></div>
+                  </div>
+                  <div class="time-group">
+                    <div class="time-group-label">Soir</div>
+                    <div class="time-slots" id="slotsSoir"></div>
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" id="time" name="time" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="guests">Nombre de personnes</label>
+            <select id="guests" name="guests" required>
+              <option value="">Choisir…</option>
+              <option>1 personne</option>
+              <option>2 personnes</option>
+              <option>3 personnes</option>
+              <option>4 personnes</option>
+              <option>5 personnes</option>
+              <option>6 personnes</option>
+              <option>7 personnes et plus</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="notes">Remarques (allergies, occasion…)</label>
+            <textarea id="notes" name="notes" placeholder="Optionnel"></textarea>
+          </div>
+          <button type="submit" class="btn">Envoyer ma demande</button>
+          <div class="toast" id="toast">✅ Merci ! Votre demande de réservation a bien été reçue.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="brand">Le <span style="color:var(--accent)">Tilleul</span></div>
+    <div class="info">
+      <span>Rue du Grand-Pont 12, 1950 Sion</span>
+      <span>+41 27 000 00 00</span>
+      <span>contact@le-tilleul.ch</span>
+    </div>
+    <p>© 2026 Le Tilleul — Site de démonstration</p>
+  </footer>
+
+  <script>
+    const moisFr = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+    const joursFr = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+    const pad = n => String(n).padStart(2, '0');
+
+    const form = document.getElementById('resaForm');
+    const toast = document.getElementById('toast');
+
+    // ----- Références -----
+    const dateInput   = document.getElementById('date');
+    const datePicker  = document.getElementById('datePicker');
+    const dateTrigger = document.getElementById('dateTrigger');
+    const dateValueEl = document.getElementById('dateValue');
+    const calendar    = document.getElementById('calendar');
+    const calTitle    = document.getElementById('calTitle');
+    const calDays     = document.getElementById('calDays');
+    const calDow      = document.getElementById('calDow');
+    const calPrev     = document.getElementById('calPrev');
+    const calNext     = document.getElementById('calNext');
+
+    const timeInput   = document.getElementById('time');
+    const timePicker  = document.getElementById('timePicker');
+    const timeTrigger = document.getElementById('timeTrigger');
+    const timeValueEl = document.getElementById('timeValue');
+    const timePop     = document.getElementById('timePop');
+    const slotsMidi   = document.getElementById('slotsMidi');
+    const slotsSoir   = document.getElementById('slotsSoir');
+
+    // ----- État -----
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    let viewYear = today.getFullYear();
+    let viewMonth = today.getMonth();
+    let selectedDate = null;
+
+    // ----- Ouverture / fermeture -----
+    function closeAll() {
+      calendar.setAttribute('hidden', '');
+      timePop.setAttribute('hidden', '');
+      datePicker.classList.remove('open');
+      timePicker.classList.remove('open');
+    }
+    dateTrigger.addEventListener('click', e => {
+      e.stopPropagation();
+      const isOpen = !calendar.hasAttribute('hidden');
+      closeAll();
+      if (!isOpen) { renderCalendar(); calendar.removeAttribute('hidden'); datePicker.classList.add('open'); }
+    });
+    timeTrigger.addEventListener('click', e => {
+      e.stopPropagation();
+      const isOpen = !timePop.hasAttribute('hidden');
+      closeAll();
+      if (!isOpen) { timePop.removeAttribute('hidden'); timePicker.classList.add('open'); }
+    });
+    document.addEventListener('click', closeAll);
+    calendar.addEventListener('click', e => e.stopPropagation());
+    timePop.addEventListener('click', e => e.stopPropagation());
+
+    // ----- Calendrier -----
+    joursFr.forEach(j => { const s = document.createElement('span'); s.textContent = j; calDow.appendChild(s); });
+
+    function renderCalendar() {
+      calTitle.textContent = moisFr[viewMonth] + ' ' + viewYear;
+      calPrev.disabled = (viewYear === today.getFullYear() && viewMonth === today.getMonth());
+      calDays.innerHTML = '';
+      const startDow = (new Date(viewYear, viewMonth, 1).getDay() + 6) % 7; // lundi en premier
+      const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+      for (let i = 0; i < startDow; i++) {
+        const e = document.createElement('div'); e.className = 'cal-day empty'; calDays.appendChild(e);
+      }
+      for (let d = 1; d <= daysInMonth; d++) {
+        const btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'cal-day'; btn.textContent = d;
+        const cur = new Date(viewYear, viewMonth, d);
+        if (cur < today) btn.classList.add('disabled');
+        if (cur.getTime() === today.getTime()) btn.classList.add('today');
+        if (selectedDate && cur.getTime() === selectedDate.getTime()) btn.classList.add('selected');
+        if (cur >= today) {
+          btn.addEventListener('click', () => {
+            selectedDate = cur;
+            dateInput.value = viewYear + '-' + pad(viewMonth + 1) + '-' + pad(d);
+            dateValueEl.textContent = d + ' ' + moisFr[viewMonth] + ' ' + viewYear;
+            dateValueEl.classList.add('filled');
+            datePicker.classList.remove('invalid');
+            closeAll();
+          });
+        }
+        calDays.appendChild(btn);
+      }
+    }
+    calPrev.addEventListener('click', () => {
+      if (calPrev.disabled) return;
+      viewMonth--; if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+      renderCalendar();
+    });
+    calNext.addEventListener('click', () => {
+      viewMonth++; if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+      renderCalendar();
+    });
+
+    // ----- Créneaux horaires -----
+    const midi = ['11:30','12:00','12:30','13:00','13:30','14:00'];
+    const soir = ['18:30','19:00','19:30','20:00','20:30','21:00','21:30','22:00'];
+    function buildSlots(container, arr) {
+      arr.forEach(t => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'time-slot'; b.textContent = t.replace(':', 'h');
+        b.addEventListener('click', () => {
+          timeInput.value = t;
+          timeValueEl.textContent = t.replace(':', 'h');
+          timeValueEl.classList.add('filled');
+          timePicker.classList.remove('invalid');
+          document.querySelectorAll('.time-slot.selected').forEach(s => s.classList.remove('selected'));
+          b.classList.add('selected');
+          closeAll();
+        });
+        container.appendChild(b);
+      });
+    }
+    buildSlots(slotsMidi, midi);
+    buildSlots(slotsSoir, soir);
+
+    // ----- Soumission -----
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      let ok = form.checkValidity();
+      if (!dateInput.value) { datePicker.classList.add('invalid'); ok = false; }
+      if (!timeInput.value) { timePicker.classList.add('invalid'); ok = false; }
+      if (!form.checkValidity()) form.reportValidity();
+      if (!ok) return;
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      console.log('Réservation soumise :', data);
+      toast.classList.add('show');
+      toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Réinitialisation
+      form.reset();
+      selectedDate = null;
+      dateInput.value = ''; timeInput.value = '';
+      dateValueEl.textContent = 'Choisir une date'; dateValueEl.classList.remove('filled');
+      timeValueEl.textContent = 'Choisir une heure'; timeValueEl.classList.remove('filled');
+      document.querySelectorAll('.time-slot.selected').forEach(s => s.classList.remove('selected'));
+      viewYear = today.getFullYear(); viewMonth = today.getMonth();
+
+      setTimeout(() => toast.classList.remove('show'), 6000);
+    });
+  </script>
+</body>
+</html>
