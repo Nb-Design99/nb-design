@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Le Tilleul — Restaurant</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -366,6 +367,14 @@
     const form = document.getElementById('resaForm');
     const toast = document.getElementById('toast');
 
+    // ----- TableLive : envoi de la réservation vers l'app -----
+    const TL_SB_URL = 'https://fgjdpxmffreggjqnxxwm.supabase.co';
+    const TL_SB_KEY = 'sb_publishable_shN_fx2l80aNF2H5r6qSNw_-PWGPvjr';
+    const TL_SLUG = 'le-tilleul';
+    const TL_sb = window.supabase.createClient(TL_SB_URL, TL_SB_KEY);
+    let TL_RESTO_ID = null;
+    TL_sb.from('restaurants').select('id').eq('slug', TL_SLUG).single().then(({ data }) => { if (data) TL_RESTO_ID = data.id; });
+
     // ----- Références -----
     const dateInput   = document.getElementById('date');
     const datePicker  = document.getElementById('datePicker');
@@ -480,7 +489,7 @@
     buildSlots(slotsSoir, soir);
 
     // ----- Soumission -----
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
       let ok = form.checkValidity();
       if (!dateInput.value) { datePicker.classList.add('invalid'); ok = false; }
@@ -488,8 +497,36 @@
       if (!form.checkValidity()) form.reportValidity();
       if (!ok) return;
 
-      const data = Object.fromEntries(new FormData(form).entries());
-      console.log('Réservation soumise :', data);
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true; submitBtn.textContent = 'Envoi…';
+
+      // résoudre le restaurant si pas encore fait
+      if (!TL_RESTO_ID) { const r = await TL_sb.from('restaurants').select('id').eq('slug', TL_SLUG).single(); TL_RESTO_ID = r.data && r.data.id; }
+
+      const guests = parseInt(document.getElementById('guests').value, 10) || 2;
+      const email = document.getElementById('email').value.trim();
+      let notes = document.getElementById('notes').value.trim();
+      if (email) notes = (notes ? notes + ' · ' : '') + 'Email: ' + email;
+
+      const res = await TL_sb.from('reservations').insert({
+        restaurant_id: TL_RESTO_ID,
+        name: (document.getElementById('firstname').value.trim() + ' ' + document.getElementById('lastname').value.trim()).trim(),
+        phone: document.getElementById('phone').value.trim() || null,
+        covers: guests,
+        date: dateInput.value,
+        time: timeInput.value,
+        notes: notes || null,
+        status: 'nouvelle', source: 'web'
+      });
+
+      submitBtn.disabled = false; submitBtn.textContent = 'Envoyer ma demande';
+      if (res.error) {
+        toast.textContent = '⚠️ Une erreur est survenue, merci de réessayer.';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 6000);
+        return;
+      }
+      toast.textContent = '✅ Merci ! Votre demande de réservation a bien été reçue.';
       toast.classList.add('show');
       toast.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
