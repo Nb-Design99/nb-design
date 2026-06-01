@@ -505,13 +505,13 @@
 
       const guests = parseInt(document.getElementById('guests').value, 10) || 2;
       const email = document.getElementById('email').value.trim();
-      let notes = document.getElementById('notes').value.trim();
-      if (email) notes = (notes ? notes + ' · ' : '') + 'Email: ' + email;
+      const notes = document.getElementById('notes').value.trim();
 
       const res = await TL_sb.from('reservations').insert({
         restaurant_id: TL_RESTO_ID,
         name: (document.getElementById('firstname').value.trim() + ' ' + document.getElementById('lastname').value.trim()).trim(),
         phone: document.getElementById('phone').value.trim() || null,
+        email: email || null,
         covers: guests,
         date: dateInput.value,
         time: timeInput.value,
