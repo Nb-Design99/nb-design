@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Le Tilleul — Restaurant</title>
+  <title>Le Tilleul — Restaurant de saison · Sion</title>
+  <meta name="description" content="Le Tilleul, restaurant de saison au cœur de Sion. Cuisine du terroir valaisan, produits frais et vins locaux dans une ambiance chaleureuse. Réservez votre table en ligne." />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #faf7f2;
@@ -17,7 +18,10 @@
       --accent-dark: #6e5530;
       --card: #ffffff;
       --line: #e7ded2;
+      --dark: #221c14;
+      --dark-2: #2e2519;
       --shadow: 0 20px 50px -20px rgba(60, 45, 25, 0.25);
+      --shadow-sm: 0 8px 24px -12px rgba(60, 45, 25, 0.22);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -25,84 +29,205 @@
       font-family: 'Inter', system-ui, sans-serif;
       color: var(--ink);
       background: var(--bg);
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; line-height: 1.15; }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; line-height: 1.12; }
+    img { max-width: 100%; display: block; }
+    .eyebrow {
+      text-transform: uppercase; letter-spacing: 3px; font-size: 12px;
+      font-weight: 600; color: var(--accent); margin-bottom: 16px;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); opacity: .6; }
+    .eyebrow.center::after { content: ''; width: 28px; height: 1px; background: var(--accent); opacity: .6; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;
+      background: var(--accent); color: #fff; border: none;
+      padding: 13px 28px; border-radius: 999px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: .3px;
+      text-decoration: none; transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 8px 20px -8px rgba(138,109,59,.5);
+    }
+    .btn:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 12px 26px -8px rgba(138,109,59,.55); }
+    .btn-ghost {
+      background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.55); box-shadow: none;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+    .btn-dark { background: var(--ink); box-shadow: none; }
+    .btn-dark:hover { background: #000; }
 
     /* Header */
     header {
-      position: sticky; top: 0; z-index: 50;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 6vw;
-      background: rgba(250, 247, 242, 0.85);
-      backdrop-filter: blur(10px);
+      padding: 20px 6vw;
+      transition: padding .3s, background .3s, box-shadow .3s, border-color .3s;
+      border-bottom: 1px solid transparent;
+    }
+    header.scrolled {
+      padding: 12px 6vw;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
+      box-shadow: 0 4px 20px -12px rgba(60,45,25,.3);
     }
-    .brand { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; letter-spacing: 0.5px; }
-    .brand span { color: var(--accent); }
-    nav { display: flex; gap: 28px; align-items: center; }
-    nav a { color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500; }
-    nav a:hover { color: var(--accent); }
-    .btn {
-      display: inline-block; cursor: pointer;
-      background: var(--accent); color: #fff; border: none;
-      padding: 12px 24px; border-radius: 999px;
-      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
-      text-decoration: none; transition: background .2s, transform .2s;
-    }
-    .btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
-    .nav-toggle { display: none; }
-    @media (max-width: 760px) {
-      nav .navlink { display: none; }
+    .brand { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; letter-spacing: 0.5px; color: #fff; transition: color .3s; }
+    header.scrolled .brand { color: var(--ink); }
+    .brand span { color: #e9d9b8; transition: color .3s; }
+    header.scrolled .brand span { color: var(--accent); }
+    nav { display: flex; gap: 30px; align-items: center; }
+    nav a.navlink { color: rgba(255,255,255,.9); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: .3px; transition: color .2s; position: relative; }
+    header.scrolled nav a.navlink { color: var(--ink); }
+    nav a.navlink::after { content: ''; position: absolute; left: 0; bottom: -5px; width: 0; height: 1.5px; background: var(--accent); transition: width .25s; }
+    nav a.navlink:hover::after { width: 100%; }
+    nav a.navlink:hover { color: var(--accent); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 6px; }
+    .nav-toggle span { width: 26px; height: 2px; background: #fff; transition: background .3s, transform .3s, opacity .3s; }
+    header.scrolled .nav-toggle span { background: var(--ink); }
+
+    @media (max-width: 880px) {
+      nav { position: fixed; inset: 0 0 0 auto; width: min(78vw, 320px); flex-direction: column; justify-content: center; gap: 26px;
+        background: var(--dark); transform: translateX(100%); transition: transform .35s ease; padding: 40px; z-index: 110; }
+      nav.open { transform: translateX(0); }
+      nav a.navlink { color: #f1ebe0 !important; font-size: 18px; }
+      .nav-toggle { display: flex; z-index: 120; }
+      header.scrolled .nav-toggle span, .nav-toggle.open span { background: #fff; }
+      .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav-toggle.open span:nth-child(2) { opacity: 0; }
+      .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .nav-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.5); opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 105; }
+      .nav-backdrop.show { opacity: 1; pointer-events: auto; }
     }
 
     /* Hero */
     .hero {
-      position: relative;
-      min-height: 78vh;
-      display: flex; align-items: center;
-      padding: 0 6vw;
-      background: linear-gradient(rgba(30,22,12,0.62), rgba(30,22,12,0.62)),
-        linear-gradient(135deg, #5a3d23, #2a1c10),
-        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center/cover;
-      color: #fff;
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; padding: 0 6vw;
+      color: #fff; overflow: hidden;
     }
-    .hero-inner { max-width: 640px; }
-    .eyebrow {
-      text-transform: uppercase; letter-spacing: 3px; font-size: 12px;
-      font-weight: 600; color: #e9d9b8; margin-bottom: 18px;
-    }
-    .hero h1 { font-size: clamp(40px, 7vw, 72px); margin-bottom: 18px; }
-    .hero p { font-size: 18px; color: #f1ebe0; max-width: 520px; margin-bottom: 30px; }
+    .hero-bg { position: absolute; inset: 0; z-index: -2;
+      background: linear-gradient(115deg, #5a3d23, #2a1c10),
+        url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80') center/cover;
+      animation: kenburns 22s ease-in-out infinite alternate; }
+    .hero::after { content: ''; position: absolute; inset: 0; z-index: -1;
+      background: linear-gradient(90deg, rgba(20,14,7,.78), rgba(20,14,7,.45) 55%, rgba(20,14,7,.25)); }
+    @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.12); } }
+    .hero-inner { max-width: 660px; }
+    .hero .eyebrow { color: #e9d9b8; }
+    .hero .eyebrow::before { background: #e9d9b8; }
+    .hero h1 { font-size: clamp(44px, 8vw, 84px); margin-bottom: 22px; letter-spacing: -.5px; }
+    .hero h1 em { font-style: italic; color: #e9d9b8; }
+    .hero p { font-size: clamp(16px, 2.2vw, 20px); color: #f1ebe0; max-width: 540px; margin-bottom: 34px; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .scroll-cue { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.7);
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .scroll-cue .line { width: 1px; height: 40px; background: linear-gradient(rgba(255,255,255,.7), transparent); animation: cue 2s ease-in-out infinite; transform-origin: top; }
+    @keyframes cue { 0%,100% { transform: scaleY(.4); opacity:.4; } 50% { transform: scaleY(1); opacity:1; } }
 
     /* Sections */
-    section { padding: 80px 6vw; }
-    .section-head { text-align: center; max-width: 620px; margin: 0 auto 50px; }
-    .section-head .eyebrow { color: var(--accent); }
-    .section-head h2 { font-size: clamp(30px, 5vw, 46px); color: var(--ink); }
-    .section-head p { color: var(--muted); margin-top: 12px; }
+    section { padding: 110px 6vw; }
+    .section-head { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+    .section-head h2 { font-size: clamp(32px, 5vw, 52px); color: var(--ink); }
+    .section-head p { color: var(--muted); margin-top: 14px; font-size: 17px; }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+    /* Strip / stats */
+    .strip { background: var(--dark); color: #e6ddcc; padding: 0; }
+    .strip-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .strip-item { padding: 40px 24px; text-align: center; border-right: 1px solid rgba(255,255,255,.08); }
+    .strip-item:last-child { border-right: none; }
+    .strip-item .num { font-family: 'Cormorant Garamond', serif; font-size: 44px; color: #fff; line-height: 1; }
+    .strip-item .lbl { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #b3a892; margin-top: 8px; }
+
+    /* Story (split) */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .split.reverse > .split-media { order: 2; }
+    .split-media { position: relative; }
+    .split-media img { width: 100%; height: 540px; object-fit: cover; border-radius: 18px; box-shadow: var(--shadow); }
+    .split-media .badge {
+      position: absolute; bottom: -28px; right: -20px; background: var(--accent); color: #fff;
+      padding: 22px 26px; border-radius: 16px; box-shadow: var(--shadow); text-align: center; max-width: 200px;
+    }
+    .split-media .badge .big { font-family: 'Cormorant Garamond', serif; font-size: 34px; line-height: 1; }
+    .split-media .badge .small { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-top: 6px; opacity: .9; }
+    .split-text h2 { font-size: clamp(30px, 4.5vw, 46px); margin-bottom: 20px; }
+    .split-text p { color: var(--muted); margin-bottom: 18px; }
+    .signature { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 26px; color: var(--accent); margin-top: 10px; }
+
+    /* Concept cards */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; max-width: 1150px; margin: 0 auto; }
     .card {
       background: var(--card); border: 1px solid var(--line);
-      border-radius: 16px; padding: 28px; text-align: center;
+      border-radius: 18px; padding: 38px 30px; text-align: center; transition: transform .25s, box-shadow .25s, border-color .25s;
     }
-    .card .ico { font-size: 30px; margin-bottom: 14px; }
-    .card h3 { font-size: 24px; margin-bottom: 8px; }
+    .card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: transparent; }
+    .card .ico { font-size: 34px; margin-bottom: 16px; }
+    .card h3 { font-size: 25px; margin-bottom: 10px; }
     .card p { color: var(--muted); font-size: 15px; }
 
-    /* Reservation */
-    #reservation { background: linear-gradient(180deg, #f3ece1, #faf7f2); }
+    /* Menu */
+    #menu { background: linear-gradient(180deg, #f3ece1, #faf7f2); }
+    .menu-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 50px 70px; max-width: 1050px; margin: 0 auto; }
+    .menu-block h3 { font-size: 28px; color: var(--ink); margin-bottom: 6px; }
+    .menu-block .deco { width: 50px; height: 2px; background: var(--accent); margin-bottom: 24px; }
+    .menu-item { display: flex; align-items: baseline; gap: 12px; margin-bottom: 22px; }
+    .menu-item .mi-main { flex: 1; }
+    .menu-item .mi-name { font-weight: 600; font-size: 16px; }
+    .menu-item .mi-desc { color: var(--muted); font-size: 14px; }
+    .menu-item .mi-dots { flex: 1; border-bottom: 1px dotted #cdbfa6; transform: translateY(-4px); min-width: 20px; }
+    .menu-item .mi-price { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--accent); font-weight: 600; white-space: nowrap; }
+    .menu-note { text-align: center; margin-top: 50px; color: var(--muted); font-size: 14px; }
+
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 14px; max-width: 1200px; margin: 0 auto; }
+    .gallery a { overflow: hidden; border-radius: 14px; display: block; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+    .gallery a:hover img { transform: scale(1.08); }
+    .gallery .tall { grid-row: span 2; }
+    .gallery .wide { grid-column: span 2; }
+
+    /* Testimonials */
+    #avis { background: var(--dark); color: #ece3d2; }
+    #avis .section-head h2 { color: #fff; }
+    #avis .section-head p { color: #b3a892; }
+    .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; max-width: 1150px; margin: 0 auto; }
+    .quote { background: var(--dark-2); border: 1px solid rgba(255,255,255,.07); border-radius: 18px; padding: 34px; }
+    .quote .stars { color: #e0b450; letter-spacing: 3px; margin-bottom: 16px; font-size: 15px; }
+    .quote p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 21px; line-height: 1.5; color: #f3ecdd; margin-bottom: 20px; }
+    .quote .author { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #b3a892; }
+
+    /* Hours / contact */
+    #infos { background: linear-gradient(180deg, #faf7f2, #f3ece1); }
+    .infos-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto; align-items: stretch; }
+    .hours-card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 40px; box-shadow: var(--shadow-sm); }
+    .hours-card h3 { font-size: 28px; margin-bottom: 20px; }
+    .hours-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .day { color: var(--ink); font-weight: 500; }
+    .hours-row .time { color: var(--muted); }
+    .hours-row.closed .time { color: #b04a3f; }
+    .contact-list { margin-top: 26px; }
+    .contact-list li { list-style: none; display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; font-size: 15px; color: var(--ink); }
+    .contact-list li b { color: var(--accent); font-size: 18px; line-height: 1.4; }
+    .map-card { border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--line); min-height: 460px; }
+    .map-card iframe { width: 100%; height: 100%; min-height: 460px; border: 0; filter: grayscale(.2) sepia(.15); }
+
+    /* ===== RÉSERVATION (section branchée TableLive — styles préservés) ===== */
+    #reservation { background: var(--dark); }
+    #reservation .section-head h2 { color: #fff; }
     .resa-wrap {
       display: grid; grid-template-columns: 1fr 1.1fr; gap: 50px;
       max-width: 1050px; margin: 0 auto; align-items: center;
     }
-    .resa-info h2 { font-size: clamp(30px, 5vw, 46px); margin-bottom: 16px; }
-    .resa-info p { color: var(--muted); margin-bottom: 24px; }
+    .resa-info { color: #ece3d2; }
+    .resa-info h2 { font-size: clamp(30px, 5vw, 46px); margin-bottom: 16px; color: #fff; }
+    .resa-info p { color: #b3a892; margin-bottom: 24px; }
     .resa-info ul { list-style: none; }
-    .resa-info li { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; color: var(--ink); font-size: 15px; }
-    .resa-info li b { color: var(--accent); }
+    .resa-info li { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; color: #ece3d2; font-size: 15px; }
+    .resa-info li b { color: #e0b450; }
 
     .form-card { background: var(--card); border-radius: 20px; padding: 36px; box-shadow: var(--shadow); border: 1px solid var(--line); }
     .form-card h3 { font-size: 28px; margin-bottom: 6px; }
@@ -186,68 +311,235 @@
     }
     .toast.show { display: block; animation: pop .3s ease; }
     @keyframes pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    /* ===== FIN styles réservation ===== */
 
     /* Footer */
-    footer { background: #221c14; color: #cfc6b6; padding: 50px 6vw; text-align: center; }
-    footer .brand { color: #fff; display: block; margin-bottom: 10px; }
+    footer { background: #1b160f; color: #cfc6b6; padding: 70px 6vw 36px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 50px; max-width: 1150px; margin: 0 auto 40px; }
+    footer .brand { color: #fff; display: block; margin-bottom: 14px; }
+    footer .brand span { color: var(--accent); }
     footer p { font-size: 14px; color: #a89e8d; }
-    footer .info { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin: 18px 0; font-size: 14px; }
+    footer h4 { color: #fff; font-size: 20px; margin-bottom: 16px; }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 10px; font-size: 14px; }
+    footer ul a { color: #cfc6b6; text-decoration: none; transition: color .2s; }
+    footer ul a:hover { color: var(--accent); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 24px; text-align: center; font-size: 13px; color: #8c8474; max-width: 1150px; margin: 0 auto; }
+    .footer-bottom a { color: #a89e8d; text-decoration: none; }
+    .footer-bottom a:hover { color: var(--accent); }
 
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .split { grid-template-columns: 1fr; gap: 50px; }
+      .split.reverse > .split-media { order: 0; }
+      .split-media img { height: 380px; }
+      .infos-wrap { grid-template-columns: 1fr; gap: 30px; }
+      .quotes { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+    }
     @media (max-width: 820px) {
+      section { padding: 80px 6vw; }
       .resa-wrap { grid-template-columns: 1fr; gap: 36px; }
       .row { grid-template-columns: 1fr; }
+      .menu-cols { grid-template-columns: 1fr; gap: 40px; }
+      .strip-inner { grid-template-columns: 1fr 1fr; }
+      .strip-item:nth-child(2) { border-right: none; }
+      .strip-item:nth-child(1), .strip-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,.08); }
+      .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+      .gallery .wide { grid-column: span 2; }
+      .split-media .badge { right: 10px; }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header id="header">
     <div class="brand">Le <span>Tilleul</span></div>
-    <nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
+    <nav id="nav">
       <a class="navlink" href="#concept">Le concept</a>
-      <a class="navlink" href="#menu">Carte</a>
-      <a class="navlink" href="#reservation">Réservation</a>
+      <a class="navlink" href="#histoire">Notre histoire</a>
+      <a class="navlink" href="#menu">La carte</a>
+      <a class="navlink" href="#galerie">Galerie</a>
+      <a class="navlink" href="#infos">Horaires &amp; accès</a>
       <a class="btn" href="#reservation">Réserver une table</a>
     </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-inner">
+    <div class="hero-bg"></div>
+    <div class="hero-inner reveal">
       <div class="eyebrow">Cuisine de saison · Sion</div>
-      <h1>Une table chaleureuse au cœur du Valais</h1>
-      <p>Produits du terroir, vins locaux et une cuisine généreuse préparée chaque jour avec passion.</p>
-      <a class="btn" href="#reservation">Réserver une table</a>
+      <h1>Une table chaleureuse au cœur du <em>Valais</em></h1>
+      <p>Produits du terroir, vins locaux et une cuisine généreuse préparée chaque jour avec passion, dans un cadre où l'on se sent comme à la maison.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#reservation">Réserver une table</a>
+        <a class="btn btn-ghost" href="#menu">Découvrir la carte</a>
+      </div>
     </div>
+    <div class="scroll-cue"><span>Découvrir</span><span class="line"></span></div>
   </section>
 
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="strip-inner">
+      <div class="strip-item reveal"><div class="num">2008</div><div class="lbl">Depuis</div></div>
+      <div class="strip-item reveal"><div class="num">100%</div><div class="lbl">Fait maison</div></div>
+      <div class="strip-item reveal"><div class="num">40+</div><div class="lbl">Crus valaisans</div></div>
+      <div class="strip-item reveal"><div class="num">4.9★</div><div class="lbl">Avis clients</div></div>
+    </div>
+  </div>
+
+  <!-- CONCEPT -->
   <section id="concept">
-    <div class="section-head">
-      <div class="eyebrow">Le concept</div>
+    <div class="section-head reveal">
+      <div class="eyebrow center">Le concept</div>
       <h2>Le goût du Valais, simplement</h2>
-      <p>Une cuisine sincère qui met en valeur les producteurs de la région, dans une ambiance conviviale.</p>
+      <p>Une cuisine sincère qui met en valeur les producteurs de la région, dans une ambiance conviviale et sans chichis.</p>
     </div>
     <div class="grid">
-      <div class="card"><div class="ico">🌿</div><h3>De saison</h3><p>Une carte qui évolue au fil des récoltes et des arrivages locaux.</p></div>
-      <div class="card"><div class="ico">🍷</div><h3>Vins du coin</h3><p>Une sélection de crus valaisans choisis par notre sommelier.</p></div>
-      <div class="card"><div class="ico">👨‍🍳</div><h3>Fait maison</h3><p>Tout est préparé sur place, du pain au dessert.</p></div>
+      <div class="card reveal"><div class="ico">🌿</div><h3>De saison</h3><p>Une carte qui évolue au fil des récoltes et des arrivages locaux, pour ne servir que le meilleur du moment.</p></div>
+      <div class="card reveal"><div class="ico">🍷</div><h3>Vins du coin</h3><p>Une sélection de crus valaisans choisis par notre sommelier pour accompagner chaque plat.</p></div>
+      <div class="card reveal"><div class="ico">👨‍🍳</div><h3>Fait maison</h3><p>Tout est préparé sur place, du pain croustillant du matin jusqu'au dernier dessert.</p></div>
     </div>
   </section>
 
-  <section id="menu" style="background:#f3ece1;">
-    <div class="section-head">
-      <div class="eyebrow">La carte</div>
-      <h2>Quelques suggestions</h2>
-    </div>
-    <div class="grid">
-      <div class="card"><h3>Entrées</h3><p>Tartare de truite du Rhône · Velouté de courge · Planchette valaisanne</p></div>
-      <div class="card"><h3>Plats</h3><p>Filet de bœuf, sauce morille · Risotto aux bolets · Pavé de féra</p></div>
-      <div class="card"><h3>Desserts</h3><p>Tarte aux abricots · Moelleux chocolat · Glaces artisanales</p></div>
+  <!-- HISTOIRE -->
+  <section id="histoire">
+    <div class="split">
+      <div class="split-media reveal">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Salle du restaurant Le Tilleul" />
+        <div class="badge"><div class="big">15 ans</div><div class="small">de passion</div></div>
+      </div>
+      <div class="split-text reveal">
+        <div class="eyebrow">Notre histoire</div>
+        <h2>Une maison de famille au pied des vignes</h2>
+        <p>Né en 2008 d'une envie simple — partager une vraie cuisine du terroir — Le Tilleul est devenu une adresse incontournable de Sion. Sous le grand arbre qui lui donne son nom, on se retrouve entre amis, en famille ou en amoureux.</p>
+        <p>Chaque jour, notre équipe sélectionne les meilleurs produits auprès des maraîchers, éleveurs et vignerons valaisans. Une cuisine du marché, honnête et généreuse, qui change au rythme des saisons.</p>
+        <div class="signature">— La famille Morand</div>
+      </div>
     </div>
   </section>
 
+  <!-- CHEF -->
+  <section id="chef" style="background:linear-gradient(180deg,#f3ece1,#faf7f2);">
+    <div class="split reverse">
+      <div class="split-media reveal">
+        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=900&q=80" alt="Le chef en cuisine" />
+      </div>
+      <div class="split-text reveal">
+        <div class="eyebrow">Le chef</div>
+        <h2>Une cuisine du cœur, signée Lucas Morand</h2>
+        <p>Formé dans les grandes maisons romandes avant de revenir sur ses terres, le chef Lucas Morand met un point d'honneur à sublimer le produit sans jamais le travestir.</p>
+        <p>Sa philosophie ? « Le respect du produit d'abord. Une belle truite du Rhône, une morille fraîche, un abricot de Saxon n'ont besoin de presque rien pour briller. »</p>
+        <a class="btn btn-dark" href="#reservation" style="margin-top:10px;">Réserver votre table</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="section-head reveal">
+      <div class="eyebrow center">La carte</div>
+      <h2>Nos suggestions</h2>
+      <p>Une sélection qui évolue avec les saisons. Voici un aperçu de ce qui vous attend.</p>
+    </div>
+    <div class="menu-cols">
+      <div class="menu-block reveal">
+        <h3>Entrées</h3><div class="deco"></div>
+        <div class="menu-item"><div class="mi-main"><div class="mi-name">Tartare de truite du Rhône</div><div class="mi-desc">Agrumes, aneth, huile de noix</div></div><div class="mi-dots"></div><div class="mi-price">18.—</div></div>
+        <div class="menu-item"><div class="mi-main"><div class="mi-name">Velouté de courge</div><div class="mi-desc">Châtaignes, crème fouettée au lard</div></div><div class="mi-dots"></div><div class="mi-price">14.—</div></div>
+        <div class="menu-item"><div class="mi-main"><div class="mi-name">Planchette valaisanne</div><div class="mi-desc">Viande séchée, lard, fromages d'alpage</div></div><div class="mi-dots"></div><div class="mi-price">22.—</div></div>
+      </div>
+      <div class="menu-block reveal">
+        <h3>Plats</h3><div class="deco"></div>
+        <div class="menu-item"><div class="mi-main"><div class="mi-name">Filet de bœuf, sauce morille</div><div class="mi-desc">Gratin dauphinois, légumes du marché</div></div><div class="mi-dots"></div><div class="mi-price">42.—</div></div>
+        <div class="menu-item"><div class="mi-main"><div class="mi-name">Risotto aux bolets</div><div class="mi-desc">Parmesan 24 mois, persillade</div></div><div class="mi-dots"></div><div class="mi-price">29.—</div></div>
+        <div class="menu-item"><div class="mi-main"><div class="mi-name">Pavé de féra du Léman</div><div class="mi-desc">Beurre blanc, écrasé de pommes de terre</div></div><div class="mi-dots"></div><div class="mi-price">36.—</div></div>
+      </div>
+      <div class="menu-block reveal">
+        <h3>Desserts</h3><div class="deco"></div>
+        <div class="menu-item"><div class="mi-main"><div class="mi-name">Tarte aux abricots de Saxon</div><div class="mi-desc">Glace au romarin du jardin</div></div><div class="mi-dots"></div><div class="mi-price">12.—</div></div>
+        <div class="menu-item"><div class="mi-main"><div class="mi-name">Moelleux au chocolat</div><div class="mi-desc">Cœur coulant, crème anglaise</div></div><div class="mi-dots"></div><div class="mi-price">13.—</div></div>
+        <div class="menu-item"><div class="mi-main"><div class="mi-name">Assiette de glaces artisanales</div><div class="mi-desc">Parfums du moment</div></div><div class="mi-dots"></div><div class="mi-price">11.—</div></div>
+      </div>
+      <div class="menu-block reveal">
+        <h3>Menu du marché</h3><div class="deco"></div>
+        <div class="menu-item"><div class="mi-main"><div class="mi-name">Menu 2 plats</div><div class="mi-desc">Entrée + plat ou plat + dessert</div></div><div class="mi-dots"></div><div class="mi-price">52.—</div></div>
+        <div class="menu-item"><div class="mi-main"><div class="mi-name">Menu 3 plats</div><div class="mi-desc">Entrée, plat et dessert</div></div><div class="mi-dots"></div><div class="mi-price">68.—</div></div>
+        <div class="menu-item"><div class="mi-main"><div class="mi-name">Accord mets &amp; vins</div><div class="mi-desc">3 verres sélectionnés par le sommelier</div></div><div class="mi-dots"></div><div class="mi-price">32.—</div></div>
+      </div>
+    </div>
+    <p class="menu-note reveal">Carte non exhaustive — nos plats évoluent chaque semaine selon le marché. Allergies ou régimes particuliers ? Parlez-en à notre équipe.</p>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie">
+    <div class="section-head reveal">
+      <div class="eyebrow center">Galerie</div>
+      <h2>L'ambiance du Tilleul</h2>
+    </div>
+    <div class="gallery reveal">
+      <a class="wide tall"><img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?auto=format&fit=crop&w=800&q=80" alt="Plat dressé" /></a>
+      <a><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80" alt="Verre de vin" /></a>
+      <a><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=500&q=80" alt="Cuisine" /></a>
+      <a><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=500&q=80" alt="Salle" /></a>
+      <a class="wide"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80" alt="Dressage" /></a>
+      <a><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=500&q=80" alt="Dessert" /></a>
+      <a><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=500&q=80" alt="Table dressée" /></a>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section id="avis">
+    <div class="section-head reveal">
+      <div class="eyebrow center" style="color:#e0b450;">Avis clients</div>
+      <h2>Ils ont aimé Le Tilleul</h2>
+      <p>Une note moyenne de 4,9/5 sur plus de 600 avis.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal"><div class="stars">★★★★★</div><p>« Une cuisine du terroir d'une finesse remarquable. Le filet de bœuf aux morilles était parfait, et l'accueil chaleureux. »</p><div class="author">Sophie D. · Sion</div></div>
+      <div class="quote reveal"><div class="stars">★★★★★</div><p>« Notre adresse préférée pour les grandes occasions. Le menu accord mets et vins vaut vraiment le détour. »</p><div class="author">Marc &amp; Anne · Sierre</div></div>
+      <div class="quote reveal"><div class="stars">★★★★★</div><p>« Produits frais, service aux petits soins et une ambiance qui donne envie de rester des heures. On reviendra ! »</p><div class="author">Julien R. · Martigny</div></div>
+    </div>
+  </section>
+
+  <!-- INFOS : horaires & accès -->
+  <section id="infos">
+    <div class="section-head reveal">
+      <div class="eyebrow center">Horaires &amp; accès</div>
+      <h2>Venez nous rendre visite</h2>
+    </div>
+    <div class="infos-wrap">
+      <div class="hours-card reveal">
+        <h3>Nos horaires</h3>
+        <div class="hours-row closed"><span class="day">Lundi</span><span class="time">Fermé</span></div>
+        <div class="hours-row"><span class="day">Mardi – Vendredi</span><span class="time">11h30–14h00 · 18h30–22h00</span></div>
+        <div class="hours-row"><span class="day">Samedi</span><span class="time">18h30–22h30</span></div>
+        <div class="hours-row"><span class="day">Dimanche</span><span class="time">11h30–14h30</span></div>
+        <ul class="contact-list">
+          <li><b>📍</b><span>Rue du Grand-Pont 12<br/>1950 Sion, Valais</span></li>
+          <li><b>📞</b><span><a href="tel:+41270000000" style="color:inherit;text-decoration:none;">+41 27 000 00 00</a></span></li>
+          <li><b>✉️</b><span><a href="mailto:contact@le-tilleul.ch" style="color:inherit;text-decoration:none;">contact@le-tilleul.ch</a></span></li>
+        </ul>
+        <a class="btn" href="#reservation" style="margin-top:8px;">Réserver une table</a>
+      </div>
+      <div class="map-card reveal">
+        <iframe loading="lazy" title="Carte" src="https://www.google.com/maps?q=Rue%20du%20Grand-Pont%2012%2C%201950%20Sion&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RÉSERVATION (branchée à TableLive — NE PAS MODIFIER) ===== -->
   <section id="reservation">
     <div class="resa-wrap">
       <div class="resa-info">
-        <div class="eyebrow" style="color:var(--accent)">Réservation</div>
+        <div class="eyebrow" style="color:#e0b450;">Réservation</div>
         <h2>Réservez votre table</h2>
         <p>Indiquez vos préférences ci-contre, nous confirmons votre réservation dans les plus brefs délais.</p>
         <ul>
@@ -350,15 +642,65 @@
   </section>
 
   <footer>
-    <div class="brand">Le <span style="color:var(--accent)">Tilleul</span></div>
-    <div class="info">
-      <span>Rue du Grand-Pont 12, 1950 Sion</span>
-      <span>+41 27 000 00 00</span>
-      <span>contact@le-tilleul.ch</span>
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Le <span>Tilleul</span></div>
+        <p>Restaurant de saison au cœur de Sion. Une cuisine du terroir valaisan, généreuse et faite maison, dans une ambiance chaleureuse.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#concept">Le concept</a></li>
+          <li><a href="#histoire">Notre histoire</a></li>
+          <li><a href="#menu">La carte</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#reservation">Réserver</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Rue du Grand-Pont 12</li>
+          <li>1950 Sion, Valais</li>
+          <li><a href="tel:+41270000000">+41 27 000 00 00</a></li>
+          <li><a href="mailto:contact@le-tilleul.ch">contact@le-tilleul.ch</a></li>
+        </ul>
+      </div>
     </div>
-    <p>© 2026 Le Tilleul — Site de démonstration</p>
+    <div class="footer-bottom">
+      © 2026 Le Tilleul — Site de démonstration · Réalisé par <a href="https://nb-design.ch">NB-Design</a>
+    </div>
   </footer>
 
+  <!-- Script interface (navigation, animations) — indépendant de la réservation -->
+  <script>
+    // Header au scroll
+    const header = document.getElementById('header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Menu mobile
+    const navToggle = document.getElementById('navToggle');
+    const nav = document.getElementById('nav');
+    const navBackdrop = document.getElementById('navBackdrop');
+    function closeMenu() { nav.classList.remove('open'); navToggle.classList.remove('open'); navBackdrop.classList.remove('show'); }
+    navToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      navToggle.classList.toggle('open', open);
+      navBackdrop.classList.toggle('show', open);
+    });
+    navBackdrop.addEventListener('click', closeMenu);
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Révélation au scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+  <!-- ===== Script RÉSERVATION branché à TableLive — NE PAS MODIFIER ===== -->
   <script>
     const moisFr = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
     const joursFr = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
