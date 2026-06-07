@@ -779,11 +779,110 @@
       line-height: 1.6;
     }
 
-    /* ====== RÉSERVATION ====== */
+    /* ====== RÉSERVATION (téléphone direct) ====== */
     .reservation {
       background: var(--ink);
       position: relative;
     }
+    .reservation-simple {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .reservation-head {
+      margin-bottom: 3.5rem;
+    }
+    .reservation-head .eyebrow {
+      display: inline-flex;
+    }
+    .reservation-lede {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      line-height: 1.75;
+      color: var(--cream-dim);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .phone-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 3rem 2rem;
+      background: linear-gradient(160deg, rgba(138, 40, 64, 0.14), rgba(201, 163, 106, 0.06));
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      transition: transform 0.45s var(--ease-out), border-color 0.4s, box-shadow 0.5s, background 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .phone-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top, rgba(201, 163, 106, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.5s;
+      pointer-events: none;
+    }
+    .phone-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.42);
+    }
+    .phone-card:hover::before { opacity: 1; }
+    .phone-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--wine));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink-deep);
+      margin-bottom: 0.5rem;
+      box-shadow: 0 10px 30px rgba(201, 163, 106, 0.32);
+    }
+    .phone-icon svg { width: 30px; height: 30px; }
+    .phone-overline {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .phone-number {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(2.6rem, 6vw, 4rem);
+      color: var(--cream);
+      line-height: 1;
+      letter-spacing: 0.5px;
+      font-variant-numeric: tabular-nums;
+    }
+    .phone-sub {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+    .reservation-also {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-soft);
+    }
+    .reservation-also p {
+      font-size: 0.98rem;
+      color: var(--cream-dim);
+      max-width: 540px;
+      margin: 0 auto 1.25rem;
+      line-height: 1.7;
+    }
+    .reservation-also strong { color: var(--cream); }
     .reservation::before {
       content: '';
       position: absolute;
@@ -1879,108 +1978,36 @@
   <!-- ====== RÉSERVATION ====== -->
   <section class="reservation" id="reservation">
     <div class="container">
-      <div class="reservation-grid">
-        <div class="reservation-info fade-up">
-          <p class="eyebrow">Votre table</p>
-          <h2 class="section-title">Réserver <em>en quelques clics</em></h2>
-          <p>
-            Notre salle accueille une trentaine de couverts, la terrasse une vingtaine. Pour les soirées de week-end et les fêtes, nous vous conseillons de réserver quelques jours à l'avance.
-          </p>
-          <p>
-            Pour les groupes (dès 8 personnes), les anniversaires et les repas d'affaires, un appel direct est souvent plus simple.
-          </p>
+      <div class="reservation-simple">
 
-          <a href="tel:+41273222544" class="reservation-phone">
-            <span class="reservation-phone-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </span>
-            <span>
-              <span>Réservation par téléphone</span>
-              <strong>027 322 25 44</strong>
-            </span>
+        <div class="reservation-head fade-up">
+          <p class="eyebrow">Votre table</p>
+          <h2 class="section-title">Réserver, <em>tout simplement</em></h2>
+          <p class="reservation-lede">
+            Nous accueillons nos hôtes au téléphone, comme depuis 1898. Un appel, une voix, un accueil. Nous vous attendons.
+          </p>
+        </div>
+
+        <a href="tel:+41273222544" class="phone-card fade-up" data-delay="1">
+          <span class="phone-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </span>
+          <span class="phone-overline">Appelez-nous directement</span>
+          <strong class="phone-number">027 322 25 44</strong>
+          <span class="phone-sub">Réservations aux heures d'ouverture · Lun, Jeu, Ven, Sam, Dim</span>
+        </a>
+
+        <div class="reservation-also fade-up" data-delay="2">
+          <p>
+            Une demande particulière ? Groupes <strong>dès 8 personnes</strong>, anniversaires, repas d'affaires, allergies, événements privés.
+          </p>
+          <a href="mailto:contact@udrisardcafe.ch?subject=Demande%20sp%C3%A9ciale" class="btn btn-ghost">
+            Envoyez-nous un message
           </a>
         </div>
 
-        <form class="form-card fade-up" data-delay="2" action="https://formspree.io/f/PLACEHOLDER_ENDPOINT" method="POST" novalidate>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="nom">Nom complet</label>
-              <input type="text" id="nom" name="nom" placeholder="Prénom Nom" required />
-            </div>
-            <div class="form-field">
-              <label for="tel">Téléphone</label>
-              <input type="tel" id="tel" name="tel" placeholder="079 000 00 00" required />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="vous@exemple.ch" required />
-            </div>
-            <div class="form-field">
-              <label for="couverts">Couverts</label>
-              <select id="couverts" name="couverts" required>
-                <option value="">Choisir</option>
-                <option>1 personne</option>
-                <option>2 personnes</option>
-                <option>3 personnes</option>
-                <option>4 personnes</option>
-                <option>5 personnes</option>
-                <option>6 personnes</option>
-                <option>7 et plus (nous appeler)</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-field picker-field" id="dateField">
-              <label for="dateBtn">Date</label>
-              <button type="button" class="picker-trigger" id="dateBtn" aria-haspopup="dialog" aria-expanded="false">
-                <svg class="picker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                  <line x1="16" y1="2" x2="16" y2="6"/>
-                  <line x1="8" y1="2" x2="8" y2="6"/>
-                  <line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                <span id="dateDisplay">Choisir une date</span>
-                <svg class="picker-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </button>
-              <input type="hidden" id="date" name="date" required />
-              <div class="picker-pop" id="datePop" role="dialog" aria-label="Calendrier" hidden></div>
-            </div>
-
-            <div class="form-field picker-field" id="heureField">
-              <label for="heureBtn">Heure</label>
-              <button type="button" class="picker-trigger" id="heureBtn" aria-haspopup="dialog" aria-expanded="false">
-                <svg class="picker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 16 14"/>
-                </svg>
-                <span id="heureDisplay">Choisir une heure</span>
-                <svg class="picker-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </button>
-              <input type="hidden" id="heure" name="heure" required />
-              <div class="picker-pop tp-pop" id="heurePop" role="dialog" aria-label="Créneaux horaires" hidden></div>
-            </div>
-          </div>
-
-          <div class="form-field" style="margin-bottom: 0.5rem;">
-            <label for="message">Message (optionnel)</label>
-            <textarea id="message" name="message" placeholder="Allergie, occasion particulière, demande spéciale..."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary form-submit">Envoyer la demande</button>
-          <p class="form-note">
-            Vous recevrez une confirmation par email dans la journée. Pour une réservation urgente, appelez le 027 322 25 44.
-          </p>
-        </form>
       </div>
     </div>
   </section>
@@ -2132,6 +2159,10 @@
     const heureInput = document.getElementById('heure');
     const heurePop = document.getElementById('heurePop');
 
+    // Guard: picker only initializes if the form elements exist in the DOM.
+    // (Client may opt out of online reservation, removing the form entirely.)
+    if (dateField && heureField) {
+
     let dpView = new Date();
     dpView.setDate(1);
     let dpSelected = null;
@@ -2281,6 +2312,8 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') { closeDate(); closeHeure(); }
     });
+
+    } // end if (dateField && heureField)
   </script>
 </body>
 </html>
