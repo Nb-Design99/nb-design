@@ -4,4 +4,7 @@ Allow: /
 # Bloque les démos prospects pour ne pas polluer le SEO de nb-design.ch
 Disallow: /Restaurant/
 
+# Page privée (dashboard admin de Nathan)
+Disallow: /dashboard/
+
 Sitemap: https://nb-design.ch/sitemap.xml

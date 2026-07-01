@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0f2318" />
+  <title>Dashboard · NB-Design</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-deep: #061410;
+      --green-dark: #0f2318;
+      --green-mid: #1a3d2b;
+      --green-glow: #6ed09a;
+      --green-light: #4caf78;
+      --gold: #c9a84c;
+      --gold-light: #e6c875;
+      --white: #f8f6f1;
+      --white-soft: #ebe7dd;
+      --text-muted: rgba(248, 246, 241, 0.62);
+      --text-dim: rgba(248, 246, 241, 0.38);
+      --bg-dark: #030a06;
+      --border-soft: rgba(248, 246, 241, 0.08);
+      --border-medium: rgba(248, 246, 241, 0.14);
+      --red: #ff6b6b;
+      --amber: #f5b942;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: var(--white);
+      background: var(--bg-dark);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ====== LOGIN ====== */
+    .login-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      background:
+        radial-gradient(60% 60% at 50% 30%, rgba(110, 208, 154, 0.10), transparent 60%),
+        var(--bg-dark);
+    }
+    .login-card {
+      width: 100%;
+      max-width: 420px;
+      padding: 3rem 2.5rem;
+      background: linear-gradient(180deg, rgba(248, 246, 241, 0.04), rgba(248, 246, 241, 0.01));
+      border: 1px solid var(--border-soft);
+      border-radius: 20px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+    .login-card img { margin: 0 auto 1.5rem; width: 64px; height: 64px; border-radius: 16px; }
+    .login-card h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+    }
+    .login-card .subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+    .login-input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-medium);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s ease;
+    }
+    .login-input:focus {
+      outline: none;
+      border-color: var(--green-glow);
+    }
+    .login-btn {
+      width: 100%;
+      padding: 0.9rem;
+      background: linear-gradient(135deg, var(--green-mid), var(--green-accent, var(--green-light)));
+      border: 1px solid var(--green-glow);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(110, 208, 154, 0.25);
+    }
+    .error {
+      color: var(--red);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+      min-height: 1.2em;
+    }
+
+    /* ====== DASHBOARD ====== */
+    .dash-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(3, 10, 6, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .dash-header .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+    .dash-header .brand img {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+    }
+    .logout-btn {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .logout-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .dash-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .dash-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 2.5rem;
+      margin-bottom: 0.3rem;
+    }
+    .dash-title em {
+      color: var(--green-glow);
+      font-style: italic;
+    }
+    .dash-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Grid */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      padding: 1.5rem;
+      background: linear-gradient(180deg, rgba(248, 246, 241, 0.03), rgba(248, 246, 241, 0.008));
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      transition: border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover { border-color: var(--border-medium); }
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--white-soft);
+    }
+    .card-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(110, 208, 154, 0.12);
+      color: var(--green-glow);
+    }
+    .card-icon.gold { background: rgba(201, 168, 76, 0.15); color: var(--gold); }
+    .card-icon.red  { background: rgba(255, 107, 107, 0.15); color: var(--red); }
+    .card-body {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* Value blocks */
+    .value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .value-sub { color: var(--text-muted); font-size: 0.85rem; }
+    .status-ok, .status-err, .status-warn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+    }
+    .status-ok  { color: var(--green-glow); }
+    .status-err { color: var(--red); }
+    .status-warn { color: var(--amber); }
+    .status-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 12px currentColor;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0.5; }
+    }
+
+    /* Perf score circular */
+    .perf-scores {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .perf-item { text-align: center; }
+    .perf-score {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    .perf-score.good { color: var(--green-glow); }
+    .perf-score.avg  { color: var(--amber); }
+    .perf-score.bad  { color: var(--red); }
+    .perf-label {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Commits list */
+    .commits { display: flex; flex-direction: column; gap: 0.75rem; }
+    .commit {
+      padding: 0.7rem 0.9rem;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      border-left: 2px solid var(--green-glow);
+    }
+    .commit-msg {
+      color: var(--white-soft);
+      font-size: 0.88rem;
+      margin-bottom: 0.2rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .commit-meta {
+      color: var(--text-dim);
+      font-size: 0.75rem;
+    }
+
+    /* Info list */
+    .info-list { list-style: none; padding: 0; }
+    .info-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border-soft);
+      font-size: 0.9rem;
+    }
+    .info-list li:last-child { border-bottom: none; }
+    .info-list .k { color: var(--text-muted); }
+    .info-list .v { color: var(--white-soft); font-weight: 500; }
+
+    /* Links list */
+    .links-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+    }
+    .link-item:hover {
+      border-color: var(--green-glow);
+      transform: translateX(2px);
+    }
+    .link-item .arrow { color: var(--green-glow); }
+
+    .empty-state {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-style: italic;
+      padding: 1rem 0;
+    }
+
+    .loading {
+      color: var(--text-dim);
+      font-size: 0.88rem;
+    }
+    .loading::after {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      margin-left: 4px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: blink 1.4s infinite;
+    }
+    @keyframes blink {
+      0%, 80%, 100% { opacity: 0; }
+      40%           { opacity: 1; }
+    }
+
+    @media (max-width: 640px) {
+      .dash-container { padding: 1.25rem; }
+      .dash-title { font-size: 1.8rem; }
+      .cards { grid-template-columns: 1fr; }
+      .dash-header { padding: 0.75rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= LOGIN SCREEN ================= -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <img src="/favicon-192x192.png" alt="" />
+      <h1>Dashboard NB-Design</h1>
+      <p class="subtitle">Accès privé</p>
+      <form id="loginForm" autocomplete="off">
+        <input class="login-input" type="password" id="password" placeholder="Mot de passe" required autofocus />
+        <button class="login-btn" type="submit">Entrer</button>
+      </form>
+      <p class="error" id="loginError"></p>
+    </div>
+  </div>
+
+  <!-- ================= DASHBOARD ================= -->
+  <div id="dashboard" style="display:none">
+    <header class="dash-header">
+      <a href="/" class="brand">
+        <img src="/favicon-192x192.png" alt="" />
+        <span>NB · Dashboard</span>
+      </a>
+      <button class="logout-btn" onclick="logout()">Déconnexion</button>
+    </header>
+
+    <main class="dash-container">
+      <h1 class="dash-title">Bonjour <em>Nathan</em></h1>
+      <p class="dash-subtitle">Vue d'ensemble de nb-design.ch et de ton activité.</p>
+
+      <div class="cards">
+
+        <!-- Statut du site -->
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Statut du site</span>
+            <span class="card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><polyline points="9 12 11 14 15 10"/></svg>
+            </span>
+          </div>
+          <div class="card-body">
+            <div id="siteStatus" class="loading">Vérification</div>
+            <ul class="info-list" id="siteStatusDetails" style="margin-top:1rem"></ul>
+          </div>
+        </div>
+
+        <!-- Performance -->
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Performance</span>
+            <span class="card-icon gold">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </span>
+          </div>
+          <div class="card-body">
+            <div id="perfBody" class="loading">Test PageSpeed en cours (peut prendre 30s)</div>
+          </div>
+        </div>
+
+        <!-- Contenu du site -->
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Contenu du site</span>
+            <span class="card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </span>
+          </div>
+          <div class="card-body">
+            <ul class="info-list" id="siteContent">
+              <li class="loading">Analyse du site</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- GitHub -->
+        <div class="card" style="grid-column: span 1;">
+          <div class="card-head">
+            <span class="card-title">Derniers commits</span>
+            <span class="card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="1.05" y1="12" x2="7" y2="12"/><line x1="17.01" y1="12" x2="22.96" y2="12"/></svg>
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="commits" id="commits">
+              <div class="loading">Chargement des commits</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Liens outils -->
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Outils Google</span>
+            <span class="card-icon gold">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="links-list">
+              <a class="link-item" href="https://search.google.com/search-console?resource_id=sc-domain:nb-design.ch" target="_blank" rel="noopener">
+                <span>Search Console</span><span class="arrow">→</span>
+              </a>
+              <a class="link-item" href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fnb-design.ch%2F" target="_blank" rel="noopener">
+                <span>PageSpeed Insights</span><span class="arrow">→</span>
+              </a>
+              <a class="link-item" href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener">
+                <span>Google Analytics</span><span class="arrow">→</span>
+              </a>
+              <a class="link-item" href="https://business.google.com/" target="_blank" rel="noopener">
+                <span>Google Business Profile</span><span class="arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sites clients (placeholder) -->
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Sites clients</span>
+            <span class="card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/></svg>
+            </span>
+          </div>
+          <div class="card-body">
+            <p class="empty-state">Aucun client signé pour le moment.<br>Cette section listera automatiquement chaque site client dès signature (statut, performance, réservations, dernière modif).</p>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Hash SHA-256 du mot de passe (défaut : NBdesign2026!)
+    // Pour changer le mot de passe, lance dans la console d'un navigateur :
+    //   sha256Hex('NouveauMotDePasse!').then(h => console.log(h))
+    // puis remplace la constante ci-dessous.
+    const CORRECT_HASH = 'f77491b21af5ed8cd721cd7c9a379df6eadc9cef5a32d2e591e6e98c56558846';
+
+    async function sha256Hex(str) {
+      const encoded = new TextEncoder().encode(str);
+      const buf = await crypto.subtle.digest('SHA-256', encoded);
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+    window.sha256Hex = sha256Hex;
+
+    // ============ AUTH ============
+    const loginScreen = document.getElementById('loginScreen');
+    const dashboard = document.getElementById('dashboard');
+    const loginForm = document.getElementById('loginForm');
+    const loginError = document.getElementById('loginError');
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const pwd = document.getElementById('password').value;
+      const hash = await sha256Hex(pwd);
+      if (hash === CORRECT_HASH) {
+        localStorage.setItem('nb-dash-auth', hash);
+        showDashboard();
+      } else {
+        loginError.textContent = 'Mot de passe incorrect';
+        document.getElementById('password').value = '';
+      }
+    });
+
+    function logout() {
+      localStorage.removeItem('nb-dash-auth');
+      location.reload();
+    }
+
+    function showDashboard() {
+      loginScreen.style.display = 'none';
+      dashboard.style.display = 'block';
+      loadAllData();
+    }
+
+    // Vérifie si déjà loggué
+    (function checkAuth() {
+      const stored = localStorage.getItem('nb-dash-auth');
+      if (stored === CORRECT_HASH) showDashboard();
+    })();
+
+    // ============ DATA LOADERS ============
+    async function loadAllData() {
+      loadSiteStatus();
+      loadSiteContent();
+      loadCommits();
+      loadPerformance();
+    }
+
+    // ---- 1. Statut du site + temps de réponse ----
+    async function loadSiteStatus() {
+      const el = document.getElementById('siteStatus');
+      const details = document.getElementById('siteStatusDetails');
+      try {
+        const start = performance.now();
+        await fetch('/?_t=' + Date.now(), { method: 'HEAD', cache: 'no-store' });
+        const time = Math.round(performance.now() - start);
+        el.innerHTML = '<span class="status-ok"><span class="status-dot"></span>En ligne</span>';
+        details.innerHTML = `
+          <li><span class="k">Temps de réponse</span><span class="v">${time} ms</span></li>
+          <li><span class="k">HTTPS</span><span class="v">Actif</span></li>
+          <li><span class="k">Domaine</span><span class="v">nb-design.ch</span></li>
+          <li><span class="k">Hébergement</span><span class="v">GitHub Pages</span></li>
+        `;
+      } catch (e) {
+        el.innerHTML = '<span class="status-err"><span class="status-dot"></span>Erreur de connexion</span>';
+      }
+    }
+
+    // ---- 2. Contenu du site (sitemap + info document) ----
+    async function loadSiteContent() {
+      const el = document.getElementById('siteContent');
+      try {
+        const r = await fetch('/sitemap.xml', { cache: 'no-store' });
+        const text = await r.text();
+        const urls = text.match(/<loc>/g) || [];
+        const lastmodMatch = text.match(/<lastmod>([^<]+)<\/lastmod>/);
+        const lastmod = lastmodMatch ? lastmodMatch[1] : '—';
+
+        // Sondage rapide du poids de la home
+        const homeR = await fetch('/', { cache: 'no-store' });
+        const homeText = await homeR.text();
+        const sizeKb = (homeText.length / 1024).toFixed(1);
+        const wordCount = (homeText.replace(/<[^>]+>/g, ' ').match(/\b\w+\b/g) || []).length;
+
+        el.innerHTML = `
+          <li><span class="k">Pages dans sitemap</span><span class="v">${urls.length}</span></li>
+          <li><span class="k">Dernière mise à jour</span><span class="v">${lastmod}</span></li>
+          <li><span class="k">Poids de la home</span><span class="v">${sizeKb} Ko</span></li>
+          <li><span class="k">Mots (indexés)</span><span class="v">${wordCount.toLocaleString('fr-CH')}</span></li>
+          <li><span class="k">Sitemap</span><span class="v"><a href="/sitemap.xml" target="_blank" style="color:var(--green-glow)">Voir →</a></span></li>
+        `;
+      } catch (e) {
+        el.innerHTML = '<li class="empty-state">Impossible de charger le sitemap</li>';
+      }
+    }
+
+    // ---- 3. Derniers commits GitHub ----
+    async function loadCommits() {
+      const el = document.getElementById('commits');
+      try {
+        const r = await fetch('https://api.github.com/repos/Nb-Design99/nb-design/commits?per_page=5');
+        if (!r.ok) throw new Error('GitHub API');
+        const commits = await r.json();
+        el.innerHTML = commits.map(c => {
+          const msg = c.commit.message.split('\n')[0];
+          const date = new Date(c.commit.author.date);
+          const dateStr = date.toLocaleDateString('fr-CH', { day: '2-digit', month: 'short', year: 'numeric' });
+          const timeStr = date.toLocaleTimeString('fr-CH', { hour: '2-digit', minute: '2-digit' });
+          return `
+            <a class="commit" href="${c.html_url}" target="_blank" rel="noopener" style="display:block">
+              <div class="commit-msg">${msg.replace(/</g, '&lt;')}</div>
+              <div class="commit-meta">${dateStr} · ${timeStr}</div>
+            </a>
+          `;
+        }).join('');
+      } catch (e) {
+        el.innerHTML = '<div class="empty-state">Impossible de charger les commits GitHub</div>';
+      }
+    }
+
+    // ---- 4. Performance (PageSpeed Insights) ----
+    async function loadPerformance() {
+      const body = document.getElementById('perfBody');
+      const url = 'https://nb-design.ch/';
+
+      try {
+        // Test mobile + desktop en parallèle
+        const [mobile, desktop] = await Promise.all([
+          fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=mobile&category=performance&category=seo`),
+          fetch(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&strategy=desktop&category=performance&category=seo`),
+        ]);
+
+        const m = await mobile.json();
+        const d = await desktop.json();
+
+        const perfM = Math.round(m.lighthouseResult.categories.performance.score * 100);
+        const seoM  = Math.round(m.lighthouseResult.categories.seo.score * 100);
+        const perfD = Math.round(d.lighthouseResult.categories.performance.score * 100);
+        const seoD  = Math.round(d.lighthouseResult.categories.seo.score * 100);
+
+        const scoreClass = (v) => v >= 90 ? 'good' : v >= 50 ? 'avg' : 'bad';
+
+        body.innerHTML = `
+          <div style="margin-bottom: 1rem">
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom: 0.5rem">Mobile</div>
+            <div class="perf-scores">
+              <div class="perf-item">
+                <div class="perf-score ${scoreClass(perfM)}">${perfM}</div>
+                <div class="perf-label">Performance</div>
+              </div>
+              <div class="perf-item">
+                <div class="perf-score ${scoreClass(seoM)}">${seoM}</div>
+                <div class="perf-label">SEO</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom: 0.5rem">Desktop</div>
+            <div class="perf-scores">
+              <div class="perf-item">
+                <div class="perf-score ${scoreClass(perfD)}">${perfD}</div>
+                <div class="perf-label">Performance</div>
+              </div>
+              <div class="perf-item">
+                <div class="perf-score ${scoreClass(seoD)}">${seoD}</div>
+                <div class="perf-label">SEO</div>
+              </div>
+            </div>
+          </div>
+        `;
+      } catch (e) {
+        body.innerHTML = '<div class="empty-state">Test PageSpeed indisponible. Réessaie dans quelques minutes.</div>';
+      }
+    }
+  </script>
+
+</body>
+</html>
