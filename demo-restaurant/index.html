@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="elegant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configurateur de site restaurant · NB-Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Caveat:wght@600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   NB-DESIGN — CONFIGURATEUR INTERACTIF RESTAURANT
+   5 thèmes · 8 sections · 5 variantes chacune
+   ============================================================ */
+:root{ --maxw:1180px; --transition:.4s cubic-bezier(.4,0,.2,1); }
+
+/* ---------- 5 THÈMES ---------- */
+[data-theme="elegant"]{
+  --bg:#14100d;--surface:#1e1813;--surface-2:#271f18;--text:#f3ece1;--muted:#b3a793;--line:#3a3129;
+  --accent:#c9a24b;--accent-soft:#e6cf95;--on-accent:#14100d;
+  --font-head:'Playfair Display',Georgia,serif;--font-sub:'Cormorant Garamond',Georgia,serif;--font-body:'Inter',system-ui,sans-serif;
+  --radius:6px;--radius-lg:10px;--shadow:0 20px 50px rgba(0,0,0,.55);
+}
+[data-theme="warm"]{
+  --bg:#f6efe4;--surface:#fffaf2;--surface-2:#f0e4d2;--text:#33241a;--muted:#7a6551;--line:#e0cfb8;
+  --accent:#c1663f;--accent-soft:#e08a5f;--on-accent:#fffaf2;
+  --font-head:'Poppins',system-ui,sans-serif;--font-sub:'Caveat',cursive;--font-body:'Inter',system-ui,sans-serif;
+  --radius:14px;--radius-lg:22px;--shadow:0 18px 40px rgba(122,80,40,.18);
+}
+[data-theme="modern"]{
+  --bg:#ffffff;--surface:#f7f7f8;--surface-2:#eeeef1;--text:#111214;--muted:#6b7280;--line:#e5e7eb;
+  --accent:#111214;--accent-soft:#ff5a4d;--on-accent:#ffffff;
+  --font-head:'Poppins',system-ui,sans-serif;--font-sub:'Inter',system-ui,sans-serif;--font-body:'Inter',system-ui,sans-serif;
+  --radius:4px;--radius-lg:8px;--shadow:0 12px 30px rgba(0,0,0,.10);
+}
+[data-theme="nature"]{
+  --bg:#f3f6ee;--surface:#ffffff;--surface-2:#e6ede0;--text:#26301f;--muted:#6d7a63;--line:#d9e2cf;
+  --accent:#5b7d4b;--accent-soft:#8aa878;--on-accent:#ffffff;
+  --font-head:'Poppins',system-ui,sans-serif;--font-sub:'Caveat',cursive;--font-body:'Inter',system-ui,sans-serif;
+  --radius:18px;--radius-lg:26px;--shadow:0 16px 38px rgba(60,90,45,.16);
+}
+[data-theme="night"]{
+  --bg:#0e0f13;--surface:#171922;--surface-2:#20232f;--text:#eef0f6;--muted:#9aa0b3;--line:#2c3040;
+  --accent:#ef6c8b;--accent-soft:#ff9ab2;--on-accent:#0e0f13;
+  --font-head:'Poppins',system-ui,sans-serif;--font-sub:'Bebas Neue',sans-serif;--font-body:'Inter',system-ui,sans-serif;
+  --radius:10px;--radius-lg:16px;--shadow:0 20px 50px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;transition:background var(--transition),color var(--transition);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{font-family:var(--font-head);line-height:1.15;font-weight:600}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+.img-fallback{background:linear-gradient(135deg,var(--surface-2),var(--accent))!important;position:relative}
+.img-fallback::after{content:"🍽";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.4rem;opacity:.5}
+
+/* ---------- BARRE DE CONTRÔLE ---------- */
+.control-bar{position:sticky;top:0;z-index:100;background:rgba(20,16,13,.93);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08);color:#fff}
+[data-theme="warm"] .control-bar{background:rgba(51,36,26,.94)}
+[data-theme="modern"] .control-bar{background:rgba(17,18,20,.94)}
+[data-theme="nature"] .control-bar{background:rgba(30,40,24,.94)}
+[data-theme="night"] .control-bar{background:rgba(10,11,15,.95)}
+.control-inner{max-width:var(--maxw);margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.control-brand{font-weight:700;font-size:.9rem;letter-spacing:.5px;white-space:nowrap}
+.control-brand span{color:var(--accent-soft)}
+.control-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;opacity:.6;margin-left:auto}
+.theme-switch{display:flex;gap:6px;flex-wrap:wrap}
+.theme-btn{cursor:pointer;border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;padding:7px 13px;border-radius:40px;font-size:.78rem;font-family:inherit;display:flex;align-items:center;gap:7px;transition:.2s}
+.theme-btn:hover{border-color:rgba(255,255,255,.5)}
+.theme-btn.active{background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:600}
+.dot{width:11px;height:11px;border-radius:50%;display:inline-block;border:1px solid rgba(255,255,255,.3)}
+.dot.d1{background:#c9a24b}.dot.d2{background:#c1663f}.dot.d3{background:#fff}.dot.d4{background:#5b7d4b}.dot.d5{background:#ef6c8b}
+
+/* ---------- SECTIONS + SÉLECTEUR ---------- */
+.section{padding:76px 0;border-top:1px solid var(--line)}
+.section:first-of-type{border-top:none}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.section-head .kicker{font-family:var(--font-sub);color:var(--accent);font-size:1.15rem;letter-spacing:1px;text-transform:uppercase}
+[data-theme="warm"] .section-head .kicker,[data-theme="nature"] .section-head .kicker{font-size:1.7rem;text-transform:none;letter-spacing:0}
+[data-theme="night"] .section-head .kicker{font-size:1.5rem;letter-spacing:2px}
+.section-head h2{font-size:clamp(1.9rem,4vw,2.9rem)}
+.variant-switch{display:flex;gap:7px;flex-wrap:wrap;max-width:560px;justify-content:flex-end}
+.v-btn{cursor:pointer;font-family:inherit;font-size:.8rem;padding:8px 13px;border-radius:40px;border:1px solid var(--line);background:var(--surface);color:var(--muted);transition:.2s;white-space:nowrap}
+.v-btn:hover{color:var(--text);border-color:var(--accent)}
+.v-btn.active{background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:600}
+.variant{display:none;animation:fade .45s ease}
+.variant.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.btn{display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-family:inherit;font-weight:600;font-size:.95rem;padding:14px 26px;border-radius:var(--radius);background:var(--accent);color:var(--on-accent);border:none;transition:.2s}
+.btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.muted{color:var(--muted)}
+
+/* ============================================================ HERO */
+.hero1{min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;border-radius:var(--radius-lg)}
+.hero1 .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero1::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.68))}
+.hero1 .inner{position:relative;z-index:2;color:#fff;padding:40px;max-width:720px}
+.hero1 .kicker{font-family:var(--font-sub);color:var(--accent-soft);font-size:1.4rem;letter-spacing:2px}
+.hero1 h1{font-size:clamp(2.6rem,7vw,5rem);margin:12px 0 18px;color:#fff}
+.hero1 p{font-size:1.15rem;opacity:.9;margin-bottom:28px}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+.hero2{display:grid;grid-template-columns:1.05fr .95fr;min-height:70vh;border-radius:var(--radius-lg);overflow:hidden;background:var(--surface)}
+.hero2 .txt{padding:clamp(30px,5vw,64px);display:flex;flex-direction:column;justify-content:center}
+.hero2 .kicker{font-family:var(--font-sub);color:var(--accent);font-size:1.3rem;letter-spacing:1px}
+.hero2 h1{font-size:clamp(2.2rem,4.5vw,3.6rem);margin:10px 0 16px}
+.hero2 p{color:var(--muted);font-size:1.08rem;margin-bottom:22px}
+.hero2 .facts{display:flex;gap:26px;margin:8px 0 26px;flex-wrap:wrap}
+.hero2 .facts b{display:block;font-family:var(--font-head);font-size:1.05rem}
+.hero2 .facts small{color:var(--muted)}
+.hero2 .pic{position:relative}
+.hero2 .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+.hero3{text-align:center;padding:clamp(50px,9vw,110px) 20px;border-radius:var(--radius-lg);background:var(--surface)}
+.hero3 .kicker{font-family:var(--font-sub);color:var(--accent);letter-spacing:3px;text-transform:uppercase;font-size:1rem}
+.hero3 h1{font-size:clamp(2.6rem,8vw,6rem);margin:14px 0}
+.hero3 p{color:var(--muted);max-width:560px;margin:0 auto 28px;font-size:1.1rem}
+.hero3 .thumbs{display:flex;gap:14px;justify-content:center;margin-top:44px;flex-wrap:wrap}
+.hero3 .thumbs img{width:150px;height:100px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)}
+
+.hero4{position:relative;min-height:76vh;border-radius:var(--radius-lg);overflow:hidden}
+.hero4 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+.hero4 .slide.on{opacity:1}
+.hero4 .slide img{width:100%;height:100%;object-fit:cover}
+.hero4::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.6));z-index:1;pointer-events:none}
+.hero4 .inner{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:clamp(28px,5vw,60px);color:#fff}
+.hero4 h1{font-size:clamp(2.4rem,6vw,4.4rem);color:#fff}
+.hero4 p{opacity:.9;margin:8px 0 18px;max-width:520px}
+.hero4 .sdots{position:absolute;z-index:3;top:20px;right:24px;display:flex;gap:8px}
+.hero4 .sdots span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer}
+.hero4 .sdots span.on{background:#fff;width:24px;border-radius:6px}
+
+.hero5{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;min-height:66vh}
+.hero5 .txt .kicker{font-family:var(--font-sub);color:var(--accent);font-size:1.3rem;letter-spacing:2px;text-transform:uppercase}
+.hero5 .txt h1{font-size:clamp(3rem,7vw,6.5rem);line-height:.95;margin:10px 0 20px}
+.hero5 .txt p{color:var(--muted);max-width:420px;margin-bottom:26px;font-size:1.05rem}
+.hero5 .stack{position:relative;height:100%;min-height:440px}
+.hero5 .stack img{position:absolute;border-radius:var(--radius-lg);object-fit:cover;box-shadow:var(--shadow)}
+.hero5 .stack .i1{width:70%;height:70%;top:0;right:0}
+.hero5 .stack .i2{width:52%;height:52%;bottom:0;left:0;border:6px solid var(--bg)}
+
+/* ============================================================ DESCRIPTION */
+.d1{max-width:720px;margin:0 auto;text-align:center}
+.d1 p.lead{font-size:1.2rem;color:var(--muted);margin-bottom:34px}
+.d1 .values{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.val{padding:24px;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface)}
+.val .ic{font-size:1.8rem;margin-bottom:8px}
+.val b{display:block;font-family:var(--font-head);margin-bottom:4px}
+.val small{color:var(--muted)}
+
+.d2{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.d2 .pic{border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3}
+.d2 .pic img{width:100%;height:100%;object-fit:cover}
+.d2 h3{font-size:1.9rem;margin-bottom:14px}
+.d2 p{color:var(--muted);margin-bottom:12px}
+
+.d3{text-align:center}
+.d3 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px}
+.stat{padding:26px 14px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line)}
+.stat .n{font-family:var(--font-head);font-size:2.6rem;color:var(--accent);line-height:1}
+.stat small{color:var(--muted);display:block;margin-top:6px}
+
+.d4{max-width:840px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center}
+.d4 .portrait{width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow)}
+.d4 blockquote{font-family:var(--font-sub);font-size:clamp(1.5rem,3.5vw,2.2rem);line-height:1.3}
+[data-theme="modern"] .d4 blockquote,[data-theme="elegant"] .d4 blockquote{font-style:italic}
+.d4 .sign{margin-top:14px;color:var(--accent);font-weight:600}
+
+.d5{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat{padding:26px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent)}
+.feat .ic{font-size:1.6rem;margin-bottom:10px}
+.feat h4{margin-bottom:6px}
+.feat p{color:var(--muted);font-size:.92rem}
+
+/* ============================================================ PHOTOS PLATS */
+.p-mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:12px}
+.p-mosaic img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius);transition:.3s;cursor:pointer}
+.p-mosaic img:hover{filter:brightness(1.1);transform:scale(1.02)}
+.p-mosaic .big{grid-column:span 2;grid-row:span 2}
+
+.p-carousel .track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-width:thin}
+.p-carousel .track img{flex:0 0 auto;width:420px;max-width:80vw;height:300px;object-fit:cover;border-radius:var(--radius-lg);scroll-snap-align:center}
+.p-nav{display:flex;gap:10px;justify-content:center;margin-top:18px}
+.p-nav button{cursor:pointer;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:1.1rem;transition:.2s}
+.p-nav button:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+
+.p-filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
+.f-btn{cursor:pointer;font-family:inherit;padding:8px 18px;border-radius:40px;border:1px solid var(--line);background:var(--surface);color:var(--muted);transition:.2s}
+.f-btn.active{background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:600}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.p-grid figure{position:relative;border-radius:var(--radius);overflow:hidden;height:220px}
+.p-grid img{width:100%;height:100%;object-fit:cover;transition:.3s}
+.p-grid figure:hover img{transform:scale(1.06)}
+.p-grid figcaption{position:absolute;left:0;bottom:0;right:0;padding:14px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;font-size:.85rem;opacity:0;transition:.3s}
+.p-grid figure:hover figcaption{opacity:1}
+.p-grid figure.hide{display:none}
+
+.p-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.pc{position:relative;border-radius:var(--radius-lg);overflow:hidden;height:280px;cursor:pointer}
+.pc img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.pc:hover img{transform:scale(1.12)}
+.pc .lbl{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;background:linear-gradient(transparent 40%,rgba(0,0,0,.75));color:#fff}
+.pc .lbl b{font-family:var(--font-head);font-size:1.2rem}
+.pc .lbl span{color:var(--accent-soft);font-weight:600}
+
+.p-hero{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;grid-auto-rows:1fr}
+.p-hero .feature{grid-row:span 2;position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:400px}
+.p-hero .feature img{width:100%;height:100%;object-fit:cover}
+.p-hero .feature .cap{position:absolute;left:0;bottom:0;right:0;padding:26px;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff}
+.p-hero .feature .cap b{font-family:var(--font-head);font-size:1.7rem;display:block}
+.p-hero .mini{position:relative;border-radius:var(--radius-lg);overflow:hidden;min-height:190px}
+.p-hero .mini img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.p-hero .mini:hover img{transform:scale(1.08)}
+
+/* ============================================================ MENU */
+.menu-acc{max-width:760px;margin:0 auto}
+.acc-item{border:1px solid var(--line);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;background:var(--surface)}
+.acc-head{width:100%;text-align:left;cursor:pointer;padding:20px 24px;background:none;border:none;color:var(--text);font-family:var(--font-head);font-size:1.25rem;display:flex;justify-content:space-between;align-items:center}
+.acc-head .plus{color:var(--accent);font-size:1.5rem;transition:.3s}
+.acc-item.open .plus{transform:rotate(45deg)}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.acc-item.open .acc-body{max-height:600px}
+.dish-row{display:flex;justify-content:space-between;gap:16px;padding:14px 24px;border-top:1px dashed var(--line)}
+.dish-row .d-name{font-weight:600}.dish-row .d-desc{color:var(--muted);font-size:.9rem}
+.dish-row .d-price{color:var(--accent);font-weight:700;white-space:nowrap}
+
+.menu-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.tab-btn{cursor:pointer;font-family:inherit;padding:9px 20px;border-radius:40px;border:1px solid var(--line);background:var(--surface);color:var(--muted);transition:.2s}
+.tab-btn.active{background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:600}
+.tab-panel{display:none}
+.tab-panel.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;animation:fade .4s}
+.dish-card{background:var(--surface);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);transition:.25s}
+.dish-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.dish-card .ph{height:170px;width:100%;object-fit:cover}
+.dish-card .body{padding:16px 18px}
+.dish-card h4{font-family:var(--font-head);font-size:1.15rem;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.dish-card h4 span{color:var(--accent);font-weight:700;font-size:1.05rem}
+.dish-card p{color:var(--muted);font-size:.88rem;margin-top:6px}
+.tags{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:.68rem;padding:3px 9px;border-radius:30px;background:var(--surface-2);color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+
+.menu-card{max-width:860px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,5vw,56px);box-shadow:var(--shadow)}
+.menu-card .mc-title{text-align:center;margin-bottom:30px}
+.menu-card .mc-title .kicker{font-family:var(--font-sub);color:var(--accent);font-size:1.4rem}
+.menu-card .mc-title h3{font-size:2rem}
+.mc-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px 48px}
+.mc-cat{font-family:var(--font-head);color:var(--accent);font-size:1.15rem;margin:18px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line);letter-spacing:1px;text-transform:uppercase}
+.mc-line{display:flex;justify-content:space-between;gap:10px;padding:7px 0;align-items:baseline}
+.mc-line .dot-fill{flex:1;border-bottom:1px dotted var(--line);margin:0 6px;transform:translateY(-4px)}
+.mc-line .n{font-weight:600}.mc-line .p{color:var(--accent);font-weight:700}
+.mc-line small{display:block;color:var(--muted);font-weight:400;font-size:.82rem}
+
+.slate{max-width:620px;margin:0 auto;background:var(--surface-2);border:2px solid var(--accent);border-radius:var(--radius-lg);padding:clamp(28px,5vw,50px);text-align:center;position:relative}
+.slate .day{font-family:var(--font-sub);color:var(--accent);font-size:1.6rem}
+.slate h3{font-size:1.8rem;margin:4px 0 24px}
+.slate .sl-line{padding:14px 0;border-bottom:1px dashed var(--line)}
+.slate .sl-line:last-child{border-bottom:none}
+.slate .sl-line b{font-family:var(--font-head);font-size:1.2rem;display:block}
+.slate .sl-line small{color:var(--muted)}
+.slate .sl-price{color:var(--accent);font-weight:700;font-size:1.1rem;margin-top:4px;display:inline-block}
+
+.menu-min{max-width:720px;margin:0 auto}
+.menu-min .mm-cat{font-family:var(--font-head);font-size:1.4rem;color:var(--accent);margin:26px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+.menu-min .mm-cat:first-child{margin-top:0}
+.mm-row{display:flex;justify-content:space-between;gap:14px;padding:10px 0;align-items:baseline}
+.mm-row .n b{font-weight:600}.mm-row .n small{color:var(--muted);display:block;font-size:.85rem}
+.mm-row .p{color:var(--accent);font-weight:700;white-space:nowrap}
+
+/* ============================================================ PHOTO CRÉATIVE */
+.ci1{position:relative;min-height:60vh;border-radius:var(--radius-lg);overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background-attachment:fixed;background-size:cover;background-position:center}
+.ci1::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.5)}
+.ci1 .inner{position:relative;z-index:2;color:#fff;max-width:640px;padding:40px}
+.ci1 .inner .kicker{font-family:var(--font-sub);color:var(--accent-soft);font-size:1.4rem;letter-spacing:2px}
+.ci1 .inner h3{color:#fff;font-size:clamp(1.8rem,4vw,3rem);margin:8px 0 14px}
+.ci1 .inner p{opacity:.9}
+
+.ci2{position:relative;padding:40px 0}
+.ci2 .bigpic{width:78%;height:420px;object-fit:cover;border-radius:var(--radius-lg)}
+.ci2 .card{position:absolute;right:0;top:50%;transform:translateY(-50%);width:44%;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(24px,3vw,40px);box-shadow:var(--shadow)}
+.ci2 .card .kicker{font-family:var(--font-sub);color:var(--accent);font-size:1.2rem}
+.ci2 .card h3{font-size:1.7rem;margin:6px 0 12px}
+.ci2 .card p{color:var(--muted)}
+
+.ci3{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center}
+.ci3 img{width:100%;height:380px;object-fit:cover;border-radius:var(--radius-lg)}
+.ci3 .mid{text-align:center;max-width:230px}
+.ci3 .mid .kicker{font-family:var(--font-sub);color:var(--accent);font-size:1.3rem}
+.ci3 .mid h3{font-size:1.6rem;margin:8px 0}
+.ci3 .mid p{color:var(--muted);font-size:.92rem}
+
+.ci4{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.ci4 .shape{aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:var(--shadow);max-width:400px;margin:0 auto}
+.ci4 .shape img{width:100%;height:100%;object-fit:cover}
+.ci4 h3{font-size:2rem;margin-bottom:14px}
+.ci4 p{color:var(--muted);margin-bottom:12px}
+
+.ci5{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:12px;position:relative}
+.ci5 img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius)}
+.ci5 .t1{grid-column:span 2;grid-row:span 2}
+.ci5 .quote{grid-column:span 2;grid-row:span 1;background:var(--accent);color:var(--on-accent);border-radius:var(--radius);display:flex;align-items:center;padding:24px;font-family:var(--font-sub);font-size:1.5rem;line-height:1.25}
+
+/* ============================================================ AVIS */
+.rev-quote{max-width:760px;margin:0 auto;text-align:center;min-height:200px}
+.rev-quote .stars{color:var(--accent);font-size:1.3rem;letter-spacing:3px;margin-bottom:16px}
+.rev-quote blockquote{font-family:var(--font-sub);font-size:clamp(1.4rem,3.5vw,2.1rem);line-height:1.35;margin-bottom:18px}
+[data-theme="modern"] .rev-quote blockquote,[data-theme="elegant"] .rev-quote blockquote{font-style:italic}
+.rev-quote .who{color:var(--muted);font-weight:600}
+.rev-dots{display:flex;gap:9px;justify-content:center;margin-top:26px}
+.rev-dots span{width:10px;height:10px;border-radius:50%;background:var(--line);cursor:pointer;transition:.2s}
+.rev-dots span.active{background:var(--accent);width:26px;border-radius:6px}
+
+.rev-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rev-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:24px}
+.rev-card .stars{color:var(--accent);letter-spacing:2px;margin-bottom:12px}
+.rev-card p{margin-bottom:16px}
+.rev-card .person{display:flex;align-items:center;gap:12px}
+.rev-card .av{width:44px;height:44px;border-radius:50%;object-fit:cover;background:var(--surface-2)}
+.rev-card .person b{display:block}.rev-card .person small{color:var(--muted)}
+
+.rev-band{display:grid;grid-template-columns:1fr 2fr;gap:30px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(26px,4vw,44px)}
+.rev-score{text-align:center;border-right:1px solid var(--line);padding-right:20px}
+.rev-score .big{font-family:var(--font-head);font-size:4rem;color:var(--accent);line-height:1}
+.rev-score .stars{color:var(--accent);letter-spacing:3px;font-size:1.2rem;margin:8px 0}
+.rev-score small{color:var(--muted)}
+.rev-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
+.rev-logo{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.rev-logo .n{font-weight:700;font-size:1.4rem;color:var(--accent)}
+.rev-logo small{color:var(--muted);font-size:.78rem}
+
+.rev-wall{columns:3;column-gap:16px}
+.rev-wall .w{break-inside:avoid;margin-bottom:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:20px}
+.rev-wall .w .stars{color:var(--accent);letter-spacing:2px;margin-bottom:8px}
+.rev-wall .w p{font-size:.92rem;margin-bottom:10px}
+.rev-wall .w b{font-size:.85rem}.rev-wall .w small{color:var(--muted)}
+
+.rev-marquee{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.rev-marquee .row{display:flex;gap:16px;width:max-content;animation:marq 32s linear infinite}
+.rev-marquee:hover .row{animation-play-state:paused}
+.rev-marquee .m{flex:0 0 320px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:20px}
+.rev-marquee .m .stars{color:var(--accent);letter-spacing:2px;margin-bottom:8px}
+.rev-marquee .m p{font-size:.9rem;margin-bottom:8px}.rev-marquee .m small{color:var(--muted)}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============================================================ RÉSERVATION */
+.resa-form{max-width:720px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(26px,4vw,42px);box-shadow:var(--shadow)}
+.resa-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}
+.field label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.field input,.field select,.field textarea{font-family:inherit;padding:12px 14px;border-radius:var(--radius);border:1px solid var(--line);background:var(--bg);color:var(--text);font-size:.95rem}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+
+.resa-split{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line)}
+.resa-split .pic{position:relative;min-height:360px}
+.resa-split .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.resa-split .side{padding:clamp(26px,4vw,44px);background:var(--surface);display:flex;flex-direction:column;justify-content:center}
+.resa-split h3{font-size:1.8rem;margin-bottom:10px}.resa-split p{color:var(--muted);margin-bottom:20px}
+.resa-opts{display:flex;flex-direction:column;gap:12px}
+.resa-opt{display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)}
+.resa-opt .ic{font-size:1.4rem}.resa-opt b{display:block}.resa-opt small{color:var(--muted)}
+
+.resa-steps{max-width:820px;margin:0 auto;text-align:center}
+.steps-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+.step-box{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:22px 18px}
+.step-box .num{width:38px;height:38px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 12px}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.chip{cursor:pointer;padding:9px 16px;border-radius:40px;border:1px solid var(--line);background:var(--bg);transition:.2s;font-size:.9rem}
+.chip:hover,.chip.sel{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+
+.resa-cta{position:relative;border-radius:var(--radius-lg);overflow:hidden;text-align:center;min-height:340px;display:flex;align-items:center;justify-content:center}
+.resa-cta .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.resa-cta::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.55)}
+.resa-cta .inner{position:relative;z-index:2;color:#fff;padding:40px}
+.resa-cta h3{color:#fff;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:10px}
+.resa-cta p{opacity:.9;margin-bottom:22px;font-size:1.2rem}
+.resa-cta .phone{font-family:var(--font-head);font-size:1.6rem;margin-top:14px;color:var(--accent-soft)}
+
+.resa-compact{display:grid;grid-template-columns:1fr 1fr;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line)}
+.resa-compact .pic{position:relative;min-height:300px}
+.resa-compact .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.resa-compact .form{padding:clamp(24px,3vw,38px);background:var(--surface)}
+.resa-compact h3{font-size:1.6rem;margin-bottom:16px}
+.resa-compact .mini{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+
+/* ============================================================ INFOS */
+.ct-map{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
+.ct-map iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.2)}
+.ct-map .info{padding:clamp(26px,4vw,42px);background:var(--surface)}
+.ct-map .info h3{font-size:1.7rem;margin-bottom:18px}
+.info-row{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.info-row .ic{font-size:1.2rem;color:var(--accent)}.info-row b{display:block}.info-row small{color:var(--muted)}
+
+.ct-hours{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.hours-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(24px,3vw,36px)}
+.hours-card h3{font-size:1.5rem;margin-bottom:18px}
+.hrow{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px dashed var(--line)}
+.hrow .closed{color:var(--muted)}
+.contact-lines{display:flex;flex-direction:column;gap:14px}
+.contact-lines a{display:flex;gap:12px;align-items:center;padding:14px 18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);transition:.2s}
+.contact-lines a:hover{border-color:var(--accent);color:var(--accent)}
+
+.ct-rich{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(28px,4vw,48px)}
+.rich-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:34px}
+.rich-grid h4{font-family:var(--font-head);margin-bottom:14px;font-size:1.15rem}
+.rich-grid p,.rich-grid li{color:var(--muted);font-size:.92rem;margin-bottom:8px;list-style:none}
+.rich-map{margin-top:26px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.rich-map iframe{width:100%;height:220px;border:0}
+.socials{display:flex;gap:10px;margin-top:12px}
+.socials a{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:.2s}
+.socials a:hover{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+
+.ct-blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ct-block{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px;text-align:center}
+.ct-block .ic{font-size:2rem;color:var(--accent);margin-bottom:12px}
+.ct-block h4{margin-bottom:10px}.ct-block p{color:var(--muted);font-size:.92rem}
+
+.ct-bar{display:flex;align-items:center;justify-content:space-around;gap:20px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:26px 30px}
+.ct-bar .item{display:flex;gap:12px;align-items:center}
+.ct-bar .ic{font-size:1.5rem;color:var(--accent)}
+.ct-bar b{display:block}.ct-bar small{color:var(--muted)}
+
+/* ---------- RÉCAP FLOTTANT ---------- */
+.recap-btn{position:fixed;right:20px;bottom:20px;z-index:120;background:var(--accent);color:var(--on-accent);border:none;cursor:pointer;font-family:inherit;font-weight:600;padding:14px 20px;border-radius:50px;box-shadow:var(--shadow);display:flex;gap:8px;align-items:center;font-size:.9rem}
+.recap-btn:hover{filter:brightness(1.08)}
+.recap-panel{position:fixed;right:20px;bottom:76px;z-index:120;width:320px;max-width:calc(100vw - 40px);max-height:70vh;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:20px;display:none}
+.recap-panel.open{display:block;animation:fade .3s}
+.recap-panel h4{margin-bottom:6px;font-size:1.1rem}
+.recap-panel .sub{color:var(--muted);font-size:.82rem;margin-bottom:14px}
+.rc-line{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.88rem}
+.rc-line span{color:var(--muted)}.rc-line b{text-align:right}
+.recap-panel .btn{width:100%;justify-content:center;margin-top:16px;font-size:.85rem;padding:11px}
+
+.demo-footer{text-align:center;padding:50px 24px;border-top:1px solid var(--line);color:var(--muted)}
+.demo-footer b{color:var(--accent)}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .hero2,.hero5,.resa-split,.resa-compact,.ct-map,.ct-hours,.d2,.ci4{grid-template-columns:1fr}
+  .hero5 .stack{min-height:340px}
+  .d1 .values,.d5,.ct-blocks{grid-template-columns:1fr}
+  .d3 .stats{grid-template-columns:1fr 1fr}
+  .p-mosaic,.ci5{grid-template-columns:repeat(2,1fr)}
+  .p-grid,.rev-cards{grid-template-columns:1fr 1fr}
+  .rev-wall{columns:2}
+  .mc-cols{grid-template-columns:1fr}
+  .rev-band{grid-template-columns:1fr}.rev-score{border-right:none;border-bottom:1px solid var(--line);padding:0 0 20px}
+  .rich-grid{grid-template-columns:1fr}
+  .p-hero,.ci3{grid-template-columns:1fr}
+  .ci2 .bigpic{width:100%}.ci2 .card{position:static;transform:none;width:100%;margin-top:-40px}
+  .d4{grid-template-columns:1fr;text-align:center}.d4 .portrait{margin:0 auto}
+  .ci1{background-attachment:scroll}
+  .section-head{align-items:flex-start}.variant-switch{justify-content:flex-start}
+}
+@media(max-width:560px){
+  .p-grid,.rev-cards,.p-mosaic,.resa-grid,.rev-wall,.ci5,.resa-compact .mini{grid-template-columns:1fr;columns:1}
+  .rev-logos,.d3 .stats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ BARRE DE CONTRÔLE ============ -->
+<div class="control-bar">
+  <div class="control-inner">
+    <div class="control-brand">NB-<span>Design</span> · Configurateur</div>
+    <div class="theme-switch">
+      <button class="theme-btn active" data-theme-btn="elegant"><span class="dot d1"></span>Élégant</button>
+      <button class="theme-btn" data-theme-btn="warm"><span class="dot d2"></span>Rustique</button>
+      <button class="theme-btn" data-theme-btn="modern"><span class="dot d3"></span>Moderne</button>
+      <button class="theme-btn" data-theme-btn="nature"><span class="dot d4"></span>Nature</button>
+      <button class="theme-btn" data-theme-btn="night"><span class="dot d5"></span>Lounge</button>
+    </div>
+    <div class="control-label">5 thèmes · 5 variantes / section →</div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- ============ 1. HERO ============ -->
+  <section class="section" id="s-hero">
+    <div class="section-head">
+      <div><div class="kicker">Section 1</div><h2>En-tête d'accueil</h2></div>
+      <div class="variant-switch" data-section="hero">
+        <button class="v-btn active" data-variant="1">Plein écran</button>
+        <button class="v-btn" data-variant="2">Deux colonnes</button>
+        <button class="v-btn" data-variant="3">Minimal</button>
+        <button class="v-btn" data-variant="4">Diaporama</button>
+        <button class="v-btn" data-variant="5">Magazine</button>
+      </div>
+    </div>
+
+    <div class="variant active" data-variant="1">
+      <div class="hero1">
+        <img class="bgimg" data-src="restaurant-interior" alt="">
+        <div class="inner">
+          <div class="kicker">Cuisine de saison · Valais</div>
+          <h1>Le Gourmet</h1>
+          <p>Une table où les produits du terroir rencontrent l'audace du chef.</p>
+          <div class="hero-cta"><a class="btn" href="#s-resa">Réserver une table</a><a class="btn ghost" href="#s-menu" style="color:#fff;border-color:rgba(255,255,255,.5)">Voir la carte</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="2">
+      <div class="hero2">
+        <div class="txt">
+          <div class="kicker">Bienvenue au</div><h1>Le Gourmet</h1>
+          <p>Cuisine généreuse, produits frais et ambiance conviviale au cœur du Valais.</p>
+          <div class="facts"><div><b>Mar – Dim</b><small>12h · 22h</small></div><div><b>+41 27 000 00 00</b><small>Réservations</small></div><div><b>★ 4.8/5</b><small>320 avis</small></div></div>
+          <div class="hero-cta"><a class="btn" href="#s-resa">Réserver</a><a class="btn ghost" href="#s-menu">La carte</a></div>
+        </div>
+        <div class="pic"><img data-src="plated-dish" alt=""></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="3">
+      <div class="hero3">
+        <div class="kicker">Restaurant · Bar · Terrasse</div><h1>Le Gourmet</h1>
+        <p>L'essentiel, sans détour : de bons produits, cuisinés avec soin, servis avec le sourire.</p>
+        <div class="hero-cta"><a class="btn" href="#s-resa">Réserver une table</a></div>
+        <div class="thumbs"><img data-src="dish-1" alt=""><img data-src="steak" alt=""><img data-src="ambiance" alt=""><img data-src="dessert" alt=""></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="4">
+      <div class="hero4" id="hero4">
+        <div class="slide on"><img data-src="ambiance" alt=""></div>
+        <div class="slide"><img data-src="steak" alt=""></div>
+        <div class="slide"><img data-src="dessert" alt=""></div>
+        <div class="sdots"><span class="on"></span><span></span><span></span></div>
+        <div class="inner"><h1>Le Gourmet</h1><p>Vivez l'expérience d'une table d'exception, au fil des saisons.</p><a class="btn" href="#s-resa">Réserver</a></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="5">
+      <div class="hero5">
+        <div class="txt">
+          <div class="kicker">Le Gourmet</div><h1>Le goût,<br>autrement.</h1>
+          <p>Une cuisine créative qui met le produit valaisan à l'honneur.</p>
+          <div class="hero-cta"><a class="btn" href="#s-resa">Réserver</a><a class="btn ghost" href="#s-menu">La carte</a></div>
+        </div>
+        <div class="stack"><img class="i1" data-src="plated-dish" alt=""><img class="i2" data-src="dessert" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. DESCRIPTION ============ -->
+  <section class="section" id="s-desc">
+    <div class="section-head">
+      <div><div class="kicker">Section 2</div><h2>Le restaurant en bref</h2></div>
+      <div class="variant-switch" data-section="desc">
+        <button class="v-btn active" data-variant="1">Texte + valeurs</button>
+        <button class="v-btn" data-variant="2">Texte + image</button>
+        <button class="v-btn" data-variant="3">Chiffres clés</button>
+        <button class="v-btn" data-variant="4">Mot du chef</button>
+        <button class="v-btn" data-variant="5">Points forts</button>
+      </div>
+    </div>
+
+    <div class="variant active" data-variant="1">
+      <div class="d1">
+        <div class="kicker" style="font-family:var(--font-sub);color:var(--accent);font-size:1.3rem">Notre philosophie</div>
+        <p class="lead">Depuis 2012, Le Gourmet célèbre la cuisine du terroir valaisan avec des produits frais, de saison et une touche d'audace.</p>
+        <div class="values">
+          <div class="val"><div class="ic">🌿</div><b>Produits frais</b><small>Du marché à l'assiette</small></div>
+          <div class="val"><div class="ic">👨‍🍳</div><b>Fait maison</b><small>Tout est préparé sur place</small></div>
+          <div class="val"><div class="ic">🍷</div><b>Vins locaux</b><small>Sélection de vignerons du Valais</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="2">
+      <div class="d2">
+        <div class="pic"><img data-src="chef" alt=""></div>
+        <div>
+          <div class="kicker" style="font-family:var(--font-sub);color:var(--accent);font-size:1.3rem">Notre histoire</div>
+          <h3>Une passion transmise en famille</h3>
+          <p>Le Gourmet, c'est avant tout l'histoire d'une famille passionnée par la bonne cuisine et l'accueil chaleureux.</p>
+          <p>Chaque plat raconte le terroir : nos producteurs sont nos voisins, nos recettes évoluent avec les saisons.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="3">
+      <div class="d3">
+        <p class="muted" style="max-width:560px;margin:0 auto 24px">Le Gourmet en quelques chiffres.</p>
+        <div class="stats">
+          <div class="stat"><div class="n">12</div><small>ans d'expérience</small></div>
+          <div class="stat"><div class="n">40</div><small>plats à la carte</small></div>
+          <div class="stat"><div class="n">4.8</div><small>note moyenne</small></div>
+          <div class="stat"><div class="n">15</div><small>producteurs locaux</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="4">
+      <div class="d4">
+        <img class="portrait" data-src="chef" alt="">
+        <div>
+          <blockquote>« Je cuisine ce que la nature nous offre, au moment où elle nous l'offre. Rien de plus, rien de moins. »</blockquote>
+          <div class="sign">— Marc Fournier, Chef</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="5">
+      <div class="d5">
+        <div class="feat"><div class="ic">🥗</div><h4>Cuisine de saison</h4><p>Une carte qui change au rythme des récoltes valaisannes.</p></div>
+        <div class="feat"><div class="ic">🏔️</div><h4>Terrasse panoramique</h4><p>Vue imprenable sur les montagnes, aux beaux jours.</p></div>
+        <div class="feat"><div class="ic">🎉</div><h4>Événements privés</h4><p>Mariages, anniversaires et repas d'entreprise sur mesure.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. PHOTOS PLATS ============ -->
+  <section class="section" id="s-photos">
+    <div class="section-head">
+      <div><div class="kicker">Section 3</div><h2>Nos plats en photos</h2></div>
+      <div class="variant-switch" data-section="photos">
+        <button class="v-btn active" data-variant="1">Mosaïque</button>
+        <button class="v-btn" data-variant="2">Carrousel</button>
+        <button class="v-btn" data-variant="3">Filtres</button>
+        <button class="v-btn" data-variant="4">Cartes zoom</button>
+        <button class="v-btn" data-variant="5">Plat vedette</button>
+      </div>
+    </div>
+
+    <div class="variant active" data-variant="1">
+      <div class="p-mosaic">
+        <img class="big" data-src="steak" alt=""><img data-src="dish-1" alt=""><img data-src="ambiance" alt="">
+        <img data-src="dessert" alt=""><img data-src="risotto" alt=""><img data-src="tartare" alt="">
+        <img data-src="fish" alt=""><img data-src="salade" alt="">
+      </div>
+    </div>
+
+    <div class="variant" data-variant="2">
+      <div class="p-carousel">
+        <div class="track" id="pTrack"><img data-src="ambiance" alt=""><img data-src="steak" alt=""><img data-src="dessert" alt=""><img data-src="risotto" alt=""><img data-src="tartare" alt=""><img data-src="fish" alt=""></div>
+        <div class="p-nav"><button data-dir="-1">‹</button><button data-dir="1">›</button></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="3">
+      <div class="p-filters">
+        <button class="f-btn active" data-filter="all">Tout</button>
+        <button class="f-btn" data-filter="plats">Plats</button>
+        <button class="f-btn" data-filter="ambiance">Ambiance</button>
+        <button class="f-btn" data-filter="desserts">Desserts</button>
+      </div>
+      <div class="p-grid">
+        <figure data-cat="plats"><img data-src="steak" alt=""><figcaption>Entrecôte grillée</figcaption></figure>
+        <figure data-cat="ambiance"><img data-src="ambiance" alt=""><figcaption>Notre salle</figcaption></figure>
+        <figure data-cat="desserts"><img data-src="dessert" alt=""><figcaption>Moelleux chocolat</figcaption></figure>
+        <figure data-cat="plats"><img data-src="risotto" alt=""><figcaption>Risotto truffe</figcaption></figure>
+        <figure data-cat="plats"><img data-src="fish" alt=""><figcaption>Filet d'omble</figcaption></figure>
+        <figure data-cat="desserts"><img data-src="tarte" alt=""><figcaption>Tarte aux abricots</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="4">
+      <div class="p-cards">
+        <div class="pc"><img data-src="steak" alt=""><div class="lbl"><span>39.–</span><b>Entrecôte grillée</b></div></div>
+        <div class="pc"><img data-src="risotto" alt=""><div class="lbl"><span>28.–</span><b>Risotto truffe</b></div></div>
+        <div class="pc"><img data-src="fish" alt=""><div class="lbl"><span>34.–</span><b>Filet d'omble</b></div></div>
+        <div class="pc"><img data-src="dessert" alt=""><div class="lbl"><span>12.–</span><b>Moelleux chocolat</b></div></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="5">
+      <div class="p-hero">
+        <div class="feature"><img data-src="steak" alt=""><div class="cap"><span class="muted" style="color:var(--accent-soft)">Le plat signature</span><b>Entrecôte, beurre café de Paris</b></div></div>
+        <div class="mini"><img data-src="risotto" alt=""></div>
+        <div class="mini"><img data-src="dessert" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. MENU ============ -->
+  <section class="section" id="s-menu">
+    <div class="section-head">
+      <div><div class="kicker">Section 4 · La carte</div><h2>La Carte</h2></div>
+      <div class="variant-switch" data-section="menu">
+        <button class="v-btn active" data-variant="1">Accordéon</button>
+        <button class="v-btn" data-variant="2">Onglets photo</button>
+        <button class="v-btn" data-variant="3">Carte élégante</button>
+        <button class="v-btn" data-variant="4">Ardoise du jour</button>
+        <button class="v-btn" data-variant="5">Liste épurée</button>
+      </div>
+    </div>
+
+    <div class="variant active" data-variant="1">
+      <div class="menu-acc">
+        <div class="acc-item open"><button class="acc-head">Entrées <span class="plus">+</span></button><div class="acc-body">
+          <div class="dish-row"><div><div class="d-name">Velouté de courge</div><div class="d-desc">Graines torréfiées, huile de noisette</div></div><div class="d-price">14.–</div></div>
+          <div class="dish-row"><div><div class="d-name">Tartare de bœuf</div><div class="d-desc">Coupé au couteau, câpres, pain grillé</div></div><div class="d-price">19.–</div></div>
+          <div class="dish-row"><div><div class="d-name">Salade du marché</div><div class="d-desc">Légumes de saison, vinaigrette maison</div></div><div class="d-price">16.–</div></div>
+        </div></div>
+        <div class="acc-item"><button class="acc-head">Plats <span class="plus">+</span></button><div class="acc-body">
+          <div class="dish-row"><div><div class="d-name">Entrecôte grillée</div><div class="d-desc">Frites maison, beurre café de Paris</div></div><div class="d-price">39.–</div></div>
+          <div class="dish-row"><div><div class="d-name">Filet d'omble</div><div class="d-desc">Écrasé de pomme de terre, beurre blanc</div></div><div class="d-price">34.–</div></div>
+          <div class="dish-row"><div><div class="d-name">Risotto aux champignons</div><div class="d-desc">Parmesan 24 mois, huile de truffe</div></div><div class="d-price">28.–</div></div>
+        </div></div>
+        <div class="acc-item"><button class="acc-head">Desserts <span class="plus">+</span></button><div class="acc-body">
+          <div class="dish-row"><div><div class="d-name">Moelleux au chocolat</div><div class="d-desc">Cœur coulant, glace vanille</div></div><div class="d-price">12.–</div></div>
+          <div class="dish-row"><div><div class="d-name">Tarte aux abricots</div><div class="d-desc">Abricots du Valais, crème d'amande</div></div><div class="d-price">11.–</div></div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="2">
+      <div class="menu-tabs"><button class="tab-btn active" data-tab="e">Entrées</button><button class="tab-btn" data-tab="p">Plats</button><button class="tab-btn" data-tab="d">Desserts</button></div>
+      <div class="tab-panel active" data-tab="e">
+        <div class="dish-card"><img class="ph" data-src="salade" alt=""><div class="body"><h4>Velouté de courge <span>14.–</span></h4><p>Graines torréfiées, huile de noisette.</p><div class="tags"><span class="tag">Végé</span></div></div></div>
+        <div class="dish-card"><img class="ph" data-src="tartare" alt=""><div class="body"><h4>Tartare de bœuf <span>19.–</span></h4><p>Coupé au couteau, câpres.</p><div class="tags"><span class="tag">Signature</span></div></div></div>
+        <div class="dish-card"><img class="ph" data-src="dish-1" alt=""><div class="body"><h4>Salade du marché <span>16.–</span></h4><p>Légumes de saison.</p><div class="tags"><span class="tag">Végé</span></div></div></div>
+      </div>
+      <div class="tab-panel" data-tab="p">
+        <div class="dish-card"><img class="ph" data-src="steak" alt=""><div class="body"><h4>Entrecôte <span>39.–</span></h4><p>Frites maison, café de Paris.</p><div class="tags"><span class="tag">Best-seller</span></div></div></div>
+        <div class="dish-card"><img class="ph" data-src="fish" alt=""><div class="body"><h4>Filet d'omble <span>34.–</span></h4><p>Beurre blanc.</p><div class="tags"><span class="tag">Local</span></div></div></div>
+        <div class="dish-card"><img class="ph" data-src="risotto" alt=""><div class="body"><h4>Risotto <span>28.–</span></h4><p>Huile de truffe.</p><div class="tags"><span class="tag">Végé</span></div></div></div>
+      </div>
+      <div class="tab-panel" data-tab="d">
+        <div class="dish-card"><img class="ph" data-src="dessert" alt=""><div class="body"><h4>Moelleux <span>12.–</span></h4><p>Cœur coulant, glace vanille.</p></div></div>
+        <div class="dish-card"><img class="ph" data-src="tarte" alt=""><div class="body"><h4>Tarte abricots <span>11.–</span></h4><p>Crème d'amande.</p><div class="tags"><span class="tag">De saison</span></div></div></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="3">
+      <div class="menu-card">
+        <div class="mc-title"><div class="kicker">Notre suggestion</div><h3>Menu de la Maison</h3></div>
+        <div class="mc-cols">
+          <div>
+            <div class="mc-cat">Entrées</div>
+            <div class="mc-line"><span class="n">Velouté de courge <small>Graines torréfiées</small></span><span class="dot-fill"></span><span class="p">14.–</span></div>
+            <div class="mc-line"><span class="n">Tartare de bœuf <small>Coupé au couteau</small></span><span class="dot-fill"></span><span class="p">19.–</span></div>
+            <div class="mc-cat">Desserts</div>
+            <div class="mc-line"><span class="n">Moelleux chocolat</span><span class="dot-fill"></span><span class="p">12.–</span></div>
+            <div class="mc-line"><span class="n">Tarte aux abricots</span><span class="dot-fill"></span><span class="p">11.–</span></div>
+          </div>
+          <div>
+            <div class="mc-cat">Plats</div>
+            <div class="mc-line"><span class="n">Entrecôte grillée <small>Café de Paris</small></span><span class="dot-fill"></span><span class="p">39.–</span></div>
+            <div class="mc-line"><span class="n">Filet d'omble <small>Beurre blanc</small></span><span class="dot-fill"></span><span class="p">34.–</span></div>
+            <div class="mc-cat">Vins au verre</div>
+            <div class="mc-line"><span class="n">Fendant du Valais</span><span class="dot-fill"></span><span class="p">7.–</span></div>
+            <div class="mc-line"><span class="n">Pinot Noir</span><span class="dot-fill"></span><span class="p">8.–</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="4">
+      <div class="slate">
+        <div class="day">Aujourd'hui</div><h3>Le Menu du Jour</h3>
+        <div class="sl-line"><b>Velouté de courge</b><small>Graines torréfiées, huile de noisette</small></div>
+        <div class="sl-line"><b>Filet d'omble du Léman</b><small>Écrasé de pomme de terre, beurre blanc</small></div>
+        <div class="sl-line"><b>Moelleux au chocolat</b><small>Cœur coulant, glace vanille</small></div>
+        <div class="sl-price">Menu complet · 42.–</div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="5">
+      <div class="menu-min">
+        <div class="mm-cat">Entrées</div>
+        <div class="mm-row"><span class="n"><b>Velouté de courge</b><small>Graines torréfiées</small></span><span class="p">14.–</span></div>
+        <div class="mm-row"><span class="n"><b>Tartare de bœuf</b><small>Câpres, pain grillé</small></span><span class="p">19.–</span></div>
+        <div class="mm-cat">Plats</div>
+        <div class="mm-row"><span class="n"><b>Entrecôte grillée</b><small>Café de Paris</small></span><span class="p">39.–</span></div>
+        <div class="mm-row"><span class="n"><b>Risotto aux champignons</b><small>Huile de truffe</small></span><span class="p">28.–</span></div>
+        <div class="mm-cat">Desserts</div>
+        <div class="mm-row"><span class="n"><b>Moelleux au chocolat</b><small>Glace vanille</small></span><span class="p">12.–</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. PHOTO CRÉATIVE ============ -->
+  <section class="section" id="s-ambiance">
+    <div class="section-head">
+      <div><div class="kicker">Section 5</div><h2>Zoom sur l'ambiance</h2></div>
+      <div class="variant-switch" data-section="ambiance">
+        <button class="v-btn active" data-variant="1">Bandeau immersif</button>
+        <button class="v-btn" data-variant="2">Chevauchement</button>
+        <button class="v-btn" data-variant="3">Diptyque</button>
+        <button class="v-btn" data-variant="4">Forme découpée</button>
+        <button class="v-btn" data-variant="5">Collage</button>
+      </div>
+    </div>
+
+    <div class="variant active" data-variant="1">
+      <div class="ci1" data-bg="ambiance">
+        <div class="inner"><div class="kicker">L'expérience Le Gourmet</div><h3>Un cadre pensé pour les moments qui comptent</h3><p>Lumière tamisée, matières nobles et service attentionné : chaque détail compte.</p></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="2">
+      <div class="ci2">
+        <img class="bigpic" data-src="ambiance" alt="">
+        <div class="card"><div class="kicker">Notre salle</div><h3>Chaleureuse & intime</h3><p>Une quarantaine de couverts dans une ambiance feutrée, idéale pour un dîner en tête-à-tête comme pour une soirée entre amis.</p></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="3">
+      <div class="ci3">
+        <img data-src="ambiance" alt="">
+        <div class="mid"><div class="kicker">Salle & terrasse</div><h3>Deux ambiances</h3><p>Le confort à l'intérieur, la vue en terrasse.</p></div>
+        <img data-src="chef" alt="">
+      </div>
+    </div>
+
+    <div class="variant" data-variant="4">
+      <div class="ci4">
+        <div class="shape"><img data-src="chef" alt=""></div>
+        <div><div class="kicker" style="font-family:var(--font-sub);color:var(--accent);font-size:1.3rem">Rencontrez le chef</div><h3>La main derrière l'assiette</h3><p>Marc Fournier compose chaque jour une cuisine instinctive, guidée par le marché.</p><p>Une approche simple : le meilleur produit, sublimé sans artifice.</p></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="5">
+      <div class="ci5">
+        <img class="t1" data-src="ambiance" alt="">
+        <img data-src="steak" alt=""><img data-src="dessert" alt="">
+        <div class="quote">« Chaque repas est une histoire que l'on raconte. »</div>
+        <img data-src="risotto" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. AVIS ============ -->
+  <section class="section" id="s-avis">
+    <div class="section-head">
+      <div><div class="kicker">Section 6</div><h2>Avis des clients</h2></div>
+      <div class="variant-switch" data-section="avis">
+        <button class="v-btn active" data-variant="1">Citation défilante</button>
+        <button class="v-btn" data-variant="2">Cartes</button>
+        <button class="v-btn" data-variant="3">Note globale</button>
+        <button class="v-btn" data-variant="4">Mur d'avis</button>
+        <button class="v-btn" data-variant="5">Bandeau défilant</button>
+      </div>
+    </div>
+
+    <div class="variant active" data-variant="1">
+      <div class="rev-quote">
+        <div class="stars">★★★★★</div>
+        <blockquote id="revText">« Une cuisine généreuse et un accueil aux petits soins. On reviendra, c'est certain ! »</blockquote>
+        <div class="who" id="revWho">— Sophie M., Sion</div>
+        <div class="rev-dots" id="revDots"><span class="active"></span><span></span><span></span></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="2">
+      <div class="rev-cards">
+        <div class="rev-card"><div class="stars">★★★★★</div><p>« Le meilleur risotto que j'ai mangé depuis longtemps. Service impeccable. »</p><div class="person"><img class="av" data-src="avatar-1" alt=""><div><b>Marc D.</b><small>Google · il y a 2 sem.</small></div></div></div>
+        <div class="rev-card"><div class="stars">★★★★★</div><p>« Cadre chaleureux, produits frais, addition correcte. Parfait en famille. »</p><div class="person"><img class="av" data-src="avatar-2" alt=""><div><b>Julie R.</b><small>TripAdvisor</small></div></div></div>
+        <div class="rev-card"><div class="stars">★★★★☆</div><p>« Très bonne table, desserts au top. Réservez, c'est souvent complet ! »</p><div class="person"><img class="av" data-src="avatar-3" alt=""><div><b>Thomas B.</b><small>Google · il y a 1 mois</small></div></div></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="3">
+      <div class="rev-band">
+        <div class="rev-score"><div class="big">4.8</div><div class="stars">★★★★★</div><small>sur 320 avis</small></div>
+        <div class="rev-logos"><div class="rev-logo"><div class="n">4.8</div><small>★ Google</small></div><div class="rev-logo"><div class="n">4.7</div><small>★ TripAdvisor</small></div><div class="rev-logo"><div class="n">4.9</div><small>★ Facebook</small></div></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="4">
+      <div class="rev-wall">
+        <div class="w"><div class="stars">★★★★★</div><p>« Une adresse incontournable à Sion. Le chef a un vrai talent. »</p><b>Elena R.</b> <small>· Google</small></div>
+        <div class="w"><div class="stars">★★★★★</div><p>« Accueil parfait, produits frais et carte des vins locale superbe. »</p><b>Laurent P.</b> <small>· TripAdvisor</small></div>
+        <div class="w"><div class="stars">★★★★☆</div><p>« Excellent rapport qualité-prix. On y retourne sans hésiter. »</p><b>Sophie M.</b> <small>· Google</small></div>
+        <div class="w"><div class="stars">★★★★★</div><p>« La terrasse en été est un vrai bonheur. Coup de cœur ! »</p><b>Marc D.</b> <small>· Facebook</small></div>
+        <div class="w"><div class="stars">★★★★★</div><p>« Le moelleux au chocolat… à tomber. Service aux petits soins. »</p><b>Julie R.</b> <small>· Google</small></div>
+        <div class="w"><div class="stars">★★★★★</div><p>« Repas d'affaires réussi, cadre pro et discret. Merci ! »</p><b>Thomas B.</b> <small>· Google</small></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="5">
+      <div class="rev-marquee">
+        <div class="row" id="marqRow">
+          <div class="m"><div class="stars">★★★★★</div><p>« Une cuisine généreuse et un accueil aux petits soins. »</p><small>— Sophie M.</small></div>
+          <div class="m"><div class="stars">★★★★★</div><p>« Le meilleur risotto de la région, sans hésiter. »</p><small>— Marc D.</small></div>
+          <div class="m"><div class="stars">★★★★☆</div><p>« Cadre chaleureux, produits frais, on reviendra. »</p><small>— Julie R.</small></div>
+          <div class="m"><div class="stars">★★★★★</div><p>« La terrasse l'été est magnifique. Coup de cœur. »</p><small>— Laurent P.</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. RÉSERVATION ============ -->
+  <section class="section" id="s-resa">
+    <div class="section-head">
+      <div><div class="kicker">Section 7</div><h2>Réservation</h2></div>
+      <div class="variant-switch" data-section="resa">
+        <button class="v-btn active" data-variant="1">Formulaire</button>
+        <button class="v-btn" data-variant="2">Visuel + options</button>
+        <button class="v-btn" data-variant="3">Étapes rapides</button>
+        <button class="v-btn" data-variant="4">Appel à l'action</button>
+        <button class="v-btn" data-variant="5">Compact + image</button>
+      </div>
+    </div>
+
+    <div class="variant active" data-variant="1">
+      <div class="resa-form">
+        <h3 style="text-align:center;margin-bottom:6px">Réservez votre table</h3>
+        <p style="text-align:center;color:var(--muted);margin-bottom:24px">Nous confirmons sous 2 h.</p>
+        <div class="resa-grid">
+          <div class="field"><label>Nom</label><input type="text" placeholder="Votre nom"></div>
+          <div class="field"><label>Téléphone</label><input type="tel" placeholder="+41 ..."></div>
+          <div class="field"><label>Date</label><input type="date"></div>
+          <div class="field"><label>Heure</label><input type="time"></div>
+          <div class="field"><label>Personnes</label><select><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div>
+          <div class="field"><label>Occasion</label><select><option>—</option><option>Anniversaire</option><option>Repas d'affaires</option></select></div>
+          <div class="field full"><label>Remarque</label><textarea rows="2" placeholder="Allergies, chaise bébé..."></textarea></div>
+        </div>
+        <button class="btn" style="width:100%;justify-content:center;margin-top:18px">Confirmer la réservation</button>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="2">
+      <div class="resa-split">
+        <div class="pic"><img data-src="ambiance" alt=""></div>
+        <div class="side">
+          <h3>Envie de nous rejoindre ?</h3><p>Choisissez la manière qui vous convient.</p>
+          <div class="resa-opts">
+            <div class="resa-opt"><span class="ic">📞</span><div><b>Par téléphone</b><small>+41 27 000 00 00 · 9h–18h</small></div></div>
+            <div class="resa-opt"><span class="ic">💻</span><div><b>En ligne</b><small>Réservation instantanée 24/7</small></div></div>
+            <div class="resa-opt"><span class="ic">✉️</span><div><b>Par e-mail</b><small>bonjour@legourmet.ch</small></div></div>
+          </div>
+          <a class="btn" style="margin-top:22px" href="#">Réserver en ligne</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="3">
+      <div class="resa-steps">
+        <div class="steps-row">
+          <div class="step-box"><div class="num">1</div><b>Combien ?</b><div class="chips"><span class="chip">2</span><span class="chip sel">4</span><span class="chip">6</span></div></div>
+          <div class="step-box"><div class="num">2</div><b>Quel jour ?</b><div class="chips"><span class="chip">Ven</span><span class="chip sel">Sam</span><span class="chip">Dim</span></div></div>
+          <div class="step-box"><div class="num">3</div><b>Quelle heure ?</b><div class="chips"><span class="chip">19h</span><span class="chip sel">20h</span><span class="chip">21h</span></div></div>
+        </div>
+        <button class="btn" style="justify-content:center">Voir les disponibilités →</button>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="4">
+      <div class="resa-cta">
+        <img class="bg" data-src="steak" alt="">
+        <div class="inner"><h3>Une table vous attend</h3><p>Réservez en un appel, on s'occupe du reste.</p><a class="btn" href="#">Réserver en ligne</a><div class="phone">📞 +41 27 000 00 00</div></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="5">
+      <div class="resa-compact">
+        <div class="pic"><img data-src="plated-dish" alt=""></div>
+        <div class="form">
+          <h3>Réservation express</h3>
+          <div class="mini"><div class="field"><label>Date</label><input type="date"></div><div class="field"><label>Heure</label><input type="time"></div></div>
+          <div class="mini"><div class="field"><label>Pers.</label><select><option>2</option><option>4</option><option>6</option></select></div><div class="field"><label>Tél.</label><input type="tel" placeholder="+41"></div></div>
+          <button class="btn" style="width:100%;justify-content:center;margin-top:6px">Réserver</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. INFOS PRATIQUES ============ -->
+  <section class="section" id="s-infos">
+    <div class="section-head">
+      <div><div class="kicker">Section 8</div><h2>Infos pratiques</h2></div>
+      <div class="variant-switch" data-section="infos">
+        <button class="v-btn active" data-variant="1">Carte + infos</button>
+        <button class="v-btn" data-variant="2">Horaires stylisés</button>
+        <button class="v-btn" data-variant="3">Pied de page riche</button>
+        <button class="v-btn" data-variant="4">Trois blocs</button>
+        <button class="v-btn" data-variant="5">Bandeau compact</button>
+      </div>
+    </div>
+
+    <div class="variant active" data-variant="1">
+      <div class="ct-map">
+        <iframe loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=7.35%2C46.22%2C7.39%2C46.24&layer=mapnik"></iframe>
+        <div class="info">
+          <h3>Nous trouver</h3>
+          <div class="info-row"><span class="ic">📍</span><div><b>Le Gourmet</b><small>Rue du Centre 1, Valais, Suisse</small></div></div>
+          <div class="info-row"><span class="ic">🕑</span><div><b>Horaires</b><small>Mar – Dim · 12h–14h & 18h–22h</small></div></div>
+          <div class="info-row"><span class="ic">📞</span><div><b>+41 27 000 00 00</b><small>Réservations</small></div></div>
+          <div class="info-row"><span class="ic">✉️</span><div><b>bonjour@legourmet.ch</b><small>Nous écrire</small></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="2">
+      <div class="ct-hours">
+        <div class="hours-card">
+          <h3>Nos horaires</h3>
+          <div class="hrow"><span>Lundi</span><span class="closed">Fermé</span></div>
+          <div class="hrow"><span>Mardi</span><span>12h–14h · 18h–22h</span></div>
+          <div class="hrow"><span>Mercredi</span><span>12h–14h · 18h–22h</span></div>
+          <div class="hrow"><span>Jeudi</span><span>12h–14h · 18h–22h</span></div>
+          <div class="hrow"><span>Vendredi</span><span>12h–14h · 18h–23h</span></div>
+          <div class="hrow"><span>Samedi</span><span>18h–23h</span></div>
+          <div class="hrow"><span>Dimanche</span><span>12h–15h</span></div>
+        </div>
+        <div class="hours-card">
+          <h3>Nous joindre</h3>
+          <div class="contact-lines">
+            <a href="#"><span>📞</span> +41 27 000 00 00</a>
+            <a href="#"><span>✉️</span> bonjour@legourmet.ch</a>
+            <a href="#"><span>📍</span> Rue du Centre 1, Valais</a>
+            <a href="#"><span>🅿️</span> Parking gratuit à 50 m</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="3">
+      <div class="ct-rich">
+        <div class="rich-grid">
+          <div><h4>Le Gourmet</h4><p>Cuisine de saison au cœur du Valais. Une table conviviale pour tous vos moments.</p><div class="socials"><a href="#">f</a><a href="#">◎</a><a href="#">in</a></div></div>
+          <div><h4>Horaires</h4><ul><li>Mardi – Vendredi : 12h–22h</li><li>Samedi : 18h–23h</li><li>Dimanche : 12h–15h</li><li>Lundi : fermé</li></ul></div>
+          <div><h4>Contact</h4><ul><li>📞 +41 27 000 00 00</li><li>✉️ bonjour@legourmet.ch</li><li>📍 Rue du Centre 1, Valais</li></ul></div>
+        </div>
+        <div class="rich-map"><iframe loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=7.35%2C46.22%2C7.39%2C46.24&layer=mapnik"></iframe></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="4">
+      <div class="ct-blocks">
+        <div class="ct-block"><div class="ic">🕑</div><h4>Horaires</h4><p>Mar – Dim<br>12h–14h & 18h–22h<br>Lundi fermé</p></div>
+        <div class="ct-block"><div class="ic">📍</div><h4>Adresse</h4><p>Rue du Centre 1<br>Valais, Suisse<br>Parking à 50 m</p></div>
+        <div class="ct-block"><div class="ic">📞</div><h4>Contact</h4><p>+41 27 000 00 00<br>bonjour@legourmet.ch</p></div>
+      </div>
+    </div>
+
+    <div class="variant" data-variant="5">
+      <div class="ct-bar">
+        <div class="item"><span class="ic">🕑</span><div><b>Mar – Dim</b><small>12h–22h</small></div></div>
+        <div class="item"><span class="ic">📍</span><div><b>Rue du Centre 1</b><small>Valais</small></div></div>
+        <div class="item"><span class="ic">📞</span><div><b>+41 27 000 00 00</b><small>Réservations</small></div></div>
+        <a class="btn" href="#">Itinéraire</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ RÉCAP DES CHOIX ============ -->
+<button class="recap-btn" id="recapBtn">📋 Récap des choix</button>
+<div class="recap-panel" id="recapPanel">
+  <h4>Récapitulatif</h4>
+  <div class="sub">Les choix actuellement affichés</div>
+  <div id="recapBody"></div>
+  <button class="btn" onclick="window.print()">🖨️ Imprimer / PDF</button>
+</div>
+
+<footer class="demo-footer">
+  Maquette interactive réalisée par <b>NB-Design</b> · Choisissez un thème et une variante par section pour composer votre site.
+</footer>
+
+<script>
+/* ---------- Images ---------- */
+const IMG={
+  "restaurant-interior":"1517248135467-4c7edcad34c4","plated-dish":"1546241072-48010ad2862c",
+  "ambiance":"1414235077428-338989a2e8c0","dish-1":"1512621776951-a57141f2eefd",
+  "steak":"1546241072-48010ad2862c","fish":"1519708227418-c8fd9a32b7a2",
+  "risotto":"1476124369491-e7addf5db371","tartare":"1544025162-d76694265947",
+  "salade":"1540189549336-e6e99c3679fe","dessert":"1551024601-bec78aea704b",
+  "tarte":"1568571780765-9276ac8b75a2","chef":"1556910103-1c02745aae4d",
+  "avatar-1":"1507003211169-0a1dd7228f2d","avatar-2":"1494790108377-be9c29b29330","avatar-3":"1500648767791-00dcc994a43e"
+};
+function url(id){return "https://images.unsplash.com/photo-"+id+"?w=900&q=80&auto=format&fit=crop";}
+document.querySelectorAll('img[data-src]').forEach(img=>{
+  const id=IMG[img.dataset.src];
+  if(!id){img.classList.add('img-fallback');return;}
+  img.src=url(id); img.loading="lazy";
+  img.addEventListener('error',()=>{img.removeAttribute('src');img.classList.add('img-fallback');});
+});
+/* fonds CSS (photo créative bandeau) */
+document.querySelectorAll('[data-bg]').forEach(el=>{
+  const id=IMG[el.dataset.bg]; if(id) el.style.backgroundImage="url('"+url(id)+"')";
+});
+
+/* ---------- Thème ---------- */
+document.querySelectorAll('[data-theme-btn]').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.documentElement.setAttribute('data-theme',b.dataset.themeBtn);
+    document.querySelectorAll('[data-theme-btn]').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active'); buildRecap();
+  });
+});
+
+/* ---------- Variantes ---------- */
+document.querySelectorAll('.variant-switch').forEach(sw=>{
+  const sectionEl=sw.closest('.section');
+  sw.querySelectorAll('.v-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const v=btn.dataset.variant;
+      sw.querySelectorAll('.v-btn').forEach(x=>x.classList.remove('active'));
+      btn.classList.add('active');
+      sectionEl.querySelectorAll(':scope > .variant').forEach(p=>p.classList.toggle('active',p.dataset.variant===v));
+      buildRecap();
+    });
+  });
+});
+
+/* ---------- Accordéon ---------- */
+document.querySelectorAll('.acc-head').forEach(h=>h.addEventListener('click',()=>h.closest('.acc-item').classList.toggle('open')));
+
+/* ---------- Onglets menu ---------- */
+document.querySelectorAll('.menu-tabs').forEach(tabs=>{
+  const scope=tabs.closest('.variant');
+  tabs.querySelectorAll('.tab-btn').forEach(t=>t.addEventListener('click',()=>{
+    tabs.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active')); t.classList.add('active');
+    scope.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.dataset.tab===t.dataset.tab));
+  }));
+});
+
+/* ---------- Carrousel photos ---------- */
+const pTrack=document.getElementById('pTrack');
+if(pTrack) document.querySelectorAll('.p-nav button').forEach(b=>b.addEventListener('click',()=>pTrack.scrollBy({left:440*(+b.dataset.dir),behavior:'smooth'})));
+
+/* ---------- Filtres photos ---------- */
+document.querySelectorAll('.p-filters').forEach(f=>{
+  const grid=f.nextElementSibling;
+  f.querySelectorAll('.f-btn').forEach(btn=>btn.addEventListener('click',()=>{
+    f.querySelectorAll('.f-btn').forEach(x=>x.classList.remove('active')); btn.classList.add('active');
+    const cat=btn.dataset.filter;
+    grid.querySelectorAll('figure').forEach(fig=>fig.classList.toggle('hide',cat!=='all'&&fig.dataset.cat!==cat));
+  }));
+});
+
+/* ---------- Chips ---------- */
+document.querySelectorAll('.chips').forEach(group=>group.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+  group.querySelectorAll('.chip').forEach(x=>x.classList.remove('sel')); c.classList.add('sel');
+})));
+
+/* ---------- Diaporama hero ---------- */
+const hero4=document.getElementById('hero4');
+if(hero4){
+  const slides=hero4.querySelectorAll('.slide'), dots=hero4.querySelectorAll('.sdots span'); let hi=0;
+  setInterval(()=>{
+    if(!document.querySelector('#s-hero .variant[data-variant="4"]').classList.contains('active'))return;
+    hi=(hi+1)%slides.length;
+    slides.forEach((s,k)=>s.classList.toggle('on',k===hi));
+    dots.forEach((d,k)=>d.classList.toggle('on',k===hi));
+  },3500);
+}
+
+/* ---------- Avis défilants ---------- */
+const REVIEWS=[
+  ["« Une cuisine généreuse et un accueil aux petits soins. On reviendra, c'est certain ! »","— Sophie M., Sion"],
+  ["« Produits frais, assiettes soignées, rapport qualité-prix excellent. Bravo à l'équipe. »","— Laurent P., Martigny"],
+  ["« Le cadre est magnifique et le chef a un vrai talent. Une adresse à retenir. »","— Elena R., Sierre"]
+];
+let ri=0;
+const revText=document.getElementById('revText'),revWho=document.getElementById('revWho'),revDots=document.getElementById('revDots');
+function showRev(i){ri=i;revText.textContent=REVIEWS[i][0];revWho.textContent=REVIEWS[i][1];revDots.querySelectorAll('span').forEach((d,k)=>d.classList.toggle('active',k===i));}
+if(revDots){
+  revDots.querySelectorAll('span').forEach((d,k)=>d.addEventListener('click',()=>showRev(k)));
+  setInterval(()=>{if(document.querySelector('#s-avis .variant[data-variant="1"]').classList.contains('active'))showRev((ri+1)%REVIEWS.length);},5000);
+}
+
+/* ---------- Bandeau défilant (dupliquer pour boucle) ---------- */
+const marqRow=document.getElementById('marqRow');
+if(marqRow) marqRow.innerHTML+=marqRow.innerHTML;
+
+/* ---------- Récap des choix ---------- */
+const recapBtn=document.getElementById('recapBtn'),recapPanel=document.getElementById('recapPanel'),recapBody=document.getElementById('recapBody');
+function buildRecap(){
+  const theme=document.querySelector('.theme-btn.active').textContent.trim();
+  let html=`<div class="rc-line"><span>Thème global</span><b>${theme}</b></div>`;
+  document.querySelectorAll('.section').forEach(sec=>{
+    const title=sec.querySelector('h2').textContent.trim();
+    const active=sec.querySelector('.v-btn.active');
+    if(active) html+=`<div class="rc-line"><span>${title}</span><b>${active.textContent.trim()}</b></div>`;
+  });
+  recapBody.innerHTML=html;
+}
+recapBtn.addEventListener('click',()=>{buildRecap();recapPanel.classList.toggle('open');});
+buildRecap();
+</script>
+</body>
+</html>
