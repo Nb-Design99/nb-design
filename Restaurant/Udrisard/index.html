@@ -375,7 +375,7 @@
       inset: 0;
       z-index: -2;
       background-image:
-        linear-gradient(180deg, rgba(13,9,7,0.45) 0%, rgba(13,9,7,0.7) 55%, rgba(13,9,7,0.92) 100%),
+        linear-gradient(180deg, rgba(13,9,7,0.20) 0%, rgba(13,9,7,0.42) 55%, rgba(13,9,7,0.78) 100%),
         url('./images/devanture.jpg');
       background-size: cover;
       background-position: center;
@@ -513,13 +513,8 @@
       background: linear-gradient(to right, transparent, var(--gold), transparent);
     }
     .histoire-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    @media (max-width: 880px) {
-      .histoire-grid { grid-template-columns: 1fr; gap: 3rem; }
+      max-width: 780px;
+      margin: 0 auto;
     }
     .histoire-text p {
       font-size: 1.05rem;
@@ -778,6 +773,105 @@
       color: var(--cream-soft);
       line-height: 1.6;
     }
+
+    /* ====== AVIS CLIENTS ====== */
+    .avis {
+      background: var(--ink);
+      position: relative;
+    }
+    .avis::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 240px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .avis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .avis-card {
+      position: relative;
+      padding: 2.5rem 2rem 2rem;
+      background: var(--ink-soft);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      transition: transform 0.45s var(--ease-out), border-color 0.4s, box-shadow 0.5s;
+      display: flex;
+      flex-direction: column;
+    }
+    .avis-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -8px;
+      left: 24px;
+      font-family: var(--font-display);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.35;
+    }
+    .avis-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-gold);
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.35);
+    }
+    .avis-stars {
+      color: var(--gold-light);
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+    .avis-text {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+    .avis-meta {
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-soft);
+    }
+    .avis-meta strong {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.92rem;
+      color: var(--cream);
+      letter-spacing: 0.02em;
+    }
+    .avis-meta span {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.35rem;
+      font-weight: 500;
+    }
+    .avis-source {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+    .avis-source a {
+      color: var(--gold-light);
+      border-bottom: 1px solid var(--border-gold);
+      padding-bottom: 1px;
+      transition: color 0.25s;
+    }
+    .avis-source a:hover { color: var(--gold); }
 
     /* ====== RÉSERVATION (téléphone direct) ====== */
     .reservation {
@@ -1664,7 +1758,7 @@
             En 1898, la famille Udrisard ouvre les portes de son café dans une rue piétonne de la vieille ville de Sion. Depuis, quatre générations se sont succédé entre les mêmes murs, face au Château de Valère.
           </p>
           <p>
-            À la tête de la maison depuis vingt ans, Sylviane Udrisard perpétue l'âme du lieu. Une cuisine française attachée à ses classiques, ouverte à la modernité, fidèle aux produits de notre terroir valaisan.
+            Depuis bientôt 25 ans, Sylviane Udrisard perpétue l'âme du lieu. Une cuisine française attachée à ses classiques, ouverte à la modernité, fidèle aux produits d'ici et d'ailleurs.
           </p>
           <blockquote class="histoire-quote">
             « Nous accueillons nos hôtes comme nos grands-parents accueillaient les leurs. Avec le temps, l'élégance des choses simples. »
@@ -1672,24 +1766,6 @@
           </blockquote>
         </div>
 
-        <div class="timeline fade-up" data-delay="2">
-          <div class="timeline-item">
-            <div class="timeline-year">1898</div>
-            <p class="timeline-label">Fondation du café à la Rue du Rhône, au pied de Valère.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">1932</div>
-            <p class="timeline-label">Deuxième génération. La salle gagne son décor boisé d'inspiration valaisanne.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">1968</div>
-            <p class="timeline-label">Ouverture de la terrasse panoramique avec vue sur le château.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2005</div>
-            <p class="timeline-label">Sylviane reprend la maison. La carte s'enrichit du foie gras maison, du tartare coupé minute et du rouget au citron.</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1959,7 +2035,7 @@
     <div class="container">
       <div class="section-header centered fade-up">
         <p class="eyebrow">L'écrin</p>
-        <h2 class="section-title">Une terrasse <em>au pied de Valère</em></h2>
+        <h2 class="section-title">Des tables <em>au pied de Valère</em></h2>
         <p class="section-subtitle">
           Aux beaux jours, notre terrasse s'ouvre sur la rue piétonne, à quelques pas du château. Une parenthèse au cœur de la vieille ville de Sion.
         </p>
@@ -1972,6 +2048,63 @@
           <p>Un verre de Fendant, des amuse-bouches du moment, le clocher de Valère qui veille. Un moment qui appartient à Sion.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ====== AVIS CLIENTS ====== -->
+  <section class="avis" id="avis">
+    <div class="container">
+      <div class="section-header centered fade-up">
+        <p class="eyebrow">Ils en parlent</p>
+        <h2 class="section-title">Ce qu'on <em>dit de nous</em></h2>
+        <p class="section-subtitle">
+          Extraits de commentaires publiés par nos clients. Merci à celles et ceux qui prennent le temps de partager leur expérience.
+        </p>
+      </div>
+
+      <div class="avis-grid">
+
+        <article class="avis-card fade-up">
+          <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+          <p class="avis-text">
+            De passage à Sion, nous avons passé un excellent moment en terrasse. Grande qualité des produits et bon service, très attentionné et convivial. Un excellent burger à la viande d'Hérens et excellent pain boulanger.
+          </p>
+          <div class="avis-meta">
+            <strong>Johanne P.</strong>
+            <span>Lyon · Mai 2026</span>
+          </div>
+        </article>
+
+        <article class="avis-card fade-up" data-delay="1">
+          <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+          <p class="avis-text">
+            Restaurant à recommander ! Les serveurs sont hyper sympas, le cadre très joli, la nourriture très bonne. Nous y sommes allés par hasard avec le Passeport Gourmand et nous n'avons pas été déçues !
+          </p>
+          <div class="avis-meta">
+            <strong>Deborah B.</strong>
+            <span>Lausanne · Mars 2025</span>
+          </div>
+        </article>
+
+        <article class="avis-card fade-up" data-delay="2">
+          <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+          <p class="avis-text">
+            Un charmant petit café en bordure de la vieille ville qui sert une cuisine de grande qualité, préparée fraîchement. La carte est courte, mais tout ce que nous avons pris était excellent, et les propriétaires étaient super sympathiques.
+          </p>
+          <div class="avis-meta">
+            <strong>Claire K.</strong>
+            <span>Royaume-Uni · Traduit</span>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="avis-source fade-up">
+        Retrouvez tous nos avis sur
+        <a href="https://www.tripadvisor.fr/Restaurant_Review-g188097-d802167-Reviews-Udrisard_Cafe-Sion_Canton_of_Valais_Swiss_Alps.html" target="_blank" rel="noopener">Tripadvisor</a>
+        et
+        <a href="https://maps.google.com/?q=Udrisard+Caf%C3%A9+Sion" target="_blank" rel="noopener">Google Maps</a>
+      </p>
     </div>
   </section>
 
