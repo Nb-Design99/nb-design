@@ -258,18 +258,13 @@
       gap: 0.55rem;
     }
     .logo em { font-style: italic; font-weight: 400; color: var(--gold-light); }
-    .logo-flag {
-      display: inline-flex;
-      gap: 2px;
-      height: 18px;
-      border-radius: 2px;
-      overflow: hidden;
-      border: 1px solid rgba(245, 237, 224, 0.15);
+    .logo-italy {
+      height: 26px;
+      width: auto;
+      display: inline-block;
+      flex-shrink: 0;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.35));
     }
-    .logo-flag span { display: block; width: 6px; height: 100%; }
-    .logo-flag .f-green { background: #008c45; }
-    .logo-flag .f-white { background: #f4f5f0; }
-    .logo-flag .f-red { background: #cd212a; }
     .nav-links { display: none; gap: 2rem; align-items: center; }
     .nav-links a {
       font-size: 0.88rem;
@@ -1044,9 +1039,23 @@
   <div class="container">
     <nav class="nav">
       <a href="#" class="logo">
-        <span class="logo-flag" aria-hidden="true">
-          <span class="f-green"></span><span class="f-white"></span><span class="f-red"></span>
-        </span>
+        <svg class="logo-italy" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Nord (vert) : Alpes, plaine du Pô, Ligurie -->
+          <path d="M25,24 C29,18 37,14 44,15 C48,15 52,13 56,15 C61,17 67,14 72,17 C77,20 78,25 74,29 C70,33 64,35 58,37 C54,39 51,42 49,46 C48,49 48,52 49,55"
+                stroke="#0a6b3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <!-- Centre (blanc) : Toscane, Ombrie, transition -->
+          <path d="M49,55 C51,60 54,65 56,70 C57,72 58,75 58,77"
+                stroke="#e8e2d3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <!-- Sud (rouge) : Rome, Naples, talon des Pouilles, pointe Calabre -->
+          <path d="M58,77 C61,82 64,85 68,87 C74,90 81,94 82,98 C82,101 78,102 74,101 C70,100 66,102 62,103 C58,104 54,104 50,102 C47,100 43,99 40,101"
+                stroke="#cd212a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <!-- Sicile (rouge) -->
+          <path d="M28,122 C34,118 44,118 52,121 C56,123 53,128 46,128 C38,127 30,125 28,122 Z"
+                stroke="#cd212a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <!-- Sardaigne (vert) -->
+          <path d="M15,82 C12,86 12,96 15,100 C19,97 19,85 15,82 Z"
+                stroke="#0a6b3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
         <span>La <em>Botte</em></span>
       </a>
       <ul class="nav-links">
