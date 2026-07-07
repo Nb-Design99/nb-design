@@ -803,16 +803,14 @@
       gap: 1.5rem;
       width: max-content;
       animation: avisScroll 55s linear infinite;
+      will-change: transform;
     }
     .avis-track:hover {
       animation-play-state: paused;
     }
     @keyframes avisScroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(calc(-50% - 0.75rem)); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .avis-track { animation: none; flex-wrap: wrap; justify-content: center; }
+      0%   { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(calc(-50% - 0.75rem), 0, 0); }
     }
     .avis-card {
       position: relative;
