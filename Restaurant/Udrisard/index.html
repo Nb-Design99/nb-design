@@ -790,20 +790,44 @@
       height: 1px;
       background: linear-gradient(to right, transparent, var(--gold), transparent);
     }
-    .avis-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+    /* Marquee (bandeau défilant) */
+    .avis-marquee {
+      position: relative;
+      overflow: hidden;
+      padding: 1.5rem 0;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+      mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+    }
+    .avis-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      animation: avisScroll 55s linear infinite;
+    }
+    .avis-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes avisScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(-50% - 0.75rem)); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .avis-track { animation: none; flex-wrap: wrap; justify-content: center; }
     }
     .avis-card {
       position: relative;
+      flex-shrink: 0;
+      width: 380px;
       padding: 2.5rem 2rem 2rem;
       background: var(--ink-soft);
       border: 1px solid var(--border-soft);
       border-radius: var(--radius-md);
-      transition: transform 0.45s var(--ease-out), border-color 0.4s, box-shadow 0.5s;
+      transition: border-color 0.35s, box-shadow 0.4s;
       display: flex;
       flex-direction: column;
+    }
+    @media (max-width: 540px) {
+      .avis-card { width: 300px; padding: 2rem 1.5rem 1.5rem; }
     }
     .avis-card::before {
       content: '\201C';
@@ -817,7 +841,6 @@
       opacity: 0.35;
     }
     .avis-card:hover {
-      transform: translateY(-4px);
       border-color: var(--border-gold);
       box-shadow: 0 20px 44px rgba(0, 0, 0, 0.35);
     }
@@ -2143,41 +2166,122 @@
         </p>
       </div>
 
-      <div class="avis-grid">
+      <div class="avis-marquee fade-up" aria-label="Avis de nos clients, défilement continu">
+        <div class="avis-track">
 
-        <article class="avis-card fade-up">
-          <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-          <p class="avis-text">
-            De passage à Sion, nous avons passé un excellent moment en terrasse. Grande qualité des produits et bon service, très attentionné et convivial. Un excellent burger à la viande d'Hérens et excellent pain boulanger.
-          </p>
-          <div class="avis-meta">
-            <strong>Johanne P.</strong>
-            <span>Lyon · Mai 2026</span>
-          </div>
-        </article>
+          <!-- 5 avis originaux -->
+          <article class="avis-card">
+            <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+            <p class="avis-text">
+              De passage à Sion, nous avons passé un excellent moment en terrasse. Grande qualité des produits, service très attentionné et convivial. Un excellent burger à la viande d'Hérens et un excellent pain boulanger.
+            </p>
+            <div class="avis-meta">
+              <strong>Johanne P.</strong>
+              <span>Lyon · Mai 2026</span>
+            </div>
+          </article>
 
-        <article class="avis-card fade-up" data-delay="1">
-          <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-          <p class="avis-text">
-            Restaurant à recommander ! Les serveurs sont hyper sympas, le cadre très joli, la nourriture très bonne. Nous y sommes allés par hasard avec le Passeport Gourmand et nous n'avons pas été déçues !
-          </p>
-          <div class="avis-meta">
-            <strong>Deborah B.</strong>
-            <span>Lausanne · Mars 2025</span>
-          </div>
-        </article>
+          <article class="avis-card">
+            <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+            <p class="avis-text">
+              Restaurant à recommander ! Les serveurs sont hyper sympas, le cadre très joli, la nourriture très bonne. Nous y sommes allés par hasard avec le Passeport Gourmand et nous n'avons pas été déçues !
+            </p>
+            <div class="avis-meta">
+              <strong>Deborah B.</strong>
+              <span>Lausanne · Mars 2025</span>
+            </div>
+          </article>
 
-        <article class="avis-card fade-up" data-delay="2">
-          <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-          <p class="avis-text">
-            Un charmant petit café en bordure de la vieille ville qui sert une cuisine de grande qualité, préparée fraîchement. La carte est courte, mais tout ce que nous avons pris était excellent, et les propriétaires étaient super sympathiques.
-          </p>
-          <div class="avis-meta">
-            <strong>Claire K.</strong>
-            <span>Royaume-Uni · Traduit</span>
-          </div>
-        </article>
+          <article class="avis-card">
+            <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+            <p class="avis-text">
+              L'accueil chaleureux de Sylviane, un foie gras maison et un filet de perche exceptionnels, l'ambiance familiale d'une adresse authentique. Une belle table au cœur de la vieille ville de Sion, face au Château de Valère.
+            </p>
+            <div class="avis-meta">
+              <strong>Andrew L.</strong>
+              <span>Mai 2024 · Traduit de l'anglais</span>
+            </div>
+          </article>
 
+          <article class="avis-card">
+            <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+            <p class="avis-text">
+              Un charmant petit café en bordure de la vieille ville qui sert une cuisine de grande qualité, préparée fraîchement. La carte est courte, mais tout ce que nous avons pris était excellent, et les propriétaires étaient super sympathiques.
+            </p>
+            <div class="avis-meta">
+              <strong>Claire K.</strong>
+              <span>Royaume-Uni · Traduit de l'anglais</span>
+            </div>
+          </article>
+
+          <article class="avis-card">
+            <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+            <p class="avis-text">
+              Ambiance intime, carbonara parfaitement al dente, burger d'exception avec pain artisanal suisse. Un moment délicieux face au Château de Valère, dans une maison qui traverse les générations.
+            </p>
+            <div class="avis-meta">
+              <strong>Lucan S.</strong>
+              <span>Royaume-Uni · Juin 2024 · Traduit</span>
+            </div>
+          </article>
+
+          <!-- Duplicats pour boucle continue (aria-hidden pour lecteurs d'écran) -->
+          <article class="avis-card" aria-hidden="true">
+            <div class="avis-stars">★★★★★</div>
+            <p class="avis-text">
+              De passage à Sion, nous avons passé un excellent moment en terrasse. Grande qualité des produits, service très attentionné et convivial. Un excellent burger à la viande d'Hérens et un excellent pain boulanger.
+            </p>
+            <div class="avis-meta">
+              <strong>Johanne P.</strong>
+              <span>Lyon · Mai 2026</span>
+            </div>
+          </article>
+
+          <article class="avis-card" aria-hidden="true">
+            <div class="avis-stars">★★★★★</div>
+            <p class="avis-text">
+              Restaurant à recommander ! Les serveurs sont hyper sympas, le cadre très joli, la nourriture très bonne. Nous y sommes allés par hasard avec le Passeport Gourmand et nous n'avons pas été déçues !
+            </p>
+            <div class="avis-meta">
+              <strong>Deborah B.</strong>
+              <span>Lausanne · Mars 2025</span>
+            </div>
+          </article>
+
+          <article class="avis-card" aria-hidden="true">
+            <div class="avis-stars">★★★★★</div>
+            <p class="avis-text">
+              L'accueil chaleureux de Sylviane, un foie gras maison et un filet de perche exceptionnels, l'ambiance familiale d'une adresse authentique. Une belle table au cœur de la vieille ville de Sion, face au Château de Valère.
+            </p>
+            <div class="avis-meta">
+              <strong>Andrew L.</strong>
+              <span>Mai 2024 · Traduit de l'anglais</span>
+            </div>
+          </article>
+
+          <article class="avis-card" aria-hidden="true">
+            <div class="avis-stars">★★★★★</div>
+            <p class="avis-text">
+              Un charmant petit café en bordure de la vieille ville qui sert une cuisine de grande qualité, préparée fraîchement. La carte est courte, mais tout ce que nous avons pris était excellent, et les propriétaires étaient super sympathiques.
+            </p>
+            <div class="avis-meta">
+              <strong>Claire K.</strong>
+              <span>Royaume-Uni · Traduit de l'anglais</span>
+            </div>
+          </article>
+
+          <article class="avis-card" aria-hidden="true">
+            <div class="avis-stars">★★★★★</div>
+            <p class="avis-text">
+              Ambiance intime, carbonara parfaitement al dente, burger d'exception avec pain artisanal suisse. Un moment délicieux face au Château de Valère, dans une maison qui traverse les générations.
+            </p>
+            <div class="avis-meta">
+              <strong>Lucan S.</strong>
+              <span>Royaume-Uni · Juin 2024 · Traduit</span>
+            </div>
+          </article>
+
+        </div>
       </div>
 
       <p class="avis-source fade-up">
