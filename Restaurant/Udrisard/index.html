@@ -1355,6 +1355,62 @@
       margin: 0 auto;
     }
 
+    /* ====== MENU TABS (filtres par catégorie) ====== */
+    .menu-tabs {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+    .menu-tab {
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      color: var(--cream-dim);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out);
+      white-space: nowrap;
+    }
+    .menu-tab:hover {
+      border-color: var(--gold);
+      color: var(--cream);
+      transform: translateY(-1px);
+    }
+    .menu-tab.active {
+      background: linear-gradient(135deg, var(--wine), var(--wine-deep));
+      border-color: var(--gold);
+      color: var(--cream);
+      box-shadow: 0 10px 26px rgba(138, 40, 64, 0.32);
+    }
+    .menu-tab:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* Panels wrapper — animated switching */
+    .menu-panels {
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .menu-panel {
+      display: none;
+      animation: menuPanelIn 0.5s var(--ease-out);
+    }
+    .menu-panel.active {
+      display: block;
+    }
+    @keyframes menuPanelIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* ====== EMPORTER / CADEAUX BANDEAU ====== */
     .emporter {
       background: var(--ink-deep);
@@ -1695,7 +1751,7 @@
 
       <nav class="nav-main" id="navMain">
         <a href="#histoire">Notre maison</a>
-        <a href="#carte">La carte</a>
+        <a href="#menu">Menu</a>
         <a href="#cave">La cave</a>
         <a href="#terrasse">La terrasse</a>
         <a href="#infos">Contact</a>
@@ -1824,10 +1880,17 @@
         </p>
       </div>
 
-      <div class="menu-grid">
+      <div class="menu-tabs fade-up" role="tablist" aria-label="Catégories de la carte">
+        <button type="button" class="menu-tab active" data-tab="tab-entrees" role="tab" aria-selected="true">Entrées</button>
+        <button type="button" class="menu-tab" data-tab="tab-plats" role="tab" aria-selected="false">Plats</button>
+        <button type="button" class="menu-tab" data-tab="tab-italien" role="tab" aria-selected="false">Italien</button>
+        <button type="button" class="menu-tab" data-tab="tab-desserts" role="tab" aria-selected="false">Desserts</button>
+        <button type="button" class="menu-tab" data-tab="tab-glaces" role="tab" aria-selected="false">Glaces</button>
+      </div>
 
-        <div class="menu-section fade-up">
-          <h3 class="menu-section-title">Pour <em>commencer</em></h3>
+      <div class="menu-panels">
+
+        <div class="menu-panel active" id="tab-entrees" role="tabpanel">
           <div class="menu-list">
 
             <article class="menu-item">
@@ -1857,8 +1920,7 @@
           </div>
         </div>
 
-        <div class="menu-section fade-up" data-delay="1">
-          <h3 class="menu-section-title">Les <em>plats</em></h3>
+        <div class="menu-panel" id="tab-plats" role="tabpanel">
           <div class="menu-list">
 
             <article class="menu-item">
@@ -1879,6 +1941,20 @@
 
             <article class="menu-item">
               <div class="menu-item-head">
+                <h4>Risotto aux bolets et parmesan</h4>
+                <span class="menu-price">Fr. 28.50</span>
+              </div>
+              <p>Riz Carnaroli, bolets et parmesan longuement affiné</p>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="menu-panel" id="tab-italien" role="tabpanel">
+          <div class="menu-list">
+
+            <article class="menu-item">
+              <div class="menu-item-head">
                 <h4>Paccheri « alla Norma »</h4>
                 <span class="menu-price">Fr. 26.50</span>
               </div>
@@ -1893,18 +1969,10 @@
               <p>La véritable carbonara, sans crème.</p>
             </article>
 
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Risotto aux bolets et parmesan</h4>
-                <span class="menu-price">Fr. 28.50</span>
-              </div>
-            </article>
-
           </div>
         </div>
 
-        <div class="menu-section fade-up" data-delay="2">
-          <h3 class="menu-section-title">L'instant <em>des gourmandises</em></h3>
+        <div class="menu-panel" id="tab-desserts" role="tabpanel">
           <div class="menu-list">
 
             <article class="menu-item">
@@ -1962,12 +2030,25 @@
               </div>
             </article>
 
+          </div>
+        </div>
+
+        <div class="menu-panel" id="tab-glaces" role="tabpanel">
+          <div class="menu-list">
+
             <article class="menu-item">
               <div class="menu-item-head">
                 <h4>Nos glaces à la boule</h4>
                 <span class="menu-price">Fr. 3.70</span>
               </div>
-              <p>Vanille, caramel, café, cannelle, sorbet citron, sorbet abricot. Supplément chantilly : Fr. 1.50.</p>
+              <p>Vanille, caramel, café, cannelle, sorbet citron, sorbet abricot.</p>
+            </article>
+
+            <article class="menu-item">
+              <div class="menu-item-head">
+                <h4>Supplément chantilly</h4>
+                <span class="menu-price">Fr. 1.50</span>
+              </div>
             </article>
 
           </div>
@@ -2272,6 +2353,24 @@
 
     // Year stamp
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ====== MENU TABS ======
+    const menuTabs = document.querySelectorAll('.menu-tab');
+    const menuPanels = document.querySelectorAll('.menu-panel');
+    menuTabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        menuTabs.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        menuPanels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        const panel = document.getElementById(target);
+        if (panel) panel.classList.add('active');
+      });
+    });
 
     // ====== CUSTOM DATE & TIME PICKERS ======
     const MONTHS_FR = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
