@@ -87,14 +87,36 @@ def main():
 
     # Rend carré avec fond transparent
     w, h = cropped.size
-    size = max(w, h)
+    inner_size = max(w, h)
+    # On agrandit légèrement le canvas pour bien contenir le disque
+    size = int(inner_size * 1.08)
     canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+
+    # Disque noir plein (fond rond)
+    from PIL import ImageDraw
+    disk = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    ddraw = ImageDraw.Draw(disk)
+    ddraw.ellipse((0, 0, size - 1, size - 1), fill=(5, 8, 5, 255))
+    canvas = Image.alpha_composite(canvas, disk)
+
+    # Logo néon vert centré dans le disque
     canvas.paste(cropped, ((size - w) // 2, (size - h) // 2), cropped)
 
-    # Fond noir opaque pour que ça ressorte bien dans les onglets navigateur
-    black_bg = Image.new("RGBA", (size, size), (5, 8, 5, 255))
-    black_bg.paste(canvas, (0, 0), canvas)
-    canvas = black_bg
+    # Léger liseré vert néon sur le pourtour du disque
+    rim = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    rdraw = ImageDraw.Draw(rim)
+    rdraw.ellipse((2, 2, size - 3, size - 3),
+                  outline=(NEON_R, NEON_G, NEON_B, 220), width=max(3, size // 200))
+    rim_glow = rim.filter(ImageFilter.GaussianBlur(radius=6))
+    canvas = Image.alpha_composite(canvas, rim_glow)
+    canvas = Image.alpha_composite(canvas, rim)
+
+    # Masque final : ne garde que le cercle (élimine tout ce qui déborde)
+    mask = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(mask).ellipse((0, 0, size - 1, size - 1), fill=255)
+    circular = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    circular.paste(canvas, (0, 0), mask)
+    canvas = circular
 
     # Resize à 1024 max
     if size > 1024:
