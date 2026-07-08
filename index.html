@@ -789,6 +789,32 @@
       color: transparent;
       padding-bottom: 0.12em;
     }
+    /* Point final qui saute en vert néon (accent DA site) */
+    .hero-title-dot {
+      display: inline-block;
+      color: #3eff7a;
+      -webkit-text-fill-color: #3eff7a;
+      background: none;
+      -webkit-background-clip: initial;
+      background-clip: initial;
+      font-style: normal;
+      text-shadow:
+        0 0 10px rgba(62, 255, 122, 0.9),
+        0 0 25px rgba(62, 255, 122, 0.6),
+        0 0 50px rgba(62, 255, 122, 0.35);
+      animation: heroDotBounce 1.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+      transform-origin: 50% 100%;
+      will-change: transform;
+    }
+    @keyframes heroDotBounce {
+      0%, 100% { transform: translateY(0)     scale(1); }
+      35%      { transform: translateY(-0.35em) scale(1.15); }
+      55%      { transform: translateY(-0.10em) scale(1.05); }
+      75%      { transform: translateY(-0.03em) scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-title-dot { animation: none; }
+    }
 
     .hero-subtitle {
       font-family: var(--font-body);
@@ -1968,7 +1994,7 @@
           </div>
           <h1 class="hero-title">
             <span class="hero-title-line1">Des sites qui font</span>
-            <span class="hero-title-line2">envie.</span>
+            <span class="hero-title-line2">envie<span class="hero-title-dot" aria-hidden="true">.</span></span>
           </h1>
           <p class="hero-subtitle">
             Webdesigner basé en Valais, nous créons des sites web sur mesure pour
