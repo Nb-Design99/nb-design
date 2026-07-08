@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://nb-design.ch/</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <image:image>
       <image:loc>https://nb-design.ch/og-image.png</image:loc>
       <image:title>NB-Design — Webdesigner Suisse</image:title>
       <image:caption>Webdesigner suisse basé en Valais. Sites web sur mesure pour restaurants et PME.</image:caption>
@@ -13,19 +14,43 @@
   </url>
   <url>
     <loc>https://nb-design.ch/cgv.html</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://nb-design.ch/portfolio/vitrine-interactive/</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nb-design.ch/portfolio/herens-hero/</loc>
-    <lastmod>2026-05-25</lastmod>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nb-design.ch/portfolio/burger-hero/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nb-design.ch/portfolio/burger-cinematic/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nb-design.ch/portfolio/texte-rotatif/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nb-design.ch/portfolio/matterhorn-parallax/</loc>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
