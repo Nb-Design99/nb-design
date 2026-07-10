@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Café la Terrasse · Le spot apéro de Grône</title>
+<meta name="description" content="Café la Terrasse à Grône : la terrasse la plus ensoleillée du village, élue meilleur café de Grône. Café dès 7h, apéritifs au soleil et ambiance conviviale, du lundi au samedi." />
+<meta name="theme-color" content="#fdf6ec" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Café la Terrasse · Le spot apéro de Grône" />
+<meta property="og:description" content="La terrasse la plus ensoleillée de Grône. Café dès 7h et apéritifs au soleil, dans la bonne humeur." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Café la Terrasse",
+  "address":{"@type":"PostalAddress","streetAddress":"Rue Centrale 141","addressLocality":"Grône","postalCode":"3979","addressCountry":"CH"},
+  "telephone":"+41275653717","servesCuisine":"Café, apéritifs","priceRange":"CHF 4-20",
+  "url":"https://nb-design.ch/Restaurant/CafeLaTerrasseGrone/",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"20:00"}
+  ]
+}
+</script>
+<style>
+:root{
+  --sun:#fdf6ec;--sun2:#fbecd6;--paper:#ffffff;
+  --ink:#33302a;--ink-soft:#726a5d;
+  --apricot:#ea8a3e;--apricot-d:#d3722a;--coral:#e35d4b;--turq:#2fa8b0;--turq-d:#248c93;--line:#f0e2ca;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--sun);color:var(--ink);line-height:1.66;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Poppins',system-ui,sans-serif;font-weight:700;line-height:1.14}
+.wrap{width:min(1110px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;font-weight:700;color:var(--apricot-d)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+header.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(51,48,42,.06)}
+.brand{font-family:'Poppins';font-weight:800;font-size:1.3rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+.brand .sunico{color:var(--apricot)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.88rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--apricot-d)}
+.btn{display:inline-block;font-family:'Poppins';font-weight:600;font-size:.9rem;padding:11px 26px;border-radius:40px;transition:.25s}
+.btn-fill{background:var(--apricot);color:#fff}
+.btn-fill:hover{background:var(--apricot-d)}
+.btn-out{border:2px solid var(--turq);color:var(--turq-d)}
+.btn-out:hover{background:var(--turq);color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+.hero{padding:150px 0 84px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-10%;right:-8%;width:440px;height:440px;background:radial-gradient(circle,var(--sun2),transparent 70%);z-index:0}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative;z-index:1}
+.badge1{display:inline-flex;align-items:center;gap:8px;background:var(--turq);color:#fff;font-family:'Poppins';font-weight:600;font-size:.82rem;padding:7px 15px;border-radius:30px;margin-bottom:14px}
+.hero h1{font-size:clamp(2.8rem,6.4vw,5rem)}
+.hero h1 span{color:var(--apricot)}
+.hero .lead{font-size:1.12rem;color:var(--ink-soft);margin:20px 0 12px;max-width:450px}
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 28px}
+.chip{font-size:.8rem;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:8px 15px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-img{position:relative}
+.hero-img img{border-radius:22px;height:500px;width:100%;object-fit:cover;box-shadow:0 26px 54px rgba(51,48,42,.16)}
+.hero-img .sun-tag{position:absolute;bottom:20px;left:-16px;background:var(--coral);color:#fff;padding:14px 22px;border-radius:18px;font-family:'Poppins';font-weight:700;box-shadow:0 14px 30px rgba(51,48,42,.18)}
+.hero-img .sun-tag small{display:block;font-weight:500;font-size:.72rem;opacity:.92;font-family:'Inter'}
+
+section{padding:98px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.apero{background:var(--apricot);color:#fff}
+.apero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.apero .eyebrow{color:#fff2e0}
+.apero h2{font-size:clamp(2.2rem,5vw,3.5rem);margin:12px 0 18px;color:#fff}
+.apero p{color:#fff0dd;margin-bottom:15px}
+.apero-img img{border-radius:22px;height:440px;width:100%;object-fit:cover}
+.aitems{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.aitems span{background:rgba(255,255,255,.16);border-radius:30px;padding:8px 15px;font-size:.82rem;font-weight:600}
+
+.day .head{text-align:center;max-width:600px;margin:0 auto 50px}
+.day h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-top:10px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--paper);border-radius:20px;padding:32px 26px;border:1px solid var(--line);transition:.3s;text-align:center}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(51,48,42,.09)}
+.card .ico{font-size:2rem}
+.card h3{font-size:1.3rem;margin:12px 0 8px}
+.card p{color:var(--ink-soft);font-size:.93rem}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px;margin-bottom:24px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:700;color:var(--apricot-d);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--apricot-d)}
+.hours{background:var(--sun2);border:1px solid var(--line);border-radius:20px;padding:24px 26px}
+.hours h3{font-family:'Poppins';color:var(--apricot-d);font-size:1.2rem;margin-bottom:12px}
+.hrow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(51,48,42,.06);font-size:.92rem;color:var(--ink-soft)}
+.hrow b{color:var(--ink);font-weight:600}
+.hrow.off b{color:var(--coral)}
+.map{border-radius:20px;overflow:hidden;border:1px solid var(--line);height:230px;margin-top:16px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--ink);color:var(--sun);padding:44px 0 30px;text-align:center}
+.foot-brand{font-family:'Poppins';font-weight:800;font-size:1.3rem}
+.foot-brand .sunico{color:var(--apricot)}
+.credit{color:#a89f90;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(51,48,42,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .hero-grid,.apero-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-grid .hero-img,.apero-grid .apero-img{order:-1}
+  .cards{grid-template-columns:1fr}
+}
+@media(max-width:520px){section{padding:74px 0}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand"><span class="sunico">☀</span> Café la Terrasse</a>
+    <nav class="menu" id="menu">
+      <a href="#apero">L'apéro</a>
+      <a href="#journee">Au fil du jour</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41275653717" class="btn btn-fill">Nous trouver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge1">★ Élu n°1 des cafés de Grône</span>
+      <h1>La terrasse<br>la plus <span>ensoleillée</span></h1>
+      <p class="lead">Un café au soleil le matin, un spritz entre amis en fin de journée. Le Café la Terrasse, c'est le spot lumineux de Grône où il fait bon s'attarder.</p>
+      <div class="chips"><span class="chip">☀ Grande terrasse</span><span class="chip">🥂 Apéritifs</span><span class="chip">☕ Café dès 7h</span></div>
+      <div class="hero-cta">
+        <a href="tel:+41275653717" class="btn btn-fill">Réserver une table</a>
+        <a href="#apero" class="btn btn-out">L'heure de l'apéro</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Terrasse ensoleillée et boissons" />
+      <div class="sun-tag">Plein soleil<small>toute la journée</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="apero" id="apero">
+  <div class="wrap apero-grid">
+    <div class="reveal">
+      <p class="eyebrow">Le moment préféré du village</p>
+      <h2>L'apéro au soleil</h2>
+      <p>C'est notre spécialité et notre réputation : l'apéritif en terrasse, quand le soleil descend sur Grône. Un verre bien frais, une petite planchette, et l'ambiance fait le reste.</p>
+      <p>Spritz, verres de la région, bières fraîches : de quoi trinquer entre amis comme il se doit.</p>
+      <div class="aitems"><span>🍹 Spritz</span><span>🍷 Vins d'ici</span><span>🍺 Bières fraîches</span><span>🧀 Planchettes</span></div>
+    </div>
+    <div class="apero-img reveal">
+      <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=900&q=80" alt="Apéritif au soleil" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="day" id="journee">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Du matin au soir</p>
+      <h2>Un café pour chaque moment</h2>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="ico">☕</div><h3>Le matin</h3><p>Café bien serré et croissant dès 7h, pour bien démarrer la journée en douceur.</p></div>
+      <div class="card reveal"><div class="ico">🥪</div><h3>La pause</h3><p>Un en-cas, une boisson fraîche et un moment tranquille au soleil dans l'après-midi.</p></div>
+      <div class="card reveal"><div class="ico">🥂</div><h3>L'apéro</h3><p>Le grand rendez-vous de fin de journée, en terrasse et dans la bonne humeur.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Au centre de Grône</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Rue Centrale 141<br>3979 Grône</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41275653717">027 565 37 17</a></li>
+        <li><span class="k">Ambiance</span><span class="v">Café · terrasse ensoleillée · apéritifs</span></li>
+      </ul>
+      <div style="margin-top:24px"><a href="tel:+41275653717" class="btn btn-fill">Appeler</a></div>
+    </div>
+    <div class="hours reveal">
+      <h3>Horaires</h3>
+      <div class="hrow"><span>Lundi – Samedi</span><b>07:00 – 20:00</b></div>
+      <div class="hrow off"><span>Dimanche</span><b>Fermé</b></div>
+      <p style="color:var(--ink-soft);font-size:.86rem;margin-top:16px">Le spot idéal pour le café du matin et l'apéro du soir</p>
+      <div class="map">
+        <iframe loading="lazy" title="Carte Café la Terrasse Grône" src="https://www.google.com/maps?q=Rue%20Centrale%20141%2C%203979%20Gr%C3%B4ne&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand"><span class="sunico">☀</span> Café la Terrasse · Grône</div>
+    <p style="color:#a89f90;font-size:.82rem;margin-top:8px">Rue Centrale 141 · 3979 Grône · 027 565 37 17</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
