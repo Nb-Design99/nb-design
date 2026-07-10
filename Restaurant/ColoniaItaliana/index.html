@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Colonia Italiana · Restaurant & Cercle italien · Sion</title>
+<meta name="description" content="Colonia Italiana à Sion : le coeur italien du Valais. Cuisine familiale, pizza au four et convivialité, dans la maison des Italiens de Sion, Rue de la Majorie." />
+<meta name="theme-color" content="#0f2e20" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Colonia Italiana · Restaurant & Cercle italien · Sion" />
+<meta property="og:description" content="Cuisine familiale italienne et convivialité au coeur de Sion, la maison des Italiens du Valais." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Colonia Italiana",
+  "address":{"@type":"PostalAddress","streetAddress":"Rue de la Majorie 12","addressLocality":"Sion","postalCode":"1950","addressCountry":"CH"},
+  "email":"interfooditaly@gmail.com","servesCuisine":"Italienne, pizzeria","priceRange":"CHF 15-30",
+  "url":"https://nb-design.ch/Restaurant/ColoniaItaliana/",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"09:30","closes":"22:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"09:30","closes":"24:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday"],"opens":"09:30","closes":"15:00"}
+  ]
+}
+</script>
+<style>
+:root{
+  --green:#0f2e20;--green2:#153c2a;--green3:#0a2318;
+  --cream:#f5efe0;--cream2:#e9dfc8;
+  --red:#c8402f;
+  --brass:#c9a44e;--brass-soft:#ddc07e;
+  --muted:#a8b7ac;--line:rgba(201,164,78,.24);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Work Sans',system-ui,sans-serif;background:var(--green);color:var(--cream);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Playfair Display',serif;font-weight:600;line-height:1.1}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;font-weight:600;color:var(--brass-soft)}
+.tricolore{display:inline-flex;height:4px;width:64px;border-radius:3px;overflow:hidden}
+.tricolore i{flex:1}.tricolore i:nth-child(1){background:#2a8a4f}.tricolore i:nth-child(2){background:var(--cream)}.tricolore i:nth-child(3){background:var(--red)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+header.scrolled{background:rgba(10,35,24,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;flex-direction:column;gap:5px}
+.brand b{font-family:'Playfair Display';font-weight:700;font-size:1.35rem;letter-spacing:.02em}
+.brand b span{color:var(--brass-soft);font-style:italic}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.85rem;font-weight:500;opacity:.9}
+.menu a:hover{color:var(--brass-soft)}
+.btn{display:inline-block;font-weight:600;font-size:.84rem;padding:12px 24px;border-radius:3px;transition:.25s;letter-spacing:.02em}
+.btn-fill{background:var(--red);color:#fff}
+.btn-fill:hover{background:#a8331f}
+.btn-out{border:1px solid var(--brass);color:var(--brass-soft)}
+.btn-out:hover{background:var(--brass);color:var(--green3)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--cream)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;text-align:center;padding:120px 0 70px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.5)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(15,46,32,.55),var(--green3) 92%)}
+.hero-inner{max-width:760px;margin:0 auto}
+.hero .tricolore{margin:0 auto 22px;width:90px;height:5px}
+.hero h1{font-size:clamp(2.8rem,7.5vw,5.6rem);margin:8px 0}
+.hero h1 em{font-style:italic;color:var(--brass-soft)}
+.hero .lead{font-size:1.14rem;color:var(--cream2);max-width:560px;margin:22px auto 32px}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+section{padding:104px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.story{background:var(--green2)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.story-img{position:relative}
+.story-img img{border-radius:6px;height:480px;width:100%;object-fit:cover}
+.story-img .frame{position:absolute;inset:14px;border:1px solid var(--line);border-radius:6px;pointer-events:none}
+.story h2{font-size:clamp(2rem,4.6vw,3.3rem);margin:14px 0 20px}
+.story h2 em{color:var(--red);font-style:italic}
+.story p{color:var(--cream2);margin-bottom:15px}
+
+.cucina{text-align:center}
+.cucina .head{max-width:620px;margin:0 auto 58px}
+.cucina h2{font-size:clamp(2rem,4.6vw,3.3rem);margin-top:12px}
+.dishes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.dish{background:var(--green2);border:1px solid var(--line);border-radius:6px;overflow:hidden;text-align:left;transition:.35s}
+.dish:hover{transform:translateY(-7px)}
+.dish img{height:200px;width:100%;object-fit:cover}
+.dish .b{padding:24px}
+.dish h3{font-size:1.5rem;margin-bottom:8px}
+.dish p{color:var(--muted);font-size:.94rem}
+
+.conv{background:var(--green3);position:relative}
+.conv-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.conv h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 18px}
+.conv h2 em{color:var(--brass-soft);font-style:italic}
+.conv p{color:var(--cream2);margin-bottom:15px}
+.conv-img img{border-radius:6px;height:420px;width:100%;object-fit:cover}
+.quote{border-left:2px solid var(--red);padding-left:20px;margin-top:22px;font-family:'Playfair Display';font-style:italic;font-size:1.25rem;color:var(--brass-soft)}
+
+.contact{background:var(--green2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 24px}
+.info{list-style:none;display:grid;gap:18px;margin-bottom:26px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600;color:var(--brass-soft);min-width:88px;padding-top:3px}
+.info .v{color:var(--cream2)}
+.info a.v:hover{color:var(--brass-soft)}
+.hours{background:var(--green3);border:1px solid var(--line);border-radius:6px;padding:26px 28px}
+.hours h3{font-family:'Playfair Display';color:var(--brass-soft);font-size:1.3rem;margin-bottom:14px}
+.hrow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(245,239,224,.06);font-size:.92rem;color:var(--cream2)}
+.hrow b{color:var(--cream);font-weight:600}
+.map{border-radius:6px;overflow:hidden;border:1px solid var(--line);height:280px;margin-top:20px}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.2)}
+
+footer{background:var(--green3);padding:46px 0 30px;border-top:1px solid var(--line);text-align:center}
+.foot-brand{font-family:'Playfair Display';font-weight:700;font-size:1.4rem}
+.foot-brand span{color:var(--brass-soft);font-style:italic}
+.credit{color:var(--muted);font-size:.74rem;margin-top:14px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--green3);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;border-left:1px solid var(--line)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .story-grid,.conv-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .dishes{grid-template-columns:1fr}
+  .story-grid .story-img{order:-1}
+}
+@media(max-width:520px){section{padding:76px 0}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand"><b>Colonia <span>Italiana</span></b><span class="tricolore"><i></i><i></i><i></i></span></a>
+    <nav class="menu" id="menu">
+      <a href="#maison">La maison</a>
+      <a href="#cucina">La cucina</a>
+      <a href="#convivialite">Convivialité</a>
+      <a href="#contact">Contact</a>
+      <a href="mailto:interfooditaly@gmail.com" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80" alt="Table italienne conviviale" />
+  </div>
+  <div class="wrap hero-inner">
+    <span class="tricolore"><i></i><i></i><i></i></span>
+    <p class="eyebrow">Restaurant &amp; cercle italien · Sion</p>
+    <h1>Le coeur <em>italien</em><br>du Valais</h1>
+    <p class="lead">La maison des Italiens de Sion : une cuisine familiale généreuse, la pizza au four et l'art de rester à table. Ici, on se sent un peu comme au pays.</p>
+    <div class="hero-cta">
+      <a href="mailto:interfooditaly@gmail.com" class="btn btn-fill">Réserver une table</a>
+      <a href="#cucina" class="btn btn-out">Découvrir la cucina</a>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="maison">
+  <div class="wrap story-grid">
+    <div class="story-img reveal">
+      <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80" alt="Salle chaleureuse de la Colonia Italiana" loading="lazy" />
+      <span class="frame"></span>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">La maison</p>
+      <h2>Bien plus <em>qu'un restaurant</em></h2>
+      <p>La Colonia Italiana, c'est la maison de la communauté italienne du Valais : un lieu de rencontre où l'on vient manger, se retrouver, fêter, discuter. Depuis toujours, les tables y sont longues et l'accueil sincère.</p>
+      <p>On y sert une vraie cuisine italienne de famille, celle des recettes transmises et des produits qu'on respecte. Pas de chichi, juste l'authentique, comme à la maison de la nonna.</p>
+      <span class="tricolore" style="margin-top:8px"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+</section>
+
+<section class="cucina" id="cucina">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">À notre table</p>
+      <h2>La cucina italiana</h2>
+    </div>
+    <div class="dishes">
+      <div class="dish reveal">
+        <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=700&q=80" alt="Pizza au four" loading="lazy" />
+        <div class="b"><h3>Pizza al forno</h3><p>Pâte travaillée avec le temps, cuite au four. Les classiques napolitains et nos garnitures maison.</p></div>
+      </div>
+      <div class="dish reveal">
+        <img src="https://images.unsplash.com/photo-1595295333158-4742f28fbd85?auto=format&fit=crop&w=700&q=80" alt="Pâtes maison" loading="lazy" />
+        <div class="b"><h3>Cucina casalinga</h3><p>Pâtes maison, sauces mijotées, plats de famille : la cuisine italienne du quotidien, la vraie.</p></div>
+      </div>
+      <div class="dish reveal">
+        <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?auto=format&fit=crop&w=700&q=80" alt="Dolci et espresso" loading="lazy" />
+        <div class="b"><h3>Dolci &amp; caffè</h3><p>Tiramisù, panna cotta et un vrai espresso serré pour finir comme il se doit.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="conv" id="convivialite">
+  <div class="wrap conv-grid">
+    <div class="reveal">
+      <p class="eyebrow">L'esprit de la maison</p>
+      <h2>On vient pour manger,<br><em>on reste pour l'ambiance</em></h2>
+      <p>Repas de famille, soirées entre amis, moments de la communauté : la Colonia est un lieu de vie autant qu'une table. On y parle fort, on y rit, on trinque à l'italienne.</p>
+      <p>Groupes et grandes tablées bienvenus : contactez-nous pour organiser votre repas.</p>
+      <p class="quote">« A tavola non si invecchia. »<br><span style="font-size:.9rem;color:var(--cream2)">À table, on ne vieillit jamais.</span></p>
+    </div>
+    <div class="conv-img reveal">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" alt="Convivialité à table" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Venez comme en famille</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Rue de la Majorie 12<br>1950 Sion</span></li>
+        <li><span class="k">E-mail</span><a class="v" href="mailto:interfooditaly@gmail.com">interfooditaly@gmail.com</a></li>
+        <li><span class="k">Réserver</span><span class="v">Par e-mail ou directement sur place</span></li>
+      </ul>
+      <a href="mailto:interfooditaly@gmail.com" class="btn btn-fill">Écrire pour réserver</a>
+      <div class="map reveal">
+        <iframe loading="lazy" title="Carte Colonia Italiana Sion" src="https://www.google.com/maps?q=Rue%20de%20la%20Majorie%2012%2C%201950%20Sion&output=embed"></iframe>
+      </div>
+    </div>
+    <div class="hours reveal">
+      <h3>Horaires</h3>
+      <div class="hrow"><span>Lundi – Jeudi</span><b>09:30–14:00 · 17:30–22:30</b></div>
+      <div class="hrow"><span>Vendredi – Samedi</span><b>09:30–14:30 · 17:30–24:00</b></div>
+      <div class="hrow"><span>Dimanche</span><b>09:30–15:00</b></div>
+      <p style="color:var(--muted);font-size:.86rem;margin-top:16px">Cuisine italienne · Pizza au four · Groupes bienvenus</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="tricolore" style="margin:0 auto 14px"><i></i><i></i><i></i></span>
+    <div class="foot-brand">Colonia <span>Italiana</span></div>
+    <p style="color:var(--muted);font-size:.82rem;margin-top:8px">Rue de la Majorie 12 · 1950 Sion</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
