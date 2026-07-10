@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Café de la Place · Pizzeria · Grimisuat</title>
+<meta name="description" content="Pizzeria-Café de la Place à Grimisuat : les meilleures pizzas du coin sur pâte maison, fondue aux bolets, entrecôte sur pierre chaude et desserts maison. Café de village dès 7h30." />
+<meta name="theme-color" content="#f7f2e8" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Café de la Place · Pizzeria · Grimisuat" />
+<meta property="og:description" content="Les meilleures pizzas du coin, sur pâte maison à recette secrète. Café-pizzeria de village à Grimisuat." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Pizzeria-Café de la Place",
+  "address":{"@type":"PostalAddress","streetAddress":"Rue Centrale 1","addressLocality":"Grimisuat","postalCode":"1971","addressCountry":"CH"},
+  "telephone":"+41275653107","servesCuisine":"Pizzeria, italienne, suisse","priceRange":"CHF 15-35",
+  "url":"https://nb-design.ch/Restaurant/CafeDeLaPlaceGrimisuat/",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Sunday"],"opens":"07:30","closes":"23:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"07:30","closes":"00:00"}
+  ]
+}
+</script>
+<style>
+:root{
+  --flour:#f7f2e8;--flour2:#efe7d5;--paper:#fffdf7;
+  --ink:#23201c;--ink-soft:#6a6156;
+  --tomato:#d23f2c;--tomato-d:#b3311f;
+  --ember:#e8823a;--basil:#4c7a3f;--line:#e5dbc6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--flour);color:var(--ink);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.08;letter-spacing:-.01em}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:600;color:var(--tomato)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+header.scrolled{background:rgba(255,253,247,.94);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(35,32,28,.07)}
+.brand{font-family:'Space Grotesk';font-weight:700;font-size:1.3rem}
+.brand span{color:var(--tomato)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.86rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--tomato)}
+.btn{display:inline-block;font-weight:600;font-size:.86rem;padding:12px 24px;border-radius:8px;transition:.25s}
+.btn-fill{background:var(--tomato);color:#fff}
+.btn-fill:hover{background:var(--tomato-d)}
+.btn-out{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-out:hover{background:var(--ink);color:var(--flour)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+.hero{padding:140px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.hero h1{font-size:clamp(2.7rem,6vw,4.8rem)}
+.hero h1 span{color:var(--tomato)}
+.hero .lead{font-size:1.1rem;color:var(--ink-soft);margin:20px 0 12px;max-width:470px}
+.stars{display:flex;align-items:center;gap:10px;margin:16px 0 24px;font-weight:600}
+.stars b{color:var(--ember)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-img{position:relative}
+.hero-img img{border-radius:14px;height:500px;width:100%;object-fit:cover;box-shadow:0 26px 54px rgba(35,32,28,.18)}
+.hero-img .badge{position:absolute;bottom:-20px;left:-18px;background:var(--ink);color:var(--flour);padding:16px 22px;border-radius:12px;font-family:'Space Grotesk';box-shadow:0 16px 34px rgba(35,32,28,.24)}
+.hero-img .badge b{color:var(--ember);display:block;font-size:1.1rem}
+.hero-img .badge small{font-size:.72rem;color:#cfc6b8}
+
+section{padding:100px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.dough{background:var(--ink);color:var(--flour)}
+.dough-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.dough h2{font-size:clamp(2rem,4.6vw,3.3rem);margin:12px 0 18px;color:#fff}
+.dough h2 span{color:var(--ember)}
+.dough p{color:#cfc6b8;margin-bottom:15px}
+.dough .eyebrow{color:var(--ember)}
+.dough-img img{border-radius:14px;height:460px;width:100%;object-fit:cover}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.tags span{font-size:.76rem;border:1px solid rgba(232,130,58,.35);border-radius:30px;padding:7px 14px;color:#e6c9a8}
+
+.more{background:var(--flour2)}
+.more .head{text-align:center;max-width:600px;margin:0 auto 52px}
+.more h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-top:10px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--paper);border-radius:14px;overflow:hidden;border:1px solid var(--line);transition:.3s}
+.card:hover{transform:translateY(-7px);box-shadow:0 18px 40px rgba(35,32,28,.1)}
+.card img{height:190px;width:100%;object-fit:cover}
+.card .b{padding:24px}
+.card h3{font-size:1.35rem;margin-bottom:8px}
+.card p{color:var(--ink-soft);font-size:.93rem}
+
+.amen{background:var(--basil);color:#fff}
+.amen .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:30px 0;text-align:center}
+.am b{font-size:1.4rem;display:block;font-family:'Space Grotesk'}
+.am small{font-size:.78rem;opacity:.95}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px;margin-bottom:24px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600;color:var(--tomato);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--tomato)}
+.hours{background:var(--flour);border:1px solid var(--line);border-radius:12px;padding:24px 26px}
+.hours h3{font-family:'Space Grotesk';color:var(--tomato);font-size:1.2rem;margin-bottom:12px}
+.hrow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(35,32,28,.06);font-size:.92rem;color:var(--ink-soft)}
+.hrow b{color:var(--ink);font-weight:600}
+.map{border-radius:12px;overflow:hidden;border:1px solid var(--line);height:230px;margin-top:16px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--ink);color:var(--flour);padding:44px 0 30px;text-align:center}
+.foot-brand{font-family:'Space Grotesk';font-weight:700;font-size:1.4rem}
+.foot-brand span{color:var(--ember)}
+.credit{color:#a99f90;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(35,32,28,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .hero-grid,.dough-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-grid .hero-img,.dough-grid .dough-img{order:-1}
+  .cards{grid-template-columns:1fr}
+  .amen .wrap{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){section{padding:74px 0}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">Café de la <span>Place</span></a>
+    <nav class="menu" id="menu">
+      <a href="#pate">La pâte</a>
+      <a href="#carte">Pas que la pizza</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41275653107" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Pizzeria &amp; café · Grimisuat</p>
+      <h1>Les meilleures<br><span>pizzas du coin</span></h1>
+      <p class="lead">Une pâte maison à la recette bien gardée, des produits frais et de qualité, et le tour est joué. Au Café de la Place, la pizza est une affaire sérieuse depuis toujours.</p>
+      <div class="stars"><b>★ 4.2</b><span style="color:var(--ink-soft)">« Best pizzas in area »</span></div>
+      <div class="hero-cta">
+        <a href="tel:+41275653107" class="btn btn-fill">Réserver une table</a>
+        <a href="#carte" class="btn btn-out">Voir la carte</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?auto=format&fit=crop&w=900&q=80" alt="Pizza artisanale sortie du four" />
+      <div class="badge"><b>Pâte maison</b><small>recette secrète</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="dough" id="pate">
+  <div class="wrap dough-grid">
+    <div class="dough-img reveal">
+      <img src="https://images.unsplash.com/photo-1548369937-47519962c11a?auto=format&fit=crop&w=900&q=80" alt="Pâte à pizza travaillée à la main" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Le secret de la maison</p>
+      <h2>Tout est dans <span>la pâte</span></h2>
+      <p>Ce qui fait notre réputation ? Une pâte travaillée avec le temps, une recette que le patron garde jalousement, et des garnitures dosées au millimètre sur des produits de qualité.</p>
+      <p>Le résultat : une pizza légère, croustillante, savoureuse. Celle qu'on vient chercher de tout le coin.</p>
+      <div class="tags"><span>Pâte maison</span><span>Produits frais</span><span>Sur place ou à l'emporter</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="more" id="carte">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">À la carte</p>
+      <h2>Pas que la pizza</h2>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <img src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&w=700&q=80" alt="Fondue aux bolets" loading="lazy" />
+        <div class="b"><h3>Fondue aux bolets</h3><p>Notre fondue parfumée aux bolets, une spécialité qui fait la différence à la saison.</p></div>
+      </div>
+      <div class="card reveal">
+        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=700&q=80" alt="Entrecôte sur pierre chaude" loading="lazy" />
+        <div class="b"><h3>Entrecôte sur pierre</h3><p>Servie sur pierre chaude avec trois sauces maison. On cuit soi-même, à sa façon.</p></div>
+      </div>
+      <div class="card reveal">
+        <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?auto=format&fit=crop&w=700&q=80" alt="Dessert maison" loading="lazy" />
+        <div class="b"><h3>Desserts maison</h3><p>Faits ici, pour finir sur une note gourmande. Et un café bien serré.</p></div>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:34px">Carte de saison · demandez les suggestions du moment</p>
+  </div>
+</section>
+
+<div class="amen">
+  <div class="wrap">
+    <div class="am"><b>Dès 7h30</b><small>Café le matin</small></div>
+    <div class="am"><b>Wi-Fi</b><small>Gratuit</small></div>
+    <div class="am"><b>Parking</b><small>À proximité</small></div>
+    <div class="am"><b>🐾</b><small>Animaux bienvenus</small></div>
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Au centre du village</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Rue Centrale 1<br>1971 Grimisuat</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41275653107">027 565 31 07</a></li>
+        <li><span class="k">Service</span><span class="v">Pizzas sur place &amp; à l'emporter · café dès le matin</span></li>
+      </ul>
+      <div class="map reveal">
+        <iframe loading="lazy" title="Carte Café de la Place Grimisuat" src="https://www.google.com/maps?q=Rue%20Centrale%201%2C%201971%20Grimisuat&output=embed"></iframe>
+      </div>
+    </div>
+    <div class="hours reveal">
+      <h3>Horaires</h3>
+      <div class="hrow"><span>Lundi – Jeudi</span><b>07:30 – 23:00</b></div>
+      <div class="hrow"><span>Vendredi – Samedi</span><b>07:30 – 00:00</b></div>
+      <div class="hrow"><span>Dimanche</span><b>07:30 – 23:00</b></div>
+      <p style="color:var(--ink-soft);font-size:.86rem;margin-top:16px">Horaires susceptibles de varier · un coup de fil et c'est réglé</p>
+      <div style="margin-top:16px"><a href="tel:+41275653107" class="btn btn-fill">Appeler</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">Café de la <span>Place</span></div>
+    <p style="color:#a99f90;font-size:.82rem;margin-top:8px">Rue Centrale 1 · 1971 Grimisuat · 027 565 31 07</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
