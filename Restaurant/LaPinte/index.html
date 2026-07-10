@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>La Pinte · Bistrot valaisan · St-Pierre-de-Clages</title>
+<meta name="description" content="La Pinte à St-Pierre-de-Clages, au Village suisse du Livre : bistrot typique aux fresques d'Albert Chavaz, fondues, croûtes au fromage et assiettes valaisannes, terrasse face à l'église romane." />
+<meta name="theme-color" content="#f3ece0" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="La Pinte · Bistrot valaisan · St-Pierre-de-Clages" />
+<meta property="og:description" content="Fondues, croûtes et assiettes valaisannes dans un bistrot historique du Village du Livre, face à l'église romane." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Café-Restaurant La Pinte",
+  "address":{"@type":"PostalAddress","streetAddress":"Rue de l'Église 30","addressLocality":"St-Pierre-de-Clages","postalCode":"1955","addressCountry":"CH"},
+  "telephone":"+41793591333","servesCuisine":"Valaisanne, suisse, fondue","priceRange":"CHF 20-35",
+  "url":"https://nb-design.ch/Restaurant/LaPinte/"
+}
+</script>
+<style>
+:root{
+  --stone:#f3ece0;--stone2:#e8dcc7;--paper:#fbf6ec;
+  --ink:#2a2723;--ink-soft:#6a6154;
+  --ochre:#c07a3a;--ochre-d:#a5642c;--petrol:#345a68;--petrol-d:#284754;--wine:#7c3239;--line:#e2d5bd;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--stone);color:var(--ink);line-height:1.68;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Spectral',serif;font-weight:600;line-height:1.14}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:600;color:var(--ochre-d)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+header.scrolled{background:rgba(251,246,236,.94);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(42,39,35,.06)}
+.brand{font-family:'Spectral';font-weight:700;font-size:1.5rem;letter-spacing:.02em;color:var(--ink)}
+.brand span{color:var(--ochre)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.86rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--ochre-d)}
+.btn{display:inline-block;font-weight:600;font-size:.86rem;padding:12px 26px;border-radius:3px;transition:.25s}
+.btn-fill{background:var(--petrol);color:#fff}
+.btn-fill:hover{background:var(--petrol-d)}
+.btn-out{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-out:hover{background:var(--ink);color:var(--stone)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:120px 0 70px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.62) saturate(.95)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(42,39,35,.82) 4%,rgba(42,39,35,.3) 55%,transparent)}
+.hero-inner{max-width:680px;color:#fff}
+.hero .eyebrow{color:#e6b980}
+.hero h1{font-size:clamp(3rem,7.5vw,5.6rem);color:#fff}
+.hero h1 em{font-style:italic;color:#e6b980}
+.hero .lead{font-size:1.14rem;color:#efe6d6;max-width:520px;margin:20px 0 30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+section{padding:104px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.heritage{background:var(--paper)}
+.her-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.her-img{position:relative}
+.her-img img{border-radius:5px;height:490px;width:100%;object-fit:cover}
+.her-img .cap{position:absolute;bottom:-18px;left:-16px;background:var(--wine);color:var(--stone);font-family:'Spectral';font-style:italic;padding:14px 20px;border-radius:4px;box-shadow:0 16px 34px rgba(42,39,35,.2);max-width:230px;font-size:.95rem}
+.heritage h2{font-size:clamp(2.2rem,5vw,3.5rem);margin:12px 0 20px}
+.heritage h2 em{color:var(--ochre);font-style:italic}
+.heritage p{color:var(--ink-soft);margin-bottom:15px}
+
+.carte{background:var(--stone2)}
+.carte .head{text-align:center;max-width:600px;margin:0 auto 50px}
+.carte h2{font-size:clamp(2.2rem,5vw,3.4rem);margin-top:10px}
+.menu-list{max-width:760px;margin:0 auto;display:grid;gap:4px}
+.mrow{display:flex;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px dotted var(--line)}
+.mrow .n{font-family:'Spectral';font-weight:600;font-size:1.25rem;color:var(--ink)}
+.mrow .n small{display:block;font-family:'Inter';font-size:.88rem;color:var(--ink-soft);font-weight:400;margin-top:3px}
+.mrow .dots{flex:1;border-bottom:1px dotted var(--ink-soft);opacity:.4;transform:translateY(-5px)}
+.mrow .p{font-family:'Spectral';font-weight:700;color:var(--ochre-d);font-size:1.15rem;white-space:nowrap}
+.note{text-align:center;color:var(--ink-soft);font-size:.88rem;margin-top:26px}
+
+.terrace{position:relative}
+.terrace-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.terrace-img img{border-radius:5px;height:440px;width:100%;object-fit:cover}
+.terrace h2{font-size:clamp(2rem,4.6vw,3.2rem);margin:12px 0 18px}
+.terrace h2 em{color:var(--petrol);font-style:italic}
+.terrace p{color:var(--ink-soft);margin-bottom:15px}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600;color:var(--ochre-d);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--ochre-d)}
+.map{border-radius:5px;overflow:hidden;border:1px solid var(--line);height:330px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--ink);color:var(--stone);padding:46px 0 30px;text-align:center}
+.foot-brand{font-family:'Spectral';font-weight:700;font-size:1.7rem}
+.foot-brand span{color:var(--ochre)}
+.credit{color:#a89e8f;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(42,39,35,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .her-grid,.terrace-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .her-grid .her-img,.terrace-grid .terrace-img{order:-1}
+}
+@media(max-width:520px){section{padding:76px 0}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">La <span>Pinte</span></a>
+    <nav class="menu" id="menu">
+      <a href="#histoire">L'histoire</a>
+      <a href="#carte">La carte</a>
+      <a href="#terrasse">La terrasse</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41793591333" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1516685018646-549198525c1b?auto=format&fit=crop&w=1600&q=80" alt="Bistrot de village chaleureux" />
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Bistrot valaisan · St-Pierre-de-Clages</p>
+    <h1>Le bistrot du<br><em>Village du Livre</em></h1>
+    <p class="lead">Sous les fresques d'Albert Chavaz, on partage une fondue, une croûte dorée et un verre de Chamoson. Un bout d'histoire valaisanne, face à l'église romane.</p>
+    <div class="hero-cta">
+      <a href="tel:+41793591333" class="btn btn-fill">Réserver une table</a>
+      <a href="#carte" class="btn btn-out" style="border-color:#efe6d6;color:#efe6d6">Voir la carte</a>
+    </div>
+  </div>
+</section>
+
+<section class="heritage" id="histoire">
+  <div class="wrap her-grid">
+    <div class="her-img reveal">
+      <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=900&q=80" alt="Intérieur de bistrot au caractère ancien" loading="lazy" />
+      <div class="cap">Murs ornés des fresques d'Albert Chavaz, peintes en 1940</div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">L'histoire</p>
+      <h2>Un bistrot <em>qui a une âme</em></h2>
+      <p>La Pinte, c'est un vrai bistrot de village comme on n'en fait plus. Ses murs sont ornés de fresques signées Albert Chavaz, peintes en 1940, qui veillent sur les tables depuis des générations.</p>
+      <p>Au coeur de St-Pierre-de-Clages, le Village suisse du Livre, on y vient pour le décor, l'accueil chaleureux, et cette cuisine du terroir qui ne triche pas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="carte" id="carte">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">À notre table</p>
+      <h2>Le terroir, sans détour</h2>
+    </div>
+    <div class="menu-list">
+      <div class="mrow reveal"><div class="n">Fondue aux fromages valaisans<small>Sur réservation, à partager</small></div><span class="dots"></span><span class="p">25.50</span></div>
+      <div class="mrow reveal"><div class="n">Croûte au fromage<small>La légendaire, gratinée à souhait</small></div><span class="dots"></span><span class="p">★</span></div>
+      <div class="mrow reveal"><div class="n">Tartiflette façon valaisanne<small>Réconfortante et généreuse</small></div><span class="dots"></span><span class="p">24.50</span></div>
+      <div class="mrow reveal"><div class="n">Assiette valaisanne<small>Viande séchée, lard, fromage du pays</small></div><span class="dots"></span><span class="p">25.50</span></div>
+      <div class="mrow reveal"><div class="n">Les vins de Chamoson<small>Grand Cru et crus du village</small></div><span class="dots"></span><span class="p">★</span></div>
+    </div>
+    <p class="note">Prix indicatifs · carte de saison · fondue sur réservation</p>
+  </div>
+</section>
+
+<section class="terrace" id="terrasse">
+  <div class="wrap terrace-grid">
+    <div class="terrace-img reveal">
+      <img src="https://images.unsplash.com/photo-1533777324565-a040eb52facd?auto=format&fit=crop&w=900&q=80" alt="Terrasse ensoleillée face à l'église" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Au soleil</p>
+      <h2>La terrasse, <em>face à l'église</em></h2>
+      <p>Aux beaux jours, on s'installe dehors : la superbe terrasse donne sur l'église romane de St-Pierre-de-Clages, l'une des plus belles du Valais. Emplacement plein sud, service impeccable, prix accessibles.</p>
+      <p>Le lieu idéal pour une pause après avoir flâné chez les bouquinistes du village.</p>
+      <div class="hero-cta" style="margin-top:8px"><a href="tel:+41793591333" class="btn btn-fill">Réserver la terrasse</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Au coeur du village</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Rue de l'Église 30<br>1955 St-Pierre-de-Clages</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41793591333">079 359 13 33</a></li>
+        <li><span class="k">Aussi</span><a class="v" href="tel:+41273062504">027 306 25 04</a></li>
+        <li><span class="k">Réserver</span><span class="v">Par téléphone · fondue à commander à l'avance</span></li>
+      </ul>
+      <div style="margin-top:26px"><a href="tel:+41793591333" class="btn btn-fill">Appeler pour réserver</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte La Pinte St-Pierre-de-Clages" src="https://www.google.com/maps?q=Rue%20de%20l'%C3%89glise%2030%2C%201955%20St-Pierre-de-Clages&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">La <span>Pinte</span></div>
+    <p style="color:#a89e8f;font-size:.82rem;margin-top:8px">Rue de l'Église 30 · 1955 St-Pierre-de-Clages · 079 359 13 33</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
