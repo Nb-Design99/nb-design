@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Le Sultan · Kebab & Gastronomie orientale · Sion</title>
+<meta name="description" content="Le Sultan à Sion, la référence de la gastronomie orientale en Valais : döner, kebab, börek, falafels et lounge shisha. Sur place et en livraison." />
+<meta name="theme-color" content="#160f28" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Le Sultan · Kebab & Gastronomie orientale · Sion" />
+<meta property="og:description" content="La référence de la gastronomie orientale en Valais. Kebab, börek, falafels et lounge shisha à Sion." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Le Sultan",
+  "address":{"@type":"PostalAddress","streetAddress":"Rue des Casernes 15","addressLocality":"Sion","postalCode":"1950","addressCountry":"CH"},
+  "telephone":"+41273213173","servesCuisine":"Orientale, turque, kebab","priceRange":"CHF 10-20",
+  "url":"https://nb-design.ch/Restaurant/LeSultan/"
+}
+</script>
+<style>
+:root{
+  --night:#160f28;--night2:#1e1638;--night3:#0f0a1e;
+  --gold:#d8b24a;--gold-soft:#ecd58a;
+  --cream:#f2ebdd;--plum:#3a2757;--rose:#c96a86;
+  --muted:#a094b8;--line:rgba(216,178,74,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',system-ui,sans-serif;background:var(--night);color:var(--cream);line-height:1.7;overflow-x:hidden;font-weight:300}
+h1,h2,h3,.disp{font-family:'Cinzel',serif;font-weight:500;line-height:1.15;letter-spacing:.02em}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.34em;font-size:.7rem;font-weight:500;color:var(--gold-soft);font-family:'Jost'}
+.orn{display:flex;align-items:center;gap:14px;color:var(--gold);justify-content:center}
+.orn::before,.orn::after{content:"";height:1px;width:52px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn::after{background:linear-gradient(270deg,transparent,var(--gold))}
+.orn span{font-size:1rem}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+header.scrolled{background:rgba(15,10,30,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{font-family:'Cinzel';font-weight:600;font-size:1.4rem;letter-spacing:.14em;color:var(--gold-soft)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.82rem;text-transform:uppercase;letter-spacing:.14em;font-weight:400;opacity:.9}
+.menu a:hover{color:var(--gold-soft)}
+.btn{display:inline-block;font-family:'Jost';font-weight:500;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;padding:13px 28px;transition:.28s;border-radius:2px}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#c39a35);color:var(--night3)}
+.btn-gold:hover{filter:brightness(1.1)}
+.btn-out{border:1px solid var(--gold);color:var(--gold-soft)}
+.btn-out:hover{background:var(--gold);color:var(--night3)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--gold-soft)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;text-align:center;padding:120px 0 70px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.4) saturate(.9)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(58,39,87,.4),var(--night3) 88%)}
+.hero-inner{max-width:800px;margin:0 auto}
+.hero .orn{margin-bottom:24px}
+.hero h1{font-size:clamp(3rem,8vw,6rem);color:var(--cream)}
+.hero h1 span{color:var(--gold-soft)}
+.hero .lead{font-size:1.15rem;color:#d9cfe4;max-width:580px;margin:24px auto 34px;font-weight:300}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.crown{font-size:2rem;color:var(--gold);margin-bottom:6px}
+
+section{padding:106px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 56px}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.3rem);margin:16px 0 6px}
+.sec-head p{color:var(--muted)}
+
+.specs{background:var(--night2)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.spec{background:var(--night3);border:1px solid var(--line);border-radius:6px;padding:34px 24px;text-align:center;transition:.35s}
+.spec:hover{transform:translateY(-8px);border-color:var(--gold)}
+.spec .ico{font-size:1.9rem}
+.spec h3{font-size:1.15rem;margin:14px 0 8px;letter-spacing:.06em}
+.spec p{color:var(--muted);font-size:.9rem;font-weight:300}
+
+.shisha{position:relative}
+.shisha-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.shisha-img{position:relative}
+.shisha-img img{border-radius:8px;height:500px;width:100%;object-fit:cover}
+.shisha-img .frame{position:absolute;inset:12px;border:1px solid var(--gold);opacity:.5;border-radius:6px;pointer-events:none}
+.shisha h2{font-size:clamp(2rem,4.6vw,3.3rem);margin:16px 0 18px}
+.shisha h2 span{color:var(--gold-soft)}
+.shisha p{color:#d0c6de;margin-bottom:15px;font-weight:300}
+.flavors{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.flavors span{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:30px;padding:7px 14px;color:var(--muted)}
+
+.exp{background:var(--night3);text-align:center}
+.exp .banner{font-family:'Cinzel';font-size:clamp(1.4rem,3.4vw,2.3rem);color:var(--gold-soft);max-width:820px;margin:0 auto;line-height:1.4}
+
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal img{height:280px;width:100%;object-fit:cover;border-radius:6px;filter:saturate(.95)}
+
+.contact{background:var(--night2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:14px 0 24px}
+.info{list-style:none;display:grid;gap:18px;margin-bottom:26px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:var(--gold-soft);min-width:92px;padding-top:3px}
+.info .v{color:#d0c6de}
+.info a.v:hover{color:var(--gold-soft)}
+.delivery{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.pill{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:30px;padding:8px 15px;color:var(--muted)}
+.map{border-radius:8px;overflow:hidden;border:1px solid var(--line);height:340px}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.3) invert(.02)}
+
+footer{background:var(--night3);padding:46px 0 30px;border-top:1px solid var(--line);text-align:center}
+.foot-brand{font-family:'Cinzel';font-weight:600;font-size:1.5rem;letter-spacing:.16em;color:var(--gold-soft)}
+.credit{color:var(--muted);font-size:.74rem;margin-top:14px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--night3);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;border-left:1px solid var(--line)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .grid4{grid-template-columns:1fr 1fr}
+  .shisha-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .shisha-grid .shisha-img{order:-1}
+  .gal{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){section{padding:76px 0}.grid4{grid-template-columns:1fr}.gal{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">LE SULTAN</a>
+    <nav class="menu" id="menu">
+      <a href="#specialites">Spécialités</a>
+      <a href="#shisha">Lounge shisha</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41273213173" class="btn btn-gold">Commander</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&w=1600&q=80" alt="Assiette orientale généreuse" />
+  </div>
+  <div class="wrap hero-inner">
+    <div class="crown">♛</div>
+    <div class="orn"><span>✦</span></div>
+    <p class="eyebrow">Gastronomie orientale · Sion</p>
+    <h1>Le goût des <span>rois</span></h1>
+    <p class="lead">La référence de la cuisine orientale en Valais. Döner généreux, spécialités turques faites maison et un lounge shisha pour prolonger la soirée. Réputé pour être le meilleur kebab de la région.</p>
+    <div class="hero-cta">
+      <a href="tel:+41273213173" class="btn btn-gold">Commander</a>
+      <a href="#specialites" class="btn btn-out">La carte</a>
+    </div>
+  </div>
+</section>
+
+<section class="specs" id="specialites">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="orn"><span>✦</span></div>
+      <h2>Nos spécialités</h2>
+      <p>La vraie cuisine orientale, généreuse et parfumée</p>
+    </div>
+    <div class="grid4">
+      <div class="spec reveal"><div class="ico">🥙</div><h3>Döner &amp; Kebab</h3><p>Viande grillée à la broche, pain frais et sauces maison. Le classique, en mieux.</p></div>
+      <div class="spec reveal"><div class="ico">🌙</div><h3>Börek</h3><p>Feuilleté croustillant garni, une gourmandise turque à ne pas manquer.</p></div>
+      <div class="spec reveal"><div class="ico">🧆</div><h3>Falafels</h3><p>Boulettes de pois chiches dorées et croustillantes, la version veggie.</p></div>
+      <div class="spec reveal"><div class="ico">🦑</div><h3>Calamars &amp; salades</h3><p>Calamars croustillants et salades fraîches pour accompagner ou picorer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="shisha" id="shisha">
+  <div class="wrap shisha-grid">
+    <div class="shisha-img reveal">
+      <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&w=900&q=80" alt="Ambiance lounge orientale" loading="lazy" />
+      <span class="frame"></span>
+    </div>
+    <div class="reveal">
+      <div class="orn" style="justify-content:flex-start"><span>✦</span></div>
+      <p class="eyebrow" style="margin-top:14px">L'expérience en plus</p>
+      <h2>Le lounge <span>shisha</span></h2>
+      <p>Après le repas, on s'installe. Le Sultan, c'est aussi un espace shisha avec un large choix de parfums, pour prolonger la soirée dans une ambiance feutrée et orientale.</p>
+      <p>L'endroit idéal pour se retrouver entre amis, autour d'un thé et d'une chicha.</p>
+      <div class="flavors">
+        <span>Menthe</span><span>Double pomme</span><span>Pastèque</span><span>Fruits rouges</span><span>Citron</span><span>Et plus…</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="exp">
+  <div class="wrap">
+    <div class="orn reveal" style="margin-bottom:22px"><span>✦</span></div>
+    <p class="banner reveal">« Élu meilleur kebab de la région, servi comme il se doit : généreux, parfumé, et toujours avec le sourire. »</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="gal">
+      <img class="reveal" src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=700&q=80" alt="Kebab garni" loading="lazy" />
+      <img class="reveal" src="https://images.unsplash.com/photo-1633436375153-d7045cb93e38?auto=format&fit=crop&w=700&q=80" alt="Spécialité orientale" loading="lazy" />
+      <img class="reveal" src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=700&q=80" alt="Falafels croustillants" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <div class="orn" style="justify-content:flex-start"><span>✦</span></div>
+      <p class="eyebrow" style="margin-top:14px">Nous trouver</p>
+      <h2>Venez régner à table</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Rue des Casernes 15<br>1950 Sion</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41273213173">027 321 31 73</a></li>
+        <li><span class="k">Sur place</span><span class="v">Restaurant &amp; lounge shisha</span></li>
+      </ul>
+      <div class="delivery"><span class="pill">Sur place</span><span class="pill">À l'emporter</span><span class="pill">Livraison Uber Eats</span><span class="pill">Smood</span></div>
+      <div style="margin-top:26px"><a href="tel:+41273213173" class="btn btn-gold">Passer commande</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte Le Sultan Sion" src="https://www.google.com/maps?q=Rue%20des%20Casernes%2015%2C%201950%20Sion&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="orn" style="margin-bottom:14px"><span>✦</span></div>
+    <div class="foot-brand">LE SULTAN</div>
+    <p style="color:var(--muted);font-size:.82rem;margin-top:8px">Rue des Casernes 15 · 1950 Sion · 027 321 31 73</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
