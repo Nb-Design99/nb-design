@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Café Travelletti · Caveau de vigneron · Ayent</title>
+<meta name="description" content="Café Travelletti à St-Romain (Ayent) : le café-caveau au-dessus de la cave familiale. Dégustation des vins du domaine, produits du terroir et terrasse avec vue, depuis 1973." />
+<meta name="theme-color" content="#f7f2ea" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Café Travelletti · Caveau de vigneron · Ayent" />
+<meta property="og:description" content="Le café-caveau de la cave de St-Romain à Ayent. Vins du domaine, terroir et terrasse avec vue, en famille depuis 1973." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Café Travelletti",
+  "address":{"@type":"PostalAddress","streetAddress":"Route de St-Romain 26","addressLocality":"Ayent","postalCode":"1966","addressCountry":"CH"},
+  "telephone":"+41273981222","servesCuisine":"Valaisanne, caveau, vins","priceRange":"CHF 15-30",
+  "url":"https://nb-design.ch/Restaurant/CafeTravelletti/"
+}
+</script>
+<style>
+:root{
+  --paper:#f7f2ea;--paper2:#efe7d8;--white:#fdfaf3;
+  --ink:#2a201f;--ink-soft:#6c5d54;
+  --wine:#732a37;--wine-d:#5c2029;--vine:#57683d;--gold:#b8892f;--gold-d:#976f22;--line:#e5dac6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.68;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Prata',serif;font-weight:400;line-height:1.18}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.26em;font-size:.72rem;font-weight:600;color:var(--wine)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+header.scrolled{background:rgba(253,250,243,.94);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(42,32,31,.06)}
+.brand{font-family:'Prata';font-size:1.35rem;letter-spacing:.02em;color:var(--ink)}
+.brand span{color:var(--wine)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.86rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--wine)}
+.btn{display:inline-block;font-weight:600;font-size:.86rem;padding:12px 26px;border-radius:2px;transition:.25s}
+.btn-fill{background:var(--wine);color:#fff}
+.btn-fill:hover{background:var(--wine-d)}
+.btn-out{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-out:hover{background:var(--ink);color:var(--paper)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:120px 0 74px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.6) saturate(1)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(42,32,31,.8) 4%,rgba(42,32,31,.28) 55%,transparent)}
+.hero-inner{max-width:680px;color:#fff}
+.hero .eyebrow{color:#e6c98d}
+.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);color:#fff}
+.hero h1 em{font-style:italic;color:#e6c98d}
+.hero .lead{font-size:1.14rem;color:#f0e7d6;max-width:520px;margin:20px 0 30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+section{padding:106px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.family{background:var(--white)}
+.fam-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.fam-img{position:relative}
+.fam-img img{border-radius:4px;height:500px;width:100%;object-fit:cover}
+.fam-img .seal{position:absolute;top:-22px;right:-18px;width:112px;height:112px;background:var(--wine);color:var(--paper);border-radius:50%;display:grid;place-content:center;text-align:center;font-family:'Prata';transform:rotate(-8deg);box-shadow:0 16px 34px rgba(42,32,31,.22)}
+.fam-img .seal b{font-size:1.5rem;line-height:1}
+.fam-img .seal small{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase}
+.family h2{font-size:clamp(2.2rem,5vw,3.5rem);margin:12px 0 20px}
+.family h2 em{color:var(--vine);font-style:italic}
+.family p{color:var(--ink-soft);margin-bottom:15px}
+
+.wines{background:var(--wine);color:var(--paper)}
+.wines .head{text-align:center;max-width:640px;margin:0 auto 52px}
+.wines .eyebrow{color:#e6c98d}
+.wines h2{font-size:clamp(2.2rem,5vw,3.5rem);margin-top:12px;color:#fff}
+.wines h2 em{color:#e6c98d;font-style:italic}
+.wines .head p{color:#e8d9c6}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.wcard{background:rgba(255,255,255,.06);border:1px solid rgba(230,201,141,.28);border-radius:5px;padding:30px 26px;transition:.35s}
+.wcard:hover{background:rgba(255,255,255,.11)}
+.wcard .g{color:#e6c98d;font-family:'Prata';font-size:1rem;margin-bottom:8px}
+.wcard h3{font-size:1.5rem;color:#fff;margin-bottom:8px}
+.wcard p{color:#e8d9c6;font-size:.92rem}
+
+.caveau{position:relative}
+.cav-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.cav-img img{border-radius:4px;height:440px;width:100%;object-fit:cover}
+.caveau h2{font-size:clamp(2rem,4.6vw,3.2rem);margin:12px 0 18px}
+.caveau h2 em{color:var(--wine);font-style:italic}
+.caveau p{color:var(--ink-soft);margin-bottom:15px}
+.caveau .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.caveau .tags span{font-size:.78rem;border:1px solid var(--line);border-radius:30px;padding:7px 14px;color:var(--ink-soft)}
+
+.contact{background:var(--white);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600;color:var(--wine);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--wine)}
+.map{border-radius:4px;overflow:hidden;border:1px solid var(--line);height:330px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--ink);color:var(--paper);padding:46px 0 30px;text-align:center}
+.foot-brand{font-family:'Prata';font-size:1.5rem}
+.foot-brand span{color:#e6c98d}
+.credit{color:#a5978c;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--white);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(42,32,31,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .fam-grid,.cav-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .fam-grid .fam-img,.cav-grid .cav-img{order:-1}
+  .wgrid{grid-template-columns:1fr}
+}
+@media(max-width:520px){section{padding:76px 0}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">Café <span>Travelletti</span></a>
+    <nav class="menu" id="menu">
+      <a href="#famille">La famille</a>
+      <a href="#vins">Nos vins</a>
+      <a href="#caveau">Le caveau</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41273981222" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1600&q=80" alt="Vignes du Valais au coucher du soleil" />
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Café-caveau · St-Romain, Ayent</p>
+    <h1>Le café<br><em>de la cave</em></h1>
+    <p class="lead">Juste au-dessus de nos cuves, on partage ce qu'on aime : nos vins, les produits du terroir et la vue sur les coteaux. Une histoire de famille depuis 1973.</p>
+    <div class="hero-cta">
+      <a href="tel:+41273981222" class="btn btn-fill">Réserver une table</a>
+      <a href="#vins" class="btn btn-out" style="border-color:#f0e7d6;color:#f0e7d6">Découvrir nos vins</a>
+    </div>
+  </div>
+</section>
+
+<section class="family" id="famille">
+  <div class="wrap fam-grid">
+    <div class="fam-img reveal">
+      <img src="https://images.unsplash.com/photo-1474722883778-792e7990302f?auto=format&fit=crop&w=900&q=80" alt="Cave et barriques de vin" loading="lazy" />
+      <div class="seal"><div><b>1973</b><small>Depuis</small></div></div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">La famille</p>
+      <h2>Une histoire de <em>vignerons</em></h2>
+      <p>Tout a commencé en 1973, quand Marcel Travelletti a fondé la Cave de St-Romain. Aujourd'hui, ce sont les frères Gino et Raoul qui font vivre le domaine, avec la même passion pour le travail bien fait.</p>
+      <p>Le café, c'est le prolongement naturel de la cave : un lieu où l'on vient goûter nos vins, discuter, et se sentir comme reçu à la maison.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wines" id="vins">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Au verre ou à la bouteille</p>
+      <h2>Les vins <em>du domaine</em></h2>
+      <p>Nos propres crus, élevés à quelques mètres de votre table. À déguster sur place ou à emporter.</p>
+    </div>
+    <div class="wgrid">
+      <div class="wcard reveal"><div class="g">Blanc</div><h3>Fendant &amp; Johannisberg</h3><p>Les blancs du Valais, frais et minéraux, parfaits à l'apéro.</p></div>
+      <div class="wcard reveal"><div class="g">Rouge</div><h3>Pinot Noir &amp; Dôle</h3><p>Nos rouges de caractère, élevés avec patience sur nos coteaux.</p></div>
+      <div class="wcard reveal"><div class="g">Spécialités</div><h3>Cépages du pays</h3><p>Les découvertes du domaine, à goûter au fil des millésimes.</p></div>
+    </div>
+    <p style="text-align:center;color:#e8d9c6;font-size:.9rem;margin-top:34px">Dégustation et vente au caveau · demandez notre sélection du moment</p>
+  </div>
+</section>
+
+<section class="caveau" id="caveau">
+  <div class="wrap cav-grid">
+    <div class="cav-img reveal">
+      <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=900&q=80" alt="Verre de vin et planchette du terroir" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">À grignoter</p>
+      <h2>Le terroir, <em>en accompagnement</em></h2>
+      <p>Pour aller avec le verre : assiette valaisanne, planchette de fromages et charcuteries du pays, et de quoi passer un bon moment. Simple, local, généreux.</p>
+      <p>Et quand le soleil est là, la terrasse offre une vue imprenable sur les coteaux d'Ayent, à deux pas d'Anzère.</p>
+      <div class="tags"><span>Assiette valaisanne</span><span>Planchettes</span><span>Terrasse avec vue</span><span>Vins du domaine</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Montez au caveau</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Route de St-Romain 26<br>1966 Ayent</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41273981222">027 398 12 22</a></li>
+        <li><span class="k">Natel</span><a class="v" href="tel:+41794494563">079 449 45 63</a></li>
+        <li><span class="k">Réserver</span><span class="v">Par téléphone · dégustations sur demande</span></li>
+      </ul>
+      <div style="margin-top:26px"><a href="tel:+41273981222" class="btn btn-fill">Appeler pour réserver</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte Café Travelletti St-Romain Ayent" src="https://www.google.com/maps?q=Route%20de%20St-Romain%2026%2C%201966%20Ayent&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">Café <span>Travelletti</span></div>
+    <p style="color:#a5978c;font-size:.82rem;margin-top:8px">Route de St-Romain 26 · 1966 Ayent · 027 398 12 22</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
