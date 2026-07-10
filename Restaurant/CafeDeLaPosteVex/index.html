@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Café de la Poste · Cuisine suisse & gibier · Vex</title>
+<meta name="description" content="Café-Restaurant de la Poste à Vex : la bonne cuisine suisse qui tient au corps. Rösti, Älplermagronen, gibier de saison et pâté maison, en portions généreuses." />
+<meta name="theme-color" content="#f7f1e2" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Café de la Poste · Cuisine suisse & gibier · Vex" />
+<meta property="og:description" content="Rösti, gibier de saison et spécialités suisses généreuses, dans une ambiance familiale à Vex." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Café-Restaurant de la Poste",
+  "address":{"@type":"PostalAddress","streetAddress":"Route de Sion","addressLocality":"Vex","postalCode":"1981","addressCountry":"CH"},
+  "telephone":"+41272073196","servesCuisine":"Suisse, valaisanne, gibier","priceRange":"CHF 18-38",
+  "url":"https://nb-design.ch/Restaurant/CafeDeLaPosteVex/"
+}
+</script>
+<style>
+:root{
+  --cream:#f7f1e2;--cream2:#efe6cf;--paper:#fffdf5;
+  --ink:#1c1a15;--ink-soft:#5f594c;
+  --post:#f4c22e;--post-d:#e0ab16;--game:#8a3b2e;--game-d:#6f2e23;--line:#e2d7bd;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;line-height:1.04}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;font-weight:700;color:var(--game)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+header.scrolled{background:rgba(255,253,245,.95);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(28,26,21,.07)}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque';font-weight:800;font-size:1.25rem;color:var(--ink)}
+.brand .dot{width:30px;height:30px;background:var(--post);border-radius:50%;display:grid;place-content:center;font-size:.9rem;border:2px solid var(--ink)}
+.menu{display:flex;gap:28px;align-items:center}
+.menu a{font-size:.86rem;font-weight:600;opacity:.85}
+.menu a:hover{color:var(--game)}
+.btn{display:inline-block;font-weight:700;font-size:.86rem;padding:12px 24px;border-radius:8px;transition:.25s}
+.btn-fill{background:var(--ink);color:var(--post)}
+.btn-fill:hover{background:#000}
+.btn-out{border:2px solid var(--ink);color:var(--ink)}
+.btn-out:hover{background:var(--ink);color:var(--cream)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+.hero{padding:140px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-8%;right:-6%;width:420px;height:420px;background:var(--post);border-radius:50%;opacity:.25;z-index:0}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative;z-index:1}
+.stamp{display:inline-grid;place-content:center;text-align:center;width:96px;height:96px;background:var(--post);border:3px dashed var(--ink);border-radius:8px;transform:rotate(-6deg);font-family:'Bricolage Grotesque';font-weight:800;line-height:1;margin-bottom:16px}
+.stamp b{font-size:1.3rem}.stamp small{font-size:.56rem;letter-spacing:.1em;display:block;margin-top:3px}
+.hero h1{font-size:clamp(2.8rem,6.2vw,5rem)}
+.hero h1 span{background:var(--post);padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero .lead{font-size:1.1rem;color:var(--ink-soft);margin:20px 0 12px;max-width:460px}
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 28px}
+.chip{font-size:.8rem;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:8px 15px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-img{position:relative}
+.hero-img img{border-radius:14px;height:500px;width:100%;object-fit:cover;box-shadow:0 26px 54px rgba(28,26,21,.18)}
+.hero-img .post-tag{position:absolute;bottom:20px;left:-16px;background:var(--ink);color:var(--post);padding:14px 20px;border-radius:12px;font-family:'Bricolage Grotesque';font-weight:800}
+.hero-img .post-tag small{display:block;font-family:'Inter';font-weight:500;font-size:.72rem;color:#e6dcc4}
+
+section{padding:100px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.sig{background:var(--ink);color:var(--cream)}
+.sig .head{text-align:center;max-width:620px;margin:0 auto 50px}
+.sig .eyebrow{color:var(--post)}
+.sig h2{font-size:clamp(2.2rem,5vw,3.4rem);margin-top:10px;color:#fff}
+.sig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.scard{background:#26231c;border:1px solid rgba(244,194,46,.22);border-radius:12px;overflow:hidden;transition:.35s}
+.scard:hover{transform:translateY(-7px);border-color:var(--post)}
+.scard img{height:160px;width:100%;object-fit:cover}
+.scard .b{padding:20px}
+.scard h3{font-size:1.2rem;color:#fff;margin-bottom:6px}
+.scard p{color:#c9c0ac;font-size:.9rem}
+
+.hearty{position:relative}
+.hearty-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.hearty-img img{border-radius:14px;height:440px;width:100%;object-fit:cover}
+.hearty h2{font-size:clamp(2rem,4.6vw,3.2rem);margin:12px 0 18px}
+.hearty h2 span{color:var(--game)}
+.hearty p{color:var(--ink-soft);margin-bottom:15px}
+.hearty .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.hearty .tags span{font-size:.78rem;border:1px solid var(--line);border-radius:30px;padding:7px 14px;color:var(--ink-soft)}
+
+.game-band{background:var(--game);color:#fff;text-align:center}
+.game-band .wrap{padding:60px 0}
+.game-band h2{font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;max-width:760px;margin:0 auto 10px}
+.game-band p{color:#f0d9d3}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:700;color:var(--game);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--game)}
+.map{border-radius:14px;overflow:hidden;border:1px solid var(--line);height:330px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--ink);color:var(--cream);padding:44px 0 30px;text-align:center}
+.foot-brand{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.35rem}
+.foot-brand span{color:var(--post)}
+.credit{color:#8f8877;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(28,26,21,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .hero-grid,.hearty-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-grid .hero-img,.hearty-grid .hearty-img{order:-1}
+  .sig-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){section{padding:74px 0}.sig-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand"><span class="dot">✉</span> de la Poste</a>
+    <nav class="menu" id="menu">
+      <a href="#signature">Nos plats</a>
+      <a href="#maison">La maison</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41272073196" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="stamp"><b>1981</b><small>VEX · VS</small></div>
+      <h1>La cuisine suisse<br>qui <span>tient au corps</span></h1>
+      <p class="lead">Rösti dorés, gibier de saison, spécialités du pays : au Café de la Poste, on sert généreux et fait maison, dans l'ambiance conviviale d'un vrai café de village.</p>
+      <div class="chips"><span class="chip">🥔 Rösti</span><span class="chip">🦌 Chasse</span><span class="chip">🧀 Älplermagronen</span><span class="chip">⭐ 4.7</span></div>
+      <div class="hero-cta">
+        <a href="tel:+41272073196" class="btn btn-fill">Réserver une table</a>
+        <a href="#signature" class="btn btn-out">Voir nos plats</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=900&q=80" alt="Plat suisse généreux" />
+      <div class="post-tag">Portions généreuses<small>comme on aime en Valais</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="sig" id="signature">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Les incontournables</p>
+      <h2>Ce qu'on sert avec fierté</h2>
+    </div>
+    <div class="sig-grid">
+      <div class="scard reveal"><img src="https://images.unsplash.com/photo-1608039755401-742074f0548d?auto=format&fit=crop&w=500&q=80" alt="Rösti doré" loading="lazy" /><div class="b"><h3>Rösti</h3><p>Croustillant dehors, fondant dedans. Nature ou garni, un vrai bonheur.</p></div></div>
+      <div class="scard reveal"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80" alt="Gibier de saison" loading="lazy" /><div class="b"><h3>Gibier de saison</h3><p>Médaillons de chevreuil et champignons, sensationnels à l'automne.</p></div></div>
+      <div class="scard reveal"><img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=500&q=80" alt="Älplermagronen" loading="lazy" /><div class="b"><h3>Älplermagronen</h3><p>Le macaroni du berger, fromage et pommes de terre. Réconfort garanti.</p></div></div>
+      <div class="scard reveal"><img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=500&q=80" alt="Pâté maison" loading="lazy" /><div class="b"><h3>Pâté maison</h3><p>Fait ici, avec les bons produits. Un classique qu'on ne rate jamais.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="hearty" id="maison">
+  <div class="wrap hearty-grid">
+    <div class="hearty-img reveal">
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80" alt="Ambiance conviviale de café-restaurant" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">La maison</p>
+      <h2>Un café de village, <span>sans chichi</span></h2>
+      <p>Au Café de la Poste, pas de fioritures : de la vraie cuisine suisse maison, faite avec des produits frais et de saison, servie avec le sourire et sans compter.</p>
+      <p>Une équipe aux petits soins, un service prompt, et cette ambiance familiale qui fait qu'on s'y sent vite chez soi.</p>
+      <div class="tags"><span>Fait maison</span><span>Produits de saison</span><span>Portions généreuses</span><span>Ambiance familiale</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="game-band">
+  <div class="wrap">
+    <h2>À l'automne, place à la chasse</h2>
+    <p>Chevreuil, champignons et accompagnements maison : la saison du gibier, c'est ici qu'on la savoure. Réservez, les tables partent vite.</p>
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Sur la route de Sion</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Route de Sion<br>1981 Vex</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41272073196">027 207 31 96</a></li>
+        <li><span class="k">Cuisine</span><span class="v">Suisse &amp; valaisanne · rösti · gibier · fait maison</span></li>
+      </ul>
+      <div style="margin-top:24px"><a href="tel:+41272073196" class="btn btn-fill">Appeler pour réserver</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte Café de la Poste Vex" src="https://www.google.com/maps?q=Restaurant%20de%20la%20Poste%2C%20Route%20de%20Sion%2C%201981%20Vex&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">Café-Restaurant de la <span>Poste</span> · Vex</div>
+    <p style="color:#8f8877;font-size:.82rem;margin-top:8px">Route de Sion · 1981 Vex · 027 207 31 96</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
