@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Le blog NB-Design : conseils, guides et retours d'expérience de webdesigner suisse spécialisé dans les sites pour restaurants et PME." />
+  <meta name="keywords" content="blog webdesign, conseils site web restaurant, SEO local suisse, création site internet" />
+  <meta name="author" content="NB-Design" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#0f2318" />
+  <title>Blog · NB-Design — Conseils webdesign & sites pour restaurants suisses</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="canonical" href="https://nb-design.ch/blog/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog NB-Design · Conseils webdesign & sites restaurants" />
+  <meta property="og:description" content="Nos guides pour restaurateurs et PME suisses qui veulent un site web qui convertit." />
+  <meta property="og:url" content="https://nb-design.ch/blog/" />
+  <meta property="og:image" content="https://nb-design.ch/og-image.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Blog NB-Design",
+    "url": "https://nb-design.ch/blog/",
+    "description": "Guides et conseils webdesign pour restaurants et PME suisses",
+    "publisher": { "@type": "Organization", "name": "NB-Design", "url": "https://nb-design.ch" },
+    "inLanguage": "fr-CH"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-deep: #061410; --green-dark: #0f2318; --green-glow: #6ed09a; --gold: #c9a84c;
+      --white: #f8f6f1; --text-muted: rgba(248, 246, 241, 0.62); --text-dim: rgba(248, 246, 241, 0.38);
+      --bg-dark: #030a06; --border-soft: rgba(248, 246, 241, 0.08); --border-medium: rgba(248, 246, 241, 0.14);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; color: var(--white); background: var(--bg-dark); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .header { position: sticky; top: 0; z-index: 10; background: rgba(3,10,6,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-soft); padding: 1rem 0; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem; }
+    .nav { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 0.65rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 500; }
+    .brand img { width: 34px; height: 34px; border-radius: 50%; }
+    .brand em { color: var(--green-glow); font-style: italic; }
+    .nav-back { font-size: 0.9rem; color: var(--text-muted); transition: color 0.2s; }
+    .nav-back:hover { color: var(--green-glow); }
+    .hero { padding: 5rem 0 3rem; text-align: center; }
+    .hero-eyebrow { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 400; margin-bottom: 1.2rem; line-height: 1.1; }
+    .hero h1 em { color: var(--green-glow); font-style: italic; }
+    .hero-sub { color: var(--text-muted); font-size: 1.1rem; max-width: 620px; margin: 0 auto; }
+    .articles { padding: 3rem 0 6rem; display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+    @media (min-width: 720px) { .articles { grid-template-columns: 1fr 1fr; } }
+    .article-card {
+      display: flex; flex-direction: column; padding: 2rem;
+      background: linear-gradient(180deg, rgba(248,246,241,0.03), rgba(248,246,241,0.008));
+      border: 1px solid var(--border-soft); border-radius: 16px;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+    .article-card:hover { border-color: var(--green-glow); transform: translateY(-3px); }
+    .article-cat { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .article-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 500; margin-bottom: 0.9rem; line-height: 1.25; }
+    .article-title em { color: var(--green-glow); font-style: italic; }
+    .article-excerpt { color: var(--text-muted); font-size: 0.95rem; flex: 1; margin-bottom: 1.2rem; }
+    .article-cta { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--green-glow); font-weight: 600; font-size: 0.9rem; }
+    .article-cta:hover { gap: 0.7rem; transition: gap 0.25s; }
+    .footer { padding: 3rem 0; border-top: 1px solid var(--border-soft); color: var(--text-muted); font-size: 0.85rem; text-align: center; }
+    .footer a { color: var(--green-glow); }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="brand"><img src="/favicon-192x192.png" alt="" /><span>NB&nbsp;·&nbsp;<em>Design</em></span></a>
+        <a href="/" class="nav-back">← Retour à l'accueil</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Le blog NB-Design</div>
+      <h1>Guides & conseils pour un <em>site qui convertit</em></h1>
+      <p class="hero-sub">Retours d'expérience de webdesigner suisse. Ce qu'on apprend en concevant des sites pour restaurants et PME en Valais et Suisse romande.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="articles">
+
+      <a href="/blog/combien-coute-site-web-restaurant-suisse/" class="article-card">
+        <div class="article-cat">Guide tarifaire</div>
+        <h2 class="article-title">Combien coûte un site web pour restaurant en Suisse en <em>2026</em>&nbsp;?</h2>
+        <p class="article-excerpt">Fourchettes réelles observées en Suisse romande : de 400 CHF (template) à 15 000 CHF (agence). Ce qu'il faut vraiment payer, et pour quoi.</p>
+        <span class="article-cta">Lire l'article →</span>
+      </a>
+
+      <a href="/blog/wordpress-vs-site-sur-mesure/" class="article-card">
+        <div class="article-cat">Comparatif technique</div>
+        <h2 class="article-title">WordPress ou site sur mesure&nbsp;: le <em>vrai comparatif</em></h2>
+        <p class="article-excerpt">Vitesse, sécurité, coûts cachés, SEO, dépendance à un CMS. On démonte les idées reçues et on tranche selon votre cas.</p>
+        <span class="article-cta">Lire l'article →</span>
+      </a>
+
+      <a href="/blog/erreurs-eviter-site-restaurant/" class="article-card">
+        <div class="article-cat">Erreurs classiques</div>
+        <h2 class="article-title">5 erreurs à éviter en créant le site de son <em>restaurant</em></h2>
+        <p class="article-excerpt">De la photo pixelisée au menu en PDF non lisible sur mobile. Les erreurs qu'on voit encore trop souvent chez nos prospects.</p>
+        <span class="article-cta">Lire l'article →</span>
+      </a>
+
+      <a href="/blog/optimiser-google-business-restaurant/" class="article-card">
+        <div class="article-cat">SEO local</div>
+        <h2 class="article-title">Optimiser sa fiche <em>Google Business</em> quand on est restaurateur</h2>
+        <p class="article-excerpt">Comment apparaître dans le pack local Google Maps. 12 réglages précis qui font la différence entre "invisible" et "3 appels/jour".</p>
+        <span class="article-cta">Lire l'article →</span>
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 NB-Design — Webdesigner suisse basé en Valais · <a href="/">nb-design.ch</a></p>
+    </div>
+  </footer>
+</body>
+</html>

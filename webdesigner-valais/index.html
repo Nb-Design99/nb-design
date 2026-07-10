@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Webdesigner en Valais : NB-Design crée des sites web sur mesure pour restaurants et PME valaisannes. Design premium, SEO local, tarifs dès 795 CHF." />
+  <meta name="keywords" content="webdesigner valais, création site web valais, webdesign sion, agence web valais, site internet valais, freelance web valais" />
+  <meta name="author" content="NB-Design" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="geo.region" content="CH-VS" />
+  <meta name="geo.placename" content="Valais, Suisse" />
+  <meta name="theme-color" content="#0f2318" />
+  <title>Webdesigner en Valais · NB-Design — Sites web sur mesure dès 795 CHF</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="canonical" href="https://nb-design.ch/webdesigner-valais/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Webdesigner en Valais · NB-Design" />
+  <meta property="og:description" content="Sites web sur mesure pour restaurants et PME valaisannes. Design premium, SEO local." />
+  <meta property="og:url" content="https://nb-design.ch/webdesigner-valais/" />
+  <meta property="og:image" content="https://nb-design.ch/og-image.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "NB-Design — Webdesigner en Valais",
+    "url": "https://nb-design.ch/webdesigner-valais/",
+    "description": "Webdesigner valaisan spécialisé dans les sites sur mesure pour restaurants et PME.",
+    "priceRange": "CHF 795 - CHF 1390",
+    "address": { "@type": "PostalAddress", "addressRegion": "Valais", "addressCountry": "CH" },
+    "geo": { "@type": "GeoCoordinates", "latitude": "46.2276", "longitude": "7.3589" },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Valais" },
+      { "@type": "City", "name": "Sion" },
+      { "@type": "City", "name": "Sierre" },
+      { "@type": "City", "name": "Martigny" },
+      { "@type": "City", "name": "Monthey" },
+      { "@type": "City", "name": "Brig" },
+      { "@type": "City", "name": "Verbier" },
+      { "@type": "City", "name": "Zermatt" },
+      { "@type": "City", "name": "Crans-Montana" }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --green-deep: #061410; --green-dark: #0f2318; --green-glow: #6ed09a; --gold: #c9a84c; --white: #f8f6f1; --text-muted: rgba(248,246,241,0.72); --text-dim: rgba(248,246,241,0.4); --bg-dark: #030a06; --border-soft: rgba(248,246,241,0.08); }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; color: var(--white); background: var(--bg-dark); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--green-glow); text-decoration: none; }
+    .header { position: sticky; top: 0; z-index: 10; background: rgba(3,10,6,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-soft); padding: 1rem 0; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    .nav { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 0.65rem; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 500; color: var(--white); }
+    .brand img { width: 34px; height: 34px; border-radius: 50%; }
+    .brand em { color: var(--green-glow); font-style: italic; }
+    .nav-back { font-size: 0.9rem; color: var(--text-muted); }
+    .nav-back:hover { color: var(--green-glow); }
+    .hero { padding: 5rem 0 3rem; text-align: center; }
+    .hero-eyebrow { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 400; margin-bottom: 1.2rem; line-height: 1.1; }
+    .hero h1 em { color: var(--green-glow); font-style: italic; }
+    .hero-sub { color: var(--text-muted); font-size: 1.15rem; max-width: 640px; margin: 0 auto 2rem; }
+    .btn { display: inline-block; padding: 0.95rem 2.2rem; background: linear-gradient(135deg, var(--green-glow), var(--gold)); color: var(--green-deep); font-weight: 600; border-radius: 999px; transition: transform 0.2s; }
+    .btn:hover { transform: translateY(-2px); }
+    section { padding: 3rem 0; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 500; margin-bottom: 1.5rem; color: var(--white); line-height: 1.2; }
+    h2 em { color: var(--green-glow); font-style: italic; }
+    p { color: var(--text-muted); margin-bottom: 1.2rem; font-size: 1rem; }
+    p strong { color: var(--white); font-weight: 600; }
+    .cities { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem; margin: 1.5rem 0 2rem; }
+    .city-card { padding: 0.9rem 1rem; background: linear-gradient(180deg, rgba(248,246,241,0.03), rgba(248,246,241,0.008)); border: 1px solid var(--border-soft); border-radius: 10px; text-align: center; font-weight: 500; color: var(--white-soft, var(--white)); font-size: 0.95rem; }
+    .packs { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 2rem 0; }
+    @media (min-width: 720px) { .packs { grid-template-columns: 1fr 1fr; } }
+    .pack { padding: 1.5rem; background: linear-gradient(180deg, rgba(248,246,241,0.03), rgba(248,246,241,0.008)); border: 1px solid var(--border-soft); border-radius: 14px; }
+    .pack:hover { border-color: var(--green-glow); }
+    .pack-name { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .pack-price { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .pack-price small { color: var(--text-muted); font-size: 0.75rem; font-family: 'DM Sans', sans-serif; font-weight: 400; }
+    .pack-desc { color: var(--text-muted); font-size: 0.92rem; }
+    .why { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 2rem 0; }
+    @media (min-width: 640px) { .why { grid-template-columns: 1fr 1fr; } }
+    .why-item { padding: 1.3rem 1.5rem; border-left: 3px solid var(--green-glow); background: linear-gradient(to right, rgba(110,208,154,0.04), transparent); border-radius: 6px; }
+    .why-item strong { display: block; color: var(--white); font-size: 1.05rem; margin-bottom: 0.4rem; }
+    .why-item span { color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; }
+    .cta-section { text-align: center; padding: 4rem 0 5rem; }
+    .footer { padding: 3rem 0; border-top: 1px solid var(--border-soft); color: var(--text-dim); font-size: 0.85rem; text-align: center; }
+    .footer a { color: var(--green-glow); }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="brand"><img src="/favicon-192x192.png" alt="" /><span>NB&nbsp;·&nbsp;<em>Design</em></span></a>
+        <a href="/" class="nav-back">← Accueil</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Webdesigner · Valais · Suisse</div>
+      <h1>Webdesigner en <em>Valais</em></h1>
+      <p class="hero-sub">Sites web sur mesure pour restaurants, PME, artisans et indépendants valaisans. Codé à la main, ultra-rapide, SEO local intégré. À partir de 795 CHF.</p>
+      <a href="/#contact" class="btn">Demander un devis gratuit</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Un studio de webdesign <em>ancré en Valais</em></h2>
+      <p>NB-Design est un studio de webdesign basé en Valais. Nous concevons chaque site à la main, en HTML, CSS et JavaScript modernes. Pas de WordPress, pas de template. Le résultat&nbsp;: des sites <strong>10 fois plus rapides</strong> que la moyenne, uniques, et parfaitement adaptés à votre identité.</p>
+      <p>Notre spécialité&nbsp;: les <strong>restaurants suisses</strong>, avec des solutions clés en main incluant menu digital, réservation en ligne et intégration Google Business Profile. Mais nous accompagnons aussi les <strong>PME, artisans, coachs et indépendants</strong> valaisans qui veulent une présence web professionnelle.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Nous intervenons dans <em>tout le Valais</em></h2>
+      <p>Basés en Valais, nous nous déplaçons pour rencontrer nos clients dans toute la région. Le premier échange est toujours gratuit.</p>
+      <div class="cities">
+        <div class="city-card">Sion</div>
+        <div class="city-card">Sierre</div>
+        <div class="city-card">Martigny</div>
+        <div class="city-card">Monthey</div>
+        <div class="city-card">Saint-Maurice</div>
+        <div class="city-card">Verbier</div>
+        <div class="city-card">Crans-Montana</div>
+        <div class="city-card">Zermatt</div>
+        <div class="city-card">Saas-Fee</div>
+        <div class="city-card">Nax</div>
+        <div class="city-card">Nendaz</div>
+        <div class="city-card">Ovronnaz</div>
+      </div>
+      <p>Vous êtes ailleurs en Valais ou en Suisse romande ? Contactez-nous quand même, nous sortons régulièrement du canton pour des projets qui nous inspirent.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Pourquoi choisir un webdesigner <em>local</em>&nbsp;?</h2>
+      <div class="why">
+        <div class="why-item">
+          <strong>Rencontres physiques possibles</strong>
+          <span>On se déplace chez vous, dans votre restaurant ou votre atelier. Comprendre votre ambiance en vrai change tout pour le design.</span>
+        </div>
+        <div class="why-item">
+          <strong>SEO local optimisé</strong>
+          <span>On connaît les spécificités du référencement en Valais et en Suisse romande. Google Business, local.ch, search.ch : on maîtrise l'écosystème.</span>
+        </div>
+        <div class="why-item">
+          <strong>Réactivité maximale</strong>
+          <span>Un problème un vendredi soir avant un mariage samedi ? On répond rapidement, pas dans 3 jours ouvrables comme les grosses agences.</span>
+        </div>
+        <div class="why-item">
+          <strong>Tarifs en CHF, sans surprise</strong>
+          <span>Facturation en francs suisses, TVA claire, pas de coûts cachés. Vous savez exactement ce que vous payez et pour quoi.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Nos <em>4 packs</em></h2>
+      <div class="packs">
+        <div class="pack">
+          <div class="pack-name">Essentiel</div>
+          <div class="pack-price">795 CHF <small>+ 95 CHF/mois</small></div>
+          <div class="pack-desc">Site vitrine 4 pages, design sur mesure, hébergement inclus. Idéal pour lancer une présence pro rapidement.</div>
+        </div>
+        <div class="pack">
+          <div class="pack-name">Menu</div>
+          <div class="pack-price">995 CHF <small>+ 95 CHF/mois</small></div>
+          <div class="pack-desc">Essentiel + carte digitale + QR code menu + intégration Google avis. Pour les restaurants qui veulent une carte toujours à jour.</div>
+        </div>
+        <div class="pack">
+          <div class="pack-name">Pro <span style="color: var(--gold); font-size: 0.75rem;">POPULAIRE</span></div>
+          <div class="pack-price">1'195 CHF <small>+ 95 CHF/mois</small></div>
+          <div class="pack-desc">Menu + réservation en ligne + bouton WhatsApp direct. Solution complète pour capter des clients 24/7.</div>
+        </div>
+        <div class="pack">
+          <div class="pack-name">Premium</div>
+          <div class="pack-price">1'390 CHF <small>+ 95 CHF/mois</small></div>
+          <div class="pack-desc">Pro + traduction 2 langues + SEO avancé + Google My Business optimisé. Pour dominer votre secteur local.</div>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top: 1.5rem;">Tous nos packs incluent l'hébergement, la maintenance et les évolutions courantes.</p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Un projet en <em>Valais</em>&nbsp;?</h2>
+      <p>Le premier échange est gratuit, sans engagement. On regarde ensemble votre besoin et on vous dit honnêtement si nos packs correspondent.</p>
+      <a href="/#contact" class="btn" style="margin-top: 1rem;">Discutons de votre projet</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 NB-Design · Webdesigner en Valais · <a href="/">Retour à l'accueil nb-design.ch</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -12,12 +12,54 @@
       <image:caption>Webdesigner suisse basé en Valais. Sites web sur mesure pour restaurants et PME.</image:caption>
     </image:image>
   </url>
+
+  <!-- Landing pages géo-ciblées (fort levier SEO local) -->
   <url>
-    <loc>https://nb-design.ch/cgv.html</loc>
+    <loc>https://nb-design.ch/webdesigner-valais/</loc>
     <lastmod>2026-07-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://nb-design.ch/webdesigner-sion/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://nb-design.ch/blog/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nb-design.ch/blog/combien-coute-site-web-restaurant-suisse/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nb-design.ch/blog/wordpress-vs-site-sur-mesure/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nb-design.ch/blog/erreurs-eviter-site-restaurant/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nb-design.ch/blog/optimiser-google-business-restaurant/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Portfolio -->
   <url>
     <loc>https://nb-design.ch/portfolio/vitrine-interactive/</loc>
     <lastmod>2026-07-08</lastmod>
@@ -53,5 +95,13 @@
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Pages légales -->
+  <url>
+    <loc>https://nb-design.ch/cgv.html</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
