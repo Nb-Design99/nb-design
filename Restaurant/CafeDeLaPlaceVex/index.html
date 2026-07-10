@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Café de la Place · Pizzeria & Saveurs du Valais · Vex</title>
+<meta name="description" content="Café de la Place à Vex : pizzeria et spécialités valaisannes. Pizzas primées, San Marco à la truffe, macaroni d'alpage, fondue et desserts maison. Prix doux, livraison." />
+<meta name="theme-color" content="#f6f1e6" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Café de la Place · Pizzeria & Saveurs du Valais · Vex" />
+<meta property="og:description" content="Pizzas et spécialités valaisannes à Vex, dont le San Marco à la truffe et le macaroni d'alpage. 4.3/5, prix doux." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Café de la Place",
+  "address":{"@type":"PostalAddress","streetAddress":"Place du Cotterd 1","addressLocality":"Vex","postalCode":"1981","addressCountry":"CH"},
+  "telephone":"+41272072041","servesCuisine":"Pizzeria, valaisanne, italienne","priceRange":"CHF 15-30",
+  "url":"https://nb-design.ch/Restaurant/CafeDeLaPlaceVex/"
+}
+</script>
+<style>
+:root{
+  --oat:#f6f1e6;--oat2:#ece3d0;--paper:#fffdf7;
+  --ink:#26241f;--ink-soft:#6a6154;
+  --pine:#2f6b4a;--pine-d:#245038;--tomato:#d24b39;--wood:#c1874a;--line:#e5dbc6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--oat);color:var(--ink);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Zilla Slab',serif;font-weight:700;line-height:1.1}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;font-weight:700;color:var(--pine)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+header.scrolled{background:rgba(255,253,247,.94);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(38,36,31,.06)}
+.brand{font-family:'Zilla Slab';font-weight:700;font-size:1.35rem;color:var(--ink)}
+.brand span{color:var(--pine)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.86rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--pine)}
+.btn{display:inline-block;font-family:'Zilla Slab';font-weight:600;font-size:.92rem;padding:11px 24px;border-radius:8px;transition:.25s}
+.btn-fill{background:var(--pine);color:#fff}
+.btn-fill:hover{background:var(--pine-d)}
+.btn-out{border:2px solid var(--tomato);color:var(--tomato)}
+.btn-out:hover{background:var(--tomato);color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+.hero{padding:140px 0 84px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.hero h1{font-size:clamp(2.7rem,6vw,4.8rem)}
+.hero h1 span{color:var(--tomato)}
+.hero .lead{font-size:1.1rem;color:var(--ink-soft);margin:20px 0 12px;max-width:460px}
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 28px}
+.chip{font-size:.8rem;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:8px 15px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-img{position:relative}
+.hero-img img{border-radius:16px;height:500px;width:100%;object-fit:cover;box-shadow:0 26px 54px rgba(38,36,31,.16)}
+.hero-img .badge{position:absolute;bottom:-18px;left:-16px;background:var(--pine);color:#fff;padding:14px 20px;border-radius:12px;font-family:'Zilla Slab';box-shadow:0 14px 30px rgba(38,36,31,.2)}
+.hero-img .badge b{display:block;font-size:1.4rem}
+.hero-img .badge small{font-size:.72rem;opacity:.9}
+
+section{padding:100px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.sig{background:var(--pine);color:#fff}
+.sig .head{text-align:center;max-width:620px;margin:0 auto 50px}
+.sig .eyebrow{color:#a9d9bf}
+.sig h2{font-size:clamp(2.2rem,5vw,3.4rem);margin-top:10px;color:#fff}
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scard{display:grid;grid-template-columns:150px 1fr;background:rgba(255,255,255,.06);border:1px solid rgba(169,217,191,.25);border-radius:14px;overflow:hidden}
+.scard img{height:100%;width:100%;object-fit:cover;min-height:160px}
+.scard .b{padding:24px}
+.scard h3{font-size:1.4rem;color:#fff;margin-bottom:6px}
+.scard p{color:#d7e7dd;font-size:.92rem}
+
+.menu-sec .head{text-align:center;max-width:600px;margin:0 auto 50px}
+.menu-sec h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-top:10px}
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cat{background:var(--paper);border-radius:14px;padding:30px 26px;border:1px solid var(--line);transition:.3s;text-align:center}
+.cat:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(38,36,31,.09)}
+.cat .ico{font-size:2rem}
+.cat h3{font-size:1.3rem;margin:12px 0 8px}
+.cat p{color:var(--ink-soft);font-size:.93rem}
+
+.band{background:var(--tomato);color:#fff}
+.band .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:30px 0;text-align:center}
+.b b{font-size:1.5rem;display:block;font-family:'Zilla Slab'}
+.b small{font-size:.76rem;opacity:.95}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:700;color:var(--pine);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--pine)}
+.map{border-radius:14px;overflow:hidden;border:1px solid var(--line);height:330px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--ink);color:var(--oat);padding:44px 0 30px;text-align:center}
+.foot-brand{font-family:'Zilla Slab';font-weight:700;font-size:1.35rem}
+.foot-brand span{color:#7bbf97}
+.credit{color:#a3968a;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(38,36,31,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .hero-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-grid .hero-img{order:-1}
+  .sig-grid,.cats{grid-template-columns:1fr}
+  .scard{grid-template-columns:110px 1fr}
+  .band .wrap{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){section{padding:74px 0}.scard{grid-template-columns:1fr}.scard img{min-height:150px}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">Café de la <span>Place</span></a>
+    <nav class="menu" id="menu">
+      <a href="#signature">Nos signatures</a>
+      <a href="#carte">La carte</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41272072041" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Pizzeria &amp; saveurs du Valais · Vex</p>
+      <h1>La pizza<br>a un accent <span>d'alpage</span></h1>
+      <p class="lead">Des pizzas qu'on s'arrache, des spécialités valaisannes généreuses et quelques créations bien à nous. Le tout à prix doux, au coeur de Vex.</p>
+      <div class="chips"><span class="chip">🍕 Pizzas primées</span><span class="chip">🧀 Valaisanne</span><span class="chip">⭐ 4.3 · 600+ avis</span></div>
+      <div class="hero-cta">
+        <a href="tel:+41272072041" class="btn btn-fill">Réserver une table</a>
+        <a href="#carte" class="btn btn-out">Voir la carte</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=900&q=80" alt="Pizza artisanale" />
+      <div class="badge"><b>Prix doux</b><small>et belle qualité</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="sig" id="signature">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Rien qu'ici</p>
+      <h2>Nos plats signatures</h2>
+    </div>
+    <div class="sig-grid">
+      <div class="scard reveal">
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80" alt="San Marco, roulé de pizza à la truffe" loading="lazy" />
+        <div class="b"><h3>Le San Marco</h3><p>Notre roulé de pizza à la truffe, la création maison qui fait tourner les têtes.</p></div>
+      </div>
+      <div class="scard reveal">
+        <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=500&q=80" alt="Macaroni d'alpage" loading="lazy" />
+        <div class="b"><h3>Macaroni d'alpage</h3><p>Le grand classique montagnard, pâtes, fromage et pommes de terre, réconfortant à souhait.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-sec" id="carte">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">À la carte</p>
+      <h2>De la pizza au terroir</h2>
+    </div>
+    <div class="cats">
+      <div class="cat reveal"><div class="ico">🍕</div><h3>Les pizzas</h3><p>Classiques, fitness, chèvre… une belle carte de pizzas, parmi les mieux notées du coin.</p></div>
+      <div class="cat reveal"><div class="ico">🧀</div><h3>Saveurs valaisannes</h3><p>Assiette et plat valaisan, fondue : le terroir bien représenté.</p></div>
+      <div class="cat reveal"><div class="ico">🍝</div><h3>Pâtes maison</h3><p>Nos pâtes faites maison, dont le fameux macaroni d'alpage.</p></div>
+      <div class="cat reveal"><div class="ico">🥩</div><h3>Grillades</h3><p>Un bon steak pour les amateurs de viande, cuit comme il faut.</p></div>
+      <div class="cat reveal"><div class="ico">🍮</div><h3>Desserts maison</h3><p>La crème brûlée et les douceurs pour finir en beauté.</p></div>
+      <div class="cat reveal"><div class="ico">🌱</div><h3>Options veggie</h3><p>Plusieurs choix végétariens, pour que chacun trouve son bonheur.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap">
+    <div class="b"><b>4.3/5</b><small>600+ avis</small></div>
+    <div class="b"><b>Prix doux</b><small>Rapport qualité imbattable</small></div>
+    <div class="b"><b>Veggie</b><small>Options végétariennes</small></div>
+    <div class="b"><b>Livraison</b><small>À domicile &amp; à l'emporter</small></div>
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Sur la place de Vex</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Place du Cotterd 1<br>1981 Vex</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41272072041">027 207 20 41</a></li>
+        <li><span class="k">Service</span><span class="v">Sur place · à l'emporter · livraison<br>Horaires détaillés au téléphone</span></li>
+      </ul>
+      <div style="margin-top:24px"><a href="tel:+41272072041" class="btn btn-fill">Appeler pour commander</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte Café de la Place Vex" src="https://www.google.com/maps?q=Place%20du%20Cotterd%201%2C%201981%20Vex&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">Café de la <span>Place</span> · Vex</div>
+    <p style="color:#a3968a;font-size:.82rem;margin-top:8px">Place du Cotterd 1 · 1981 Vex · 027 207 20 41</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
