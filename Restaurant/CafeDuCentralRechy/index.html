@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Café du Central · Chez Sophie · Réchy</title>
+<meta name="description" content="Café du Central chez Sophie à Réchy (Chalais) : le café-restaurant de village où l'on se sent chez soi. Plat du jour, apéro, café et terrasse dans une ambiance conviviale." />
+<meta name="theme-color" content="#fbf5ef" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Café du Central · Chez Sophie · Réchy" />
+<meta property="og:description" content="Le café-restaurant de village de Réchy : plat du jour, apéro et terrasse, dans la bonne humeur de chez Sophie." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Café du Central chez Sophie",
+  "address":{"@type":"PostalAddress","streetAddress":"Place Praniviers 12","addressLocality":"Réchy (Chalais)","postalCode":"3966","addressCountry":"CH"},
+  "telephone":"+41274583917","servesCuisine":"Café-restaurant, cuisine du jour","priceRange":"CHF 12-25",
+  "url":"https://nb-design.ch/Restaurant/CafeDuCentralRechy/"
+}
+</script>
+<style>
+:root{
+  --cream:#fbf5ef;--cream2:#f3e9dd;--paper:#ffffff;
+  --ink:#332a2a;--ink-soft:#75665f;
+  --rasp:#bd4a5c;--rasp-d:#a13a4b;--sage:#7f9169;--sage-d:#657452;--gold:#d9a441;--line:#ecdfd1;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.66;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Baloo 2',system-ui,sans-serif;font-weight:700;line-height:1.15}
+.wrap{width:min(1100px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;font-weight:700;color:var(--rasp)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+header.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(51,42,42,.06)}
+.brand{font-family:'Baloo 2';font-weight:800;font-size:1.35rem;color:var(--ink);line-height:1}
+.brand span{color:var(--rasp)}
+.brand small{display:block;font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-d);font-family:'Inter'}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.88rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--rasp)}
+.btn{display:inline-block;font-family:'Baloo 2';font-weight:600;font-size:.92rem;padding:11px 26px;border-radius:40px;transition:.25s}
+.btn-fill{background:var(--rasp);color:#fff}
+.btn-fill:hover{background:var(--rasp-d)}
+.btn-out{border:2px solid var(--sage);color:var(--sage-d)}
+.btn-out:hover{background:var(--sage);color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+.hero{padding:150px 0 90px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:6%;right:-5%;width:360px;height:360px;background:var(--cream2);border-radius:50%;opacity:.7;z-index:0}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative;z-index:1}
+.hero h1{font-size:clamp(2.8rem,6.4vw,5rem)}
+.hero h1 span{color:var(--rasp)}
+.hero .lead{font-size:1.12rem;color:var(--ink-soft);margin:20px 0 12px;max-width:450px}
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 28px}
+.chip{font-size:.8rem;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:8px 15px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-img{position:relative}
+.hero-img img{border-radius:24px;height:500px;width:100%;object-fit:cover;box-shadow:0 26px 54px rgba(51,42,42,.16)}
+.hero-img .bubble{position:absolute;bottom:20px;left:-16px;background:var(--sage);color:#fff;padding:14px 22px;border-radius:20px;font-family:'Baloo 2';font-weight:700;box-shadow:0 14px 30px rgba(51,42,42,.18)}
+.hero-img .bubble small{display:block;font-weight:500;font-size:.72rem;opacity:.92;font-family:'Inter'}
+
+section{padding:98px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.maison{background:var(--paper)}
+.maison-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.maison h2{font-size:clamp(2rem,4.6vw,3.2rem);margin:12px 0 18px}
+.maison h2 span{color:var(--rasp)}
+.maison p{color:var(--ink-soft);margin-bottom:15px}
+.maison-img img{border-radius:24px;height:440px;width:100%;object-fit:cover}
+
+.serve{background:var(--cream2)}
+.serve .head{text-align:center;max-width:600px;margin:0 auto 50px}
+.serve h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-top:10px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--paper);border-radius:20px;padding:30px 24px;border:1px solid var(--line);transition:.3s;text-align:center}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(51,42,42,.09)}
+.card .ico{font-size:1.9rem}
+.card h3{font-size:1.25rem;margin:12px 0 8px}
+.card p{color:var(--ink-soft);font-size:.92rem}
+
+.terr{position:relative}
+.terr-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.terr h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 18px}
+.terr h2 span{color:var(--sage-d)}
+.terr p{color:var(--ink-soft);margin-bottom:15px}
+.terr-img img{border-radius:24px;height:420px;width:100%;object-fit:cover}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:700;color:var(--rasp);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--rasp)}
+.map{border-radius:24px;overflow:hidden;border:1px solid var(--line);height:330px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--ink);color:var(--cream);padding:44px 0 30px;text-align:center}
+.foot-brand{font-family:'Baloo 2';font-weight:800;font-size:1.35rem}
+.foot-brand span{color:var(--rasp)}
+.credit{color:#a89a92;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(51,42,42,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .hero-grid,.maison-grid,.terr-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-grid .hero-img,.maison-grid .maison-img{order:-1}
+  .cards{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){section{padding:74px 0}.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">Café du <span>Central</span><small>chez Sophie · Réchy</small></a>
+    <nav class="menu" id="menu">
+      <a href="#maison">La maison</a>
+      <a href="#carte">À table</a>
+      <a href="#terrasse">La terrasse</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41274583917" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Café-restaurant de village · Réchy</p>
+      <h1>Bienvenue<br><span>chez Sophie</span></h1>
+      <p class="lead">Le café du village, celui où l'on se retrouve pour un café le matin, le plat du jour à midi et l'apéro le soir. Une ambiance simple et chaleureuse, comme à la maison.</p>
+      <div class="chips"><span class="chip">☕ Café du matin</span><span class="chip">🍽️ Plat du jour</span><span class="chip">🥂 Apéro</span></div>
+      <div class="hero-cta">
+        <a href="tel:+41274583917" class="btn btn-fill">Réserver une table</a>
+        <a href="#carte" class="btn btn-out">Ce qu'on sert</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80" alt="Café de village accueillant" />
+      <div class="bubble">On vous attend !<small>l'équipe de Sophie</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="maison" id="maison">
+  <div class="wrap maison-grid">
+    <div class="maison-img reveal">
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80" alt="Intérieur convivial du café" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">La maison</p>
+      <h2>Le cœur du <span>village</span></h2>
+      <p>Au Café du Central, on se connaît, on se salue, on prend des nouvelles. C'est ça, un vrai café de village : un lieu de vie autant qu'un restaurant, tenu avec le sourire par Sophie et son équipe.</p>
+      <p>On y vient pour la bonne humeur autant que pour l'assiette. Et une fois qu'on y a mis les pieds, on y revient.</p>
+    </div>
+  </div>
+</section>
+
+<section class="serve" id="carte">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">À toute heure</p>
+      <h2>Ce qu'on vous sert</h2>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="ico">🍽️</div><h3>Le plat du jour</h3><p>Chaque midi, une assiette qui change, simple et généreuse, à prix doux.</p></div>
+      <div class="card reveal"><div class="ico">🧀</div><h3>Petite restauration</h3><p>Croûtes, assiettes du terroir et en-cas pour les petites faims.</p></div>
+      <div class="card reveal"><div class="ico">🥂</div><h3>L'apéro</h3><p>Un verre entre amis, une planchette à partager, l'ambiance en prime.</p></div>
+      <div class="card reveal"><div class="ico">☕</div><h3>Café &amp; douceurs</h3><p>Le petit noir du matin et les boissons pour la pause de l'après-midi.</p></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:32px">Le plat du jour change au fil de la semaine · passez ou appelez pour le connaître</p>
+  </div>
+</section>
+
+<section class="terr" id="terrasse">
+  <div class="wrap terr-grid">
+    <div class="reveal">
+      <p class="eyebrow">Aux beaux jours</p>
+      <h2>La terrasse <span>sur la place</span></h2>
+      <p>Dès que le soleil pointe, on sort les tables sur la place de Réchy. L'endroit parfait pour un café tranquille, l'apéro du soir ou juste regarder la vie du village passer.</p>
+      <div class="hero-cta" style="margin-top:20px"><a href="tel:+41274583917" class="btn btn-fill">Réserver la terrasse</a></div>
+    </div>
+    <div class="terr-img reveal">
+      <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=900&q=80" alt="Ambiance de terrasse conviviale" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Sur la place de Réchy</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Place Praniviers 12<br>3966 Réchy (Chalais)</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41274583917">027 458 39 17</a></li>
+        <li><span class="k">Ambiance</span><span class="v">Café-restaurant de village · plat du jour · apéro · terrasse</span></li>
+      </ul>
+      <div style="margin-top:24px"><a href="tel:+41274583917" class="btn btn-fill">Appeler</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte Café du Central Réchy" src="https://www.google.com/maps?q=Place%20Praniviers%2012%2C%203966%20R%C3%A9chy&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">Café du <span>Central</span> · chez Sophie</div>
+    <p style="color:#a89a92;font-size:.82rem;margin-top:8px">Place Praniviers 12 · 3966 Réchy · 027 458 39 17</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
