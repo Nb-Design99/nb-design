@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Café du Commerce · Le rendez-vous du village · Grône</title>
+<meta name="description" content="Café du Commerce à Grône : le café-brasserie du village depuis toujours. Plat du jour, apéro, carnotzet et salle pour vos réunions et sociétés. Ouvert dès 8h." />
+<meta name="theme-color" content="#f4efe4" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Café du Commerce · Le rendez-vous du village · Grône" />
+<meta property="og:description" content="Le café du village de Grône : plat du jour, apéro et carnotzet pour vos sociétés. Ouvert dès 8h, 7j/7." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Café du Commerce",
+  "address":{"@type":"PostalAddress","streetAddress":"Rue Centrale 161","addressLocality":"Grône","postalCode":"3979","addressCountry":"CH"},
+  "telephone":"+41787596341","servesCuisine":"Café-restaurant, cuisine du jour","priceRange":"CHF 12-25",
+  "url":"https://nb-design.ch/Restaurant/CafeDuCommerceGrone/",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday","Monday","Tuesday","Wednesday","Thursday"],"opens":"08:00","closes":"23:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"08:00","closes":"24:00"}
+  ]
+}
+</script>
+<style>
+:root{
+  --blue:#2f4f61;--blue2:#264351;--blue3:#1d3441;
+  --cream:#f4efe4;--cream2:#e8dfcb;--paper:#fbf7ee;
+  --ink:#22272b;--ink-soft:#5f6a70;
+  --brass:#c08a45;--brass-d:#a2712f;--brick:#b3503f;--line:#dfd4bf;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.66;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Libre Caslon Display',serif;font-weight:400;line-height:1.16}
+.wrap{width:min(1110px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.24em;font-size:.72rem;font-weight:600;color:var(--brass-d)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+header.scrolled{background:rgba(251,247,238,.94);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(34,39,43,.06)}
+.brand{font-family:'Libre Caslon Display';font-size:1.4rem;letter-spacing:.02em;color:var(--blue)}
+.brand span{color:var(--brass)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.86rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--brass-d)}
+.btn{display:inline-block;font-weight:600;font-size:.86rem;padding:12px 26px;border-radius:3px;transition:.25s}
+.btn-fill{background:var(--blue);color:#fff}
+.btn-fill:hover{background:var(--blue3)}
+.btn-out{border:1.5px solid var(--blue);color:var(--blue)}
+.btn-out:hover{background:var(--blue);color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--blue)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 70px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.44) saturate(.9)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,var(--blue3) 8%,rgba(29,52,65,.72) 55%,rgba(29,52,65,.4))}
+.hero-inner{max-width:660px;color:#fff}
+.hero .eyebrow{color:#e0b878}
+.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);color:#fff}
+.hero h1 em{font-style:italic;color:#e0b878}
+.hero .lead{font-size:1.14rem;color:#e6ddcb;max-width:500px;margin:20px 0 30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+section{padding:104px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.maison{background:var(--paper)}
+.maison-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.maison-img{position:relative}
+.maison-img img{border-radius:5px;height:480px;width:100%;object-fit:cover}
+.maison-img .tab{position:absolute;bottom:-18px;left:-16px;background:var(--brick);color:#fff;font-family:'Libre Caslon Display';padding:14px 22px;border-radius:4px;box-shadow:0 16px 34px rgba(34,39,43,.2)}
+.maison h2{font-size:clamp(2.2rem,5vw,3.4rem);margin:12px 0 18px;color:var(--blue)}
+.maison h2 em{color:var(--brick);font-style:italic}
+.maison p{color:var(--ink-soft);margin-bottom:15px}
+
+.serve{background:var(--cream2)}
+.serve .head{text-align:center;max-width:600px;margin:0 auto 50px}
+.serve h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-top:10px;color:var(--blue)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--paper);border-radius:6px;padding:30px 24px;border:1px solid var(--line);transition:.3s;text-align:center}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(34,39,43,.09)}
+.card .ico{font-size:1.9rem}
+.card h3{font-size:1.3rem;margin:12px 0 8px;color:var(--blue)}
+.card p{color:var(--ink-soft);font-size:.92rem}
+
+.carno{background:var(--blue);color:#fff}
+.carno-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.carno .eyebrow{color:#e0b878}
+.carno h2{font-size:clamp(2rem,4.6vw,3.2rem);margin:12px 0 18px;color:#fff}
+.carno h2 em{color:#e0b878;font-style:italic}
+.carno p{color:#dcd3c2;margin-bottom:15px}
+.carno-img img{border-radius:5px;height:420px;width:100%;object-fit:cover}
+.carno .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.carno .tags span{font-size:.78rem;border:1px solid rgba(224,184,120,.3);border-radius:30px;padding:7px 14px;color:#e6ddcb}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px;color:var(--blue)}
+.info{list-style:none;display:grid;gap:18px;margin-bottom:24px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600;color:var(--brass-d);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--brass-d)}
+.hours{background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:24px 26px}
+.hours h3{font-family:'Libre Caslon Display';color:var(--blue);font-size:1.5rem;margin-bottom:12px}
+.hrow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(34,39,43,.06);font-size:.92rem;color:var(--ink-soft)}
+.hrow b{color:var(--ink);font-weight:600}
+.map{border-radius:6px;overflow:hidden;border:1px solid var(--line);height:230px;margin-top:16px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--blue3);color:var(--cream);padding:46px 0 30px;text-align:center}
+.foot-brand{font-family:'Libre Caslon Display';font-size:1.5rem}
+.foot-brand span{color:#e0b878}
+.credit{color:#9fb0b9;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(34,39,43,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .maison-grid,.carno-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .maison-grid .maison-img,.carno-grid .carno-img{order:-1}
+  .cards{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){section{padding:76px 0}.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">Café du <span>Commerce</span></a>
+    <nav class="menu" id="menu">
+      <a href="#maison">La maison</a>
+      <a href="#carte">À table</a>
+      <a href="#carnotzet">Carnotzet</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41787596341" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=1600&q=80" alt="Café-brasserie de village" />
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Café-restaurant · Grône</p>
+    <h1>Le rendez-vous<br><em>du village</em></h1>
+    <p class="lead">Depuis toujours, le Café du Commerce est le point de ralliement de Grône : un café le matin, le plat du jour à midi, l'apéro le soir, et le carnotzet pour les grandes soirées.</p>
+    <div class="hero-cta">
+      <a href="tel:+41787596341" class="btn btn-fill">Réserver une table</a>
+      <a href="#carnotzet" class="btn btn-out" style="border-color:#e6ddcb;color:#e6ddcb">Le carnotzet</a>
+    </div>
+  </div>
+</section>
+
+<section class="maison" id="maison">
+  <div class="wrap maison-grid">
+    <div class="maison-img reveal">
+      <img src="https://images.unsplash.com/photo-1538488881038-e252a119ace7?auto=format&fit=crop&w=900&q=80" alt="Comptoir du café" loading="lazy" />
+      <div class="tab">Ouvert dès 8h</div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">La maison</p>
+      <h2>Un vrai café <em>de village</em></h2>
+      <p>Tenu par Laurent, Patricia et leur équipe, le Café du Commerce, c'est l'esprit des bistrots d'autrefois : on y entre pour un café, on y croise ses voisins, on y refait le monde autour d'un verre.</p>
+      <p>Accueil simple et chaleureux, ambiance conviviale et cette bonne humeur qui fait qu'on s'y sent tout de suite bien.</p>
+    </div>
+  </div>
+</section>
+
+<section class="serve" id="carte">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">À toute heure</p>
+      <h2>Ce qu'on vous propose</h2>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="ico">☕</div><h3>Café dès 8h</h3><p>Le petit noir du matin et les boissons de la journée, 7 jours sur 7.</p></div>
+      <div class="card reveal"><div class="ico">🍽️</div><h3>Plat du jour</h3><p>Une assiette qui change à midi, simple et généreuse, à prix doux.</p></div>
+      <div class="card reveal"><div class="ico">🥂</div><h3>L'apéro</h3><p>Verres, planchettes et bonne ambiance jusqu'à tard le week-end.</p></div>
+      <div class="card reveal"><div class="ico">🧀</div><h3>Le terroir</h3><p>Assiettes valaisannes et spécialités du pays à partager.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="carno" id="carnotzet">
+  <div class="wrap carno-grid">
+    <div class="carno-img reveal">
+      <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?auto=format&fit=crop&w=900&q=80" alt="Carnotzet pour les grandes tablées" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Pour vos moments à plusieurs</p>
+      <h2>Le carnotzet &amp; <em>la salle</em></h2>
+      <p>Souper de société, réunion, anniversaire ou fête de famille : le Café du Commerce dispose d'un carnotzet convivial et d'une salle pour accueillir vos groupes.</p>
+      <p>L'endroit idéal pour les grandes tablées valaisannes. Parlez-nous de votre projet, on s'occupe du reste.</p>
+      <div class="tags"><span>Carnotzet</span><span>Salle de réunion</span><span>Sociétés &amp; groupes</span><span>Menus sur demande</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Au centre de Grône</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Rue Centrale 161<br>3979 Grône</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41787596341">078 759 63 41</a></li>
+        <li><span class="k">Aussi</span><a class="v" href="tel:+41787634194">078 763 41 94</a></li>
+        <li><span class="k">Groupes</span><span class="v">Carnotzet &amp; salle · menus de société sur demande</span></li>
+      </ul>
+      <div style="margin-top:24px"><a href="tel:+41787596341" class="btn btn-fill">Appeler pour réserver</a></div>
+    </div>
+    <div class="hours reveal">
+      <h3>Horaires</h3>
+      <div class="hrow"><span>Dimanche – Jeudi</span><b>08:00 – 23:00</b></div>
+      <div class="hrow"><span>Vendredi – Samedi</span><b>08:00 – 00:00</b></div>
+      <p style="color:var(--ink-soft);font-size:.86rem;margin-top:16px">Ouvert 7 jours sur 7 · café, restauration, carnotzet</p>
+      <div class="map">
+        <iframe loading="lazy" title="Carte Café du Commerce Grône" src="https://www.google.com/maps?q=Rue%20Centrale%20161%2C%203979%20Gr%C3%B4ne&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">Café du <span>Commerce</span> · Grône</div>
+    <p style="color:#9fb0b9;font-size:.82rem;margin-top:8px">Rue Centrale 161 · 3979 Grône · 078 759 63 41</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
