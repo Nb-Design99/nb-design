@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>La Channe · Burgers & Tacos · Savièse</title>
+<meta name="description" content="La Channe à Savièse : burgers généreux, tacos français à composer et kebab, 7 jours sur 7 de 9h à 23h. Sur place, à l'emporter et en livraison." />
+<meta name="theme-color" content="#17181a" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="La Channe · Burgers & Tacos · Savièse" />
+<meta property="og:description" content="Burgers, tacos à composer et kebab à Savièse, 7j/7 de 9h à 23h. Bon, généreux, sans se ruiner." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"La Channe Burgers-Tacos",
+  "address":{"@type":"PostalAddress","streetAddress":"Rue de Saint-Germain 52","addressLocality":"Savièse","postalCode":"1965","addressCountry":"CH"},
+  "telephone":"+41792870604","servesCuisine":"Burgers, tacos, kebab","priceRange":"CHF 10-25",
+  "url":"https://nb-design.ch/Restaurant/LaChanne/",
+  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"23:00"}]
+}
+</script>
+<style>
+:root{
+  --ink:#17181a;--ink2:#202225;--ink3:#101113;
+  --yellow:#ffd23f;--yellow-d:#e9bd2a;
+  --coral:#ff5a3c;--cream:#f7f4ec;--muted:#9a9ca1;--line:rgba(255,210,63,.2);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--cream);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Archivo Black',sans-serif;font-weight:400;line-height:.98;text-transform:uppercase;letter-spacing:-.01em}
+.wrap{width:min(1160px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.24em;font-size:.72rem;color:var(--yellow)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+header.scrolled{background:rgba(16,17,19,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{font-family:'Archivo Black';font-size:1.5rem;text-transform:uppercase}
+.brand span{color:var(--yellow)}
+.menu{display:flex;gap:28px;align-items:center}
+.menu a{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.9}
+.menu a:hover{color:var(--yellow)}
+.btn{display:inline-block;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.82rem;padding:13px 26px;border-radius:8px;transition:.22s}
+.btn-y{background:var(--yellow);color:var(--ink3)}
+.btn-y:hover{background:var(--yellow-d);transform:translateY(-2px)}
+.btn-out{border:2px solid var(--cream);color:var(--cream)}
+.btn-out:hover{background:var(--cream);color:var(--ink3)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:3px;background:var(--yellow);border-radius:2px}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:110px 0 60px;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-10%;right:-6%;width:60vw;height:60vw;max-width:720px;max-height:720px;background:var(--yellow);border-radius:50%;opacity:.14;filter:blur(20px)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;position:relative}
+.hero h1{font-size:clamp(3.2rem,10vw,7rem)}
+.hero h1 span{color:var(--yellow);-webkit-text-stroke:0}
+.hero h1 .out{color:transparent;-webkit-text-stroke:2px var(--cream)}
+.hero .lead{max-width:440px;color:var(--muted);font-size:1.08rem;margin:22px 0 12px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 28px}
+.chip{font-size:.78rem;font-weight:700;background:var(--ink2);border:1px solid var(--line);border-radius:30px;padding:8px 15px;color:var(--cream)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-img img{border-radius:16px;height:460px;width:100%;object-fit:cover;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+
+.marquee{background:var(--yellow);color:var(--ink3);overflow:hidden;white-space:nowrap;padding:14px 0;font-family:'Archivo Black';text-transform:uppercase;letter-spacing:.04em}
+.marquee div{display:inline-block;animation:scroll 22s linear infinite}
+.marquee span{margin:0 26px;font-size:1.1rem}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+section{padding:104px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.compose{background:var(--ink2)}
+.compose-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.compose h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:14px 0 18px}
+.compose h2 span{color:var(--yellow)}
+.compose p{color:var(--muted);margin-bottom:20px}
+.steps{display:grid;gap:14px}
+.step{display:flex;gap:16px;align-items:center;background:var(--ink3);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.step b{font-family:'Archivo Black';color:var(--yellow);font-size:1.4rem}
+.step .t h4{font-family:'Inter';font-weight:700;font-size:1rem}
+.step .t p{color:var(--muted);font-size:.9rem;margin:0}
+.compose-img img{border-radius:16px;height:480px;width:100%;object-fit:cover}
+
+.menu-board h2{font-size:clamp(2.2rem,5vw,3.6rem);text-align:center;margin-bottom:8px}
+.menu-board .sub{text-align:center;color:var(--muted);margin-bottom:48px}
+.board{display:grid;grid-template-columns:1fr 1fr;gap:12px 48px}
+.brow{display:flex;align-items:baseline;gap:14px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.brow .n{font-family:'Inter';font-weight:700;font-size:1.05rem;color:var(--cream)}
+.brow .d{flex:1;border-bottom:1px dotted rgba(255,255,255,.15);transform:translateY(-4px)}
+.brow .p{font-family:'Archivo Black';color:var(--yellow);font-size:1.05rem}
+.brow small{display:block;color:var(--muted);font-size:.85rem;font-weight:400;margin-top:3px}
+
+.info-band{background:var(--coral);color:#fff}
+.info-band .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:34px 0;text-align:center}
+.ib b{font-family:'Archivo Black';font-size:1.7rem;display:block}
+.ib small{text-transform:uppercase;letter-spacing:.1em;font-size:.74rem;opacity:.95}
+
+.contact{background:var(--ink2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 24px}
+.info{list-style:none;display:grid;gap:18px;margin-bottom:24px}
+.info li{display:flex;gap:16px}
+.info .k{font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;color:var(--yellow);min-width:92px;padding-top:3px}
+.info .v{color:var(--cream)}
+.info a.v:hover{color:var(--yellow)}
+.pills{display:flex;gap:10px;flex-wrap:wrap}
+.pill{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:30px;padding:8px 15px;color:var(--muted)}
+.map{border-radius:14px;overflow:hidden;border:1px solid var(--line);height:340px}
+.map iframe{width:100%;height:100%;border:0;filter:invert(.02)}
+
+footer{background:var(--ink3);padding:44px 0 30px;border-top:1px solid var(--line)}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.credit{color:var(--muted);font-size:.74rem;margin-top:10px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--ink3);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;border-left:1px solid var(--line)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .hero-grid,.compose-grid,.contact-grid{grid-template-columns:1fr;gap:38px}
+  .hero-grid .hero-img{order:-1}
+  .board{grid-template-columns:1fr;gap:0}
+  .info-band .wrap{grid-template-columns:1fr}
+}
+@media(max-width:520px){section{padding:74px 0}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">LA <span>CHANNE</span></a>
+    <nav class="menu" id="menu">
+      <a href="#tacos">Tes tacos</a>
+      <a href="#menu">Le menu</a>
+      <a href="#contact">Infos</a>
+      <a href="tel:+41792870604" class="btn btn-y">Commander</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Savièse · 7 jours sur 7</p>
+      <h1>Burgers <span>&amp;</span><br><span class="out">Tacos</span></h1>
+      <p class="lead">Généreux, fait minute, et sans se ruiner. Des burgers qui tiennent au corps, des tacos à composer et le vrai kebab, à emporter ou livrés chez toi.</p>
+      <div class="chips"><span class="chip">🍔 Burgers</span><span class="chip">🌯 Tacos</span><span class="chip">🥙 Kebab</span><span class="chip">🍟 Frites maison</span></div>
+      <div class="hero-cta">
+        <a href="tel:+41792870604" class="btn btn-y">Commander</a>
+        <a href="#menu" class="btn btn-out">Voir le menu</a>
+      </div>
+    </div>
+    <div class="hero-img reveal">
+      <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80" alt="Burger généreux" />
+    </div>
+  </div>
+</section>
+
+<div class="marquee"><div><span>Burgers</span>✦<span>Tacos</span>✦<span>Kebab</span>✦<span>7J/7 · 9h–23h</span>✦<span>Livraison</span>✦<span>Burgers</span>✦<span>Tacos</span>✦<span>Kebab</span>✦<span>7J/7 · 9h–23h</span>✦<span>Livraison</span>✦</div></div>
+
+<section class="compose" id="tacos">
+  <div class="wrap compose-grid">
+    <div class="reveal">
+      <p class="eyebrow">La spécialité</p>
+      <h2>Compose <span>ton tacos</span></h2>
+      <p>Le vrai tacos français, à ta façon : tu choisis la viande, la sauce, et on te monte le tout avec les frites dedans. Roulé, pressé, fondant. Simple et redoutable.</p>
+      <div class="steps">
+        <div class="step"><b>1</b><div class="t"><h4>Choisis ta taille</h4><p>Medium (1 viande) ou Large (2 viandes)</p></div></div>
+        <div class="step"><b>2</b><div class="t"><h4>Ta viande</h4><p>Poulet, viande hachée, cordon bleu, kebab…</p></div></div>
+        <div class="step"><b>3</b><div class="t"><h4>Ta sauce</h4><p>Algérienne, samouraï, blanche, biggy… à toi de voir</p></div></div>
+      </div>
+    </div>
+    <div class="compose-img reveal">
+      <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=900&q=80" alt="Tacos français garni" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="menu-board" id="menu">
+  <div class="wrap">
+    <h2>Le menu</h2>
+    <p class="sub">Bon rapport qualité-prix, toujours</p>
+    <div class="board">
+      <div class="brow reveal"><div><div class="n">Menu Tacos Medium</div><small>1 viande, 1 sauce, frites + boisson 33cl</small></div><span class="d"></span><span class="p">19.50</span></div>
+      <div class="brow reveal"><div><div class="n">Menu Tacos Large</div><small>2 viandes, 1 sauce, frites + boisson 33cl</small></div><span class="d"></span><span class="p">20.50</span></div>
+      <div class="brow reveal"><div><div class="n">Burgers maison</div><small>Steak, cheddar, sauce maison, salade</small></div><span class="d"></span><span class="p">dès 14.–</span></div>
+      <div class="brow reveal"><div><div class="n">Kebab</div><small>Assiette, sandwich ou galette, viande à la broche</small></div><span class="d"></span><span class="p">dès 12.–</span></div>
+      <div class="brow reveal"><div><div class="n">Frites &amp; sides</div><small>Frites maison, nuggets, mozzarella sticks</small></div><span class="d"></span><span class="p">dès 5.–</span></div>
+      <div class="brow reveal"><div><div class="n">Menu enfant</div><small>Pour les petites faims</small></div><span class="d"></span><span class="p">•</span></div>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:.86rem;margin-top:30px">Prix indicatifs · carte complète sur place et sur Uber Eats</p>
+  </div>
+</section>
+
+<div class="info-band">
+  <div class="wrap">
+    <div class="ib"><b>7J/7</b><small>Ouvert tous les jours</small></div>
+    <div class="ib"><b>9h – 23h</b><small>Du matin au soir</small></div>
+    <div class="ib"><b>Livraison</b><small>Uber Eats &amp; à l'emporter</small></div>
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>On t'attend</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Rue de Saint-Germain 52<br>1965 Savièse</span></li>
+        <li><span class="k">Commande</span><a class="v" href="tel:+41792870604">079 287 06 04</a></li>
+        <li><span class="k">Horaires</span><span class="v">7j/7 · 9h00 – 23h00</span></li>
+      </ul>
+      <div class="pills"><span class="pill">Sur place</span><span class="pill">À l'emporter</span><span class="pill">Livraison Uber Eats</span></div>
+      <div style="margin-top:24px"><a href="tel:+41792870604" class="btn btn-y">Passer commande</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte La Channe Savièse" src="https://www.google.com/maps?q=Rue%20de%20Saint-Germain%2052%2C%201965%20Savi%C3%A8se&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#" class="brand">LA <span>CHANNE</span></a>
+      <small style="color:var(--muted)">Rue de Saint-Germain 52 · 1965 Savièse · 079 287 06 04</small>
+    </div>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
