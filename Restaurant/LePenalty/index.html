@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Le Penalty · Café-Bar du village · Savièse</title>
+<meta name="description" content="Le Penalty à Savièse : le café-bar convivial du village. Apéro, petite restauration à l'ardoise, ambiance week-end et le match entre amis. Ouvert dès 8h." />
+<meta name="theme-color" content="#241a10" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Le Penalty · Café-Bar · Savièse" />
+<meta property="og:description" content="Le QG convivial de Savièse : apéro, petite restauration et ambiance week-end. Ouvert dès 8h." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BarOrPub","name":"Café-Bar Le Penalty",
+  "address":{"@type":"PostalAddress","streetAddress":"Rue du Vieux-Moulin 1","addressLocality":"Savièse","postalCode":"1965","addressCountry":"CH"},
+  "telephone":"+41273951698","servesCuisine":"Café-bar, petite restauration","priceRange":"CHF",
+  "url":"https://nb-design.ch/Restaurant/LePenalty/",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"08:00","closes":"23:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"08:00","closes":"00:00"}
+  ]
+}
+</script>
+<style>
+:root{
+  --wood:#241a10;--wood2:#2f2214;--wood3:#1a1209;
+  --amber:#e0a63f;--amber-soft:#f0c878;
+  --foam:#f3ead6;--pitch:#3a915e;--muted:#b6a488;--line:rgba(224,166,63,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--wood);color:var(--foam);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Staatliches',sans-serif;font-weight:400;line-height:1;letter-spacing:.02em;text-transform:uppercase}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{font-weight:600;text-transform:uppercase;letter-spacing:.26em;font-size:.72rem;color:var(--amber-soft);font-family:'Inter'}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+header.scrolled{background:rgba(26,18,9,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{font-family:'Staatliches';font-size:1.7rem;letter-spacing:.06em}
+.brand span{color:var(--amber)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.84rem;font-weight:500;letter-spacing:.04em;opacity:.9}
+.menu a:hover{color:var(--amber-soft)}
+.btn{display:inline-block;font-family:'Staatliches';letter-spacing:.05em;font-size:1rem;padding:11px 26px;border-radius:4px;transition:.25s}
+.btn-a{background:var(--amber);color:var(--wood3)}
+.btn-a:hover{background:var(--amber-soft)}
+.btn-out{border:1.5px solid var(--foam);color:var(--foam)}
+.btn-out:hover{background:var(--foam);color:var(--wood3)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--amber)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 60px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.42) saturate(.9)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--wood3) 10%,rgba(26,18,9,.6) 60%,rgba(26,18,9,.35))}
+.hero-inner{max-width:680px}
+.hero .spot{display:inline-flex;align-items:center;gap:10px;font-family:'Staatliches';color:var(--amber-soft);letter-spacing:.1em;margin-bottom:12px}
+.hero .spot::before{content:"⚽";font-size:1.2rem}
+.hero h1{font-size:clamp(3.2rem,9vw,7rem)}
+.hero h1 span{color:var(--amber)}
+.hero .lead{font-size:1.14rem;color:#e2d6bf;max-width:500px;margin:20px 0 30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+section{padding:104px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.qg{background:var(--wood2)}
+.qg-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.qg h2{font-size:clamp(2.4rem,5vw,3.8rem);margin:12px 0 18px}
+.qg h2 span{color:var(--amber)}
+.qg p{color:#d8cbb2;margin-bottom:15px}
+.qg-img img{border-radius:8px;height:440px;width:100%;object-fit:cover}
+.pins{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.pins span{font-size:.8rem;background:var(--wood3);border:1px solid var(--line);border-radius:30px;padding:8px 15px;color:var(--foam)}
+
+/* Ardoise / chalkboard */
+.slate{background:
+  radial-gradient(circle at 20% 20%,rgba(255,255,255,.03),transparent 40%),
+  radial-gradient(circle at 80% 70%,rgba(255,255,255,.03),transparent 40%),
+  #21281f;
+  border-top:6px solid #3a2a17;border-bottom:6px solid #3a2a17}
+.slate .head{text-align:center;margin-bottom:44px}
+.slate h2{font-size:clamp(2.4rem,5vw,3.6rem);color:#fff}
+.slate .head p{color:#a9b5a3}
+.chalk{display:grid;grid-template-columns:1fr 1fr;gap:10px 54px}
+.crow{display:flex;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px dashed rgba(255,255,255,.18)}
+.crow .n{font-family:'Staatliches';font-size:1.35rem;color:#fff;letter-spacing:.03em}
+.crow .dots{flex:1;border-bottom:2px dotted rgba(255,255,255,.22);transform:translateY(-5px)}
+.crow .n small{display:block;font-family:'Inter';font-size:.82rem;color:#9fb09a;letter-spacing:0;text-transform:none}
+.crow .p{font-family:'Staatliches';color:var(--amber-soft);font-size:1.2rem}
+
+.match{position:relative}
+.match-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.match-img img{border-radius:8px;height:420px;width:100%;object-fit:cover}
+.match h2{font-size:clamp(2.2rem,4.8vw,3.4rem);margin:12px 0 18px}
+.match h2 span{color:var(--pitch)}
+.match p{color:#d8cbb2;margin-bottom:15px}
+
+.contact{background:var(--wood2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2.2rem,4.6vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px;margin-bottom:24px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600;color:var(--amber-soft);min-width:88px;padding-top:3px}
+.info .v{color:#d8cbb2}
+.info a.v:hover{color:var(--amber-soft)}
+.hours{background:var(--wood3);border:1px solid var(--line);border-radius:8px;padding:24px 26px}
+.hours h3{font-family:'Staatliches';color:var(--amber-soft);font-size:1.5rem;margin-bottom:12px;letter-spacing:.04em}
+.hrow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(243,234,214,.06);font-size:.92rem;color:#d8cbb2}
+.hrow b{color:var(--foam);font-weight:600}
+.map{border-radius:8px;overflow:hidden;border:1px solid var(--line);height:250px;margin-top:18px}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.3)}
+
+footer{background:var(--wood3);padding:44px 0 30px;border-top:1px solid var(--line);text-align:center}
+.foot-brand{font-family:'Staatliches';font-size:1.8rem;letter-spacing:.06em}
+.foot-brand span{color:var(--amber)}
+.credit{color:var(--muted);font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--wood3);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;border-left:1px solid var(--line)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .qg-grid,.match-grid,.contact-grid{grid-template-columns:1fr;gap:38px}
+  .qg-grid .qg-img,.match-grid .match-img{order:-1}
+  .chalk{grid-template-columns:1fr;gap:0}
+}
+@media(max-width:520px){section{padding:74px 0}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">LE <span>PENALTY</span></a>
+    <nav class="menu" id="menu">
+      <a href="#qg">Le bar</a>
+      <a href="#ardoise">L'ardoise</a>
+      <a href="#match">Le match</a>
+      <a href="#contact">Infos</a>
+      <a href="tel:+41273951698" class="btn btn-a">Nous appeler</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=80" alt="Ambiance chaleureuse de bar" />
+  </div>
+  <div class="wrap hero-inner">
+    <span class="spot">Café-Bar · Savièse</span>
+    <h1>Le QG du <span>village</span></h1>
+    <p class="lead">Le café où l'on se retrouve : un p'tit noir le matin, l'apéro le soir, le match entre amis le week-end. Ambiance chaleureuse garantie, comme dans un vrai chalet.</p>
+    <div class="hero-cta">
+      <a href="tel:+41273951698" class="btn btn-a">Réserver l'apéro</a>
+      <a href="#ardoise" class="btn btn-out">Voir l'ardoise</a>
+    </div>
+  </div>
+</section>
+
+<section class="qg" id="qg">
+  <div class="wrap qg-grid">
+    <div class="reveal">
+      <p class="eyebrow">Le bar</p>
+      <h2>On vient pour un verre,<br><span>on reste pour l'ambiance</span></h2>
+      <p>Le Penalty, c'est le café-bar convivial de Savièse, celui où tout le village passe. Un accueil jovial, une équipe aux petits soins, et cette ambiance de chalet qui donne envie de s'attarder.</p>
+      <p>Du café du matin au dernier verre, on y est toujours bien. Et le week-end, ça déménage.</p>
+      <div class="pins"><span>☕ Café dès 8h</span><span>🍺 Apéro</span><span>⚽ Baby-foot &amp; jeux</span><span>⭐ 4.8 / 5</span></div>
+    </div>
+    <div class="qg-img reveal">
+      <img src="https://images.unsplash.com/photo-1538488881038-e252a119ace7?auto=format&fit=crop&w=900&q=80" alt="Comptoir de bar convivial" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="slate" id="ardoise">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">À grignoter</p>
+      <h2>L'ardoise du jour</h2>
+      <p>La petite restauration qui va bien avec un verre</p>
+    </div>
+    <div class="chalk">
+      <div class="crow reveal"><div class="n">Assiette valaisanne<small>Viande séchée, lard, fromage du coin</small></div><span class="dots"></span><span class="p">★</span></div>
+      <div class="crow reveal"><div class="n">Planche à partager<small>Charcuteries &amp; fromages, pour l'apéro</small></div><span class="dots"></span><span class="p">★</span></div>
+      <div class="crow reveal"><div class="n">Croûte au fromage<small>Le classique réconfortant</small></div><span class="dots"></span><span class="p">★</span></div>
+      <div class="crow reveal"><div class="n">Toasts &amp; tartines<small>Simple, chaud, efficace</small></div><span class="dots"></span><span class="p">★</span></div>
+      <div class="crow reveal"><div class="n">Le plat du jour<small>Ça change tous les jours, demandez !</small></div><span class="dots"></span><span class="p">★</span></div>
+      <div class="crow reveal"><div class="n">Bières &amp; vins du Valais<small>Pression fraîche et crus de la région</small></div><span class="dots"></span><span class="p">★</span></div>
+    </div>
+    <p style="text-align:center;color:#9fb09a;font-size:.86rem;margin-top:30px">L'ardoise change au fil des jours · demandez à l'équipe</p>
+  </div>
+</section>
+
+<section class="match" id="match">
+  <div class="wrap match-grid">
+    <div class="match-img reveal">
+      <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?auto=format&fit=crop&w=900&q=80" alt="Ambiance match au bar" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Le rendez-vous des supporters</p>
+      <h2>Ici, on regarde <span>le match</span></h2>
+      <p>Grands soirs de foot, week-ends animés, baby-foot entre deux verres : au Penalty, on vit le sport ensemble. C'est le genre d'endroit où on ne connaît personne en entrant, et tout le monde en sortant.</p>
+      <p>Passez pour le prochain grand match, l'ambiance est toujours au rendez-vous.</p>
+      <div class="hero-cta" style="margin-top:8px"><a href="tel:+41273951698" class="btn btn-out">Nous appeler</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Passez au comptoir</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Rue du Vieux-Moulin 1<br>1965 Savièse</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41273951698">027 395 16 98</a></li>
+        <li><span class="k">Ambiance</span><span class="v">Café-bar de village · apéro · sport · jeux</span></li>
+      </ul>
+      <div class="map reveal">
+        <iframe loading="lazy" title="Carte Le Penalty Savièse" src="https://www.google.com/maps?q=Rue%20du%20Vieux-Moulin%201%2C%201965%20Savi%C3%A8se&output=embed"></iframe>
+      </div>
+    </div>
+    <div class="hours reveal">
+      <h3>Horaires</h3>
+      <div class="hrow"><span>Lundi – Jeudi</span><b>08:00 – 23:00</b></div>
+      <div class="hrow"><span>Vendredi – Samedi</span><b>08:00 – 00:00</b></div>
+      <div class="hrow"><span>Dimanche</span><b>Nous appeler</b></div>
+      <p style="color:var(--muted);font-size:.86rem;margin-top:16px">Café dès le matin · apéro · petite restauration · le match entre amis</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">LE <span>PENALTY</span></div>
+    <p style="color:var(--muted);font-size:.82rem;margin-top:8px">Rue du Vieux-Moulin 1 · 1965 Savièse · 027 395 16 98</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
