@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Le Réservoir · Bistro de quartier · Sion</title>
+<meta name="description" content="Le Réservoir, bistro de quartier au coeur de Platta à Sion depuis 2010. Menu du jour, filets de perche le vendredi, raclette dès 18h et choucroute maison." />
+<meta name="theme-color" content="#0e2a2e" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Le Réservoir · Bistro de quartier · Sion" />
+<meta property="og:description" content="Menu du jour, raclette dès 18h et filets de perche le vendredi, dans l'esprit d'un vrai bistro de quartier à Sion." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Le Réservoir",
+  "address": { "@type": "PostalAddress", "streetAddress": "Rue de Loèche 32", "addressLocality": "Sion", "postalCode": "1950", "addressCountry": "CH" },
+  "telephone": "+41273223257",
+  "servesCuisine": "Bistro, cuisine suisse, brasserie",
+  "priceRange": "CHF 10-20",
+  "url": "https://nb-design.ch/Restaurant/LeReservoir/"
+}
+</script>
+<style>
+:root{
+  --ink:#0d272b; --ink2:#123a3f; --ink3:#0a2023;
+  --cream:#f3ede1; --cream2:#e7dcc7;
+  --copper:#d0894a; --copper-soft:#e0a86a; --copper-deep:#a9662f;
+  --muted:#9db0b0;
+  --line:rgba(224,168,106,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--cream);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.01em;line-height:1.05}
+.wrap{width:min(1180px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.eyebrow{font-family:'Oswald';text-transform:uppercase;letter-spacing:.32em;font-size:.72rem;font-weight:500;color:var(--copper-soft)}
+
+/* Header */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0;transition:.35s}
+header.scrolled{background:rgba(10,32,35,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header.scrolled .nav{padding:14px 0}
+.brand{font-family:'Oswald';font-weight:700;font-size:1.35rem;text-transform:uppercase;letter-spacing:.18em}
+.brand span{color:var(--copper-soft)}
+.menu{display:flex;gap:34px;align-items:center}
+.menu a{font-size:.82rem;text-transform:uppercase;letter-spacing:.14em;font-family:'Oswald';font-weight:400;color:var(--cream);opacity:.85;transition:.25s}
+.menu a:hover{opacity:1;color:var(--copper-soft)}
+.btn{display:inline-block;font-family:'Oswald';text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;font-weight:500;padding:12px 24px;border:1px solid var(--copper);color:var(--copper-soft);border-radius:2px;transition:.28s}
+.btn:hover{background:var(--copper);color:var(--ink3);border-color:var(--copper)}
+.btn-solid{background:var(--copper);color:var(--ink3);border-color:var(--copper)}
+.btn-solid:hover{background:var(--copper-soft);border-color:var(--copper-soft)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--cream)}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:90px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,var(--ink3) 8%,rgba(13,39,43,.82) 42%,rgba(13,39,43,.35) 100%)}
+.hero-inner{max-width:720px}
+.hero h1{font-size:clamp(3rem,8vw,6.4rem);font-weight:700;text-transform:uppercase}
+.hero h1 em{font-style:normal;color:var(--copper-soft);display:block}
+.hero .lead{font-size:1.12rem;color:var(--cream2);margin:26px 0 8px;max-width:520px}
+.tags{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 34px}
+.tag{font-family:'Oswald';font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:7px 14px;border:1px solid var(--line);border-radius:40px;color:var(--muted)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-family:'Oswald';font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* Sections */
+section{padding:110px 0}
+.reveal{opacity:0;transform:translateY(30px);transition:.9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* About */
+.about{background:var(--ink2)}
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.about h2{font-size:clamp(2rem,4.4vw,3.2rem);text-transform:uppercase;margin:14px 0 22px}
+.about p{color:var(--cream2);margin-bottom:16px}
+.about .figure{position:relative}
+.about .figure img{border-radius:4px;height:480px;width:100%;object-fit:cover}
+.badge{position:absolute;bottom:-26px;left:-26px;background:var(--copper);color:var(--ink3);padding:20px 26px;border-radius:4px;font-family:'Oswald';text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.badge b{display:block;font-size:2.2rem;font-weight:700;line-height:1}
+.badge small{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase}
+
+/* Specialités */
+.specs{text-align:center}
+.specs .head{max-width:640px;margin:0 auto 60px}
+.specs h2{font-size:clamp(2rem,4.4vw,3.2rem);text-transform:uppercase;margin-top:12px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:6px;padding:34px 26px;text-align:left;transition:.35s}
+.card:hover{transform:translateY(-8px);border-color:var(--copper)}
+.card .n{font-family:'Oswald';font-size:.8rem;color:var(--copper-soft);letter-spacing:.2em}
+.card h3{font-size:1.35rem;text-transform:uppercase;margin:16px 0 10px}
+.card p{color:var(--muted);font-size:.94rem}
+
+/* Feature raclette */
+.feature{position:relative;background:var(--ink3)}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+.feature-img{min-height:460px}
+.feature-img img{width:100%;height:100%;object-fit:cover}
+.feature-txt{padding:80px clamp(24px,5vw,72px);display:flex;flex-direction:column;justify-content:center}
+.feature-txt h2{font-size:clamp(2rem,4.2vw,3rem);text-transform:uppercase;margin:14px 0 20px}
+.feature-txt p{color:var(--cream2);margin-bottom:14px}
+.days{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.days span{font-family:'Oswald';font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--line);border-radius:3px;color:var(--muted)}
+.days span.on{background:var(--copper);color:var(--ink3);border-color:var(--copper)}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gallery img{height:300px;width:100%;object-fit:cover;border-radius:4px;filter:saturate(.92);transition:.5s}
+.gallery img:hover{filter:saturate(1.1);transform:scale(1.02)}
+
+/* Contact */
+.contact{background:var(--ink2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);text-transform:uppercase;margin:12px 0 26px}
+.info{list-style:none;display:grid;gap:22px}
+.info li{display:flex;gap:16px;align-items:flex-start}
+.info .k{font-family:'Oswald';text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;color:var(--copper-soft);min-width:96px;padding-top:3px}
+.info .v{color:var(--cream2)}
+.info a.v:hover{color:var(--copper-soft)}
+.map{border-radius:6px;overflow:hidden;border:1px solid var(--line);height:340px}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.3) contrast(1.05)}
+
+/* Footer */
+footer{background:var(--ink3);padding:48px 0 34px;border-top:1px solid var(--line)}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.foot .brand{font-size:1.1rem}
+.foot small{color:var(--muted);font-size:.8rem}
+.credit{color:var(--muted);font-size:.74rem;margin-top:10px;letter-spacing:.04em}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--ink3);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;border-left:1px solid var(--line)}
+  .menu.open{transform:none}
+  .burger{display:flex;z-index:60}
+  .about-grid,.feature-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .cards{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  .badge{left:auto;right:-10px}
+  .feature-img{min-height:320px}
+}
+@media(max-width:560px){
+  .cards,.gallery{grid-template-columns:1fr}
+  section{padding:80px 0}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">Le <span>Réservoir</span></a>
+    <nav class="menu" id="menu">
+      <a href="#maison">La maison</a>
+      <a href="#carte">La carte</a>
+      <a href="#raclette">La semaine</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41273223257" class="btn btn-solid">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80" alt="Ambiance de bistro chaleureux" />
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Bistro de quartier · Platta, Sion</p>
+    <h1>On mange bien,<em>on rit fort.</em></h1>
+    <p class="lead">Depuis 2010, Le Réservoir cultive l'esprit du vrai bistro de quartier : une cuisine franche, un accueil qui réchauffe et une table où l'on reste plus longtemps que prévu.</p>
+    <div class="tags">
+      <span class="tag">Menu du jour</span>
+      <span class="tag">Raclette dès 18h</span>
+      <span class="tag">Filets de perche</span>
+      <span class="tag">Choucroute maison</span>
+    </div>
+    <div class="hero-cta">
+      <a href="tel:+41273223257" class="btn btn-solid">Réserver une table</a>
+      <a href="#carte" class="btn">Découvrir la carte</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Défiler</div>
+</section>
+
+<section class="about" id="maison">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <p class="eyebrow">La maison</p>
+      <h2>Un bout de Platta,<br>servi sans façon</h2>
+      <p>Au coeur du quartier de Platta, Le Réservoir est de ces adresses où l'on pousse la porte pour un café le matin et où l'on finit la semaine autour d'une raclette. Rui Ferreira et son équipe y entretiennent une ambiance simple et généreuse, celle des bistrots qui ont une âme.</p>
+      <p>Ici, la carte suit les saisons et le marché : un menu du jour qui change au gré de l'inspiration, des classiques de la maison et de quoi grignoter à toute heure. Rien de compliqué, tout est fait avec le coeur.</p>
+    </div>
+    <div class="figure reveal">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80" alt="Salle du bistro Le Réservoir" loading="lazy" />
+      <div class="badge"><b>2010</b><small>Depuis</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="specs" id="carte">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Ce qu'on aime chez nous</p>
+      <h2>Les incontournables</h2>
+    </div>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="n">01</div>
+        <h3>Le menu du jour</h3>
+        <p>Chaque midi, une assiette qui change selon le marché. Généreuse, honnête, entre 10 et 20 francs.</p>
+      </div>
+      <div class="card reveal">
+        <div class="n">02</div>
+        <h3>Filets de perche</h3>
+        <p>Le rituel du vendredi midi : des filets de perche dorés, frites maison et citron.</p>
+      </div>
+      <div class="card reveal">
+        <div class="n">03</div>
+        <h3>La raclette</h3>
+        <p>Dès 18h, au moins cinq fromages du Valais et d'alpage, selon la sélection de la semaine.</p>
+      </div>
+      <div class="card reveal">
+        <div class="n">04</div>
+        <h3>Choucroute maison</h3>
+        <p>De septembre à avril, notre choucroute mijotée maison, comme à la maison justement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="feature" id="raclette">
+  <div class="feature-grid">
+    <div class="feature-img reveal">
+      <img src="https://images.unsplash.com/photo-1633436375153-d7045cb93e38?auto=format&fit=crop&w=900&q=80" alt="Raclette valaisanne fondante" loading="lazy" />
+    </div>
+    <div class="feature-txt reveal">
+      <p class="eyebrow">Le rendez-vous de la semaine</p>
+      <h2>Vendredi soir,<br>c'est raclette</h2>
+      <p>On racle, on partage, on recommence. Le vendredi dès 18h, la maison sort ses meilleurs fromages du Valais et d'alpage pour une raclette à volonté, dans une ambiance qui ne demande qu'à s'attarder.</p>
+      <p>Pensez à réserver, les bonnes tables partent vite.</p>
+      <div class="days">
+        <span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span class="on">Ven · Raclette</span><span>Sam</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="gallery">
+      <img class="reveal" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80" alt="Assiette de bistro" loading="lazy" />
+      <img class="reveal" src="https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=700&q=80" alt="Plat maison" loading="lazy" />
+      <img class="reveal" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=700&q=80" alt="Café au comptoir" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Passez nous voir</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Rue de Loèche 32<br>1950 Sion</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41273223257">027 322 32 57</a></li>
+        <li><span class="k">Service</span><span class="v">Menu du jour à midi · Vendredi soir raclette dès 18h<br>Horaires détaillés au téléphone</span></li>
+        <li><span class="k">Ambiance</span><span class="v">Bistro de quartier, convivial et sans chichi</span></li>
+      </ul>
+      <div style="margin-top:30px"><a href="tel:+41273223257" class="btn btn-solid">Appeler pour réserver</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte Le Réservoir Sion" src="https://www.google.com/maps?q=Rue%20de%20Lo%C3%A8che%2032%2C%201950%20Sion&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#" class="brand">Le <span>Réservoir</span></a>
+      <small>Rue de Loèche 32 · 1950 Sion · 027 322 32 57</small>
+    </div>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
