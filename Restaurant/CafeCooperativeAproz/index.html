@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Café de la Coopérative · Karaoké & raclette · Aproz</title>
+<meta name="description" content="Café de la Coopérative à Aproz (Nendaz) : le café de village qui s'amuse. Soirées karaoké, raclette tous les vendredis soir, spécialités locales, terrasse et parking gratuit." />
+<meta name="theme-color" content="#faf5ef" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Café de la Coopérative · Karaoké & raclette · Aproz" />
+<meta property="og:description" content="Soirées karaoké, raclette du vendredi et bonne humeur au coeur d'Aproz. Le café qui fait chanter le village." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Café de la Coopérative",
+  "address":{"@type":"PostalAddress","streetAddress":"Rue du Moulin 6","addressLocality":"Aproz (Nendaz)","postalCode":"1994","addressCountry":"CH"},
+  "telephone":"+41795799281","servesCuisine":"Café-restaurant, raclette, spécialités locales","priceRange":"CHF 10-25",
+  "url":"https://nb-design.ch/Restaurant/CafeCooperativeAproz/",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"07:00","closes":"21:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday"],"opens":"07:00","closes":"23:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"08:00","closes":"20:00"}
+  ]
+}
+</script>
+<style>
+:root{
+  --cream:#faf5ef;--cream2:#f1e8db;--paper:#ffffff;
+  --ink:#2b2530;--ink-soft:#6d6472;
+  --grape:#7a4a9c;--grape-d:#653d84;--gold:#e0a52e;--gold-d:#c58c1c;--coral:#e8615a;--line:#ece0d0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.66;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Righteous',system-ui,sans-serif;font-weight:400;line-height:1.12}
+.wrap{width:min(1110px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:700;color:var(--grape);font-family:'Inter'}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+header.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(43,37,48,.06)}
+.brand{font-family:'Righteous';font-size:1.25rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+.brand .mic{color:var(--coral)}
+.menu{display:flex;gap:28px;align-items:center}
+.menu a{font-size:.86rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--grape)}
+.btn{display:inline-block;font-family:'Righteous';font-size:.92rem;padding:11px 26px;border-radius:40px;transition:.25s;letter-spacing:.02em}
+.btn-fill{background:var(--grape);color:#fff}
+.btn-fill:hover{background:var(--grape-d)}
+.btn-out{border:2px solid var(--gold);color:var(--gold-d)}
+.btn-out:hover{background:var(--gold);color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+.hero{padding:150px 0 84px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-8%;right:-6%;width:400px;height:400px;background:radial-gradient(circle,rgba(122,74,156,.16),transparent 70%);z-index:0}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative;z-index:1}
+.badge1{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;font-family:'Righteous';font-size:.82rem;padding:7px 16px;border-radius:30px;margin-bottom:14px}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem)}
+.hero h1 span{color:var(--grape)}
+.hero .lead{font-size:1.12rem;color:var(--ink-soft);margin:20px 0 12px;max-width:460px}
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 28px}
+.chip{font-size:.8rem;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:8px 15px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-img{position:relative}
+.hero-img img{border-radius:22px;height:500px;width:100%;object-fit:cover;box-shadow:0 26px 54px rgba(43,37,48,.16)}
+.hero-img .tag{position:absolute;bottom:20px;left:-16px;background:var(--gold);color:var(--ink);padding:14px 22px;border-radius:18px;font-family:'Righteous';box-shadow:0 14px 30px rgba(43,37,48,.18)}
+.hero-img .tag small{display:block;font-family:'Inter';font-weight:500;font-size:.72rem;opacity:.8}
+
+section{padding:98px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.karaoke{background:var(--grape);color:#fff;position:relative;overflow:hidden}
+.karaoke::after{content:"♪";position:absolute;top:10%;right:6%;font-size:12rem;color:rgba(255,255,255,.06);font-family:'Righteous'}
+.karaoke-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+.karaoke .eyebrow{color:#e6c98d}
+.karaoke h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:12px 0 18px;color:#fff}
+.karaoke p{color:#eaddf2;margin-bottom:15px}
+.karaoke-img img{border-radius:22px;height:440px;width:100%;object-fit:cover}
+
+.rac{position:relative}
+.rac-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
+.rac-img img{border-radius:22px;height:420px;width:100%;object-fit:cover}
+.rac h2{font-size:clamp(2rem,4.6vw,3.2rem);margin:12px 0 18px}
+.rac h2 span{color:var(--coral)}
+.rac p{color:var(--ink-soft);margin-bottom:15px}
+.dayline{display:inline-flex;align-items:center;gap:10px;background:var(--cream2);border-radius:30px;padding:10px 18px;font-weight:700;color:var(--grape);margin-top:8px}
+
+.serve{background:var(--cream2)}
+.serve .head{text-align:center;max-width:600px;margin:0 auto 50px}
+.serve h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-top:10px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--paper);border-radius:20px;padding:30px 22px;border:1px solid var(--line);transition:.3s;text-align:center}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(43,37,48,.09)}
+.card .ico{font-size:1.9rem}
+.card h3{font-size:1.2rem;margin:12px 0 8px}
+.card p{color:var(--ink-soft);font-size:.9rem}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px;margin-bottom:24px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:700;color:var(--grape);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--grape)}
+.hours{background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:24px 26px}
+.hours h3{font-family:'Righteous';color:var(--grape);font-size:1.15rem;margin-bottom:12px}
+.hrow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(43,37,48,.06);font-size:.92rem;color:var(--ink-soft)}
+.hrow b{color:var(--ink);font-weight:600}
+.hrow.hl b{color:var(--coral)}
+.map{border-radius:20px;overflow:hidden;border:1px solid var(--line);height:230px;margin-top:16px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--ink);color:var(--cream);padding:44px 0 30px;text-align:center}
+.foot-brand{font-family:'Righteous';font-size:1.25rem}
+.foot-brand .mic{color:var(--coral)}
+.credit{color:#9a8fa3;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(43,37,48,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .hero-grid,.karaoke-grid,.rac-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-grid .hero-img,.karaoke-grid .karaoke-img,.rac-grid .rac-img{order:-1}
+  .cards{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){section{padding:74px 0}.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand"><span class="mic">🎤</span> la Coopérative</a>
+    <nav class="menu" id="menu">
+      <a href="#karaoke">Karaoké</a>
+      <a href="#raclette">Raclette</a>
+      <a href="#cafe">Le café</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41795799281" class="btn btn-fill">Nous trouver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge1">🎤 Soirées karaoké</span>
+      <h1>Le café où<br>le village <span>s'amuse</span></h1>
+      <p class="lead">À Aproz, la Coopérative, c'est le rendez-vous convivial du village : un café le matin, la raclette le vendredi soir, et le micro qui chauffe pour les soirées karaoké. Ambiance garantie !</p>
+      <div class="chips"><span class="chip">🎤 Karaoké</span><span class="chip">🧀 Raclette</span><span class="chip">🅿️ Parking gratuit</span></div>
+      <div class="hero-cta">
+        <a href="tel:+41795799281" class="btn btn-fill">Réserver une table</a>
+        <a href="#karaoke" class="btn btn-out">Les soirées</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=80" alt="Ambiance festive de café" />
+      <div class="tag">Ambiance garantie<small>toute l'année</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="karaoke" id="karaoke">
+  <div class="wrap karaoke-grid">
+    <div class="reveal">
+      <p class="eyebrow">Le rendez-vous festif</p>
+      <h2>À vous le micro !</h2>
+      <p>C'est la marque de fabrique de la maison : nos soirées karaoké, où tout le village se lâche et pousse la chansonnette. Bonne humeur, éclats de rire et tubes à reprendre en chœur.</p>
+      <p>Ajoutez à ça nos soirées à thème ponctuelles, et vous avez le café le plus animé du coin.</p>
+      <div class="hero-cta" style="margin-top:8px"><a href="tel:+41795799281" class="btn btn-out" style="border-color:#e6c98d;color:#e6c98d">Prochaines soirées</a></div>
+    </div>
+    <div class="karaoke-img reveal">
+      <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?auto=format&fit=crop&w=900&q=80" alt="Micro de karaoké" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="rac" id="raclette">
+  <div class="wrap rac-grid">
+    <div class="rac-img reveal">
+      <img src="https://images.unsplash.com/photo-1633436375153-d7045cb93e38?auto=format&fit=crop&w=900&q=80" alt="Raclette au fromage" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Tous les vendredis</p>
+      <h2>Vendredi soir, <span>c'est raclette</span></h2>
+      <p>Chaque vendredi soir, on sort le four à raclette et on fait fondre le meilleur fromage du pays. Un moment gourmand et convivial pour bien démarrer le week-end.</p>
+      <p>À la bonne franquette, entre voisins et amis, comme on aime en Valais.</p>
+      <span class="dayline">🧀 Raclette · tous les vendredis dès le soir</span>
+    </div>
+  </div>
+</section>
+
+<section class="serve" id="cafe">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Au quotidien</p>
+      <h2>Le café du village</h2>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="ico">☕</div><h3>Café dès 7h</h3><p>Le petit noir du matin et les boissons de la journée, en semaine.</p></div>
+      <div class="card reveal"><div class="ico">🧀</div><h3>Spécialités locales</h3><p>Les mets du pays, préparés avec soin et passion.</p></div>
+      <div class="card reveal"><div class="ico">☀</div><h3>Terrasse</h3><p>Un coin au soleil pour l'apéro et les beaux jours.</p></div>
+      <div class="card reveal"><div class="ico">🅿️</div><h3>Parking gratuit</h3><p>On se gare facilement, juste devant. Pratique pour tous.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Au cœur d'Aproz</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Rue du Moulin 6<br>1994 Aproz (Nendaz)</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41795799281">079 579 92 81</a></li>
+        <li><span class="k">Animations</span><span class="v">Karaoké · soirées à thème · raclette du vendredi</span></li>
+      </ul>
+      <div style="margin-top:24px"><a href="tel:+41795799281" class="btn btn-fill">Appeler</a></div>
+    </div>
+    <div class="hours reveal">
+      <h3>Horaires</h3>
+      <div class="hrow"><span>Lundi – Jeudi</span><b>07:00 – 21:00</b></div>
+      <div class="hrow hl"><span>Vendredi</span><b>07:00 – 23:00 · raclette</b></div>
+      <div class="hrow"><span>Samedi</span><b>08:00 – 20:00</b></div>
+      <p style="color:var(--ink-soft);font-size:.86rem;margin-top:16px">Café · terrasse · karaoké · raclette du vendredi</p>
+      <div class="map">
+        <iframe loading="lazy" title="Carte Café de la Coopérative Aproz" src="https://www.google.com/maps?q=Rue%20du%20Moulin%206%2C%201994%20Aproz&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand"><span class="mic">🎤</span> Café de la Coopérative · Aproz</div>
+    <p style="color:#9a8fa3;font-size:.82rem;margin-top:8px">Rue du Moulin 6 · 1994 Aproz · 079 579 92 81</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
