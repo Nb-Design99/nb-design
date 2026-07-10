@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Café Yucca · Crêperie & café détente · Conthey</title>
+<meta name="description" content="Café Yucca au Bassin Centre à Conthey : crêpes sucrées et salées, salades, pizzas et paninis, grande terrasse et ambiance détendue. Ouvert dès 7h." />
+<meta name="theme-color" content="#fbf7f0" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Café Yucca · Crêperie & café détente · Conthey" />
+<meta property="og:description" content="Crêpes, salades et petite restauration dans une ambiance détendue, avec grande terrasse. Au Bassin Centre, Conthey." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Café Yucca",
+  "address":{"@type":"PostalAddress","streetAddress":"Route Cantonale 4 (Bassin Centre)","addressLocality":"Conthey","postalCode":"1964","addressCountry":"CH"},
+  "telephone":"+41273465207","email":"cafeyucca@hotmail.com","servesCuisine":"Crêperie, café, petite restauration","priceRange":"CHF 5-20",
+  "url":"https://nb-design.ch/Restaurant/CafeYucca/"
+}
+</script>
+<style>
+:root{
+  --cream:#fbf7f0;--cream2:#f2ecdf;--paper:#ffffff;
+  --ink:#2c2b26;--ink-soft:#6f6a5e;
+  --sage:#7d8c5c;--sage-d:#63714a;--sand:#e6d8bd;
+  --coral:#e97b5a;--coral-d:#d9663f;--line:#e8dfcd;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Quicksand',sans-serif;font-weight:700;line-height:1.12}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;font-weight:700;color:var(--sage)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+header.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(44,43,38,.06)}
+.brand{font-family:'Quicksand';font-weight:700;font-size:1.4rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+.brand .leaf{color:var(--sage)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.88rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--sage)}
+.btn{display:inline-block;font-family:'Quicksand';font-weight:700;font-size:.9rem;padding:12px 26px;border-radius:30px;transition:.25s}
+.btn-fill{background:var(--coral);color:#fff}
+.btn-fill:hover{background:var(--coral-d)}
+.btn-out{border:2px solid var(--sage);color:var(--sage-d)}
+.btn-out:hover{background:var(--sage);color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+.hero{padding:140px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:8%;right:-4%;width:340px;height:340px;background:var(--sand);border-radius:50%;opacity:.5;filter:blur(6px);z-index:0}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative;z-index:1}
+.hero h1{font-size:clamp(2.8rem,6.4vw,5rem)}
+.hero h1 span{color:var(--sage)}
+.hero .lead{font-size:1.12rem;color:var(--ink-soft);margin:20px 0 12px;max-width:460px}
+.chips{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 28px}
+.chip{font-size:.8rem;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:8px 15px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-img{position:relative}
+.hero-img img{border-radius:20px;height:500px;width:100%;object-fit:cover;box-shadow:0 26px 54px rgba(44,43,38,.16)}
+.hero-img .bubble{position:absolute;bottom:20px;left:-16px;background:var(--sage);color:#fff;padding:14px 20px;border-radius:16px;font-family:'Quicksand';font-weight:700;box-shadow:0 14px 30px rgba(44,43,38,.2)}
+.hero-img .bubble small{display:block;font-weight:500;font-size:.72rem;opacity:.9}
+
+section{padding:98px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.crepes{background:var(--sage);color:#fff}
+.crepes-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.crepes .eyebrow{color:var(--sand)}
+.crepes h2{font-size:clamp(2.2rem,4.8vw,3.4rem);margin:12px 0 18px;color:#fff}
+.crepes p{color:#eef1e4;margin-bottom:15px}
+.crepes-img img{border-radius:20px;height:440px;width:100%;object-fit:cover}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.split div{background:rgba(255,255,255,.12);border-radius:14px;padding:16px 18px}
+.split h4{font-family:'Quicksand';font-size:1.05rem;margin-bottom:4px}
+.split p{color:#e2e8d4;font-size:.9rem;margin:0}
+
+.menu-sec .head{text-align:center;max-width:600px;margin:0 auto 50px}
+.menu-sec h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-top:10px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--paper);border-radius:18px;padding:30px 26px;border:1px solid var(--line);transition:.3s;text-align:center}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(44,43,38,.09)}
+.card .ico{font-size:2rem}
+.card h3{font-size:1.3rem;margin:12px 0 8px}
+.card p{color:var(--ink-soft);font-size:.93rem}
+
+.terrace{background:var(--cream2)}
+.terrace-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.terrace h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 18px}
+.terrace h2 span{color:var(--coral)}
+.terrace p{color:var(--ink-soft);margin-bottom:15px}
+.terrace ul{list-style:none;display:grid;gap:10px;margin-top:8px}
+.terrace ul li{display:flex;gap:12px;color:var(--ink-soft)}
+.terrace ul li::before{content:"✦";color:var(--sage)}
+.terrace-img img{border-radius:20px;height:420px;width:100%;object-fit:cover}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:700;color:var(--sage);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--coral)}
+.map{border-radius:18px;overflow:hidden;border:1px solid var(--line);height:330px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--ink);color:var(--cream);padding:44px 0 30px;text-align:center}
+.foot-brand{font-family:'Quicksand';font-weight:700;font-size:1.4rem}
+.foot-brand .leaf{color:var(--sage)}
+.credit{color:#a29c8e;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(44,43,38,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .hero-grid,.crepes-grid,.terrace-grid,.contact-grid{grid-template-columns:1fr;gap:38px}
+  .hero-grid .hero-img,.crepes-grid .crepes-img{order:-1}
+  .cards{grid-template-columns:1fr}
+}
+@media(max-width:520px){section{padding:74px 0}.split{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand"><span class="leaf">❦</span> Café Yucca</a>
+    <nav class="menu" id="menu">
+      <a href="#crepes">Les crêpes</a>
+      <a href="#carte">La carte</a>
+      <a href="#terrasse">La terrasse</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41273465207" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Crêperie &amp; café · Conthey</p>
+      <h1>La pause <span>détente</span><br>du Bassin Centre</h1>
+      <p class="lead">Une crêpe gourmande, une salade fraîche, un café au soleil sur la terrasse. Le Yucca, c'est le café tout simple où l'on se pose, du matin jusqu'au goûter.</p>
+      <div class="chips"><span class="chip">🥞 Crêpes</span><span class="chip">🥗 Salades</span><span class="chip">🍕 Pizzas</span><span class="chip">☕ Dès 7h</span></div>
+      <div class="hero-cta">
+        <a href="tel:+41273465207" class="btn btn-fill">Réserver une table</a>
+        <a href="#carte" class="btn btn-out">Voir la carte</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&w=900&q=80" alt="Crêpe gourmande et café" />
+      <div class="bubble">Ouvert dès 7h<small>tous les matins</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="crepes" id="crepes">
+  <div class="wrap crepes-grid">
+    <div class="crepes-img reveal">
+      <img src="https://images.unsplash.com/photo-1565299543923-37dd37887442?auto=format&fit=crop&w=900&q=80" alt="Crêpes sucrées et salées" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">La spécialité</p>
+      <h2>Nos crêpes, sucrées ou salées</h2>
+      <p>La crêpe dans tous ses états : moelleuse, dorée, garnie comme il faut. En version repas ou en gourmandise, il y en a pour toutes les envies et toutes les heures.</p>
+      <div class="split">
+        <div><h4>🍫 Sucrées</h4><p>Chocolat, caramel, fruits, chantilly… le goûter parfait.</p></div>
+        <div><h4>🧀 Salées</h4><p>Jambon-fromage, complètes, veggie… un vrai repas.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-sec" id="carte">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">À la carte</p>
+      <h2>Simple &amp; gourmand</h2>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="ico">🥗</div><h3>Salades fraîches</h3><p>Généreuses et de saison, pour un repas léger et coloré.</p></div>
+      <div class="card reveal"><div class="ico">🍕</div><h3>Pizzas &amp; paninis</h3><p>Une petite faim ? Pizza, panini ou croque-monsieur, c'est prêt vite.</p></div>
+      <div class="card reveal"><div class="ico">🥪</div><h3>Sandwichs express</h3><p>À déguster sur place ou à emporter, entre deux courses.</p></div>
+      <div class="card reveal"><div class="ico">☕</div><h3>Cafés &amp; boissons</h3><p>Le petit noir du matin, les boissons fraîches de l'après-midi.</p></div>
+      <div class="card reveal"><div class="ico">🥞</div><h3>Crêpes</h3><p>Sucrées ou salées, la signature de la maison à toute heure.</p></div>
+      <div class="card reveal"><div class="ico">📰</div><h3>Le coin détente</h3><p>Journaux à disposition et jeux de la Loterie Romande. On prend son temps.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="terrace" id="terrasse">
+  <div class="wrap terrace-grid">
+    <div class="reveal">
+      <p class="eyebrow">Au soleil</p>
+      <h2>La grande <span>terrasse</span></h2>
+      <p>Aux beaux jours, on s'installe dehors. La grande terrasse du Yucca est l'endroit idéal pour un café entre amis, un déjeuner tranquille ou un goûter au soleil.</p>
+      <ul>
+        <li>Grande terrasse ensoleillée</li>
+        <li>Ambiance détendue, groupes bienvenus</li>
+        <li>Idéal pour une pause pendant les courses</li>
+      </ul>
+      <div class="hero-cta" style="margin-top:20px"><a href="tel:+41273465207" class="btn btn-fill">Réserver une table</a></div>
+    </div>
+    <div class="terrace-img reveal">
+      <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=80" alt="Terrasse de café ensoleillée" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Passez au Yucca</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Bassin Centre · Route Cantonale 4<br>1964 Conthey</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41273465207">027 346 52 07</a></li>
+        <li><span class="k">E-mail</span><a class="v" href="mailto:cafeyucca@hotmail.com">cafeyucca@hotmail.com</a></li>
+        <li><span class="k">Horaires</span><span class="v">Ouvert dès 7h · détails au téléphone</span></li>
+      </ul>
+      <div style="margin-top:24px"><a href="tel:+41273465207" class="btn btn-fill">Appeler</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte Café Yucca Conthey" src="https://www.google.com/maps?q=Bassin%20Centre%2C%20Route%20Cantonale%204%2C%201964%20Conthey&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand"><span class="leaf">❦</span> Café Yucca</div>
+    <p style="color:#a29c8e;font-size:.82rem;margin-top:8px">Bassin Centre · 1964 Conthey · 027 346 52 07</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
