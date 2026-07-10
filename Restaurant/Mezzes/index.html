@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Mezzés · Cuisine libanaise · Réchy</title>
+<meta name="description" content="Mezzés à Réchy : un voyage culinaire au coeur du Liban. Mezzés à partager, grillades et desservts maison, préparés avec des produits frais par un chef formé à Beyrouth." />
+<meta name="theme-color" content="#f4eee1" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Mezzés · Cuisine libanaise · Réchy" />
+<meta property="og:description" content="L'authentique cuisine libanaise en Valais : mezzés à partager, grillades et desserts maison. Bienvenue à table." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Mezzés",
+  "address":{"@type":"PostalAddress","streetAddress":"Place de Pranniviers 12","addressLocality":"Réchy","postalCode":"3966","addressCountry":"CH"},
+  "telephone":"+41275561682","email":"mezzes.ch@gmail.com","servesCuisine":"Libanaise, méditerranéenne","priceRange":"CHF 20-40",
+  "url":"https://nb-design.ch/Restaurant/Mezzes/",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday"],"opens":"09:30","closes":"23:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday"],"opens":"10:00","closes":"15:00"}
+  ]
+}
+</script>
+<style>
+:root{
+  --sand:#f4eee1;--sand2:#eae0cb;--paper:#fffdf6;
+  --ink:#2a2620;--ink-soft:#6b6151;
+  --olive:#5f6b3a;--olive-d:#4a5430;--pom:#a6332f;--pom-d:#87282a;
+  --brass:#b98a3e;--line:#e4d8c0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--sand);color:var(--ink);line-height:1.68;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.08}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.26em;font-size:.72rem;font-weight:600;color:var(--pom)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+header.scrolled{background:rgba(255,253,246,.94);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(42,38,32,.06)}
+.brand{font-family:'Cormorant Garamond';font-weight:700;font-size:1.7rem;letter-spacing:.06em;color:var(--ink)}
+.brand span{color:var(--pom)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.86rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--pom)}
+.btn{display:inline-block;font-weight:600;font-size:.86rem;padding:12px 26px;border-radius:3px;transition:.25s}
+.btn-fill{background:var(--pom);color:#fff}
+.btn-fill:hover{background:var(--pom-d)}
+.btn-out{border:1.5px solid var(--olive);color:var(--olive-d)}
+.btn-out:hover{background:var(--olive);color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 70px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.55)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(95deg,rgba(42,38,32,.72) 12%,rgba(42,38,32,.35) 65%,transparent)}
+.hero-inner{max-width:640px;color:#fff}
+.hero .eyebrow{color:#e7c98f}
+.hero h1{font-size:clamp(3rem,7.5vw,6rem);color:#fff}
+.hero h1 em{font-style:italic;color:#e7c98f}
+.hero .lead{font-size:1.16rem;color:#f0e8d8;max-width:520px;margin:20px 0 30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+section{padding:104px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.chef{background:var(--paper)}
+.chef-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.chef-img{position:relative}
+.chef-img img{border-radius:6px;height:500px;width:100%;object-fit:cover}
+.chef-img .cedar{position:absolute;bottom:-20px;right:-16px;background:var(--olive);color:var(--sand);font-family:'Cormorant Garamond';font-size:1.3rem;padding:16px 22px;border-radius:6px;box-shadow:0 16px 34px rgba(42,38,32,.22);font-style:italic}
+.chef h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:12px 0 20px}
+.chef h2 em{color:var(--pom);font-style:italic}
+.chef p{color:var(--ink-soft);margin-bottom:15px}
+
+.mezze{background:var(--sand2);text-align:center}
+.mezze .head{max-width:660px;margin:0 auto 54px}
+.mezze h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-top:10px}
+.mezze h2 em{color:var(--olive-d);font-style:italic}
+.mezze .head p{color:var(--ink-soft)}
+.plates{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.plate{background:var(--paper);border:1px solid var(--line);border-radius:6px;overflow:hidden;text-align:left;transition:.35s}
+.plate:hover{transform:translateY(-7px);box-shadow:0 18px 40px rgba(42,38,32,.1)}
+.plate img{height:160px;width:100%;object-fit:cover}
+.plate .b{padding:20px}
+.plate h3{font-size:1.4rem;margin-bottom:5px}
+.plate p{color:var(--ink-soft);font-size:.9rem}
+
+.grill{position:relative}
+.grill-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.grill-img img{border-radius:6px;height:440px;width:100%;object-fit:cover}
+.grill h2{font-size:clamp(2rem,4.6vw,3.2rem);margin:12px 0 18px}
+.grill h2 em{color:var(--pom);font-style:italic}
+.grill p{color:var(--ink-soft);margin-bottom:15px}
+.grill .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.grill .tags span{font-size:.78rem;border:1px solid var(--line);border-radius:30px;padding:7px 14px;color:var(--ink-soft)}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2rem,4.6vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px;margin-bottom:24px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600;color:var(--pom);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--pom)}
+.hours{background:var(--sand);border:1px solid var(--line);border-radius:6px;padding:24px 26px}
+.hours h3{font-family:'Cormorant Garamond';color:var(--olive-d);font-size:1.7rem;margin-bottom:12px}
+.hrow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(42,38,32,.06);font-size:.92rem;color:var(--ink-soft)}
+.hrow b{color:var(--ink);font-weight:600}
+.hrow.off b{color:var(--pom)}
+.map{border-radius:6px;overflow:hidden;border:1px solid var(--line);height:230px;margin-top:16px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--ink);color:var(--sand);padding:46px 0 30px;text-align:center}
+.foot-brand{font-family:'Cormorant Garamond';font-weight:700;font-size:1.9rem;letter-spacing:.06em}
+.foot-brand span{color:#e7c98f}
+.credit{color:#a49a88;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(42,38,32,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .chef-grid,.grill-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .chef-grid .chef-img,.grill-grid .grill-img{order:-1}
+  .plates{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){section{padding:76px 0}.plates{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">Mezzé<span>s</span></a>
+    <nav class="menu" id="menu">
+      <a href="#chef">La maison</a>
+      <a href="#mezze">Les mezzés</a>
+      <a href="#grill">Grillades</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41275561682" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&w=1600&q=80" alt="Table de mezzés libanais" />
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Cuisine libanaise · Réchy</p>
+    <h1>Un voyage<br><em>au Liban</em></h1>
+    <p class="lead">Des mezzés colorés à partager, des grillades parfumées et l'hospitalité du Levant. Une cuisine authentique, préparée avec le coeur et les vrais produits.</p>
+    <div class="hero-cta">
+      <a href="tel:+41275561682" class="btn btn-fill">Réserver une table</a>
+      <a href="#mezze" class="btn btn-out" style="border-color:#e7c98f;color:#e7c98f">Découvrir les mezzés</a>
+    </div>
+  </div>
+</section>
+
+<section class="chef" id="chef">
+  <div class="wrap chef-grid">
+    <div class="chef-img reveal">
+      <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=900&q=80" alt="Le chef en cuisine" loading="lazy" />
+      <div class="cedar">De Beyrouth<br>à votre table</div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">La maison</p>
+      <h2>L'âme <em>du Levant</em></h2>
+      <p>Mezzés, c'est la rencontre de deux histoires : celle d'un chef formé à Beyrouth, à la célèbre école Chef Ramzi, et celle de son épouse libanaise qui a grandi au milieu des saveurs du pays.</p>
+      <p>Ensemble, ils font vivre une cuisine libanaise sincère, où chaque plat raconte un morceau du Liban. Des produits frais, souvent locaux, cuisinés avec la générosité et le sens du partage propres à la Méditerranée.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mezze" id="mezze">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">L'art du partage</p>
+      <h2>Les <em>mezzés</em></h2>
+      <p>Une farandole de petits plats à picorer et à partager, chauds et froids. C'est ça, l'esprit libanais : la table se remplit, et le repas devient un moment.</p>
+    </div>
+    <div class="plates">
+      <div class="plate reveal"><img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=600&q=80" alt="Houmous et pain" loading="lazy" /><div class="b"><h3>Houmous</h3><p>Purée de pois chiches onctueuse, huile d'olive et pain chaud.</p></div></div>
+      <div class="plate reveal"><img src="https://images.unsplash.com/photo-1615937722923-67f6deaf2cc9?auto=format&fit=crop&w=600&q=80" alt="Taboulé frais" loading="lazy" /><div class="b"><h3>Taboulé</h3><p>Persil, boulgour, tomate et citron, la fraîcheur du Liban.</p></div></div>
+      <div class="plate reveal"><img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80" alt="Falafels croustillants" loading="lazy" /><div class="b"><h3>Falafels</h3><p>Boulettes de pois chiches dorées, sauce sésame.</p></div></div>
+      <div class="plate reveal"><img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=600&q=80" alt="Assortiment de mezzés" loading="lazy" /><div class="b"><h3>Et bien plus</h3><p>Moutabal, feuilles de vigne, kebbé… à découvrir.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="grill" id="grill">
+  <div class="wrap grill-grid">
+    <div class="grill-img reveal">
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80" alt="Grillades libanaises" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Du feu &amp; des épices</p>
+      <h2>Grillades &amp; <em>douceurs</em></h2>
+      <p>Brochettes de viande marinées, grillades parfumées aux épices du Levant, servies généreusement. Et pour finir, les desserts maison, tout en miel, pistache et fleur d'oranger.</p>
+      <p>Un vrai repas libanais, du premier mezzé au dernier baklava.</p>
+      <div class="tags"><span>Brochettes</span><span>Grillades</span><span>Desserts maison</span><span>Produits frais</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Venez partager</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Place de Pranniviers 12<br>3966 Réchy (Chalais)</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41275561682">027 556 16 82</a></li>
+        <li><span class="k">E-mail</span><a class="v" href="mailto:mezzes.ch@gmail.com">mezzes.ch@gmail.com</a></li>
+        <li><span class="k">Réserver</span><span class="v">Par téléphone · sur place ou à l'emporter</span></li>
+      </ul>
+      <div class="map reveal">
+        <iframe loading="lazy" title="Carte Mezzés Réchy" src="https://www.google.com/maps?q=Place%20de%20Pranniviers%2012%2C%203966%20R%C3%A9chy&output=embed"></iframe>
+      </div>
+    </div>
+    <div class="hours reveal">
+      <h3>Horaires</h3>
+      <div class="hrow off"><span>Lundi – Mardi</span><b>Fermé</b></div>
+      <div class="hrow"><span>Mercredi – Samedi</span><b>09:30 – 23:00</b></div>
+      <div class="hrow"><span>Dimanche</span><b>10:00 – 15:00</b></div>
+      <p style="color:var(--ink-soft);font-size:.86rem;margin-top:16px">Cuisine libanaise · mezzés &amp; grillades · sur place et à l'emporter</p>
+      <div style="margin-top:16px"><a href="tel:+41275561682" class="btn btn-fill">Appeler pour réserver</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">Mezzé<span>s</span></div>
+    <p style="color:#a49a88;font-size:.82rem;margin-top:8px">Place de Pranniviers 12 · 3966 Réchy · 027 556 16 82</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
