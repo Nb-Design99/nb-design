@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Café de la Ménagère · Chez Coco · Plan-Conthey</title>
+<meta name="description" content="Café de la Ménagère chez Coco à Plan-Conthey : cuisine valaisanne, assiettes du terroir et fondues dans un café de village chaleureux depuis plus de 100 ans." />
+<meta name="theme-color" content="#f6efe3" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Café de la Ménagère · Chez Coco · Plan-Conthey" />
+<meta property="og:description" content="Cuisine valaisanne et fondues dans un café de village historique de Plan-Conthey. Bienvenue chez Coco." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Inter:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Café de la Ménagère chez Coco",
+  "address":{"@type":"PostalAddress","streetAddress":"Rue de Parcouret 28","addressLocality":"Conthey","postalCode":"1964","addressCountry":"CH"},
+  "telephone":"+41273461197","servesCuisine":"Valaisanne, suisse, fondue","priceRange":"CHF 15-30",
+  "url":"https://nb-design.ch/Restaurant/MenagereChezCoco/"
+}
+</script>
+<style>
+:root{
+  --parch:#f6efe3;--parch2:#efe5d3;--paper:#fdf9f0;
+  --ink:#2e211b;--ink-soft:#6d5b4d;
+  --wine:#8a2f39;--wine-d:#6f2530;
+  --wood:#b07a3e;--wood-soft:#cc9a5f;--line:#e2d6c0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--parch);color:var(--ink);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Bitter',serif;font-weight:700;line-height:1.12}
+.script{font-family:'Caveat',cursive;font-weight:700}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:600;color:var(--wine)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+header.scrolled{background:rgba(253,249,240,.94);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(46,33,27,.08)}
+.brand{line-height:1}
+.brand b{font-family:'Bitter';font-size:1.2rem;color:var(--ink);display:block}
+.brand .script{color:var(--wine);font-size:1.5rem;line-height:.8}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.86rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--wine)}
+.btn{display:inline-block;font-weight:600;font-size:.86rem;padding:12px 24px;border-radius:40px;transition:.25s}
+.btn-fill{background:var(--wine);color:#fff}
+.btn-fill:hover{background:var(--wine-d)}
+.btn-out{border:1.5px solid var(--ink);color:var(--ink)}
+.btn-out:hover{background:var(--ink);color:var(--parch)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--ink)}
+
+.hero{padding:140px 0 90px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero .script-top{font-family:'Caveat';font-size:2rem;color:var(--wood);transform:rotate(-3deg);display:inline-block}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);margin:6px 0 4px}
+.hero h1 span{color:var(--wine)}
+.hero .lead{font-size:1.1rem;color:var(--ink-soft);margin:20px 0 12px;max-width:470px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.hero-img{position:relative}
+.hero-img img{border-radius:10px;height:500px;width:100%;object-fit:cover;box-shadow:0 26px 54px rgba(46,33,27,.2)}
+.hero-img .seal{position:absolute;top:-24px;right:-20px;width:118px;height:118px;background:var(--wine);color:var(--parch);border-radius:50%;display:grid;place-content:center;text-align:center;font-family:'Bitter';transform:rotate(9deg);box-shadow:0 14px 30px rgba(46,33,27,.28)}
+.hero-img .seal b{font-size:1.8rem;line-height:1}
+.hero-img .seal small{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase}
+
+section{padding:100px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.story{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.story h2{font-size:clamp(2rem,4.4vw,3.1rem);margin:12px 0 18px}
+.story h2 span{color:var(--wine)}
+.story p{color:var(--ink-soft);margin-bottom:15px}
+.story .sig{font-family:'Caveat';font-size:1.8rem;color:var(--wood);margin-top:6px}
+.story-img img{border-radius:10px;height:440px;width:100%;object-fit:cover}
+
+.specs{background:var(--parch2)}
+.specs .head{text-align:center;max-width:600px;margin:0 auto 54px}
+.specs h2{font-size:clamp(2rem,4.4vw,3.1rem);margin-top:10px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--paper);border-radius:10px;padding:30px 24px;border:1px solid var(--line);transition:.3s;text-align:center}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(46,33,27,.1)}
+.card .ico{font-size:1.9rem}
+.card h3{font-size:1.2rem;margin:12px 0 8px}
+.card p{color:var(--ink-soft);font-size:.92rem}
+
+.group{position:relative}
+.group-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
+.group-img img{border-radius:10px;height:430px;width:100%;object-fit:cover}
+.group h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 18px}
+.group h2 span{color:var(--wine)}
+.group p{color:var(--ink-soft);margin-bottom:15px}
+.group ul{list-style:none;margin-top:10px;display:grid;gap:10px}
+.group ul li{display:flex;gap:12px;color:var(--ink-soft)}
+.group ul li::before{content:"✦";color:var(--wood)}
+
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal img{height:280px;width:100%;object-fit:cover;border-radius:10px}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600;color:var(--wine);min-width:92px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--wine)}
+.map{border-radius:10px;overflow:hidden;border:1px solid var(--line);height:330px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--ink);color:var(--parch);padding:46px 0 30px;text-align:center}
+.foot .script{font-family:'Caveat';color:var(--wood-soft);font-size:2rem}
+.foot b{font-family:'Bitter';font-size:1.15rem;display:block}
+.credit{color:#a3948a;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(46,33,27,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .hero-grid,.story-grid,.group-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .story-grid .story-img,.group-grid .group-img{order:-1}
+  .cards{grid-template-columns:1fr 1fr}.gal{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){section{padding:76px 0}.cards,.gal{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand"><span class="script">Chez Coco</span><b>Café de la Ménagère</b></a>
+    <nav class="menu" id="menu">
+      <a href="#maison">La maison</a>
+      <a href="#carte">Nos spécialités</a>
+      <a href="#groupes">Groupes &amp; classes</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41273461197" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="script-top">Bienvenue…</span>
+      <h1>Le café de village,<br><span>comme autrefois</span></h1>
+      <p class="lead">Depuis plus de cent ans, la Ménagère fait battre le coeur de Plan-Conthey. Cuisine valaisanne, fondues et accueil chaleureux : ici, on pousse la porte comme on rentre à la maison.</p>
+      <p class="eyebrow">Plan-Conthey · Rue de Parcouret 28</p>
+      <div class="hero-cta">
+        <a href="tel:+41273461197" class="btn btn-fill">Réserver une table</a>
+        <a href="#carte" class="btn btn-out">Nos spécialités</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Café de village chaleureux" />
+      <div class="seal"><div><b>100</b><small>ans &amp; plus</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="maison">
+  <div class="wrap story-grid">
+    <div class="story-img reveal">
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80" alt="Ambiance conviviale du café" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">La maison</p>
+      <h2>Un siècle de <span>convivialité</span></h2>
+      <p>La Ménagère, c'est plus qu'un café : c'est une institution de Plan-Conthey. Depuis plus de cent ans, on y sert des mets authentiques du terroir valaisan, dans une ambiance chaleureuse où tout le monde se connaît.</p>
+      <p>Aujourd'hui c'est Coco et son équipe qui tiennent la maison, avec le même esprit : un service décontracté, dynamique, et l'envie que chacun se sente chez lui.</p>
+      <p class="sig">— Coco &amp; son équipe</p>
+    </div>
+  </div>
+</section>
+
+<section class="specs" id="carte">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">À notre table</p>
+      <h2>Le terroir valaisan</h2>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="ico">🧀</div><h3>Assiette valaisanne</h3><p>Viande séchée, lard, fromage d'alpage et pain de seigle. Le Valais dans l'assiette.</p></div>
+      <div class="card reveal"><div class="ico">🍲</div><h3>Fondue chinoise</h3><p>Un grand classique convivial, à partager sans se presser.</p></div>
+      <div class="card reveal"><div class="ico">🔥</div><h3>Fondue bourguignonne</h3><p>Viande tendre et sauces maison, autour du caquelon.</p></div>
+      <div class="card reveal"><div class="ico">🍷</div><h3>Spécialités du terroir</h3><p>Les mets du pays et les vins de la région, à découvrir au fil des saisons.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="group" id="groupes">
+  <div class="wrap group-grid">
+    <div class="group-img reveal">
+      <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?auto=format&fit=crop&w=900&q=80" alt="Grande tablée pour un souper de groupe" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Groupes &amp; soupers de classe</p>
+      <h2>De la place pour <span>tout le monde</span></h2>
+      <p>Souper de classe, repas de famille, fête entre amis : la Ménagère dispose de grandes salles pour accueillir vos tablées. On adore les grandes soirées, et on prépare volontiers un menu spécial sur réservation.</p>
+      <ul>
+        <li>Grandes salles pour groupes</li>
+        <li>Menus spéciaux sur réservation</li>
+        <li>L'ambiance des vraies soirées valaisannes</li>
+      </ul>
+      <div class="hero-cta" style="margin-top:20px"><a href="tel:+41273461197" class="btn btn-fill">Organiser un repas</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="gal">
+      <img class="reveal" src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&w=700&q=80" alt="Fondue au fromage" loading="lazy" />
+      <img class="reveal" src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=700&q=80" alt="Assiette du terroir" loading="lazy" />
+      <img class="reveal" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=700&q=80" alt="Verre de vin valaisan" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Passez chez Coco</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Rue de Parcouret 28<br>1964 Plan-Conthey</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41273461197">027 346 11 97</a></li>
+        <li><span class="k">Réserver</span><span class="v">Par téléphone · Menus de groupe sur demande<br>Horaires détaillés au téléphone</span></li>
+      </ul>
+      <div style="margin-top:26px"><a href="tel:+41273461197" class="btn btn-fill">Appeler pour réserver</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte Café de la Ménagère Plan-Conthey" src="https://www.google.com/maps?q=Rue%20de%20Parcouret%2028%2C%201964%20Conthey&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="script">Chez Coco</div>
+    <b>Café de la Ménagère</b>
+    <p style="color:#a3948a;font-size:.82rem;margin-top:8px">Rue de Parcouret 28 · 1964 Plan-Conthey · 027 346 11 97</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
