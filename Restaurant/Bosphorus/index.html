@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Bosphorus · Kebab · Tantuni · Tacos · Sion</title>
+<meta name="description" content="Bosphorus à Sion : kebab, tantuni de Mersin et tacos, portions généreuses et goût authentique. Sur place, à l'emporter et en livraison, 7 jours sur 7." />
+<meta name="theme-color" content="#14100e" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Bosphorus · Kebab · Tantuni · Tacos · Sion" />
+<meta property="og:description" content="Le vrai goût d'Istanbul à Sion. Kebab, tantuni, tacos et falafel, généreux et frais, 7j/7." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Bosphorus",
+  "address":{"@type":"PostalAddress","streetAddress":"Avenue de France 5","addressLocality":"Sion","postalCode":"1950","addressCountry":"CH"},
+  "telephone":"+41273041315","email":"bosphorus.sion@gmail.com",
+  "servesCuisine":"Turque, kebab, tacos","priceRange":"CHF 10-20",
+  "url":"https://nb-design.ch/Restaurant/Bosphorus/",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Sunday"],"opens":"10:00","closes":"22:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday","Saturday"],"opens":"10:00","closes":"23:00"}
+  ]
+}
+</script>
+<style>
+:root{
+  --ink:#161210;--ink2:#211a16;--ink3:#0f0b09;
+  --cream:#f8f1e6;--sand:#e8d9c2;
+  --red:#e23b2e;--red-d:#b62a20;
+  --saffron:#f4a940;--turq:#1ba7a2;
+  --muted:#b7a48f;--line:rgba(244,169,64,.2);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--cream);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em;line-height:.98;text-transform:uppercase}
+.wrap{width:min(1180px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;color:var(--saffron)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+header.scrolled{background:rgba(15,11,9,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{font-family:'Anton';font-size:1.6rem;letter-spacing:.04em}
+.brand b{color:var(--red)}
+.brand i{color:var(--turq);font-style:normal}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;font-weight:600;opacity:.9}
+.menu a:hover{color:var(--saffron)}
+.btn{display:inline-block;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.82rem;padding:13px 26px;border-radius:40px;transition:.25s}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-d);transform:translateY(-2px)}
+.btn-out{border:2px solid var(--saffron);color:var(--saffron)}
+.btn-out:hover{background:var(--saffron);color:var(--ink3)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:3px;background:var(--cream);border-radius:2px}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:120px 0 70px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--ink3) 6%,rgba(15,11,9,.55) 55%,rgba(15,11,9,.4) 100%)}
+.hero h1{font-size:clamp(3.4rem,12vw,9rem);color:var(--cream)}
+.hero h1 span{color:var(--red)}
+.stripe{display:inline-flex;gap:12px;flex-wrap:wrap;margin:6px 0 20px}
+.stripe b{font-family:'Anton';font-size:clamp(1rem,2.4vw,1.5rem);color:var(--saffron);letter-spacing:.04em}
+.stripe b::after{content:"•";color:var(--turq);margin-left:12px}
+.stripe b:last-child::after{content:""}
+.hero p.lead{max-width:520px;color:var(--sand);font-size:1.08rem;margin-bottom:26px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+.stats{background:var(--red);color:#fff}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:34px 0}
+.stat{text-align:center}
+.stat b{font-family:'Anton';font-size:2.2rem;display:block;line-height:1}
+.stat small{font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;opacity:.9}
+
+section{padding:110px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.sig{background:var(--ink2)}
+.sig-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.sig-img{position:relative}
+.sig-img img{border-radius:10px;height:460px;width:100%;object-fit:cover}
+.sig-img .stamp{position:absolute;top:-22px;right:-18px;background:var(--turq);color:var(--ink3);font-family:'Anton';padding:16px 20px;border-radius:50%;width:110px;height:110px;display:grid;place-content:center;text-align:center;line-height:.95;transform:rotate(8deg);box-shadow:0 16px 34px rgba(0,0,0,.4)}
+.sig-img .stamp span{font-size:.62rem}
+.sig h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:14px 0 20px}
+.sig h2 span{color:var(--red)}
+.sig p{color:var(--sand);margin-bottom:16px}
+
+.menu-sec h2{font-size:clamp(2.2rem,5vw,3.6rem);text-align:center;margin-bottom:8px}
+.menu-sec .sub{text-align:center;color:var(--muted);margin-bottom:56px}
+.mlist{display:grid;grid-template-columns:1fr 1fr;gap:14px 56px}
+.mitem{display:flex;gap:18px;padding:20px 0;border-bottom:1px dashed var(--line)}
+.mitem .ico{font-size:1.6rem;flex-shrink:0}
+.mitem h3{font-family:'Inter';font-weight:700;font-size:1.08rem;text-transform:none;letter-spacing:0;margin-bottom:4px;color:var(--cream)}
+.mitem p{color:var(--muted);font-size:.92rem}
+.mitem .tag{margin-left:auto;align-self:flex-start;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--turq);border:1px solid var(--turq);border-radius:20px;padding:3px 9px;white-space:nowrap}
+
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:220px;gap:12px}
+.gal img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+.gal .big{grid-row:span 2}
+
+.contact{background:var(--ink2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:stretch}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 26px}
+.info{list-style:none;display:grid;gap:20px}
+.info li{display:flex;gap:16px}
+.info .k{font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--saffron);min-width:92px;padding-top:3px}
+.info .v{color:var(--sand)}
+.info a.v:hover{color:var(--saffron)}
+.hours{background:var(--ink3);border:1px solid var(--line);border-radius:10px;padding:26px 28px}
+.hours h3{font-family:'Anton';color:var(--turq);font-size:1.2rem;margin-bottom:14px}
+.hrow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.92rem;color:var(--sand)}
+.hrow b{color:var(--cream);font-weight:600}
+.delivery{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.pill{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:30px;padding:8px 15px;color:var(--muted)}
+
+footer{background:var(--ink3);padding:46px 0 32px;border-top:1px solid var(--line)}
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.credit{color:var(--muted);font-size:.74rem;margin-top:10px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--ink3);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;border-left:1px solid var(--line)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .sig-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .mlist{grid-template-columns:1fr;gap:0}
+  .stats .wrap{grid-template-columns:1fr 1fr;gap:26px}
+  .gal{grid-template-columns:1fr 1fr}.gal .big{grid-row:span 1}
+}
+@media(max-width:520px){section{padding:78px 0}.gal{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand"><b>BOS</b><i>PHORUS</i></a>
+    <nav class="menu" id="menu">
+      <a href="#signature">Le tantuni</a>
+      <a href="#menu">Le menu</a>
+      <a href="#contact">Infos</a>
+      <a href="tel:+41273041315" class="btn btn-red">Commander</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1633321702518-7feccafb94d5?auto=format&fit=crop&w=1600&q=80" alt="Kebab et broche döner" />
+  </div>
+  <div class="wrap">
+    <p class="eyebrow">Sion · Avenue de France 5</p>
+    <h1>Le goût d'<span>Istanbul</span></h1>
+    <div class="stripe"><b>Kebab</b><b>Tantuni</b><b>Tacos</b><b>Falafel</b></div>
+    <p class="lead">Des portions généreuses, des saveurs franches et le vrai savoir-faire turc, à deux pas du centre de Sion. Sur place, à l'emporter ou livré chez vous, 7 jours sur 7.</p>
+    <div class="hero-cta">
+      <a href="tel:+41273041315" class="btn btn-red">Commander maintenant</a>
+      <a href="#menu" class="btn btn-out">Voir le menu</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b>4.6</b><small>Note Google</small></div>
+    <div class="stat"><b>7j/7</b><small>Toujours ouvert</small></div>
+    <div class="stat"><b>XXL</b><small>Portions généreuses</small></div>
+    <div class="stat"><b>100%</b><small>Fait sur commande</small></div>
+  </div>
+</div>
+
+<section class="sig" id="signature">
+  <div class="wrap sig-grid">
+    <div class="sig-img reveal">
+      <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=900&q=80" alt="Tantuni, bœuf sauté à la turque" loading="lazy" />
+      <div class="stamp">Notre<br>spécialité<span></span></div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">La signature de la maison</p>
+      <h2>Le vrai <span>tantuni</span></h2>
+      <p>Le tantuni, c'est la spécialité de Mersin, sur la côte turque : du bœuf finement émincé, saisi vif sur la plaque avec ses épices, roulé dans un pain fin avec tomates, oignons, persil et un trait de citron.</p>
+      <p>Chez Bosphorus, on le prépare à la commande, comme là-bas. C'est ce petit supplément d'authenticité qui fait la différence, et ce que nos habitués viennent chercher.</p>
+      <div class="hero-cta" style="margin-top:12px"><a href="tel:+41273041315" class="btn btn-out">Le goûter</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-sec" id="menu">
+  <div class="wrap">
+    <h2>Ce qu'on sert</h2>
+    <p class="sub">Fait minute, généreux, sans compromis sur le goût</p>
+    <div class="mlist">
+      <div class="mitem reveal"><div class="ico">🥙</div><div><h3>Kebab döner</h3><p>Viande grillée à la broche, pain frais, crudités et sauces maison.</p></div><span class="tag">Classique</span></div>
+      <div class="mitem reveal"><div class="ico">🔥</div><div><h3>Tantuni</h3><p>Bœuf sauté aux épices de Mersin, roulé fin. La spécialité de la maison.</p></div><span class="tag">Signature</span></div>
+      <div class="mitem reveal"><div class="ico">🌯</div><div><h3>Tacos</h3><p>Le tacos généreux, viande au choix, sauce fromagère et frites dedans.</p></div></div>
+      <div class="mitem reveal"><div class="ico">🧆</div><div><h3>Falafel</h3><p>Boulettes de pois chiches croustillantes, la version veggie et gourmande.</p></div><span class="tag">Veggie</span></div>
+      <div class="mitem reveal"><div class="ico">🍽️</div><div><h3>Assiettes</h3><p>Viande, riz ou frites, salade et sauces : le repas complet bien nourrissant.</p></div></div>
+      <div class="mitem reveal"><div class="ico">🍗</div><div><h3>Cordon bleu &amp; plus</h3><p>Une carte plus large pour varier les envies, à découvrir sur place.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="gal">
+      <img class="big reveal" src="https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&w=900&q=80" alt="Assiette kebab généreuse" loading="lazy" />
+      <img class="reveal" src="https://images.unsplash.com/photo-1662116765994-1e4200c43589?auto=format&fit=crop&w=600&q=80" alt="Döner en préparation" loading="lazy" />
+      <img class="reveal" src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80" alt="Wrap turc" loading="lazy" />
+      <img class="reveal" src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80" alt="Frites maison" loading="lazy" />
+      <img class="reveal" src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=600&q=80" alt="Falafel croustillants" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Venez, appelez,<br>ou faites-vous livrer</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Avenue de France 5<br>1950 Sion</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41273041315">027 304 13 15</a></li>
+        <li><span class="k">E-mail</span><a class="v" href="mailto:bosphorus.sion@gmail.com">bosphorus.sion@gmail.com</a></li>
+      </ul>
+      <div class="delivery">
+        <span class="pill">Sur place</span><span class="pill">À l'emporter</span><span class="pill">Livraison Smood</span>
+      </div>
+    </div>
+    <div class="hours reveal">
+      <h3>Horaires</h3>
+      <div class="hrow"><span>Lundi – Jeudi</span><b>10:00 – 22:00</b></div>
+      <div class="hrow"><span>Vendredi – Samedi</span><b>10:00 – 23:00</b></div>
+      <div class="hrow"><span>Dimanche</span><b>10:00 – 22:00</b></div>
+      <div style="margin-top:20px"><a href="tel:+41273041315" class="btn btn-red">Passer commande</a></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#" class="brand"><b>BOS</b><i>PHORUS</i></a>
+      <small style="color:var(--muted)">Avenue de France 5 · 1950 Sion · 027 304 13 15</small>
+    </div>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
