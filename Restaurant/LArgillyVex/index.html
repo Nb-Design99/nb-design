@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>L'Argilly · Bar & cuisine créative · Vex</title>
+<meta name="description" content="L'Argilly à Vex : bar et restaurant à l'ambiance cool, cuisine traditionnelle et créative de saison, belle sélection de bières et magnifique terrasse avec vue sur Sion." />
+<meta name="theme-color" content="#191b1e" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="L'Argilly · Bar & cuisine créative · Vex" />
+<meta property="og:description" content="Cuisine créative de saison, bières choisies et terrasse avec vue sur Sion. Le bar-bistro cool de Vex." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BarOrPub","name":"Restaurant & Bar L'Argilly",
+  "address":{"@type":"PostalAddress","streetAddress":"Route de Sion 54","addressLocality":"Vex","postalCode":"1981","addressCountry":"CH"},
+  "telephone":"+41272072717","servesCuisine":"Bistro créatif, bar","priceRange":"CHF 18-40",
+  "url":"https://nb-design.ch/Restaurant/LArgillyVex/"
+}
+</script>
+<style>
+:root{
+  --gr:#191b1e;--gr2:#212429;--gr3:#121316;
+  --paper:#f2efe9;--paper-soft:#c9c6bf;
+  --amber:#e0993f;--amber-d:#c67f2c;--teal:#3aa9a0;--muted:#8f9298;--line:rgba(224,153,63,.2);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--gr);color:var(--paper);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Sora',sans-serif;font-weight:700;line-height:1.08;letter-spacing:-.01em}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.24em;font-size:.72rem;font-weight:600;color:var(--amber)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+header.scrolled{background:rgba(18,19,22,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{font-family:'Sora';font-weight:700;font-size:1.4rem;letter-spacing:.02em}
+.brand span{color:var(--amber)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.84rem;font-weight:500;opacity:.9}
+.menu a:hover{color:var(--amber)}
+.btn{display:inline-block;font-weight:600;font-size:.84rem;padding:12px 26px;border-radius:8px;transition:.25s}
+.btn-fill{background:var(--amber);color:var(--gr3)}
+.btn-fill:hover{background:var(--amber-d)}
+.btn-out{border:1.5px solid var(--paper);color:var(--paper)}
+.btn-out:hover{background:var(--paper);color:var(--gr3)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--paper)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:120px 0 74px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(1)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--gr3) 4%,rgba(18,19,22,.5) 55%,rgba(18,19,22,.3))}
+.hero-inner{max-width:680px}
+.hero h1{font-size:clamp(3rem,8vw,6rem)}
+.hero h1 span{color:var(--amber)}
+.hero .lead{font-size:1.12rem;color:var(--paper-soft);max-width:500px;margin:20px 0 30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+.strip{background:var(--amber);color:var(--gr3)}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:26px 0;text-align:center}
+.st b{font-family:'Sora';font-size:1.2rem;display:block}
+.st small{font-size:.8rem;opacity:.85}
+
+section{padding:104px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.cuisine{background:var(--gr2)}
+.cuisine-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.cuisine h2{font-size:clamp(2.2rem,5vw,3.5rem);margin:12px 0 18px}
+.cuisine h2 span{color:var(--teal)}
+.cuisine p{color:var(--paper-soft);margin-bottom:15px}
+.cuisine-img img{border-radius:12px;height:480px;width:100%;object-fit:cover}
+.hi{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.hi div{background:var(--gr3);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.hi h4{font-family:'Sora';font-size:1rem;margin-bottom:4px}
+.hi p{color:var(--muted);font-size:.88rem;margin:0}
+
+.bar{position:relative}
+.bar-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.bar-img img{border-radius:12px;height:440px;width:100%;object-fit:cover}
+.bar h2{font-size:clamp(2rem,4.6vw,3.2rem);margin:12px 0 18px}
+.bar h2 span{color:var(--amber)}
+.bar p{color:var(--paper-soft);margin-bottom:15px}
+.bar .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.bar .tags span{font-size:.78rem;border:1px solid var(--line);border-radius:30px;padding:7px 14px;color:var(--muted)}
+
+.view{background:var(--gr3);text-align:center}
+.view .banner{font-family:'Sora';font-weight:600;font-size:clamp(1.5rem,3.6vw,2.4rem);max-width:820px;margin:0 auto;line-height:1.35}
+.view .banner span{color:var(--teal)}
+
+.contact{background:var(--gr2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2rem,4.6vw,3rem);margin:12px 0 22px}
+.info{list-style:none;display:grid;gap:18px;margin-bottom:24px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600;color:var(--amber);min-width:88px;padding-top:3px}
+.info .v{color:var(--paper-soft)}
+.info a.v:hover{color:var(--amber)}
+.map{border-radius:12px;overflow:hidden;border:1px solid var(--line);height:340px}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.3) invert(.02)}
+
+footer{background:var(--gr3);padding:44px 0 30px;border-top:1px solid var(--line);text-align:center}
+.foot-brand{font-family:'Sora';font-weight:700;font-size:1.4rem}
+.foot-brand span{color:var(--amber)}
+.credit{color:var(--muted);font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--gr3);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;border-left:1px solid var(--line)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .cuisine-grid,.bar-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .cuisine-grid .cuisine-img,.bar-grid .bar-img{order:-1}
+  .strip .wrap{grid-template-columns:1fr}
+}
+@media(max-width:520px){section{padding:76px 0}.hi{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">L'<span>Argilly</span></a>
+    <nav class="menu" id="menu">
+      <a href="#cuisine">La cuisine</a>
+      <a href="#bar">Le bar</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41272072717" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1600&q=80" alt="Ambiance de bar-bistro chaleureux" />
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Bar &amp; restaurant · Vex</p>
+    <h1>Cool, créatif,<br><span>et la vue en prime</span></h1>
+    <p class="lead">Une cuisine du marché qui ose, une jolie sélection de bières, et une terrasse avec vue plongeante sur Sion. L'Argilly, c'est le bon spot de Vex.</p>
+    <div class="hero-cta">
+      <a href="tel:+41272072717" class="btn btn-fill">Réserver une table</a>
+      <a href="#cuisine" class="btn btn-out">La cuisine</a>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="st"><b>4.6 ★</b><small>Note TripAdvisor</small></div>
+    <div class="st"><b>Terrasse</b><small>Vue sur Sion</small></div>
+    <div class="st"><b>Bières</b><small>Sélection choisie</small></div>
+  </div>
+</div>
+
+<section class="cuisine" id="cuisine">
+  <div class="wrap cuisine-grid">
+    <div class="reveal">
+      <p class="eyebrow">Dans l'assiette</p>
+      <h2>Traditionnel,<br><span>mais jamais banal</span></h2>
+      <p>Ici on aime jouer avec les produits de saison et les spécialités locales, en gardant une base traditionnelle mais en osant la touche originale. Une cuisine créative, servie avec le sourire.</p>
+      <p>Nos habitués en parlent encore : les gnocchis maison et les Saint-Jacques valent le détour.</p>
+      <div class="hi">
+        <div><h4>Gnocchis maison</h4><p>Fondants, l'un des chouchous de la carte.</p></div>
+        <div><h4>Saint-Jacques</h4><p>Une jolie assiette qui fait l'unanimité.</p></div>
+      </div>
+    </div>
+    <div class="cuisine-img reveal">
+      <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=900&q=80" alt="Assiette de cuisine créative" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="bar" id="bar">
+  <div class="wrap bar-grid">
+    <div class="bar-img reveal">
+      <img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?auto=format&fit=crop&w=900&q=80" alt="Bière pression au bar" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Au comptoir</p>
+      <h2>Un verre, <span>bien accompagné</span></h2>
+      <p>Côté bar, on soigne la sélection : bières choisies, verres de la région et cocktails simples et bons. De quoi prolonger l'apéro ou refaire le monde après le repas.</p>
+      <p>Ambiance décontractée, service prompt et une équipe qui a le sens de l'accueil.</p>
+      <div class="tags"><span>Bières sélectionnées</span><span>Vins de la région</span><span>Apéro</span><span>Terrasse</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="view">
+  <div class="wrap">
+    <p class="banner reveal">« La plus belle vue de Vex, un verre à la main : la terrasse de l'Argilly domine <span>Sion et la vallée</span>. »</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>On vous garde une place</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Route de Sion 54<br>1981 Vex</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41272072717">027 207 27 17</a></li>
+        <li><span class="k">Ambiance</span><span class="v">Bar &amp; restaurant · cuisine créative · terrasse vue Sion</span></li>
+      </ul>
+      <div style="margin-top:24px"><a href="tel:+41272072717" class="btn btn-fill">Appeler pour réserver</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte L'Argilly Vex" src="https://www.google.com/maps?q=Route%20de%20Sion%2054%2C%201981%20Vex&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">L'<span>Argilly</span></div>
+    <p style="color:var(--muted);font-size:.82rem;margin-top:8px">Route de Sion 54 · 1981 Vex · 027 207 27 17</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
