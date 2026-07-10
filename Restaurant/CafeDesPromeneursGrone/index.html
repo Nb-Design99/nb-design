@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Café des Promeneurs · Terroir & panorama · Grône</title>
+<meta name="description" content="Café-Restaurant des Promeneurs à Grône-Itravers : la halte des promeneurs sur la route de Vercorin. Assiette valaisanne réputée, fondue du Promeneur et terrasse panoramique sous le noyer." />
+<meta name="theme-color" content="#f3efe2" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Café des Promeneurs · Terroir & panorama · Grône" />
+<meta property="og:description" content="Assiette valaisanne réputée et terrasse avec vue sur la vallée du Rhône et les Alpes, sur la route de Vercorin." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Café-Restaurant des Promeneurs",
+  "address":{"@type":"PostalAddress","streetAddress":"Route de Vercorin 17","addressLocality":"Grône","postalCode":"3971","addressCountry":"CH"},
+  "telephone":"+41274581196","servesCuisine":"Valaisanne, terroir, fondue","priceRange":"CHF 15-30",
+  "url":"https://nb-design.ch/Restaurant/CafeDesPromeneursGrone/",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"23:00"}
+  ]
+}
+</script>
+<style>
+:root{
+  --cream:#f3efe2;--cream2:#e8e0cd;--paper:#fbf8ef;
+  --forest:#2e4a37;--forest-d:#233a2b;--forest3:#1c2f23;
+  --ink:#26302a;--ink-soft:#5f6a60;
+  --amber:#d69a44;--amber-d:#b87e2c;--walnut:#7a5638;--line:#ddd3bd;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.68;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Newsreader',serif;font-weight:600;line-height:1.14}
+.wrap{width:min(1110px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.24em;font-size:.72rem;font-weight:600;color:var(--amber-d)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+header.scrolled{background:rgba(251,248,239,.94);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(38,48,42,.06)}
+.brand{font-family:'Newsreader';font-weight:600;font-size:1.4rem;color:var(--forest)}
+.brand span{color:var(--amber-d)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.86rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--forest)}
+.btn{display:inline-block;font-weight:600;font-size:.86rem;padding:12px 26px;border-radius:3px;transition:.25s}
+.btn-fill{background:var(--forest);color:#fff}
+.btn-fill:hover{background:var(--forest-d)}
+.btn-out{border:1.5px solid var(--forest);color:var(--forest)}
+.btn-out:hover{background:var(--forest);color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--forest)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:120px 0 74px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.6) saturate(1)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--forest3) 4%,rgba(28,47,35,.4) 55%,rgba(28,47,35,.2))}
+.hero-inner{max-width:700px;color:#fff}
+.hero .eyebrow{color:#e8c184}
+.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);color:#fff}
+.hero h1 em{font-style:italic;color:#e8c184}
+.hero .lead{font-size:1.14rem;color:#eae4d3;max-width:520px;margin:20px 0 30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+section{padding:104px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.sig{background:var(--paper)}
+.sig .head{text-align:center;max-width:640px;margin:0 auto 50px}
+.sig h2{font-size:clamp(2.2rem,5vw,3.4rem);margin-top:10px;color:var(--forest)}
+.sig h2 em{color:var(--amber-d);font-style:italic}
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.scard{display:grid;grid-template-columns:160px 1fr;background:var(--cream);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.scard img{height:100%;width:100%;object-fit:cover;min-height:170px}
+.scard .b{padding:26px}
+.scard h3{font-size:1.5rem;color:var(--forest);margin-bottom:6px}
+.scard .star{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--amber-d);margin-bottom:6px}
+.scard p{color:var(--ink-soft);font-size:.93rem}
+
+.pano{background:var(--forest);color:#fff}
+.pano-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.pano .eyebrow{color:#e8c184}
+.pano h2{font-size:clamp(2.2rem,5vw,3.4rem);margin:12px 0 18px;color:#fff}
+.pano h2 em{color:#e8c184;font-style:italic}
+.pano p{color:#dbe3d8;margin-bottom:15px}
+.pano-img img{border-radius:6px;height:460px;width:100%;object-fit:cover}
+.pano .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.pano .tags span{font-size:.78rem;border:1px solid rgba(232,193,132,.3);border-radius:30px;padding:7px 14px;color:#eae4d3}
+
+.theme{position:relative;text-align:center}
+.theme .banner{max-width:800px;margin:0 auto}
+.theme h2{font-size:clamp(2rem,4.6vw,3.2rem);color:var(--forest);margin:12px 0 14px}
+.theme h2 em{color:var(--walnut);font-style:italic}
+.theme p{color:var(--ink-soft);font-size:1.05rem}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px;color:var(--forest)}
+.info{list-style:none;display:grid;gap:18px;margin-bottom:24px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600;color:var(--amber-d);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--forest)}
+.hours{background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:24px 26px}
+.hours h3{font-family:'Newsreader';color:var(--forest);font-size:1.5rem;margin-bottom:12px}
+.hrow{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid rgba(38,48,42,.06);font-size:.92rem;color:var(--ink-soft)}
+.hrow b{color:var(--ink);font-weight:600}
+.hrow.off b{color:var(--walnut)}
+.map{border-radius:6px;overflow:hidden;border:1px solid var(--line);height:230px;margin-top:16px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--forest3);color:var(--cream);padding:46px 0 30px;text-align:center}
+.foot-brand{font-family:'Newsreader';font-size:1.5rem}
+.foot-brand span{color:#e8c184}
+.credit{color:#9db09e;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(38,48,42,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .sig-grid{grid-template-columns:1fr}
+  .pano-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .pano-grid .pano-img{order:-1}
+}
+@media(max-width:520px){section{padding:76px 0}.scard{grid-template-columns:1fr}.scard img{min-height:160px}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">des <span>Promeneurs</span></a>
+    <nav class="menu" id="menu">
+      <a href="#terroir">Le terroir</a>
+      <a href="#terrasse">La terrasse</a>
+      <a href="#soirees">Soirées</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41274581196" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80" alt="Vue panoramique sur la vallée et les Alpes" />
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Café-restaurant · Grône, route de Vercorin</p>
+    <h1>La halte<br><em>des promeneurs</em></h1>
+    <p class="lead">Sur la route de Vercorin, une terrasse à l'ombre du noyer, une vue à couper le souffle sur la vallée du Rhône, et la meilleure assiette valaisanne du coin. La récompense après la balade.</p>
+    <div class="hero-cta">
+      <a href="tel:+41274581196" class="btn btn-fill">Réserver une table</a>
+      <a href="#terroir" class="btn btn-out" style="border-color:#eae4d3;color:#eae4d3">Nos spécialités</a>
+    </div>
+  </div>
+</section>
+
+<section class="sig" id="terroir">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Le meilleur du Valais</p>
+      <h2>Nos <em>spécialités</em></h2>
+    </div>
+    <div class="sig-grid">
+      <div class="scard reveal">
+        <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=500&q=80" alt="Assiette valaisanne" loading="lazy" />
+        <div class="b"><span class="star">★ « La meilleure du Valais »</span><h3>Assiette valaisanne</h3><p>Viande séchée, lard, fromage d'alpage : celle que nos clients citent comme la meilleure de tout le Valais. Et à prix très raisonnable.</p></div>
+      </div>
+      <div class="scard reveal">
+        <img src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&w=500&q=80" alt="Fondue du Promeneur" loading="lazy" />
+        <div class="b"><span class="star">Signature maison</span><h3>Fondue du Promeneur</h3><p>Notre fondue à nous, onctueuse et parfumée, à partager après l'effort. Le grand classique de la maison.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pano" id="terrasse">
+  <div class="wrap pano-grid">
+    <div class="reveal">
+      <p class="eyebrow">Le grand air</p>
+      <h2>Une terrasse <em>et un panorama</em></h2>
+      <p>C'est notre plus bel atout : une magnifique terrasse, à l'ombre d'un vieux noyer, avec une vue plongeante sur la plaine du Rhône et les Alpes. Le genre d'endroit où le temps s'arrête.</p>
+      <p>On y monte pour l'assiette, on y reste pour le paysage. Randonneurs, familles, amoureux du terroir : tout le monde s'y sent bien.</p>
+      <div class="tags"><span>Vue vallée du Rhône</span><span>Ombre du noyer</span><span>Panorama Alpes</span><span>Halte rando</span></div>
+    </div>
+    <div class="pano-img reveal">
+      <img src="https://images.unsplash.com/photo-1533777324565-a040eb52facd?auto=format&fit=crop&w=900&q=80" alt="Terrasse panoramique sous les arbres" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="theme" id="soirees">
+  <div class="wrap">
+    <div class="banner reveal">
+      <p class="eyebrow">À vivre en soirée</p>
+      <h2>Nos <em>soirées à thème</em></h2>
+      <p>Tout au long de l'année, on anime la maison avec des soirées à thème : moments gourmands, ambiances festives, rendez-vous conviviaux. Suivez-nous et venez partager la table du Promeneur. Appelez-nous pour connaître les prochaines dates.</p>
+      <div class="hero-cta" style="justify-content:center;margin-top:22px"><a href="tel:+41274581196" class="btn btn-fill">Connaître les prochaines soirées</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Sur la route de Vercorin</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Route de Vercorin 17 · Itravers<br>3971 Grône</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41274581196">027 458 11 96</a></li>
+        <li><span class="k">Natel</span><a class="v" href="tel:+41792548092">079 254 80 92</a></li>
+        <li><span class="k">Réserver</span><span class="v">Par téléphone · fondue &amp; groupes sur demande</span></li>
+      </ul>
+      <div style="margin-top:24px"><a href="tel:+41274581196" class="btn btn-fill">Appeler pour réserver</a></div>
+    </div>
+    <div class="hours reveal">
+      <h3>Horaires</h3>
+      <div class="hrow"><span>Lundi</span><b>08:00 – 23:00</b></div>
+      <div class="hrow off"><span>Mardi – Mercredi</span><b>Fermé</b></div>
+      <div class="hrow"><span>Jeudi – Dimanche</span><b>08:00 – 23:00</b></div>
+      <p style="color:var(--ink-soft);font-size:.86rem;margin-top:16px">Terrasse panoramique · cuisine valaisanne · soirées à thème</p>
+      <div class="map">
+        <iframe loading="lazy" title="Carte Café des Promeneurs Grône" src="https://www.google.com/maps?q=Route%20de%20Vercorin%2017%2C%203971%20Gr%C3%B4ne&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">Café des <span>Promeneurs</span></div>
+    <p style="color:#9db09e;font-size:.82rem;margin-top:8px">Route de Vercorin 17 · 3971 Grône · 027 458 11 96</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
