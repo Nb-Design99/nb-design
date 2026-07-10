@@ -510,7 +510,32 @@
       color: var(--ink);
       flex-shrink: 0;
     }
-    .menu-row .veg { color: var(--accent); font-size: 0.85rem; }
+    .menu-row .veg {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.32em;
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: #5a7a34;
+      background: rgba(122, 154, 74, 0.13);
+      border: 1px solid rgba(122, 154, 74, 0.34);
+      padding: 0.24em 0.55em 0.24em 0.46em;
+      border-radius: 999px;
+      vertical-align: middle;
+      margin-left: 0.3em;
+      transform: translateY(-1px);
+      white-space: nowrap;
+    }
+    .menu-row .veg::before {
+      content: '';
+      width: 0.82em;
+      height: 0.82em;
+      flex-shrink: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235a7a34' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z'/%3E%3Cpath d='M2 21c0-3 1.85-5.36 5.08-6'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
     .menu-row .dots { flex: 1; border-bottom: 1px dotted var(--line-2); transform: translateY(-3px); }
     .menu-row .price {
       font-family: var(--sans);
@@ -871,7 +896,7 @@
         <article class="sig-card reveal">
           <div class="sig-media">
             <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=700&q=80&auto=format&fit=crop" alt="Filet de bœuf japonais" loading="lazy" />
-            <span class="sig-price">Fr. 48</span>
+            <span class="sig-price">48.-</span>
           </div>
           <div class="sig-body">
             <h3>Filet de bœuf <em>japonais</em></h3>
@@ -882,7 +907,7 @@
         <article class="sig-card reveal" data-d="1">
           <div class="sig-media">
             <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=700&q=80&auto=format&fit=crop" alt="Tartare de thon maï maï" loading="lazy" />
-            <span class="sig-price">Fr. 19 / 39</span>
+            <span class="sig-price">19.- / 39.-</span>
           </div>
           <div class="sig-body">
             <h3>Tartare de thon <em>maï maï</em></h3>
@@ -893,7 +918,7 @@
         <article class="sig-card reveal" data-d="2">
           <div class="sig-media">
             <img src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?w=700&q=80&auto=format&fit=crop" alt="Gnocchis aux morilles" loading="lazy" />
-            <span class="sig-price">Fr. 30</span>
+            <span class="sig-price">30.-</span>
           </div>
           <div class="sig-body">
             <h3>Gnocchis <em>aux morilles</em></h3>
@@ -916,7 +941,7 @@
       <div class="menu-featured reveal">
         <div class="menu-formule">
           <span class="flabel">Menu de midi</span>
-          <div class="fprice">Fr. 47</div>
+          <div class="fprice">47.-</div>
           <ul>
             <li>Salade tomate et burrata</li>
             <li>Cuisse de canard, curry rouge</li>
@@ -925,7 +950,7 @@
         </div>
         <div class="menu-formule">
           <span class="flabel">Menu du soir</span>
-          <div class="fprice">Fr. 68</div>
+          <div class="fprice">68.-</div>
           <ul>
             <li>Carpaccio de tomate</li>
             <li>Bar au champagne</li>
@@ -946,77 +971,77 @@
 
         <div class="menu-panel active" id="t-partager" role="tabpanel">
           <p class="menu-sub">À partager</p>
-          <div class="menu-row"><span class="name">Houmous de pois chiche, zaatar <span class="veg">🌱</span></span><span class="dots"></span><span class="price">17</span></div>
-          <div class="menu-row"><span class="name">Sardines à la boîte, huile d'olive</span><span class="dots"></span><span class="price">18</span></div>
+          <div class="menu-row"><span class="name">Houmous de pois chiche, zaatar <span class="veg">Végé</span></span><span class="dots"></span><span class="price">17.-</span></div>
+          <div class="menu-row"><span class="name">Sardines à la boîte, huile d'olive</span><span class="dots"></span><span class="price">18.-</span></div>
 
           <p class="menu-sub">Entrées</p>
-          <div class="menu-row"><span class="name">Salade de jeunes pousses <span class="veg">🌱</span></span><span class="dots"></span><span class="price">10</span></div>
-          <div class="menu-row"><span class="name">Velouté de pois chiche, menthe <span class="veg">🌱</span></span><span class="dots"></span><span class="price">15</span></div>
-          <div class="menu-row"><span class="name">Tomates en carpaccio, tonnato</span><span class="dots"></span><span class="price">18 / 30</span></div>
-          <div class="menu-row"><span class="name">Os à moëlle</span><span class="dots"></span><span class="price">18 / 34</span></div>
-          <div class="menu-row"><span class="name">Terrine de foie gras</span><span class="dots"></span><span class="price">23</span></div>
-          <div class="menu-row"><span class="name">Burrata, abricots du Valais <span class="veg">🌱</span></span><span class="dots"></span><span class="price">18 / 30</span></div>
-          <div class="menu-row"><span class="name">Salade de melon, chèvre de Grimisuat</span><span class="dots"></span><span class="price">18 / 30</span></div>
-          <div class="menu-row"><span class="name">Saumon fumé d'Alaska</span><span class="dots"></span><span class="price">22 / 40</span></div>
-          <div class="menu-row"><span class="name">Carpaccio de saint-jacques</span><span class="dots"></span><span class="price">19 / 39</span></div>
-          <div class="menu-row"><span class="name">Tartare de thon, pistache</span><span class="dots"></span><span class="price">19 / 39</span></div>
-          <div class="menu-row"><span class="name">Tartare de bœuf du pays</span><span class="dots"></span><span class="price">19 / 39</span></div>
-          <div class="menu-row"><span class="name">Tartare de thon maï maï</span><span class="dots"></span><span class="price">19 / 39</span></div>
-          <div class="menu-row"><span class="name">Poke bowl au thon</span><span class="dots"></span><span class="price">19 / 36</span></div>
+          <div class="menu-row"><span class="name">Salade de jeunes pousses <span class="veg">Végé</span></span><span class="dots"></span><span class="price">10.-</span></div>
+          <div class="menu-row"><span class="name">Velouté de pois chiche, menthe <span class="veg">Végé</span></span><span class="dots"></span><span class="price">15.-</span></div>
+          <div class="menu-row"><span class="name">Tomates en carpaccio, tonnato</span><span class="dots"></span><span class="price">18.- / 30.-</span></div>
+          <div class="menu-row"><span class="name">Os à moëlle</span><span class="dots"></span><span class="price">18.- / 34.-</span></div>
+          <div class="menu-row"><span class="name">Terrine de foie gras</span><span class="dots"></span><span class="price">23.-</span></div>
+          <div class="menu-row"><span class="name">Burrata, abricots du Valais <span class="veg">Végé</span></span><span class="dots"></span><span class="price">18.- / 30.-</span></div>
+          <div class="menu-row"><span class="name">Salade de melon, chèvre de Grimisuat</span><span class="dots"></span><span class="price">18.- / 30.-</span></div>
+          <div class="menu-row"><span class="name">Saumon fumé d'Alaska</span><span class="dots"></span><span class="price">22.- / 40.-</span></div>
+          <div class="menu-row"><span class="name">Carpaccio de saint-jacques</span><span class="dots"></span><span class="price">19.- / 39.-</span></div>
+          <div class="menu-row"><span class="name">Tartare de thon, pistache</span><span class="dots"></span><span class="price">19.- / 39.-</span></div>
+          <div class="menu-row"><span class="name">Tartare de bœuf du pays</span><span class="dots"></span><span class="price">19.- / 39.-</span></div>
+          <div class="menu-row"><span class="name">Tartare de thon maï maï</span><span class="dots"></span><span class="price">19.- / 39.-</span></div>
+          <div class="menu-row"><span class="name">Poke bowl au thon</span><span class="dots"></span><span class="price">19.- / 36.-</span></div>
         </div>
 
         <div class="menu-panel" id="t-pates" role="tabpanel">
           <p class="menu-sub">Pâtes, gnocchi & risotto</p>
-          <div class="menu-row"><span class="name">Paccheri, crème de pistache <span class="veg">🌱</span></span><span class="dots"></span><span class="price">30</span></div>
-          <div class="menu-row"><span class="name">Penne, tomate et aubergines <span class="veg">🌱</span></span><span class="dots"></span><span class="price">27</span></div>
-          <div class="menu-row"><span class="name">Penne au saumon fumé</span><span class="dots"></span><span class="price">27</span></div>
-          <div class="menu-row"><span class="name">Gnocchis aux morilles</span><span class="dots"></span><span class="price">30</span></div>
-          <div class="menu-row"><span class="name">Risotto à la tomme de Vollèges <span class="veg">🌱</span></span><span class="dots"></span><span class="price">29</span></div>
+          <div class="menu-row"><span class="name">Paccheri, crème de pistache <span class="veg">Végé</span></span><span class="dots"></span><span class="price">30.-</span></div>
+          <div class="menu-row"><span class="name">Penne, tomate et aubergines <span class="veg">Végé</span></span><span class="dots"></span><span class="price">27.-</span></div>
+          <div class="menu-row"><span class="name">Penne au saumon fumé</span><span class="dots"></span><span class="price">27.-</span></div>
+          <div class="menu-row"><span class="name">Gnocchis aux morilles</span><span class="dots"></span><span class="price">30.-</span></div>
+          <div class="menu-row"><span class="name">Risotto à la tomme de Vollèges <span class="veg">Végé</span></span><span class="dots"></span><span class="price">29.-</span></div>
         </div>
 
         <div class="menu-panel" id="t-curry" role="tabpanel">
           <p class="menu-sub">Currys & saveurs d'Asie</p>
-          <div class="menu-row"><span class="name">Gambas au curry jaune thaï</span><span class="dots"></span><span class="price">34</span></div>
-          <div class="menu-row"><span class="name">Curry rouge de poulet</span><span class="dots"></span><span class="price">32</span></div>
-          <div class="menu-row"><span class="name">Curry rouge veggie <span class="veg">🌱</span></span><span class="dots"></span><span class="price">29</span></div>
-          <div class="menu-row"><span class="name">Filet de bœuf japonais</span><span class="dots"></span><span class="price">48</span></div>
-          <div class="menu-row"><span class="name">Filet de thon, croûte de sésame</span><span class="dots"></span><span class="price">45</span></div>
+          <div class="menu-row"><span class="name">Gambas au curry jaune thaï</span><span class="dots"></span><span class="price">34.-</span></div>
+          <div class="menu-row"><span class="name">Curry rouge de poulet</span><span class="dots"></span><span class="price">32.-</span></div>
+          <div class="menu-row"><span class="name">Curry rouge veggie <span class="veg">Végé</span></span><span class="dots"></span><span class="price">29.-</span></div>
+          <div class="menu-row"><span class="name">Filet de bœuf japonais</span><span class="dots"></span><span class="price">48.-</span></div>
+          <div class="menu-row"><span class="name">Filet de thon, croûte de sésame</span><span class="dots"></span><span class="price">45.-</span></div>
         </div>
 
         <div class="menu-panel" id="t-plats" role="tabpanel">
           <p class="menu-sub">Les plats</p>
-          <div class="menu-row"><span class="name">Suprême de poulet aux morilles</span><span class="dots"></span><span class="price">39</span></div>
-          <div class="menu-row"><span class="name">Filet de bœuf suisse aux morilles</span><span class="dots"></span><span class="price">55</span></div>
-          <div class="menu-row"><span class="name">Souris d'agneau rôtie</span><span class="dots"></span><span class="price">39</span></div>
-          <div class="menu-row"><span class="name">Dos de bar, sauce au champagne</span><span class="dots"></span><span class="price">44</span></div>
+          <div class="menu-row"><span class="name">Suprême de poulet aux morilles</span><span class="dots"></span><span class="price">39.-</span></div>
+          <div class="menu-row"><span class="name">Filet de bœuf suisse aux morilles</span><span class="dots"></span><span class="price">55.-</span></div>
+          <div class="menu-row"><span class="name">Souris d'agneau rôtie</span><span class="dots"></span><span class="price">39.-</span></div>
+          <div class="menu-row"><span class="name">Dos de bar, sauce au champagne</span><span class="dots"></span><span class="price">44.-</span></div>
 
           <p class="menu-sub">L'ardoise du jour</p>
-          <div class="menu-row"><span class="name">Salade tomate et burrata <span class="veg">🌱</span></span><span class="dots"></span><span class="price">24</span></div>
-          <div class="menu-row"><span class="name">Cuisse de canard, curry rouge</span><span class="dots"></span><span class="price">26</span></div>
-          <div class="menu-row"><span class="name">Filet de julienne, safran</span><span class="dots"></span><span class="price">25</span></div>
-          <div class="menu-row"><span class="name">Rigatoni, saumon et asperges</span><span class="dots"></span><span class="price">24</span></div>
+          <div class="menu-row"><span class="name">Salade tomate et burrata <span class="veg">Végé</span></span><span class="dots"></span><span class="price">24.-</span></div>
+          <div class="menu-row"><span class="name">Cuisse de canard, curry rouge</span><span class="dots"></span><span class="price">26.-</span></div>
+          <div class="menu-row"><span class="name">Filet de julienne, safran</span><span class="dots"></span><span class="price">25.-</span></div>
+          <div class="menu-row"><span class="name">Rigatoni, saumon et asperges</span><span class="dots"></span><span class="price">24.-</span></div>
           <div class="menu-row"><span class="desc">Suggestions de la semaine, données à titre d'exemple. L'ardoise change chaque semaine.</span></div>
         </div>
 
         <div class="menu-panel" id="t-desserts" role="tabpanel">
           <p class="menu-sub">Desserts</p>
-          <div class="menu-row"><span class="name">Pavlova aux fraises du Valais</span><span class="dots"></span><span class="price">13</span></div>
-          <div class="menu-row"><span class="name">Coupe de fraises</span><span class="dots"></span><span class="price">13</span></div>
-          <div class="menu-row"><span class="name">Cheesecake aux framboises</span><span class="dots"></span><span class="price">13</span></div>
-          <div class="menu-row"><span class="name">Soupe de fruits de la passion</span><span class="dots"></span><span class="price">10</span></div>
-          <div class="menu-row"><span class="name">Mousse chocolat, huile d'olive</span><span class="dots"></span><span class="price">13</span></div>
-          <div class="menu-row"><span class="name">Mochis glacés</span><span class="dots"></span><span class="price">12</span></div>
-          <div class="menu-row"><span class="name">Tiramisu</span><span class="dots"></span><span class="price">12</span></div>
-          <div class="menu-row"><span class="name">Mousse au Toblerone</span><span class="dots"></span><span class="price">11</span></div>
-          <div class="menu-row"><span class="name">Panna cotta</span><span class="dots"></span><span class="price">12</span></div>
-          <div class="menu-row"><span class="name">Carpaccio d'ananas, basilic</span><span class="dots"></span><span class="price">10</span></div>
-          <div class="menu-row"><span class="name">Moëlleux au chocolat</span><span class="dots"></span><span class="price">13</span></div>
+          <div class="menu-row"><span class="name">Pavlova aux fraises du Valais</span><span class="dots"></span><span class="price">13.-</span></div>
+          <div class="menu-row"><span class="name">Coupe de fraises</span><span class="dots"></span><span class="price">13.-</span></div>
+          <div class="menu-row"><span class="name">Cheesecake aux framboises</span><span class="dots"></span><span class="price">13.-</span></div>
+          <div class="menu-row"><span class="name">Soupe de fruits de la passion</span><span class="dots"></span><span class="price">10.-</span></div>
+          <div class="menu-row"><span class="name">Mousse chocolat, huile d'olive</span><span class="dots"></span><span class="price">13.-</span></div>
+          <div class="menu-row"><span class="name">Mochis glacés</span><span class="dots"></span><span class="price">12.-</span></div>
+          <div class="menu-row"><span class="name">Tiramisu</span><span class="dots"></span><span class="price">12.-</span></div>
+          <div class="menu-row"><span class="name">Mousse au Toblerone</span><span class="dots"></span><span class="price">11.-</span></div>
+          <div class="menu-row"><span class="name">Panna cotta</span><span class="dots"></span><span class="price">12.-</span></div>
+          <div class="menu-row"><span class="name">Carpaccio d'ananas, basilic</span><span class="dots"></span><span class="price">10.-</span></div>
+          <div class="menu-row"><span class="name">Moëlleux au chocolat</span><span class="dots"></span><span class="price">13.-</span></div>
 
           <p class="menu-sub">Glaces artisanales</p>
-          <div class="menu-row"><span class="name">Coupe vanille et pralin</span><span class="dots"></span><span class="price">12</span></div>
-          <div class="menu-row"><span class="name">Café glacé</span><span class="dots"></span><span class="price">12</span></div>
-          <div class="menu-row"><span class="name">Glace fior di latte</span><span class="dots"></span><span class="price">12</span></div>
-          <div class="menu-row"><span class="name">Glaces Bailey's ou amaretto</span><span class="dots"></span><span class="price">10</span></div>
+          <div class="menu-row"><span class="name">Coupe vanille et pralin</span><span class="dots"></span><span class="price">12.-</span></div>
+          <div class="menu-row"><span class="name">Café glacé</span><span class="dots"></span><span class="price">12.-</span></div>
+          <div class="menu-row"><span class="name">Glace fior di latte</span><span class="dots"></span><span class="price">12.-</span></div>
+          <div class="menu-row"><span class="name">Glaces Bailey's ou amaretto</span><span class="dots"></span><span class="price">10.-</span></div>
           <div class="menu-row"><span class="name">La boule</span><span class="dots"></span><span class="price">4.50</span></div>
         </div>
 
