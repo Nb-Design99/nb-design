@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>La Marenda · Chez Lorena · Fondue dans le pain · Uvrier</title>
+<meta name="description" content="La Marenda chez Lorena à Uvrier : spécialités valaisannes, la fameuse fondue dans le pain, fondues variées, brisolée d'automne et soirées musique live. Accueil chaleureux et terrasse." />
+<meta name="theme-color" content="#f6efe0" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="La Marenda · Chez Lorena · Fondue dans le pain · Uvrier" />
+<meta property="og:description" content="La fameuse fondue dans le pain, fondues variées et soirées musique live à Uvrier. Bienvenue chez Lorena." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Café-Restaurant La Marenda chez Lorena",
+  "address":{"@type":"PostalAddress","streetAddress":"Rue du Chemin de Fer 96","addressLocality":"Uvrier","postalCode":"1958","addressCountry":"CH"},
+  "telephone":"+41272036598","servesCuisine":"Valaisanne, fondue, italienne","priceRange":"CHF 19-35",
+  "url":"https://nb-design.ch/Restaurant/LaMarendaUvrier/"
+}
+</script>
+<style>
+:root{
+  --wheat:#f6efe0;--wheat2:#ece0c8;--paper:#fdf8ee;
+  --ink:#2c231b;--ink-soft:#6c5e4f;
+  --cheese:#d9a53e;--cheese-d:#bd8a25;--brick:#b1472f;--brick-d:#933a25;--brown:#5e4022;--line:#e5d7bd;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--wheat);color:var(--ink);line-height:1.66;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Yeseva One',serif;font-weight:400;line-height:1.16}
+.wrap{width:min(1110px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:600;color:var(--brick)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+header.scrolled{background:rgba(253,248,238,.94);backdrop-filter:blur(10px);box-shadow:0 2px 22px rgba(44,35,27,.06)}
+.brand{font-family:'Yeseva One';font-size:1.4rem;color:var(--brown);line-height:.9}
+.brand span{display:block;font-family:'Inter';font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brick);margin-top:3px}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.86rem;font-weight:500;opacity:.85}
+.menu a:hover{color:var(--brick)}
+.btn{display:inline-block;font-weight:600;font-size:.86rem;padding:12px 26px;border-radius:4px;transition:.25s}
+.btn-fill{background:var(--brick);color:#fff}
+.btn-fill:hover{background:var(--brick-d)}
+.btn-out{border:1.5px solid var(--brown);color:var(--brown)}
+.btn-out:hover{background:var(--brown);color:var(--wheat)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--brown)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 70px}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(1.05)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(44,35,27,.78) 8%,rgba(44,35,27,.4) 60%,rgba(44,35,27,.2))}
+.hero-inner{max-width:660px;color:#fff}
+.hero .eyebrow{color:#eec773}
+.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);color:#fff}
+.hero h1 em{font-style:normal;color:#eec773}
+.hero .lead{font-size:1.14rem;color:#f0e7d6;max-width:510px;margin:20px 0 30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+section{padding:104px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.sig{background:var(--paper)}
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.sig-img{position:relative}
+.sig-img img{border-radius:8px;height:490px;width:100%;object-fit:cover}
+.sig-img .badge{position:absolute;bottom:-20px;right:-16px;background:var(--cheese);color:var(--brown);font-family:'Yeseva One';padding:16px 22px;border-radius:8px;box-shadow:0 16px 34px rgba(44,35,27,.22);text-align:center;line-height:1.1}
+.sig-img .badge small{display:block;font-family:'Inter';font-weight:600;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase}
+.sig h2{font-size:clamp(2.2rem,5vw,3.4rem);margin:12px 0 18px;color:var(--brown)}
+.sig h2 em{font-style:normal;color:var(--brick)}
+.sig p{color:var(--ink-soft);margin-bottom:15px}
+
+.fond{background:var(--wheat2)}
+.fond .head{text-align:center;max-width:600px;margin:0 auto 50px}
+.fond h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-top:10px;color:var(--brown)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--paper);border-radius:8px;padding:30px 22px;border:1px solid var(--line);transition:.3s;text-align:center}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(44,35,27,.1)}
+.card .ico{font-size:1.9rem}
+.card h3{font-size:1.25rem;margin:12px 0 8px;color:var(--brown)}
+.card p{color:var(--ink-soft);font-size:.9rem}
+
+.music{background:var(--brown);color:var(--wheat)}
+.music-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.music .eyebrow{color:#eec773}
+.music h2{font-size:clamp(2rem,4.6vw,3.2rem);margin:12px 0 18px;color:#fff}
+.music h2 em{font-style:normal;color:#eec773}
+.music p{color:#e6dac4;margin-bottom:15px}
+.music-img img{border-radius:8px;height:420px;width:100%;object-fit:cover}
+
+.contact{background:var(--paper);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);margin:12px 0 22px;color:var(--brown)}
+.info{list-style:none;display:grid;gap:18px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600;color:var(--brick);min-width:88px;padding-top:3px}
+.info .v{color:var(--ink-soft)}
+.info a.v:hover{color:var(--brick)}
+.map{border-radius:8px;overflow:hidden;border:1px solid var(--line);height:330px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{background:var(--ink);color:var(--wheat);padding:46px 0 30px;text-align:center}
+.foot-brand{font-family:'Yeseva One';font-size:1.5rem}
+.foot-brand span{color:#eec773}
+.credit{color:#a3968a;font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--paper);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;box-shadow:-10px 0 40px rgba(44,35,27,.12)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .sig-grid,.music-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .sig-grid .sig-img,.music-grid .music-img{order:-1}
+  .cards{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){section{padding:76px 0}.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">La Marenda<span>chez Lorena · Uvrier</span></a>
+    <nav class="menu" id="menu">
+      <a href="#signature">La fondue dans le pain</a>
+      <a href="#fondues">Nos fondues</a>
+      <a href="#musique">Musique live</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41272036598" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&w=1600&q=80" alt="Fondue au fromage fondant" />
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Spécialités valaisannes · Uvrier</p>
+    <h1>La fondue,<br><em>dans le pain</em></h1>
+    <p class="lead">Chez Lorena, on fait fondre le meilleur du Valais dans un vrai pain croustillant. Une spécialité qui a fait notre réputation, une ambiance chaleureuse, et de la musique live pour les grands soirs.</p>
+    <div class="hero-cta">
+      <a href="tel:+41272036598" class="btn btn-fill">Réserver une table</a>
+      <a href="#fondues" class="btn btn-out" style="border-color:#f0e7d6;color:#f0e7d6">Nos spécialités</a>
+    </div>
+  </div>
+</section>
+
+<section class="sig" id="signature">
+  <div class="wrap sig-grid">
+    <div class="sig-img reveal">
+      <img src="https://images.unsplash.com/photo-1610614819513-58e34989848b?auto=format&fit=crop&w=900&q=80" alt="Fondue servie dans un pain" loading="lazy" />
+      <div class="badge">La signature<small>de la maison</small></div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Rien que chez nous</p>
+      <h2>La fondue <em>dans le pain</em></h2>
+      <p>C'est notre grande fierté : une fondue onctueuse servie directement dans une miche de pain croustillant. On trempe, on partage, on savoure jusqu'à la dernière bouchée de pain gratiné.</p>
+      <p>Et pour les amateurs, notre « Marenda Caquelon » maison, une recette bien à nous à découvrir sur place.</p>
+      <div class="hero-cta" style="margin-top:6px"><a href="tel:+41272036598" class="btn btn-out">La réserver</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="fond" id="fondues">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Le terroir à la carte</p>
+      <h2>Nos fondues &amp; spécialités</h2>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="ico">🧀</div><h3>Fondue moitié-moitié</h3><p>La classique onctueuse, préparée avec les fromages du pays.</p></div>
+      <div class="card reveal"><div class="ico">🍄</div><h3>Aux champignons</h3><p>Déclinée aux champignons ou aux morilles, pour les gourmands.</p></div>
+      <div class="card reveal"><div class="ico">🍅</div><h3>À la tomate</h3><p>La version parfumée et fondante, un vrai régal à partager.</p></div>
+      <div class="card reveal"><div class="ico">🌰</div><h3>Brisolée royale</h3><p>En automne, la brisolée avec châtaignes, fromage et produits de saison.</p></div>
+    </div>
+    <p style="text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:32px">Menus du jour dès 19.- en semaine · carte de saison · terrasse aux beaux jours</p>
+  </div>
+</section>
+
+<section class="music" id="musique">
+  <div class="wrap music-grid">
+    <div class="reveal">
+      <p class="eyebrow">Les grands soirs</p>
+      <h2>Fondue &amp; <em>musique live</em></h2>
+      <p>Chez Lorena, on aime quand ça vit : régulièrement, la maison s'anime au son de la musique live. Une fondue, un verre, une bonne ambiance… la recette d'une belle soirée valaisanne.</p>
+      <p>Appelez-nous pour connaître les prochaines dates et réserver votre table.</p>
+      <div class="hero-cta" style="margin-top:6px"><a href="tel:+41272036598" class="btn btn-fill">Prochaines soirées</a></div>
+    </div>
+    <div class="music-img reveal">
+      <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=900&q=80" alt="Ambiance musique live" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Bienvenue chez Lorena</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Rue du Chemin de Fer 96<br>1958 Uvrier</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41272036598">027 203 65 98</a></li>
+        <li><span class="k">Réserver</span><span class="v">Par téléphone · fondue &amp; groupes sur demande<br>Horaires détaillés au téléphone</span></li>
+      </ul>
+      <div style="margin-top:24px"><a href="tel:+41272036598" class="btn btn-fill">Appeler pour réserver</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte La Marenda Uvrier" src="https://www.google.com/maps?q=Rue%20du%20Chemin%20de%20Fer%2096%2C%201958%20Uvrier&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">La Marenda <span>· chez Lorena</span></div>
+    <p style="color:#a3968a;font-size:.82rem;margin-top:8px">Rue du Chemin de Fer 96 · 1958 Uvrier · 027 203 65 98</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
