@@ -6,11 +6,11 @@
   <meta name="description" content="L'Oasis, café-restaurant convivial à Sion, avenue de France. Cuisine généreuse, spécialités valaisannes, crêpes, grillades et grande terrasse ensoleillée. Ouvert dès 7h. 027 322 47 96." />
   <meta name="keywords" content="restaurant Sion, café Sion, L'Oasis Sion, terrasse Sion, assiette valaisanne, brisolée Sion, crêperie Sion, restaurant avenue de France" />
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="theme-color" content="#1b1710" />
+  <meta name="theme-color" content="#f7efe0" />
 
   <meta property="og:type" content="restaurant.restaurant" />
   <meta property="og:title" content="L'Oasis · Café-Restaurant · Sion" />
-  <meta property="og:description" content="Le rendez-vous convivial de l'avenue de France. Cuisine généreuse, saveurs du Valais et grande terrasse au soleil. Ouvert dès le petit-déjeuner." />
+  <meta property="og:description" content="Un coin de soleil à Sion. Cuisine généreuse, saveurs du Valais et grande terrasse ensoleillée. Ouvert dès le petit-déjeuner." />
   <meta property="og:locale" content="fr_CH" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -18,7 +18,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <script type="application/ld+json">
   {
@@ -38,1943 +38,764 @@
     "servesCuisine": ["Suisse", "Valaisanne", "Cuisine du terroir", "Crêperie", "Grillades"],
     "priceRange": "CHF 15 - CHF 48",
     "acceptsReservations": "True",
-    "slogan": "Le rendez-vous convivial de l'avenue de France",
+    "slogan": "Un coin de soleil à Sion",
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "23:00" },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "07:00", "closes": "12:00" }
-    ],
-    "hasMenu": {
-      "@type": "Menu",
-      "name": "Carte de L'Oasis",
-      "inLanguage": "fr-CH",
-      "hasMenuSection": [
-        {
-          "@type": "MenuSection",
-          "name": "Les incontournables",
-          "hasMenuItem": [
-            { "@type": "MenuItem", "name": "Salade Oasis", "description": "Salade mêlée, thon, maïs, olives, œuf, tomates cerises et fromage", "offers": { "@type": "Offer", "price": "25.00", "priceCurrency": "CHF" } },
-            { "@type": "MenuItem", "name": "Tartare de bœuf", "description": "Tartare de bœuf, toasts, frites et beurre", "offers": { "@type": "Offer", "price": "39.00", "priceCurrency": "CHF" } },
-            { "@type": "MenuItem", "name": "Faux-filet de bœuf Black Angus", "description": "Frites, rösti ou spaghettis, salade mêlée", "offers": { "@type": "Offer", "price": "45.00", "priceCurrency": "CHF" } }
-          ]
-        },
-        {
-          "@type": "MenuSection",
-          "name": "Saveurs du Valais",
-          "hasMenuItem": [
-            { "@type": "MenuItem", "name": "Assiette valaisanne", "description": "Viande séchée, jambon cru, lard sec, saucisse, fromage du pays, pain de seigle", "offers": { "@type": "Offer", "price": "20.00", "priceCurrency": "CHF" } },
-            { "@type": "MenuItem", "name": "Brisolée Royale AOC", "description": "Cinq fromages AOC du Valais, charcuterie, châtaignes, fruits de saison", "offers": { "@type": "Offer", "price": "48.00", "priceCurrency": "CHF" } }
-          ]
-        },
-        {
-          "@type": "MenuSection",
-          "name": "Crêpes et galettes au sarrasin",
-          "hasMenuItem": [
-            { "@type": "MenuItem", "name": "Galette au sarrasin Oasis", "description": "Thon, champignons de Paris et fromage du pays", "offers": { "@type": "Offer", "price": "22.00", "priceCurrency": "CHF" } },
-            { "@type": "MenuItem", "name": "Galette complète", "description": "Jambon cuit, fromage du pays et œuf", "offers": { "@type": "Offer", "price": "20.00", "priceCurrency": "CHF" } }
-          ]
-        }
-      ]
-    }
+    ]
   }
   </script>
 
   <style>
-    /* ====== RESET & BASE ====== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    ::selection { background: var(--tomato); color: var(--paper); }
+
+    :root {
+      --paper: #f7efe0;
+      --paper-2: #efe3ce;
+      --paper-3: #e7d8bd;
+      --ink: #241a10;
+      --ink-soft: #6a5942;
+      --ink-dim: #948066;
+      --tomato: #cf4128;
+      --tomato-deep: #a83019;
+      --olive: #56702f;
+      --olive-deep: #3d5320;
+      --sun: #e39a24;
+      --sun-soft: #f3d38a;
+      --line: rgba(36, 26, 16, 0.16);
+      --line-soft: rgba(36, 26, 16, 0.09);
+
+      --display: 'Fraunces', Georgia, serif;
+      --body: 'Work Sans', system-ui, sans-serif;
+
+      --px: clamp(1.25rem, 5vw, 5rem);
+      --maxw: 1300px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
     body {
-      font-family: 'DM Sans', system-ui, sans-serif;
+      font-family: var(--body);
       font-weight: 400;
-      font-size: 1rem;
-      line-height: 1.65;
-      color: var(--cream);
-      background: var(--ink);
-      overflow-x: hidden;
+      font-size: 1.02rem;
+      line-height: 1.6;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(36, 26, 16, 0.05) 1px, transparent 0);
+      background-size: 26px 26px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
     img, svg { display: block; max-width: 100%; }
     button, input, textarea, select { font: inherit; color: inherit; }
     a { color: inherit; text-decoration: none; }
     ul { list-style: none; }
 
-    /* ====== TOKENS · L'Oasis, chaleur solaire ====== */
-    :root {
-      --ink: #1b1710;
-      --ink-deep: #100d08;
-      --ink-soft: #272117;
-      --cream: #f6efe1;
-      --cream-soft: #ece0c8;
-      --cream-dim: rgba(246, 239, 225, 0.7);
-      --sun: #e0a13a;
-      --sun-light: #f4c76c;
-      --sun-soft: rgba(224, 161, 58, 0.16);
-      --oasis: #4e9c6a;
-      --oasis-deep: #2f6a45;
-      --oasis-light: #78c493;
-      --terracotta: #c56b3d;
-      --text-muted: rgba(246, 239, 225, 0.6);
-      --text-dim: rgba(246, 239, 225, 0.36);
-      --border-soft: rgba(246, 239, 225, 0.08);
-      --border-medium: rgba(246, 239, 225, 0.14);
-      --border-sun: rgba(224, 161, 58, 0.32);
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--px); padding-right: var(--px); }
+    .sect { padding-top: clamp(4.5rem, 9vw, 8rem); padding-bottom: clamp(4.5rem, 9vw, 8rem); position: relative; }
 
-      --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-body: 'DM Sans', system-ui, sans-serif;
-
-      --radius-sm: 6px;
-      --radius-md: 14px;
-      --radius-lg: 22px;
-      --radius-full: 9999px;
-
-      --section-py: clamp(5rem, 10vw, 9rem);
-      --container-max: 1240px;
-      --container-px: clamp(1.25rem, 4vw, 3rem);
-
-      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-    }
-
-    /* ====== LAYOUT ====== */
-    .container {
-      max-width: var(--container-max);
-      margin: 0 auto;
-      padding-left: var(--container-px);
-      padding-right: var(--container-px);
-      width: 100%;
-    }
-    section {
-      position: relative;
-      padding-top: var(--section-py);
-      padding-bottom: var(--section-py);
-    }
-
-    /* ====== TYPOGRAPHY ====== */
-    .eyebrow {
-      font-family: var(--font-body);
-      text-transform: uppercase;
-      letter-spacing: 0.34em;
-      font-size: 0.72rem;
-      font-weight: 500;
-      color: var(--sun);
-      margin-bottom: 1.25rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .eyebrow::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--sun);
-      display: inline-block;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      color: var(--cream);
-      margin-bottom: 1.5rem;
-    }
-    .section-title em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--sun-light);
-    }
-    .section-subtitle {
-      font-family: var(--font-body);
-      font-weight: 300;
-      font-size: clamp(1rem, 1.4vw, 1.1rem);
-      line-height: 1.75;
-      color: var(--text-muted);
-      max-width: 620px;
-    }
-    .section-header { margin-bottom: 4rem; }
-    .section-header.centered { text-align: center; }
-    .section-header.centered .section-subtitle { margin: 0 auto; }
-    .section-header.centered .eyebrow { margin-left: auto; margin-right: auto; }
-
-    /* ====== BUTTONS ====== */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      padding: 0.95rem 1.7rem;
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: 0.92rem;
-      letter-spacing: 0.04em;
-      border-radius: var(--radius-full);
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform 0.35s var(--ease-out), background 0.3s, border-color 0.3s, box-shadow 0.45s;
-      white-space: nowrap;
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn:focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--sun), #b97c26);
-      color: #201406;
+    /* ===== Type helpers ===== */
+    .kicker {
+      font-family: var(--body);
       font-weight: 600;
-      border: 1px solid rgba(224, 161, 58, 0.45);
-      box-shadow: 0 8px 28px rgba(224, 161, 58, 0.22);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 40px rgba(224, 161, 58, 0.4);
-    }
-    .btn-ghost {
-      background: rgba(246, 239, 225, 0.04);
-      color: var(--cream);
-      border: 1px solid var(--border-medium);
-      backdrop-filter: blur(8px);
-    }
-    .btn-ghost:hover {
-      background: rgba(246, 239, 225, 0.08);
-      border-color: var(--sun);
-      transform: translateY(-2px);
-    }
-
-    /* ====== HEADER ====== */
-    .site-header {
-      position: fixed;
-      top: 1.25rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
-      width: calc(100% - 2.5rem);
-      max-width: 1100px;
-      transition: all 0.4s var(--ease-out);
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.7rem 1.15rem 0.7rem 1.35rem;
-      background: rgba(16, 13, 8, 0.7);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-full);
-      transition: all 0.4s var(--ease-out);
-    }
-    .site-header.scrolled .header-inner {
-      background: rgba(16, 13, 8, 0.92);
-      border-color: var(--border-sun);
-      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.35);
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      color: var(--cream);
-    }
-    /* Élément distinctif : emblème soleil de l'Oasis */
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 50% 45%, var(--sun-light) 0%, var(--sun) 45%, #b06a1f 100%);
-      position: relative;
-      flex-shrink: 0;
-      box-shadow: 0 0 18px rgba(224, 161, 58, 0.5), inset 0 0 8px rgba(255, 240, 200, 0.4);
-    }
-    .brand-mark::before {
-      content: '';
-      position: absolute;
-      inset: -6px;
-      border-radius: 50%;
-      background:
-        repeating-conic-gradient(from 0deg, var(--sun) 0deg 6deg, transparent 6deg 30deg);
-      -webkit-mask: radial-gradient(circle, transparent 62%, #000 63%, #000 78%, transparent 79%);
-      mask: radial-gradient(circle, transparent 62%, #000 63%, #000 78%, transparent 79%);
-      opacity: 0.85;
-    }
-    .brand span { line-height: 1.05; }
-    .brand small {
-      display: block;
-      font-family: var(--font-body);
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: var(--sun);
-      margin-top: 1px;
-    }
-    .nav-main {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-    .nav-main a {
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: var(--cream-dim);
-      letter-spacing: 0.04em;
-      transition: color 0.25s;
-    }
-    .nav-main a:hover { color: var(--sun-light); }
-    .header-cta { display: inline-flex; }
-    .header-cta .btn { padding: 0.6rem 1.15rem; font-size: 0.82rem; }
-
-    .nav-toggle {
-      display: none;
-      background: transparent;
-      border: 0;
-      color: var(--cream);
-      cursor: pointer;
-      padding: 0.4rem;
-    }
-    .nav-toggle svg { width: 22px; height: 22px; }
-
-    @media (max-width: 880px) {
-      .nav-main, .header-cta { display: none; }
-      .nav-toggle { display: inline-flex; }
-      .nav-main.open {
-        display: flex;
-        position: absolute;
-        top: calc(100% + 0.5rem);
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        background: rgba(16, 13, 8, 0.97);
-        backdrop-filter: blur(24px);
-        padding: 1rem;
-        border: 1px solid var(--border-medium);
-        border-radius: var(--radius-md);
-      }
-      .nav-main.open a {
-        padding: 0.85rem 1rem;
-        border-bottom: 1px solid var(--border-soft);
-      }
-      .nav-main.open a:last-child { border-bottom: 0; }
-    }
-
-    /* ====== HERO ====== */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 7rem;
-      padding-bottom: 4rem;
-      overflow: hidden;
-      isolation: isolate;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      background-image:
-        linear-gradient(180deg, rgba(16,13,8,0.30) 0%, rgba(16,13,8,0.5) 55%, rgba(16,13,8,0.82) 100%),
-        url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      animation: heroZoom 24s var(--ease-in-out) infinite alternate;
-    }
-    @keyframes heroZoom {
-      from { transform: scale(1); }
-      to { transform: scale(1.08); }
-    }
-    /* Halo solaire distinctif */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background:
-        radial-gradient(ellipse 55% 45% at 78% 22%, rgba(244, 199, 108, 0.32), transparent 60%),
-        radial-gradient(ellipse 50% 40% at 18% 72%, rgba(78, 156, 106, 0.16), transparent 70%);
-      pointer-events: none;
-    }
-    .hero-inner {
-      position: relative;
-      text-align: center;
-      max-width: 940px;
-      margin: 0 auto;
-    }
-    .hero-eyebrow {
+      color: var(--tomato);
       display: inline-flex;
       align-items: center;
-      gap: 0.9rem;
-      font-family: var(--font-body);
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.36em;
-      color: var(--sun);
-      margin-bottom: 2rem;
-    }
-    .hero-eyebrow::before,
-    .hero-eyebrow::after {
-      content: '';
-      width: 40px;
-      height: 1px;
-      background: var(--sun);
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(3rem, 8vw, 6.5rem);
-      line-height: 1;
-      letter-spacing: -0.015em;
-      margin-bottom: 1rem;
-      color: var(--cream);
-    }
-    .hero h1 em {
-      font-style: italic;
-      font-weight: 300;
-      background: linear-gradient(120deg, var(--sun-light) 0%, var(--cream) 50%, var(--oasis-light) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
-    }
-    .hero-tagline {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(1.4rem, 2.8vw, 2rem);
-      line-height: 1.3;
-      color: var(--oasis-light);
-      margin-bottom: 1.8rem;
-      letter-spacing: 0.005em;
-    }
-    .hero-lede {
-      font-family: var(--font-body);
-      font-weight: 300;
-      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-      line-height: 1.65;
-      color: var(--cream-soft);
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-    }
-    .hero-ctas {
-      display: flex;
-      gap: 0.85rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 4rem;
-    }
-    .hero-marks {
-      display: flex;
-      justify-content: center;
-      gap: clamp(1.5rem, 4vw, 3rem);
-      flex-wrap: wrap;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--border-soft);
-    }
-    .hero-mark {
-      text-align: center;
-      min-width: 120px;
-    }
-    .hero-mark strong {
-      display: block;
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3vw, 2rem);
-      font-weight: 500;
-      font-style: italic;
-      color: var(--sun-light);
-      margin-bottom: 0.3rem;
-    }
-    .hero-mark span {
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: var(--text-muted);
-    }
-    .hero-scroll {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1px;
-      height: 50px;
-      background: linear-gradient(to bottom, transparent, var(--sun));
-      animation: scrollHint 2s var(--ease-in-out) infinite;
-    }
-    @keyframes scrollHint {
-      0%, 100% { opacity: 0.4; transform: translate(-50%, 0); }
-      50% { opacity: 1; transform: translate(-50%, 8px); }
-    }
-
-    /* ====== HISTOIRE ====== */
-    .histoire {
-      background: var(--ink);
-      position: relative;
-    }
-    .histoire::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 240px;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--sun), transparent);
-    }
-    .histoire-grid {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    .histoire-text p {
-      font-size: 1.05rem;
-      line-height: 1.85;
-      color: var(--cream-dim);
-      margin-bottom: 1.25rem;
-    }
-    .histoire-text p:last-child { margin-bottom: 0; }
-    .histoire-quote {
-      margin-top: 2rem;
-      padding-left: 1.5rem;
-      border-left: 2px solid var(--sun);
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.3rem;
-      line-height: 1.5;
-      color: var(--cream);
-    }
-    .histoire-quote cite {
-      display: block;
-      margin-top: 0.75rem;
-      font-family: var(--font-body);
-      font-style: normal;
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sun);
-    }
-    .histoire-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-top: 2rem;
-    }
-    .histoire-tags span {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.45rem 1rem;
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-full);
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 0.95rem;
-      color: var(--cream);
-      background: rgba(246, 239, 225, 0.03);
-    }
-
-    /* ====== SIGNATURES ====== */
-    .carte {
-      background: var(--ink-deep);
-      position: relative;
-    }
-    .signatures {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .signature-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-md);
-      background: var(--ink-soft);
-      border: 1px solid var(--border-soft);
-      transition: transform 0.45s var(--ease-out), border-color 0.4s, box-shadow 0.5s;
-    }
-    .signature-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--border-sun);
-      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.4);
-    }
-    .signature-img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      transition: transform 0.6s var(--ease-out);
-    }
-    .signature-card:hover .signature-img { transform: scale(1.05); }
-    .signature-body { padding: 1.75rem 1.75rem 2rem; }
-    .signature-body h3 {
-      font-family: var(--font-display);
-      font-size: 1.65rem;
-      font-weight: 500;
-      color: var(--cream);
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-    }
-    .signature-body h3 em { font-style: italic; color: var(--sun-light); }
-    .signature-body p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-    .carte-cta { text-align: center; margin-top: 3.5rem; }
-
-    /* ====== MENU SECTION ====== */
-    .menu {
-      background: var(--ink);
-      position: relative;
-    }
-    .menu::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 240px;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--sun), transparent);
-    }
-    .menu-tabs {
-      display: flex;
       gap: 0.6rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 3.5rem;
     }
-    .menu-tab {
-      padding: 0.75rem 1.5rem;
-      background: transparent;
-      color: var(--cream-dim);
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-full);
-      font-family: var(--font-body);
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      cursor: pointer;
-      transition: all 0.3s var(--ease-out);
-      white-space: nowrap;
-    }
-    .menu-tab:hover {
-      border-color: var(--sun);
-      color: var(--cream);
-      transform: translateY(-1px);
-    }
-    .menu-tab.active {
-      background: linear-gradient(135deg, var(--oasis), var(--oasis-deep));
-      border-color: var(--sun);
-      color: var(--cream);
-      box-shadow: 0 10px 26px rgba(47, 106, 69, 0.32);
-    }
-    .menu-tab:focus-visible { outline: 2px solid var(--sun); outline-offset: 3px; }
-
-    .menu-panels {
-      max-width: 820px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .menu-panel { display: none; animation: menuPanelIn 0.5s var(--ease-out); }
-    .menu-panel.active { display: block; }
-    @keyframes menuPanelIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .menu-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .menu-item {
-      padding-bottom: 1.5rem;
-      border-bottom: 1px dashed var(--border-soft);
-    }
-    .menu-item:last-child { padding-bottom: 0; border-bottom: 0; }
-    .menu-item-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      margin-bottom: 0.35rem;
-    }
-    .menu-item h4 {
-      font-family: var(--font-display);
-      font-weight: 500;
-      font-size: 1.2rem;
-      color: var(--cream);
-      line-height: 1.3;
-      flex: 1;
-    }
-    .menu-item h4 em { font-style: italic; color: var(--sun-light); }
-    .menu-price {
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: 0.95rem;
-      color: var(--sun-light);
-      white-space: nowrap;
-      letter-spacing: 0.02em;
-      font-variant-numeric: tabular-nums;
-    }
-    .menu-item p {
-      font-family: var(--font-body);
+    .kicker::before { content: ''; width: 26px; height: 2px; background: var(--tomato); }
+    .num {
+      font-family: var(--display);
       font-weight: 300;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      font-style: italic;
-      max-width: 92%;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.8;
+      color: transparent;
+      -webkit-text-stroke: 1.4px var(--line);
+      opacity: 0.85;
     }
-    .menu-foot {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-soft);
-      text-align: center;
-    }
-    .menu-allergies {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-style: italic;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* ====== TERROIR ====== */
-    .terroir {
-      background: var(--ink-deep);
-      position: relative;
-      overflow: hidden;
-    }
-    .terroir-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    @media (max-width: 880px) {
-      .terroir-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-    .terroir-image {
-      position: relative;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      aspect-ratio: 5 / 6;
-      border: 1px solid var(--border-soft);
-    }
-    .terroir-image img { width: 100%; height: 100%; object-fit: cover; }
-    .terroir-image::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(16, 13, 8, 0.6) 100%);
-    }
-    .terroir-tag {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0.95rem;
-      background: rgba(16, 13, 8, 0.72);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--border-sun);
-      border-radius: var(--radius-full);
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sun-light);
-    }
-    .terroir-text p {
-      font-size: 1.05rem;
-      line-height: 1.85;
-      color: var(--cream-dim);
-      margin-bottom: 1.25rem;
-    }
-    .terroir-cepages {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-top: 2rem;
-    }
-    .terroir-cepages span {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.45rem 1rem;
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-full);
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 0.95rem;
-      color: var(--cream);
-      background: rgba(246, 239, 225, 0.03);
-    }
-
-    /* ====== GALERIE ====== */
-    .galerie { background: var(--ink); }
-    .galerie-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 200px;
-      gap: 1rem;
-      margin-top: 3rem;
-    }
-    .galerie-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-soft);
-    }
-    .galerie-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.7s var(--ease-out);
-    }
-    .galerie-item:hover img { transform: scale(1.07); }
-    .galerie-item.wide { grid-column: span 2; }
-    .galerie-item.tall { grid-row: span 2; }
-    @media (max-width: 880px) {
-      .galerie-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
-      .galerie-item.wide { grid-column: span 2; }
-      .galerie-item.tall { grid-row: span 1; }
-    }
-
-    /* ====== TERRASSE ====== */
-    .terrasse { background: var(--ink-deep); position: relative; }
-    .terrasse-banner {
-      position: relative;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      aspect-ratio: 21 / 9;
-      border: 1px solid var(--border-soft);
-      margin-top: 3rem;
-    }
-    @media (max-width: 640px) { .terrasse-banner { aspect-ratio: 4 / 5; } }
-    .terrasse-banner img { width: 100%; height: 100%; object-fit: cover; }
-    .terrasse-banner::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(16, 13, 8, 0.8) 0%, rgba(16, 13, 8, 0.32) 50%, rgba(16, 13, 8, 0.5) 100%);
-    }
-    .terrasse-caption {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 2.5rem;
-      right: 2.5rem;
-      z-index: 2;
-      max-width: 460px;
-    }
-    @media (max-width: 640px) { .terrasse-caption { bottom: 1.5rem; left: 1.5rem; right: 1.5rem; } }
-    .terrasse-caption h3 {
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
+    h1, h2, h3 { font-family: var(--display); font-weight: 500; line-height: 1.02; letter-spacing: -0.015em; }
+    .h-xl { font-size: clamp(2.9rem, 8vw, 6rem); }
+    .h-lg { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+    .h-md { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+    .ital { font-style: italic; font-weight: 400; }
+    .lede {
+      font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+      line-height: 1.6;
+      color: var(--ink-soft);
       font-weight: 400;
-      color: var(--cream);
-      margin-bottom: 0.6rem;
-      line-height: 1.15;
-    }
-    .terrasse-caption h3 em { font-style: italic; color: var(--sun-light); }
-    .terrasse-caption p {
-      font-size: 0.98rem;
-      color: var(--cream-soft);
-      line-height: 1.6;
     }
 
-    /* ====== AVIS ====== */
-    .avis { background: var(--ink); position: relative; }
-    .avis::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 240px;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--sun), transparent);
+    /* ===== Buttons ===== */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      padding: 0.9rem 1.6rem;
+      font-family: var(--body);
+      font-weight: 600; font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      border: 2px solid var(--ink);
+      border-radius: 40px;
+      cursor: pointer;
+      transition: transform 0.3s var(--ease), background 0.3s, color 0.3s, box-shadow 0.3s;
+      background: transparent; color: var(--ink);
     }
-    .avis-marquee {
-      position: relative;
+    .btn svg { width: 17px; height: 17px; }
+    .btn-fill { background: var(--tomato); border-color: var(--tomato); color: var(--paper); box-shadow: 4px 4px 0 var(--ink); }
+    .btn-fill:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+    .btn-line:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+
+    /* ===== Sticker badges ===== */
+    .stickers { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .sticker {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.45rem 0.95rem;
+      border: 2px solid var(--ink);
+      border-radius: 40px;
+      font-weight: 600; font-size: 0.82rem;
+      background: var(--paper);
+      box-shadow: 2px 2px 0 rgba(36,26,16,0.18);
+    }
+    .sticker::before { content: ''; width: 9px; height: 9px; border-radius: 50%; }
+    .s-sun::before { background: var(--sun); }
+    .s-olive::before { background: var(--olive); }
+    .s-tomato::before { background: var(--tomato); }
+    .sticker:nth-child(2) { transform: rotate(-2.5deg); }
+    .sticker:nth-child(4) { transform: rotate(2deg); }
+
+    /* ===== HEADER ===== */
+    .top {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      transition: background 0.4s var(--ease), box-shadow 0.4s, padding 0.4s;
+      padding: 1.2rem 0;
+    }
+    .top.stuck { background: var(--paper); box-shadow: 0 2px 0 var(--line); padding: 0.7rem 0; }
+    .top-in { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { display: flex; align-items: center; gap: 0.7rem; }
+    .brand-sun {
+      width: 40px; height: 40px; flex-shrink: 0;
+      animation: spin 26s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .brand-name { font-family: var(--display); font-weight: 600; font-size: 1.55rem; line-height: 0.95; letter-spacing: -0.01em; }
+    .brand-name small { display: block; font-family: var(--body); font-weight: 600; font-size: 0.56rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--tomato); margin-top: 2px; }
+    .top-nav { display: flex; align-items: center; gap: 1.9rem; }
+    .top-nav a { font-size: 0.86rem; font-weight: 500; color: var(--ink-soft); transition: color 0.25s; position: relative; }
+    .top-nav a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--tomato); transition: width 0.3s var(--ease); }
+    .top-nav a:hover { color: var(--ink); }
+    .top-nav a:hover::after { width: 100%; }
+    .top-nav .btn { padding: 0.6rem 1.15rem; }
+    .burger { display: none; width: 46px; height: 46px; border: 2px solid var(--ink); border-radius: 50%; background: var(--paper); cursor: pointer; align-items: center; justify-content: center; }
+    .burger svg { width: 20px; height: 20px; }
+
+    @media (max-width: 940px) {
+      .top-nav { position: fixed; inset: 0 0 0 auto; width: min(80vw, 320px); flex-direction: column; align-items: flex-start; justify-content: center; gap: 1.6rem; background: var(--paper-2); padding: 2.5rem; transform: translateX(100%); transition: transform 0.45s var(--ease); box-shadow: -8px 0 40px rgba(36,26,16,0.15); }
+      .top-nav.open { transform: translateX(0); }
+      .top-nav a { font-family: var(--display); font-size: 1.6rem; color: var(--ink); }
+      .burger { display: inline-flex; z-index: 60; }
+    }
+
+    /* ===== Right dotted index (scrollspy) ===== */
+    .rail { position: fixed; right: 1.6rem; top: 50%; transform: translateY(-50%); z-index: 40; display: flex; flex-direction: column; gap: 0.8rem; }
+    .rail a { width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--ink); transition: background 0.3s, transform 0.3s; }
+    .rail a.on { background: var(--tomato); border-color: var(--tomato); transform: scale(1.25); }
+    @media (max-width: 1180px) { .rail { display: none; } }
+
+    /* ===== HERO ===== */
+    .hero { padding-top: clamp(8rem, 15vw, 11rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+    .hero h1 { margin: 1.4rem 0 0; }
+    .hero h1 .line2 { color: var(--tomato); }
+    .hero .lede { margin: 1.6rem 0 2rem; max-width: 30ch; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 2.2rem; }
+    .hero-figure { position: relative; }
+    .hero-photo {
+      border-radius: 220px 220px 22px 22px;
       overflow: hidden;
-      padding: 1.5rem 0;
-      -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-      mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+      border: 3px solid var(--ink);
+      aspect-ratio: 4 / 5;
+      box-shadow: 12px 12px 0 var(--sun-soft);
     }
-    .avis-track {
-      display: flex;
-      gap: 1.5rem;
-      width: max-content;
-      animation: avisScroll 55s linear infinite;
-      will-change: transform;
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .sun-stamp {
+      position: absolute; left: -34px; bottom: 40px; width: 128px; height: 128px;
+      animation: spin 30s linear infinite;
     }
-    .avis-track:hover { animation-play-state: paused; }
-    @keyframes avisScroll {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(calc(-50% - 0.75rem), 0, 0); }
-    }
-    .avis-card {
-      position: relative;
-      flex-shrink: 0;
-      width: 380px;
-      padding: 2.5rem 2rem 2rem;
-      background: var(--ink-soft);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius-md);
-      transition: border-color 0.35s, box-shadow 0.4s;
-      display: flex;
-      flex-direction: column;
-    }
-    @media (max-width: 540px) { .avis-card { width: 300px; padding: 2rem 1.5rem 1.5rem; } }
-    .avis-card::before {
-      content: '\201C';
-      position: absolute;
-      top: -8px;
-      left: 24px;
-      font-family: var(--font-display);
-      font-size: 5rem;
-      line-height: 1;
-      color: var(--sun);
-      opacity: 0.35;
-    }
-    .avis-card:hover {
-      border-color: var(--border-sun);
-      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.35);
-    }
-    .avis-stars {
-      color: var(--sun-light);
-      font-size: 1rem;
-      letter-spacing: 0.15em;
-      margin-bottom: 1rem;
-    }
-    .avis-text {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.05rem;
-      line-height: 1.65;
-      color: var(--cream);
-      margin-bottom: 1.5rem;
-      flex: 1;
-    }
-    .avis-meta { padding-top: 1rem; border-top: 1px solid var(--border-soft); }
-    .avis-meta strong {
-      display: block;
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: 0.92rem;
-      color: var(--cream);
-      letter-spacing: 0.02em;
-    }
-    .avis-meta span {
-      display: block;
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--sun);
-      margin-top: 0.35rem;
-      font-weight: 500;
-    }
-    .avis-source {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      letter-spacing: 0.06em;
-    }
-    .avis-source a {
-      color: var(--sun-light);
-      border-bottom: 1px solid var(--border-sun);
-      padding-bottom: 1px;
-      transition: color 0.25s;
-    }
-    .avis-source a:hover { color: var(--sun); }
+    @media (max-width: 900px) { .sun-stamp { width: 100px; height: 100px; left: -12px; bottom: -18px; } }
+    .sun-stamp text { font-family: var(--body); font-size: 8.3px; font-weight: 700; letter-spacing: 2.4px; fill: var(--ink); text-transform: uppercase; }
 
-    /* ====== RÉSERVATION ====== */
-    .reservation { background: var(--ink-deep); position: relative; }
-    .reservation::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--border-sun), transparent);
-    }
-    .reservation-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    @media (max-width: 880px) {
-      .reservation-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-    .reservation-info .section-title { margin-bottom: 1.25rem; }
-    .reservation-info p {
-      font-size: 1.02rem;
-      color: var(--cream-dim);
-      line-height: 1.75;
-      margin-bottom: 1.5rem;
-    }
-    .phone-card {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.95rem;
-      padding: 1.1rem 1.6rem;
-      background: rgba(246, 239, 225, 0.04);
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-md);
-      text-decoration: none;
-      transition: all 0.3s var(--ease-out);
-      margin-bottom: 1.75rem;
-    }
-    .phone-card:hover {
-      border-color: var(--sun);
-      background: rgba(224, 161, 58, 0.06);
-      transform: translateY(-2px);
-    }
-    .phone-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--sun), var(--terracotta));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #201406;
-      flex-shrink: 0;
-    }
-    .phone-icon svg { width: 20px; height: 20px; }
-    .phone-card strong {
-      display: block;
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--cream);
-      letter-spacing: 0.02em;
-      line-height: 1.1;
-    }
-    .phone-card span {
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--sun);
-    }
-    .reservation-hours {
-      display: grid;
-      gap: 0.4rem;
-      font-size: 0.9rem;
-      max-width: 320px;
-    }
-    .reservation-hours div {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.3rem 0;
-      border-bottom: 1px dashed var(--border-soft);
-    }
-    .reservation-hours div:last-child { border-bottom: 0; }
-    .reservation-hours span:first-child { color: var(--cream); }
-    .reservation-hours span:last-child { color: var(--cream-dim); font-variant-numeric: tabular-nums; }
-    .ferme { color: var(--terracotta) !important; font-style: italic; }
+    /* ===== RIBBON ===== */
+    .ribbon { background: var(--tomato); color: var(--paper); border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); overflow: hidden; padding: 0.85rem 0; }
+    .ribbon-track { display: flex; gap: 2.5rem; width: max-content; animation: slide 32s linear infinite; }
+    .ribbon:hover .ribbon-track { animation-play-state: paused; }
+    @keyframes slide { to { transform: translateX(-50%); } }
+    .ribbon span { font-family: var(--display); font-style: italic; font-size: 1.35rem; white-space: nowrap; display: inline-flex; align-items: center; gap: 2.5rem; }
+    .ribbon span::after { content: '✻'; font-style: normal; color: var(--sun-soft); }
 
-    .form-card {
-      background: var(--ink-soft);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-    }
-    @media (max-width: 640px) { .form-card { padding: 1.75rem; } }
-    .form-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 500;
-      color: var(--cream);
-      margin-bottom: 0.4rem;
-    }
-    .form-card > p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1.75rem;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
-    .form-field { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
-    .form-row .form-field { margin-bottom: 0; }
-    .form-field label {
-      font-family: var(--font-body);
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sun);
-    }
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
-      background: rgba(16, 13, 8, 0.5);
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-sm);
-      padding: 0.85rem 1rem;
-      color: var(--cream);
-      font-size: 0.95rem;
-      transition: border-color 0.25s, background 0.25s;
-      width: 100%;
-    }
-    .form-field input:focus,
-    .form-field select:focus,
-    .form-field textarea:focus {
-      outline: none;
-      border-color: var(--sun);
-      background: rgba(16, 13, 8, 0.7);
-    }
-    .form-field textarea { resize: vertical; min-height: 90px; font-family: var(--font-body); }
-    .form-submit { width: 100%; margin-top: 0.5rem; padding: 1.05rem; font-size: 0.95rem; }
-    .form-note {
-      margin-top: 1rem;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      text-align: center;
-      line-height: 1.6;
+    /* ===== SECTION HEADER ===== */
+    .sect-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; margin-bottom: 3.2rem; flex-wrap: wrap; }
+    .sect-head .txt { max-width: 640px; }
+    .sect-head h2 { margin: 0.9rem 0 0; }
+
+    /* ===== MAISON ===== */
+    .maison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+    @media (max-width: 820px) { .maison-grid { grid-template-columns: 1fr; } }
+    .maison-grid p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.75; margin-bottom: 1.1rem; }
+    .maison-grid p:first-of-type::first-letter { font-family: var(--display); font-size: 3.4rem; line-height: 0.8; float: left; padding: 0.1rem 0.6rem 0 0; color: var(--tomato); font-weight: 500; }
+    .pull { font-family: var(--display); font-style: italic; font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.3; color: var(--ink); border-left: 3px solid var(--tomato); padding-left: 1.4rem; margin: 2rem 0; }
+    .pull cite { display: block; font-family: var(--body); font-style: normal; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tomato); margin-top: 0.8rem; }
+
+    /* ===== INCONTOURNABLES ===== */
+    .stars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+    @media (max-width: 820px) { .stars { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+    .star-card { border: 3px solid var(--ink); border-radius: 20px; overflow: hidden; background: var(--paper); box-shadow: 6px 6px 0 var(--ink); transition: transform 0.3s var(--ease); }
+    .star-card:hover { transform: translateY(-6px); }
+    .star-card .ph { aspect-ratio: 5 / 4; overflow: hidden; border-bottom: 3px solid var(--ink); }
+    .star-card .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
+    .star-card:hover .ph img { transform: scale(1.06); }
+    .star-body { padding: 1.3rem 1.4rem 1.6rem; }
+    .star-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--olive); }
+    .star-body h3 { font-size: 1.5rem; margin: 0.35rem 0 0.5rem; }
+    .star-body p { font-size: 0.93rem; color: var(--ink-soft); line-height: 1.55; }
+    .star-body .price { display: inline-block; margin-top: 0.9rem; font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--tomato); }
+
+    /* ===== CARTE (menu papier) ===== */
+    .carte { background: var(--paper-2); border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+    .menu-cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); }
+    @media (max-width: 820px) { .menu-cols { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .menu-block + .menu-block { margin-top: 2.6rem; }
+    .menu-block h3 { display: flex; align-items: center; gap: 0.7rem; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; font-family: var(--body); color: var(--tomato); margin-bottom: 1.3rem; }
+    .menu-block h3::after { content: ''; flex: 1; height: 2px; background: var(--line); }
+    .m-row { margin-bottom: 1.15rem; }
+    .m-line { display: flex; align-items: baseline; gap: 0.4rem; }
+    .m-line .nm { font-family: var(--display); font-weight: 500; font-size: 1.24rem; }
+    .m-line .nm em { font-style: italic; color: var(--tomato); }
+    .m-line .dots { flex: 1; border-bottom: 2px dotted var(--line); transform: translateY(-5px); min-width: 20px; }
+    .m-line .pr { font-family: var(--display); font-weight: 600; font-size: 1.1rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .m-row p { font-size: 0.9rem; color: var(--ink-soft); font-style: italic; line-height: 1.45; margin-top: 0.15rem; max-width: 44ch; }
+    .menu-note { margin-top: 3rem; padding-top: 1.6rem; border-top: 2px solid var(--line); text-align: center; font-size: 0.9rem; color: var(--ink-soft); font-style: italic; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+    /* ===== VALAIS ===== */
+    .valais-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+    @media (max-width: 820px) { .valais-grid { grid-template-columns: 1fr; } }
+    .valais-photo { position: relative; border: 3px solid var(--ink); border-radius: 20px; overflow: hidden; aspect-ratio: 4 / 5; box-shadow: 10px 10px 0 var(--olive); }
+    .valais-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .valais-grid p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.1rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.8rem; }
+    .chips span { padding: 0.45rem 1.05rem; border: 2px solid var(--ink); border-radius: 40px; font-family: var(--display); font-style: italic; font-size: 1rem; background: var(--paper); }
+
+    /* ===== TERRASSE ===== */
+    .terrasse-band { position: relative; border-radius: 26px; overflow: hidden; border: 3px solid var(--ink); aspect-ratio: 21 / 8; box-shadow: 12px 12px 0 var(--sun-soft); }
+    @media (max-width: 640px) { .terrasse-band { aspect-ratio: 3 / 4; } }
+    .terrasse-band img { width: 100%; height: 100%; object-fit: cover; }
+    .terrasse-band::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(36,26,16,0.62), rgba(36,26,16,0.05) 60%); }
+    .terrasse-cap { position: absolute; z-index: 2; left: clamp(1.5rem, 4vw, 3rem); bottom: clamp(1.5rem, 4vw, 3rem); max-width: 440px; color: var(--paper); }
+    .terrasse-cap h3 { font-size: clamp(1.8rem, 3.4vw, 2.8rem); margin-bottom: 0.5rem; }
+    .terrasse-cap h3 em { font-style: italic; color: var(--sun-soft); }
+    .terrasse-cap p { font-size: 1rem; line-height: 1.55; color: rgba(247,239,224,0.9); }
+
+    /* ===== GALERIE (collage) ===== */
+    .collage { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+    .collage figure { overflow: hidden; border: 3px solid var(--ink); border-radius: 16px; background: var(--paper); }
+    .collage img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
+    .collage figure:hover img { transform: scale(1.08); }
+    .g1 { grid-column: span 3; grid-row: span 2; aspect-ratio: 3 / 2; transform: rotate(-1deg); }
+    .g2 { grid-column: span 3; aspect-ratio: 3 / 1.5; transform: rotate(1deg); }
+    .g3 { grid-column: span 2; aspect-ratio: 1; }
+    .g4 { grid-column: span 1; aspect-ratio: 1 / 2; }
+    .collage figure { height: 100%; }
+    @media (max-width: 820px) {
+      .collage { grid-template-columns: repeat(2, 1fr); }
+      .g1, .g2, .g3, .g4 { grid-column: span 1; grid-row: span 1; aspect-ratio: 1; transform: none; }
+      .g1 { grid-column: span 2; aspect-ratio: 3 / 2; }
     }
 
-    /* ====== INFOS ====== */
-    .infos { background: var(--ink); }
-    .infos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .info-card {
-      padding: 2rem 1.75rem;
-      background: var(--ink-soft);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius-md);
-      transition: border-color 0.3s, transform 0.4s var(--ease-out);
-    }
-    .info-card:hover { border-color: var(--border-sun); transform: translateY(-4px); }
-    .info-card-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--sun-soft);
-      border: 1px solid var(--border-sun);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--sun-light);
-      margin-bottom: 1.25rem;
-    }
-    .info-card-icon svg { width: 18px; height: 18px; }
-    .info-card h4 {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: var(--cream);
-      margin-bottom: 0.5rem;
-    }
-    .info-card p, .info-card a {
-      font-size: 0.92rem;
-      color: var(--cream-dim);
-      line-height: 1.65;
-    }
-    .info-card a:hover { color: var(--sun-light); }
-    .info-card strong { color: var(--cream); font-weight: 500; }
-    .horaires-list { display: grid; gap: 0.5rem; margin-top: 0.5rem; font-size: 0.9rem; }
-    .horaires-list div {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.3rem 0;
-      border-bottom: 1px dashed var(--border-soft);
-    }
-    .horaires-list div:last-child { border-bottom: 0; }
-    .horaires-list span:first-child { color: var(--cream); }
-    .horaires-list span:last-child { color: var(--cream-dim); font-variant-numeric: tabular-nums; }
+    /* ===== AVIS ===== */
+    .avis { background: var(--olive-deep); color: var(--paper); border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+    .avis .kicker { color: var(--sun-soft); }
+    .avis .kicker::before { background: var(--sun-soft); }
+    .avis h2 { color: var(--paper); }
+    .notes { columns: 3 260px; column-gap: 1.4rem; margin-top: 3rem; }
+    .note { break-inside: avoid; margin-bottom: 1.4rem; background: var(--paper); color: var(--ink); border-radius: 16px; padding: 1.5rem 1.5rem 1.3rem; box-shadow: 5px 5px 0 rgba(0,0,0,0.28); }
+    .note .st { color: var(--sun); letter-spacing: 0.12em; margin-bottom: 0.6rem; }
+    .note p { font-family: var(--display); font-style: italic; font-size: 1.08rem; line-height: 1.5; }
+    .note .who { margin-top: 1rem; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; }
+    .note .who span { display: block; font-weight: 400; color: var(--ink-soft); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; margin-top: 2px; }
+    .avis-src { text-align: center; margin-top: 2.6rem; font-size: 0.85rem; color: rgba(247,239,224,0.75); }
+    .avis-src a { color: var(--sun-soft); border-bottom: 1px solid rgba(243,211,138,0.5); }
 
-    /* ====== FOOTER ====== */
-    .site-footer {
-      background: var(--ink-deep);
-      border-top: 1px solid var(--border-soft);
-      padding: 3rem 0 2rem;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-    .footer-brand {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      color: var(--cream);
-      font-style: italic;
-    }
-    .footer-brand span {
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--sun);
-      display: block;
-      margin-top: 0.2rem;
-      font-style: normal;
-    }
-    .footer-meta { font-size: 0.78rem; color: var(--text-muted); text-align: right; }
-    .footer-meta a { color: var(--sun); transition: color 0.25s; }
-    .footer-meta a:hover { color: var(--sun-light); }
+    /* ===== RESERVATION ===== */
+    .resa-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+    @media (max-width: 820px) { .resa-grid { grid-template-columns: 1fr; } }
+    .resa-info p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.7; margin: 1.4rem 0 1.8rem; }
+    .phone-big { display: inline-flex; align-items: center; gap: 0.9rem; border: 3px solid var(--ink); border-radius: 18px; padding: 1rem 1.4rem; box-shadow: 5px 5px 0 var(--tomato); transition: transform 0.3s var(--ease); }
+    .phone-big:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--tomato); }
+    .phone-big .ic { width: 42px; height: 42px; border-radius: 50%; background: var(--tomato); color: var(--paper); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .phone-big .ic svg { width: 20px; height: 20px; }
+    .phone-big b { font-family: var(--display); font-size: 1.5rem; font-weight: 600; display: block; line-height: 1; }
+    .phone-big small { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tomato); font-weight: 600; }
+    .hrs { margin-top: 1.8rem; display: grid; gap: 0.35rem; max-width: 300px; font-size: 0.92rem; }
+    .hrs div { display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px dashed var(--line); }
+    .hrs div:last-child { border-bottom: 0; }
+    .hrs .cl { color: var(--tomato); font-style: italic; }
 
-    /* ====== ANIMATIONS ====== */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+    .resa-form { background: var(--paper); border: 3px solid var(--ink); border-radius: 22px; padding: clamp(1.5rem, 3vw, 2.4rem); box-shadow: 8px 8px 0 var(--ink); }
+    .resa-form h3 { font-size: 1.6rem; margin-bottom: 0.3rem; }
+    .resa-form > p { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 1.6rem; }
+    .fld { margin-bottom: 1.1rem; }
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    @media (max-width: 520px) { .frow { grid-template-columns: 1fr; } }
+    .fld label { display: block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.4rem; }
+    .fld input, .fld textarea {
+      width: 100%; background: transparent; border: none; border-bottom: 2px solid var(--line);
+      padding: 0.55rem 0.1rem; font-size: 1rem; color: var(--ink); transition: border-color 0.25s;
     }
-    .fade-up.in { opacity: 1; transform: translateY(0); }
-    .fade-up[data-delay="1"] { transition-delay: 0.08s; }
-    .fade-up[data-delay="2"] { transition-delay: 0.16s; }
-    .fade-up[data-delay="3"] { transition-delay: 0.24s; }
-    .fade-up[data-delay="4"] { transition-delay: 0.32s; }
-    .fade-up[data-delay="5"] { transition-delay: 0.40s; }
+    .fld input:focus, .fld textarea:focus { outline: none; border-color: var(--tomato); }
+    .fld textarea { resize: vertical; min-height: 64px; }
+    .resa-form .btn { width: 100%; justify-content: center; margin-top: 0.6rem; }
+    .fnote { margin-top: 0.9rem; font-size: 0.76rem; color: var(--ink-soft); text-align: center; }
+
+    /* ===== INFOS ===== */
+    .infos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    @media (max-width: 820px) { .infos-grid { grid-template-columns: 1fr; max-width: 460px; } }
+    .info { border-top: 3px solid var(--ink); padding-top: 1.3rem; }
+    .info h4 { font-size: 1.35rem; margin-bottom: 0.7rem; }
+    .info p, .info a { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.7; }
+    .info a { color: var(--tomato); font-weight: 600; }
+    .info strong { color: var(--ink); }
+    .info .row { display: flex; justify-content: space-between; padding: 0.22rem 0; border-bottom: 1px dashed var(--line); font-size: 0.9rem; }
+    .info .row:last-child { border-bottom: 0; }
+    .info .row .cl { color: var(--tomato); font-style: italic; }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--ink); color: var(--paper); padding: 3rem 0 2.2rem; }
+    .foot-in { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .foot-brand { font-family: var(--display); font-size: 1.6rem; font-style: italic; }
+    .foot-brand span { display: block; font-family: var(--body); font-style: normal; font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sun-soft); margin-top: 0.2rem; }
+    .foot-meta { font-size: 0.78rem; color: rgba(247,239,224,0.6); text-align: right; }
+    .foot-meta a { color: var(--sun-soft); }
+
+    /* ===== reveal ===== */
+    .rv { opacity: 0; transform: translateY(26px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+    .rv.in { opacity: 1; transform: translateY(0); }
+    .rv[data-d="1"] { transition-delay: 0.08s; }
+    .rv[data-d="2"] { transition-delay: 0.16s; }
+    .rv[data-d="3"] { transition-delay: 0.24s; }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
 
-<body>
-  <!-- ====== HEADER ====== -->
-  <header class="site-header" id="siteHeader">
-    <div class="header-inner">
-      <a href="#top" class="brand" aria-label="L'Oasis Café-Restaurant, accueil">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>
-          L'Oasis
-          <small>Café · Restaurant · Sion</small>
-        </span>
+<body id="top">
+
+  <!-- HEADER -->
+  <header class="top" id="top-bar">
+    <div class="wrap top-in">
+      <a href="#top" class="brand" aria-label="L'Oasis, accueil">
+        <svg class="brand-sun" viewBox="0 0 40 40" aria-hidden="true">
+          <g fill="none" stroke="#cf4128" stroke-width="2.4" stroke-linecap="round">
+            <circle cx="20" cy="20" r="8.5" fill="#e39a24" stroke="#241a10" stroke-width="2"/>
+            <g stroke="#241a10">
+              <line x1="20" y1="2.5" x2="20" y2="7.5"/><line x1="20" y1="32.5" x2="20" y2="37.5"/>
+              <line x1="2.5" y1="20" x2="7.5" y2="20"/><line x1="32.5" y1="20" x2="37.5" y2="20"/>
+              <line x1="7.5" y1="7.5" x2="10.8" y2="10.8"/><line x1="29.2" y1="29.2" x2="32.5" y2="32.5"/>
+              <line x1="32.5" y1="7.5" x2="29.2" y2="10.8"/><line x1="10.8" y1="29.2" x2="7.5" y2="32.5"/>
+            </g>
+          </g>
+        </svg>
+        <span class="brand-name">L'Oasis<small>Sion · Depuis le matin</small></span>
       </a>
 
-      <nav class="nav-main" id="navMain">
-        <a href="#histoire">La maison</a>
+      <nav class="top-nav" id="nav">
+        <a href="#maison">La maison</a>
         <a href="#menu">La carte</a>
-        <a href="#terroir">Le Valais</a>
+        <a href="#valais">Le Valais</a>
         <a href="#galerie">Galerie</a>
-        <a href="#infos">Contact</a>
+        <a href="#infos">Infos</a>
+        <a href="#reservation" class="btn btn-fill">Réserver</a>
       </nav>
 
-      <a href="#reservation" class="btn btn-primary header-cta">Réserver</a>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-          <path d="M4 7h16M4 12h16M4 17h16"/>
-        </svg>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
   </header>
 
-  <!-- ====== HERO ====== -->
-  <section class="hero" id="top">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container">
-      <div class="hero-inner">
-        <p class="hero-eyebrow fade-up">Sion · Avenue de France</p>
-        <h1 class="fade-up" data-delay="1">
-          L'<em>Oasis</em>
-        </h1>
-        <p class="hero-tagline fade-up" data-delay="2">« Votre coin de soleil à Sion »</p>
-        <p class="hero-lede fade-up" data-delay="3">
-          Un café-restaurant convivial, ouvert dès le petit-déjeuner. Cuisine généreuse, saveurs du Valais et grande terrasse ensoleillée, à deux pas de l'Ancien Stand.
-        </p>
-        <div class="hero-ctas fade-up" data-delay="4">
-          <a href="#reservation" class="btn btn-primary">Réserver une table</a>
-          <a href="#menu" class="btn btn-ghost">Découvrir la carte</a>
+  <!-- SCROLLSPY -->
+  <nav class="rail" id="rail" aria-label="Navigation par section">
+    <a href="#hero" data-s="hero" class="on" aria-label="Accueil"></a>
+    <a href="#maison" data-s="maison" aria-label="La maison"></a>
+    <a href="#incontournables" data-s="incontournables" aria-label="Incontournables"></a>
+    <a href="#menu" data-s="menu" aria-label="La carte"></a>
+    <a href="#valais" data-s="valais" aria-label="Le Valais"></a>
+    <a href="#terrasse" data-s="terrasse" aria-label="La terrasse"></a>
+    <a href="#galerie" data-s="galerie" aria-label="Galerie"></a>
+    <a href="#reservation" data-s="reservation" aria-label="Réserver"></a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero wrap" id="hero">
+    <div class="hero-grid">
+      <div class="hero-txt">
+        <span class="kicker rv">Café · Restaurant · Sion</span>
+        <h1 class="h-xl rv" data-d="1">Un coin de<br /><span class="line2 ital">soleil</span> à Sion</h1>
+        <p class="lede rv" data-d="2">Café le matin, plat du jour à midi, assiette valaisanne le soir. Un rendez-vous convivial avenue de France, avec sa grande terrasse au soleil.</p>
+        <div class="hero-ctas rv" data-d="2">
+          <a href="#reservation" class="btn btn-fill">Réserver une table
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#menu" class="btn btn-line">Voir la carte</a>
         </div>
-        <div class="hero-marks fade-up" data-delay="5">
-          <div class="hero-mark">
-            <strong>Dès 7h</strong>
-            <span>Ouvert du matin au soir</span>
-          </div>
-          <div class="hero-mark">
-            <strong>Terrasse</strong>
-            <span>Fleurie et ensoleillée</span>
-          </div>
-          <div class="hero-mark">
-            <strong>Valais</strong>
-            <span>Produits du terroir</span>
-          </div>
+        <div class="stickers rv" data-d="3">
+          <span class="sticker s-sun">Ouvert dès 7h</span>
+          <span class="sticker s-olive">Terrasse fleurie</span>
+          <span class="sticker s-tomato">Parking gratuit</span>
+          <span class="sticker s-olive">À l'emporter</span>
         </div>
       </div>
-    </div>
-    <span class="hero-scroll" aria-hidden="true"></span>
-  </section>
 
-  <!-- ====== HISTOIRE ====== -->
-  <section class="histoire" id="histoire">
-    <div class="container">
-      <div class="histoire-grid">
-        <div class="histoire-text fade-up">
-          <p class="eyebrow">La maison</p>
-          <h2 class="section-title">Une adresse <em>où l'on se sent bien</em></h2>
-          <p>
-            À l'Oasis, on pousse la porte pour un café le matin, on revient à midi pour le plat du jour, et on s'attarde le soir autour d'une assiette valaisanne. Le genre d'endroit simple et chaleureux qui devient vite une habitude.
-          </p>
-          <p>
-            Notre cuisine est généreuse et sans détour. Des grillades, des crêpes et galettes au sarrasin, des salades fraîches, une belle sélection de produits du pays, et même un clin d'œil aux saveurs d'ailleurs. De quoi faire plaisir à toute la tablée.
-          </p>
-          <p>
-            Aux beaux jours, notre terrasse fleurie s'ouvre au soleil, à l'écart de l'agitation. Un vrai coin de tranquillité au bord de l'avenue de France, avec le parking juste devant.
-          </p>
-          <blockquote class="histoire-quote">
-            « Ici, on reçoit les gens comme à la maison. Un bon plat, un sourire, et le temps de s'asseoir. »
-            <cite>L'équipe de l'Oasis</cite>
-          </blockquote>
-          <div class="histoire-tags">
-            <span>Petit-déjeuner</span>
-            <span>Plat du jour</span>
-            <span>Terrasse</span>
-            <span>À l'emporter</span>
-            <span>Parking gratuit</span>
-          </div>
+      <div class="hero-figure rv" data-d="2">
+        <div class="hero-photo">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80&auto=format&fit=crop" alt="Terrasse de restaurant ensoleillée avec guirlandes lumineuses" />
         </div>
+        <svg class="sun-stamp" viewBox="0 0 128 128" aria-hidden="true">
+          <defs><path id="circ" d="M64,64 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" /></defs>
+          <circle cx="64" cy="64" r="61" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.5"/>
+          <circle cx="64" cy="64" r="20" fill="var(--sun)" stroke="var(--ink)" stroke-width="2.5"/>
+          <text><textPath href="#circ" startOffset="0">Ouvert dès 7h · Terrasse au soleil · Sion · </textPath></text>
+        </svg>
       </div>
     </div>
   </section>
 
-  <!-- ====== SIGNATURES ====== -->
-  <section class="carte" id="carte">
-    <div class="container">
-      <div class="section-header centered fade-up">
-        <p class="eyebrow">Nos incontournables</p>
-        <h2 class="section-title">Les assiettes <em>qu'on nous redemande</em></h2>
-        <p class="section-subtitle">
-          Quelques classiques de la maison, servis généreusement et préparés avec de bons produits. Le reste de la carte se découvre juste en dessous.
-        </p>
-      </div>
+  <!-- RIBBON -->
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon-track">
+      <span>Assiette valaisanne</span><span>Brisolée AOC</span><span>Crêpes bretonnes</span><span>Grillades au feu</span><span>Terrasse au soleil</span>
+      <span>Assiette valaisanne</span><span>Brisolée AOC</span><span>Crêpes bretonnes</span><span>Grillades au feu</span><span>Terrasse au soleil</span>
+    </div>
+  </div>
 
-      <div class="signatures">
-        <article class="signature-card fade-up">
-          <img class="signature-img" loading="lazy" alt="Salade Oasis, salade mêlée au thon, maïs, olives et œuf" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900&q=80&auto=format&fit=crop" />
-          <div class="signature-body">
-            <h3>La Salade <em>Oasis</em></h3>
-            <p>Notre salade signature. Salade mêlée, thon, maïs, olives, œuf, tomates cerises et fromage. Fraîche et complète.</p>
-          </div>
-        </article>
-
-        <article class="signature-card fade-up" data-delay="1">
-          <img class="signature-img" loading="lazy" alt="Faux-filet de bœuf Black Angus grillé avec frites" src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=900&q=80&auto=format&fit=crop" />
-          <div class="signature-body">
-            <h3>Faux-filet <em>Black Angus</em></h3>
-            <p>Une belle pièce de bœuf Black Angus grillée, servie avec frites, rösti ou spaghettis, et salade mêlée.</p>
-          </div>
-        </article>
-
-        <article class="signature-card fade-up" data-delay="2">
-          <img class="signature-img" loading="lazy" alt="Galette bretonne au sarrasin garnie" src="https://images.unsplash.com/photo-1519676867240-f03562e64548?w=900&q=80&auto=format&fit=crop" />
-          <div class="signature-body">
-            <h3>Galette <em>au sarrasin</em></h3>
-            <p>Nos crêpes salées au sarrasin, garnies au thon et champignons ou jambon, fromage et œuf. Une envie de Bretagne à Sion.</p>
-          </div>
-        </article>
-      </div>
-
-      <div class="carte-cta fade-up">
-        <a href="#menu" class="btn btn-ghost">Voir toute la carte</a>
+  <!-- MAISON -->
+  <section class="sect wrap" id="maison">
+    <div class="sect-head">
+      <div class="txt">
+        <span class="num rv">01</span>
+        <span class="kicker rv" data-d="1" style="display:block;margin-top:0.8rem;">La maison</span>
+        <h2 class="h-lg rv" data-d="1">Une adresse <span class="ital">où l'on se sent bien</span></h2>
       </div>
     </div>
-  </section>
-
-  <!-- ====== CARTE COMPLÈTE ====== -->
-  <section class="menu" id="menu">
-    <div class="container">
-      <div class="section-header centered fade-up">
-        <p class="eyebrow">Notre carte</p>
-        <h2 class="section-title">Une carte <em>pour toutes les envies</em></h2>
-        <p class="section-subtitle">
-          Du plat du jour aux spécialités valaisannes, des crêpes aux grillades. Voici un aperçu. La carte complète évolue avec les saisons et les suggestions du moment.
-        </p>
+    <div class="maison-grid">
+      <div class="rv">
+        <p>À l'Oasis, on pousse la porte pour un café le matin, on revient à midi pour le plat du jour, et on s'attarde le soir autour d'une assiette valaisanne. Le genre d'endroit simple et chaleureux qui devient vite une habitude.</p>
+        <p>Notre cuisine est généreuse et sans détour. Des grillades, des crêpes et galettes au sarrasin, des salades fraîches, de beaux produits du pays et même un clin d'œil aux saveurs d'ailleurs. De quoi faire plaisir à toute la tablée.</p>
+        <p>Aux beaux jours, notre terrasse fleurie s'ouvre au soleil, à l'écart de l'agitation. Un vrai coin de tranquillité au bord de l'avenue de France, avec le parking juste devant.</p>
       </div>
-
-      <div class="menu-tabs fade-up" role="tablist" aria-label="Catégories de la carte">
-        <button type="button" class="menu-tab active" data-tab="tab-jour" role="tab" aria-selected="true">Menu du jour</button>
-        <button type="button" class="menu-tab" data-tab="tab-valais" role="tab" aria-selected="false">Le Valais</button>
-        <button type="button" class="menu-tab" data-tab="tab-crepes" role="tab" aria-selected="false">Crêpes & galettes</button>
-        <button type="button" class="menu-tab" data-tab="tab-grill" role="tab" aria-selected="false">Grillades</button>
-        <button type="button" class="menu-tab" data-tab="tab-monde" role="tab" aria-selected="false">Salades & du monde</button>
-      </div>
-
-      <div class="menu-panels">
-
-        <div class="menu-panel active" id="tab-jour" role="tabpanel">
-          <div class="menu-list">
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Cordon bleu de poulet</h4>
-                <span class="menu-price">Fr. 26</span>
-              </div>
-              <p>Cordon bleu de poulet, frites et salade mêlée, sauce au choix.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Escalope de poulet panée <em>maison</em></h4>
-                <span class="menu-price">Fr. 32</span>
-              </div>
-              <p>Escalope panée faite maison, avec frites ou spaghettis, salade et légumes.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Saucisse de veau grillée</h4>
-                <span class="menu-price">Fr. 23</span>
-              </div>
-              <p>Saucisse de veau grillée, frites et salade mêlée sauce française.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Spaghettis bolognaise</h4>
-                <span class="menu-price">Fr. 27</span>
-              </div>
-              <p>Spaghettis à la sauce bolognaise, parmesan et petite salade.</p>
-            </article>
-          </div>
-        </div>
-
-        <div class="menu-panel" id="tab-valais" role="tabpanel">
-          <div class="menu-list">
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Assiette valaisanne</h4>
-                <span class="menu-price">Fr. 20 / 35</span>
-              </div>
-              <p>Viande séchée, jambon cru, lard sec, saucisse, fromage du pays, beurre, cornichons, oignons et pain de seigle.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Brisolée Royale <em>AOC du Valais</em></h4>
-                <span class="menu-price">Fr. 48</span>
-              </div>
-              <p>Cinq fromages AOC du Valais, charcuterie, châtaignes, fruits de saison, pain de seigle et tarte aux pommes. Sur commande, le week-end.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Tartare de bœuf</h4>
-                <span class="menu-price">Fr. 39</span>
-              </div>
-              <p>Tartare de bœuf préparé, toasts, frites et beurre.</p>
-            </article>
-          </div>
-        </div>
-
-        <div class="menu-panel" id="tab-crepes" role="tabpanel">
-          <div class="menu-list">
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Galette au sarrasin <em>Oasis</em></h4>
-                <span class="menu-price">Fr. 22</span>
-              </div>
-              <p>Thon, champignons de Paris et fromage du pays.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Galette complète</h4>
-                <span class="menu-price">Fr. 20</span>
-              </div>
-              <p>Jambon cuit, fromage du pays et œuf.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Crêpe sirop d'érable et banane</h4>
-                <span class="menu-price">Fr. 16</span>
-              </div>
-              <p>Crêpe sucrée au sirop d'érable et banane fraîche.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Crêpe au Nutella</h4>
-                <span class="menu-price">Fr. 13</span>
-              </div>
-              <p>Crêpe sucrée au Nutella. Supplément banane sur demande.</p>
-            </article>
-          </div>
-        </div>
-
-        <div class="menu-panel" id="tab-grill" role="tabpanel">
-          <div class="menu-list">
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Faux-filet <em>Black Angus</em></h4>
-                <span class="menu-price">Fr. 45</span>
-              </div>
-              <p>Frites, rösti ou spaghettis au choix, et salade mêlée sauce française.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Filet d'agneau grillé</h4>
-                <span class="menu-price">Fr. 45</span>
-              </div>
-              <p>Filet d'agneau grillé, frites ou rösti, légumes et salade.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Escalope de porc panée <em>maison</em></h4>
-                <span class="menu-price">Fr. 32</span>
-              </div>
-              <p>Escalope panée faite maison, frites, salade et légumes.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Burger crunchy au poulet</h4>
-                <span class="menu-price">Fr. 26</span>
-              </div>
-              <p>Burger de poulet croustillant, frites et salade mêlée.</p>
-            </article>
-          </div>
-        </div>
-
-        <div class="menu-panel" id="tab-monde" role="tabpanel">
-          <div class="menu-list">
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Salade Oasis</h4>
-                <span class="menu-price">Fr. 25</span>
-              </div>
-              <p>Salade mêlée, thon, maïs, olives, œuf, tomates cerises et fromage.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Plateau asiatique</h4>
-                <span class="menu-price">Fr. 24</span>
-              </div>
-              <p>Rouleaux de printemps, poches d'or de poulet et brochettes satay, sauces aigre-doux et curry.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Calamars à la romaine</h4>
-                <span class="menu-price">Fr. 28</span>
-              </div>
-              <p>Anneaux de calamars à la romaine, frites et sauce tartare.</p>
-            </article>
-            <article class="menu-item">
-              <div class="menu-item-head">
-                <h4>Pizza au feu de bois</h4>
-                <span class="menu-price">Dès Fr. 17</span>
-              </div>
-              <p>Nos pizzas 33 cm, de la Margherita à la chorizo-olives. Selon disponibilité du jour.</p>
-            </article>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="menu-foot fade-up">
-        <p class="menu-allergies">Pour toute question sur les allergènes, les régimes particuliers ou l'origine des viandes, notre équipe vous renseigne avec plaisir. Une partie de la carte est aussi disponible à l'emporter et en livraison.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====== TERROIR VALAIS ====== -->
-  <section class="terroir" id="terroir">
-    <div class="container">
-      <div class="terroir-grid">
-        <div class="terroir-image fade-up" aria-hidden="true">
-          <img loading="lazy" alt="Planche de spécialités valaisannes, viande séchée et fromage du pays" src="https://images.unsplash.com/photo-1541529086526-db283c563270?w=900&q=80&auto=format&fit=crop" />
-          <span class="terroir-tag">Saveurs du Valais</span>
-        </div>
-        <div class="terroir-text fade-up" data-delay="1">
-          <p class="eyebrow">Le Valais dans l'assiette</p>
-          <h2 class="section-title">Le pays <em>à notre table</em></h2>
-          <p>
-            Nous aimons mettre le Valais à l'honneur. L'assiette valaisanne et ses charcuteries séchées, la brisolée royale à la saison des châtaignes, les fromages AOC, tout ce qui fait le goût d'ici se retrouve sur nos tables.
-          </p>
-          <p>
-            Et pour accompagner, une jolie sélection de vins de nos caves, de Sion à Vétroz. Un Fendant bien frais sur la terrasse, une Amigne sur la brisolée. Le Valais dans le verre autant que dans l'assiette.
-          </p>
-          <div class="terroir-cepages">
-            <span>Fendant</span>
-            <span>Johannisberg</span>
-            <span>Amigne de Vétroz</span>
-            <span>Humagne</span>
-            <span>Gamay</span>
-            <span>Pinot Noir</span>
-          </div>
+      <div class="rv" data-d="1">
+        <blockquote class="pull">« Ici, on reçoit les gens comme à la maison. Un bon plat, un sourire, et le temps de s'asseoir. »
+          <cite>L'équipe de l'Oasis</cite>
+        </blockquote>
+        <div class="stickers">
+          <span class="sticker s-tomato">Petit-déjeuner</span>
+          <span class="sticker s-sun">Plat du jour</span>
+          <span class="sticker s-olive">Menus enfants</span>
+          <span class="sticker s-tomato">Livraison</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====== GALERIE ====== -->
-  <section class="galerie" id="galerie">
-    <div class="container">
-      <div class="section-header centered fade-up">
-        <p class="eyebrow">En images</p>
-        <h2 class="section-title">Un avant-goût <em>de l'Oasis</em></h2>
-        <p class="section-subtitle">
-          L'ambiance, la terrasse et quelques-unes de nos assiettes. Les photos ci-dessous illustrent l'esprit de la maison.
-        </p>
+  <!-- INCONTOURNABLES -->
+  <section class="sect wrap" id="incontournables">
+    <div class="sect-head">
+      <div class="txt">
+        <span class="num rv">02</span>
+        <span class="kicker rv" data-d="1" style="display:block;margin-top:0.8rem;">Nos incontournables</span>
+        <h2 class="h-lg rv" data-d="1">Les assiettes <span class="ital">qu'on nous redemande</span></h2>
+      </div>
+    </div>
+    <div class="stars">
+      <article class="star-card rv">
+        <div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80&auto=format&fit=crop" alt="Salade Oasis au thon, maïs, olives et œuf" /></div>
+        <div class="star-body">
+          <span class="star-tag">La signature</span>
+          <h3>La Salade Oasis</h3>
+          <p>Salade mêlée, thon, maïs, olives, œuf, tomates cerises et fromage. Fraîche et complète.</p>
+          <span class="price">Fr. 25</span>
+        </div>
+      </article>
+      <article class="star-card rv" data-d="1">
+        <div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&q=80&auto=format&fit=crop" alt="Faux-filet Black Angus grillé et frites" /></div>
+        <div class="star-body">
+          <span class="star-tag">La grillade</span>
+          <h3>Faux-filet Black Angus</h3>
+          <p>Belle pièce grillée, servie avec frites, rösti ou spaghettis, et salade mêlée.</p>
+          <span class="price">Fr. 45</span>
+        </div>
+      </article>
+      <article class="star-card rv" data-d="2">
+        <div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1519676867240-f03562e64548?w=800&q=80&auto=format&fit=crop" alt="Galette bretonne au sarrasin garnie" /></div>
+        <div class="star-body">
+          <span class="star-tag">L'esprit crêperie</span>
+          <h3>Galette au sarrasin</h3>
+          <p>Garnie au thon et champignons, ou jambon, fromage et œuf. Une envie de Bretagne à Sion.</p>
+          <span class="price">Dès Fr. 20</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CARTE -->
+  <section class="carte" id="menu">
+    <div class="sect wrap">
+      <div class="sect-head">
+        <div class="txt">
+          <span class="num rv">03</span>
+          <span class="kicker rv" data-d="1" style="display:block;margin-top:0.8rem;">La carte</span>
+          <h2 class="h-lg rv" data-d="1">Un menu <span class="ital">pour toutes les envies</span></h2>
+        </div>
+        <a href="#reservation" class="btn btn-line rv" data-d="1">Réserver une table</a>
       </div>
 
-      <div class="galerie-grid fade-up">
-        <div class="galerie-item wide tall">
-          <img loading="lazy" alt="Terrasse de restaurant ensoleillée avec guirlandes lumineuses" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80&auto=format&fit=crop" />
+      <div class="menu-cols">
+        <div class="rv">
+          <div class="menu-block">
+            <h3>Menu du jour</h3>
+            <div class="m-row"><div class="m-line"><span class="nm">Cordon bleu de poulet</span><span class="dots"></span><span class="pr">26</span></div><p>Frites et salade mêlée, sauce au choix.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Escalope de poulet panée <em>maison</em></span><span class="dots"></span><span class="pr">32</span></div><p>Avec frites ou spaghettis, salade et légumes.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Saucisse de veau grillée</span><span class="dots"></span><span class="pr">23</span></div><p>Frites et salade mêlée sauce française.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Spaghettis bolognaise</span><span class="dots"></span><span class="pr">27</span></div><p>Parmesan et petite salade.</p></div>
+          </div>
+          <div class="menu-block">
+            <h3>Crêpes & galettes</h3>
+            <div class="m-row"><div class="m-line"><span class="nm">Galette <em>Oasis</em></span><span class="dots"></span><span class="pr">22</span></div><p>Thon, champignons de Paris et fromage du pays.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Galette complète</span><span class="dots"></span><span class="pr">20</span></div><p>Jambon cuit, fromage du pays et œuf.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Crêpe érable et banane</span><span class="dots"></span><span class="pr">16</span></div></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Crêpe au Nutella</span><span class="dots"></span><span class="pr">13</span></div></div>
+          </div>
         </div>
-        <div class="galerie-item">
-          <img loading="lazy" alt="Assiette de grillade avec frites maison" src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=700&q=80&auto=format&fit=crop" />
+
+        <div class="rv" data-d="1">
+          <div class="menu-block">
+            <h3>Saveurs du Valais</h3>
+            <div class="m-row"><div class="m-line"><span class="nm">Assiette valaisanne</span><span class="dots"></span><span class="pr">20 / 35</span></div><p>Viande séchée, jambon cru, lard sec, saucisse, fromage du pays, pain de seigle.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Brisolée Royale <em>AOC</em></span><span class="dots"></span><span class="pr">48</span></div><p>Cinq fromages AOC, charcuterie, châtaignes, fruits de saison. Sur commande le week-end.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Tartare de bœuf</span><span class="dots"></span><span class="pr">39</span></div><p>Toasts, frites et beurre.</p></div>
+          </div>
+          <div class="menu-block">
+            <h3>Grillades & du monde</h3>
+            <div class="m-row"><div class="m-line"><span class="nm">Filet d'agneau grillé</span><span class="dots"></span><span class="pr">45</span></div><p>Frites ou rösti, légumes et salade.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Burger crunchy au poulet</span><span class="dots"></span><span class="pr">26</span></div><p>Frites et salade mêlée.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Plateau asiatique</span><span class="dots"></span><span class="pr">24</span></div><p>Rouleaux de printemps, poches d'or et brochettes satay.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Pizza au feu de bois</span><span class="dots"></span><span class="pr">dès 17</span></div><p>De la Margherita à la chorizo-olives, selon le jour.</p></div>
+          </div>
         </div>
-        <div class="galerie-item">
-          <img loading="lazy" alt="Salade fraîche et colorée" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700&q=80&auto=format&fit=crop" />
-        </div>
-        <div class="galerie-item wide">
-          <img loading="lazy" alt="Verre de vin blanc du Valais sur une table de terrasse" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1000&q=80&auto=format&fit=crop" />
-        </div>
-        <div class="galerie-item">
-          <img loading="lazy" alt="Pizza au feu de bois garnie" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=80&auto=format&fit=crop" />
-        </div>
-        <div class="galerie-item">
-          <img loading="lazy" alt="Tasse de café servie le matin" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=80&auto=format&fit=crop" />
+      </div>
+
+      <p class="menu-note rv">Prix en francs suisses. Pour les allergènes, les régimes particuliers ou l'origine des viandes, notre équipe vous renseigne avec plaisir. Une partie de la carte est aussi disponible à l'emporter et en livraison.</p>
+    </div>
+  </section>
+
+  <!-- VALAIS -->
+  <section class="sect wrap" id="valais">
+    <div class="valais-grid">
+      <div class="valais-photo rv">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1541529086526-db283c563270?w=800&q=80&auto=format&fit=crop" alt="Planche de spécialités valaisannes, viande séchée et fromage du pays" />
+      </div>
+      <div class="rv" data-d="1">
+        <span class="num">04</span>
+        <span class="kicker" style="display:block;margin-top:0.8rem;">Le Valais dans l'assiette</span>
+        <h2 class="h-lg" style="margin:0.9rem 0 1.4rem;">Le pays <span class="ital">à notre table</span></h2>
+        <p>Nous aimons mettre le Valais à l'honneur. L'assiette valaisanne et ses charcuteries séchées, la brisolée royale à la saison des châtaignes, les fromages AOC, tout ce qui fait le goût d'ici se retrouve sur nos tables.</p>
+        <p>Et pour accompagner, une jolie sélection de vins de nos caves, de Sion à Vétroz. Un Fendant bien frais sur la terrasse, une Amigne sur la brisolée. Le Valais dans le verre autant que dans l'assiette.</p>
+        <div class="chips">
+          <span>Fendant</span><span>Johannisberg</span><span>Amigne de Vétroz</span><span>Humagne</span><span>Gamay</span><span>Pinot Noir</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====== TERRASSE ====== -->
-  <section class="terrasse">
-    <div class="container">
-      <div class="section-header centered fade-up">
-        <p class="eyebrow">Aux beaux jours</p>
-        <h2 class="section-title">La terrasse, <em>notre plus belle salle</em></h2>
-        <p class="section-subtitle">
-          Dès les premiers rayons, on installe les tables dehors. Fleurie, ensoleillée et tranquille, la terrasse de l'Oasis est faite pour prendre son temps.
-        </p>
+  <!-- TERRASSE -->
+  <section class="sect wrap" id="terrasse">
+    <div class="sect-head">
+      <div class="txt">
+        <span class="num rv">05</span>
+        <span class="kicker rv" data-d="1" style="display:block;margin-top:0.8rem;">Aux beaux jours</span>
+        <h2 class="h-lg rv" data-d="1">La terrasse, <span class="ital">notre plus belle salle</span></h2>
       </div>
-
-      <div class="terrasse-banner fade-up">
-        <img loading="lazy" alt="Terrasse fleurie et ensoleillée du café-restaurant L'Oasis à Sion" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1600&q=80&auto=format&fit=crop" />
-        <div class="terrasse-caption">
-          <h3>Un apéro <em>au soleil</em></h3>
-          <p>Un Fendant bien frais, une assiette valaisanne à partager, le soleil de Sion et le parking juste devant. Le rendez-vous d'après-midi.</p>
-        </div>
+    </div>
+    <div class="terrasse-band rv">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1600&q=80&auto=format&fit=crop" alt="Terrasse ensoleillée du café-restaurant L'Oasis à Sion" />
+      <div class="terrasse-cap">
+        <h3>Un apéro <em>au soleil</em></h3>
+        <p>Un Fendant bien frais, une assiette à partager, le soleil de Sion et le parking juste devant. Le rendez-vous d'après-midi.</p>
       </div>
     </div>
   </section>
 
-  <!-- ====== AVIS ====== -->
+  <!-- GALERIE -->
+  <section class="sect wrap" id="galerie">
+    <div class="sect-head">
+      <div class="txt">
+        <span class="num rv">06</span>
+        <span class="kicker rv" data-d="1" style="display:block;margin-top:0.8rem;">En images</span>
+        <h2 class="h-lg rv" data-d="1">Un avant-goût <span class="ital">de l'Oasis</span></h2>
+      </div>
+    </div>
+    <div class="collage rv">
+      <figure class="g1"><img loading="lazy" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80&auto=format&fit=crop" alt="Terrasse ensoleillée avec guirlandes" /></figure>
+      <figure class="g2"><img loading="lazy" src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&q=80&auto=format&fit=crop" alt="Assiette de grillade et frites maison" /></figure>
+      <figure class="g3"><img loading="lazy" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700&q=80&auto=format&fit=crop" alt="Salade fraîche et colorée" /></figure>
+      <figure class="g4"><img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80&auto=format&fit=crop" alt="Tasse de café du matin" /></figure>
+      <figure class="g3"><img loading="lazy" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700&q=80&auto=format&fit=crop" alt="Pizza au feu de bois" /></figure>
+      <figure class="g2"><img loading="lazy" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1000&q=80&auto=format&fit=crop" alt="Verre de vin blanc du Valais en terrasse" /></figure>
+    </div>
+  </section>
+
+  <!-- AVIS -->
   <section class="avis" id="avis">
-    <div class="container">
-      <div class="section-header centered fade-up">
-        <p class="eyebrow">Ils en parlent</p>
-        <h2 class="section-title">Ce qu'on <em>dit de nous</em></h2>
-        <p class="section-subtitle">
-          Merci à nos clients pour leurs mots. Voici quelques retours partagés en ligne au fil des saisons.
-        </p>
-      </div>
-
-      <div class="avis-marquee fade-up" aria-label="Avis de nos clients, défilement continu">
-        <div class="avis-track">
-
-          <article class="avis-card">
-            <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-            <p class="avis-text">Portions généreuses et prix corrects. On a mangé une assiette valaisanne excellente et le service était rapide et souriant. On reviendra.</p>
-            <div class="avis-meta"><strong>Sébastien M.</strong><span>Sion · Avis Google</span></div>
-          </article>
-
-          <article class="avis-card">
-            <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-            <p class="avis-text">Belle terrasse au calme pour manger le midi. La salade Oasis est complète et fraîche, parfaite quand il fait chaud. Accueil très sympathique.</p>
-            <div class="avis-meta"><strong>Nathalie R.</strong><span>Habituée · Avis local.ch</span></div>
-          </article>
-
-          <article class="avis-card">
-            <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-            <p class="avis-text">Une carte immense, il y en a pour tous les goûts. Les enfants ont pris des crêpes, nous une grillade. Tout le monde est reparti content.</p>
-            <div class="avis-meta"><strong>Famille B.</strong><span>Sion · Avis Google</span></div>
-          </article>
-
-          <article class="avis-card">
-            <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-            <p class="avis-text">Le petit café du matin est devenu un rituel. Bon accueil, ambiance de quartier et parking facile juste devant. Vraiment pratique.</p>
-            <div class="avis-meta"><strong>Marc D.</strong><span>Sion · Avis Google</span></div>
-          </article>
-
-          <article class="avis-card">
-            <div class="avis-stars" aria-label="5 étoiles sur 5">★★★★★</div>
-            <p class="avis-text">Brisolée d'automne au top, avec de vrais fromages du Valais. Un bon rapport qualité prix et une ambiance conviviale. À recommander.</p>
-            <div class="avis-meta"><strong>Céline V.</strong><span>Valais · Avis local.ch</span></div>
-          </article>
-
-          <!-- Duplicats pour boucle continue -->
-          <article class="avis-card" aria-hidden="true">
-            <div class="avis-stars">★★★★★</div>
-            <p class="avis-text">Portions généreuses et prix corrects. On a mangé une assiette valaisanne excellente et le service était rapide et souriant. On reviendra.</p>
-            <div class="avis-meta"><strong>Sébastien M.</strong><span>Sion · Avis Google</span></div>
-          </article>
-          <article class="avis-card" aria-hidden="true">
-            <div class="avis-stars">★★★★★</div>
-            <p class="avis-text">Belle terrasse au calme pour manger le midi. La salade Oasis est complète et fraîche, parfaite quand il fait chaud. Accueil très sympathique.</p>
-            <div class="avis-meta"><strong>Nathalie R.</strong><span>Habituée · Avis local.ch</span></div>
-          </article>
-          <article class="avis-card" aria-hidden="true">
-            <div class="avis-stars">★★★★★</div>
-            <p class="avis-text">Une carte immense, il y en a pour tous les goûts. Les enfants ont pris des crêpes, nous une grillade. Tout le monde est reparti content.</p>
-            <div class="avis-meta"><strong>Famille B.</strong><span>Sion · Avis Google</span></div>
-          </article>
-          <article class="avis-card" aria-hidden="true">
-            <div class="avis-stars">★★★★★</div>
-            <p class="avis-text">Le petit café du matin est devenu un rituel. Bon accueil, ambiance de quartier et parking facile juste devant. Vraiment pratique.</p>
-            <div class="avis-meta"><strong>Marc D.</strong><span>Sion · Avis Google</span></div>
-          </article>
-          <article class="avis-card" aria-hidden="true">
-            <div class="avis-stars">★★★★★</div>
-            <p class="avis-text">Brisolée d'automne au top, avec de vrais fromages du Valais. Un bon rapport qualité prix et une ambiance conviviale. À recommander.</p>
-            <div class="avis-meta"><strong>Céline V.</strong><span>Valais · Avis local.ch</span></div>
-          </article>
-
+    <div class="sect wrap">
+      <div class="sect-head">
+        <div class="txt">
+          <span class="kicker rv">Ils en parlent</span>
+          <h2 class="h-lg rv" data-d="1">Ce qu'on <span class="ital">dit de nous</span></h2>
         </div>
       </div>
-
-      <p class="avis-source fade-up">
-        Retrouvez tous nos avis sur
-        <a href="https://www.google.com/maps/search/L'Oasis+Café+Restaurant+Sion" target="_blank" rel="noopener">Google Maps</a>
-        et
+      <div class="notes rv">
+        <div class="note"><div class="st">★★★★★</div><p>Portions généreuses et prix corrects. Assiette valaisanne excellente, service rapide et souriant. On reviendra.</p><div class="who">Sébastien M.<span>Sion · Avis Google</span></div></div>
+        <div class="note"><div class="st">★★★★★</div><p>Belle terrasse au calme pour manger le midi. La salade Oasis est complète et fraîche. Accueil très sympathique.</p><div class="who">Nathalie R.<span>Habituée · local.ch</span></div></div>
+        <div class="note"><div class="st">★★★★★</div><p>Une carte immense, il y en a pour tous les goûts. Les enfants ont pris des crêpes, nous une grillade. Tout le monde content.</p><div class="who">Famille B.<span>Sion · Avis Google</span></div></div>
+        <div class="note"><div class="st">★★★★★</div><p>Le petit café du matin est devenu un rituel. Ambiance de quartier et parking facile juste devant.</p><div class="who">Marc D.<span>Sion · Avis Google</span></div></div>
+        <div class="note"><div class="st">★★★★★</div><p>Brisolée d'automne au top, avec de vrais fromages du Valais. Bon rapport qualité prix et ambiance conviviale.</p><div class="who">Céline V.<span>Valais · local.ch</span></div></div>
+      </div>
+      <p class="avis-src rv">Retrouvez tous nos avis sur
+        <a href="https://www.google.com/maps/search/L'Oasis+Café+Restaurant+Sion" target="_blank" rel="noopener">Google Maps</a> et
         <a href="https://www.local.ch/fr/d/Sion/1950/Cafe-Restaurant/Oasis-Ps7mh-2B13kh9bPxFEFDZQ" target="_blank" rel="noopener">local.ch</a>
       </p>
     </div>
   </section>
 
-  <!-- ====== RÉSERVATION ====== -->
-  <section class="reservation" id="reservation">
-    <div class="container">
-      <div class="reservation-grid">
+  <!-- RESERVATION -->
+  <section class="sect wrap" id="reservation">
+    <div class="resa-grid">
+      <div class="resa-info rv">
+        <span class="num">07</span>
+        <span class="kicker" style="display:block;margin-top:0.8rem;">Votre table</span>
+        <h2 class="h-lg" style="margin:0.9rem 0 0;">Réserver <span class="ital">à l'Oasis</span></h2>
+        <p>Un repas de famille, un anniversaire, un déjeuner d'équipe ou simplement une table au soleil. Appelez-nous ou remplissez le formulaire, nous confirmons avec plaisir.</p>
+        <a href="tel:+41273224796" class="phone-big">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span><small>Réservation directe</small><b>027 322 47 96</b></span>
+        </a>
+        <div class="hrs">
+          <div><span>Lundi au vendredi</span><span>07h00 · 23h00</span></div>
+          <div><span>Samedi</span><span>07h00 · 12h00</span></div>
+          <div><span>Dimanche</span><span class="cl">Fermé</span></div>
+        </div>
+      </div>
 
-        <div class="reservation-info fade-up">
-          <p class="eyebrow">Votre table</p>
-          <h2 class="section-title">Réserver <em>à l'Oasis</em></h2>
-          <p>
-            Un repas de famille, un anniversaire, un déjeuner d'équipe ou simplement une table sur la terrasse. Appelez-nous ou remplissez le formulaire, nous vous confirmons votre réservation avec plaisir.
-          </p>
-
-          <a href="tel:+41273224796" class="phone-card">
-            <span class="phone-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </span>
-            <span>
-              <span>Réservation par téléphone</span>
-              <strong>027 322 47 96</strong>
-            </span>
-          </a>
-
-          <div class="reservation-hours">
-            <div><span>Lundi au vendredi</span><span>07h00 · 23h00</span></div>
-            <div><span>Samedi</span><span>07h00 · 12h00</span></div>
-            <div><span>Dimanche</span><span class="ferme">Fermé</span></div>
+      <div class="resa-form rv" data-d="1">
+        <h3>Demande de réservation</h3>
+        <p>Nous revenons vers vous rapidement pour confirmer.</p>
+        <form action="PLACEHOLDER_ENDPOINT" method="POST">
+          <div class="frow">
+            <div class="fld"><label for="nom">Nom</label><input type="text" id="nom" name="nom" autocomplete="name" required /></div>
+            <div class="fld"><label for="tel">Téléphone</label><input type="tel" id="tel" name="telephone" autocomplete="tel" required /></div>
           </div>
-        </div>
-
-        <div class="form-card fade-up" data-delay="1">
-          <h3>Demande de réservation</h3>
-          <p>Nous revenons vers vous rapidement pour confirmer.</p>
-          <form action="PLACEHOLDER_ENDPOINT" method="POST">
-            <div class="form-row">
-              <div class="form-field">
-                <label for="nom">Nom</label>
-                <input type="text" id="nom" name="nom" autocomplete="name" required />
-              </div>
-              <div class="form-field">
-                <label for="tel">Téléphone</label>
-                <input type="tel" id="tel" name="telephone" autocomplete="tel" required />
-              </div>
-            </div>
-            <div class="form-field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" required />
-            </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="date">Date</label>
-                <input type="date" id="date" name="date" required />
-              </div>
-              <div class="form-field">
-                <label for="heure">Heure</label>
-                <input type="time" id="heure" name="heure" required />
-              </div>
-            </div>
-            <div class="form-field">
-              <label for="couverts">Nombre de personnes</label>
-              <input type="number" id="couverts" name="couverts" min="1" max="30" value="2" required />
-            </div>
-            <div class="form-field">
-              <label for="message">Message (facultatif)</label>
-              <textarea id="message" name="message" placeholder="Terrasse, allergies, occasion particulière..."></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary form-submit">Envoyer ma demande</button>
-            <p class="form-note">En cas de demande urgente ou pour un groupe, un appel reste le plus simple.</p>
-          </form>
-        </div>
-
+          <div class="fld"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required /></div>
+          <div class="frow">
+            <div class="fld"><label for="date">Date</label><input type="date" id="date" name="date" required /></div>
+            <div class="fld"><label for="heure">Heure</label><input type="time" id="heure" name="heure" required /></div>
+          </div>
+          <div class="fld"><label for="couverts">Nombre de personnes</label><input type="number" id="couverts" name="couverts" min="1" max="30" value="2" required /></div>
+          <div class="fld"><label for="message">Message (facultatif)</label><textarea id="message" name="message" placeholder="Terrasse, allergies, occasion..."></textarea></div>
+          <button type="submit" class="btn btn-fill">Envoyer ma demande
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="fnote">Pour un groupe ou une demande urgente, un appel reste le plus simple.</p>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- ====== INFOS ====== -->
-  <section class="infos" id="infos">
-    <div class="container">
-      <div class="section-header centered fade-up">
-        <p class="eyebrow">Infos pratiques</p>
-        <h2 class="section-title">Nous <em>trouver</em></h2>
+  <!-- INFOS -->
+  <section class="sect wrap" id="infos" style="padding-top:0;">
+    <div class="infos-grid">
+      <div class="info rv">
+        <h4>Adresse</h4>
+        <p><strong>L'Oasis Café-Restaurant</strong><br />Avenue de France 72<br />1950 Sion, Valais</p>
+        <p style="margin-top:0.7rem;"><a href="https://www.google.com/maps/search/Avenue+de+France+72+1950+Sion" target="_blank" rel="noopener">Itinéraire Google Maps</a></p>
       </div>
-
-      <div class="infos-grid">
-        <div class="info-card fade-up">
-          <div class="info-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-          </div>
-          <h4>Adresse</h4>
-          <p>
-            <strong>L'Oasis Café-Restaurant</strong><br />
-            Avenue de France 72<br />
-            1950 Sion, Valais
-          </p>
-        </div>
-
-        <div class="info-card fade-up" data-delay="1">
-          <div class="info-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
-          </div>
-          <h4>Horaires</h4>
-          <div class="horaires-list">
-            <div><span>Lundi</span><span>07h00 · 23h00</span></div>
-            <div><span>Mardi</span><span>07h00 · 23h00</span></div>
-            <div><span>Mercredi</span><span>07h00 · 23h00</span></div>
-            <div><span>Jeudi</span><span>07h00 · 23h00</span></div>
-            <div><span>Vendredi</span><span>07h00 · 23h00</span></div>
-            <div><span>Samedi</span><span>07h00 · 12h00</span></div>
-            <div><span>Dimanche</span><span class="ferme">Fermé</span></div>
-          </div>
-        </div>
-
-        <div class="info-card fade-up" data-delay="2">
-          <div class="info-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/>
-            </svg>
-          </div>
-          <h4>Contact</h4>
-          <p>
-            <a href="tel:+41273224796"><strong>027 322 47 96</strong></a><br />
-            <span style="color:var(--text-muted); font-size:0.85rem;">Réservation, renseignements, à l'emporter</span>
-          </p>
-        </div>
-
-        <div class="info-card fade-up" data-delay="3">
-          <div class="info-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-              <polyline points="9 22 9 12 15 12 15 22"/>
-            </svg>
-          </div>
-          <h4>Accès</h4>
-          <p>
-            Parking gratuit devant l'établissement<br />
-            Proche du centre sportif de l'Ancien Stand<br />
-            <a href="https://www.google.com/maps/search/Avenue+de+France+72+1950+Sion" target="_blank" rel="noopener" style="color:var(--sun);">Itinéraire Google Maps</a>
-          </p>
-        </div>
+      <div class="info rv" data-d="1">
+        <h4>Horaires</h4>
+        <div class="row"><span>Lundi au vendredi</span><span>07h00 · 23h00</span></div>
+        <div class="row"><span>Samedi</span><span>07h00 · 12h00</span></div>
+        <div class="row"><span>Dimanche</span><span class="cl">Fermé</span></div>
+      </div>
+      <div class="info rv" data-d="2">
+        <h4>Contact</h4>
+        <p><a href="tel:+41273224796"><strong>027 322 47 96</strong></a><br /><span style="font-size:0.85rem;">Réservation, renseignements, à l'emporter</span></p>
+        <p style="margin-top:0.7rem;">Parking gratuit devant l'établissement, proche de l'Ancien Stand.</p>
       </div>
     </div>
   </section>
 
-  <!-- ====== FOOTER ====== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          L'Oasis
-          <span>Café · Restaurant · Sion</span>
-        </div>
-        <div class="footer-meta">
-          &copy; <span id="year">2026</span> L'Oasis Café-Restaurant · Tous droits réservés<br />
-          Site créé avec soin par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a>
-        </div>
-      </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot-in">
+      <div class="foot-brand">L'Oasis<span>Café · Restaurant · Sion</span></div>
+      <div class="foot-meta">&copy; <span id="year">2026</span> L'Oasis Café-Restaurant · Tous droits réservés<br />Site créé avec soin par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a></div>
     </div>
   </footer>
 
   <script>
     // Header scroll state
-    const header = document.getElementById('siteHeader');
-    const onScroll = () => {
-      if (window.scrollY > 30) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    const bar = document.getElementById('top-bar');
+    const onScroll = () => bar.classList.toggle('stuck', window.scrollY > 20);
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-    // Mobile nav toggle
-    const navToggle = document.getElementById('navToggle');
-    const navMain = document.getElementById('navMain');
-    navToggle.addEventListener('click', () => {
-      const open = navMain.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    // Mobile nav
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    burger.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    navMain.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        navMain.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false');
+    }));
 
-    // Fade-up on scroll
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+    // Reveal
+    const io = new IntersectionObserver((es) => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-    // Year stamp
+    // Scrollspy dots
+    const rail = document.querySelectorAll('#rail a');
+    const spy = new IntersectionObserver((es) => es.forEach(e => {
+      if (e.isIntersecting) {
+        rail.forEach(d => d.classList.toggle('on', d.dataset.s === e.target.id));
+      }
+    }), { threshold: 0.5 });
+    ['hero','maison','incontournables','menu','valais','terrasse','galerie','reservation']
+      .forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Menu tabs
-    const menuTabs = document.querySelectorAll('.menu-tab');
-    const menuPanels = document.querySelectorAll('.menu-panel');
-    menuTabs.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.dataset.tab;
-        menuTabs.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
-        menuPanels.forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-        const panel = document.getElementById(target);
-        if (panel) panel.classList.add('active');
-      });
-    });
-
-    // Empêche l'envoi du formulaire tant que l'endpoint Formspree n'est pas configuré (démo)
-    const resaForm = document.querySelector('.reservation form');
-    if (resaForm && resaForm.getAttribute('action') === 'PLACEHOLDER_ENDPOINT') {
-      resaForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Merci ! Ceci est une démonstration. Le formulaire sera connecté lors de la mise en ligne. Pour réserver dès maintenant, appelez le 027 322 47 96.');
-      });
+    // Demo form guard
+    const f = document.querySelector('#reservation form');
+    if (f && f.getAttribute('action') === 'PLACEHOLDER_ENDPOINT') {
+      f.addEventListener('submit', (e) => { e.preventDefault();
+        alert('Merci ! Ceci est une démonstration. Le formulaire sera connecté à la mise en ligne. Pour réserver dès maintenant, appelez le 027 322 47 96.'); });
     }
   </script>
 </body>
