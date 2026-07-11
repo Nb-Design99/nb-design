@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>La Machine · Bar lounge & afterwork · Sierre</title>
+<meta name="description" content="Bar La Machine à Sierre, au bord des Petits Lacs : bar lounge et restaurant à l'ambiance branchée. Cocktails, afterwork, grande terrasse et soirées musicales. Le spot de Sierre." />
+<meta name="theme-color" content="#16131a" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="La Machine · Bar lounge & afterwork · Sierre" />
+<meta property="og:description" content="Cocktails, afterwork et grande terrasse au bord des lacs de Sierre. Bar lounge, soirées musicales et bonne ambiance." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"BarOrPub","name":"Bar La Machine",
+  "address":{"@type":"PostalAddress","streetAddress":"Route des Lacs 32","addressLocality":"Sierre","postalCode":"3960","addressCountry":"CH"},
+  "telephone":"+41274567777","servesCuisine":"Bar lounge, cocktails, petite restauration","priceRange":"CHF 10-30",
+  "url":"https://nb-design.ch/Restaurant/BarLaMachineSierre/"
+}
+</script>
+<style>
+:root{
+  --ink:#16131a;--ink2:#1f1a28;--ink3:#100d15;
+  --cream:#f2eef4;--muted:#9b93a8;
+  --mag:#e0499a;--mag-d:#c53c85;--cyan:#38c6c6;--gold:#e6b45a;--line:rgba(224,73,154,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--cream);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Syne',sans-serif;font-weight:800;line-height:1.02;letter-spacing:-.01em}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;font-weight:600;color:var(--cyan)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+header.scrolled{background:rgba(16,13,21,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{font-family:'Syne';font-weight:800;font-size:1.4rem;letter-spacing:-.01em}
+.brand span{color:var(--mag)}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font-size:.84rem;font-weight:500;opacity:.9}
+.menu a:hover{color:var(--mag)}
+.btn{display:inline-block;font-weight:700;font-size:.84rem;padding:12px 26px;border-radius:40px;transition:.25s}
+.btn-fill{background:var(--mag);color:#fff}
+.btn-fill:hover{background:var(--mag-d)}
+.btn-out{border:1.5px solid var(--cyan);color:var(--cyan)}
+.btn-out:hover{background:var(--cyan);color:var(--ink3)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:2px;background:var(--cream)}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:110px 0 60px;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-15%;left:-10%;width:60vw;height:60vw;max-width:700px;max-height:700px;background:radial-gradient(circle,rgba(224,73,154,.22),transparent 68%);z-index:0}
+.hero::after{content:"";position:absolute;bottom:-15%;right:-8%;width:50vw;height:50vw;max-width:600px;max-height:600px;background:radial-gradient(circle,rgba(56,198,198,.16),transparent 68%);z-index:0}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.4) saturate(1.15)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,var(--ink3) 6%,rgba(16,13,21,.68) 60%,rgba(16,13,21,.4))}
+.hero-inner{max-width:680px;position:relative;z-index:1}
+.hero h1{font-size:clamp(3rem,9vw,6.4rem)}
+.hero h1 span{color:var(--mag)}
+.hero .lead{font-size:1.14rem;color:#ddd5e6;max-width:500px;margin:20px 0 30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+section{padding:104px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.vibe{background:var(--ink2)}
+.vibe-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.vibe h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:12px 0 18px}
+.vibe h2 span{color:var(--cyan)}
+.vibe p{color:#cec6d9;margin-bottom:15px}
+.vibe-img img{border-radius:14px;height:480px;width:100%;object-fit:cover}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.tags span{font-size:.78rem;border:1px solid var(--line);border-radius:30px;padding:7px 14px;color:var(--muted)}
+
+.terr{position:relative}
+.terr-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.terr-img img{border-radius:14px;height:440px;width:100%;object-fit:cover}
+.terr h2{font-size:clamp(2rem,4.6vw,3.2rem);margin:12px 0 18px}
+.terr h2 span{color:var(--mag)}
+.terr p{color:#cec6d9;margin-bottom:15px}
+
+.bites{background:var(--ink3);text-align:center}
+.bites .head{max-width:600px;margin:0 auto 50px}
+.bites h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-top:10px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:14px;padding:32px 26px;transition:.35s}
+.card:hover{transform:translateY(-7px);border-color:var(--mag)}
+.card .ico{font-size:1.9rem}
+.card h3{font-size:1.4rem;margin:12px 0 8px}
+.card p{color:var(--muted);font-size:.92rem}
+
+.contact{background:var(--ink2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2.2rem,4.6vw,3.2rem);margin-bottom:22px}
+.info{list-style:none;display:grid;gap:16px;margin-bottom:22px}
+.info li{display:flex;gap:16px}
+.info .k{text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:600;color:var(--cyan);min-width:88px;padding-top:3px}
+.info .v{color:#cec6d9}
+.info a.v:hover{color:var(--mag)}
+.pills{display:flex;gap:10px;flex-wrap:wrap}
+.pill{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:30px;padding:8px 15px;color:var(--muted)}
+.map{border-radius:14px;overflow:hidden;border:1px solid var(--line);height:340px}
+.map iframe{width:100%;height:100%;border:0;filter:invert(.06)}
+
+footer{background:var(--ink3);padding:44px 0 30px;border-top:1px solid var(--line);text-align:center}
+.foot-brand{font-family:'Syne';font-weight:800;font-size:1.4rem}
+.foot-brand span{color:var(--mag)}
+.credit{color:var(--muted);font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--ink3);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;border-left:1px solid var(--line)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .vibe-grid,.terr-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .vibe-grid .vibe-img,.terr-grid .terr-img{order:-1}
+  .cards{grid-template-columns:1fr}
+}
+@media(max-width:520px){section{padding:76px 0}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand">La <span>Machine</span></a>
+    <nav class="menu" id="menu">
+      <a href="#vibe">Le lounge</a>
+      <a href="#terrasse">La terrasse</a>
+      <a href="#carte">La carte</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+41274567777" class="btn btn-fill">Réserver</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1600&q=80" alt="Ambiance de bar lounge" />
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Bar lounge &amp; afterwork · Sierre</p>
+    <h1>Le spot,<br>au bord de <span>l'eau</span></h1>
+    <p class="lead">Au bord des Petits Lacs de Sierre, La Machine, c'est le lounge où l'on prend un café le jour, un cocktail le soir, et où l'afterwork se prolonge en belles soirées.</p>
+    <div class="hero-cta">
+      <a href="tel:+41274567777" class="btn btn-fill">Réserver</a>
+      <a href="#terrasse" class="btn btn-out">La terrasse</a>
+    </div>
+  </div>
+</section>
+
+<section class="vibe" id="vibe">
+  <div class="wrap vibe-grid">
+    <div class="reveal">
+      <p class="eyebrow">L'ambiance</p>
+      <h2>Un lounge <span>qui a du style</span></h2>
+      <p>Déco soignée, ambiance conviviale et cette énergie qui fait qu'on s'y sent bien dès qu'on pousse la porte. La Machine, c'est le rendez-vous branché de Sierre.</p>
+      <p>Pause café, apéro entre collègues, afterwork ou soirée entre amis : à toute heure, le lieu s'adapte à votre envie.</p>
+      <div class="tags"><span>Cocktails</span><span>Afterwork</span><span>Soirées musicales</span><span>Produits locaux</span></div>
+    </div>
+    <div class="vibe-img reveal">
+      <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=900&q=80" alt="Cocktails au lounge" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section class="terr" id="terrasse">
+  <div class="wrap terr-grid">
+    <div class="terr-img reveal">
+      <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=900&q=80" alt="Terrasse au bord de l'eau" loading="lazy" />
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Aux beaux jours</p>
+      <h2>La grande terrasse <span>face aux lacs</span></h2>
+      <p>C'est notre atout charme : une grande terrasse à deux pas des Petits Lacs, parfaite pour un verre au soleil ou un apéro qui s'éternise en fin de journée.</p>
+      <p>Espace fumeurs, cadre agréable et l'eau juste à côté : le décor idéal pour souffler et se retrouver.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bites" id="carte">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">À grignoter</p>
+      <h2>Boire &amp; picorer</h2>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="ico">🍸</div><h3>Cocktails &amp; boissons</h3><p>Cocktails, verres de la région et softs bien frais. La carte qui fait la soirée.</p></div>
+      <div class="card reveal"><div class="ico">🥗</div><h3>Salades &amp; pizzettas</h3><p>Salades fraîches, sandwiches et pizzettas : de quoi accompagner l'apéro sans se prendre la tête.</p></div>
+      <div class="card reveal"><div class="ico">🎶</div><h3>Soirées musicales</h3><p>Régulièrement, la maison s'anime avec des soirées à thème en musique. Ambiance garantie.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Au bord des lacs</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Route des Lacs 32<br>3960 Sierre</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41274567777">027 456 77 77</a></li>
+        <li><span class="k">Suivez-nous</span><span class="v">Instagram @barlamachine · les prochaines soirées</span></li>
+      </ul>
+      <div class="pills"><span class="pill">Lounge</span><span class="pill">Cocktails</span><span class="pill">Terrasse</span><span class="pill">Afterwork</span></div>
+      <div style="margin-top:22px"><a href="tel:+41274567777" class="btn btn-fill">Réserver une table</a></div>
+    </div>
+    <div class="map reveal">
+      <iframe loading="lazy" title="Carte Bar La Machine Sierre" src="https://www.google.com/maps?q=Route%20des%20Lacs%2032%2C%203960%20Sierre&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">La <span>Machine</span> · Sierre</div>
+    <p style="color:var(--muted);font-size:.82rem;margin-top:8px">Route des Lacs 32 · 3960 Sierre · 027 456 77 77</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
