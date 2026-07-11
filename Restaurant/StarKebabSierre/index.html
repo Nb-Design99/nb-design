@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Star Kebab · Le meilleur kebab de Sierre</title>
+<meta name="description" content="Star Kebab à Sierre : élu parmi les meilleurs kebabs de Suisse romande. Dürüm agneau, frites maison, assiette kebab et falafels. Sur place, à l'emporter et en livraison." />
+<meta name="theme-color" content="#111b30" />
+<meta property="og:type" content="restaurant.restaurant" />
+<meta property="og:title" content="Star Kebab · Le meilleur kebab de Sierre" />
+<meta property="og:description" content="Dürüm agneau, frites maison et falafels : le kebab star de Sierre, 4.6/5. Sur place, à l'emporter, livré." />
+<meta property="og:locale" content="fr_CH" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Restaurant","name":"Star Kebab",
+  "address":{"@type":"PostalAddress","streetAddress":"Avenue Général-Guisan 40","addressLocality":"Sierre","postalCode":"3960","addressCountry":"CH"},
+  "telephone":"+41274550325","servesCuisine":"Kebab, turque, fast-food","priceRange":"CHF 10-25",
+  "url":"https://nb-design.ch/Restaurant/StarKebabSierre/",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:30","closes":"22:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday"],"opens":"10:00","closes":"20:30"}
+  ]
+}
+</script>
+<style>
+:root{
+  --navy:#111b30;--navy2:#182541;--navy3:#0c1425;
+  --gold:#f2c14e;--gold-d:#d9a72f;--red:#e0392b;--red-d:#c22b1f;
+  --cream:#f6f1e6;--muted:#93a0bb;--line:rgba(242,193,78,.2);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--navy);color:var(--cream);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:'Bebas Neue',sans-serif;font-weight:400;line-height:.98;letter-spacing:.02em}
+.wrap{width:min(1120px,92vw);margin-inline:auto}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.eyebrow{text-transform:uppercase;letter-spacing:.24em;font-size:.72rem;font-weight:700;color:var(--gold);font-family:'Inter'}
+
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+header.scrolled{background:rgba(12,20,37,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{font-family:'Bebas Neue';font-size:1.9rem;letter-spacing:.06em;display:flex;align-items:center;gap:8px}
+.brand .st{color:var(--gold)}
+.menu{display:flex;gap:28px;align-items:center}
+.menu a{font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;opacity:.9}
+.menu a:hover{color:var(--gold)}
+.btn{display:inline-block;font-family:'Bebas Neue';letter-spacing:.06em;font-size:1.05rem;padding:11px 28px;border-radius:6px;transition:.22s}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-d)}
+.btn-gold{border:2px solid var(--gold);color:var(--gold)}
+.btn-gold:hover{background:var(--gold);color:var(--navy3)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.burger span{width:26px;height:3px;background:var(--gold);border-radius:2px}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:110px 0 60px;overflow:hidden}
+.hero::before{content:"★";position:absolute;top:-4%;right:2%;font-size:22rem;color:rgba(242,193,78,.05);font-family:'Bebas Neue'}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.34) saturate(1.1)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,var(--navy3) 8%,rgba(12,20,37,.7) 60%,rgba(12,20,37,.4))}
+.hero-inner{max-width:680px;position:relative}
+.stars{color:var(--gold);letter-spacing:.15em;font-size:1.1rem;margin-bottom:12px}
+.hero h1{font-size:clamp(3.4rem,11vw,8rem);color:var(--cream)}
+.hero h1 span{color:var(--gold)}
+.hero .lead{font-size:1.12rem;color:#d6dcea;max-width:480px;margin:14px 0 30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+.stats{background:var(--gold);color:var(--navy3)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:30px 0;text-align:center}
+.stat b{font-family:'Bebas Neue';font-size:2.4rem;display:block;line-height:1}
+.stat small{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+
+section{padding:104px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+.menu-sec h2{font-size:clamp(2.6rem,6vw,4rem);text-align:center;margin-bottom:6px}
+.menu-sec h2 span{color:var(--gold)}
+.menu-sec .sub{text-align:center;color:var(--muted);margin-bottom:52px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.item{background:var(--navy2);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:.35s}
+.item:hover{transform:translateY(-7px);border-color:var(--gold)}
+.item img{height:170px;width:100%;object-fit:cover}
+.item .b{padding:20px}
+.item h3{font-family:'Bebas Neue';font-size:1.5rem;letter-spacing:.03em;color:var(--cream)}
+.item p{color:var(--muted);font-size:.9rem;margin-top:4px}
+
+.claim{background:var(--navy2);text-align:center}
+.claim .banner{font-family:'Bebas Neue';font-size:clamp(2rem,5vw,3.4rem);letter-spacing:.03em;max-width:840px;margin:0 auto;line-height:1.1}
+.claim .banner span{color:var(--gold)}
+
+.contact{background:var(--navy3)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact h2{font-size:clamp(2.4rem,5vw,3.4rem);margin-bottom:22px}
+.info{list-style:none;display:grid;gap:16px;margin-bottom:22px}
+.info li{display:flex;gap:16px}
+.info .k{font-family:'Inter';text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:700;color:var(--gold);min-width:88px;padding-top:3px}
+.info .v{color:#d6dcea}
+.info a.v:hover{color:var(--gold)}
+.pills{display:flex;gap:10px;flex-wrap:wrap}
+.pill{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:30px;padding:8px 15px;color:var(--muted)}
+.hours{background:var(--navy2);border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin-top:18px}
+.hrow{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.9rem;color:#d6dcea}
+.hrow b{color:var(--cream);font-weight:600}
+.hrow.off b{color:var(--red)}
+.map{border-radius:12px;overflow:hidden;border:1px solid var(--line);height:250px;margin-top:16px}
+.map iframe{width:100%;height:100%;border:0;filter:invert(.06)}
+
+footer{background:var(--navy3);padding:44px 0 30px;border-top:1px solid var(--line);text-align:center}
+.foot-brand{font-family:'Bebas Neue';font-size:2rem;letter-spacing:.06em}
+.foot-brand .st{color:var(--gold)}
+.credit{color:var(--muted);font-size:.74rem;margin-top:12px}
+
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--navy3);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.4s;border-left:1px solid var(--line)}
+  .menu.open{transform:none}.burger{display:flex;z-index:60}
+  .stats .wrap{grid-template-columns:1fr 1fr}
+  .grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr;gap:36px}
+}
+@media(max-width:520px){section{padding:76px 0}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="brand"><span class="st">★</span> STAR KEBAB</a>
+    <nav class="menu" id="menu">
+      <a href="#menu">Le menu</a>
+      <a href="#contact">Infos</a>
+      <a href="tel:+41274550325" class="btn btn-red">Commander</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1633321702518-7feccafb94d5?auto=format&fit=crop&w=1600&q=80" alt="Kebab et broche" />
+  </div>
+  <div class="wrap hero-inner">
+    <div class="stars">★★★★★</div>
+    <p class="eyebrow">Sierre · Avenue Général-Guisan 40</p>
+    <h1>La <span>star</span><br>du kebab</h1>
+    <p class="lead">Élu parmi les meilleurs kebabs de Suisse romande. Dürüm généreux, frites maison et falafels croustillants : ici, chaque assiette a le premier rôle.</p>
+    <div class="hero-cta">
+      <a href="tel:+41274550325" class="btn btn-red">Commander maintenant</a>
+      <a href="#menu" class="btn btn-gold">Voir le menu</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b>4.6★</b><small>Note Google</small></div>
+    <div class="stat"><b>575+</b><small>Avis clients</small></div>
+    <div class="stat"><b>N°1</b><small>Kebab de Romandie</small></div>
+    <div class="stat"><b>Maison</b><small>Frites &amp; sauces</small></div>
+  </div>
+</div>
+
+<section class="menu-sec" id="menu">
+  <div class="wrap">
+    <h2>Le <span>menu</span></h2>
+    <p class="sub">Généreux, frais, préparé minute</p>
+    <div class="grid">
+      <div class="item reveal"><img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=500&q=80" alt="Dürüm agneau" loading="lazy" /><div class="b"><h3>Dürüm agneau</h3><p>La galette roulée garnie d'agneau, la star de la carte.</p></div></div>
+      <div class="item reveal"><img src="https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&w=500&q=80" alt="Assiette kebab" loading="lazy" /><div class="b"><h3>Assiette kebab</h3><p>Viande, frites maison, salade et sauces. Le repas complet.</p></div></div>
+      <div class="item reveal"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80" alt="Dürüm et frites maison" loading="lazy" /><div class="b"><h3>Dürüm &amp; frites maison</h3><p>Nos frites faites maison, dorées et croustillantes.</p></div></div>
+      <div class="item reveal"><img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=500&q=80" alt="Falafels" loading="lazy" /><div class="b"><h3>Falafels</h3><p>Croustillants et parfumés, la version veggie qu'on adore.</p></div></div>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:.88rem;margin-top:34px">Kebab poulet, options végétariennes et bien plus · à découvrir sur place</p>
+  </div>
+</section>
+
+<section class="claim">
+  <div class="wrap">
+    <p class="banner reveal">« Le <span>meilleur kebab</span> de Suisse romande » — c'est ce que disent nos clients, et on fait tout pour le rester.</p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Nous trouver</p>
+      <h2>Au centre de Sierre</h2>
+      <ul class="info">
+        <li><span class="k">Adresse</span><span class="v">Avenue Général-Guisan 40<br>3960 Sierre</span></li>
+        <li><span class="k">Téléphone</span><a class="v" href="tel:+41274550325">027 455 03 25</a></li>
+      </ul>
+      <div class="pills"><span class="pill">Sur place</span><span class="pill">À l'emporter</span><span class="pill">Livraison</span><span class="pill">Veggie</span><span class="pill">Cartes acceptées</span></div>
+      <div style="margin-top:22px"><a href="tel:+41274550325" class="btn btn-red">Passer commande</a></div>
+    </div>
+    <div class="reveal">
+      <div class="hours">
+        <div class="hrow off"><span>Lundi</span><b>Fermé</b></div>
+        <div class="hrow"><span>Mardi – Samedi</span><b>09:30 – 22:00</b></div>
+        <div class="hrow"><span>Dimanche</span><b>10:00 – 20:30</b></div>
+      </div>
+      <div class="map">
+        <iframe loading="lazy" title="Carte Star Kebab Sierre" src="https://www.google.com/maps?q=Avenue%20G%C3%A9n%C3%A9ral-Guisan%2040%2C%203960%20Sierre&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand"><span class="st">★</span> STAR KEBAB · Sierre</div>
+    <p style="color:var(--muted);font-size:.82rem;margin-top:8px">Avenue Général-Guisan 40 · 3960 Sierre · 027 455 03 25</p>
+    <p class="credit">Aperçu de site conçu par NB-Design · maquette de présentation</p>
+  </div>
+</footer>
+
+<script>
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
