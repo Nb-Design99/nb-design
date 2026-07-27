@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Chez Bischoff, brasserie de quartier à Sion, route de Riddes. Fondue, choucroute royale, paella et petit-déjeuner dès 5h45. Une adresse conviviale du Valais. 027 203 44 40." />
+  <meta name="keywords" content="Chez Bischoff Sion, brasserie Sion, fondue Sion, choucroute Sion, petit-déjeuner Sion, café restaurant route de Riddes, restaurant Valais" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#4f191d" />
+
+  <meta property="og:type" content="restaurant.restaurant" />
+  <meta property="og:title" content="Chez Bischoff · Brasserie · Sion" />
+  <meta property="og:description" content="Une brasserie de quartier à Sion. Fondue, choucroute royale, paella et café du matin dès 5h45. Ouvert du lundi au vendredi." />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <title>Chez Bischoff · Brasserie à Sion · Fondue & Petit-déjeuner</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Chez Bischoff",
+    "description": "Brasserie de quartier conviviale à Sion, route de Riddes. Fondue, choucroute royale, paella, petit-déjeuner et plat du jour. Ouvert dès 5h45 du lundi au vendredi.",
+    "telephone": "+41272034440",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Route de Riddes 95",
+      "addressLocality": "Sion",
+      "postalCode": "1950",
+      "addressCountry": "CH"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 46.2189, "longitude": 7.3405 },
+    "servesCuisine": ["Suisse", "Brasserie", "Cuisine du terroir", "Fondue"],
+    "priceRange": "CHF 15 - CHF 35",
+    "acceptsReservations": "True",
+    "slogan": "La brasserie de quartier, du matin au soir",
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.5", "reviewCount": "305" },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "05:45", "closes": "20:00" }
+    ]
+  }
+  </script>
+
+  <!--
+    DEMO NB-Design pour prospection. Photos Unsplash placeholder.
+    Prix du menu = estimations plausibles a confirmer avec le restaurateur.
+    Formulaire non connecte (PLACEHOLDER_ENDPOINT).
+    Instagram non lie : @arlequin.bar.resto semble partage/incertain, a verifier.
+  -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    ::selection { background: var(--wine); color: var(--paper); }
+
+    :root {
+      --paper: #f4ece0;
+      --paper-2: #ece0cd;
+      --paper-3: #e2d2b8;
+      --ink: #26191a;
+      --ink-soft: #6a544a;
+      --ink-dim: #9a8778;
+      --wine: #4f191d;
+      --wine-deep: #3a1015;
+      --wine-soft: #6e2a2f;
+      --brass: #ac8437;
+      --brass-soft: #d3b674;
+      --line: rgba(38, 25, 26, 0.16);
+      --line-soft: rgba(38, 25, 26, 0.08);
+      --line-gold: rgba(172, 132, 55, 0.45);
+
+      --goth: 'UnifrakturCook', 'Cormorant Garamond', serif;
+      --display: 'Cormorant Garamond', Georgia, serif;
+      --body: 'Inter', system-ui, sans-serif;
+
+      --px: clamp(1.25rem, 5vw, 5rem);
+      --maxw: 1240px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    body {
+      font-family: var(--body);
+      font-weight: 400;
+      font-size: 1.02rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image: radial-gradient(circle at 1px 1px, rgba(38, 25, 26, 0.045) 1px, transparent 0);
+      background-size: 24px 24px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea, select { font: inherit; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding-left: var(--px); padding-right: var(--px); }
+    .sect { padding-top: clamp(4.5rem, 9vw, 8rem); padding-bottom: clamp(4.5rem, 9vw, 8rem); position: relative; }
+
+    /* ===== Type helpers ===== */
+    .kicker {
+      font-family: var(--body);
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--brass);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .kicker::before { content: ''; width: 26px; height: 1.5px; background: var(--brass); }
+    .kicker.center { justify-content: center; }
+    h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.05; letter-spacing: 0.002em; }
+    .goth { font-family: var(--goth); font-weight: 700; letter-spacing: 0.01em; }
+    .h-xl { font-size: clamp(2.6rem, 7vw, 5.2rem); }
+    .h-lg { font-size: clamp(2.1rem, 4.6vw, 3.6rem); }
+    .h-md { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+    .ital { font-style: italic; font-weight: 500; }
+    .num {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(2.6rem, 6vw, 4.6rem);
+      line-height: 0.8;
+      color: transparent;
+      -webkit-text-stroke: 1.2px var(--line-gold);
+    }
+    .lede { font-size: clamp(1.05rem, 1.5vw, 1.26rem); line-height: 1.6; color: var(--ink-soft); }
+
+    /* ===== ornament divider ===== */
+    .fleur { display: inline-flex; align-items: center; gap: 0.9rem; color: var(--brass); }
+    .fleur::before, .fleur::after { content: ''; width: clamp(40px, 10vw, 110px); height: 1px; background: linear-gradient(90deg, transparent, var(--brass)); }
+    .fleur::after { background: linear-gradient(90deg, var(--brass), transparent); }
+    .fleur svg { width: 22px; height: 22px; }
+
+    /* ===== Buttons ===== */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      padding: 0.9rem 1.7rem;
+      font-family: var(--body);
+      font-weight: 600; font-size: 0.86rem;
+      letter-spacing: 0.03em;
+      border: 1.5px solid var(--ink);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: transform 0.3s var(--ease), background 0.3s, color 0.3s, border-color 0.3s;
+      background: transparent; color: var(--ink);
+    }
+    .btn svg { width: 16px; height: 16px; }
+    .btn-fill { background: var(--wine); border-color: var(--wine); color: var(--paper); }
+    .btn-fill:hover { background: var(--wine-deep); border-color: var(--wine-deep); transform: translateY(-2px); }
+    .btn-gold { background: var(--brass); border-color: var(--brass); color: var(--wine-deep); }
+    .btn-gold:hover { transform: translateY(-2px); background: var(--brass-soft); border-color: var(--brass-soft); }
+    .btn-line:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+    .btn-ghost { border-color: rgba(244,236,224,0.5); color: var(--paper); }
+    .btn-ghost:hover { background: var(--paper); color: var(--wine-deep); border-color: var(--paper); transform: translateY(-2px); }
+
+    /* ===== HEADER ===== */
+    .top { position: fixed; top: 0; left: 0; right: 0; z-index: 50; transition: background 0.4s var(--ease), box-shadow 0.4s, padding 0.4s; padding: 1.15rem 0; }
+    .top.stuck { background: var(--wine); box-shadow: 0 1px 0 rgba(172,132,55,0.4); padding: 0.65rem 0; }
+    .top-in { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .brand { display: flex; align-items: center; gap: 0.75rem; color: var(--ink); transition: color 0.4s; }
+    .top.stuck .brand, .top.stuck .top-nav a { color: var(--paper); }
+    .brand .crest { width: 38px; height: 44px; flex-shrink: 0; }
+    .brand .crest .st { stroke: var(--wine); transition: stroke 0.4s; }
+    .top.stuck .brand .crest .st { stroke: var(--brass-soft); }
+    .brand-name { font-family: var(--goth); font-weight: 700; font-size: 1.5rem; line-height: 0.9; }
+    .brand-name small { display: block; font-family: var(--body); font-weight: 600; font-size: 0.54rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--brass); margin-top: 4px; }
+    .top-nav { display: flex; align-items: center; gap: 1.9rem; }
+    .top-nav a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-soft); transition: color 0.25s; position: relative; }
+    .top-nav a::after { content: ''; position: absolute; left: 0; bottom: -5px; width: 0; height: 1.5px; background: var(--brass); transition: width 0.3s var(--ease); }
+    .top-nav a:hover::after { width: 100%; }
+    .top-nav .btn { padding: 0.55rem 1.15rem; }
+    .top.stuck .top-nav .btn-gold { color: var(--wine-deep); }
+    .burger { display: none; width: 46px; height: 46px; border: 1.5px solid currentColor; border-radius: 2px; background: transparent; color: var(--ink); cursor: pointer; align-items: center; justify-content: center; }
+    .top.stuck .burger { color: var(--paper); }
+    .burger svg { width: 20px; height: 20px; }
+
+    @media (max-width: 940px) {
+      .top-nav { position: fixed; inset: 0 0 0 auto; width: min(82vw, 340px); flex-direction: column; align-items: flex-start; justify-content: center; gap: 1.5rem; background: var(--wine); padding: 2.5rem; transform: translateX(100%); transition: transform 0.45s var(--ease); box-shadow: -8px 0 40px rgba(0,0,0,0.3); }
+      .top-nav.open { transform: translateX(0); }
+      .top-nav a { font-family: var(--display); font-size: 1.7rem; color: var(--paper); }
+      .burger { display: inline-flex; z-index: 60; }
+    }
+
+    /* ===== HERO ===== */
+    .hero { position: relative; background: var(--wine); color: var(--paper); overflow: hidden; padding-top: clamp(8.5rem, 16vw, 12rem); padding-bottom: clamp(4.5rem, 9vw, 7rem); text-align: center; }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(1200px 500px at 50% -10%, rgba(172,132,55,0.18), transparent 70%),
+        linear-gradient(180deg, var(--wine-deep), var(--wine) 40%, var(--wine-deep));
+      z-index: 0;
+    }
+    .hero .frame { position: absolute; inset: clamp(0.9rem, 2.4vw, 1.8rem); border: 1px solid rgba(172,132,55,0.35); z-index: 1; pointer-events: none; }
+    .hero-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -46%); font-family: var(--goth); font-size: clamp(16rem, 40vw, 34rem); color: rgba(244,236,224,0.035); z-index: 1; line-height: 1; pointer-events: none; white-space: nowrap; }
+    .hero-in { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
+    .hero-est { font-family: var(--body); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--brass-soft); margin-bottom: 1.6rem; }
+    .hero-crest { width: 58px; height: 68px; margin: 0 auto 1.4rem; }
+    .hero-crest .st { stroke: var(--brass-soft); }
+    .hero h1 { font-family: var(--goth); font-weight: 700; font-size: clamp(3.2rem, 12vw, 8rem); line-height: 0.98; letter-spacing: 0.01em; color: var(--paper); text-shadow: 0 2px 30px rgba(0,0,0,0.35); }
+    .hero h1 .amp { display: block; font-size: 0.42em; color: var(--brass-soft); }
+    .hero .fleur { margin: 1.7rem auto 0; }
+    .hero-tag { font-family: var(--display); font-style: italic; font-size: clamp(1.2rem, 2.6vw, 1.75rem); color: rgba(244,236,224,0.9); margin: 1.5rem auto 0; max-width: 34ch; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; margin-top: 2.3rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 0.5rem; margin-top: 2.6rem; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; border: 1px solid rgba(172,132,55,0.4); border-radius: 40px; font-size: 0.78rem; letter-spacing: 0.04em; color: rgba(244,236,224,0.88); }
+    .hero-meta span::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--brass-soft); }
+
+    /* ===== SPECIALITES STRIP ===== */
+    .strip { background: var(--wine-deep); color: var(--brass-soft); border-top: 1px solid rgba(172,132,55,0.3); padding: 1.1rem 0; }
+    .strip-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.6rem 2rem; text-align: center; }
+    .strip-in span { font-family: var(--display); font-style: italic; font-size: clamp(1.05rem, 2vw, 1.35rem); display: inline-flex; align-items: center; gap: 2rem; }
+    .strip-in span:not(:last-child)::after { content: '✠'; font-style: normal; color: rgba(172,132,55,0.55); font-size: 0.8em; }
+
+    /* ===== SECTION HEADER ===== */
+    .sect-head { margin-bottom: 3.2rem; }
+    .sect-head.center { text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .sect-head .num { display: block; }
+    .sect-head .kicker { margin-top: 1rem; }
+    .sect-head h2 { margin-top: 1rem; }
+
+    /* ===== MAISON ===== */
+    .maison-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+    @media (max-width: 860px) { .maison-grid { grid-template-columns: 1fr; } }
+    .maison-txt p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.1rem; }
+    .maison-txt p:first-of-type::first-letter { font-family: var(--goth); font-size: 3.6rem; line-height: 0.7; float: left; padding: 0.3rem 0.55rem 0 0; color: var(--wine); }
+    .pull { font-family: var(--display); font-style: italic; font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.35; color: var(--ink); border-left: 2px solid var(--brass); padding-left: 1.4rem; margin: 1.8rem 0; }
+    .pull cite { display: block; font-family: var(--body); font-style: normal; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); margin-top: 0.9rem; }
+    .maison-figure { position: relative; }
+    .maison-figure .ph { border: 1px solid var(--line); overflow: hidden; aspect-ratio: 4 / 5; }
+    .maison-figure .ph img { width: 100%; height: 100%; object-fit: cover; }
+    .maison-figure .badge { position: absolute; right: -18px; bottom: -18px; width: clamp(96px, 14vw, 128px); height: clamp(96px, 14vw, 128px); background: var(--wine); color: var(--brass-soft); border: 1px solid var(--brass); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; box-shadow: 0 14px 30px rgba(0,0,0,0.2); }
+    .maison-figure .badge b { font-family: var(--display); font-size: 1.9rem; line-height: 1; }
+    .maison-figure .badge small { font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 4px; color: rgba(244,236,224,0.8); }
+
+    /* ===== MATIN (breakfast band) ===== */
+    .matin { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .matin-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+    @media (max-width: 860px) { .matin-grid { grid-template-columns: 1fr; } }
+    .matin-photo { border: 1px solid var(--line); overflow: hidden; aspect-ratio: 5 / 4; }
+    .matin-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .matin-txt p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.75; margin: 1.2rem 0 1.6rem; }
+    .matin-list { display: grid; gap: 0.9rem; }
+    .matin-list .row { display: flex; align-items: baseline; gap: 0.6rem; padding-bottom: 0.7rem; border-bottom: 1px dashed var(--line); }
+    .matin-list .nm { font-family: var(--display); font-size: 1.3rem; font-weight: 500; }
+    .matin-list .dots { flex: 1; border-bottom: 1px dotted var(--line); transform: translateY(-5px); min-width: 14px; }
+    .matin-list .pr { font-family: var(--display); font-weight: 600; font-size: 1.1rem; color: var(--wine); font-variant-numeric: tabular-nums; }
+
+    /* ===== INCONTOURNABLES ===== */
+    .stars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+    @media (max-width: 820px) { .stars { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; } }
+    .star-card { border: 1px solid var(--line); background: var(--paper); overflow: hidden; transition: transform 0.35s var(--ease), box-shadow 0.35s; }
+    .star-card:hover { transform: translateY(-6px); box-shadow: 0 22px 40px rgba(38,25,26,0.14); }
+    .star-card .ph { aspect-ratio: 5 / 4; overflow: hidden; }
+    .star-card .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
+    .star-card:hover .ph img { transform: scale(1.06); }
+    .star-body { padding: 1.4rem 1.5rem 1.7rem; }
+    .star-tag { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass); }
+    .star-body h3 { font-size: 1.65rem; margin: 0.4rem 0 0.5rem; }
+    .star-body p { font-size: 0.93rem; color: var(--ink-soft); line-height: 1.6; }
+    .star-body .price { display: inline-block; margin-top: 1rem; font-family: var(--display); font-weight: 600; font-size: 1.2rem; color: var(--wine); }
+
+    /* ===== CARTE ===== */
+    .carte { background: var(--wine); color: var(--paper); border-top: 1px solid var(--brass); border-bottom: 1px solid var(--brass); position: relative; }
+    .carte .frame { position: absolute; inset: clamp(1rem, 2.4vw, 1.8rem); border: 1px solid rgba(172,132,55,0.3); pointer-events: none; }
+    .carte .num { -webkit-text-stroke-color: rgba(211,182,116,0.5); }
+    .carte .kicker { color: var(--brass-soft); }
+    .carte .kicker::before { background: var(--brass-soft); }
+    .carte h2 { color: var(--paper); }
+    .menu-cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); position: relative; }
+    @media (max-width: 820px) { .menu-cols { grid-template-columns: 1fr; gap: 2.6rem; } }
+    .menu-block + .menu-block { margin-top: 2.6rem; }
+    .menu-block h3 { display: flex; align-items: center; gap: 0.8rem; font-family: var(--body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--brass-soft); margin-bottom: 1.4rem; }
+    .menu-block h3::after { content: ''; flex: 1; height: 1px; background: rgba(172,132,55,0.4); }
+    .m-row { margin-bottom: 1.15rem; }
+    .m-line { display: flex; align-items: baseline; gap: 0.5rem; }
+    .m-line .nm { font-family: var(--display); font-weight: 500; font-size: 1.28rem; color: var(--paper); }
+    .m-line .nm em { font-style: italic; color: var(--brass-soft); }
+    .m-line .dots { flex: 1; border-bottom: 1px dotted rgba(244,236,224,0.35); transform: translateY(-5px); min-width: 18px; }
+    .m-line .pr { font-family: var(--display); font-weight: 600; font-size: 1.12rem; color: var(--brass-soft); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .m-row p { font-size: 0.88rem; color: rgba(244,236,224,0.68); font-style: italic; line-height: 1.5; margin-top: 0.2rem; max-width: 46ch; }
+    .menu-note { margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid rgba(172,132,55,0.3); text-align: center; font-size: 0.88rem; color: rgba(244,236,224,0.7); font-style: italic; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+    /* ===== GALERIE ===== */
+    .collage { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 1fr; gap: 0.9rem; }
+    .collage figure { overflow: hidden; border: 1px solid var(--line); background: var(--paper); }
+    .collage img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
+    .collage figure:hover img { transform: scale(1.08); }
+    .g1 { grid-column: span 3; grid-row: span 2; }
+    .g2 { grid-column: span 3; }
+    .g3 { grid-column: span 2; }
+    .g4 { grid-column: span 4; }
+    .collage figure { aspect-ratio: auto; }
+    .g1 { aspect-ratio: 3 / 2; }
+    .g2, .g4 { aspect-ratio: 3 / 1.6; }
+    .g3 { aspect-ratio: 1; }
+    @media (max-width: 820px) {
+      .collage { grid-template-columns: repeat(2, 1fr); }
+      .g1, .g2, .g3, .g4 { grid-column: span 1; grid-row: span 1; aspect-ratio: 1; }
+      .g1 { grid-column: span 2; aspect-ratio: 3 / 2; }
+    }
+
+    /* ===== AVIS ===== */
+    .avis { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .rate { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; margin-bottom: 2.6rem; }
+    .rate .big { font-family: var(--display); font-weight: 600; font-size: 3.4rem; line-height: 1; color: var(--wine); }
+    .rate .st { color: var(--brass); letter-spacing: 0.18em; font-size: 1.1rem; }
+    .rate small { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+    .notes { columns: 3 260px; column-gap: 1.4rem; }
+    .note { break-inside: avoid; margin-bottom: 1.4rem; background: var(--paper); border: 1px solid var(--line); padding: 1.5rem 1.5rem 1.3rem; }
+    .note .st { color: var(--brass); letter-spacing: 0.12em; margin-bottom: 0.6rem; }
+    .note p { font-family: var(--display); font-style: italic; font-size: 1.1rem; line-height: 1.5; color: var(--ink); }
+    .note .who { margin-top: 1rem; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.04em; }
+    .note .who span { display: block; font-weight: 400; color: var(--ink-dim); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em; margin-top: 2px; }
+    .avis-src { text-align: center; margin-top: 2.6rem; font-size: 0.84rem; color: var(--ink-soft); }
+    .avis-src a { color: var(--wine); border-bottom: 1px solid var(--line-gold); font-weight: 600; }
+
+    /* ===== RESERVATION ===== */
+    .resa-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+    @media (max-width: 860px) { .resa-grid { grid-template-columns: 1fr; } }
+    .resa-info p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.7; margin: 1.4rem 0 1.8rem; }
+    .phone-big { display: inline-flex; align-items: center; gap: 0.9rem; border: 1px solid var(--line); padding: 1rem 1.4rem; transition: transform 0.3s var(--ease), border-color 0.3s; }
+    .phone-big:hover { transform: translateY(-2px); border-color: var(--wine); }
+    .phone-big .ic { width: 42px; height: 42px; border-radius: 50%; background: var(--wine); color: var(--brass-soft); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .phone-big .ic svg { width: 20px; height: 20px; }
+    .phone-big b { font-family: var(--display); font-size: 1.5rem; font-weight: 600; display: block; line-height: 1; }
+    .phone-big small { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass); font-weight: 700; }
+    .hrs { margin-top: 1.8rem; display: grid; gap: 0.3rem; max-width: 320px; font-size: 0.92rem; }
+    .hrs div { display: flex; justify-content: space-between; padding: 0.35rem 0; border-bottom: 1px dashed var(--line); }
+    .hrs div:last-child { border-bottom: 0; }
+    .hrs .cl { color: var(--wine); font-style: italic; }
+
+    .resa-form { background: var(--paper); border: 1px solid var(--line); padding: clamp(1.5rem, 3vw, 2.5rem); position: relative; }
+    .resa-form::before { content: ''; position: absolute; inset: 8px; border: 1px solid var(--line-gold); pointer-events: none; }
+    .resa-form h3 { font-size: 1.7rem; margin-bottom: 0.3rem; }
+    .resa-form > p { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 1.6rem; }
+    .fld { margin-bottom: 1.1rem; position: relative; z-index: 1; }
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    @media (max-width: 520px) { .frow { grid-template-columns: 1fr; } }
+    .fld label { display: block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 0.4rem; }
+    .fld input, .fld textarea { width: 100%; background: transparent; border: none; border-bottom: 1.5px solid var(--line); padding: 0.55rem 0.1rem; font-size: 1rem; color: var(--ink); transition: border-color 0.25s; }
+    .fld input:focus, .fld textarea:focus { outline: none; border-color: var(--wine); }
+    .fld textarea { resize: vertical; min-height: 64px; }
+    .resa-form .btn { width: 100%; justify-content: center; margin-top: 0.6rem; }
+    .fnote { margin-top: 0.9rem; font-size: 0.74rem; color: var(--ink-dim); text-align: center; }
+
+    /* ===== INFOS ===== */
+    .infos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    @media (max-width: 820px) { .infos-grid { grid-template-columns: 1fr; max-width: 460px; } }
+    .info { border-top: 2px solid var(--wine); padding-top: 1.3rem; }
+    .info h4 { font-size: 1.4rem; margin-bottom: 0.7rem; }
+    .info p, .info a { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.7; }
+    .info a.lnk { color: var(--wine); font-weight: 600; }
+    .info strong { color: var(--ink); }
+    .info .row { display: flex; justify-content: space-between; padding: 0.22rem 0; border-bottom: 1px dashed var(--line); font-size: 0.9rem; }
+    .info .row:last-child { border-bottom: 0; }
+    .info .row .cl { color: var(--wine); font-style: italic; }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--wine-deep); color: var(--paper); padding: 3.2rem 0 2.2rem; text-align: center; }
+    .foot-crest { width: 44px; height: 52px; margin: 0 auto 1rem; }
+    .foot-crest .st { stroke: var(--brass-soft); }
+    .foot-brand { font-family: var(--goth); font-weight: 700; font-size: 2rem; }
+    .foot-brand span { display: block; font-family: var(--body); font-weight: 600; font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--brass-soft); margin-top: 0.4rem; }
+    .foot-meta { margin-top: 1.6rem; font-size: 0.76rem; color: rgba(244,236,224,0.55); line-height: 1.7; }
+    .foot-meta a { color: var(--brass-soft); }
+
+    /* ===== reveal ===== */
+    .rv { opacity: 0; transform: translateY(26px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+    .rv.in { opacity: 1; transform: translateY(0); }
+    .rv[data-d="1"] { transition-delay: 0.08s; }
+    .rv[data-d="2"] { transition-delay: 0.16s; }
+    .rv[data-d="3"] { transition-delay: 0.24s; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- HEADER -->
+  <header class="top" id="top-bar">
+    <div class="wrap top-in">
+      <a href="#top" class="brand" aria-label="Chez Bischoff, accueil">
+        <svg class="crest" viewBox="0 0 38 44" aria-hidden="true">
+          <g class="st" fill="none" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M19 2 L35 8 V22 C35 33 28 39 19 42 C10 39 3 33 3 22 V8 Z"/>
+            <path d="M19 12 C15 15 12 18 12 24 C12 28 15 31 19 33 C23 31 26 28 26 24 C26 18 23 15 19 12 Z"/>
+            <line x1="19" y1="9" x2="19" y2="13"/>
+            <line x1="14" y1="24" x2="24" y2="24"/>
+          </g>
+        </svg>
+        <span class="brand-name">Chez Bischoff<small>Brasserie · Sion</small></span>
+      </a>
+
+      <nav class="top-nav" id="nav">
+        <a href="#maison">La maison</a>
+        <a href="#matin">Le matin</a>
+        <a href="#carte">La carte</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#infos">Infos</a>
+        <a href="#reservation" class="btn btn-gold">Réserver</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="frame"></div>
+    <div class="hero-watermark" aria-hidden="true">B</div>
+    <div class="wrap hero-in">
+      <div class="hero-est">Route de Riddes · 1950 Sion · Valais</div>
+      <svg class="hero-crest" viewBox="0 0 58 68" aria-hidden="true">
+        <g class="st" fill="none" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M29 3 L54 12 V34 C54 51 43 60 29 65 C15 60 4 51 4 34 V12 Z"/>
+          <path d="M29 18 C23 22 18 27 18 36 C18 42 23 47 29 50 C35 47 40 42 40 36 C40 27 35 22 29 18 Z"/>
+          <line x1="29" y1="13" x2="29" y2="19"/>
+          <line x1="21" y1="36" x2="37" y2="36"/>
+        </g>
+      </svg>
+      <h1>Chez Bischoff</h1>
+      <div class="fleur" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2v20M4 12h16M6 6l12 12M18 6L6 18"/></svg>
+      </div>
+      <p class="hero-tag">La brasserie de quartier, du café du matin à la fondue du soir.</p>
+      <div class="hero-ctas">
+        <a href="#reservation" class="btn btn-gold">Réserver une table
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#carte" class="btn btn-ghost">Voir la carte</a>
+      </div>
+      <div class="hero-meta">
+        <span>Ouvert dès 5h45</span>
+        <span>Fondue &amp; choucroute</span>
+        <span>Terrasse</span>
+        <span>Parking gratuit</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip" aria-hidden="true">
+    <div class="wrap strip-in">
+      <span>Café du matin</span><span>Fondue moitié-moitié</span><span>Choucroute royale</span><span>Paella</span><span>Plat du jour</span>
+    </div>
+  </div>
+
+  <!-- MAISON -->
+  <section class="sect wrap" id="maison">
+    <div class="maison-grid">
+      <div class="maison-txt rv">
+        <span class="num">01</span>
+        <span class="kicker" style="display:block;margin-top:1rem;">La maison</span>
+        <h2 class="h-lg" style="margin:1rem 0 1.6rem;">Une adresse <span class="ital">qui a son monde</span></h2>
+        <p>Chez Bischoff, on se retrouve. Les habitués du matin devant leur café, les ouvriers du quartier à midi, les familles autour d'une fondue le soir. C'est une brasserie comme on les aime en Valais, simple, chaleureuse et généreuse.</p>
+        <p>La cuisine ne triche pas. Une bonne fondue moitié-moitié, une choucroute royale bien garnie, une paella parfumée, un plat du jour qui change au fil de la semaine. De belles portions, un service souriant et l'accent du pays.</p>
+        <blockquote class="pull">« On vient pour manger bien, sans chichi, et on repart en se disant qu'on reviendra. »
+          <cite>L'esprit de la maison</cite>
+        </blockquote>
+      </div>
+      <div class="maison-figure rv" data-d="1">
+        <div class="ph">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80&auto=format&fit=crop" alt="Ambiance conviviale d'une brasserie de quartier" />
+        </div>
+        <div class="badge">
+          <b>4,5</b>
+          <small>★ · 300+ avis</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATIN -->
+  <section class="matin" id="matin">
+    <div class="sect wrap">
+      <div class="matin-grid">
+        <div class="matin-photo rv">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&q=80&auto=format&fit=crop" alt="Tasse de café et croissant au petit-déjeuner" />
+        </div>
+        <div class="matin-txt rv" data-d="1">
+          <span class="num">02</span>
+          <span class="kicker" style="display:block;margin-top:1rem;">Dès le petit matin</span>
+          <h2 class="h-lg" style="margin:1rem 0 0;">Le café <span class="ital">avant tout le monde</span></h2>
+          <p>À 5h45, la machine est déjà chaude. Chez Bischoff ouvre quand la ville dort encore, pour le premier café, le croissant du matin et le petit-déjeuner de ceux qui commencent tôt. Un rituel de quartier qui donne le ton de la journée.</p>
+          <div class="matin-list">
+            <div class="row"><span class="nm">Café &amp; croissant</span><span class="dots"></span><span class="pr">5.50</span></div>
+            <div class="row"><span class="nm">Petit-déjeuner complet</span><span class="dots"></span><span class="pr">16</span></div>
+            <div class="row"><span class="nm">Tartines, beurre &amp; confiture</span><span class="dots"></span><span class="pr">9</span></div>
+            <div class="row"><span class="nm">Œufs au plat &amp; jambon</span><span class="dots"></span><span class="pr">12</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INCONTOURNABLES -->
+  <section class="sect wrap" id="incontournables">
+    <div class="sect-head center">
+      <span class="num rv">03</span>
+      <span class="kicker center rv" data-d="1">Nos incontournables</span>
+      <h2 class="h-lg rv" data-d="1">Les plats <span class="ital">qu'on nous redemande</span></h2>
+    </div>
+    <div class="stars">
+      <article class="star-card rv">
+        <div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?w=800&q=80&auto=format&fit=crop" alt="Caquelon de fondue au fromage fondant" /></div>
+        <div class="star-body">
+          <span class="star-tag">La spécialité</span>
+          <h3>Fondue moitié-moitié</h3>
+          <p>Le grand classique de la maison, servie au caquelon avec son pain de campagne. À partager, forcément.</p>
+          <span class="price">Fr. 25 / pers.</span>
+        </div>
+      </article>
+      <article class="star-card rv" data-d="1">
+        <div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1432139509613-5c4255815697?w=800&q=80&auto=format&fit=crop" alt="Choucroute royale garnie de viandes et saucisses" /></div>
+        <div class="star-body">
+          <span class="star-tag">La généreuse</span>
+          <h3>Choucroute royale</h3>
+          <p>Choucroute bien garnie, saucisses, lard et pommes de terre. Un plat de brasserie qui tient chaud au cœur.</p>
+          <span class="price">Fr. 28</span>
+        </div>
+      </article>
+      <article class="star-card rv" data-d="2">
+        <div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=800&q=80&auto=format&fit=crop" alt="Grande paella safranée aux fruits de mer" /></div>
+        <div class="star-body">
+          <span class="star-tag">La conviviale</span>
+          <h3>Paella maison</h3>
+          <p>Riz safrané, poulet, fruits de mer et légumes. Le plat qui met tout le monde d'accord à la tablée.</p>
+          <span class="price">Fr. 26</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CARTE -->
+  <section class="carte" id="carte">
+    <div class="frame"></div>
+    <div class="sect wrap" style="position:relative;">
+      <div class="sect-head center">
+        <span class="num rv">04</span>
+        <span class="kicker center rv" data-d="1">La carte</span>
+        <h2 class="h-lg rv" data-d="1">De quoi <span class="ital">se régaler</span></h2>
+      </div>
+
+      <div class="menu-cols">
+        <div class="rv">
+          <div class="menu-block">
+            <h3>Spécialités de la maison</h3>
+            <div class="m-row"><div class="m-line"><span class="nm">Fondue <em>moitié-moitié</em></span><span class="dots"></span><span class="pr">25</span></div><p>Au caquelon, pain de campagne. Par personne, minimum deux.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Choucroute royale</span><span class="dots"></span><span class="pr">28</span></div><p>Saucisses, lard, jarret et pommes de terre.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Paella maison</span><span class="dots"></span><span class="pr">26</span></div><p>Riz safrané, poulet, fruits de mer et légumes.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Assiette valaisanne</span><span class="dots"></span><span class="pr">22</span></div><p>Viande séchée, lard sec, fromage du pays et pain de seigle.</p></div>
+          </div>
+          <div class="menu-block">
+            <h3>Le plat du jour</h3>
+            <div class="m-row"><div class="m-line"><span class="nm">Menu du jour</span><span class="dots"></span><span class="pr">19</span></div><p>Un plat qui change chaque jour, servi le midi en semaine.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Menu du jour &amp; potage</span><span class="dots"></span><span class="pr">23</span></div><p>Avec le potage maison ou une petite salade.</p></div>
+          </div>
+        </div>
+
+        <div class="rv" data-d="1">
+          <div class="menu-block">
+            <h3>Petite carte &amp; brasserie</h3>
+            <div class="m-row"><div class="m-line"><span class="nm">Rösti au fromage</span><span class="dots"></span><span class="pr">19</span></div><p>Doré à la poêle, œuf à cheval en option.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Saucisse de veau &amp; frites</span><span class="dots"></span><span class="pr">21</span></div><p>Sauce à l'oignon et salade mêlée.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Croûte au fromage</span><span class="dots"></span><span class="pr">18</span></div><p>Gratinée au four, jambon et œuf à volonté.</p></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Sandwichs &amp; en-cas</span><span class="dots"></span><span class="pr">dès 7</span></div><p>Aussi à l'emporter, préparés minute.</p></div>
+          </div>
+          <div class="menu-block">
+            <h3>Les douceurs</h3>
+            <div class="m-row"><div class="m-line"><span class="nm">Parfait glacé <em>maison</em></span><span class="dots"></span><span class="pr">10</span></div></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Coupe de saison</span><span class="dots"></span><span class="pr">9</span></div></div>
+            <div class="m-row"><div class="m-line"><span class="nm">Café gourmand</span><span class="dots"></span><span class="pr">11</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="menu-note rv">Carte présentée à titre d'exemple. Prix en francs suisses. Pour les allergènes, l'origine des viandes ou une envie particulière, notre équipe vous renseigne avec plaisir. Une partie de la carte est aussi disponible à l'emporter.</p>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section class="sect wrap" id="galerie">
+    <div class="sect-head center">
+      <span class="num rv">05</span>
+      <span class="kicker center rv" data-d="1">En images</span>
+      <h2 class="h-lg rv" data-d="1">Un avant-goût <span class="ital">de la maison</span></h2>
+    </div>
+    <div class="collage rv">
+      <figure class="g1"><img loading="lazy" src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?w=1000&q=80&auto=format&fit=crop" alt="Fondue au fromage servie au caquelon" /></figure>
+      <figure class="g2"><img loading="lazy" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&auto=format&fit=crop" alt="Salle de brasserie conviviale" /></figure>
+      <figure class="g3"><img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=80&auto=format&fit=crop" alt="Café du matin" /></figure>
+      <figure class="g3"><img loading="lazy" src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=700&q=80&auto=format&fit=crop" alt="Paella maison" /></figure>
+      <figure class="g4"><img loading="lazy" src="https://images.unsplash.com/photo-1432139509613-5c4255815697?w=1000&q=80&auto=format&fit=crop" alt="Assiette de choucroute garnie" /></figure>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section class="avis" id="avis">
+    <div class="sect wrap">
+      <div class="sect-head center">
+        <span class="kicker center rv">Ils en parlent</span>
+        <h2 class="h-lg rv" data-d="1">Ce qu'on <span class="ital">dit de nous</span></h2>
+      </div>
+      <div class="rate rv">
+        <span class="big">4,5</span>
+        <span class="st">★★★★★</span>
+        <small>Plus de 300 avis Google</small>
+      </div>
+      <div class="notes rv">
+        <div class="note"><div class="st">★★★★★</div><p>Portions généreuses et prix très corrects. La fondue est excellente et le service rapide et souriant.</p><div class="who">Sébastien M.<span>Sion · Avis Google</span></div></div>
+        <div class="note"><div class="st">★★★★★</div><p>Le café du matin est devenu un rituel. Accueil chaleureux et ambiance de quartier comme on aime.</p><div class="who">Nathalie R.<span>Habituée · Sion</span></div></div>
+        <div class="note"><div class="st">★★★★★</div><p>Choucroute royale copieuse et savoureuse. Bon rapport qualité prix, parking facile devant.</p><div class="who">Marc D.<span>Valais · Avis Google</span></div></div>
+        <div class="note"><div class="st">★★★★★</div><p>Une vraie brasserie sympathique. On y mange bien, sans se ruiner. Le personnel est adorable.</p><div class="who">Céline V.<span>Sion · Avis Google</span></div></div>
+        <div class="note"><div class="st">★★★★★</div><p>Plat du jour toujours bon et généreux. Idéal pour la pause de midi, service efficace.</p><div class="who">Julien P.<span>Habitué · local.ch</span></div></div>
+      </div>
+      <p class="avis-src rv">Retrouvez tous nos avis sur
+        <a href="https://www.google.com/maps/search/Chez+Bischoff+Sion" target="_blank" rel="noopener">Google Maps</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- RESERVATION -->
+  <section class="sect wrap" id="reservation">
+    <div class="resa-grid">
+      <div class="resa-info rv">
+        <span class="num">06</span>
+        <span class="kicker" style="display:block;margin-top:1rem;">Votre table</span>
+        <h2 class="h-lg" style="margin:1rem 0 0;">Réserver <span class="ital">chez nous</span></h2>
+        <p>Un repas de famille, une pause de midi en équipe ou une fondue entre amis. Appelez-nous ou laissez-nous un mot, nous confirmons avec plaisir.</p>
+        <a href="tel:+41272034440" class="phone-big">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span><small>Réservation directe</small><b>027 203 44 40</b></span>
+        </a>
+        <div class="hrs">
+          <div><span>Lundi au vendredi</span><span>05h45 · 20h00</span></div>
+          <div><span>Samedi</span><span class="cl">Fermé</span></div>
+          <div><span>Dimanche</span><span class="cl">Fermé</span></div>
+        </div>
+      </div>
+
+      <div class="resa-form rv" data-d="1">
+        <h3>Demande de réservation</h3>
+        <p>Nous revenons vers vous rapidement pour confirmer.</p>
+        <form action="PLACEHOLDER_ENDPOINT" method="POST">
+          <div class="frow">
+            <div class="fld"><label for="nom">Nom</label><input type="text" id="nom" name="nom" autocomplete="name" required /></div>
+            <div class="fld"><label for="tel">Téléphone</label><input type="tel" id="tel" name="telephone" autocomplete="tel" required /></div>
+          </div>
+          <div class="fld"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required /></div>
+          <div class="frow">
+            <div class="fld"><label for="date">Date</label><input type="date" id="date" name="date" required /></div>
+            <div class="fld"><label for="heure">Heure</label><input type="time" id="heure" name="heure" required /></div>
+          </div>
+          <div class="fld"><label for="couverts">Nombre de personnes</label><input type="number" id="couverts" name="couverts" min="1" max="30" value="2" required /></div>
+          <div class="fld"><label for="message">Message (facultatif)</label><textarea id="message" name="message" placeholder="Fondue, occasion, allergies..."></textarea></div>
+          <button type="submit" class="btn btn-fill">Envoyer ma demande
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="fnote">Pour un groupe ou une demande urgente, un appel reste le plus simple.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFOS -->
+  <section class="sect wrap" id="infos" style="padding-top:0;">
+    <div class="infos-grid">
+      <div class="info rv">
+        <h4>Adresse</h4>
+        <p><strong>Chez Bischoff</strong><br />Route de Riddes 95<br />1950 Sion, Valais</p>
+        <p style="margin-top:0.7rem;"><a class="lnk" href="https://www.google.com/maps/search/Chez+Bischoff+Route+de+Riddes+95+1950+Sion" target="_blank" rel="noopener">Itinéraire Google Maps</a></p>
+      </div>
+      <div class="info rv" data-d="1">
+        <h4>Horaires</h4>
+        <div class="row"><span>Lundi au vendredi</span><span>05h45 · 20h00</span></div>
+        <div class="row"><span>Samedi</span><span class="cl">Fermé</span></div>
+        <div class="row"><span>Dimanche</span><span class="cl">Fermé</span></div>
+      </div>
+      <div class="info rv" data-d="2">
+        <h4>Contact</h4>
+        <p><a class="lnk" href="tel:+41272034440"><strong>027 203 44 40</strong></a><br /><span style="font-size:0.85rem;">Réservation, renseignements, à l'emporter</span></p>
+        <p style="margin-top:0.7rem;">Parking gratuit devant l'établissement, accès de plain-pied.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <svg class="foot-crest" viewBox="0 0 44 52" aria-hidden="true">
+      <g class="st" fill="none" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M22 3 L41 10 V26 C41 39 33 46 22 50 C11 46 3 39 3 26 V10 Z"/>
+        <path d="M22 14 C17 17 14 21 14 27 C14 32 17 36 22 38 C27 36 30 32 30 27 C30 21 27 17 22 14 Z"/>
+        <line x1="22" y1="10" x2="22" y2="15"/>
+        <line x1="16" y1="27" x2="28" y2="27"/>
+      </g>
+    </svg>
+    <div class="foot-brand">Chez Bischoff<span>Brasserie · Sion · Valais</span></div>
+    <div class="foot-meta">&copy; <span id="year">2026</span> Chez Bischoff · Tous droits réservés<br />Site créé avec soin par <a href="https://nb-design.ch" target="_blank" rel="noopener">NB-Design</a></div>
+  </footer>
+
+  <script>
+    // Header scroll state
+    const bar = document.getElementById('top-bar');
+    const onScroll = () => bar.classList.toggle('stuck', window.scrollY > 20);
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+    // Mobile nav
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    burger.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Reveal
+    const io = new IntersectionObserver((es) => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Demo form guard
+    const f = document.querySelector('#reservation form');
+    if (f && f.getAttribute('action') === 'PLACEHOLDER_ENDPOINT') {
+      f.addEventListener('submit', (e) => { e.preventDefault();
+        alert('Merci ! Ceci est une démonstration. Le formulaire sera connecté à la mise en ligne. Pour réserver dès maintenant, appelez le 027 203 44 40.'); });
+    }
+  </script>
+</body>
+</html>
