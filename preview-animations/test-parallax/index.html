@@ -173,34 +173,37 @@
        .lyr-par   = parallax souris + scroll (piloté en JS)
        .lyr-sway  = balancement continu
        ============================================================ */
-    .layer { position: absolute; top: 0; bottom: 0; pointer-events: none; }
-    .layer img { display: block; height: 112%; width: auto; position: absolute; top: -6%; }
-
+    /* Les conteneurs épousent l'image (pas de inset:0), pour que les
+       pourcentages de transform-origin tombent bien sur le poignet. */
+    .layer { position: absolute; top: -6%; height: 112%; pointer-events: none; }
     .layer.left  { left: 0;  }
     .layer.right { right: 0; }
-    .layer.left  img { left: 0;  }
-    .layer.right img { right: 0; }
-
     .layer.front { z-index: 8; }
     .layer.mid   { z-index: 6; }
+    .lyr-open, .lyr-par, .lyr-sway { height: 100%; will-change: transform; }
+    .layer img { display: block; height: 100%; width: auto; }
 
-    /* --- 1. l'ouverture : rotation autour d'un pivot placé au poignet --- */
-    .lyr-open { position: absolute; inset: 0; will-change: transform; }
-    .layer.left  .lyr-open { transform-origin: 8% 78%; }
-    .layer.right .lyr-open { transform-origin: 92% 78%; }
+    /* pivot placé sur le poignet réel dans l'image */
+    .layer.left  .lyr-open, .layer.left  .lyr-sway { transform-origin: 18% 54%; }
+    .layer.right .lyr-open, .layer.right .lyr-sway { transform-origin: 82% 54%; }
+
+    /* --- 1. l'ouverture : rotation autour du poignet + translation --- */
     body.open .layer .lyr-open { transition: transform var(--dur) cubic-bezier(0.42, 0.02, 0.18, 1) var(--delay); }
     body.open .layer.left  .lyr-open { transform: rotate(var(--rot-neg)) translateX(var(--tx-neg)); }
     body.open .layer.right .lyr-open { transform: rotate(var(--rot))     translateX(var(--tx)); }
 
     /* --- 2. parallax souris + scroll --- */
-    .lyr-par { position: absolute; inset: 0; will-change: transform;
-      transform: translate3d(var(--px, 0px), var(--py, 0px), 0); }
+    .lyr-par { transform: translate3d(var(--px, 0px), var(--py, 0px), 0); }
     body.parallax-on .lyr-par { transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
 
     /* --- 3. balancement continu --- */
-    .lyr-sway { position: absolute; inset: 0; }
-    body.sway-on .layer.left  .lyr-sway { animation: swayL var(--sway-dur) ease-in-out infinite; transform-origin: 10% 75%; }
-    body.sway-on .layer.right .lyr-sway { animation: swayR var(--sway-dur) ease-in-out infinite; transform-origin: 90% 75%; }
+    body.sway-on .layer.left  .lyr-sway { animation: swayL var(--sway-dur) ease-in-out infinite; }
+    body.sway-on .layer.right .lyr-sway { animation: swayR var(--sway-dur) ease-in-out infinite; }
+
+    /* sur mobile on réduit et on rapproche du centre pour garder les mains visibles */
+    @media (max-width: 780px) {
+      .layer { top: 13%; height: 74%; }
+    }
     @keyframes swayL {
       0%,100% { transform: rotate(0deg) translateY(0); }
       50%     { transform: rotate(0.9deg) translateY(6px); }
@@ -218,33 +221,6 @@
     body.settle .canopy { opacity: 0.34; transition: opacity 2s ease; }
 
     /* repère : quand les vrais PNG arriveront, ce badge disparaîtra */
-    .placeholder-tag {
-      position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%);
-      z-index: 20; font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--gold); border: 1px solid rgba(201,168,76,0.3);
-      padding: 0.3rem 0.8rem; border-radius: 999px; background: rgba(3,10,6,0.6);
-      opacity: 0; pointer-events: none;
-    }
-    body.settle .placeholder-tag { opacity: 1; transition: opacity 1s ease 1.4s; }
-
-    /* ================= SUITE (pour tester le parallax au scroll) ================= */
-    .after { padding: 6rem 1.5rem 8rem; text-align: center; background: var(--bg-dark);
-      border-top: 1px solid var(--border-soft); opacity: 0; }
-    body.settle .after { opacity: 1; transition: opacity 1s ease 1.4s; }
-    .after h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400;
-      font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 0.8rem; }
-    .after h2 em { color: var(--green-glow); font-style: italic; }
-    .after p { color: var(--text-muted); max-width: 640px; margin: 0 auto 0.7rem; font-size: 0.95rem; }
-    .after a { color: var(--green-glow); }
-
-    @media (prefers-reduced-motion: reduce) {
-      .lyr-open, .lyr-par, .lyr-sway, .neon-wrap, .hero-rest, .after {
-        transition: none !important; animation: none !important; transform: none !important;
-      }
-      .neon { opacity: 1; filter: none; }
-      .hero-rest, .after, .site-bg { opacity: 1; }
-      .layer, .canopy { display: none; }
-    }
   </style>
 </head>
 <body>
@@ -291,35 +267,33 @@
 
     <div class="canopy" aria-hidden="true"></div>
 
-    <!-- ===== CALQUES : plan intermédiaire (bouge moins) ===== -->
+    <!-- ===== CALQUES : plan intermédiaire (bouge moins, part après) ===== -->
     <div class="layer mid left" data-depth="0.5"
-         style="--rot-neg:-9deg; --tx-neg:-42%; --dur:2.3s; --delay:0.18s; --sway-dur:7.5s; width:52%;">
+         style="--rot-neg:-7deg; --tx-neg:-46%; --dur:2.3s; --delay:0.18s; --sway-dur:7.5s;">
       <div class="lyr-open"><div class="lyr-par"><div class="lyr-sway">
-        <img src="/assets/hero/layers/mid-gauche.png" alt="" />
+        <img src="/assets/hero/layers/mid-gauche.webp" alt="" />
       </div></div></div>
     </div>
     <div class="layer mid right" data-depth="0.5"
-         style="--rot:9deg; --tx:42%; --dur:2.3s; --delay:0.18s; --sway-dur:8.2s; width:52%;">
+         style="--rot:7deg; --tx:46%; --dur:2.3s; --delay:0.18s; --sway-dur:8.2s;">
       <div class="lyr-open"><div class="lyr-par"><div class="lyr-sway">
-        <img src="/assets/hero/layers/mid-droite.png" alt="" />
+        <img src="/assets/hero/layers/mid-droite.webp" alt="" />
       </div></div></div>
     </div>
 
     <!-- ===== CALQUES : plan rapproché (bouge le plus, part en premier) ===== -->
     <div class="layer front left" data-depth="1"
-         style="--rot-neg:-19deg; --tx-neg:-76%; --dur:2s; --delay:0s; --sway-dur:6.4s; width:62%;">
+         style="--rot-neg:-14deg; --tx-neg:-82%; --dur:2s; --delay:0s; --sway-dur:6.4s;">
       <div class="lyr-open"><div class="lyr-par"><div class="lyr-sway">
-        <img src="/assets/hero/layers/front-gauche.png" alt="" />
+        <img src="/assets/hero/layers/front-gauche.webp" alt="" />
       </div></div></div>
     </div>
     <div class="layer front right" data-depth="1"
-         style="--rot:19deg; --tx:76%; --dur:2s; --delay:0s; --sway-dur:6.9s; width:62%;">
+         style="--rot:14deg; --tx:82%; --dur:2s; --delay:0s; --sway-dur:6.9s;">
       <div class="lyr-open"><div class="lyr-par"><div class="lyr-sway">
-        <img src="/assets/hero/layers/front-droite.png" alt="" />
+        <img src="/assets/hero/layers/front-droite.webp" alt="" />
       </div></div></div>
     </div>
-
-    <div class="placeholder-tag">Calques provisoires · en attente des vrais PNG détourés</div>
   </section>
 
   <section class="after" id="suite">
