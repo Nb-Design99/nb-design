@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="theme-color" content="#0f2318" />
+  <meta name="theme-color" content="#030a06" />
   <title>Test · Entrée dans la jungle · NB-Design</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preload" as="image" href="/assets/hero/jungle-hero.webp" />
+  <link rel="preload" as="image" href="/assets/hero/neon-nbdesign.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --green-deep: #061410;
-      --green-dark: #0f2318;
       --green-mid: #1a3d2b;
       --green-light: #4caf78;
       --green-glow: #6ed09a;
@@ -30,18 +30,16 @@
     html, body { height: 100%; }
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
-      background: #010402;
-      color: var(--white);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
+      background: #010301; color: var(--white);
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
     }
 
     /* ================= BARRE DE TEST ================= */
     .testbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; padding: 0.6rem 1.1rem;
-      background: rgba(3, 10, 6, 0.86); backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 0.6rem 1.1rem;
+      background: rgba(3,10,6,0.82); backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-soft);
       font-size: 0.78rem; color: var(--text-muted);
     }
@@ -56,111 +54,101 @@
     }
     .tbtn:hover { background: rgba(110,208,154,0.2); }
     .tbtn.ghost { background: transparent; border-color: var(--border-soft); color: var(--text-muted); }
-    .tbtn.ghost:hover { border-color: var(--gold); color: var(--gold); }
-    @media (max-width: 680px) { .testbar .label { display: none; } }
+    @media (max-width: 700px) { .testbar .label { display: none; } }
 
     /* ================= HERO ================= */
     .hero {
-      position: relative;
-      min-height: 100svh;
+      position: relative; min-height: 100svh; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-      padding: 5rem 1.5rem 4rem;
-      background: #010402;
+      padding: 5rem 1.5rem 4rem; background: #010301;
     }
 
-    /* --- fond d'ambiance du vrai site : sombre au départ, révélé après --- */
-    .hero-bg { position: absolute; inset: 0; z-index: 0; opacity: 0; }
-    body.settle .hero-bg { opacity: 1; transition: opacity 1.6s ease; }
-    .hero-gradient-blur {
-      position: absolute; inset: -20%;
+    /* --- plan LOINTAIN : la jungle qui reste en fond --- */
+    .jungle-backdrop {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('/assets/hero/jungle-hero.webp') center/cover no-repeat, #010301;
+    }
+    body.settle .jungle-backdrop {
+      opacity: 0; transform: scale(1.12);
+      transition: opacity 2.4s ease 0.2s, transform 3.4s var(--ease-out);
+    }
+
+    /* --- fond du vrai site, révélé quand la jungle s'efface --- */
+    .site-bg { position: absolute; inset: 0; z-index: 1; opacity: 0; }
+    .site-bg::after {
+      content: ''; position: absolute; inset: -20%;
       background:
-        radial-gradient(45% 40% at 25% 30%, rgba(99, 102, 241, 0.16), transparent 70%),
-        radial-gradient(50% 45% at 75% 65%, rgba(76, 175, 120, 0.16), transparent 70%);
+        radial-gradient(45% 40% at 25% 30%, rgba(99,102,241,0.16), transparent 70%),
+        radial-gradient(50% 45% at 75% 65%, rgba(76,175,120,0.18), transparent 70%);
       filter: blur(46px);
     }
+    body.settle .site-bg { opacity: 1; transition: opacity 2.2s ease 0.9s; }
 
-    /* --- halo vert du néon qui bave à travers la végétation --- */
-    .neon-halo {
-      position: absolute; z-index: 1; pointer-events: none;
-      left: 50%; top: 50%; width: min(120vw, 1200px); height: min(70vh, 620px);
-      transform: translate(-50%, -50%);
-      background: radial-gradient(closest-side, rgba(62,255,122,0.20), rgba(62,255,122,0.07) 45%, transparent 72%);
-      opacity: 0.55; filter: blur(24px);
-    }
-    body.ignite .neon-halo { opacity: 1; transition: opacity 1.2s ease; }
-    body.settle .neon-halo { opacity: 0.5; transition: opacity 2s ease; }
-
-    /* ================= CONTENU ================= */
+    /* ================= CONTENU (derrière la végétation) ================= */
     .hero-content {
       position: relative; z-index: 3;
-      max-width: 880px; text-align: center;
+      max-width: 900px; text-align: center;
       display: flex; flex-direction: column; align-items: center;
     }
 
-    /* ---------- NB-DESIGN : DERRIÈRE les feuilles, faible au départ ---------- */
-    .brandmark {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
-      font-size: clamp(1.5rem, 4.4vw, 2.6rem);
-      letter-spacing: 0.16em;
-      line-height: 1;
-      margin-bottom: 1.6rem;
-      white-space: nowrap;
-      /* état 1 : néon FAIBLE, à peine allumé, au milieu de l'écran */
-      color: rgba(110, 208, 154, 0.38);
-      text-shadow: 0 0 6px rgba(62,255,122,0.22), 0 0 16px rgba(62,255,122,0.10);
-      transform: translateY(var(--bm-y, 22vh)) scale(var(--bm-s, 2.1));
-      will-change: transform, text-shadow;
+    /* ---------- LE NÉON ---------- */
+    .neon-wrap {
+      width: clamp(230px, 44vw, 520px);
+      margin-bottom: 1.8rem;
+      transform: translateY(var(--n-y, 20vh)) scale(var(--n-s, 1.9));
+      will-change: transform;
     }
-    /* état 2 : il clignote et s'allume à fond, une fois les feuilles ouvertes */
-    body.ignite .brandmark { animation: neonIgnite 1.15s steps(1, end) forwards; }
-    @keyframes neonIgnite {
-      0%   { color: rgba(110,208,154,0.38); text-shadow: 0 0 6px rgba(62,255,122,0.22), 0 0 16px rgba(62,255,122,0.10); }
-      8%   { color: #d8ffe6; text-shadow: 0 0 10px #3eff7a, 0 0 28px rgba(62,255,122,0.6); }
-      13%  { color: rgba(110,208,154,0.30); text-shadow: 0 0 5px rgba(62,255,122,0.18); }
-      22%  { color: #eaffef; text-shadow: 0 0 12px #3eff7a, 0 0 34px rgba(62,255,122,0.68); }
-      27%  { color: rgba(110,208,154,0.34); text-shadow: 0 0 5px rgba(62,255,122,0.2); }
-      36%  { color: #f0fff5; text-shadow: 0 0 14px #3eff7a, 0 0 40px rgba(62,255,122,0.75), 0 0 70px rgba(62,255,122,0.35); }
-      41%  { color: rgba(110,208,154,0.42); text-shadow: 0 0 6px rgba(62,255,122,0.24); }
-      52%  { color: #ffffff; text-shadow: 0 0 18px #3eff7a, 0 0 52px rgba(62,255,122,0.9), 0 0 110px rgba(62,255,122,0.55); }
-      100% { color: #f2fff6; text-shadow: 0 0 13px #3eff7a, 0 0 36px rgba(62,255,122,0.65), 0 0 76px rgba(62,255,122,0.32); }
-    }
-    /* état 3 : il rejoint sa place définitive et y RESTE */
-    body.settle .brandmark {
+    body.settle .neon-wrap {
       transform: translateY(0) scale(1);
-      transition: transform 1.5s var(--ease-out);
+      transition: transform 1.7s var(--ease-out);
     }
-    body.done .brandmark { animation: neonBreathe 4.5s ease-in-out infinite; }
+    .neon { display: block; width: 100%; height: auto;
+      /* état 1 : néon FAIBLE, on le devine au fond de la clairière */
+      opacity: 0.34; filter: brightness(0.62) saturate(0.75);
+      will-change: opacity, filter;
+    }
+    /* état 2 : il clignote et s'allume à fond */
+    body.ignite .neon { animation: neonIgnite 1.2s steps(1, end) forwards; }
+    @keyframes neonIgnite {
+      0%   { opacity: 0.34; filter: brightness(0.62) saturate(0.75); }
+      7%   { opacity: 1;    filter: brightness(1.45) saturate(1.2); }
+      12%  { opacity: 0.28; filter: brightness(0.5)  saturate(0.7); }
+      20%  { opacity: 1;    filter: brightness(1.5)  saturate(1.25); }
+      25%  { opacity: 0.32; filter: brightness(0.55) saturate(0.7); }
+      34%  { opacity: 1;    filter: brightness(1.6)  saturate(1.3); }
+      39%  { opacity: 0.4;  filter: brightness(0.6)  saturate(0.8); }
+      50%  { opacity: 1;    filter: brightness(1.75) saturate(1.35); }
+      58%  { opacity: 0.85; filter: brightness(1.2)  saturate(1.1); }
+      100% { opacity: 1;    filter: brightness(1.12) saturate(1.05); }
+    }
+    /* état 3 : respiration lente une fois installé */
+    body.done .neon { animation: neonBreathe 5s ease-in-out infinite; }
     @keyframes neonBreathe {
-      0%, 100% { text-shadow: 0 0 13px #3eff7a, 0 0 36px rgba(62,255,122,0.65), 0 0 76px rgba(62,255,122,0.32); }
-      50%      { text-shadow: 0 0 17px #3eff7a, 0 0 48px rgba(62,255,122,0.8),  0 0 96px rgba(62,255,122,0.45); }
+      0%, 100% { opacity: 1; filter: brightness(1.08) saturate(1.02); }
+      50%      { opacity: 1; filter: brightness(1.3)  saturate(1.12); }
     }
 
-    /* ---------- Le reste du hero, révélé en même temps ---------- */
-    .hero-rest { opacity: 0; transform: translateY(16px); }
+    /* ---------- Le reste du hero ---------- */
+    .hero-rest { opacity: 0; transform: translateY(18px); }
     body.settle .hero-rest {
       opacity: 1; transform: translateY(0);
-      transition: opacity 1.1s var(--ease-out) 0.45s, transform 1.2s var(--ease-out) 0.45s;
+      transition: opacity 1.2s var(--ease-out) 0.6s, transform 1.3s var(--ease-out) 0.6s;
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.55rem;
-      padding: 0.45rem 1.1rem; margin-bottom: 1.6rem;
+      padding: 0.45rem 1.1rem; margin-bottom: 1.5rem;
       border: 1px solid var(--border-soft); border-radius: 999px;
       background: rgba(248,246,241,0.03);
       font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--text-muted);
     }
-    .hero-badge-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--green-neon); box-shadow: 0 0 10px var(--green-neon);
-    }
+    .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green-neon); box-shadow: 0 0 10px var(--green-neon); }
     .hero-title {
       font-family: 'Cormorant Garamond', serif; font-weight: 300;
-      font-size: clamp(2.6rem, 8vw, 5.4rem); line-height: 1.04;
-      margin-bottom: 1.4rem;
+      font-size: clamp(2.4rem, 7.4vw, 5rem); line-height: 1.04; margin-bottom: 1.3rem;
     }
-    .hero-title-line1 { display: block; color: var(--white); font-weight: 300; }
+    .hero-title-line1 { display: block; color: var(--white); }
     .hero-title-line2 {
       display: block; font-weight: 500; font-style: italic;
       background: linear-gradient(to right, #818cf8 0%, #f8f6f1 50%, #4caf78 100%);
@@ -170,9 +158,8 @@
     }
     .hero-title-dot {
       display: inline-block; margin-left: 0.12em;
-      color: #3eff7a; -webkit-text-fill-color: #3eff7a;
-      background: none; -webkit-background-clip: initial; background-clip: initial;
-      font-style: normal;
+      color: #3eff7a; -webkit-text-fill-color: #3eff7a; background: none;
+      -webkit-background-clip: initial; background-clip: initial; font-style: normal;
       text-shadow: 0 0 10px rgba(62,255,122,0.9), 0 0 25px rgba(62,255,122,0.6), 0 0 50px rgba(62,255,122,0.35);
       transform-origin: 50% 100%;
     }
@@ -185,90 +172,81 @@
       38%, 100% { transform: translateY(0) scale(1); }
     }
     .hero-subtitle {
-      color: var(--text-muted); font-size: clamp(0.98rem, 2vw, 1.14rem);
-      max-width: 620px; margin: 0 auto 2.2rem;
+      color: var(--text-muted); font-size: clamp(0.96rem, 1.9vw, 1.12rem);
+      max-width: 620px; margin: 0 auto 2rem;
     }
     .hero-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; }
     .btn {
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.95rem 1.9rem; border-radius: 999px;
-      font-weight: 600; font-size: 0.95rem; cursor: pointer;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
       transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
-      text-decoration: none;
     }
     .btn-primary {
       background: linear-gradient(135deg, var(--green-mid), var(--green-light));
       border: 1px solid rgba(110,208,154,0.5); color: var(--white);
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(110,208,154,0.25); }
-    .btn-ghost { border: 1px solid var(--border-soft); color: var(--white); background: transparent; }
+    .btn-ghost { border: 1px solid var(--border-soft); color: var(--white); }
     .btn-ghost:hover { transform: translateY(-2px); border-color: var(--green-glow); }
 
-    /* ================= LA VÉGÉTATION (DEVANT) ================= */
-    .curtain { position: absolute; inset: 0; z-index: 6; pointer-events: none; }
-    .cleaf {
-      position: absolute; left: 50%; top: 50%;
-      width: var(--w); height: auto;
-      /* feuilles quasi noires au départ : on est dans la pénombre de la jungle */
-      filter: brightness(0.34) drop-shadow(0 20px 40px rgba(0,0,0,0.9));
-      transform:
-        translate(-50%, -50%)
-        translate(var(--cx), var(--cy))
-        rotate(var(--cr))
-        scale(var(--cs, 1));
-      transform-origin: 50% 50%;
-      will-change: transform, filter;
+    /* ================= PLAN RAPPROCHÉ : les 2 moitiés qui s'écartent ================= */
+    .jungle { position: absolute; inset: 0; z-index: 6; pointer-events: none; }
+    .jungle-half {
+      position: absolute; top: 0; bottom: 0; width: 50%;
+      overflow: hidden; will-change: transform;
     }
-    /* elles s'éclairent un peu quand le néon monte en puissance */
-    body.ignite .cleaf {
-      filter: brightness(0.62) drop-shadow(0 20px 40px rgba(0,0,0,0.9));
-      transition: filter 1.1s ease;
+    .jungle-half.left  { left: 0; }
+    .jungle-half.right { left: 50%; }
+    .jungle-inner {
+      position: absolute; top: 0; height: 100%; width: 200%;
+      background: url('/assets/hero/jungle-hero.webp') center/cover no-repeat;
     }
-    body.open .cleaf {
-      transform:
-        translate(-50%, -50%)
-        translate(var(--ox), var(--oy))
-        rotate(var(--or))
-        scale(var(--os, 1));
-      transition: transform 2.1s cubic-bezier(0.52, 0.01, 0.16, 1), filter 1.1s ease;
-    }
-    body.done .curtain { opacity: 0; transition: opacity 0.7s ease; }
+    .jungle-half.left  .jungle-inner { left: 0; }
+    .jungle-half.right .jungle-inner { left: -100%; }
 
-    /* pénombre sur les bords, comme sous une canopée */
-    .canopy-vignette {
+    /* on écarte : elles glissent ET se rapprochent de la caméra */
+    body.open .jungle-half {
+      transition: transform 2.2s cubic-bezier(0.5, 0.02, 0.16, 1);
+    }
+    body.open .jungle-half.left  { transform: translateX(-100%) scale(1.14); }
+    body.open .jungle-half.right { transform: translateX(100%)  scale(1.14); }
+    body.done .jungle { opacity: 0; transition: opacity 0.5s ease; }
+
+    /* pénombre de sous-bois sur les bords */
+    .canopy {
       position: absolute; inset: 0; z-index: 5; pointer-events: none;
-      background: radial-gradient(70% 65% at 50% 50%, transparent 30%, rgba(0,0,0,0.72) 100%);
+      background: radial-gradient(66% 60% at 50% 50%, transparent 22%, rgba(0,0,0,0.78) 100%);
     }
-    body.settle .canopy-vignette { opacity: 0.35; transition: opacity 1.8s ease; }
+    body.settle .canopy { opacity: 0.3; transition: opacity 2s ease; }
 
-    /* ================= SUITE DE PAGE ================= */
+    /* ================= SUITE ================= */
     .after {
-      padding: 5rem 1.5rem; text-align: center;
-      border-top: 1px solid var(--border-soft);
-      background: var(--bg-dark);
-      opacity: 0;
+      padding: 5rem 1.5rem; text-align: center; background: var(--bg-dark);
+      border-top: 1px solid var(--border-soft); opacity: 0;
     }
-    body.settle .after { opacity: 1; transition: opacity 1s ease 1.1s; }
-    .after h2 {
-      font-family: 'Cormorant Garamond', serif; font-weight: 400;
-      font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 0.8rem;
-    }
+    body.settle .after { opacity: 1; transition: opacity 1s ease 1.4s; }
+    .after h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 0.8rem; }
     .after h2 em { color: var(--green-glow); font-style: italic; }
     .after p { color: var(--text-muted); max-width: 640px; margin: 0 auto 0.7rem; font-size: 0.95rem; }
     .after a { color: var(--green-glow); }
 
     @media (prefers-reduced-motion: reduce) {
-      .brandmark, .hero-rest, .cleaf, .after, .hero-bg { transition: none !important; animation: none !important; }
-      .brandmark { transform: none; color: #f2fff6; text-shadow: 0 0 13px #3eff7a, 0 0 36px rgba(62,255,122,0.65); }
-      .hero-rest, .after, .hero-bg { opacity: 1; transform: none; }
-      .curtain, .canopy-vignette, .neon-halo { display: none; }
+      .neon-wrap, .hero-rest, .after, .site-bg, .jungle-half, .jungle-backdrop {
+        transition: none !important; animation: none !important;
+      }
+      .neon-wrap { transform: none; }
+      .neon { opacity: 1; filter: none; }
+      .hero-rest, .after, .site-bg { opacity: 1; transform: none; }
+      .jungle, .canopy, .jungle-backdrop { display: none; }
     }
   </style>
 </head>
 <body>
 
   <div class="testbar">
-    <span class="label">Test <strong>Entrée dans la jungle</strong> · néon faible → feuilles s'écartent → néon à fond</span>
+    <span class="label">Test <strong>Entrée dans la jungle</strong> · néon faible → la végétation s'écarte → néon à fond</span>
     <div class="actions">
       <button class="tbtn" id="replay">▶ Rejouer</button>
       <a class="tbtn ghost" href="/preview-animations/">← Les 7 options</a>
@@ -276,12 +254,15 @@
   </div>
 
   <section class="hero">
-    <div class="hero-bg" aria-hidden="true"><div class="hero-gradient-blur"></div></div>
-    <div class="neon-halo" aria-hidden="true"></div>
+    <!-- plan lointain : la jungle qui reste -->
+    <div class="jungle-backdrop" aria-hidden="true"></div>
+    <!-- fond du vrai site, révélé après -->
+    <div class="site-bg" aria-hidden="true"></div>
 
     <div class="hero-content">
-      <!-- Le néon : DERRIÈRE les feuilles, faible, puis clignote et reste allumé -->
-      <div class="brandmark" id="brandmark">NB&#8209;DESIGN</div>
+      <div class="neon-wrap" id="neonWrap">
+        <img class="neon" src="/assets/hero/neon-nbdesign.png" alt="NB-Design, webdesigner" />
+      </div>
 
       <div class="hero-rest">
         <div class="hero-badge">
@@ -303,35 +284,18 @@
       </div>
     </div>
 
-    <div class="canopy-vignette" aria-hidden="true"></div>
+    <div class="canopy" aria-hidden="true"></div>
 
-    <!-- La végétation, DEVANT le néon -->
-    <div class="curtain" aria-hidden="true">
-      <!-- ----- GAUCHE ----- -->
-      <img class="cleaf" src="/assets/leaves/leaf_01.png" alt="" style="--w:40vw; --cx:-16%; --cy:-3%;  --cr:-6deg;  --cs:1.25; --ox:-124%; --oy:-22%; --or:-64deg; --os:1.05;">
-      <img class="cleaf" src="/assets/leaves/leaf_06.png" alt="" style="--w:35vw; --cx:-25%; --cy:17%;  --cr:26deg;  --cs:1.2;  --ox:-140%; --oy:38%;  --or:82deg;  --os:1;">
-      <img class="cleaf" src="/assets/leaves/leaf_04.png" alt="" style="--w:31vw; --cx:-9%;  --cy:-27%; --cr:-34deg; --cs:1.12; --ox:-112%; --oy:-84%; --or:-98deg; --os:0.95;">
-      <img class="cleaf" src="/assets/leaves/leaf_09.png" alt="" style="--w:27vw; --cx:-33%; --cy:-16%; --cr:16deg;  --cs:1.05; --ox:-158%; --oy:-12%; --or:56deg;  --os:0.9;">
-      <img class="cleaf" src="/assets/leaves/leaf_05.png" alt="" style="--w:29vw; --cx:-20%; --cy:33%;  --cr:-22deg; --cs:1.08; --ox:-132%; --oy:92%;  --or:-90deg; --os:0.92;">
-      <img class="cleaf" src="/assets/leaves/leaf_08.png" alt="" style="--w:23vw; --cx:-38%; --cy:4%;   --cr:42deg;  --cs:1;    --ox:-170%; --oy:12%;  --or:108deg; --os:0.88;">
-      <img class="cleaf" src="/assets/leaves/leaf_03.png" alt="" style="--w:24vw; --cx:-12%; --cy:-42%; --cr:64deg;  --cs:1.05; --ox:-96%;  --oy:-124%;--or:132deg; --os:0.9;">
-      <!-- ----- DROITE ----- -->
-      <img class="cleaf" src="/assets/leaves/leaf_02.png" alt="" style="--w:42vw; --cx:16%;  --cy:2%;   --cr:8deg;   --cs:1.25; --ox:126%;  --oy:20%;  --or:68deg;  --os:1.05;">
-      <img class="cleaf" src="/assets/leaves/leaf_07.png" alt="" style="--w:34vw; --cx:25%;  --cy:-16%; --cr:-18deg; --cs:1.18; --ox:142%;  --oy:-44%; --or:-78deg; --os:1;">
-      <img class="cleaf" src="/assets/leaves/leaf_03.png" alt="" style="--w:30vw; --cx:9%;   --cy:28%;  --cr:38deg;  --cs:1.1;  --ox:116%;  --oy:88%;  --or:104deg; --os:0.95;">
-      <img class="cleaf" src="/assets/leaves/leaf_10.png" alt="" style="--w:26vw; --cx:34%;  --cy:18%;  --cr:-14deg; --cs:1.02; --ox:162%;  --oy:22%;  --or:-62deg; --os:0.9;">
-      <img class="cleaf" src="/assets/leaves/leaf_01.png" alt="" style="--w:28vw; --cx:20%;  --cy:-34%; --cr:54deg;  --cs:1.08; --ox:134%;  --oy:-98%; --or:122deg; --os:0.92;">
-      <img class="cleaf" src="/assets/leaves/leaf_06.png" alt="" style="--w:22vw; --cx:39%;  --cy:-6%;  --cr:-46deg; --cs:1;    --ox:172%;  --oy:-14%; --or:-114deg;--os:0.88;">
-      <img class="cleaf" src="/assets/leaves/leaf_09.png" alt="" style="--w:23vw; --cx:13%;  --cy:44%;  --cr:-58deg; --cs:1.02; --ox:100%;  --oy:128%; --or:-126deg;--os:0.9;">
-      <!-- ----- CENTRE : elles se chevauchent pour laisser filtrer la lueur ----- -->
-      <img class="cleaf" src="/assets/leaves/leaf_02.png" alt="" style="--w:33vw; --cx:-3%;  --cy:11%;  --cr:76deg;  --cs:1.3;  --ox:-10%;  --oy:142%; --or:120deg; --os:1;">
-      <img class="cleaf" src="/assets/leaves/leaf_07.png" alt="" style="--w:31vw; --cx:4%;   --cy:-14%; --cr:-72deg; --cs:1.26; --ox:12%;   --oy:-148%;--or:-118deg;--os:1;">
+    <!-- plan rapproché : les deux moitiés qu'on écarte -->
+    <div class="jungle" aria-hidden="true">
+      <div class="jungle-half left"><div class="jungle-inner"></div></div>
+      <div class="jungle-half right"><div class="jungle-inner"></div></div>
     </div>
   </section>
 
   <section class="after" id="suite">
     <h2>Puis la page continue <em>normalement</em></h2>
-    <p>Le NB&#8209;DESIGN reste allumé en haut du hero, avec une respiration lente du néon. Sur le vrai site, l'animation ne se jouerait qu'une seule fois par session.</p>
+    <p>Le néon NB&#8209;DESIGN reste allumé en haut du hero avec une respiration lente. Sur le vrai site, l'animation ne se jouerait qu'une seule fois par session.</p>
     <p><a href="/preview-animations/">← Revoir les 7 options</a> · <a href="/">Aller sur le vrai site</a></p>
   </section>
 
@@ -339,57 +303,57 @@
   (function () {
     'use strict';
     var body = document.body;
-    var brand = document.getElementById('brandmark');
+    var wrap = document.getElementById('neonWrap');
     var TL = [];
 
-    /* Centre le néon pile au milieu de l'écran, quelle que soit la taille */
-    function centerBrand() {
+    /* Place le néon pile au centre de l'écran pour l'état de départ */
+    function centerNeon() {
       body.classList.remove('settle');
-      brand.style.setProperty('--bm-y', '0px');
-      brand.style.setProperty('--bm-s', '1');
-      var r = brand.getBoundingClientRect();
-      var brandCenter = r.top + r.height / 2;
-      var screenCenter = window.innerHeight / 2;
-      brand.style.setProperty('--bm-y', (screenCenter - brandCenter) + 'px');
-      brand.style.setProperty('--bm-s', window.innerWidth < 640 ? '1.7' : '2.1');
+      wrap.style.setProperty('--n-y', '0px');
+      wrap.style.setProperty('--n-s', '1');
+      var r = wrap.getBoundingClientRect();
+      var delta = (window.innerHeight / 2) - (r.top + r.height / 2);
+      wrap.style.setProperty('--n-y', delta + 'px');
+      wrap.style.setProperty('--n-s', window.innerWidth < 640 ? '1.55' : '1.9');
     }
 
     function play() {
       TL.forEach(clearTimeout); TL = [];
       body.classList.remove('open', 'ignite', 'settle', 'done');
-      centerBrand();
+      centerNeon();
       void body.offsetWidth;
 
-      // 1. on reste 0,9 s dans la pénombre : néon faible qu'on devine à travers les feuilles
-      // 2. les feuilles s'écartent, comme si on entrait dans la jungle
-      TL.push(setTimeout(function () { body.classList.add('open'); }, 900));
-      // 3. le néon clignote et s'allume à fond
-      TL.push(setTimeout(function () { body.classList.add('ignite'); }, 2150));
-      // 4. il rejoint sa place et tout le reste apparaît
-      TL.push(setTimeout(function () { body.classList.add('settle'); }, 3200));
-      // 5. état final : respiration du néon, point qui rebondit
-      TL.push(setTimeout(function () { body.classList.add('done'); }, 4900));
+      // 1,0 s : on écarte la végétation
+      TL.push(setTimeout(function () { body.classList.add('open'); }, 1000));
+      // 2,3 s : le néon clignote et s'allume à fond
+      TL.push(setTimeout(function () { body.classList.add('ignite'); }, 2300));
+      // 3,4 s : il rejoint sa place, la jungle s'efface, le hero apparaît
+      TL.push(setTimeout(function () { body.classList.add('settle'); }, 3400));
+      // 5,3 s : état final
+      TL.push(setTimeout(function () { body.classList.add('done'); }, 5300));
     }
 
     document.getElementById('replay').addEventListener('click', play);
     window.addEventListener('resize', function () {
-      if (!body.classList.contains('settle')) centerBrand();
+      if (!body.classList.contains('settle')) centerNeon();
     });
 
-    /* On attend que les feuilles soient décodées pour éviter tout flash */
-    var imgs = Array.prototype.slice.call(document.querySelectorAll('.cleaf'));
-    var pending = imgs.length;
-    var started = false;
-    function start() { if (started) return; started = true; requestAnimationFrame(function () { requestAnimationFrame(play); }); }
-    if (!pending) start();
-    imgs.forEach(function (img) {
-      if (img.complete) { if (--pending === 0) start(); }
-      else {
-        img.addEventListener('load', function () { if (--pending === 0) start(); });
-        img.addEventListener('error', function () { if (--pending === 0) start(); });
-      }
-    });
-    setTimeout(start, 2500);
+    /* On attend que les 2 images soient prêtes pour éviter tout flash */
+    var need = 2, started = false;
+    function ready() { if (--need <= 0) start(); }
+    function start() {
+      if (started) return; started = true;
+      requestAnimationFrame(function () { requestAnimationFrame(play); });
+    }
+    var neonImg = document.querySelector('.neon');
+    if (neonImg.complete) ready();
+    else { neonImg.addEventListener('load', ready); neonImg.addEventListener('error', ready); }
+
+    var bg = new Image();
+    bg.onload = ready; bg.onerror = ready;
+    bg.src = '/assets/hero/jungle-hero.webp';
+
+    setTimeout(start, 3000); // filet de sécurité
   })();
   </script>
 
