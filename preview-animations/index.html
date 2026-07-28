@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0f2318" />
+  <title>Preview animations d'ouverture · NB-Design</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-deep: #061410;
+      --green-dark: #0f2318;
+      --green-glow: #6ed09a;
+      --green-neon: #3eff7a;
+      --gold: #c9a84c;
+      --white: #f8f6f1;
+      --text-muted: rgba(248, 246, 241, 0.62);
+      --text-dim: rgba(248, 246, 241, 0.38);
+      --bg-dark: #030a06;
+      --border-soft: rgba(248, 246, 241, 0.08);
+      --border-medium: rgba(248, 246, 241, 0.16);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg-dark);
+      color: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 5rem;
+    }
+    a { color: var(--green-glow); text-decoration: none; }
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ===== HEADER ===== */
+    .top {
+      padding: 3.5rem 0 2.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-soft);
+      margin-bottom: 3rem;
+      background: radial-gradient(70% 90% at 50% 0%, rgba(110,208,154,0.09), transparent 70%);
+    }
+    .top .eyebrow {
+      color: var(--gold); font-size: 0.72rem; letter-spacing: 0.32em;
+      text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .top h1 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; margin-bottom: 0.9rem;
+    }
+    .top h1 em { color: var(--green-glow); font-style: italic; }
+    .top p { color: var(--text-muted); max-width: 620px; margin: 0 auto; font-size: 1rem; }
+
+    /* ===== GRID ===== */
+    .grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+    @media (min-width: 860px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+    .card {
+      background: linear-gradient(180deg, rgba(248,246,241,0.035), rgba(248,246,241,0.008));
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color 0.3s ease;
+    }
+    .card:hover { border-color: var(--border-medium); }
+    .card.reco { border-color: rgba(110,208,154,0.4); }
+    .card.reco::before {
+      content: 'RECOMMANDÉ';
+      position: absolute; z-index: 5;
+      margin: 0.9rem; padding: 0.3rem 0.7rem;
+      background: var(--green-glow); color: var(--green-deep);
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em;
+      border-radius: 999px;
+    }
+    .card-head { padding: 1.4rem 1.5rem 1rem; }
+    .card-num {
+      display: inline-block; color: var(--gold); font-size: 0.7rem;
+      letter-spacing: 0.24em; text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+    .card-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.55rem;
+      font-weight: 500; line-height: 1.2; margin-bottom: 0.45rem;
+    }
+    .card-title em { color: var(--green-glow); font-style: italic; }
+    .card-desc { color: var(--text-muted); font-size: 0.9rem; }
+    .stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+
+    /* ===== DEMO BOX ===== */
+    .demo-box {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: #050d07;
+      overflow: hidden;
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+      cursor: pointer;
+      user-select: none;
+    }
+    .demo-hero {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 1rem;
+      background:
+        radial-gradient(60% 70% at 50% 45%, rgba(45,122,79,0.20), transparent 70%),
+        linear-gradient(180deg, #071510, #030a06);
+    }
+    .demo-badge {
+      font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(201,168,76,0.35);
+      padding: 0.22rem 0.6rem; border-radius: 999px; margin-bottom: 0.7rem;
+    }
+    .demo-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(1.2rem, 3.2vw, 1.9rem); line-height: 1.1;
+    }
+    .demo-title .l2 {
+      display: block; font-style: italic; font-weight: 500;
+      background: linear-gradient(to right, #818cf8 0%, #f8f6f1 50%, #4caf78 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .demo-sub { color: var(--text-dim); font-size: 0.6rem; margin-top: 0.6rem; letter-spacing: 0.05em; }
+
+    .card-foot {
+      padding: 1rem 1.5rem 1.4rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .meta { color: var(--text-dim); font-size: 0.76rem; }
+    .replay {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.5rem 1.1rem; border-radius: 999px;
+      background: rgba(110,208,154,0.10); border: 1px solid rgba(110,208,154,0.34);
+      color: var(--green-glow); font-family: inherit; font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s ease;
+    }
+    .replay:hover { background: rgba(110,208,154,0.2); transform: translateY(-1px); }
+
+    /* ============================================================
+       DEMO 1 — FEUILLES DE JUNGLE QUI S'ÉCARTENT
+       ============================================================ */
+    #d1 .d1-hero { opacity: 0; transform: scale(1.06); }
+    #d1.play .d1-hero {
+      opacity: 1; transform: scale(1);
+      transition: opacity 1.1s var(--ease-out) 0.45s, transform 1.6s var(--ease-out) 0.35s;
+    }
+    .d1-leaf {
+      position: absolute; width: var(--w); height: auto;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%) translate(var(--cx), var(--cy)) rotate(var(--cr)) scale(var(--cs, 1));
+      filter: drop-shadow(0 14px 26px rgba(0,0,0,0.75));
+      z-index: 3; pointer-events: none;
+      transform-origin: 50% 50%;
+    }
+    #d1.play .d1-leaf {
+      transform: translate(-50%, -50%) translate(var(--ox), var(--oy)) rotate(var(--or)) scale(var(--os, 1));
+      transition: transform 1.7s cubic-bezier(0.62, 0.03, 0.16, 1);
+    }
+    .d1-vignette {
+      position: absolute; inset: 0; z-index: 4; pointer-events: none;
+      background: radial-gradient(75% 75% at 50% 50%, transparent 45%, rgba(0,0,0,0.55) 100%);
+      opacity: 1;
+    }
+    #d1.play .d1-vignette { opacity: 0.35; transition: opacity 1.4s ease 0.5s; }
+
+    /* ============================================================
+       DEMO 2 — NEON STARTUP SEQUENCE
+       ============================================================ */
+    #d2 .d2-cover {
+      position: absolute; inset: 0; z-index: 4;
+      background: #020604;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 1;
+    }
+    #d2 .d2-word {
+      font-family: 'Cormorant Garamond', serif; font-weight: 700;
+      font-size: clamp(1.4rem, 5vw, 2.6rem); letter-spacing: 0.06em;
+      color: rgba(62,255,122,0.10); text-shadow: none;
+    }
+    #d2.play .d2-word { animation: neonOn 1.5s steps(1, end) forwards; }
+    #d2.play .d2-cover { animation: coverOut 0.65s ease 1.5s forwards; }
+    #d2 .d2-hero { opacity: 0; }
+    #d2.play .d2-hero { animation: heroIn 1s var(--ease-out) 1.55s forwards; }
+    @keyframes neonOn {
+      0%, 10%   { color: rgba(62,255,122,0.08); text-shadow: none; }
+      12%       { color: #d8ffe6; text-shadow: 0 0 8px #3eff7a, 0 0 22px rgba(62,255,122,0.6); }
+      16%       { color: rgba(62,255,122,0.08); text-shadow: none; }
+      22%       { color: #d8ffe6; text-shadow: 0 0 10px #3eff7a, 0 0 26px rgba(62,255,122,0.65); }
+      26%       { color: rgba(62,255,122,0.10); text-shadow: none; }
+      34%       { color: #eaffef; text-shadow: 0 0 12px #3eff7a, 0 0 34px rgba(62,255,122,0.7), 0 0 60px rgba(62,255,122,0.35); }
+      38%       { color: rgba(62,255,122,0.14); text-shadow: none; }
+      46%, 100% { color: #f2fff6; text-shadow: 0 0 14px #3eff7a, 0 0 40px rgba(62,255,122,0.75), 0 0 80px rgba(62,255,122,0.4); }
+    }
+    @keyframes coverOut { to { opacity: 0; transform: scale(1.08); } }
+    @keyframes heroIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+
+    /* ============================================================
+       DEMO 3 — TEXT SCRAMBLE
+       ============================================================ */
+    #d3 .demo-title { font-variant-numeric: tabular-nums; }
+    #d3 .scr { color: var(--green-neon); opacity: 0.85; }
+
+    /* ============================================================
+       DEMO 4 — SPLIT-SCREEN REVEAL
+       ============================================================ */
+    .d4-panel {
+      position: absolute; top: 0; bottom: 0; width: 50.5%; z-index: 4;
+      background: linear-gradient(180deg, #061410, #020604);
+      border-color: rgba(110,208,154,0.5);
+    }
+    .d4-panel.left  { left: 0;  border-right: 1px solid rgba(110,208,154,0.45); }
+    .d4-panel.right { right: 0; border-left:  1px solid rgba(110,208,154,0.45); }
+    #d4.play .d4-panel.left  { transform: translateX(-101%); transition: transform 1.25s cubic-bezier(0.76, 0, 0.24, 1) 0.25s; }
+    #d4.play .d4-panel.right { transform: translateX(101%);  transition: transform 1.25s cubic-bezier(0.76, 0, 0.24, 1) 0.25s; }
+    #d4 .d4-hero { transform: scale(1.12); }
+    #d4.play .d4-hero { transform: scale(1); transition: transform 1.9s var(--ease-out) 0.25s; }
+
+    /* ============================================================
+       DEMO 5 — CURSEUR CUSTOM + PARALLAXE SOURIS
+       ============================================================ */
+    #d5 { cursor: none; }
+    .d5-cursor {
+      position: absolute; z-index: 6; width: 26px; height: 26px;
+      border: 1.5px solid var(--green-neon); border-radius: 50%;
+      box-shadow: 0 0 14px rgba(62,255,122,0.55), inset 0 0 10px rgba(62,255,122,0.25);
+      transform: translate(-50%, -50%); pointer-events: none;
+      transition: width 0.25s ease, height 0.25s ease, opacity 0.3s ease;
+      opacity: 0; left: 50%; top: 50%;
+    }
+    #d5:hover .d5-cursor { opacity: 1; }
+    .d5-cursor.big { width: 52px; height: 52px; background: rgba(62,255,122,0.10); }
+    .d5-leaf {
+      position: absolute; width: var(--w); height: auto;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.6));
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none; z-index: 3; opacity: 0.9;
+    }
+    #d5 .demo-title { position: relative; z-index: 4; }
+    .d5-hint {
+      position: absolute; bottom: 0.7rem; left: 0; right: 0; z-index: 5;
+      text-align: center; color: var(--text-dim); font-size: 0.6rem; letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       DEMO 6 — TEXT MORPHING
+       ============================================================ */
+    #d6 .d6-rotator { display: block; position: relative; height: 1.15em; }
+    #d6 .d6-word {
+      position: absolute; left: 0; right: 0; top: 0;
+      font-style: italic; font-weight: 500;
+      background: linear-gradient(to right, #818cf8 0%, #f8f6f1 50%, #4caf78 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0; filter: blur(8px); transform: translateY(0.25em);
+      transition: opacity 0.5s ease, filter 0.5s ease, transform 0.5s ease;
+    }
+    #d6 .d6-word.on { opacity: 1; filter: blur(0); transform: translateY(0); }
+
+    /* ============================================================
+       DEMO 7 — PRELOADER MINIMALISTE
+       ============================================================ */
+    #d7 .d7-cover {
+      position: absolute; inset: 0; z-index: 4; background: #020604;
+      display: flex; align-items: center; justify-content: center; opacity: 1;
+    }
+    #d7 .d7-ring {
+      width: 42px; height: 42px; border-radius: 50%;
+      border: 2px solid rgba(110,208,154,0.16);
+      border-top-color: var(--green-neon);
+      box-shadow: 0 0 18px rgba(62,255,122,0.35);
+    }
+    #d7.play .d7-ring { animation: spin 0.75s linear infinite, ringPop 0.4s ease 1.35s forwards; }
+    #d7.play .d7-cover { animation: coverFade 0.55s ease 1.45s forwards; }
+    #d7 .d7-hero { opacity: 0; }
+    #d7.play .d7-hero { animation: heroIn 0.9s var(--ease-out) 1.5s forwards; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes ringPop { to { transform: scale(1.6); opacity: 0; } }
+    @keyframes coverFade { to { opacity: 0; } }
+
+    /* ===== FOOTER ===== */
+    .verdict {
+      margin-top: 3.5rem; padding: 2.2rem;
+      background: linear-gradient(135deg, rgba(110,208,154,0.08), rgba(201,168,76,0.045));
+      border: 1px solid rgba(110,208,154,0.35); border-radius: 18px;
+    }
+    .verdict h2 {
+      font-family: 'Cormorant Garamond', serif; font-weight: 500;
+      font-size: 1.9rem; margin-bottom: 0.8rem;
+    }
+    .verdict h2 em { color: var(--green-glow); font-style: italic; }
+    .verdict p { color: var(--text-muted); margin-bottom: 0.8rem; font-size: 0.95rem; }
+    .verdict strong { color: var(--white); }
+    .verdict ul { margin: 0.8rem 0 0 1.1rem; color: var(--text-muted); font-size: 0.92rem; }
+    .verdict li { margin-bottom: 0.4rem; }
+    .foot { margin-top: 3rem; text-align: center; color: var(--text-dim); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="container">
+      <div class="eyebrow">Page privée · non indexée</div>
+      <h1>7 animations d'ouverture pour <em>nb-design.ch</em></h1>
+      <p>Clique sur une carte (ou sur « Rejouer ») pour relancer l'animation. Choisis celle que tu préfères et je l'intègre sur le vrai site.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+
+      <!-- ===================== 1 — FEUILLES JUNGLE ===================== -->
+      <article class="card reco" style="position:relative">
+        <div class="card-head">
+          <div class="card-num">Option 1 · Ton idée</div>
+          <div class="stars">★★★★★</div>
+          <h2 class="card-title">Les feuilles de jungle qui <em>s'écartent</em></h2>
+          <p class="card-desc">Le hero est masqué par un rideau de feuilles. Elles s'ouvrent lentement vers l'extérieur en pivotant, comme si on écartait la végétation pour découvrir le site.</p>
+        </div>
+        <div class="demo-box" id="d1" data-demo="1">
+          <div class="demo-hero d1-hero">
+            <span class="demo-badge">Webdesigner Suisse</span>
+            <div class="demo-title">Des sites qui font<span class="l2">envie.</span></div>
+            <div class="demo-sub">nb-design.ch</div>
+          </div>
+          <div class="d1-vignette"></div>
+          <!-- feuilles gauche -->
+          <img class="d1-leaf" src="/assets/leaves/leaf_01.png" alt="" style="--w:44%; --cx:-14%; --cy:-6%;  --cr:-8deg;  --cs:1.15; --ox:-118%; --oy:-30%; --or:-58deg; --os:1.05;">
+          <img class="d1-leaf" src="/assets/leaves/leaf_06.png" alt="" style="--w:40%; --cx:-22%; --cy:16%;  --cr:22deg;  --cs:1.1;  --ox:-132%; --oy:38%;  --or:74deg;  --os:1;">
+          <img class="d1-leaf" src="/assets/leaves/leaf_04.png" alt="" style="--w:34%; --cx:-6%;  --cy:-26%; --cr:-30deg; --cs:1;    --ox:-104%; --oy:-78%; --or:-88deg; --os:0.95;">
+          <img class="d1-leaf" src="/assets/leaves/leaf_09.png" alt="" style="--w:30%; --cx:-30%; --cy:-14%; --cr:12deg;  --cs:0.95; --ox:-150%; --oy:-8%;  --or:46deg;  --os:0.9;">
+          <!-- feuilles droite -->
+          <img class="d1-leaf" src="/assets/leaves/leaf_02.png" alt="" style="--w:46%; --cx:14%;  --cy:4%;   --cr:10deg;  --cs:1.15; --ox:120%;  --oy:26%;  --or:62deg;  --os:1.05;">
+          <img class="d1-leaf" src="/assets/leaves/leaf_07.png" alt="" style="--w:38%; --cx:24%;  --cy:-16%; --cr:-18deg; --cs:1.05; --ox:136%;  --oy:-44%; --or:-70deg; --os:1;">
+          <img class="d1-leaf" src="/assets/leaves/leaf_03.png" alt="" style="--w:32%; --cx:6%;   --cy:26%;  --cr:34deg;  --cs:1;    --ox:108%;  --oy:82%;  --or:96deg;  --os:0.95;">
+          <img class="d1-leaf" src="/assets/leaves/leaf_10.png" alt="" style="--w:28%; --cx:32%;  --cy:18%;  --cr:-12deg; --cs:0.95; --ox:154%;  --oy:22%;  --or:-52deg; --os:0.9;">
+        </div>
+        <div class="card-foot">
+          <span class="meta">Durée 1,7 s · joue 1× par session</span>
+          <button class="replay" data-target="d1">▶ Rejouer</button>
+        </div>
+      </article>
+
+      <!-- ===================== 2 — NEON STARTUP ===================== -->
+      <article class="card">
+        <div class="card-head">
+          <div class="card-num">Option 2</div>
+          <div class="stars">★★★★★</div>
+          <h2 class="card-title">Neon <em>startup sequence</em></h2>
+          <p class="card-desc">Écran noir, le nom s'allume comme un vrai tube néon qui s'amorce (micro-clignotements), puis le site se révèle.</p>
+        </div>
+        <div class="demo-box" id="d2" data-demo="2">
+          <div class="demo-hero d2-hero">
+            <span class="demo-badge">Webdesigner Suisse</span>
+            <div class="demo-title">Des sites qui font<span class="l2">envie.</span></div>
+            <div class="demo-sub">nb-design.ch</div>
+          </div>
+          <div class="d2-cover"><div class="d2-word">NB-DESIGN</div></div>
+        </div>
+        <div class="card-foot">
+          <span class="meta">Durée 2,1 s · très signature</span>
+          <button class="replay" data-target="d2">▶ Rejouer</button>
+        </div>
+      </article>
+
+      <!-- ===================== 3 — TEXT SCRAMBLE ===================== -->
+      <article class="card">
+        <div class="card-head">
+          <div class="card-num">Option 3</div>
+          <div class="stars">★★★★☆</div>
+          <h2 class="card-title">Text <em>scramble</em></h2>
+          <p class="card-desc">Le titre se décode lettre par lettre depuis des caractères aléatoires. Effet techy qui prouve le savoir-faire au premier regard.</p>
+        </div>
+        <div class="demo-box" id="d3" data-demo="3">
+          <div class="demo-hero">
+            <span class="demo-badge">Webdesigner Suisse</span>
+            <div class="demo-title"><span id="d3a">Des sites qui font</span><span class="l2" id="d3b">envie.</span></div>
+            <div class="demo-sub">nb-design.ch</div>
+          </div>
+        </div>
+        <div class="card-foot">
+          <span class="meta">Durée 1,2 s · rejoue à chaque visite</span>
+          <button class="replay" data-target="d3">▶ Rejouer</button>
+        </div>
+      </article>
+
+      <!-- ===================== 4 — SPLIT SCREEN ===================== -->
+      <article class="card">
+        <div class="card-head">
+          <div class="card-num">Option 4</div>
+          <div class="stars">★★★★☆</div>
+          <h2 class="card-title">Split-screen <em>reveal</em></h2>
+          <p class="card-desc">Deux panneaux noirs s'écartent comme un rideau de cinéma pendant que le hero se dézoome lentement derrière.</p>
+        </div>
+        <div class="demo-box" id="d4" data-demo="4">
+          <div class="demo-hero d4-hero">
+            <span class="demo-badge">Webdesigner Suisse</span>
+            <div class="demo-title">Des sites qui font<span class="l2">envie.</span></div>
+            <div class="demo-sub">nb-design.ch</div>
+          </div>
+          <div class="d4-panel left"></div>
+          <div class="d4-panel right"></div>
+        </div>
+        <div class="card-foot">
+          <span class="meta">Durée 1,5 s · style Awwwards</span>
+          <button class="replay" data-target="d4">▶ Rejouer</button>
+        </div>
+      </article>
+
+      <!-- ===================== 5 — CURSEUR + PARALLAXE ===================== -->
+      <article class="card">
+        <div class="card-head">
+          <div class="card-num">Option 5</div>
+          <div class="stars">★★★★☆</div>
+          <h2 class="card-title">Curseur néon + <em>parallaxe souris</em></h2>
+          <p class="card-desc">Pas d'animation au chargement : c'est l'interaction qui devient wow. Bouge la souris dans le cadre, les feuilles suivent.</p>
+        </div>
+        <div class="demo-box" id="d5" data-demo="5">
+          <div class="demo-hero">
+            <span class="demo-badge">Webdesigner Suisse</span>
+            <div class="demo-title">Des sites qui font<span class="l2">envie.</span></div>
+            <div class="demo-sub">nb-design.ch</div>
+          </div>
+          <img class="d5-leaf" src="/assets/leaves/leaf_01.png" alt="" data-depth="0.055" style="--w:24%; left:4%;  top:8%;">
+          <img class="d5-leaf" src="/assets/leaves/leaf_02.png" alt="" data-depth="0.09"  style="--w:27%; right:2%; top:14%;">
+          <img class="d5-leaf" src="/assets/leaves/leaf_06.png" alt="" data-depth="0.13"  style="--w:22%; left:10%; bottom:6%;">
+          <img class="d5-leaf" src="/assets/leaves/leaf_07.png" alt="" data-depth="0.16"  style="--w:20%; right:8%; bottom:4%;">
+          <div class="d5-cursor"></div>
+          <div class="d5-hint">Bouge la souris ici</div>
+        </div>
+        <div class="card-foot">
+          <span class="meta">Effet permanent · desktop uniquement</span>
+          <button class="replay" data-target="d5">▶ Réinitialiser</button>
+        </div>
+      </article>
+
+      <!-- ===================== 6 — TEXT MORPHING ===================== -->
+      <article class="card">
+        <div class="card-head">
+          <div class="card-num">Option 6</div>
+          <div class="stars">★★★☆☆</div>
+          <h2 class="card-title">Text <em>morphing</em></h2>
+          <p class="card-desc">Le dernier mot du titre change en boucle avec un fondu flou : envie, venir, rester, revenir.</p>
+        </div>
+        <div class="demo-box" id="d6" data-demo="6">
+          <div class="demo-hero">
+            <span class="demo-badge">Webdesigner Suisse</span>
+            <div class="demo-title">
+              Des sites qui font
+              <span class="d6-rotator">
+                <span class="d6-word on">envie.</span>
+                <span class="d6-word">venir.</span>
+                <span class="d6-word">rester.</span>
+                <span class="d6-word">revenir.</span>
+              </span>
+            </div>
+            <div class="demo-sub">nb-design.ch</div>
+          </div>
+        </div>
+        <div class="card-foot">
+          <span class="meta">Boucle infinie · 2,6 s par mot</span>
+          <button class="replay" data-target="d6">▶ Rejouer</button>
+        </div>
+      </article>
+
+      <!-- ===================== 7 — PRELOADER ===================== -->
+      <article class="card">
+        <div class="card-head">
+          <div class="card-num">Option 7</div>
+          <div class="stars">★★☆☆☆</div>
+          <h2 class="card-title">Preloader <em>minimaliste</em></h2>
+          <p class="card-desc">Un simple anneau néon qui tourne puis se dissout. Classique, propre, mais peu mémorable.</p>
+        </div>
+        <div class="demo-box" id="d7" data-demo="7">
+          <div class="demo-hero d7-hero">
+            <span class="demo-badge">Webdesigner Suisse</span>
+            <div class="demo-title">Des sites qui font<span class="l2">envie.</span></div>
+            <div class="demo-sub">nb-design.ch</div>
+          </div>
+          <div class="d7-cover"><div class="d7-ring"></div></div>
+        </div>
+        <div class="card-foot">
+          <span class="meta">Durée 1,5 s · le plus sobre</span>
+          <button class="replay" data-target="d7">▶ Rejouer</button>
+        </div>
+      </article>
+
+    </div>
+
+    <section class="verdict">
+      <h2>Ma reco : <em>option 1 + option 5</em></h2>
+      <p>Ton idée de feuilles qui s'écartent est la meilleure des sept, et de loin. Voilà pourquoi :</p>
+      <ul>
+        <li><strong>Elle raconte quelque chose.</strong> On écarte la végétation pour découvrir le site, comme on pousserait la porte d'un restaurant.</li>
+        <li><strong>Elle réutilise tes assets existants.</strong> Les mêmes feuilles que le hero, donc cohérence totale et zéro poids supplémentaire.</li>
+        <li><strong>Personne ne fait ça en Suisse.</strong> C'est une vraie signature, pas un effet vu mille fois.</li>
+        <li><strong>Elle se vend.</strong> Tu peux la proposer aux restaurants comme animation signature (600 à 1000 CHF selon ta grille).</li>
+      </ul>
+      <p style="margin-top:1rem">En complément, l'<strong>option 5</strong> (curseur néon + parallaxe souris) prolonge l'effet pendant toute la navigation, sans ralentir le site. Les deux ensemble font moins de 6 Ko de code.</p>
+      <p style="margin-top:1rem; color:var(--green-glow)"><strong>Dis-moi simplement le numéro que tu veux et je l'intègre au vrai site.</strong></p>
+    </section>
+
+    <p class="foot">Page de preview privée · <a href="/">retour à nb-design.ch</a></p>
+  </main>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ---------- Helper : relance une animation CSS ---------- */
+    function restart(el) {
+      el.classList.remove('play');
+      void el.offsetWidth; // force reflow
+      el.classList.add('play');
+    }
+
+    /* ---------- DEMO 3 : text scramble ---------- */
+    var CHARS = '!<>-_\\/[]{}—=+*^?#________';
+    function scramble(node, finalText, duration) {
+      var frame = 0;
+      var queue = [];
+      for (var i = 0; i < finalText.length; i++) {
+        var start = Math.floor(Math.random() * 18);
+        var end = start + Math.floor(Math.random() * 18) + 8;
+        queue.push({ ch: finalText[i], start: start, end: end, rnd: '' });
+      }
+      var raf;
+      function tick() {
+        var out = '';
+        var done = 0;
+        for (var i = 0; i < queue.length; i++) {
+          var q = queue[i];
+          if (frame >= q.end) { done++; out += q.ch; }
+          else if (frame >= q.start) {
+            if (!q.rnd || Math.random() < 0.28) {
+              q.rnd = CHARS[Math.floor(Math.random() * CHARS.length)];
+            }
+            out += '<span class="scr">' + q.rnd + '</span>';
+          } else {
+            out += q.ch === ' ' ? ' ' : '<span style="opacity:0">' + q.ch + '</span>';
+          }
+        }
+        node.innerHTML = out;
+        if (done < queue.length) { frame++; raf = requestAnimationFrame(tick); }
+        else { node.textContent = finalText; }
+      }
+      cancelAnimationFrame(raf);
+      tick();
+    }
+    function playD3() {
+      scramble(document.getElementById('d3a'), 'Des sites qui font');
+      setTimeout(function () {
+        scramble(document.getElementById('d3b'), 'envie.');
+      }, 220);
+    }
+
+    /* ---------- DEMO 5 : curseur + parallaxe ---------- */
+    (function initD5() {
+      var box = document.getElementById('d5');
+      if (!box) return;
+      var cursor = box.querySelector('.d5-cursor');
+      var leaves = box.querySelectorAll('.d5-leaf');
+      var title = box.querySelector('.demo-title');
+
+      box.addEventListener('mousemove', function (e) {
+        var r = box.getBoundingClientRect();
+        var x = e.clientX - r.left;
+        var y = e.clientY - r.top;
+        cursor.style.left = x + 'px';
+        cursor.style.top = y + 'px';
+
+        var dx = (x / r.width - 0.5);
+        var dy = (y / r.height - 0.5);
+        leaves.forEach(function (leaf) {
+          var d = parseFloat(leaf.getAttribute('data-depth')) || 0.1;
+          var tx = -dx * r.width * d;
+          var ty = -dy * r.height * d;
+          var rot = dx * 10 * (d * 6);
+          leaf.style.transform = 'translate(' + tx + 'px,' + ty + 'px) rotate(' + rot + 'deg)';
+        });
+
+        var tr = title.getBoundingClientRect();
+        var inside = e.clientX > tr.left - 12 && e.clientX < tr.right + 12 &&
+                     e.clientY > tr.top - 12 && e.clientY < tr.bottom + 12;
+        cursor.classList.toggle('big', inside);
+      });
+
+      box.addEventListener('mouseleave', function () {
+        leaves.forEach(function (leaf) { leaf.style.transform = 'translate(0,0) rotate(0deg)'; });
+        cursor.classList.remove('big');
+      });
+    })();
+
+    /* ---------- DEMO 6 : morphing ---------- */
+    var d6Timer = null;
+    function playD6() {
+      var words = document.querySelectorAll('#d6 .d6-word');
+      if (!words.length) return;
+      if (d6Timer) clearInterval(d6Timer);
+      var i = 0;
+      words.forEach(function (w, k) { w.classList.toggle('on', k === 0); });
+      d6Timer = setInterval(function () {
+        words[i].classList.remove('on');
+        i = (i + 1) % words.length;
+        words[i].classList.add('on');
+      }, 2600);
+    }
+
+    /* ---------- Router de lecture ---------- */
+    function play(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      if (id === 'd3') { playD3(); return; }
+      if (id === 'd6') { playD6(); return; }
+      if (id === 'd5') {
+        el.querySelectorAll('.d5-leaf').forEach(function (l) {
+          l.style.transform = 'translate(0,0) rotate(0deg)';
+        });
+        return;
+      }
+      restart(el);
+    }
+
+    /* ---------- Bindings ---------- */
+    document.querySelectorAll('.replay').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        play(btn.getAttribute('data-target'));
+      });
+    });
+    document.querySelectorAll('.demo-box').forEach(function (box) {
+      box.addEventListener('click', function () { play(box.id); });
+    });
+
+    /* ---------- Autoplay quand la carte entre à l'écran ---------- */
+    var seen = {};
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !seen[entry.target.id]) {
+            seen[entry.target.id] = true;
+            setTimeout(function () { play(entry.target.id); }, 180);
+          }
+        });
+      }, { threshold: 0.45 });
+      document.querySelectorAll('.demo-box').forEach(function (b) { io.observe(b); });
+    } else {
+      document.querySelectorAll('.demo-box').forEach(function (b) { play(b.id); });
+    }
+  })();
+  </script>
+
+</body>
+</html>
