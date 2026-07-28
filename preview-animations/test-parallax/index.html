@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#030a06" />
+  <title>Test · Parallax en calques · NB-Design</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-mid: #1a3d2b; --green-light: #4caf78; --green-glow: #6ed09a;
+      --green-neon: #3eff7a; --gold: #c9a84c; --white: #f8f6f1;
+      --text-muted: rgba(248,246,241,0.62); --text-dim: rgba(248,246,241,0.38);
+      --bg-dark: #030a06; --border-soft: rgba(248,246,241,0.08);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #010301; color: var(--white);
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    }
+
+    /* ================= PANNEAU DE RÉGLAGE ================= */
+    .panel {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+      padding: 0.55rem 1rem;
+      background: rgba(3,10,6,0.88); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-soft);
+      font-size: 0.75rem; color: var(--text-muted);
+    }
+    .panel .title { font-weight: 600; color: var(--green-glow); margin-right: 0.4rem; }
+    .panel .sep { width: 1px; height: 18px; background: var(--border-soft); margin: 0 0.3rem; }
+    .tbtn {
+      padding: 0.36rem 0.85rem; border-radius: 999px; cursor: pointer;
+      background: rgba(110,208,154,0.10); border: 1px solid rgba(110,208,154,0.32);
+      color: var(--green-glow); font-family: inherit; font-size: 0.75rem; font-weight: 600;
+      transition: all 0.18s ease; white-space: nowrap; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+    }
+    .tbtn:hover { background: rgba(110,208,154,0.2); }
+    .tbtn.off { background: transparent; border-color: var(--border-soft); color: var(--text-dim); }
+    .tbtn.ghost { background: transparent; border-color: var(--border-soft); color: var(--text-muted); }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    @media (max-width: 780px) { .panel .title, .panel .sep { display: none; } }
+
+    /* ================= HERO ================= */
+    .hero {
+      position: relative; min-height: 100svh; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      padding: 5rem 1.5rem 4rem; background: #010301;
+    }
+
+    /* --- fond lointain --- */
+    .backdrop {
+      position: absolute; inset: -4%; z-index: 0;
+      background: url('/assets/hero/jungle-hero.webp') center/cover no-repeat, #010301;
+    }
+    body.settle .backdrop {
+      opacity: 0.22; transition: opacity 2.6s ease 0.4s;
+    }
+    .site-bg { position: absolute; inset: 0; z-index: 1; opacity: 0; }
+    .site-bg::after {
+      content: ''; position: absolute; inset: -20%;
+      background:
+        radial-gradient(45% 40% at 25% 30%, rgba(99,102,241,0.16), transparent 70%),
+        radial-gradient(50% 45% at 75% 65%, rgba(76,175,120,0.18), transparent 70%);
+      filter: blur(46px);
+    }
+    body.settle .site-bg { opacity: 1; transition: opacity 2.2s ease 0.9s; }
+
+    /* ================= CONTENU ================= */
+    .hero-content {
+      position: relative; z-index: 4;
+      max-width: 900px; text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .neon-wrap {
+      width: clamp(230px, 44vw, 520px); margin-bottom: 1.8rem;
+      transform: translateY(var(--n-y, 20vh)) scale(var(--n-s, 1.9));
+      will-change: transform;
+    }
+    body.settle .neon-wrap { transform: translateY(0) scale(1); transition: transform 1.7s var(--ease-out); }
+    .neon {
+      display: block; width: 100%; height: auto;
+      opacity: 0.34; filter: brightness(0.62) saturate(0.75);
+      will-change: opacity, filter;
+    }
+    body.ignite .neon { animation: neonIgnite 1.2s steps(1, end) forwards; }
+    @keyframes neonIgnite {
+      0%{opacity:.34;filter:brightness(.62) saturate(.75)}
+      7%{opacity:1;filter:brightness(1.45) saturate(1.2)}
+      12%{opacity:.28;filter:brightness(.5) saturate(.7)}
+      20%{opacity:1;filter:brightness(1.5) saturate(1.25)}
+      25%{opacity:.32;filter:brightness(.55) saturate(.7)}
+      34%{opacity:1;filter:brightness(1.6) saturate(1.3)}
+      39%{opacity:.4;filter:brightness(.6) saturate(.8)}
+      50%{opacity:1;filter:brightness(1.75) saturate(1.35)}
+      58%{opacity:.85;filter:brightness(1.2) saturate(1.1)}
+      100%{opacity:1;filter:brightness(1.12) saturate(1.05)}
+    }
+    body.done .neon { animation: neonBreathe 5s ease-in-out infinite; }
+    @keyframes neonBreathe {
+      0%,100%{opacity:1;filter:brightness(1.08) saturate(1.02)}
+      50%{opacity:1;filter:brightness(1.3) saturate(1.12)}
+    }
+    .hero-rest { opacity: 0; transform: translateY(18px); }
+    body.settle .hero-rest {
+      opacity: 1; transform: translateY(0);
+      transition: opacity 1.2s var(--ease-out) 0.6s, transform 1.3s var(--ease-out) 0.6s;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      padding: 0.45rem 1.1rem; margin-bottom: 1.5rem;
+      border: 1px solid var(--border-soft); border-radius: 999px;
+      background: rgba(248,246,241,0.03);
+      font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);
+    }
+    .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green-neon); box-shadow: 0 0 10px var(--green-neon); }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(2.4rem, 7.4vw, 5rem); line-height: 1.04; margin-bottom: 1.3rem;
+    }
+    .hero-title-line1 { display: block; color: var(--white); }
+    .hero-title-line2 {
+      display: block; font-weight: 500; font-style: italic;
+      background: linear-gradient(to right, #818cf8 0%, #f8f6f1 50%, #4caf78 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent; padding-bottom: 0.12em;
+    }
+    .hero-title-dot {
+      display: inline-block; margin-left: 0.12em;
+      color: #3eff7a; -webkit-text-fill-color: #3eff7a; background: none;
+      -webkit-background-clip: initial; background-clip: initial; font-style: normal;
+      text-shadow: 0 0 10px rgba(62,255,122,0.9), 0 0 25px rgba(62,255,122,0.6), 0 0 50px rgba(62,255,122,0.35);
+      transform-origin: 50% 100%;
+    }
+    body.done .hero-title-dot { animation: heroDotBounce 2.6s cubic-bezier(0.68,-0.55,0.265,1.55) infinite; }
+    @keyframes heroDotBounce {
+      0%{transform:translateY(0) scale(1)} 15%{transform:translateY(-.35em) scale(1.15)}
+      28%{transform:translateY(0) scale(1)} 33%{transform:translateY(-.08em) scale(1.03)}
+      38%,100%{transform:translateY(0) scale(1)}
+    }
+    .hero-subtitle {
+      color: var(--text-muted); font-size: clamp(0.96rem, 1.9vw, 1.12rem);
+      max-width: 620px; margin: 0 auto 2rem;
+    }
+    .hero-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; padding: 0.95rem 1.9rem; border-radius: 999px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+      border: 1px solid rgba(110,208,154,0.5); color: var(--white);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(110,208,154,0.25); }
+    .btn-ghost { border: 1px solid var(--border-soft); color: var(--white); }
+    .btn-ghost:hover { transform: translateY(-2px); border-color: var(--green-glow); }
+
+    /* ============================================================
+       LES CALQUES DE VÉGÉTATION
+       3 transforms imbriqués qui ne se marchent jamais dessus :
+       .lyr-open  = l'ouverture (pivot + translation)
+       .lyr-par   = parallax souris + scroll (piloté en JS)
+       .lyr-sway  = balancement continu
+       ============================================================ */
+    .layer { position: absolute; top: 0; bottom: 0; pointer-events: none; }
+    .layer img { display: block; height: 112%; width: auto; position: absolute; top: -6%; }
+
+    .layer.left  { left: 0;  }
+    .layer.right { right: 0; }
+    .layer.left  img { left: 0;  }
+    .layer.right img { right: 0; }
+
+    .layer.front { z-index: 8; }
+    .layer.mid   { z-index: 6; }
+
+    /* --- 1. l'ouverture : rotation autour d'un pivot placé au poignet --- */
+    .lyr-open { position: absolute; inset: 0; will-change: transform; }
+    .layer.left  .lyr-open { transform-origin: 8% 78%; }
+    .layer.right .lyr-open { transform-origin: 92% 78%; }
+    body.open .layer .lyr-open { transition: transform var(--dur) cubic-bezier(0.42, 0.02, 0.18, 1) var(--delay); }
+    body.open .layer.left  .lyr-open { transform: rotate(var(--rot-neg)) translateX(var(--tx-neg)); }
+    body.open .layer.right .lyr-open { transform: rotate(var(--rot))     translateX(var(--tx)); }
+
+    /* --- 2. parallax souris + scroll --- */
+    .lyr-par { position: absolute; inset: 0; will-change: transform;
+      transform: translate3d(var(--px, 0px), var(--py, 0px), 0); }
+    body.parallax-on .lyr-par { transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+
+    /* --- 3. balancement continu --- */
+    .lyr-sway { position: absolute; inset: 0; }
+    body.sway-on .layer.left  .lyr-sway { animation: swayL var(--sway-dur) ease-in-out infinite; transform-origin: 10% 75%; }
+    body.sway-on .layer.right .lyr-sway { animation: swayR var(--sway-dur) ease-in-out infinite; transform-origin: 90% 75%; }
+    @keyframes swayL {
+      0%,100% { transform: rotate(0deg) translateY(0); }
+      50%     { transform: rotate(0.9deg) translateY(6px); }
+    }
+    @keyframes swayR {
+      0%,100% { transform: rotate(0deg) translateY(0); }
+      50%     { transform: rotate(-0.9deg) translateY(6px); }
+    }
+
+    /* pénombre */
+    .canopy {
+      position: absolute; inset: 0; z-index: 5; pointer-events: none;
+      background: radial-gradient(66% 60% at 50% 50%, transparent 24%, rgba(0,0,0,0.74) 100%);
+    }
+    body.settle .canopy { opacity: 0.34; transition: opacity 2s ease; }
+
+    /* repère : quand les vrais PNG arriveront, ce badge disparaîtra */
+    .placeholder-tag {
+      position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%);
+      z-index: 20; font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid rgba(201,168,76,0.3);
+      padding: 0.3rem 0.8rem; border-radius: 999px; background: rgba(3,10,6,0.6);
+      opacity: 0; pointer-events: none;
+    }
+    body.settle .placeholder-tag { opacity: 1; transition: opacity 1s ease 1.4s; }
+
+    /* ================= SUITE (pour tester le parallax au scroll) ================= */
+    .after { padding: 6rem 1.5rem 8rem; text-align: center; background: var(--bg-dark);
+      border-top: 1px solid var(--border-soft); opacity: 0; }
+    body.settle .after { opacity: 1; transition: opacity 1s ease 1.4s; }
+    .after h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 0.8rem; }
+    .after h2 em { color: var(--green-glow); font-style: italic; }
+    .after p { color: var(--text-muted); max-width: 640px; margin: 0 auto 0.7rem; font-size: 0.95rem; }
+    .after a { color: var(--green-glow); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .lyr-open, .lyr-par, .lyr-sway, .neon-wrap, .hero-rest, .after {
+        transition: none !important; animation: none !important; transform: none !important;
+      }
+      .neon { opacity: 1; filter: none; }
+      .hero-rest, .after, .site-bg { opacity: 1; }
+      .layer, .canopy { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="panel">
+    <span class="title">Parallax en calques</span>
+    <button class="tbtn" id="replay">▶ Rejouer l'ouverture</button>
+    <span class="sep"></span>
+    <button class="tbtn" data-toggle="parallax-on"><span class="dot"></span>Souris</button>
+    <button class="tbtn" data-toggle="scroll-on"><span class="dot"></span>Scroll</button>
+    <button class="tbtn" data-toggle="sway-on"><span class="dot"></span>Balancement</button>
+    <span class="sep"></span>
+    <a class="tbtn ghost" href="/preview-animations/test-feuilles/">Version photo coupée</a>
+    <a class="tbtn ghost" href="/preview-animations/">Les 7 options</a>
+  </div>
+
+  <section class="hero" id="hero">
+    <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+    <div class="site-bg" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="neon-wrap" id="neonWrap">
+        <img class="neon" src="/assets/hero/neon-nbdesign.webp" alt="NB-Design, webdesigner" />
+      </div>
+      <div class="hero-rest">
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          <span>Webdesigner Suisse · Spécialiste Restaurants</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-title-line1">Des sites qui font</span>
+          <span class="hero-title-line2">envie<span class="hero-title-dot" aria-hidden="true">.</span></span>
+        </h1>
+        <p class="hero-subtitle">
+          Webdesigner basé en Valais, nous créons des sites web sur mesure pour
+          les restaurants et PME de toute la Suisse romande qui veulent se démarquer en ligne.
+        </p>
+        <div class="hero-ctas">
+          <a href="#suite" class="btn btn-primary">Découvrir nos services</a>
+          <a href="#suite" class="btn btn-ghost">Nous contacter</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="canopy" aria-hidden="true"></div>
+
+    <!-- ===== CALQUES : plan intermédiaire (bouge moins) ===== -->
+    <div class="layer mid left" data-depth="0.5"
+         style="--rot-neg:-9deg; --tx-neg:-42%; --dur:2.3s; --delay:0.18s; --sway-dur:7.5s; width:52%;">
+      <div class="lyr-open"><div class="lyr-par"><div class="lyr-sway">
+        <img src="/assets/hero/layers/mid-gauche.png" alt="" />
+      </div></div></div>
+    </div>
+    <div class="layer mid right" data-depth="0.5"
+         style="--rot:9deg; --tx:42%; --dur:2.3s; --delay:0.18s; --sway-dur:8.2s; width:52%;">
+      <div class="lyr-open"><div class="lyr-par"><div class="lyr-sway">
+        <img src="/assets/hero/layers/mid-droite.png" alt="" />
+      </div></div></div>
+    </div>
+
+    <!-- ===== CALQUES : plan rapproché (bouge le plus, part en premier) ===== -->
+    <div class="layer front left" data-depth="1"
+         style="--rot-neg:-19deg; --tx-neg:-76%; --dur:2s; --delay:0s; --sway-dur:6.4s; width:62%;">
+      <div class="lyr-open"><div class="lyr-par"><div class="lyr-sway">
+        <img src="/assets/hero/layers/front-gauche.png" alt="" />
+      </div></div></div>
+    </div>
+    <div class="layer front right" data-depth="1"
+         style="--rot:19deg; --tx:76%; --dur:2s; --delay:0s; --sway-dur:6.9s; width:62%;">
+      <div class="lyr-open"><div class="lyr-par"><div class="lyr-sway">
+        <img src="/assets/hero/layers/front-droite.png" alt="" />
+      </div></div></div>
+    </div>
+
+    <div class="placeholder-tag">Calques provisoires · en attente des vrais PNG détourés</div>
+  </section>
+
+  <section class="after" id="suite">
+    <h2>Descends pour tester le <em>parallax au scroll</em></h2>
+    <p>Les calques se décalent à des vitesses différentes selon leur profondeur. Remonte, bouge la souris dans le hero, et coupe chaque effet dans la barre du haut pour les sentir séparément.</p>
+    <p>Les feuilles ci-dessus sont provisoires. Dès que tes PNG détourés arrivent, je remplace les fichiers et toute la mécanique fonctionne telle quelle.</p>
+    <p><a href="/preview-animations/test-feuilles/">← Comparer avec la version photo coupée</a></p>
+  </section>
+
+  <script>
+  (function () {
+    'use strict';
+    var body = document.body;
+    var hero = document.getElementById('hero');
+    var wrap = document.getElementById('neonWrap');
+    var backdrop = document.getElementById('backdrop');
+    var layers = Array.prototype.slice.call(document.querySelectorAll('.layer'));
+    var TL = [];
+
+    /* ---------- ouverture ---------- */
+    function centerNeon() {
+      body.classList.remove('settle');
+      wrap.style.setProperty('--n-y', '0px');
+      wrap.style.setProperty('--n-s', '1');
+      var r = wrap.getBoundingClientRect();
+      wrap.style.setProperty('--n-y', ((window.innerHeight / 2) - (r.top + r.height / 2)) + 'px');
+      wrap.style.setProperty('--n-s', window.innerWidth < 640 ? '1.55' : '1.9');
+    }
+
+    function play() {
+      TL.forEach(clearTimeout); TL = [];
+      body.classList.remove('open', 'ignite', 'settle', 'done');
+      centerNeon();
+      void body.offsetWidth;
+      TL.push(setTimeout(function () { body.classList.add('open'); }, 900));
+      TL.push(setTimeout(function () { body.classList.add('ignite'); }, 2200));
+      TL.push(setTimeout(function () { body.classList.add('settle'); }, 3300));
+      TL.push(setTimeout(function () { body.classList.add('done'); }, 5200));
+    }
+
+    /* ---------- parallax souris + scroll ---------- */
+    var mx = 0, my = 0, sy = 0, raf = null;
+
+    function apply() {
+      raf = null;
+      var mouseOn = body.classList.contains('parallax-on');
+      var scrollOn = body.classList.contains('scroll-on');
+
+      layers.forEach(function (el) {
+        var d = parseFloat(el.getAttribute('data-depth')) || 0.5;
+        var px = mouseOn ? -mx * 46 * d : 0;
+        var py = mouseOn ? -my * 26 * d : 0;
+        if (scrollOn) py += sy * 0.34 * d;
+        var par = el.querySelector('.lyr-par');
+        par.style.setProperty('--px', px.toFixed(1) + 'px');
+        par.style.setProperty('--py', py.toFixed(1) + 'px');
+      });
+
+      // le fond bouge très peu : c'est ce contraste qui crée la profondeur
+      var bx = mouseOn ? -mx * 14 : 0;
+      var by = (mouseOn ? -my * 8 : 0) + (scrollOn ? sy * 0.1 : 0);
+      backdrop.style.transform = 'translate3d(' + bx.toFixed(1) + 'px,' + by.toFixed(1) + 'px,0)';
+    }
+    function schedule() { if (!raf) raf = requestAnimationFrame(apply); }
+
+    hero.addEventListener('mousemove', function (e) {
+      var r = hero.getBoundingClientRect();
+      mx = (e.clientX - r.left) / r.width - 0.5;
+      my = (e.clientY - r.top) / r.height - 0.5;
+      schedule();
+    });
+    hero.addEventListener('mouseleave', function () { mx = 0; my = 0; schedule(); });
+    window.addEventListener('scroll', function () { sy = window.scrollY; schedule(); }, { passive: true });
+
+    /* ---------- interrupteurs ---------- */
+    document.querySelectorAll('[data-toggle]').forEach(function (btn) {
+      var cls = btn.getAttribute('data-toggle');
+      body.classList.add(cls);               // tout actif par défaut
+      btn.addEventListener('click', function () {
+        var on = body.classList.toggle(cls);
+        btn.classList.toggle('off', !on);
+        if (cls !== 'sway-on') schedule();
+      });
+    });
+    document.getElementById('replay').addEventListener('click', play);
+    window.addEventListener('resize', function () {
+      if (!body.classList.contains('settle')) centerNeon();
+    });
+
+    /* ---------- démarrage une fois les calques chargés ---------- */
+    var imgs = Array.prototype.slice.call(document.querySelectorAll('.layer img, .neon'));
+    var pending = imgs.length, started = false;
+    function ready() { if (--pending <= 0) start(); }
+    function start() {
+      if (started) return; started = true;
+      requestAnimationFrame(function () { requestAnimationFrame(play); });
+    }
+    imgs.forEach(function (im) {
+      if (im.complete) ready();
+      else { im.addEventListener('load', ready); im.addEventListener('error', ready); }
+    });
+    setTimeout(start, 3000);
+  })();
+  </script>
+
+</body>
+</html>
