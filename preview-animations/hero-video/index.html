@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#030a06" />
+  <title>Hero vidéo · Entrée dans la jungle · NB-Design</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preload" as="image" href="/assets/hero/video/jungle-poster.webp" />
+  <link rel="preload" as="image" href="/assets/hero/neon-nbdesign.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-mid: #1a3d2b; --green-light: #4caf78; --green-glow: #6ed09a;
+      --green-neon: #3eff7a; --gold: #c9a84c; --white: #f8f6f1;
+      --text-muted: rgba(248,246,241,0.72); --text-dim: rgba(248,246,241,0.42);
+      --bg-dark: #030a06; --border-soft: rgba(248,246,241,0.10);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #010301; color: var(--white);
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    }
+
+    /* ================= BARRE DE TEST ================= */
+    .testbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 0.55rem 1.1rem;
+      background: rgba(3,10,6,0.66); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-soft);
+      font-size: 0.76rem; color: var(--text-muted);
+    }
+    .testbar strong { color: var(--green-glow); font-weight: 600; }
+    .testbar .actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+    .tbtn {
+      padding: 0.4rem 0.95rem; border-radius: 999px; cursor: pointer;
+      background: rgba(110,208,154,0.10); border: 1px solid rgba(110,208,154,0.32);
+      color: var(--green-glow); font-family: inherit; font-size: 0.76rem; font-weight: 600;
+      transition: all 0.18s ease; white-space: nowrap; text-decoration: none;
+      display: inline-flex; align-items: center;
+    }
+    .tbtn:hover { background: rgba(110,208,154,0.2); }
+    .tbtn.ghost { background: transparent; border-color: var(--border-soft); color: var(--text-muted); }
+    @media (max-width: 720px) { .testbar .label { display: none; } }
+
+    /* ================= HERO ================= */
+    .hero {
+      position: relative; min-height: 100svh; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      padding: 6rem 1.5rem 5rem; background: #010301;
+    }
+    .hero-video {
+      position: absolute; inset: 0; z-index: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      /* léger zoom continu une fois la vidéo terminée, pour que ça ne fige pas net */
+      transform: scale(1.02);
+    }
+    body.done .hero-video {
+      transform: scale(1.07);
+      transition: transform 18s ease-out;
+    }
+
+    /* lisibilité du texte par-dessus la végétation */
+    .hero-scrim {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        radial-gradient(56% 52% at 50% 44%, rgba(3,10,6,0.82) 0%, rgba(3,10,6,0.55) 46%, rgba(3,10,6,0.2) 76%, transparent 100%),
+        linear-gradient(180deg, rgba(3,10,6,0.7) 0%, transparent 20%, transparent 60%, rgba(3,10,6,0.92) 100%);
+      opacity: 0;
+    }
+    body.reveal .hero-scrim { opacity: 1; transition: opacity 1.4s ease; }
+
+    /* halo vert du néon qui éclaire la clairière */
+    .neon-halo {
+      position: absolute; z-index: 2; pointer-events: none;
+      left: 50%; top: 41%; width: min(140vw, 1250px); height: min(56vh, 480px);
+      transform: translate(-50%, -50%);
+      background: radial-gradient(closest-side, rgba(62,255,122,0.20), rgba(62,255,122,0.06) 46%, transparent 74%);
+      filter: blur(30px); opacity: 0;
+    }
+    body.ignite .neon-halo { opacity: 1; transition: opacity 1.5s ease; }
+    body.done .neon-halo { animation: haloBreathe 5s ease-in-out infinite; }
+    @keyframes haloBreathe { 0%,100%{opacity:.82} 50%{opacity:1} }
+
+    /* ================= CONTENU ================= */
+    .hero-content {
+      position: relative; z-index: 4;
+      max-width: 900px; text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .neon-wrap { width: clamp(240px, 46vw, 540px); margin-bottom: 2rem; }
+    .neon {
+      display: block; width: 100%; height: auto;
+      opacity: 0; filter: brightness(0.5) saturate(0.7);
+      will-change: opacity, filter;
+    }
+    body.ignite .neon { animation: neonIgnite 1.3s steps(1, end) forwards; }
+    @keyframes neonIgnite {
+      0%{opacity:0;filter:brightness(.5) saturate(.7)}
+      6%{opacity:1;filter:brightness(1.5) saturate(1.2)}
+      11%{opacity:.12;filter:brightness(.5) saturate(.65)}
+      19%{opacity:1;filter:brightness(1.55) saturate(1.25)}
+      24%{opacity:.2;filter:brightness(.55) saturate(.7)}
+      33%{opacity:1;filter:brightness(1.68) saturate(1.3)}
+      38%{opacity:.3;filter:brightness(.6) saturate(.8)}
+      49%{opacity:1;filter:brightness(1.85) saturate(1.38)}
+      57%{opacity:.86;filter:brightness(1.25) saturate(1.1)}
+      100%{opacity:1;filter:brightness(1.15) saturate(1.05)}
+    }
+    body.done .neon { animation: neonBreathe 5s ease-in-out infinite; }
+    @keyframes neonBreathe {
+      0%,100%{opacity:1;filter:brightness(1.1) saturate(1.02)}
+      50%{opacity:1;filter:brightness(1.34) saturate(1.13)}
+    }
+
+    .hero-rest { opacity: 0; transform: translateY(22px); }
+    body.reveal .hero-rest {
+      opacity: 1; transform: translateY(0);
+      transition: opacity 1.3s var(--ease-out), transform 1.4s var(--ease-out);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      padding: 0.45rem 1.1rem; margin-bottom: 1.6rem;
+      border: 1px solid var(--border-soft); border-radius: 999px;
+      background: rgba(3,10,6,0.45); backdrop-filter: blur(6px);
+      font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);
+    }
+    .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green-neon); box-shadow: 0 0 10px var(--green-neon); }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(2.5rem, 7.6vw, 5.2rem); line-height: 1.04; margin-bottom: 1.4rem;
+      text-shadow: 0 4px 44px rgba(0,0,0,0.92);
+    }
+    .hero-title-line1 { display: block; color: var(--white); }
+    .hero-title-line2 {
+      display: block; font-weight: 500; font-style: italic;
+      background: linear-gradient(to right, #818cf8 0%, #f8f6f1 50%, #4caf78 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent; padding-bottom: 0.12em;
+    }
+    .hero-title-dot {
+      display: inline-block; margin-left: 0.12em;
+      color: #3eff7a; -webkit-text-fill-color: #3eff7a; background: none;
+      -webkit-background-clip: initial; background-clip: initial; font-style: normal;
+      text-shadow: 0 0 10px rgba(62,255,122,0.9), 0 0 25px rgba(62,255,122,0.6), 0 0 50px rgba(62,255,122,0.35);
+      transform-origin: 50% 100%;
+    }
+    body.done .hero-title-dot { animation: heroDotBounce 2.6s cubic-bezier(0.68,-0.55,0.265,1.55) infinite; }
+    @keyframes heroDotBounce {
+      0%{transform:translateY(0) scale(1)} 15%{transform:translateY(-.35em) scale(1.15)}
+      28%{transform:translateY(0) scale(1)} 33%{transform:translateY(-.08em) scale(1.03)}
+      38%,100%{transform:translateY(0) scale(1)}
+    }
+    .hero-subtitle {
+      color: var(--text-muted); font-size: clamp(0.98rem, 1.9vw, 1.14rem);
+      max-width: 620px; margin: 0 auto 2.2rem; text-shadow: 0 2px 26px rgba(0,0,0,0.92);
+    }
+    .hero-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; padding: 0.95rem 1.9rem; border-radius: 999px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+      border: 1px solid rgba(110,208,154,0.5); color: var(--white);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(110,208,154,0.3); }
+    .btn-ghost {
+      border: 1px solid rgba(248,246,241,0.3); color: var(--white);
+      background: rgba(3,10,6,0.38); backdrop-filter: blur(6px);
+    }
+    .btn-ghost:hover { transform: translateY(-2px); border-color: var(--green-glow); }
+
+    .scroll-cue {
+      position: absolute; bottom: 2rem; left: 0; right: 0; margin-inline: auto;
+      width: fit-content; z-index: 4;
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+      color: var(--text-dim); font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+      opacity: 0;
+    }
+    body.done .scroll-cue { opacity: 1; transition: opacity 1s ease; }
+    .scroll-line { width: 1px; height: 38px; background: linear-gradient(to bottom, transparent, var(--green-glow)); }
+
+    /* ================= SUITE ================= */
+    .after {
+      padding: 6rem 1.5rem 8rem; text-align: center;
+      background: var(--bg-dark); position: relative; z-index: 5;
+    }
+    .after h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 0.8rem; }
+    .after h2 em { color: var(--green-glow); font-style: italic; }
+    .after p { color: var(--text-muted); max-width: 660px; margin: 0 auto 0.7rem; font-size: 0.95rem; }
+    .after a { color: var(--green-glow); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-video { display: none; }
+      .hero { background: url('/assets/hero/video/jungle-poster.webp') center/cover no-repeat, #010301; }
+      .neon { opacity: 1; filter: none; animation: none !important; }
+      .hero-rest, .hero-scrim, .scroll-cue { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="testbar">
+    <span class="label">Hero <strong>vidéo</strong> · les mains écartent, le néon s'allume à l'ouverture</span>
+    <div class="actions">
+      <button class="tbtn" id="replay">▶ Rejouer</button>
+      <a class="tbtn ghost" href="/preview-animations/">Les 7 options</a>
+    </div>
+  </div>
+
+  <section class="hero" id="hero">
+    <video class="hero-video" id="vid"
+           poster="/assets/hero/video/jungle-poster.webp"
+           autoplay muted playsinline preload="auto" disablepictureinpicture>
+      <source src="/assets/hero/video/jungle.webm" type="video/webm" />
+      <source src="/assets/hero/video/jungle.mp4"  type="video/mp4" />
+    </video>
+
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="neon-halo" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="neon-wrap">
+        <img class="neon" src="/assets/hero/neon-nbdesign.webp" alt="NB-Design, webdesigner" />
+      </div>
+      <div class="hero-rest">
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          <span>Webdesigner Suisse · Spécialiste Restaurants</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-title-line1">Des sites qui font</span>
+          <span class="hero-title-line2">envie<span class="hero-title-dot" aria-hidden="true">.</span></span>
+        </h1>
+        <p class="hero-subtitle">
+          Webdesigner basé en Valais, nous créons des sites web sur mesure pour
+          les restaurants et PME de toute la Suisse romande qui veulent se démarquer en ligne.
+        </p>
+        <div class="hero-ctas">
+          <a href="#suite" class="btn btn-primary">Découvrir nos services</a>
+          <a href="#suite" class="btn btn-ghost">Nous contacter</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><span class="scroll-line"></span></div>
+  </section>
+
+  <section class="after" id="suite">
+    <h2>Le dernier plan reste le <em>fond du hero</em></h2>
+    <p>La vidéo ne boucle pas : elle se fige sur la clairière ouverte, puis un zoom très lent prend le relais pour que l'image ne paraisse jamais arrêtée.</p>
+    <p>Si l'autoplay est bloqué (mode économie d'énergie sur iPhone), la première image s'affiche et la suite se déroule normalement. Personne ne voit d'écran noir.</p>
+    <p><a href="/preview-animations/hero-jungle/">Comparer avec la photo fixe</a> · <a href="/">Le vrai site</a></p>
+  </section>
+
+  <script>
+  (function () {
+    'use strict';
+    var body = document.body;
+    var vid = document.getElementById('vid');
+    var TL = [];
+
+    /* Le néon s'allume quand l'ouverture est faite (~2,4 s), le reste suit. */
+    function schedule() {
+      TL.forEach(clearTimeout); TL = [];
+      body.classList.remove('ignite', 'reveal', 'done');
+      void body.offsetWidth;
+      TL.push(setTimeout(function () { body.classList.add('ignite'); }, 2400));
+      TL.push(setTimeout(function () { body.classList.add('reveal'); }, 3200));
+      TL.push(setTimeout(function () { body.classList.add('done');   }, 4700));
+    }
+
+    function play() {
+      try { vid.currentTime = 0; } catch (e) {}
+      var p = vid.play();
+      if (p && p.catch) {
+        // autoplay refusé : le poster reste affiché, on déroule quand même
+        p.catch(function () { schedule(); });
+      }
+      schedule();
+    }
+
+    document.getElementById('replay').addEventListener('click', play);
+
+    if (vid.readyState >= 2) play();
+    else vid.addEventListener('loadeddata', play, { once: true });
+    setTimeout(function () { if (!body.classList.contains('ignite')) schedule(); }, 3000);
+  })();
+  </script>
+
+</body>
+</html>
