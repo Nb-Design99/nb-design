@@ -28,7 +28,10 @@
   <script>
     (function () {
       try {
-        if (sessionStorage.getItem('nb-intro') === 'done') return;
+        // L'intro rejoue a chaque chargement de la page d'accueil.
+        // Pour ne la montrer qu'une fois par session, decommenter ces 2 lignes
+        // et le sessionStorage.setItem dans le script de fin de page :
+        // if (sessionStorage.getItem('nb-intro') === 'done') return;
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         document.documentElement.className += ' intro';
       } catch (e) {}
@@ -3251,7 +3254,8 @@
       function close() {
         if (closed) return;
         closed = true;
-        try { sessionStorage.setItem('nb-intro', 'done'); } catch (e) {}
+        // pour le mode "une fois par session", remettre cette ligne :
+        // try { sessionStorage.setItem('nb-intro', 'done'); } catch (e) {}
         el.classList.add('out');
         setTimeout(function () {
           el.style.display = 'none';
