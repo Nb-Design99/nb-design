@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#030a06" />
+  <title>Hero scroll-scrub · Entrée dans la jungle · NB-Design</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preload" as="image" href="/assets/hero/frames/f_001.webp" />
+  <link rel="preload" as="image" href="/assets/hero/neon-nbdesign.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-mid: #1a3d2b; --green-light: #4caf78; --green-glow: #6ed09a;
+      --green-neon: #3eff7a; --gold: #c9a84c; --white: #f8f6f1;
+      --text-muted: rgba(248,246,241,0.72); --text-dim: rgba(248,246,241,0.42);
+      --bg-dark: #030a06; --border-soft: rgba(248,246,241,0.10);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: #010301; color: var(--white);
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    }
+
+    /* ================= BARRE DE TEST ================= */
+    .testbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 0.55rem 1.1rem;
+      background: rgba(3,10,6,0.66); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-soft);
+      font-size: 0.76rem; color: var(--text-muted);
+    }
+    .testbar strong { color: var(--green-glow); font-weight: 600; }
+    .testbar .actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+    .tbtn {
+      padding: 0.4rem 0.95rem; border-radius: 999px; cursor: pointer;
+      background: rgba(110,208,154,0.10); border: 1px solid rgba(110,208,154,0.32);
+      color: var(--green-glow); font-family: inherit; font-size: 0.76rem; font-weight: 600;
+      transition: all 0.18s ease; white-space: nowrap; text-decoration: none;
+      display: inline-flex; align-items: center;
+    }
+    .tbtn:hover { background: rgba(110,208,154,0.2); }
+    .tbtn.ghost { background: transparent; border-color: var(--border-soft); color: var(--text-muted); }
+    @media (max-width: 720px) { .testbar .label { display: none; } }
+
+    /* ================= ÉCRAN DE CHARGEMENT ================= */
+    .loader {
+      position: fixed; inset: 0; z-index: 90; background: #010301;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem;
+      transition: opacity 0.7s ease;
+    }
+    .loader.gone { opacity: 0; pointer-events: none; }
+    .loader-bar { width: min(220px, 50vw); height: 2px; background: rgba(110,208,154,0.16); overflow: hidden; }
+    .loader-fill { height: 100%; width: 0%; background: var(--green-neon); box-shadow: 0 0 12px var(--green-neon); }
+    .loader-txt { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-dim); }
+
+    /* ================= SCÈNE PILOTÉE AU SCROLL ================= */
+    /* la hauteur de ce bloc = la distance de scroll consommée par l'animation */
+    .scroll-stage { position: relative; height: 320vh; }
+    .sticky { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+
+    #frames {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; display: block; z-index: 0;
+    }
+
+    .hero-scrim {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        radial-gradient(56% 52% at 50% 44%, rgba(3,10,6,0.8) 0%, rgba(3,10,6,0.52) 46%, rgba(3,10,6,0.18) 76%, transparent 100%),
+        linear-gradient(180deg, rgba(3,10,6,0.7) 0%, transparent 20%, transparent 62%, rgba(3,10,6,0.9) 100%);
+      opacity: var(--scrim, 0);
+    }
+    .neon-halo {
+      position: absolute; z-index: 2; pointer-events: none;
+      left: 50%; top: 41%; width: min(140vw, 1250px); height: min(56vh, 480px);
+      transform: translate(-50%, -50%);
+      background: radial-gradient(closest-side, rgba(62,255,122,0.2), rgba(62,255,122,0.06) 46%, transparent 74%);
+      filter: blur(30px); opacity: var(--halo, 0);
+    }
+
+    /* ================= CONTENU ================= */
+    .hero-content {
+      position: absolute; inset: 0; z-index: 4;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 6rem 1.5rem 5rem;
+    }
+    .neon-wrap { width: clamp(240px, 46vw, 540px); margin-bottom: 2rem; }
+    .neon {
+      display: block; width: 100%; height: auto;
+      opacity: var(--neon-o, 0);
+      filter: brightness(var(--neon-b, 0.5)) saturate(var(--neon-s, 0.7));
+    }
+    body.lit .neon { animation: neonBreathe 5s ease-in-out infinite; }
+    @keyframes neonBreathe {
+      0%,100%{filter:brightness(1.1) saturate(1.02)} 50%{filter:brightness(1.34) saturate(1.13)}
+    }
+
+    .hero-rest {
+      opacity: var(--rest-o, 0);
+      transform: translateY(calc((1 - var(--rest-o, 0)) * 26px));
+      max-width: 900px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      padding: 0.45rem 1.1rem; margin-bottom: 1.6rem;
+      border: 1px solid var(--border-soft); border-radius: 999px;
+      background: rgba(3,10,6,0.45); backdrop-filter: blur(6px);
+      font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);
+    }
+    .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green-neon); box-shadow: 0 0 10px var(--green-neon); }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(2.5rem, 7.6vw, 5.2rem); line-height: 1.04; margin-bottom: 1.4rem;
+      text-shadow: 0 4px 44px rgba(0,0,0,0.92);
+    }
+    .hero-title-line1 { display: block; color: var(--white); }
+    .hero-title-line2 {
+      display: block; font-weight: 500; font-style: italic;
+      background: linear-gradient(to right, #818cf8 0%, #f8f6f1 50%, #4caf78 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent; padding-bottom: 0.12em;
+    }
+    .hero-title-dot {
+      display: inline-block; margin-left: 0.12em;
+      color: #3eff7a; -webkit-text-fill-color: #3eff7a; background: none;
+      -webkit-background-clip: initial; background-clip: initial; font-style: normal;
+      text-shadow: 0 0 10px rgba(62,255,122,0.9), 0 0 25px rgba(62,255,122,0.6), 0 0 50px rgba(62,255,122,0.35);
+      transform-origin: 50% 100%;
+    }
+    body.lit .hero-title-dot { animation: heroDotBounce 2.6s cubic-bezier(0.68,-0.55,0.265,1.55) infinite; }
+    @keyframes heroDotBounce {
+      0%{transform:translateY(0) scale(1)} 15%{transform:translateY(-.35em) scale(1.15)}
+      28%{transform:translateY(0) scale(1)} 33%{transform:translateY(-.08em) scale(1.03)}
+      38%,100%{transform:translateY(0) scale(1)}
+    }
+    .hero-subtitle {
+      color: var(--text-muted); font-size: clamp(0.98rem, 1.9vw, 1.14rem);
+      max-width: 620px; margin: 0 auto 2.2rem; text-shadow: 0 2px 26px rgba(0,0,0,0.92);
+    }
+    .hero-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; padding: 0.95rem 1.9rem; border-radius: 999px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+      border: 1px solid rgba(110,208,154,0.5); color: var(--white);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(110,208,154,0.3); }
+    .btn-ghost {
+      border: 1px solid rgba(248,246,241,0.3); color: var(--white);
+      background: rgba(3,10,6,0.38); backdrop-filter: blur(6px);
+    }
+    .btn-ghost:hover { transform: translateY(-2px); border-color: var(--green-glow); }
+
+    /* invitation à scroller, visible au début puis disparaît */
+    .scroll-cue {
+      position: absolute; bottom: 2rem; left: 0; right: 0; margin-inline: auto;
+      width: fit-content; z-index: 5;
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+      color: var(--text-dim); font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+      opacity: var(--cue, 1);
+    }
+    .scroll-line { width: 1px; height: 38px; overflow: hidden;
+      background: linear-gradient(to bottom, transparent, var(--green-glow)); position: relative; }
+    .scroll-line::after {
+      content: ''; position: absolute; top: -40%; left: 0; right: 0; height: 40%;
+      background: linear-gradient(to bottom, transparent, var(--white));
+      animation: cueRun 2s ease-in-out infinite;
+    }
+    @keyframes cueRun { 0%{transform:translateY(-100%)} 100%{transform:translateY(360%)} }
+
+    /* jauge de progression */
+    .progress {
+      position: fixed; left: 0; top: 0; height: 2px; z-index: 99;
+      width: var(--prog, 0%); background: var(--green-neon);
+      box-shadow: 0 0 10px var(--green-neon);
+    }
+
+    /* ================= SUITE ================= */
+    .after {
+      padding: 6rem 1.5rem 8rem; text-align: center;
+      background: var(--bg-dark); position: relative; z-index: 5;
+    }
+    .after h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+      font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 0.8rem; }
+    .after h2 em { color: var(--green-glow); font-style: italic; }
+    .after p { color: var(--text-muted); max-width: 660px; margin: 0 auto 0.7rem; font-size: 0.95rem; }
+    .after a { color: var(--green-glow); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-stage { height: 100svh; }
+      .neon { opacity: 1 !important; filter: none !important; }
+      .hero-rest { opacity: 1 !important; transform: none !important; }
+      .hero-scrim { opacity: 1 !important; }
+      .scroll-cue { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress" id="prog"></div>
+
+  <div class="testbar">
+    <span class="label">Hero <strong>scroll-scrub</strong> · c'est ton scroll qui écarte les feuilles</span>
+    <div class="actions">
+      <button class="tbtn" id="top">↑ Revenir au début</button>
+      <a class="tbtn ghost" href="/preview-animations/hero-video/">Version autoplay</a>
+      <a class="tbtn ghost" href="/preview-animations/">Les 7 options</a>
+    </div>
+  </div>
+
+  <div class="loader" id="loader">
+    <div class="loader-bar"><div class="loader-fill" id="fill"></div></div>
+    <div class="loader-txt" id="ltxt">Chargement</div>
+  </div>
+
+  <div class="scroll-stage" id="stage">
+    <div class="sticky" id="sticky">
+      <canvas id="frames"></canvas>
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="neon-halo" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <div class="neon-wrap">
+          <img class="neon" src="/assets/hero/neon-nbdesign.webp" alt="NB-Design, webdesigner" />
+        </div>
+        <div class="hero-rest">
+          <div class="hero-badge">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            <span>Webdesigner Suisse · Spécialiste Restaurants</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="hero-title-line1">Des sites qui font</span>
+            <span class="hero-title-line2">envie<span class="hero-title-dot" aria-hidden="true">.</span></span>
+          </h1>
+          <p class="hero-subtitle">
+            Webdesigner basé en Valais, nous créons des sites web sur mesure pour
+            les restaurants et PME de toute la Suisse romande qui veulent se démarquer en ligne.
+          </p>
+          <div class="hero-ctas">
+            <a href="#suite" class="btn btn-primary">Découvrir nos services</a>
+            <a href="#suite" class="btn btn-ghost">Nous contacter</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true"><span>Scroll</span><span class="scroll-line"></span></div>
+    </div>
+  </div>
+
+  <section class="after" id="suite">
+    <h2>C'est ton scroll qui <em>écarte la végétation</em></h2>
+    <p>Les 61 images de la séquence sont préchargées puis dessinées sur un canvas selon la position de scroll. Aucun décodage vidéo, donc pas de saccade au seek et un contrôle image par image.</p>
+    <p>Le néon s'allume entre 45 et 60 % de la progression, quand l'ouverture se fait, et le texte apparaît au-delà de 65 %. Remonte pour rejouer à l'envers.</p>
+    <p><a href="/preview-animations/hero-video/">Comparer avec la version autoplay</a> · <a href="/">Le vrai site</a></p>
+  </section>
+
+  <script>
+  (function () {
+    'use strict';
+    var TOTAL = 61;
+    var PAD = 3;
+    var canvas = document.getElementById('frames');
+    var ctx = canvas.getContext('2d', { alpha: false });
+    var stage = document.getElementById('stage');
+    var sticky = document.getElementById('sticky');
+    var loader = document.getElementById('loader');
+    var fill = document.getElementById('fill');
+    var ltxt = document.getElementById('ltxt');
+    var prog = document.getElementById('prog');
+    var body = document.body;
+
+    var imgs = new Array(TOTAL);
+    var loaded = 0, ready = false, current = -1, raf = null;
+
+    function src(i) {
+      var n = String(i + 1);
+      while (n.length < PAD) n = '0' + n;
+      return '/assets/hero/frames/f_' + n + '.webp';
+    }
+
+    /* ---------- préchargement ---------- */
+    for (var i = 0; i < TOTAL; i++) {
+      (function (idx) {
+        var im = new Image();
+        im.onload = im.onerror = function () {
+          loaded++;
+          var pct = Math.round(loaded / TOTAL * 100);
+          fill.style.width = pct + '%';
+          ltxt.textContent = 'Chargement ' + pct + '%';
+          if (loaded === TOTAL) start();
+        };
+        im.src = src(idx);
+        imgs[idx] = im;
+      })(i);
+    }
+
+    function start() {
+      ready = true;
+      loader.classList.add('gone');
+      setTimeout(function () { loader.style.display = 'none'; }, 700);
+      resize();
+      onScroll();
+    }
+
+    /* ---------- canvas en "cover" ---------- */
+    function resize() {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(sticky.clientWidth * dpr);
+      canvas.height = Math.round(sticky.clientHeight * dpr);
+      canvas.style.width = sticky.clientWidth + 'px';
+      canvas.style.height = sticky.clientHeight + 'px';
+      current = -1;
+      draw(lastFrame);
+    }
+
+    var lastFrame = 0;
+    function draw(idx) {
+      if (!ready || idx === current) return;
+      var im = imgs[idx];
+      if (!im || !im.naturalWidth) return;
+      current = idx;
+      var cw = canvas.width, ch = canvas.height;
+      var s = Math.max(cw / im.naturalWidth, ch / im.naturalHeight);
+      var w = im.naturalWidth * s, h = im.naturalHeight * s;
+      ctx.drawImage(im, (cw - w) / 2, (ch - h) / 2, w, h);
+    }
+
+    /* ---------- pilotage par le scroll ---------- */
+    function clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+    function range(p, a, b) { return clamp01((p - a) / (b - a)); }
+
+    function onScroll() {
+      raf = null;
+      var total = stage.offsetHeight - sticky.offsetHeight;
+      var p = clamp01((window.scrollY - stage.offsetTop) / (total || 1));
+
+      lastFrame = Math.min(TOTAL - 1, Math.round(p * (TOTAL - 1)));
+      draw(lastFrame);
+
+      prog.style.setProperty('--prog', (p * 100).toFixed(1) + '%');
+
+      // le néon monte pendant que l'ouverture se fait
+      var nOpen = range(p, 0.42, 0.62);
+      body.style.setProperty('--neon-o', nOpen.toFixed(3));
+      body.style.setProperty('--neon-b', (0.5 + nOpen * 0.65).toFixed(3));
+      body.style.setProperty('--neon-s', (0.7 + nOpen * 0.35).toFixed(3));
+      body.style.setProperty('--halo', nOpen.toFixed(3));
+
+      // le voile et le texte arrivent ensuite
+      body.style.setProperty('--scrim', range(p, 0.5, 0.72).toFixed(3));
+      body.style.setProperty('--rest-o', range(p, 0.62, 0.85).toFixed(3));
+      body.style.setProperty('--cue', (1 - range(p, 0.02, 0.14)).toFixed(3));
+
+      body.classList.toggle('lit', p > 0.9);
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!raf) raf = requestAnimationFrame(onScroll);
+    }, { passive: true });
+    window.addEventListener('resize', resize);
+
+    document.getElementById('top').addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+</body>
+</html>
