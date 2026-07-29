@@ -57,23 +57,18 @@
       padding: 5rem 1.5rem 4rem; background: #010301;
     }
 
-    /* --- fond lointain --- */
-    .backdrop {
-      position: absolute; inset: -4%; z-index: 0;
-      background: url('/assets/hero/jungle-hero.webp') center/cover no-repeat, #010301;
+    /* --- fond : celui du vrai site, rien d'autre --- */
+    .site-bg {
+      position: absolute; inset: 0; z-index: 1;
+      background: radial-gradient(70% 60% at 50% 45%, #0a1c12 0%, #050f09 55%, #020604 100%);
     }
-    body.settle .backdrop {
-      opacity: 0.22; transition: opacity 2.6s ease 0.4s;
-    }
-    .site-bg { position: absolute; inset: 0; z-index: 1; opacity: 0; }
     .site-bg::after {
       content: ''; position: absolute; inset: -20%;
       background:
-        radial-gradient(45% 40% at 25% 30%, rgba(99,102,241,0.16), transparent 70%),
-        radial-gradient(50% 45% at 75% 65%, rgba(76,175,120,0.18), transparent 70%);
+        radial-gradient(45% 40% at 25% 30%, rgba(99,102,241,0.14), transparent 70%),
+        radial-gradient(50% 45% at 75% 65%, rgba(76,175,120,0.16), transparent 70%);
       filter: blur(46px);
     }
-    body.settle .site-bg { opacity: 1; transition: opacity 2.2s ease 0.9s; }
 
     /* ================= CONTENU ================= */
     .hero-content {
@@ -238,7 +233,6 @@
   </div>
 
   <section class="hero" id="hero">
-    <div class="backdrop" id="backdrop" aria-hidden="true"></div>
     <div class="site-bg" aria-hidden="true"></div>
 
     <div class="hero-content">
@@ -267,21 +261,7 @@
 
     <div class="canopy" aria-hidden="true"></div>
 
-    <!-- ===== CALQUES : plan intermédiaire (bouge moins, part après) ===== -->
-    <div class="layer mid left" data-depth="0.5"
-         style="--rot-neg:-7deg; --tx-neg:-46%; --dur:2.3s; --delay:0.18s; --sway-dur:7.5s;">
-      <div class="lyr-open"><div class="lyr-par"><div class="lyr-sway">
-        <img src="/assets/hero/layers/mid-gauche.webp" alt="" />
-      </div></div></div>
-    </div>
-    <div class="layer mid right" data-depth="0.5"
-         style="--rot:7deg; --tx:46%; --dur:2.3s; --delay:0.18s; --sway-dur:8.2s;">
-      <div class="lyr-open"><div class="lyr-par"><div class="lyr-sway">
-        <img src="/assets/hero/layers/mid-droite.webp" alt="" />
-      </div></div></div>
-    </div>
-
-    <!-- ===== CALQUES : plan rapproché (bouge le plus, part en premier) ===== -->
+    <!-- ===== LES DEUX SEULS CALQUES : le feuillage détouré ===== -->
     <div class="layer front left" data-depth="1"
          style="--rot-neg:-14deg; --tx-neg:-82%; --dur:2s; --delay:0s; --sway-dur:6.4s;">
       <div class="lyr-open"><div class="lyr-par"><div class="lyr-sway">
@@ -309,7 +289,6 @@
     var body = document.body;
     var hero = document.getElementById('hero');
     var wrap = document.getElementById('neonWrap');
-    var backdrop = document.getElementById('backdrop');
     var layers = Array.prototype.slice.call(document.querySelectorAll('.layer'));
     var TL = [];
 
@@ -352,10 +331,6 @@
         par.style.setProperty('--py', py.toFixed(1) + 'px');
       });
 
-      // le fond bouge très peu : c'est ce contraste qui crée la profondeur
-      var bx = mouseOn ? -mx * 14 : 0;
-      var by = (mouseOn ? -my * 8 : 0) + (scrollOn ? sy * 0.1 : 0);
-      backdrop.style.transform = 'translate3d(' + bx.toFixed(1) + 'px,' + by.toFixed(1) + 'px,0)';
     }
     function schedule() { if (!raf) raf = requestAnimationFrame(apply); }
 
