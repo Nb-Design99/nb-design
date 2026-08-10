@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3CH0 — Infraestrutura de proteção e de integridade forense</title>
+<meta name="description" content="A 3CH0 desenvolve uma infraestrutura de proteção no domicílio, independente do smartphone, que garante a integridade forense das provas digitais para as vítimas de violência doméstica.">
+<meta name="theme-color" content="#1F2A44">
+<!-- PREPROD : a retirer quand l'e-mail de contact et les mentions legales seront reels -->
+<meta name="robots" content="noindex, nofollow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="3CH0 — Transformar a violência invisível em factos estabelecidos">
+<meta property="og:description" content="Uma infraestrutura de proteção e de integridade forense independente do smartphone, para as vítimas de violência doméstica.">
+<meta property="og:locale" content="pt_PT">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<script>
+  // Pose la classe avant le premier rendu pour eviter tout clignotement.
+  // L'intro rejoue a CHAQUE chargement de page (demande de Nathan).
+  document.documentElement.className = 'intro-on';
+</script>
+</head>
+<body>
+
+<!-- grain + jauge de progression : purement decoratifs -->
+<div class="grain" aria-hidden="true"></div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- ================= INTRO ================= -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__rings"><span></span><span></span><span></span><span></span></div>
+  <div class="loader__stack">
+    <span class="loader__word loader__word--echo">3CH0</span>
+    <span class="loader__word loader__word--echo">3CH0</span>
+    <span class="loader__word">3CH0</span>
+  </div>
+  <div class="loader__tag">Proteção · Prova · Justiça</div>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="3CH0 — início">
+      <svg class="brand__mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle class="ring ring-a" cx="20" cy="20" r="18.5" stroke="currentColor" stroke-opacity=".25" stroke-width="1"/>
+        <circle class="ring ring-b" cx="20" cy="20" r="12.5" stroke="currentColor" stroke-opacity=".55" stroke-width="1"/>
+        <circle cx="20" cy="20" r="6" fill="currentColor"/>
+      </svg>
+      <span class="brand__word">3CH0</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir o menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav">
+      <div class="nav__links">
+        <a href="#mission">Missão</a>
+        <a href="#probleme">O problema</a>
+        <a href="#technologie">Tecnologia</a>
+        <a href="#recherche">Investigação</a>
+        <a href="#projet">O projeto</a>
+      </div>
+      <div class="lang" aria-label="Idioma">
+        <a href="index.html">FR</a>
+        <a href="de.html">DE</a>
+        <a href="en.html">EN</a>
+        <a href="it.html">IT</a>
+        <a href="pt.html" aria-current="true">PT</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <img src="assets/img/hero-couloir.jpg" alt="" width="1600" height="1067" fetchpriority="high">
+  </div>
+  <div class="echo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+  <div class="wrap">
+    <p class="eyebrow">Investigação &amp; desenvolvimento · Suíça</p>
+    <h1>Transformar a violência invisível em <em>factos estabelecidos</em>.</h1>
+    <p class="hero__sub">
+      Uma infraestrutura instalada no domicílio, independente do smartphone,
+      que protege o alerta e sela a prova.
+    </p>
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="#technologie">
+        Ver a tecnologia
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="#agir">Tornar-se parceiro</a>
+    </div>
+
+    <div class="hero__stats">
+      <div class="stat"><div class="stat__num">86 %</div><p class="stat__lbl">das queixas arquivadas, por falta de provas</p></div>
+      <div class="stat"><div class="stat__num">50–75 %</div><p class="stat__lbl">dos casos envolvem controlo coercivo</p></div>
+      <div class="stat"><div class="stat__num">&gt; 12 meses</div><p class="stat__lbl">de autonomia visada, sem recarga</p></div>
+      <div class="stat"><div class="stat__num">99,9 %</div><p class="stat__lbl">de fiabilidade exigida na transmissão</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATUT ================= -->
+<div class="status-bar">
+  <div class="wrap">
+    <svg width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M8 4.6v4.2M8 11.2v.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <p><strong>Projeto de investigação em desenvolvimento.</strong> A 3CH0 não substitui a polícia, a justiça nem os serviços de apoio às vítimas. Em caso de perigo imediato: 117.</p>
+  </div>
+</div>
+
+<!-- ================= MISSION ================= -->
+<section class="section" id="mission">
+  <div class="wrap">
+    <div class="split split--wide-left">
+      <div>
+        <p class="eyebrow">01 — Missão</p>
+        <h2 class="h-sec">Dar às vítimas os meios de serem ouvidas</h2>
+        <p class="lede">
+          Investigação tecnológica, competência jurídica e conhecimento do terreno,
+          ao serviço de um único objetivo: alertar e documentar sem nunca expor ainda mais a vítima.
+        </p>
+
+        <div class="cards" style="margin-top:2.5rem;grid-template-columns:1fr">
+          <article class="card reveal" style="padding:1.4rem 1.6rem">
+            <div class="card__idx">I — Proteger</div>
+            <p style="margin-top:.45rem">Acionar uma assistência discreta no momento crítico. Sem ecrã, sem som, sem gesto detetável.</p>
+          </article>
+          <article class="card reveal" style="padding:1.4rem 1.6rem">
+            <div class="card__idx">II — Documentar</div>
+            <p style="margin-top:.45rem">Preservar elementos com marcação temporal e selados desde a captação, protegidos de qualquer alteração.</p>
+          </article>
+          <article class="card reveal" style="padding:1.4rem 1.6rem">
+            <div class="card__idx">III — Estabelecer</div>
+            <p style="margin-top:.45rem">Fornecer às autoridades provas técnica e juridicamente admissíveis.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="media media--tall reveal">
+        <div class="media__veil"></div>
+        <img src="assets/img/fenetre-nuit.jpg" alt="Janela coberta de chuva, à noite" width="1600" height="2000" loading="lazy">
+        <div class="media__cap">Portas fechadas, o ângulo morto da prova</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BANDE : 86 % ================= -->
+<section class="band" id="probleme">
+  <div class="band__bg" aria-hidden="true">
+    <img src="assets/img/bande-lumieres.jpg" alt="" width="1600" height="1067" loading="lazy">
+  </div>
+  <div class="wrap">
+    <p class="eyebrow" style="justify-content:center">02 — O problema</p>
+    <p class="band__quote">86 % das queixas arquivadas, por falta de provas.</p>
+    <p class="band__src">Instituto de políticas públicas · estatísticas suíças da criminalidade</p>
+  </div>
+</section>
+
+<!-- ================= POINT DE DÉFAILLANCE ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow">03 — Vulnerabilidade</p>
+        <h2 class="h-sec">O smartphone é o ponto de falha</h2>
+      </div>
+      <p class="lede">
+        O instrumento de socorro é também o objeto mais vigiado, confiscado e controlado pelo agressor.
+        Todas as soluções atuais dependem dele.
+      </p>
+    </div>
+
+    <div class="fail-list">
+      <div class="fail reveal">
+        <div class="fail__n">A.</div>
+        <div class="fail__t">Aplicações SOS</div>
+        <p class="fail__d">Exigem desbloquear o telemóvel — impossível sob coação.</p>
+      </div>
+      <div class="fail reveal">
+        <div class="fail__n">B.</div>
+        <div class="fail__t">Botões Bluetooth</div>
+        <p class="fail__d">Dependem do smartphone por perto, muitas vezes confiscado.</p>
+      </div>
+      <div class="fail reveal">
+        <div class="fail__n">C.</div>
+        <div class="fail__t">Gravações manuais</div>
+        <p class="fail__d">Perigosas de acionar, manipuláveis, juridicamente frágeis.</p>
+      </div>
+      <div class="fail reveal">
+        <div class="fail__n">D.</div>
+        <div class="fail__t">Telemóveis de segurança</div>
+        <p class="fail__d">Objetos detetáveis, vulneráveis à destruição física.</p>
+      </div>
+    </div>
+
+    <div class="figure reveal" style="margin-top:3rem">
+      <div class="split" style="align-items:center">
+        <div>
+          <div class="figure__num">50–75 %</div>
+          <p class="figure__src" style="margin-top:.9rem">dos casos de violência nas relações de intimidade envolvem controlo coercivo</p>
+        </div>
+        <p style="color:var(--muted);text-wrap:pretty">
+          Vigilância digital contínua, palavras-passe conhecidas, geolocalização partilhada.
+          <strong style="color:var(--text)">Qualquer aplicação instalada no telemóvel é visível — logo, perigosa.</strong>
+          A proteção tem de mudar de centro de gravidade.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TECHNOLOGIE ================= -->
+<section class="section section--tint" id="technologie">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow">04 — Tecnologia</p>
+        <h2 class="h-sec">Três pilares, uma cadeia de confiança</h2>
+      </div>
+      <p class="lede">Do domicílio até uma nuvem soberana suíça. Security &amp; privacy by design, de ponta a ponta.</p>
+    </div>
+
+    <div class="pillars">
+      <article class="pillar reveal">
+        <div class="pillar__media">
+          <img src="assets/img/pilier-dispositif.jpg" alt="Placa de circuito impresso em grande plano, tonalidade azul-noite" width="1600" height="900" loading="lazy">
+          <div class="pillar__n">01</div>
+        </div>
+        <div class="pillar__body">
+          <h3>Alerta resiliente</h3>
+          <p>Um microdispositivo desligado de qualquer aparelho pessoal. Acionamento silencioso, confirmação háptica, nenhum retorno visual.</p>
+          <div class="pillar__tags">
+            <span class="tag">Sem smartphone</span>
+            <span class="tag">Silencioso</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pillar reveal">
+        <div class="pillar__media">
+          <img src="assets/img/pilier-relais.jpg" alt="Bastidor de equipamento de rede numa sala escura" width="1600" height="900" loading="lazy">
+          <div class="pillar__n">02</div>
+        </div>
+        <div class="pillar__body">
+          <h3>Infraestrutura autónoma</h3>
+          <p>Uma rede mesh de relés dissimulados no domicílio. Se um nó for destruído, os outros asseguram a ligação. Baterias e recurso celular integrados.</p>
+          <div class="pillar__tags">
+            <span class="tag">Rede mesh</span>
+            <span class="tag">Redundante</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pillar reveal">
+        <div class="pillar__media">
+          <img src="assets/img/pilier-forensique.jpg" alt="Cablagem de rede densa ligada a um comutador" width="1600" height="900" loading="lazy">
+          <div class="pillar__n">03</div>
+        </div>
+        <div class="pillar__body">
+          <h3>Integridade forense</h3>
+          <p>Marcação temporal certificada, assinatura criptográfica gerada ao nível do hardware, cifragem assimétrica e selagem da captação.</p>
+          <div class="pillar__tags">
+            <span class="tag">Selagem em hardware</span>
+            <span class="tag">Conforme à LPD</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CHAÎNE DE POSSESSION ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow">05 — Cadeia de custódia</p>
+        <h2 class="h-sec">Do alerta à prova admissível</h2>
+        <p class="lede" style="margin-bottom:2.5rem">
+          Os tribunais exigem provas autenticadas e não alteradas.
+          A segurança é automática, em cada etapa.
+        </p>
+
+        <div class="chain">
+          <div class="chain__step reveal">
+            <h3>Captação seletiva</h3>
+            <p>Acionada unicamente pela pessoa protegida. Nenhuma vigilância contínua.</p>
+          </div>
+          <div class="chain__step reveal">
+            <h3>Selagem imediata</h3>
+            <p>Marcação temporal e assinatura criptográfica geradas ao nível do hardware, na origem.</p>
+          </div>
+          <div class="chain__step reveal">
+            <h3>Transmissão cifrada</h3>
+            <p>Encaminhamento pelos relés para uma nuvem soberana suíça, fora dos aparelhos pessoais.</p>
+          </div>
+          <div class="chain__step reveal">
+            <h3>Acesso enquadrado</h3>
+            <p>Dados inacessíveis sem o acordo explícito das autoridades judiciais.</p>
+          </div>
+          <div class="chain__step reveal">
+            <h3>Rastreabilidade absoluta</h3>
+            <p>Ciclo de vida do dado documentado de forma inalterável, em conformidade com a LPD.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="media media--tall reveal">
+        <div class="media__veil"></div>
+        <img src="assets/img/consortium-banc.jpg" alt="Placas eletrónicas num banco de ensaio de laboratório" width="1600" height="2000" loading="lazy">
+        <div class="media__cap">Selagem ao nível do hardware</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ÉTAT DE L'ART ================= -->
+<section class="section section--panel">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">06 — Estado da arte</p>
+      <h2 class="h-sec">Aquilo que nada de existente cobre</h2>
+    </div>
+
+    <div class="table-scroll reveal">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th scope="col">Desafio</th>
+            <th scope="col" class="col-old">Existente</th>
+            <th scope="col" class="col-new">3CH0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Independência do hardware</th>
+            <td class="col-old">Dependente do smartphone, ou aparelho visível e confiscável.</td>
+            <td class="col-new">Microdispositivo discreto e autónomo no domicílio.</td>
+          </tr>
+          <tr>
+            <th scope="row">Infraestrutura</th>
+            <td class="col-old">Nenhuma; dependência das redes celulares convencionais.</td>
+            <td class="col-new">Relés locais seguros e redundantes.</td>
+          </tr>
+          <tr>
+            <th scope="row">Integridade forense</th>
+            <td class="col-old">Nenhuma prova judicialmente admissível gerada.</td>
+            <td class="col-new">Marcação temporal, cifragem e selagem conformes à LPD.</td>
+          </tr>
+          <tr>
+            <th scope="row">Resiliência ao controlo</th>
+            <td class="col-old">Vulnerável à vigilância e ao controlo coercivo.</td>
+            <td class="col-new">Concebido para frustrar vigilância e confisco.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RECHERCHE ================= -->
+<section class="section" id="recherche">
+  <div class="wrap">
+    <div class="split">
+      <div class="media media--wide reveal">
+        <div class="media__veil"></div>
+        <img src="assets/img/labo-recherche.jpg" alt="Trabalho de precisão numa placa eletrónica" width="1600" height="1000" loading="lazy">
+        <div class="media__cap">Validação em laboratório</div>
+      </div>
+
+      <div>
+        <p class="eyebrow">07 — Investigação</p>
+        <h2 class="h-sec">Inovar sem nunca transigir na segurança</h2>
+        <p class="lede">Quatro obstáculos de engenharia a superar antes de qualquer utilização em situação real.</p>
+
+        <div class="cards" style="margin-top:2.2rem;grid-template-columns:1fr 1fr;gap:.9rem">
+          <article class="card reveal" style="padding:1.3rem 1.4rem">
+            <div class="card__idx">01</div>
+            <h3 style="font-size:1rem;margin-top:.5rem">Topologia &amp; encaminhamento</h3>
+          </article>
+          <article class="card reveal" style="padding:1.3rem 1.4rem">
+            <div class="card__idx">02</div>
+            <h3 style="font-size:1rem;margin-top:.5rem">Cibersegurança do hardware</h3>
+          </article>
+          <article class="card reveal" style="padding:1.3rem 1.4rem">
+            <div class="card__idx">03</div>
+            <h3 style="font-size:1rem;margin-top:.5rem">Engenharia embarcada</h3>
+          </article>
+          <article class="card reveal" style="padding:1.3rem 1.4rem">
+            <div class="card__idx">04</div>
+            <h3 style="font-size:1rem;margin-top:.5rem">Governação dos acessos</h3>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LE PROJET ================= -->
+<section class="section section--tint" id="projet">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow">08 — O projeto</p>
+        <h2 class="h-sec">Investigação académica e entidades de apoio no terreno</h2>
+      </div>
+      <p class="lede">Engenharia de redes, sistemas embarcados e forense digital, validados de forma contínua pelos profissionais do acompanhamento.</p>
+    </div>
+
+    <div class="partners">
+      <article class="partner reveal">
+        <div class="partner__role">Investigação &amp; técnica</div>
+        <h3>HEIG-VD</h3>
+        <p>Investigação aplicada: competência em redes e segurança, engenharia de hardware e forense digital.</p>
+      </article>
+      <article class="partner reveal">
+        <div class="partner__role">Terreno</div>
+        <h3>Redes de apoio às vítimas</h3>
+        <p>Casos de uso e enquadramento ético.</p>
+      </article>
+      <article class="partner reveal">
+        <div class="partner__role">Institucional</div>
+        <h3>Apoio à inovação</h3>
+        <p>Financiamento suíço da inovação.</p>
+      </article>
+    </div>
+
+    <div class="roadmap" style="margin-top:clamp(3rem,6vw,4.5rem)">
+      <div class="milestone reveal">
+        <div class="milestone__year">2026</div>
+        <div class="milestone__t">I&amp;D &amp; MVP</div>
+        <p>Viabilidade, especificações, primeiro protótipo funcional.</p>
+      </div>
+      <div class="milestone reveal">
+        <div class="milestone__year">2027</div>
+        <div class="milestone__t">Piloto no terreno</div>
+        <p>Testes de penetração, integridade forense, implementação piloto.</p>
+      </div>
+      <div class="milestone reveal">
+        <div class="milestone__year">2028</div>
+        <div class="milestone__t">Industrialização</div>
+        <p>Passagem à escala, certificação, colocação no mercado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta" id="agir">
+  <div class="wrap">
+    <p class="eyebrow" style="justify-content:center">09 — Agir</p>
+    <h2>A prova nunca deveria ser um privilégio</h2>
+    <p class="lede">Investigadores, engenheiros, juristas, fundações, instituições. Falemos.</p>
+    <div class="cta__actions">
+      <a class="btn btn--primary" href="mailto:CONTACT@3CH0.CH?subject=Parceria%203CH0">
+        Tornar-se parceiro
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="mailto:CONTACT@3CH0.CH?subject=Contacto%203CH0">Contacte-nos</a>
+    </div>
+    <div class="cta__who">
+      <span class="tag">Investigação</span>
+      <span class="tag">Engenharia</span>
+      <span class="tag">Direito &amp; forense</span>
+      <span class="tag">Fundações</span>
+      <span class="tag">Terreno</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= URGENCES ================= -->
+<div class="emergency">
+  <div class="wrap">
+    <span class="emergency__label">Em caso de emergência</span>
+    <div class="emergency__nums">
+      <span><b>117</b> Polícia</span>
+      <span><b>144</b> Emergências médicas</span>
+      <span><b>143</b> A Mão Estendida</span>
+      <span><b>147</b> Apoio a jovens</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brandcol">
+        <a class="brand" href="#top" aria-label="3CH0">
+          <svg class="brand__mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <circle cx="20" cy="20" r="18.5" stroke="currentColor" stroke-opacity=".25" stroke-width="1"/>
+            <circle cx="20" cy="20" r="12.5" stroke="currentColor" stroke-opacity=".55" stroke-width="1"/>
+            <circle cx="20" cy="20" r="6" fill="currentColor"/>
+          </svg>
+          <span class="brand__word">3CH0</span>
+        </a>
+        <p class="footer__about">
+          Investigação &amp; desenvolvimento tecnológico contra a violência doméstica e nas relações de intimidade · Suíça
+        </p>
+      </div>
+
+      <div>
+        <h4>O projeto</h4>
+        <ul class="footer__list">
+          <li><a href="#mission">Missão</a></li>
+          <li><a href="#probleme">O problema</a></li>
+          <li><a href="#technologie">Tecnologia</a></li>
+          <li><a href="#recherche">Investigação</a></li>
+          <li><a href="#projet">Consórcio &amp; roadmap</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <ul class="footer__list">
+          <li><a href="mailto:CONTACT@3CH0.CH">CONTACT@3CH0.CH</a></li>
+          <li><a href="#agir">Tornar-se parceiro</a></li>
+          <li><a href="mentions-legales.html">Informação legal</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 3CH0 · Suíça</span>
+      <span>Security &amp; privacy by design · Conforme à LPD</span>
+    </div>
+  </div>
+</footer>
+
+<a class="quick-exit" href="https://www.google.ch" id="quickExit" rel="noopener">
+  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <path d="M6 14H3V2h3M10 11l3-3-3-3M13 8H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  Sair depressa
+</a>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
