@@ -36,13 +36,23 @@
     }
   }
 
-  /* --- Header : état "collé" au scroll --- */
+  /* --- Header collé + jauge de progression --- */
   var header = document.getElementById('header');
+  var jauge = document.getElementById('scrollProgress');
   var onScroll = function () {
     header.classList.toggle('is-stuck', window.scrollY > 24);
+    if (jauge) {
+      var course = document.documentElement.scrollHeight - window.innerHeight;
+      jauge.style.width = (course > 0 ? (window.scrollY / course) * 100 : 0) + '%';
+    }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
   onScroll();
+
+  /* --- Les titres se dévoilent par un masque qui remonte --- */
+  document.querySelectorAll('.hero h1, .h-sec, .cta h2, .band__quote')
+    .forEach(function (el) { el.classList.add('mask'); });
 
   /* --- Parallaxe discrète sur l'image du hero --- */
   var heroImg = document.querySelector('.hero__bg img');
@@ -83,8 +93,8 @@
     });
   }
 
-  /* --- Apparition au scroll (blocs + volets sur les images) --- */
-  var revealables = document.querySelectorAll('.reveal');
+  /* --- Apparition au scroll (blocs, volets sur les images, masques de titres) --- */
+  var revealables = document.querySelectorAll('.reveal, .mask');
   if ('IntersectionObserver' in window && revealables.length) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
