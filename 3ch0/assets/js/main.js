@@ -7,7 +7,8 @@
 
   /* ------------------------------------------------------------------ *
    * Intro : le wordmark s'efface comme un écho, puis on rend la main.
-   * Jouée une fois par session (sessionStorage, posé dans le <head>).
+   * Rejouée à chaque chargement de page — seul prefers-reduced-motion
+   * la court-circuite.
    * ------------------------------------------------------------------ */
   var loader = document.getElementById('loader');
   if (loader) {
@@ -22,11 +23,11 @@
       }, 900);
     };
 
-    if (reduced || root.classList.contains('no-intro')) {
+    if (reduced) {
       finish();
     } else {
-      // 2,5 s d'animation + 0,85 s de fondu (voir @keyframes loaderOut)
-      window.setTimeout(finish, 3350);
+      // fondu CSS : 2,05 s de délai + 0,7 s (voir .loader / @keyframes loaderOut)
+      window.setTimeout(finish, 2800);
       // On peut toujours écourter
       loader.addEventListener('click', finish);
       document.addEventListener('keydown', function (e) {

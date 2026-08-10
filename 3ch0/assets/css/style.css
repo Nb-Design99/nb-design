@@ -68,7 +68,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   place-items: center;
   background: var(--ink-deep);
   overflow: hidden;
-  animation: loaderOut 0.85s var(--ease) 2.5s forwards;
+  /* Le fondu démarre pendant que l'écho finit de s'éteindre (~2,2 s),
+     sinon on laisse un écran noir vide avant le site. */
+  animation: loaderOut 0.7s var(--ease) 2.05s forwards;
 }
 .loader.is-done { opacity: 0; visibility: hidden; pointer-events: none; }
 @keyframes loaderOut {
@@ -177,9 +179,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   100% { opacity: 0; }
 }
 
-/* pas d'intro : rejouée une fois par session, jamais en reduced-motion */
-.no-intro .loader { display: none; }
-
+/* L'intro rejoue à chaque chargement ; seul reduced-motion la supprime. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

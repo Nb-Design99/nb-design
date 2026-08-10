@@ -21,17 +21,9 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
 <script>
-  // Décidé avant le premier rendu pour éviter tout clignotement.
-  (function () {
-    try {
-      if (sessionStorage.getItem('3ch0-intro') === 'vu') {
-        document.documentElement.className = 'no-intro';
-      } else {
-        sessionStorage.setItem('3ch0-intro', 'vu');
-        document.documentElement.className = 'intro-on';
-      }
-    } catch (e) { document.documentElement.className = 'intro-on'; }
-  })();
+  // Pose la classe avant le premier rendu pour eviter tout clignotement.
+  // L'intro rejoue a CHAQUE chargement de page (demande de Nathan).
+  document.documentElement.className = 'intro-on';
 </script>
 </head>
 <body>
