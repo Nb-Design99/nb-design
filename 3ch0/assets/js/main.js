@@ -139,18 +139,46 @@
     sections.forEach(function (s) { spy.observe(s); });
   }
 
-  /* --- Quitter vite : redirige l'onglet et ouvre une page neutre --- */
+  /* ------------------------------------------------------------------ *
+   * SÉCURITÉ — historique de navigation
+   *
+   * Objectif : qu'un agresseur qui appuie sur « Précédent » ne retombe
+   * jamais sur 3CH0.
+   *
+   * Ce qui est possible : empêcher le site d'occuper PLUSIEURS entrées
+   * d'historique. Toute navigation interne se fait en location.replace(),
+   * donc le site n'occupe qu'une seule entrée, que « Quitter vite »
+   * remplace à son tour. Reculer ramène à ce qui précédait la visite.
+   *
+   * Ce qui n'est PAS possible depuis une page web : effacer l'historique
+   * du navigateur ou empêcher l'URL d'y être inscrite. Seule la
+   * navigation privée le permet — d'où la mention sous les urgences.
+   * ------------------------------------------------------------------ */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    if (a.target === '_blank' || a.id === 'quickExit') return;
+    var href = a.getAttribute('href');
+    // on ne touche ni aux ancres, ni aux mailto/tel, ni aux liens externes
+    if (!href || href.charAt(0) === '#' || /^(mailto:|tel:)/i.test(href)) return;
+    var url;
+    try { url = new URL(href, location.href); } catch (err) { return; }
+    if (url.origin !== location.origin) return;
+    e.preventDefault();
+    window.location.replace(url.href);
+  });
+
+  /* --- Quitter vite : remplace l'entrée courante et ouvre une page neutre --- */
   var exit = document.getElementById('quickExit');
   if (exit) {
+    var neutre = 'https://www.meteosuisse.admin.ch';
     var leave = function () {
-      window.open('https://www.google.ch', '_blank', 'noopener');
-      window.location.replace('https://www.meteosuisse.admin.ch');
+      try { window.open(neutre, '_blank', 'noopener,noreferrer'); } catch (err) {}
+      // replace() et non assign() : l'entree 3CH0 est ecrasee, pas empilee
+      window.location.replace(neutre);
     };
-    exit.addEventListener('click', function (e) {
-      e.preventDefault();
-      leave();
-    });
-    // Échap x2 rapproché = sortie immédiate
+    exit.addEventListener('click', function (e) { e.preventDefault(); leave(); });
+    // Échap deux fois de suite = sortie immédiate
     var last = 0;
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;

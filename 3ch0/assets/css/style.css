@@ -602,6 +602,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: 
 .status-bar .wrap { display: flex; align-items: flex-start; gap: 0.85rem; padding-block: 0.9rem; font-size: 0.84rem; color: var(--text-soft); }
 .status-bar svg { flex-shrink: 0; margin-top: 3px; color: var(--amber); }
 .status-bar strong { color: var(--amber); font-weight: 700; }
+.status-bar a { color: var(--amber); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- Têtes de section ---------- */
 .sec-head { margin-bottom: clamp(2.75rem, 5.5vw, 4rem); }
@@ -901,12 +902,105 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: 
 /* ==========================================================================
    URGENCES — seul emploi de l'ambre
    ========================================================================== */
-.emergency { background: var(--bg-darkest); }
-.emergency .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 2.25rem; padding-block: 1.4rem; }
-.emergency__label { font-family: var(--font-display); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); }
-.emergency__nums { display: flex; flex-wrap: wrap; gap: 0.5rem 1.6rem; }
-.emergency__nums span { font-size: 0.85rem; color: var(--text-soft); }
-.emergency__nums b { font-family: var(--font-display); color: var(--amber); font-weight: 700; font-variant-numeric: tabular-nums; margin-right: 0.4rem; }
+.emergency { background: var(--bg-darkest); padding-block: clamp(2.25rem, 5vw, 3.25rem); }
+.emergency__label {
+  display: block;
+  font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim);
+  margin-bottom: 1.4rem;
+}
+
+/* Le 142 est le numero vital : il doit se voir avant tous les autres. */
+.emergency__hero {
+  display: block;
+  position: relative;
+  padding: 1.5rem 1.6rem;
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.22), rgba(56, 189, 248, 0.09));
+  box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.45);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s;
+}
+.emergency__hero:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 2px var(--sky-text), var(--shadow-md); }
+.emergency__badge {
+  display: inline-block;
+  font-family: var(--font-display); font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--bg-deep); background: var(--sky-text);
+  border-radius: var(--r-pill); padding: 0.25rem 0.7rem;
+}
+.emergency__hero-num {
+  display: block;
+  font-family: var(--font-display); font-size: clamp(2.6rem, 7vw, 3.6rem);
+  font-weight: 700; line-height: 1; letter-spacing: -0.04em;
+  color: var(--sky-text); font-variant-numeric: tabular-nums;
+  margin-top: 0.7rem;
+}
+.emergency__hero-txt { display: block; margin-top: 0.5rem; font-size: 0.95rem; color: var(--text); }
+
+.emergency__nums {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.5rem; margin-top: 1rem;
+}
+.emergency__nums a {
+  display: block; padding: 0.85rem 1.1rem;
+  border-radius: var(--r-md);
+  font-size: 0.87rem; color: var(--text-soft);
+  box-shadow: inset 0 0 0 1px var(--line-soft);
+  transition: color 0.25s, box-shadow 0.25s, transform 0.25s var(--ease);
+}
+.emergency__nums a:hover { color: var(--text); box-shadow: inset 0 0 0 1px var(--sky); transform: translateY(-2px); }
+.emergency__nums b {
+  font-family: var(--font-display); color: var(--sky-text); font-weight: 700;
+  font-variant-numeric: tabular-nums; margin-right: 0.55rem; font-size: 1.02rem;
+}
+.emergency__note {
+  margin-top: 1.4rem; font-size: 0.8rem; color: var(--text-dim);
+  max-width: 78ch; text-wrap: pretty;
+}
+
+/* ---------- Repartition des roles : deux colonnes qui s'empilent ----------
+   Remplace le tableau : sur mobile, le contenu d'un tableau a 3 colonnes
+   passait hors ecran et devenait invisible. */
+.roles { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+.role {
+  position: relative;
+  padding: 1.9rem 1.75rem;
+  background: var(--white);
+  border-radius: var(--r-lg);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08), var(--shadow-sm);
+}
+.role::before {
+  content: ""; position: absolute; top: 0; left: 1.75rem; right: 1.75rem; height: 3px;
+  border-radius: 0 0 3px 3px; background: var(--sky);
+}
+.role--partner::before { background: var(--slate-400); }
+.role__who {
+  font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--sky-deep);
+  margin-bottom: 1.2rem;
+}
+.role--partner .role__who { color: var(--ink-dim); }
+.role__list { list-style: none; padding: 0; display: grid; gap: 0.75rem; }
+.role__list li {
+  position: relative; padding-left: 1.2rem;
+  font-size: 0.9rem; color: var(--ink-soft); text-wrap: pretty;
+}
+.role__list li::before {
+  content: ""; position: absolute; left: 0; top: 0.55em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--sky);
+}
+.role--partner .role__list li::before { background: var(--slate-400); }
+.role__list b { font-family: var(--font-display); font-weight: 700; color: var(--ink); }
+
+/* ---------- Phrase d'accroche du CTA ---------- */
+.cta__punch {
+  margin: 2.6rem auto 0;
+  max-width: 56ch;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-weight: 500; line-height: 1.45;
+  color: var(--ink-soft); text-wrap: pretty;
+}
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--bg-darkest); color: var(--text); padding-block: clamp(3rem, 6vw, 4.25rem) 2rem; }
