@@ -84,6 +84,10 @@
   --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Toutes les grilles utilisent minmax(min(Xpx, 100%), 1fr) : sans le
+   min(), une piste de largeur minimale Xpx deborde des que le conteneur
+   est plus etroit que X (constate a 300 px sur les cartes piliers). */
+
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
@@ -288,12 +292,18 @@ section { position: relative; }
   align-items: center;
 }
 .split--wide-left { grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr); }
-@media (max-width: 880px) { .split, .split--wide-left { grid-template-columns: 1fr; } }
+/* minmax(0, 1fr) et non 1fr : `1fr` vaut minmax(auto, 1fr) et refuse de
+   passer sous la largeur du mot le plus long. Un compose allemand faisait
+   alors deborder la grille, meme avec overflow-wrap. */
+@media (max-width: 880px) { .split, .split--wide-left { grid-template-columns: minmax(0, 1fr); } }
 
 /* ==========================================================================
    TYPOGRAPHIE
    ========================================================================== */
-h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; color: var(--text); }
+/* break-word et non anywhere : la coupure ne s'active que si le mot ne
+   tient VRAIMENT pas, ce qui arrive avec les composes allemands. */
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: balance;
+  color: var(--text); overflow-wrap: break-word; }
 
 .hero h1, .h-sec, .cta h2, .band__quote {
   line-height: 1.06;
@@ -570,7 +580,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: 
 
 .hero__stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(158px, 100%), 1fr));
   gap: 1rem;
   margin-top: clamp(3rem, 6vw, 4.5rem);
 }
@@ -608,7 +618,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: 
 .sec-head { margin-bottom: clamp(2.75rem, 5.5vw, 4rem); }
 .sec-head--split { display: grid; gap: 1.4rem 4.5rem; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: end; }
 .sec-head--split .lede { margin-top: 0; padding-bottom: 0.4rem; }
-@media (max-width: 860px) { .sec-head--split { grid-template-columns: 1fr; align-items: start; } }
+@media (max-width: 860px) { .sec-head--split { grid-template-columns: minmax(0, 1fr); align-items: start; } }
 
 /* ==========================================================================
    BANDE
@@ -651,7 +661,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: 
 /* ==========================================================================
    CARTES
    ========================================================================== */
-.cards { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.cards { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); }
 
 .card {
   position: relative;
@@ -689,7 +699,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: 
 /* ==========================================================================
    PILIERS
    ========================================================================== */
-.pillars { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.pillars { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); }
 .pillar {
   position: relative; display: flex; flex-direction: column;
   background: var(--surface);
@@ -828,7 +838,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: 
 /* ==========================================================================
    CONSORTIUM
    ========================================================================== */
-.partners { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.partners { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
 .partner {
   position: relative;
   padding: 1.6rem;
@@ -845,7 +855,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: 
 /* ==========================================================================
    ROADMAP
    ========================================================================== */
-.roadmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.1rem; }
+.roadmap { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 1.1rem; }
 .milestone {
   position: relative;
   padding: 1.9rem 1.6rem;
@@ -938,7 +948,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: 
 .emergency__hero-txt { display: block; margin-top: 0.5rem; font-size: 0.95rem; color: var(--text); }
 
 .emergency__nums {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   gap: 0.5rem; margin-top: 1rem;
 }
 .emergency__nums a {
@@ -961,7 +971,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: 
 /* ---------- Repartition des roles : deux colonnes qui s'empilent ----------
    Remplace le tableau : sur mobile, le contenu d'un tableau a 3 colonnes
    passait hors ecran et devenait invisible. */
-.roles { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
+.roles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 1.25rem; }
 .role {
   position: relative;
   padding: 1.9rem 1.75rem;
@@ -1011,7 +1021,13 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; text-wrap: 
 .footer__list a { font-size: 0.86rem; color: var(--text-soft); transition: color 0.25s, padding-left 0.3s var(--ease); }
 .footer__list a:hover { color: var(--sky-text); padding-left: 4px; }
 .footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; padding-top: 1.9rem; font-family: var(--font-display); font-size: 0.74rem; color: var(--text-dim); }
+/* Les colonnes `1fr` ne peuvent pas devenir plus etroites que leur
+   contenu minimum : l'adresse e-mail (142 px, insecable) et les mots
+   composes allemands faisaient deborder la grille sous 375 px.
+   D'ou la colonne unique en dessous, plus la coupure de securite. */
+.footer__list a, .footer__about { overflow-wrap: anywhere; }
 @media (max-width: 800px) { .footer__top { grid-template-columns: 1fr 1fr; } .footer__brandcol { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .footer__top { grid-template-columns: 1fr; gap: 1.75rem; } }
 
 /* ---------- Quitter vite ---------- */
 .quick-exit {
