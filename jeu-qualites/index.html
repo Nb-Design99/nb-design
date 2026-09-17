@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0f2318" />
+  <title>Le jeu des qualités · NB-Design</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep: #061410;
+      --green-dark: #0f2318;
+      --green-mid: #1a3d2b;
+      --green-accent: #2d7a4f;
+      --green-light: #4caf78;
+      --green-glow: #6ed09a;
+      --gold: #c9a84c;
+      --gold-light: #e6c875;
+      --white: #f8f6f1;
+      --text-muted: rgba(248, 246, 241, 0.62);
+      --text-dim: rgba(248, 246, 241, 0.38);
+      --bg-dark: #030a06;
+      --border-soft: rgba(248, 246, 241, 0.08);
+      --border-medium: rgba(248, 246, 241, 0.14);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+      /* hauteur d'une case de la roue : sert au CSS ET au JS (voir REEL_ITEM_H) */
+      --item-h: 68px;
+    }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--font-body);
+      background:
+        radial-gradient(1100px 620px at 78% -10%, rgba(45, 122, 79, 0.20), transparent 60%),
+        radial-gradient(760px 520px at 8% 108%, rgba(201, 168, 76, 0.12), transparent 62%),
+        var(--bg-dark);
+      color: var(--white);
+      min-height: 100vh;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* ---------- barre du haut ---------- */
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1.1rem clamp(1rem, 4vw, 2.5rem);
+      border-bottom: 1px solid var(--border-soft);
+      background: rgba(6, 20, 16, 0.6);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .brand span { color: var(--gold); }
+
+    .topbar-spacer { flex: 1; }
+
+    .stat {
+      display: flex;
+      align-items: baseline;
+      gap: 0.45rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-full);
+      background: rgba(248, 246, 241, 0.04);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .stat b {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: var(--white);
+      font-size: 0.95rem;
+    }
+
+    /* ---------- structure ---------- */
+
+    .intro {
+      padding: clamp(1.75rem, 5vw, 3rem) clamp(1rem, 4vw, 2.5rem) 0;
+      max-width: 1180px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .intro h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(2rem, 5.5vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .intro h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .intro p {
+      margin: 0.9rem auto 0;
+      max-width: 60ch;
+      color: var(--text-muted);
+      font-size: clamp(0.92rem, 2vw, 1.02rem);
+    }
+
+    .game {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1rem, 4vw, 2.5rem) 5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: start;
+    }
+    @media (max-width: 880px) {
+      .game { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .panel {
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, rgba(26, 61, 43, 0.38), rgba(6, 20, 16, 0.55));
+      padding: clamp(1.1rem, 3vw, 1.75rem);
+    }
+
+    .panel-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+    .panel-sub {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-bottom: 1.1rem;
+    }
+
+    /* ---------- la roue ---------- */
+
+    .reel-wrap {
+      position: relative;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-medium);
+      background: rgba(3, 10, 6, 0.65);
+      overflow: hidden;
+      height: calc(var(--item-h) * 3);
+    }
+
+    .reel-window { height: 100%; overflow: hidden; }
+
+    .reel {
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .reel-item {
+      height: var(--item-h);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 3.4vw, 1.9rem);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--text-muted);
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    /* la ligne centrale : là où la qualité s'arrête */
+    .reel-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: var(--item-h);
+      height: var(--item-h);
+      pointer-events: none;
+      border-top: 1px solid rgba(201, 168, 76, 0.35);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.35);
+      background: linear-gradient(90deg, rgba(201, 168, 76, 0.10), rgba(201, 168, 76, 0.02));
+    }
+
+    /* dégradé haut/bas pour donner l'impression que ça défile à l'infini */
+    .reel-fade {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        rgba(3, 10, 6, 0.95) 0%,
+        rgba(3, 10, 6, 0) 32%,
+        rgba(3, 10, 6, 0) 68%,
+        rgba(3, 10, 6, 0.95) 100%
+      );
+    }
+
+    .reel-wrap.is-landed .reel-line {
+      border-color: rgba(110, 208, 154, 0.55);
+      background: linear-gradient(90deg, rgba(110, 208, 154, 0.14), rgba(110, 208, 154, 0.03));
+    }
+
+    /* ---------- zone où la carte tombe ---------- */
+
+    .drop-zone {
+      margin-top: 1.1rem;
+      min-height: 132px;
+      border: 1px dashed var(--border-medium);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    .drop-zone .hint {
+      color: var(--text-dim);
+      font-size: 0.88rem;
+      max-width: 34ch;
+    }
+    .drop-zone.has-card {
+      border-style: solid;
+      border-color: rgba(201, 168, 76, 0.32);
+      background: rgba(201, 168, 76, 0.05);
+    }
+
+    .card {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 1rem 1.6rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(201, 168, 76, 0.45);
+      background: linear-gradient(150deg, rgba(201, 168, 76, 0.18), rgba(26, 61, 43, 0.55));
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+      max-width: 100%;
+    }
+    .card:active { cursor: grabbing; }
+    .card .card-label {
+      font-size: 0.66rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .card .card-name {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      font-weight: 600;
+      line-height: 1.15;
+      text-align: center;
+    }
+
+    @keyframes card-fall {
+      0%   { transform: translateY(-190px) rotate(-9deg) scale(0.86); opacity: 0; }
+      55%  { transform: translateY(14px) rotate(2.5deg) scale(1.03); opacity: 1; }
+      72%  { transform: translateY(-9px) rotate(-1.5deg) scale(0.99); }
+      88%  { transform: translateY(4px) rotate(0.6deg) scale(1.005); }
+      100% { transform: translateY(0) rotate(0) scale(1); opacity: 1; }
+    }
+    .card.is-falling { animation: card-fall 0.72s var(--ease-out) both; }
+
+    /* ---------- boutons ---------- */
+
+    .actions {
+      margin-top: 1.1rem;
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--radius-full);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.25s var(--ease-out), background 0.25s ease, opacity 0.25s ease, border-color 0.25s ease;
+    }
+    .btn:disabled { opacity: 0.35; cursor: not-allowed; }
+    .btn:not(:disabled):hover { transform: translateY(-2px); }
+    .btn:focus-visible { outline: 2px solid var(--green-glow); outline-offset: 3px; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #1a1405;
+      font-weight: 600;
+      box-shadow: 0 12px 28px rgba(201, 168, 76, 0.22);
+      flex: 1 1 auto;
+    }
+    .btn-ghost {
+      background: rgba(248, 246, 241, 0.05);
+      border-color: var(--border-medium);
+      color: var(--white);
+    }
+    .btn-small { padding: 0.55rem 1.05rem; font-size: 0.8rem; }
+
+    .micro {
+      margin-top: 0.9rem;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+    .micro kbd {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      border: 1px solid var(--border-medium);
+      border-radius: 5px;
+      padding: 0.05rem 0.35rem;
+      color: var(--text-muted);
+    }
+
+    /* ---------- colonne 1 → 10 ---------- */
+
+    .slots { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .slot {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      min-height: 58px;
+      padding: 0.45rem 0.7rem 0.45rem 0.45rem;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      background: rgba(3, 10, 6, 0.45);
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s var(--ease-out);
+    }
+
+    .slot-rank {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-full);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: 1px solid var(--border-medium);
+      background: rgba(248, 246, 241, 0.04);
+      font-variant-numeric: tabular-nums;
+    }
+    .slot[data-tier="top"] .slot-rank {
+      color: #1a1405;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    }
+    .slot[data-tier="mid"] .slot-rank {
+      color: var(--green-glow);
+      border-color: rgba(110, 208, 154, 0.35);
+    }
+
+    .slot-body {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-size: 0.95rem;
+      color: var(--text-dim);
+    }
+
+    .slot.is-armed {
+      border-color: rgba(201, 168, 76, 0.38);
+      background: rgba(201, 168, 76, 0.06);
+      cursor: pointer;
+    }
+    .slot.is-armed:hover, .slot.is-over {
+      border-color: var(--gold-light);
+      background: rgba(201, 168, 76, 0.14);
+      transform: translateX(3px);
+    }
+
+    .chip {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      width: 100%;
+      padding: 0.45rem 0.6rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(110, 208, 154, 0.28);
+      background: linear-gradient(120deg, rgba(45, 122, 79, 0.35), rgba(26, 61, 43, 0.35));
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+    }
+    .chip:active { cursor: grabbing; }
+    .chip-name {
+      flex: 1 1 auto;
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .chip-remove {
+      flex: 0 0 auto;
+      width: 26px;
+      height: 26px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-medium);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .chip-remove:hover { color: var(--white); border-color: var(--white); }
+
+    .slot[data-tier="top"] .chip {
+      border-color: rgba(201, 168, 76, 0.4);
+      background: linear-gradient(120deg, rgba(201, 168, 76, 0.22), rgba(26, 61, 43, 0.4));
+    }
+
+    /* fantôme qui suit le doigt / la souris pendant un glisser */
+    .drag-ghost {
+      position: fixed;
+      z-index: 100;
+      pointer-events: none;
+      opacity: 0.94;
+      transform: translate(-50%, -50%) rotate(-2deg) scale(1.02);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+    }
+
+    .ranking-actions {
+      margin-top: 1.1rem;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    /* ---------- écran de fin ---------- */
+
+    .final {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      background: rgba(3, 10, 6, 0.82);
+      backdrop-filter: blur(8px);
+    }
+    .final.is-open { display: flex; }
+
+    .final-card {
+      width: min(520px, 100%);
+      max-height: 88vh;
+      overflow-y: auto;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, rgba(26, 61, 43, 0.75), rgba(6, 20, 16, 0.95));
+      padding: clamp(1.25rem, 4vw, 2rem);
+      text-align: center;
+      animation: card-fall 0.6s var(--ease-out) both;
+    }
+    .final-card h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+    }
+    .final-card .final-time { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.3rem; }
+    .final-list {
+      list-style: none;
+      text-align: left;
+      margin: 1.25rem 0 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .final-list li {
+      display: flex;
+      gap: 0.7rem;
+      align-items: baseline;
+      padding: 0.4rem 0.6rem;
+      border-radius: var(--radius-sm);
+      background: rgba(248, 246, 241, 0.04);
+    }
+    .final-list li b {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      width: 1.6rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .final-list li span { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; }
+    .final-actions { margin-top: 1.25rem; display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 1.5rem;
+      transform: translate(-50%, 18px);
+      z-index: 120;
+      padding: 0.6rem 1.1rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-medium);
+      background: rgba(6, 20, 16, 0.92);
+      color: var(--white);
+      font-size: 0.85rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s var(--ease-out);
+    }
+    .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="/">NB<span>·</span>Design</a>
+    <div class="topbar-spacer"></div>
+    <div class="stat">Placées <b id="statPlaced">0</b>/10</div>
+    <div class="stat">Temps <b id="statTime">0:00</b></div>
+  </header>
+
+  <section class="intro">
+    <h1>Le jeu des <em>qualités</em></h1>
+    <p>
+      54 qualités tournent dans la roue. Une seule tombe, au hasard.
+      À toi de la ranger dans ta colonne, de 1 (celle qui te ressemble le plus) à 10.
+      Dix cartes placées et c'est fini.
+    </p>
+  </section>
+
+  <main class="game">
+
+    <section class="panel" aria-labelledby="stageTitle">
+      <h2 class="panel-title" id="stageTitle">La roue</h2>
+      <p class="panel-sub">Tire une carte, puis dépose-la dans la colonne.</p>
+
+      <div class="reel-wrap" id="reelWrap">
+        <div class="reel-window">
+          <div class="reel" id="reel"></div>
+        </div>
+        <div class="reel-line"></div>
+        <div class="reel-fade"></div>
+      </div>
+
+      <div class="drop-zone" id="dropZone">
+        <p class="hint" id="hint">Appuie sur « Tirer une qualité » pour lancer la roue.</p>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="spinBtn" type="button">Tirer une qualité</button>
+        <button class="btn btn-ghost" id="skipBtn" type="button" disabled>Passer</button>
+      </div>
+
+      <p class="micro" id="poolInfo"></p>
+      <p class="micro">
+        Astuce : touche une case pour y déposer la carte, glisse-la à la souris, ou tape
+        <kbd>1</kbd> … <kbd>9</kbd> <kbd>0</kbd> au clavier. Les cartes déjà placées se déplacent aussi.
+      </p>
+    </section>
+
+    <section class="panel" aria-labelledby="rankTitle">
+      <h2 class="panel-title" id="rankTitle">Ma colonne</h2>
+      <p class="panel-sub">1 = la plus importante · 10 = la moins importante</p>
+
+      <ol class="slots" id="slots"></ol>
+
+      <div class="ranking-actions">
+        <button class="btn btn-ghost btn-small" id="copyBtn" type="button">Copier ma liste</button>
+        <button class="btn btn-ghost btn-small" id="resetBtn" type="button">Tout recommencer</button>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="final" id="final" role="dialog" aria-modal="true" aria-labelledby="finalTitle">
+    <div class="final-card">
+      <h2 id="finalTitle">Ton top 10</h2>
+      <p class="final-time" id="finalTime"></p>
+      <ol class="final-list" id="finalList"></ol>
+      <div class="final-actions">
+        <button class="btn btn-ghost btn-small" id="finalCloseBtn" type="button">Ajuster l'ordre</button>
+        <button class="btn btn-ghost btn-small" id="finalCopyBtn" type="button">Copier</button>
+        <button class="btn btn-primary btn-small" id="finalReplayBtn" type="button">Rejouer</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ------------------------------------------------------------------
+       Les qualités : 54 cartes. On peut en ajouter/retirer librement,
+       tout le reste du jeu s'adapte.
+    ------------------------------------------------------------------ */
+    var QUALITIES = [
+      'Créatif', 'Curieux', 'Persévérant', 'Honnête', 'Généreux',
+      'Loyal', 'Patient', 'Ambitieux', 'Calme', 'Courageux',
+      'Drôle', 'Empathique', 'Fiable', 'Discipliné', 'Optimiste',
+      'Rigoureux', 'Spontané', 'Attentionné', 'Audacieux', 'Bienveillant',
+      'Charismatique', 'Cultivé', 'Débrouillard', 'Déterminé', 'Diplomate',
+      'Élégant', 'Enthousiaste', 'Équilibré', 'Fidèle', 'Franc',
+      'Humble', 'Indépendant', 'Intuitif', 'Inventif', 'Juste',
+      'Lucide', 'Méthodique', 'Organisé', 'Ouvert d’esprit', 'Passionné',
+      'Pédagogue', 'Perspicace', 'Ponctuel', 'Positif', 'Pragmatique',
+      'Reconnaissant', 'Réfléchi', 'Résilient', 'Respectueux', 'Serein',
+      'Sociable', 'Tenace', 'Tolérant', 'Visionnaire'
+    ];
+
+    var SLOT_COUNT = 10;
+    var REEL_ITEM_H = 68;   // doit rester aligné sur --item-h dans le CSS
+    var REEL_FILLERS = 22;  // nombre de cases qui défilent avant la bonne
+    var SPIN_MS = 1750;
+    var STORAGE_KEY = 'nb-jeu-qualites-v1';
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* --------------------------- état --------------------------- */
+
+    var slots = new Array(SLOT_COUNT).fill(null); // null ou nom de qualité
+    var pool = [];        // qualités encore tirables (ordre = ordre de tirage)
+    var current = null;   // la carte tombée, en attente de placement
+    var spinning = false;
+    var startedAt = null; // timestamp du premier tir
+    var elapsed = 0;      // secondes écoulées, figées à la fin
+
+    /* ------------------------- raccourcis ------------------------ */
+
+    var $ = function (id) { return document.getElementById(id); };
+    var reel = $('reel');
+    var reelWrap = $('reelWrap');
+    var dropZone = $('dropZone');
+    var slotsEl = $('slots');
+    var spinBtn = $('spinBtn');
+    var skipBtn = $('skipBtn');
+    var poolInfo = $('poolInfo');
+    var statPlaced = $('statPlaced');
+    var statTime = $('statTime');
+    var finalEl = $('final');
+    var toastEl = $('toast');
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    function placedCount() {
+      return slots.filter(Boolean).length;
+    }
+
+    function formatTime(sec) {
+      var m = Math.floor(sec / 60);
+      var s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    var toastTimer = null;
+    function toast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add('is-visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () {
+        toastEl.classList.remove('is-visible');
+      }, 2200);
+    }
+
+    /* -------------------- sauvegarde locale --------------------- */
+
+    function save() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          slots: slots,
+          pool: pool,
+          elapsed: startedAt ? Math.floor((Date.now() - startedAt) / 1000) : elapsed
+        }));
+      } catch (e) { /* mode privé : on joue sans sauvegarde */ }
+    }
+
+    function load() {
+      var raw = null;
+      try { raw = localStorage.getItem(STORAGE_KEY); } catch (e) { return false; }
+      if (!raw) return false;
+
+      var data;
+      try { data = JSON.parse(raw); } catch (e) { return false; }
+      if (!data || !Array.isArray(data.slots) || data.slots.length !== SLOT_COUNT) return false;
+
+      // on ne garde que des qualités réellement connues
+      slots = data.slots.map(function (q) {
+        return QUALITIES.indexOf(q) !== -1 ? q : null;
+      });
+      pool = Array.isArray(data.pool)
+        ? data.pool.filter(function (q) {
+            return QUALITIES.indexOf(q) !== -1 && slots.indexOf(q) === -1;
+          })
+        : [];
+      if (!pool.length) pool = buildPool();
+      elapsed = typeof data.elapsed === 'number' ? data.elapsed : 0;
+      return true;
+    }
+
+    function buildPool() {
+      return shuffle(QUALITIES.filter(function (q) { return slots.indexOf(q) === -1; }));
+    }
+
+    /* --------------------------- chrono -------------------------- */
+
+    function tickTime() {
+      var sec = startedAt ? Math.floor((Date.now() - startedAt) / 1000) : elapsed;
+      statTime.textContent = formatTime(sec);
+    }
+    setInterval(tickTime, 500);
+
+    /* ---------------------------- roue --------------------------- */
+
+    function makeReelItem(text) {
+      var d = document.createElement('div');
+      d.className = 'reel-item';
+      d.textContent = text;
+      return d;
+    }
+
+    function fillReelIdle() {
+      reel.style.transition = 'none';
+      reel.style.transform = 'translate3d(0,0,0)';
+      reel.innerHTML = '';
+      var sample = shuffle(QUALITIES).slice(0, 3);
+      sample.forEach(function (q) { reel.appendChild(makeReelItem(q)); });
+    }
+
+    function spin() {
+      if (spinning || current) return;
+      if (placedCount() >= SLOT_COUNT) { toast('Ta colonne est déjà complète.'); return; }
+
+      if (!pool.length) pool = buildPool();
+      if (!pool.length) { toast('Plus aucune qualité disponible.'); return; }
+
+      spinning = true;
+      spinBtn.disabled = true;
+      skipBtn.disabled = true;
+      reelWrap.classList.remove('is-landed');
+      dropZone.classList.remove('has-card');
+      dropZone.innerHTML = '<p class="hint">La roue tourne…</p>';
+
+      var target = pool.shift();
+
+      // On construit une bande : des leurres, puis la bonne carte,
+      // puis 2 cases de rab pour que la bonne se retrouve au milieu.
+      reel.style.transition = 'none';
+      reel.style.transform = 'translate3d(0,0,0)';
+      reel.innerHTML = '';
+      var decoys = QUALITIES.filter(function (q) { return q !== target; });
+      for (var i = 0; i < REEL_FILLERS; i++) {
+        reel.appendChild(makeReelItem(decoys[Math.floor(Math.random() * decoys.length)]));
+      }
+      reel.appendChild(makeReelItem(target));               // index REEL_FILLERS
+      reel.appendChild(makeReelItem(decoys[Math.floor(Math.random() * decoys.length)]));
+      reel.appendChild(makeReelItem(decoys[Math.floor(Math.random() * decoys.length)]));
+
+      // pour centrer l'index N, on remonte de (N - 1) cases
+      var offset = (REEL_FILLERS - 1) * REEL_ITEM_H;
+
+      var duration = reduceMotion ? 120 : SPIN_MS;
+
+      // reflow forcé, sinon le navigateur fusionne les deux transforms
+      void reel.offsetHeight;
+      reel.style.transition = 'transform ' + duration + 'ms cubic-bezier(0.12, 0.72, 0.1, 1)';
+      reel.style.transform = 'translate3d(0,' + (-offset) + 'px,0)';
+
+      if (startedAt === null) startedAt = Date.now() - elapsed * 1000;
+
+      setTimeout(function () { land(target); }, duration + 60);
+    }
+
+    function land(quality) {
+      spinning = false;
+      current = quality;
+      reelWrap.classList.add('is-landed');
+      renderCurrentCard(true);
+      renderSlots();
+      updateControls();
+      save();
+    }
+
+    function renderCurrentCard(animate) {
+      dropZone.innerHTML = '';
+      if (!current) {
+        dropZone.classList.remove('has-card');
+        var hint = document.createElement('p');
+        hint.className = 'hint';
+        hint.id = 'hint';
+        hint.textContent = placedCount() >= SLOT_COUNT
+          ? 'Colonne complète. Tu peux encore réorganiser tes cartes.'
+          : 'Appuie sur « Tirer une qualité » pour lancer la roue.';
+        dropZone.appendChild(hint);
+        return;
+      }
+
+      dropZone.classList.add('has-card');
+      var card = document.createElement('div');
+      card.className = 'card' + (animate && !reduceMotion ? ' is-falling' : '');
+      card.setAttribute('data-drag', 'current');
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', 'Qualité tirée : ' + current + '. Glisse-la dans la colonne.');
+      card.innerHTML =
+        '<span class="card-label">Qualité tirée</span>' +
+        '<span class="card-name"></span>';
+      card.querySelector('.card-name').textContent = current;
+      dropZone.appendChild(card);
+      attachDrag(card);
+    }
+
+    /* -------------------------- colonne -------------------------- */
+
+    function tierOf(index) {
+      if (index < 3) return 'top';
+      if (index < 7) return 'mid';
+      return 'low';
+    }
+
+    function renderSlots() {
+      slotsEl.innerHTML = '';
+      for (var i = 0; i < SLOT_COUNT; i++) {
+        (function (i) {
+          var li = document.createElement('li');
+          li.className = 'slot';
+          li.dataset.index = String(i);
+          li.dataset.tier = tierOf(i);
+
+          var rank = document.createElement('span');
+          rank.className = 'slot-rank';
+          rank.textContent = String(i + 1);
+          li.appendChild(rank);
+
+          var body = document.createElement('div');
+          body.className = 'slot-body';
+          li.appendChild(body);
+
+          if (slots[i]) {
+            var chip = document.createElement('div');
+            chip.className = 'chip';
+            chip.setAttribute('data-drag', 'slot');
+            chip.dataset.from = String(i);
+
+            var name = document.createElement('span');
+            name.className = 'chip-name';
+            name.textContent = slots[i];
+            chip.appendChild(name);
+
+            var rm = document.createElement('button');
+            rm.className = 'chip-remove';
+            rm.type = 'button';
+            rm.innerHTML = '&times;';
+            rm.title = 'Retirer ' + slots[i];
+            rm.setAttribute('aria-label', 'Retirer ' + slots[i] + ' de la place ' + (i + 1));
+            rm.addEventListener('click', function (e) {
+              e.stopPropagation();
+              removeFrom(i);
+            });
+            chip.appendChild(rm);
+
+            body.appendChild(chip);
+            attachDrag(chip);
+          } else {
+            body.textContent = current ? 'Déposer ici' : '—';
+          }
+
+          if (current) li.classList.add('is-armed');
+          li.addEventListener('click', function () {
+            if (current) placeCurrent(i);
+          });
+
+          slotsEl.appendChild(li);
+        })(i);
+      }
+      statPlaced.textContent = String(placedCount());
+    }
+
+    /* ------------------- placement / déplacement ------------------ */
+
+    // Insère `quality` à l'index voulu. Si la case est prise, on décale
+    // les voisines vers le premier trou libre (en dessous, sinon au-dessus).
+    function insertAt(index, quality) {
+      if (slots[index] === null) { slots[index] = quality; return true; }
+
+      var hole = -1;
+      for (var d = index + 1; d < SLOT_COUNT; d++) {
+        if (slots[d] === null) { hole = d; break; }
+      }
+      if (hole !== -1) {
+        for (var k = hole; k > index; k--) slots[k] = slots[k - 1];
+        slots[index] = quality;
+        return true;
+      }
+
+      for (var u = index - 1; u >= 0; u--) {
+        if (slots[u] === null) { hole = u; break; }
+      }
+      if (hole !== -1) {
+        for (var m = hole; m < index; m++) slots[m] = slots[m + 1];
+        slots[index] = quality;
+        return true;
+      }
+
+      return false; // colonne pleine
+    }
+
+    function placeCurrent(index) {
+      if (!current) return;
+      var quality = current;
+      if (!insertAt(index, quality)) { toast('La colonne est pleine.'); return; }
+      current = null;
+      renderCurrentCard(false);
+      renderSlots();
+      updateControls();
+      save();
+      if (placedCount() >= SLOT_COUNT) finish();
+    }
+
+    function moveSlot(from, to) {
+      if (from === to) return;
+      var quality = slots[from];
+      if (!quality) return;
+      slots[from] = null;
+      insertAt(to, quality);
+      renderSlots();
+      updateControls();
+      save();
+    }
+
+    function removeFrom(index) {
+      var quality = slots[index];
+      if (!quality) return;
+      slots[index] = null;
+      // la qualité retourne dans la pioche, un peu plus loin
+      pool.splice(Math.min(pool.length, 3), 0, quality);
+      renderSlots();
+      renderCurrentCard(false);
+      updateControls();
+      save();
+      toast(quality + ' est retournée dans la roue.');
+    }
+
+    function skip() {
+      if (!current) return;
+      pool.push(current); // on la remet en fin de pioche, elle pourra revenir
+      current = null;
+      renderCurrentCard(false);
+      renderSlots();
+      updateControls();
+      save();
+    }
+
+    function updateControls() {
+      var full = placedCount() >= SLOT_COUNT;
+      spinBtn.disabled = spinning || !!current || full;
+      skipBtn.disabled = !current;
+      spinBtn.textContent = full ? 'Colonne complète' : (current ? 'Place ta carte' : 'Tirer une qualité');
+      var remaining = pool.length;
+      poolInfo.textContent = full
+        ? 'Terminé : tes 10 qualités sont classées.'
+        : QUALITIES.length + ' qualités au total · ' + remaining + ' encore dans la roue';
+    }
+
+    /* --------------------------- glisser -------------------------- */
+
+    var drag = null;
+
+    function attachDrag(el) {
+      el.addEventListener('pointerdown', onDragStart);
+    }
+
+    function onDragStart(e) {
+      if (e.button !== undefined && e.button !== 0) return;
+      if (e.target.closest && e.target.closest('.chip-remove')) return;
+
+      var el = e.currentTarget;
+      drag = {
+        el: el,
+        kind: el.getAttribute('data-drag'),
+        from: el.dataset.from !== undefined ? parseInt(el.dataset.from, 10) : -1,
+        startX: e.clientX,
+        startY: e.clientY,
+        moved: false,
+        ghost: null,
+        overSlot: null,
+        pointerId: e.pointerId
+      };
+
+      try { el.setPointerCapture(e.pointerId); } catch (err) {}
+      window.addEventListener('pointermove', onDragMove);
+      window.addEventListener('pointerup', onDragEnd);
+      window.addEventListener('pointercancel', onDragEnd);
+    }
+
+    function onDragMove(e) {
+      if (!drag) return;
+      var dx = e.clientX - drag.startX;
+      var dy = e.clientY - drag.startY;
+
+      if (!drag.moved && Math.abs(dx) + Math.abs(dy) < 8) return;
+
+      if (!drag.moved) {
+        drag.moved = true;
+        var rect = drag.el.getBoundingClientRect();
+        var ghost = drag.el.cloneNode(true);
+        ghost.classList.add('drag-ghost');
+        ghost.style.width = rect.width + 'px';
+        ghost.classList.remove('is-falling');
+        document.body.appendChild(ghost);
+        drag.ghost = ghost;
+        drag.el.style.opacity = '0.35';
+      }
+
+      e.preventDefault();
+      drag.ghost.style.left = e.clientX + 'px';
+      drag.ghost.style.top = e.clientY + 'px';
+
+      var slot = slotUnder(e.clientX, e.clientY);
+      if (drag.overSlot && drag.overSlot !== slot) drag.overSlot.classList.remove('is-over');
+      if (slot) slot.classList.add('is-over');
+      drag.overSlot = slot;
+    }
+
+    function slotUnder(x, y) {
+      if (drag && drag.ghost) drag.ghost.style.display = 'none';
+      var el = document.elementFromPoint(x, y);
+      if (drag && drag.ghost) drag.ghost.style.display = '';
+      return el && el.closest ? el.closest('.slot') : null;
+    }
+
+    function onDragEnd(e) {
+      if (!drag) return;
+      var d = drag;
+      drag = null;
+
+      window.removeEventListener('pointermove', onDragMove);
+      window.removeEventListener('pointerup', onDragEnd);
+      window.removeEventListener('pointercancel', onDragEnd);
+      try { d.el.releasePointerCapture(d.pointerId); } catch (err) {}
+
+      if (d.ghost) d.ghost.remove();
+      if (d.overSlot) d.overSlot.classList.remove('is-over');
+      d.el.style.opacity = '';
+
+      if (!d.moved) return; // simple clic : géré par le listener du slot
+
+      var slot = slotUnder(e.clientX, e.clientY);
+      if (!slot) return;
+      var index = parseInt(slot.dataset.index, 10);
+
+      if (d.kind === 'current') placeCurrent(index);
+      else if (d.kind === 'slot') moveSlot(d.from, index);
+    }
+
+    /* ---------------------------- fin ---------------------------- */
+
+    function finish() {
+      if (startedAt !== null) {
+        elapsed = Math.floor((Date.now() - startedAt) / 1000);
+        startedAt = null;
+      }
+      tickTime();
+
+      var list = $('finalList');
+      list.innerHTML = '';
+      slots.forEach(function (q, i) {
+        var li = document.createElement('li');
+        var b = document.createElement('b');
+        b.textContent = (i + 1) + '.';
+        var s = document.createElement('span');
+        s.textContent = q || '—';
+        li.appendChild(b);
+        li.appendChild(s);
+        list.appendChild(li);
+      });
+      $('finalTime').textContent = 'Classement bouclé en ' + formatTime(elapsed) + '.';
+      finalEl.classList.add('is-open');
+      $('finalCloseBtn').focus();
+      save();
+    }
+
+    function asText() {
+      var lines = ['Mon top 10 des qualités'];
+      slots.forEach(function (q, i) { lines.push((i + 1) + '. ' + (q || '—')); });
+      return lines.join('\n');
+    }
+
+    function copyList() {
+      var text = asText();
+      var done = function () { toast('Liste copiée.'); };
+      var fallback = function () {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); }
+        catch (e) { toast('Copie impossible sur ce navigateur.'); }
+        ta.remove();
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else {
+        fallback();
+      }
+    }
+
+    function reset() {
+      slots = new Array(SLOT_COUNT).fill(null);
+      pool = shuffle(QUALITIES);
+      current = null;
+      spinning = false;
+      startedAt = null;
+      elapsed = 0;
+      finalEl.classList.remove('is-open');
+      fillReelIdle();
+      renderCurrentCard(false);
+      renderSlots();
+      updateControls();
+      tickTime();
+      save();
+    }
+
+    /* ------------------------- événements ------------------------ */
+
+    spinBtn.addEventListener('click', spin);
+    skipBtn.addEventListener('click', skip);
+    $('copyBtn').addEventListener('click', copyList);
+    $('finalCopyBtn').addEventListener('click', copyList);
+    $('resetBtn').addEventListener('click', function () {
+      if (placedCount() === 0 || window.confirm('Effacer la colonne et recommencer ?')) reset();
+    });
+    $('finalReplayBtn').addEventListener('click', reset);
+    $('finalCloseBtn').addEventListener('click', function () {
+      finalEl.classList.remove('is-open');
+    });
+    finalEl.addEventListener('click', function (e) {
+      if (e.target === finalEl) finalEl.classList.remove('is-open');
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      var tag = document.activeElement ? document.activeElement.tagName : '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+
+      if (e.key === 'Escape' && finalEl.classList.contains('is-open')) {
+        finalEl.classList.remove('is-open');
+        return;
+      }
+      if (e.key === ' ' || e.key === 'Enter') {
+        if (document.activeElement && document.activeElement.tagName === 'BUTTON') return;
+        if (!current && !spinning) { e.preventDefault(); spin(); }
+        return;
+      }
+      if (/^[0-9]$/.test(e.key) && current) {
+        var index = e.key === '0' ? 9 : parseInt(e.key, 10) - 1;
+        placeCurrent(index);
+      }
+    });
+
+    /* --------------------------- départ -------------------------- */
+
+    if (!load()) pool = shuffle(QUALITIES);
+    if (!pool.length) pool = buildPool();
+    fillReelIdle();
+    renderCurrentCard(false);
+    renderSlots();
+    updateControls();
+    tickTime();
+  })();
+  </script>
+
+</body>
+</html>
