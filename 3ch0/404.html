@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page introuvable — 3CH0</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0F2038">
+<!-- Chemins absolus (/assets/...) : GitHub Pages sert cette page a
+     n'importe quelle profondeur d'URL, les chemins relatifs casseraient. -->
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<style>
+  .p404 { min-height: 70svh; display: grid; place-items: center; text-align: center; padding-block: 9rem 4rem; position: relative; overflow: hidden; isolation: isolate; }
+  .p404__num { font-family: var(--font-display); font-weight: 700; font-size: clamp(5rem, 22vw, 11rem); line-height: 1; letter-spacing: -0.04em; color: var(--sky-text); }
+  .p404 h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-top: 0.6rem; }
+  .p404__langs { margin-top: 1rem; color: var(--text-dim); font-size: 0.92rem; line-height: 1.8; }
+  .p404__home { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-top: 2.2rem; }
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header" id="header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="3CH0 — accueil">
+      <svg class="brand__mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle class="ring ring-a" cx="20" cy="20" r="18.5" stroke="currentColor" stroke-opacity=".25" stroke-width="1"/>
+        <circle class="ring ring-b" cx="20" cy="20" r="12.5" stroke="currentColor" stroke-opacity=".55" stroke-width="1"/>
+        <circle cx="20" cy="20" r="6" fill="currentColor"/>
+      </svg>
+      <span class="brand__word">3CH0</span>
+    </a>
+  </div>
+</header>
+
+<main class="p404">
+  <div class="echo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="wrap">
+    <div class="p404__num">404</div>
+    <h1>Cette page n'existe pas</h1>
+    <p class="p404__langs">
+      Diese Seite existiert nicht<br>
+      This page does not exist<br>
+      Questa pagina non esiste<br>
+      Esta página não existe
+    </p>
+    <div class="p404__home">
+      <a class="btn btn--primary" href="/">Accueil</a>
+      <a class="btn btn--ghost" href="/de.html">Startseite</a>
+      <a class="btn btn--ghost" href="/en.html">Home</a>
+      <a class="btn btn--ghost" href="/it.html">Home</a>
+      <a class="btn btn--ghost" href="/pt.html">Início</a>
+    </div>
+  </div>
+</main>
+
+<section class="emergency" aria-labelledby="urgence-titre">
+  <div class="wrap">
+    <h2 class="emergency__label" id="urgence-titre">En cas d'urgence &amp; d'aide</h2>
+
+    <a class="emergency__hero" href="tel:142">
+      <span class="emergency__badge">24 h/24 · gratuit &amp; confidentiel</span>
+      <span class="emergency__hero-num">142</span>
+      <span class="emergency__hero-txt">Aide aux victimes de violences — Suisse</span>
+    </a>
+
+    <div class="emergency__nums">
+      <a href="tel:117"><b>117</b> Police — intervention d'urgence immédiate</a>
+      <a href="tel:144"><b>144</b> Urgences sanitaires — ambulance</a>
+      <a href="tel:143"><b>143</b> La Main Tendue — écoute et soutien psychologique</a>
+      <a href="tel:147"><b>147</b> Ligne d'aide pour les jeunes</a>
+    </div>
+  </div>
+</section>
+
+<a class="quick-exit" href="https://www.meteosuisse.admin.ch" id="quickExit" rel="noopener noreferrer">
+  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <path d="M6 14H3V2h3M10 11l3-3-3-3M13 8H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  Quitter vite
+</a>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
