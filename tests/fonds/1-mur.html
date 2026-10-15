@@ -51,24 +51,37 @@
   <script src="common.js"></script>
   <script>
     (function () {
-      var shots = ['Udrisard','LaTaverne','GoubingChezPino','Oasis','VacheEtMoi','EnclosDeValere',
-        'LaBotte','Borsalino','CaveauPDA','PalaisDesPetitsCochons','LesVergers','CafeUnionSaviese',
-        'LeBSportbar','OsteriaDelSole','Mezzes','LeSultan','Bosphorus','ColoniaItaliana'];
-      var wall = document.querySelector('.wall'), COLS = 7, PER = 6;
-      for (var c = 0; c < COLS; c++) {
-        var col = document.createElement('div');
-        col.className = 'col ' + (c % 2 ? 'down' : 'up');
-        col.style.animationDuration = (60 + c * 6) + 's';
-        var list = [];
-        for (var i = 0; i < PER; i++) list.push(shots[(c * 5 + i * 3) % shots.length]);
-        // doublée pour une boucle sans couture
-        list.concat(list).forEach(function (n) {
-          var img = new Image();
-          img.src = 'shots/' + n + '.jpg'; img.alt = ''; img.loading = 'eager';
-          col.appendChild(img);
-        });
-        wall.appendChild(col);
+      // sites de restaurants fictifs, créés pour le mur (aucun vrai client)
+      var shots = [];
+      for (var s = 0; s < 16; s++) shots.push('c' + s);
+      var wall = document.querySelector('.wall'), COLS = 7, built = 0;
+
+      function build() {
+        wall.innerHTML = '';
+        // assez de vignettes pour que chaque moitié de colonne dépasse la hauteur du mur :
+        // la boucle (translate -50 %) ne laisse alors jamais de trou
+        var colW = Math.min(360, Math.max(220, innerWidth * .19));
+        var tileH = colW * 10 / 16 + 22;
+        var per = Math.ceil(wall.offsetHeight / tileH) + 2;
+        for (var c = 0; c < COLS; c++) {
+          var col = document.createElement('div');
+          col.className = 'col ' + (c % 2 ? 'down' : 'up');
+          col.style.animationDuration = (per * 7 + c * 5) + 's';
+          var list = [];
+          for (var i = 0; i < per; i++) list.push(shots[(c * 5 + i * 7) % shots.length]);
+          list.concat(list).forEach(function (n) {
+            var img = new Image();
+            img.src = 'shots/' + n + '.jpg'; img.alt = ''; img.decoding = 'async';
+            col.appendChild(img);
+          });
+          wall.appendChild(col);
+        }
+        built = innerWidth;
       }
+      build();
+      addEventListener('resize', function () {
+        if (Math.abs(innerWidth - built) > 80) build();
+      });
     })();
   </script>
 </body>

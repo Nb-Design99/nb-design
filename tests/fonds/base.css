@@ -83,7 +83,7 @@ a { color: inherit; text-decoration: none; }
   display: flex; gap: 4px; padding: 5px; border-radius: 999px;
   background: rgba(3, 10, 6, .85); border: 1px solid var(--border-medium);
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  max-width: calc(100% - 32px); overflow-x: auto;
+  max-width: calc(100% - 32px); overflow-x: auto; scrollbar-width: none;
 }
 .switch a {
   white-space: nowrap; padding: 9px 15px; border-radius: 999px;
