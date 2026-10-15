@@ -995,13 +995,188 @@
     .fade-up[data-delay="2"] { transition-delay: 0.16s; }
     .fade-up[data-delay="3"] { transition-delay: 0.24s; }
 
+    /* ====== INTRO « ALLUMAGE DU FEU » ====== */
+    #intro { display: none; }
+    html.intro #intro {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: fixed; inset: 0; z-index: 9999; overflow: hidden;
+      background: #0b0908; cursor: pointer;
+    }
+    html.intro body { overflow: hidden; }
+    /* le hero attend la fin de l'intro pour se révéler */
+    html.intro-hold .hero .fade-up { opacity: 0; transform: translateY(26px); }
+
+    /* la lueur du foyer, qui monte depuis le bas */
+    #intro .glow {
+      position: absolute; left: 50%; bottom: -35vh;
+      width: 140vmax; height: 90vh; transform: translateX(-50%) scale(.4);
+      background: radial-gradient(ellipse at 50% 100%,
+        rgba(255,120,40,.75) 0%, rgba(220,70,20,.38) 30%, rgba(120,30,10,.14) 55%, transparent 72%);
+      opacity: 0; pointer-events: none;
+    }
+    #intro canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    #intro .title {
+      position: relative;
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(2.4rem, 9vw, 5.6rem); line-height: 1;
+      letter-spacing: .16em; text-indent: .16em; text-transform: uppercase;
+      white-space: nowrap;
+    }
+    /* chaque lettre « prend feu » à son tour */
+    #intro .title span { display: inline-block; color: #2a0d05; opacity: 0; }
+    #intro .filet {
+      position: relative; width: 0; height: 1px; margin-top: 26px;
+      background: linear-gradient(90deg, transparent, var(--taupe), transparent);
+    }
+    #intro .sub {
+      position: relative; margin-top: 18px;
+      font-family: var(--font-display); font-size: 11px; font-weight: 400;
+      letter-spacing: .42em; padding-left: .42em; text-transform: uppercase;
+      color: var(--taupe-light); opacity: 0; transform: translateY(6px);
+    }
+    #intro.go .glow  { animation: introGlowUp 1.3s var(--ease-out) forwards, introGlowFlicker 2.4s ease-in-out 1.1s infinite; }
+    #intro.go .title span { animation: introIgnite 1.25s ease-out forwards; }
+    #intro.go .title { animation: introTitleFlicker 1.1s steps(1, end) .45s; }
+    #intro.go .filet { animation: introFilet .7s var(--ease-out) 1.25s forwards; }
+    #intro.go .sub   { animation: introSub .6s var(--ease-out) 1.4s forwards; }
+    @keyframes introGlowUp { to { opacity: 1; transform: translateX(-50%) scale(1); } }
+    @keyframes introGlowFlicker {
+      0%, 100% { opacity: 1; } 30% { opacity: .82; } 55% { opacity: .95; } 75% { opacity: .78; }
+    }
+    /* braise rouge → flamme orange → taupe doré de la marque */
+    @keyframes introIgnite {
+      0%   { opacity: 0; color: #2a0d05; text-shadow: none; transform: translateY(8px); }
+      25%  { opacity: 1; color: #b3300f; text-shadow: 0 0 18px rgba(255,80,20,.6); }
+      50%  { opacity: 1; color: #ff6a1f; text-shadow: 0 0 22px rgba(255,110,30,.85), 0 0 44px rgba(255,80,20,.4); transform: translateY(0); }
+      100% { opacity: 1; color: var(--taupe-light); text-shadow: 0 0 14px rgba(255,140,60,.35); transform: translateY(0); }
+    }
+    /* petit vacillement de lumière, comme éclairé par les flammes */
+    @keyframes introTitleFlicker {
+      0% { opacity: 1; } 18% { opacity: .78; } 26% { opacity: 1; }
+      52% { opacity: .86; } 60% { opacity: 1; } 84% { opacity: .9; } 90% { opacity: 1; }
+    }
+    @keyframes introFilet { to { width: min(50vw, 280px); } }
+    @keyframes introSub   { to { opacity: 1; transform: translateY(0); } }
+    #intro.out { opacity: 0; transition: opacity .6s ease; }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
       .fade-up { opacity: 1; transform: none; }
+      #intro { display: none !important; }
+      html.intro body { overflow: auto; }
     }
   </style>
+
+  <!-- Intro : posée AVANT le premier rendu, rejouée à chaque chargement -->
+  <script>
+    (function () {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      document.documentElement.className += ' intro intro-hold';
+    })();
+  </script>
 </head>
 <body>
+  <!-- ====== INTRO ALLUMAGE DU FEU ====== -->
+  <div id="intro" aria-hidden="true">
+    <div class="glow"></div>
+    <canvas></canvas>
+    <div class="title">La Taverne</div>
+    <div class="filet"></div>
+    <p class="sub">Brochettes au feu de bois · Sion</p>
+  </div>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      if (root.className.indexOf('intro') === -1) return;
+      var el = document.getElementById('intro');
+
+      // découpe le titre en lettres qui s'allument dans un ordre irrégulier
+      var title = el.querySelector('.title');
+      var txt = title.textContent;
+      title.textContent = '';
+      for (var i = 0; i < txt.length; i++) {
+        var s = document.createElement('span');
+        s.textContent = txt[i] === ' ' ? ' ' : txt[i];
+        s.style.animationDelay = (0.25 + Math.random() * 0.5).toFixed(2) + 's';
+        title.appendChild(s);
+      }
+
+      // ---- braises et étincelles ----
+      var cv = el.querySelector('canvas'), ctx = cv.getContext('2d');
+      var dpr = Math.min(window.devicePixelRatio || 1, 2), W, H, sparks = [], running = true, t0;
+      function resize() { W = cv.width = innerWidth * dpr; H = cv.height = innerHeight * dpr; }
+      resize(); addEventListener('resize', resize);
+      function spawn() {
+        sparks.push({
+          x: W * (0.2 + Math.random() * 0.6), y: H + 10 * dpr,
+          vx: (Math.random() - .5) * .6 * dpr, vy: -(1.4 + Math.random() * 2.6) * dpr,
+          r: (0.6 + Math.random() * 1.8) * dpr, life: 0, max: 70 + Math.random() * 70,
+          wob: Math.random() * 6.28
+        });
+      }
+      function frame(now) {
+        if (!running) return;
+        if (!t0) t0 = now;
+        var t = now - t0;
+        // le feu prend : de plus en plus d'étincelles, puis ça se stabilise
+        var rate = t < 1400 ? 1 + t / 220 : 4;
+        for (var k = 0; k < rate; k++) if (Math.random() < .7) spawn();
+        ctx.clearRect(0, 0, W, H);
+        ctx.globalCompositeOperation = 'lighter';
+        for (var j = sparks.length - 1; j >= 0; j--) {
+          var p = sparks[j];
+          p.life++; p.wob += .08;
+          p.x += p.vx + Math.sin(p.wob) * .35 * dpr; p.y += p.vy; p.vy *= .995;
+          var a = 1 - p.life / p.max;
+          if (a <= 0) { sparks.splice(j, 1); continue; }
+          var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
+          g.addColorStop(0, 'rgba(255,220,150,' + a + ')');
+          g.addColorStop(.35, 'rgba(255,120,40,' + a * .7 + ')');
+          g.addColorStop(1, 'rgba(255,60,10,0)');
+          ctx.fillStyle = g;
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 4, 0, 6.283); ctx.fill();
+        }
+        requestAnimationFrame(frame);
+      }
+
+      var closed = false;
+      function close() {
+        if (closed) return;
+        closed = true;
+        el.classList.add('out');
+        // le hero se révèle pendant le fondu de sortie
+        root.className = root.className.replace(/\bintro-hold\b/g, '');
+        setTimeout(function () {
+          running = false;
+          el.style.display = 'none';
+          root.className = root.className.replace(/\bintro\b/g, '');
+        }, 650);
+      }
+
+      var started = false;
+      function start() {
+        if (started) return;
+        started = true;
+        el.classList.add('go');
+        requestAnimationFrame(frame);
+        // le fondu de sortie chevauche la fin : pas de temps mort
+        setTimeout(close, 2100);
+      }
+
+      // on attend la police, sinon le titre s'allumerait en police système
+      if (document.fonts && document.fonts.load) {
+        document.fonts.load('300 80px "Montserrat"').then(start, start);
+        setTimeout(start, 1200);
+      } else {
+        start();
+      }
+
+      // filets de sécurité : jamais d'écran noir bloqué
+      setTimeout(close, 4500);
+      el.addEventListener('click', close);
+      addEventListener('keydown', close, { once: true });
+    })();
+  </script>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="header">
