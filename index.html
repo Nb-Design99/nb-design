@@ -2963,7 +2963,7 @@
             col.className = 'mur-col ' + (c % 2 ? 'down' : 'up');
             col.style.animationDuration = (per * 7 + c * 5) + 's';
             var list = [];
-            for (var i = 0; i < per; i++) list.push((c * 5 + i * 7) % 16);
+            for (var i = 0; i < per; i++) list.push((c * 5 + i * 7) % 19);
             list.concat(list).forEach(function (n) {
               var img = new Image();
               img.src = '/assets/hero/mur/c' + n + '.jpg';
