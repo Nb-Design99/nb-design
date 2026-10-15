@@ -643,90 +643,38 @@
       overflow: hidden;
       pointer-events: none;
     }
-    .hero-gradient-blur {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(60% 50% at 30% 40%, rgba(99, 102, 241, 0.18), transparent 70%),
-                  radial-gradient(50% 40% at 75% 65%, rgba(244, 63, 94, 0.12), transparent 70%);
-      filter: blur(40px);
-      opacity: 0.9;
+    /* ====== MUR DE RÉALISATIONS (fond du hero) ======
+       Sites de restaurants FICTIFS créés pour l'occasion (aucun vrai client). */
+    .mur { position: absolute; inset: 0; overflow: hidden; }
+    .mur-wall {
+      position: absolute; left: 50%; top: 50%;
+      width: 190vw; height: 240vh;
+      display: flex; gap: 22px; justify-content: center;
+      transform: translate(-50%, -50%) perspective(1800px) rotateX(24deg) rotateZ(-12deg);
+      opacity: 0; animation: murIn 1.6s ease .2s forwards;
     }
-
-    /* Shapes / Leaves */
-    .shapes { position: absolute; inset: 0; pointer-events: none; }
-    .shape-wrap {
-      position: absolute;
-      opacity: 0;
-      transform: translateY(-150px) rotate(var(--start-rotate, 0deg));
-      animation: shapeEntry 2.4s var(--ease-out) var(--delay, 0s) forwards;
-      translate: 0 var(--parallax-y, 0px);
-      will-change: transform, translate;
+    @keyframes murIn { to { opacity: 1; } }
+    .mur-col { flex: 0 0 auto; width: clamp(220px, 19vw, 360px); display: flex; flex-direction: column; gap: 22px; }
+    .mur-col.up   { animation: murUp 70s linear infinite; }
+    .mur-col.down { animation: murDown 70s linear infinite; }
+    @keyframes murUp   { from { transform: translateY(0); }    to { transform: translateY(-50%); } }
+    @keyframes murDown { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+    .mur-col img {
+      display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover;
+      border-radius: 10px; border: 1px solid rgba(248, 246, 241, 0.10);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      opacity: 0.6; filter: saturate(0.85);
     }
-    .shape-float {
-      animation: shapeFloat 12s ease-in-out infinite;
+    .mur-tint { position: absolute; inset: 0; background: var(--green-deep); mix-blend-mode: color; opacity: 0.35; }
+    /* le centre reste sombre pour que le titre se lise */
+    .mur-veil {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 55% at 50% 50%, rgba(3, 10, 6, 0.92) 0%, rgba(3, 10, 6, 0.78) 45%, rgba(3, 10, 6, 0.35) 100%),
+        linear-gradient(180deg, rgba(3, 10, 6, 0.85) 0%, transparent 18%, transparent 80%, rgba(3, 10, 6, 0.95) 100%);
     }
-
-    /* === Feuilles (remplacent les pilules) === */
-    .leaf-img {
-      display: block;
-      width: var(--leaf-w, 140px);
-      height: auto;
-      transform: rotate(var(--leaf-rotate, 0deg));
-      filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.55))
-              drop-shadow(0 4px 6px rgba(0, 0, 0, 0.35));
-      opacity: var(--leaf-opacity, 0.88);
-      pointer-events: none;
-      user-select: none;
-    }
-    /* Le shape-float anime un léger swing autour de la rotation de la feuille */
-    .leaf-float {
-      animation: leafSwing 11s ease-in-out infinite;
-      transform-origin: 50% 30%;
-    }
-    @keyframes leafSwing {
-      0%, 100% { transform: translateY(0) rotate(-2deg); }
-      50%      { transform: translateY(18px) rotate(2deg); }
-    }
-    @media (max-width: 768px) {
-      .leaf-img { opacity: var(--leaf-opacity-mobile, 0.55); }
-    }
-    .shape {
-      position: relative;
-      width: var(--w);
-      height: var(--h);
-      transform: rotate(var(--rotate, 0deg));
-    }
-    .shape-inner {
-      position: absolute;
-      inset: 0;
-      border-radius: 9999px;
-      border: 2px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 0 24px rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
-    }
-    .shape-inner::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 9999px;
-      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.18) 0%, transparent 70%);
-      mix-blend-mode: overlay;
-    }
-    .shape-indigo  { background: linear-gradient(to right, rgba(99, 102, 241, 0.30), rgba(99, 102, 241, 0.03) 60%, transparent); }
-    .shape-rose    { background: linear-gradient(to right, rgba(244, 63, 94, 0.28),  rgba(244, 63, 94, 0.03) 60%, transparent); }
-    .shape-violet  { background: linear-gradient(to right, rgba(139, 92, 246, 0.28), rgba(139, 92, 246, 0.03) 60%, transparent); }
-    .shape-amber   { background: linear-gradient(to right, rgba(245, 158, 11, 0.28), rgba(245, 158, 11, 0.03) 60%, transparent); }
-    .shape-cyan    { background: linear-gradient(to right, rgba(34, 211, 238, 0.28), rgba(34, 211, 238, 0.03) 60%, transparent); }
-    .shape-emerald { background: linear-gradient(to right, rgba(76, 175, 120, 0.30), rgba(76, 175, 120, 0.03) 60%, transparent); }
-
-    @keyframes shapeEntry {
-      0%   { opacity: 0; transform: translateY(-150px) rotate(var(--start-rotate, 0deg)); }
-      100% { opacity: 1; transform: translateY(0) rotate(var(--rotate, 0deg)); }
-    }
-    @keyframes shapeFloat {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(15px); }
+    @media (prefers-reduced-motion: reduce) {
+      .mur-col { animation: none !important; }
     }
 
     .hero-overlay-top, .hero-overlay-bottom {
@@ -2046,79 +1994,11 @@
     <!-- ============ HERO ============ -->
     <section class="hero" id="hero" aria-label="NB-Design — Sites web pour restaurants suisses">
       <div class="hero-bg" aria-hidden="true">
-        <div class="hero-gradient-blur"></div>
-        <div class="shapes">
-          <!-- Feuilles : parallax-y plus élevé = chute plus rapide au scroll -->
-          <!-- Feuille 1: grande, gauche, parallax fort (chute rapide) -->
-          <div class="shape-wrap" data-parallax="1.2" style="left:6%; top:-6%; --delay:0.2s; --start-rotate:-18deg;">
-            <div class="leaf-float">
-              <img class="leaf-img" src="/assets/leaves/leaf_01.png" alt="" aria-hidden="true"
-                   style="--leaf-w:min(220px, 36vw); --leaf-rotate:-15deg; --leaf-opacity:0.85;" />
-            </div>
-          </div>
-          <!-- Feuille 2: grande, droite, parallax fort -->
-          <div class="shape-wrap" data-parallax="1.05" style="right:4%; top:-8%; --delay:0.35s; --start-rotate:22deg;">
-            <div class="leaf-float" style="animation-delay: -2s;">
-              <img class="leaf-img" src="/assets/leaves/leaf_02.png" alt="" aria-hidden="true"
-                   style="--leaf-w:min(240px, 38vw); --leaf-rotate:25deg; --leaf-opacity:0.82;" />
-            </div>
-          </div>
-          <!-- Feuille 3: moyenne, centre-haut -->
-          <div class="shape-wrap" data-parallax="0.8" style="left:42%; top:-2%; --delay:0.45s; --start-rotate:5deg;">
-            <div class="leaf-float" style="animation-delay: -5s;">
-              <img class="leaf-img" src="/assets/leaves/leaf_03.png" alt="" aria-hidden="true"
-                   style="--leaf-w:min(150px, 26vw); --leaf-rotate:-10deg; --leaf-opacity:0.75;" />
-            </div>
-          </div>
-          <!-- Feuille 4: petite, gauche-haut -->
-          <div class="shape-wrap" data-parallax="0.65" style="left:24%; top:14%; --delay:0.55s; --start-rotate:-8deg;">
-            <div class="leaf-float" style="animation-delay: -7s;">
-              <img class="leaf-img" src="/assets/leaves/leaf_04.png" alt="" aria-hidden="true"
-                   style="--leaf-w:min(120px, 22vw); --leaf-rotate:18deg; --leaf-opacity:0.7;" />
-            </div>
-          </div>
-          <!-- Feuille 5: moyenne, droite-haut -->
-          <div class="shape-wrap" data-parallax="0.9" style="right:18%; top:8%; --delay:0.5s; --start-rotate:12deg;">
-            <div class="leaf-float" style="animation-delay: -3s;">
-              <img class="leaf-img" src="/assets/leaves/leaf_05.png" alt="" aria-hidden="true"
-                   style="--leaf-w:min(170px, 28vw); --leaf-rotate:-22deg; --leaf-opacity:0.78;" />
-            </div>
-          </div>
-          <!-- Feuille 6: grande, gauche-milieu, parallax fort -->
-          <div class="shape-wrap" data-parallax="1.35" style="left:-6%; top:28%; --delay:0.4s; --start-rotate:-25deg;">
-            <div class="leaf-float" style="animation-delay: -1s;">
-              <img class="leaf-img" src="/assets/leaves/leaf_06.png" alt="" aria-hidden="true"
-                   style="--leaf-w:min(210px, 34vw); --leaf-rotate:30deg; --leaf-opacity:0.85;" />
-            </div>
-          </div>
-          <!-- Feuille 7: moyenne, droite-milieu -->
-          <div class="shape-wrap" data-parallax="1.15" style="right:-4%; top:34%; --delay:0.6s; --start-rotate:18deg;">
-            <div class="leaf-float" style="animation-delay: -4s;">
-              <img class="leaf-img" src="/assets/leaves/leaf_07.png" alt="" aria-hidden="true"
-                   style="--leaf-w:min(190px, 30vw); --leaf-rotate:-15deg; --leaf-opacity:0.8;" />
-            </div>
-          </div>
-          <!-- Feuille 8: petite, centre-milieu -->
-          <div class="shape-wrap" data-parallax="0.55" style="left:48%; top:42%; --delay:0.7s; --start-rotate:-12deg;">
-            <div class="leaf-float" style="animation-delay: -6s;">
-              <img class="leaf-img" src="/assets/leaves/leaf_08.png" alt="" aria-hidden="true"
-                   style="--leaf-w:min(110px, 20vw); --leaf-rotate:8deg; --leaf-opacity:0.65;" />
-            </div>
-          </div>
-          <!-- Feuille 9: moyenne, gauche-bas, parallax fort -->
-          <div class="shape-wrap" data-parallax="1.5" style="left:12%; top:60%; --delay:0.55s; --start-rotate:20deg;">
-            <div class="leaf-float" style="animation-delay: -8s;">
-              <img class="leaf-img" src="/assets/leaves/leaf_09.png" alt="" aria-hidden="true"
-                   style="--leaf-w:min(160px, 26vw); --leaf-rotate:-28deg; --leaf-opacity:0.82;" />
-            </div>
-          </div>
-          <!-- Feuille 10: petite, droite-bas -->
-          <div class="shape-wrap" data-parallax="1.4" style="right:22%; top:68%; --delay:0.65s; --start-rotate:-15deg;">
-            <div class="leaf-float" style="animation-delay: -9s;">
-              <img class="leaf-img" src="/assets/leaves/leaf_10.png" alt="" aria-hidden="true"
-                   style="--leaf-w:min(130px, 22vw); --leaf-rotate:22deg; --leaf-opacity:0.72;" />
-            </div>
-          </div>
+        <!-- Mur de réalisations : colonnes remplies par le script en bas de page -->
+        <div class="mur">
+          <div class="mur-wall"></div>
+          <div class="mur-tint"></div>
+          <div class="mur-veil"></div>
         </div>
       </div>
       <div class="hero-overlay-top"></div>
@@ -3067,31 +2947,38 @@
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
 
-      // ====== HERO SHAPES PARALLAX ======
-      var heroShapes = document.querySelectorAll('.shape-wrap[data-parallax]');
-      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (heroShapes.length > 0 && !prefersReducedMotion) {
-        var parallaxRaf = false;
-        var parallaxMax = window.innerHeight * 1.5;
-        var updateShapesParallax = function () {
-          var scrollY = Math.min(window.scrollY, parallaxMax);
-          heroShapes.forEach(function (shape) {
-            var speed = parseFloat(shape.getAttribute('data-parallax')) || 0.3;
-            shape.style.setProperty('--parallax-y', (scrollY * speed) + 'px');
-          });
-          parallaxRaf = false;
-        };
-        window.addEventListener('scroll', function () {
-          if (!parallaxRaf) {
-            window.requestAnimationFrame(updateShapesParallax);
-            parallaxRaf = true;
+      // ====== MUR DE RÉALISATIONS ======
+      (function () {
+        var wall = document.querySelector('.mur-wall');
+        if (!wall) return;
+        var COLS = 7, built = 0;
+        function build() {
+          wall.innerHTML = '';
+          // chaque moitié de colonne doit dépasser la hauteur du mur :
+          // la boucle (translate -50 %) ne laisse alors jamais de trou
+          var colW = Math.min(360, Math.max(220, window.innerWidth * 0.19));
+          var per = Math.ceil(wall.offsetHeight / (colW * 10 / 16 + 22)) + 2;
+          for (var c = 0; c < COLS; c++) {
+            var col = document.createElement('div');
+            col.className = 'mur-col ' + (c % 2 ? 'down' : 'up');
+            col.style.animationDuration = (per * 7 + c * 5) + 's';
+            var list = [];
+            for (var i = 0; i < per; i++) list.push((c * 5 + i * 7) % 16);
+            list.concat(list).forEach(function (n) {
+              var img = new Image();
+              img.src = '/assets/hero/mur/c' + n + '.jpg';
+              img.alt = ''; img.decoding = 'async';
+              col.appendChild(img);
+            });
+            wall.appendChild(col);
           }
-        }, { passive: true });
+          built = window.innerWidth;
+        }
+        build();
         window.addEventListener('resize', function () {
-          parallaxMax = window.innerHeight * 1.5;
+          if (Math.abs(window.innerWidth - built) > 80) build();
         }, { passive: true });
-        updateShapesParallax();
-      }
+      })();
 
       // ====== BURGER / MOBILE MENU ======
       var burger = document.getElementById('burger');
