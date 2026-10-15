@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fond 2 · Néon vivant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="base.css" />
+  <style>
+    /* ====== FOND 2 : NÉON VIVANT ====== */
+    .bg { background: radial-gradient(ellipse 80% 70% at 50% 45%, #0a1c14 0%, var(--bg-dark) 70%); }
+
+    /* l'enseigne de l'intro reste allumée, en fantôme derrière le titre */
+    .ghost {
+      position: absolute; left: 50%; top: 47%; width: min(92vw, 1250px);
+      transform: translate(-50%, -50%);
+      opacity: .07; filter: blur(2.5px) saturate(1.2);
+      animation: breathe 6s ease-in-out infinite;
+    }
+    @keyframes breathe { 0%, 100% { opacity: .05; } 50% { opacity: .09; } }
+    .ghost.flick { animation: flick .5s steps(1, end); }
+    @keyframes flick { 0% { opacity: .02; } 20% { opacity: .11; } 40% { opacity: .02; } 60% { opacity: .09; } }
+
+    /* tubes néon le long des bords */
+    .tubes { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .tube-base { fill: none; stroke: rgba(110,208,154,.16); stroke-width: 2; }
+    .tube-run {
+      fill: none; stroke: var(--green-glow); stroke-width: 2.4; stroke-linecap: round;
+      filter: drop-shadow(0 0 6px rgba(110,208,154,.9)) drop-shadow(0 0 18px rgba(76,175,120,.6));
+      stroke-dasharray: 160 840; animation: run 9s linear infinite;
+    }
+    .tube-run.r2 { stroke-dasharray: 60 940; animation-duration: 13s; animation-direction: reverse; opacity: .8; }
+    @keyframes run { to { stroke-dashoffset: -1000; } }
+    .tubes.flick .tube-base { stroke: rgba(110,208,154,.05); }
+
+    /* reflet vert au sol, comme une enseigne sur un trottoir mouillé */
+    .floor {
+      position: absolute; left: 50%; bottom: -30vh; width: 120vw; height: 60vh; transform: translateX(-50%);
+      background: radial-gradient(ellipse at 50% 50%, rgba(76,175,120,.22) 0%, rgba(45,122,79,.08) 40%, transparent 70%);
+      animation: breathe2 6s ease-in-out infinite;
+    }
+    @keyframes breathe2 { 0%, 100% { opacity: .8; } 50% { opacity: 1; } }
+
+    @media (prefers-reduced-motion: reduce) { .ghost, .tube-run, .floor { animation: none !important; } }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="bg" aria-hidden="true">
+      <div class="floor"></div>
+      <img class="ghost" src="neon-nbdesign.webp" alt="" />
+      <svg class="tubes"></svg>
+    </div>
+  </section>
+
+  <script src="common.js"></script>
+  <script>
+    (function () {
+      var svg = document.querySelector('.tubes'), NS = 'http://www.w3.org/2000/svg';
+      // cadre en pixels réels pour garder des coins bien ronds à toutes les tailles
+      function draw() {
+        var w = innerWidth, h = Math.max(innerHeight, document.querySelector('.hero').offsetHeight);
+        var m = w < 700 ? 12 : 26, top = w < 700 ? 84 : 104, r = 26;
+        svg.innerHTML = '';
+        [['tube-base'], ['tube-run'], ['tube-run r2']].forEach(function (c) {
+          var p = document.createElementNS(NS, 'rect');
+          p.setAttribute('x', m); p.setAttribute('y', top);
+          p.setAttribute('width', w - 2 * m); p.setAttribute('height', h - top - m);
+          p.setAttribute('rx', r); p.setAttribute('pathLength', 1000);
+          p.setAttribute('class', c[0]);
+          svg.appendChild(p);
+        });
+      }
+      draw(); addEventListener('resize', draw);
+
+      // de temps en temps, un raté comme un vrai tube
+      var ghost = document.querySelector('.ghost');
+      function flicker() {
+        ghost.classList.remove('flick'); svg.classList.add('flick');
+        void ghost.offsetWidth; ghost.classList.add('flick');
+        setTimeout(function () { svg.classList.remove('flick'); ghost.classList.remove('flick'); }, 500);
+        setTimeout(flicker, 5000 + Math.random() * 6000);
+      }
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(flicker, 3500);
+    })();
+  </script>
+</body>
+</html>

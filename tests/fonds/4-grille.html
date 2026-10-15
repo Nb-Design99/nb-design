@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fond 4 · Grille qui s'allume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="base.css" />
+  <style>
+    /* ====== FOND 4 : GRILLE QUI S'ALLUME ====== */
+    .bg { background: radial-gradient(ellipse 80% 70% at 50% 45%, #08150f 0%, var(--bg-dark) 75%); }
+    .bg canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .fade { position: absolute; inset: 0; background: linear-gradient(180deg, var(--bg-dark) 0%, transparent 16%, transparent 82%, var(--bg-dark) 100%); pointer-events: none; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="bg" aria-hidden="true">
+      <canvas></canvas>
+      <div class="fade"></div>
+    </div>
+  </section>
+
+  <script src="common.js"></script>
+  <script>
+    (function () {
+      var cv = document.querySelector('.bg canvas'), ctx = cv.getContext('2d');
+      var dpr = Math.min(devicePixelRatio || 1, 2), W, H, GAP;
+      var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function resize() {
+        W = cv.clientWidth; H = cv.clientHeight;
+        cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        GAP = W < 700 ? 24 : 30;
+      }
+      resize(); addEventListener('resize', resize);
+
+      // position de la lumière : suit la souris en douceur, se promène seule sinon
+      var target = { x: W * .5, y: H * .45 }, light = { x: target.x, y: target.y }, lastMove = -1e9;
+      addEventListener('pointermove', function (e) {
+        if (e.pointerType === 'touch') return;
+        var r = cv.getBoundingClientRect();
+        target.x = e.clientX - r.left; target.y = e.clientY - r.top; lastMove = performance.now();
+      });
+
+      // une onde part du centre de temps en temps
+      var waveT0 = 800, WAVE_EVERY = 6500;
+
+      function frame(now) {
+        if (now - lastMove > 2500) {
+          var t = now / 1000;
+          target.x = W * (.5 + .32 * Math.sin(t * .45));
+          target.y = H * (.48 + .26 * Math.sin(t * .7 + 1));
+        }
+        light.x += (target.x - light.x) * .08; light.y += (target.y - light.y) * .08;
+
+        var since = (now - waveT0) % WAVE_EVERY, waveR = since * .9, waveOn = since < 2600;
+        var cx = W / 2, cy = H * .48, R = W < 700 ? 150 : 230;
+
+        ctx.clearRect(0, 0, W, H);
+        var offX = (W % GAP) / 2, offY = (H % GAP) / 2;
+        for (var x = offX; x <= W; x += GAP) {
+          for (var y = offY; y <= H; y += GAP) {
+            var dx = x - light.x, dy = y - light.y, d = Math.sqrt(dx * dx + dy * dy);
+            var k = d < R ? 1 - d / R : 0; k = k * k;
+            if (waveOn) {
+              var wd = Math.abs(Math.hypot(x - cx, y - cy) - waveR);
+              if (wd < 40) k = Math.max(k, (1 - wd / 40) * .45 * (1 - since / 2600));
+            }
+            var a = .13 + k * .9, s = 1 + k * 1.8;
+            ctx.fillStyle = k > .02
+              ? 'rgba(' + Math.round(150 - 40 * k) + ',' + Math.round(170 + 38 * k) + ',' + Math.round(160 - 6 * k) + ',' + a + ')'
+              : 'rgba(150,170,160,.13)';
+            ctx.beginPath(); ctx.arc(x, y, s, 0, 6.283); ctx.fill();
+          }
+        }
+        // halo doux sous le curseur
+        var g = ctx.createRadialGradient(light.x, light.y, 0, light.x, light.y, R * 1.1);
+        g.addColorStop(0, 'rgba(76,175,120,.10)'); g.addColorStop(1, 'rgba(76,175,120,0)');
+        ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+        if (!still) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    })();
+  </script>
+</body>
+</html>

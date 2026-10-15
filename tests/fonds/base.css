@@ -1,0 +1,93 @@
+/* Base commune aux 5 tests de fond : reproduit le hero de nb-design.ch */
+:root {
+  --green-deep: #061410;
+  --green-dark: #0f2318;
+  --green-mid: #1a3d2b;
+  --green-accent: #2d7a4f;
+  --green-light: #4caf78;
+  --green-glow: #6ed09a;
+  --white: #f8f6f1;
+  --text-muted: rgba(248, 246, 241, 0.62);
+  --bg-dark: #030a06;
+  --border-soft: rgba(248, 246, 241, 0.08);
+  --border-medium: rgba(248, 246, 241, 0.14);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: var(--bg-dark); color: var(--white); font-family: var(--font-body); }
+body { overflow-x: hidden; }
+a { color: inherit; text-decoration: none; }
+
+/* ---- header pilule ---- */
+.hdr {
+  position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 50;
+  width: min(1440px, calc(100% - 32px));
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 10px 12px 10px 14px; border-radius: 999px;
+  background: rgba(6, 20, 16, .55); border: 1px solid var(--border-soft);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+}
+.hdr-logo { display: flex; align-items: center; gap: 10px; font-size: 20px; letter-spacing: .04em; color: var(--white-soft, #ebe7dd); }
+.hdr-logo b {
+  display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
+  background: var(--green-mid); border: 1px solid var(--green-accent);
+  font-family: var(--font-display); font-weight: 600; font-size: 20px;
+}
+.hdr nav { display: flex; gap: 40px; font-size: 16px; color: var(--white-soft, #ebe7dd); }
+.hdr .btn { padding: 13px 26px; font-size: 15px; }
+@media (max-width: 1100px) { .hdr nav { display: none; } }
+
+/* ---- hero ---- */
+.hero {
+  position: relative; min-height: 100vh; overflow: hidden; isolation: isolate;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: 120px 16px 90px;
+}
+.bg { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+.hero-content { position: relative; max-width: 1000px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 12px 22px; border-radius: 999px; margin-bottom: 44px;
+  border: 1px solid var(--border-medium); background: rgba(6, 20, 16, .45);
+  font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+}
+.badge i { width: 11px; height: 11px; border-radius: 50%; background: var(--green-light); box-shadow: 0 0 10px var(--green-light); }
+.title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(3.4rem, 9vw, 8.6rem); line-height: 1.02; letter-spacing: -.01em;
+}
+.title span { display: block; }
+.title em {
+  font-style: italic; font-weight: 500;
+  background: linear-gradient(120deg, #d8d4f0, var(--white) 50%, #c9e8d4);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.title .dot { color: var(--green-light); text-shadow: 0 0 14px var(--green-light); font-style: normal; }
+.sub {
+  max-width: 780px; margin: 44px auto 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.45rem); line-height: 1.7; color: var(--text-muted);
+}
+.ctas { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-top: 52px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 20px 34px; border-radius: 999px; font-size: 18px; font-weight: 600;
+}
+.btn-primary { background: linear-gradient(180deg, var(--green-accent), #1f5c3a); border: 1px solid var(--green-light); }
+.btn-ghost { background: rgba(3, 10, 6, .6); border: 1px solid var(--border-medium); }
+
+/* ---- sélecteur de variante (test uniquement) ---- */
+.switch {
+  position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 60;
+  display: flex; gap: 4px; padding: 5px; border-radius: 999px;
+  background: rgba(3, 10, 6, .85); border: 1px solid var(--border-medium);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  max-width: calc(100% - 32px); overflow-x: auto;
+}
+.switch a {
+  white-space: nowrap; padding: 9px 15px; border-radius: 999px;
+  font-size: 13px; font-weight: 500; color: var(--text-muted);
+}
+.switch a:hover { color: var(--white); }
+.switch a.on { background: var(--green-accent); color: var(--white); }
